@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysGameMapper">
+    
+    <resultMap type="SysGame" id="SysGameResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameImg"    column="game_img"    />
+        <result property="gameType"    column="game_type"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="gameDescribe"    column="game_describe"    />
+        <result property="gameChineseName"    column="game_chinese_name"    />
+        <result property="profitLossName"    column="profit_loss_name"    />
+        <result property="openoff"    column="openoff"    />
+        <result property="gameRecord"    column="game_record"    />
+        <result property="gameKj"    column="game_kj"    />
+        <result property="gameCommission"    column="game_commission"    />
+        <result property="gameCommissionTwo"    column="game_commission_two"    />
+        <result property="gameCate"    column="game_cate"    />
+        <result property="gameCashback"    column="game_cashback"    />
+        <result property="roomRule"    column="room_rule"    />
+        <result property="sort"    column="sort"    />
+        <result property="isHidden"    column="is_hidden"    />
+        <result property="houseOpen"    column="house_open"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysGameVo">
+        select game_id, game_img, game_type, game_name, game_describe, game_chinese_name, profit_loss_name, openoff, game_record, game_kj, game_commission, game_commission_two, game_cate, game_cashback, room_rule, sort, is_hidden, house_open, create_by, create_time, update_by, update_time, remark from sys_game
+    </sql>
+
+    <select id="selectSysGameList" parameterType="SysGame" resultMap="SysGameResult">
+        <include refid="selectSysGameVo"/>
+        <where>  
+            <if test="gameImg != null  and gameImg != ''"> and game_img = #{gameImg}</if>
+            <if test="gameType != null "> and game_type = #{gameType}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="gameDescribe != null  and gameDescribe != ''"> and game_describe = #{gameDescribe}</if>
+            <if test="gameChineseName != null  and gameChineseName != ''"> and game_chinese_name like concat('%', #{gameChineseName}, '%')</if>
+            <if test="profitLossName != null  and profitLossName != ''"> and profit_loss_name like concat('%', #{profitLossName}, '%')</if>
+            <if test="openoff != null "> and openoff = #{openoff}</if>
+            <if test="gameRecord != null  and gameRecord != ''"> and game_record = #{gameRecord}</if>
+            <if test="gameKj != null  and gameKj != ''"> and game_kj = #{gameKj}</if>
+            <if test="gameCommission != null "> and game_commission = #{gameCommission}</if>
+            <if test="gameCommissionTwo != null "> and game_commission_two = #{gameCommissionTwo}</if>
+            <if test="gameCate != null  and gameCate != ''"> and game_cate = #{gameCate}</if>
+            <if test="gameCashback != null "> and game_cashback = #{gameCashback}</if>
+            <if test="roomRule != null  and roomRule != ''"> and room_rule = #{roomRule}</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="isHidden != null "> and is_hidden = #{isHidden}</if>
+            <if test="houseOpen != null "> and house_open = #{houseOpen}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysGameByGameId" parameterType="Long" resultMap="SysGameResult">
+        <include refid="selectSysGameVo"/>
+        where game_id = #{gameId}
+    </select>
+        
+    <insert id="insertSysGame" parameterType="SysGame" useGeneratedKeys="true" keyProperty="gameId">
+        insert into sys_game
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gameImg != null and gameImg != ''">game_img,</if>
+            <if test="gameType != null">game_type,</if>
+            <if test="gameName != null and gameName != ''">game_name,</if>
+            <if test="gameDescribe != null and gameDescribe != ''">game_describe,</if>
+            <if test="gameChineseName != null and gameChineseName != ''">game_chinese_name,</if>
+            <if test="profitLossName != null and profitLossName != ''">profit_loss_name,</if>
+            <if test="openoff != null">openoff,</if>
+            <if test="gameRecord != null and gameRecord != ''">game_record,</if>
+            <if test="gameKj != null and gameKj != ''">game_kj,</if>
+            <if test="gameCommission != null">game_commission,</if>
+            <if test="gameCommissionTwo != null">game_commission_two,</if>
+            <if test="gameCate != null and gameCate != ''">game_cate,</if>
+            <if test="gameCashback != null">game_cashback,</if>
+            <if test="roomRule != null and roomRule != ''">room_rule,</if>
+            <if test="sort != null">sort,</if>
+            <if test="isHidden != null">is_hidden,</if>
+            <if test="houseOpen != null">house_open,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gameImg != null and gameImg != ''">#{gameImg},</if>
+            <if test="gameType != null">#{gameType},</if>
+            <if test="gameName != null and gameName != ''">#{gameName},</if>
+            <if test="gameDescribe != null and gameDescribe != ''">#{gameDescribe},</if>
+            <if test="gameChineseName != null and gameChineseName != ''">#{gameChineseName},</if>
+            <if test="profitLossName != null and profitLossName != ''">#{profitLossName},</if>
+            <if test="openoff != null">#{openoff},</if>
+            <if test="gameRecord != null and gameRecord != ''">#{gameRecord},</if>
+            <if test="gameKj != null and gameKj != ''">#{gameKj},</if>
+            <if test="gameCommission != null">#{gameCommission},</if>
+            <if test="gameCommissionTwo != null">#{gameCommissionTwo},</if>
+            <if test="gameCate != null and gameCate != ''">#{gameCate},</if>
+            <if test="gameCashback != null">#{gameCashback},</if>
+            <if test="roomRule != null and roomRule != ''">#{roomRule},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="isHidden != null">#{isHidden},</if>
+            <if test="houseOpen != null">#{houseOpen},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysGame" parameterType="SysGame">
+        update sys_game
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="gameImg != null and gameImg != ''">game_img = #{gameImg},</if>
+            <if test="gameType != null">game_type = #{gameType},</if>
+            <if test="gameName != null and gameName != ''">game_name = #{gameName},</if>
+            <if test="gameDescribe != null and gameDescribe != ''">game_describe = #{gameDescribe},</if>
+            <if test="gameChineseName != null and gameChineseName != ''">game_chinese_name = #{gameChineseName},</if>
+            <if test="profitLossName != null and profitLossName != ''">profit_loss_name = #{profitLossName},</if>
+            <if test="openoff != null">openoff = #{openoff},</if>
+            <if test="gameRecord != null and gameRecord != ''">game_record = #{gameRecord},</if>
+            <if test="gameKj != null and gameKj != ''">game_kj = #{gameKj},</if>
+            <if test="gameCommission != null">game_commission = #{gameCommission},</if>
+            <if test="gameCommissionTwo != null">game_commission_two = #{gameCommissionTwo},</if>
+            <if test="gameCate != null and gameCate != ''">game_cate = #{gameCate},</if>
+            <if test="gameCashback != null">game_cashback = #{gameCashback},</if>
+            <if test="roomRule != null and roomRule != ''">room_rule = #{roomRule},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="isHidden != null">is_hidden = #{isHidden},</if>
+            <if test="houseOpen != null">house_open = #{houseOpen},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where game_id = #{gameId}
+    </update>
+
+    <delete id="deleteSysGameByGameId" parameterType="Long">
+        delete from sys_game where game_id = #{gameId}
+    </delete>
+
+    <delete id="deleteSysGameByGameIds" parameterType="String">
+        delete from sys_game where game_id in 
+        <foreach item="gameId" collection="array" open="(" separator="," close=")">
+            #{gameId}
+        </foreach>
+    </delete>
+</mapper>
