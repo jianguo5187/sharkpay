@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysBetItemMapper">
+    
+    <resultMap type="SysBetItem" id="SysBetItemResult">
+        <result property="betItemId"    column="bet_item_id"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="betItemType"    column="bet_item_type"    />
+        <result property="betItemName"    column="bet_item_name"    />
+        <result property="betItemDescribe"    column="bet_item_describe"    />
+        <result property="odd"    column="odd"    />
+        <result property="minBetAmount"    column="min_bet_amount"    />
+        <result property="maxBetAmount"    column="max_bet_amount"    />
+        <result property="sort"    column="sort"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysBetItemVo">
+        select bet_item_id, game_id, bet_item_type, bet_item_name, bet_item_describe, odd, min_bet_amount, max_bet_amount, sort, status, create_by, create_time, update_by, update_time, remark from sys_bet_item
+    </sql>
+
+    <select id="selectSysBetItemList" parameterType="SysBetItem" resultMap="SysBetItemResult">
+        <include refid="selectSysBetItemVo"/>
+        <where>  
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="betItemType != null  and betItemType != ''"> and bet_item_type = #{betItemType}</if>
+            <if test="betItemName != null  and betItemName != ''"> and bet_item_name like concat('%', #{betItemName}, '%')</if>
+            <if test="betItemDescribe != null  and betItemDescribe != ''"> and bet_item_describe = #{betItemDescribe}</if>
+            <if test="odd != null "> and odd = #{odd}</if>
+            <if test="minBetAmount != null "> and min_bet_amount = #{minBetAmount}</if>
+            <if test="maxBetAmount != null "> and max_bet_amount = #{maxBetAmount}</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysBetItemByBetItemId" parameterType="Long" resultMap="SysBetItemResult">
+        <include refid="selectSysBetItemVo"/>
+        where bet_item_id = #{betItemId}
+    </select>
+        
+    <insert id="insertSysBetItem" parameterType="SysBetItem" useGeneratedKeys="true" keyProperty="betItemId">
+        insert into sys_bet_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gameId != null">game_id,</if>
+            <if test="betItemType != null and betItemType != ''">bet_item_type,</if>
+            <if test="betItemName != null and betItemName != ''">bet_item_name,</if>
+            <if test="betItemDescribe != null">bet_item_describe,</if>
+            <if test="odd != null">odd,</if>
+            <if test="minBetAmount != null">min_bet_amount,</if>
+            <if test="maxBetAmount != null">max_bet_amount,</if>
+            <if test="sort != null">sort,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gameId != null">#{gameId},</if>
+            <if test="betItemType != null and betItemType != ''">#{betItemType},</if>
+            <if test="betItemName != null and betItemName != ''">#{betItemName},</if>
+            <if test="betItemDescribe != null">#{betItemDescribe},</if>
+            <if test="odd != null">#{odd},</if>
+            <if test="minBetAmount != null">#{minBetAmount},</if>
+            <if test="maxBetAmount != null">#{maxBetAmount},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysBetItem" parameterType="SysBetItem">
+        update sys_bet_item
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="gameId != null">game_id = #{gameId},</if>
+            <if test="betItemType != null and betItemType != ''">bet_item_type = #{betItemType},</if>
+            <if test="betItemName != null and betItemName != ''">bet_item_name = #{betItemName},</if>
+            <if test="betItemDescribe != null">bet_item_describe = #{betItemDescribe},</if>
+            <if test="odd != null">odd = #{odd},</if>
+            <if test="minBetAmount != null">min_bet_amount = #{minBetAmount},</if>
+            <if test="maxBetAmount != null">max_bet_amount = #{maxBetAmount},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where bet_item_id = #{betItemId}
+    </update>
+
+    <delete id="deleteSysBetItemByBetItemId" parameterType="Long">
+        delete from sys_bet_item where bet_item_id = #{betItemId}
+    </delete>
+
+    <delete id="deleteSysBetItemByBetItemIds" parameterType="String">
+        delete from sys_bet_item where bet_item_id in 
+        <foreach item="betItemId" collection="array" open="(" separator="," close=")">
+            #{betItemId}
+        </foreach>
+    </delete>
+</mapper>

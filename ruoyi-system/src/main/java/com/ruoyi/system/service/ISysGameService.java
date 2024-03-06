@@ -7,7 +7,7 @@ import com.ruoyi.system.domain.SysGame;
  * 游戏Service接口
  * 
  * @author ruoyi
- * @date 2024-03-05
+ * @date 2024-03-06
  */
 public interface ISysGameService 
 {

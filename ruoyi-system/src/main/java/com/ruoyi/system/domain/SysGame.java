@@ -10,7 +10,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 游戏对象 sys_game
  * 
  * @author ruoyi
- * @date 2024-03-05
+ * @date 2024-03-06
  */
 public class SysGame extends BaseEntity
 {
@@ -27,25 +27,25 @@ public class SysGame extends BaseEntity
     @Excel(name = "游戏类别")
     private Long gameType;
 
-    /** 压缩名 */
-    @Excel(name = "压缩名")
+    /** 游戏标识ID */
+    @Excel(name = "游戏标识ID")
+    private String gameMarkId;
+
+    /** 游戏名 */
+    @Excel(name = "游戏名")
     private String gameName;
+
+    /** 游戏别名 */
+    @Excel(name = "游戏别名")
+    private String gameAliasName;
 
     /** 描述 */
     @Excel(name = "描述")
     private String gameDescribe;
 
-    /** 中文名 */
-    @Excel(name = "中文名")
-    private String gameChineseName;
-
     /** 盈亏名 */
     @Excel(name = "盈亏名")
     private String profitLossName;
-
-    /** 0开启1为关闭 */
-    @Excel(name = "0开启1为关闭")
-    private Integer openoff;
 
     /** 记录表 */
     @Excel(name = "记录表")
@@ -71,20 +71,38 @@ public class SysGame extends BaseEntity
     @Excel(name = "回水")
     private BigDecimal gameCashback;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 最小投注金额 */
+    @Excel(name = "最小投注金额")
+    private BigDecimal minBetAmount;
+
+    /** 最大投注金额 */
+    @Excel(name = "最大投注金额")
+    private BigDecimal maxBetAmount;
+
+    /** 封盘秒数 */
+    @Excel(name = "封盘秒数")
+    private Long endTime;
+
+    /** 机器人比例 */
+    @Excel(name = "机器人比例")
+    private Integer robotRate;
+
+    /** 房间规则 */
     private String roomRule;
 
     /** 排序 */
     @Excel(name = "排序")
     private Integer sort;
 
-    /** 是否隐藏 */
-    @Excel(name = "是否隐藏")
-    private Integer isHidden;
+    /** 游戏状态（0正常 1停用） */
+    @Excel(name = "游戏状态", readConverterExp = "0=正常,1=停用")
+    private String status;
+
+    /** 是否隐藏（N否 Y是） */
+    @Excel(name = "是否隐藏", readConverterExp = "N=否,Y=是")
+    private String isHidden;
 
     /** 房间模式 */
-    @Excel(name = "房间模式")
     private Long houseOpen;
 
     public void setGameId(Long gameId) 
@@ -114,6 +132,15 @@ public class SysGame extends BaseEntity
     {
         return gameType;
     }
+    public void setGameMarkId(String gameMarkId) 
+    {
+        this.gameMarkId = gameMarkId;
+    }
+
+    public String getGameMarkId() 
+    {
+        return gameMarkId;
+    }
     public void setGameName(String gameName) 
     {
         this.gameName = gameName;
@@ -122,6 +149,15 @@ public class SysGame extends BaseEntity
     public String getGameName() 
     {
         return gameName;
+    }
+    public void setGameAliasName(String gameAliasName) 
+    {
+        this.gameAliasName = gameAliasName;
+    }
+
+    public String getGameAliasName() 
+    {
+        return gameAliasName;
     }
     public void setGameDescribe(String gameDescribe) 
     {
@@ -132,15 +168,6 @@ public class SysGame extends BaseEntity
     {
         return gameDescribe;
     }
-    public void setGameChineseName(String gameChineseName) 
-    {
-        this.gameChineseName = gameChineseName;
-    }
-
-    public String getGameChineseName() 
-    {
-        return gameChineseName;
-    }
     public void setProfitLossName(String profitLossName) 
     {
         this.profitLossName = profitLossName;
@@ -149,15 +176,6 @@ public class SysGame extends BaseEntity
     public String getProfitLossName() 
     {
         return profitLossName;
-    }
-    public void setOpenoff(Integer openoff) 
-    {
-        this.openoff = openoff;
-    }
-
-    public Integer getOpenoff() 
-    {
-        return openoff;
     }
     public void setGameRecord(String gameRecord) 
     {
@@ -213,6 +231,42 @@ public class SysGame extends BaseEntity
     {
         return gameCashback;
     }
+    public void setMinBetAmount(BigDecimal minBetAmount) 
+    {
+        this.minBetAmount = minBetAmount;
+    }
+
+    public BigDecimal getMinBetAmount() 
+    {
+        return minBetAmount;
+    }
+    public void setMaxBetAmount(BigDecimal maxBetAmount) 
+    {
+        this.maxBetAmount = maxBetAmount;
+    }
+
+    public BigDecimal getMaxBetAmount() 
+    {
+        return maxBetAmount;
+    }
+    public void setEndTime(Long endTime) 
+    {
+        this.endTime = endTime;
+    }
+
+    public Long getEndTime() 
+    {
+        return endTime;
+    }
+    public void setRobotRate(Integer robotRate) 
+    {
+        this.robotRate = robotRate;
+    }
+
+    public Integer getRobotRate() 
+    {
+        return robotRate;
+    }
     public void setRoomRule(String roomRule) 
     {
         this.roomRule = roomRule;
@@ -231,12 +285,21 @@ public class SysGame extends BaseEntity
     {
         return sort;
     }
-    public void setIsHidden(Integer isHidden) 
+    public void setStatus(String status) 
+    {
+        this.status = status;
+    }
+
+    public String getStatus() 
+    {
+        return status;
+    }
+    public void setIsHidden(String isHidden) 
     {
         this.isHidden = isHidden;
     }
 
-    public Integer getIsHidden() 
+    public String getIsHidden() 
     {
         return isHidden;
     }
@@ -256,19 +319,24 @@ public class SysGame extends BaseEntity
             .append("gameId", getGameId())
             .append("gameImg", getGameImg())
             .append("gameType", getGameType())
+            .append("gameMarkId", getGameMarkId())
             .append("gameName", getGameName())
+            .append("gameAliasName", getGameAliasName())
             .append("gameDescribe", getGameDescribe())
-            .append("gameChineseName", getGameChineseName())
             .append("profitLossName", getProfitLossName())
-            .append("openoff", getOpenoff())
             .append("gameRecord", getGameRecord())
             .append("gameKj", getGameKj())
             .append("gameCommission", getGameCommission())
             .append("gameCommissionTwo", getGameCommissionTwo())
             .append("gameCate", getGameCate())
             .append("gameCashback", getGameCashback())
+            .append("minBetAmount", getMinBetAmount())
+            .append("maxBetAmount", getMaxBetAmount())
+            .append("endTime", getEndTime())
+            .append("robotRate", getRobotRate())
             .append("roomRule", getRoomRule())
             .append("sort", getSort())
+            .append("status", getStatus())
             .append("isHidden", getIsHidden())
             .append("houseOpen", getHouseOpen())
             .append("createBy", getCreateBy())
