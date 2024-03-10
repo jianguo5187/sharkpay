@@ -37,7 +37,7 @@ public class SysBetItem extends BaseEntity
 
     /** 赔率 */
     @Excel(name = "赔率")
-    private Integer odd;
+    private BigDecimal odd;
 
     /** 最小投注金额 */
     @Excel(name = "最小投注金额")
@@ -100,30 +100,30 @@ public class SysBetItem extends BaseEntity
     {
         return betItemDescribe;
     }
-    public void setOdd(Integer odd) 
+    public void setOdd(BigDecimal odd)
     {
         this.odd = odd;
     }
 
-    public Integer getOdd() 
+    public BigDecimal getOdd()
     {
         return odd;
     }
-    public void setMinBetAmount(BigDecimal minBetAmount) 
+    public void setMinBetAmount(BigDecimal minBetAmount)
     {
         this.minBetAmount = minBetAmount;
     }
 
-    public BigDecimal getMinBetAmount() 
+    public BigDecimal getMinBetAmount()
     {
         return minBetAmount;
     }
-    public void setMaxBetAmount(BigDecimal maxBetAmount) 
+    public void setMaxBetAmount(BigDecimal maxBetAmount)
     {
         this.maxBetAmount = maxBetAmount;
     }
 
-    public BigDecimal getMaxBetAmount() 
+    public BigDecimal getMaxBetAmount()
     {
         return maxBetAmount;
     }

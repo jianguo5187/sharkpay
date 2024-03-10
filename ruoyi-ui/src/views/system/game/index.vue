@@ -2,7 +2,8 @@
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="游戏类别" prop="gameType">
-        <el-select v-model="queryParams.gameType" placeholder="请选择游戏类别" clearable>
+        <el-select v-model="queryParams.gameType" placeholder="请选择游戏类别" clearable
+                   @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_game_type"
             :key="dict.value"
@@ -11,128 +12,9 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="游戏标识ID" prop="gameMarkId">
-        <el-input
-          v-model="queryParams.gameMarkId"
-          placeholder="请输入游戏标识ID"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="游戏名" prop="gameName">
-        <el-input
-          v-model="queryParams.gameName"
-          placeholder="请输入游戏名"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="游戏别名" prop="gameAliasName">
-        <el-input
-          v-model="queryParams.gameAliasName"
-          placeholder="请输入游戏别名"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="盈亏名" prop="profitLossName">
-        <el-input
-          v-model="queryParams.profitLossName"
-          placeholder="请输入盈亏名"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="记录表" prop="gameRecord">
-        <el-input
-          v-model="queryParams.gameRecord"
-          placeholder="请输入记录表"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="开奖表" prop="gameKj">
-        <el-input
-          v-model="queryParams.gameKj"
-          placeholder="请输入开奖表"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="佣金" prop="gameCommission">
-        <el-input
-          v-model="queryParams.gameCommission"
-          placeholder="请输入佣金"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="2级佣金" prop="gameCommissionTwo">
-        <el-input
-          v-model="queryParams.gameCommissionTwo"
-          placeholder="请输入2级佣金"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="回水彩种" prop="gameCate">
-        <el-input
-          v-model="queryParams.gameCate"
-          placeholder="请输入回水彩种"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="回水" prop="gameCashback">
-        <el-input
-          v-model="queryParams.gameCashback"
-          placeholder="请输入回水"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="最小投注金额" prop="minBetAmount">
-        <el-input
-          v-model="queryParams.minBetAmount"
-          placeholder="请输入最小投注金额"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="最大投注金额" prop="maxBetAmount">
-        <el-input
-          v-model="queryParams.maxBetAmount"
-          placeholder="请输入最大投注金额"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="封盘秒数" prop="endTime">
-        <el-input
-          v-model="queryParams.endTime"
-          placeholder="请输入封盘秒数"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="机器人比例" prop="robotRate">
-        <el-input
-          v-model="queryParams.robotRate"
-          placeholder="请输入机器人比例"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="排序" prop="sort">
-        <el-input
-          v-model="queryParams.sort"
-          placeholder="请输入排序"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="游戏状态" prop="status">
-        <el-select v-model="queryParams.status" placeholder="请选择游戏状态" clearable>
+        <el-select v-model="queryParams.status" placeholder="请选择游戏状态" clearable
+                   @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_game_status"
             :key="dict.value"
@@ -142,7 +24,8 @@
         </el-select>
       </el-form-item>
       <el-form-item label="是否隐藏" prop="isHidden">
-        <el-select v-model="queryParams.isHidden" placeholder="请选择是否隐藏" clearable>
+        <el-select v-model="queryParams.isHidden" placeholder="请选择是否隐藏" clearable
+                   @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_yes_no"
             :key="dict.value"
@@ -160,6 +43,7 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button
+          v-if="1 == loginUserId"
           type="primary"
           plain
           icon="el-icon-plus"
@@ -181,6 +65,7 @@
       </el-col>
       <el-col :span="1.5">
         <el-button
+          v-if="1 == loginUserId"
           type="danger"
           plain
           icon="el-icon-delete"
@@ -190,16 +75,16 @@
           v-hasPermi="['system:game:remove']"
         >删除</el-button>
       </el-col>
-      <el-col :span="1.5">
-        <el-button
-          type="warning"
-          plain
-          icon="el-icon-download"
-          size="mini"
-          @click="handleExport"
-          v-hasPermi="['system:game:export']"
-        >导出</el-button>
-      </el-col>
+<!--      <el-col :span="1.5">-->
+<!--        <el-button-->
+<!--          type="warning"-->
+<!--          plain-->
+<!--          icon="el-icon-download"-->
+<!--          size="mini"-->
+<!--          @click="handleExport"-->
+<!--          v-hasPermi="['system:game:export']"-->
+<!--        >导出</el-button>-->
+<!--      </el-col>-->
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
@@ -253,6 +138,7 @@
             v-hasPermi="['system:game:edit']"
           >修改</el-button>
           <el-button
+            v-if="1 == loginUserId"
             size="mini"
             type="text"
             icon="el-icon-delete"
@@ -379,6 +265,8 @@ export default {
   dicts: ['sys_yes_no', 'sys_game_type', 'sys_game_status'],
   data() {
     return {
+      // 登录用户ID
+      loginUserId: this.$store.state.user.id,
       // 遮罩层
       loading: true,
       // 选中数组
@@ -418,7 +306,7 @@ export default {
         endTime: null,
         robotRate: null,
         sort: null,
-        status: null,
+        status: "0",
         isHidden: null,
       },
       // 表单参数

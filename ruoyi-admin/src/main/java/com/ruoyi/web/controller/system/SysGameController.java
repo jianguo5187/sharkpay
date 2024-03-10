@@ -1,7 +1,10 @@
-package com.ruoyi.system.controller;
+package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.utils.SecurityUtils;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,5 +103,20 @@ public class SysGameController extends BaseController
     public AjaxResult remove(@PathVariable Long[] gameIds)
     {
         return toAjax(sysGameService.deleteSysGameByGameIds(gameIds));
+    }
+
+    /**
+     * 获取用户流水信息
+     *
+     * @return 用户流水信息
+     */
+    @GetMapping("getValidGame")
+    public AjaxResult getValidGame()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        ajax.put("gameList", sysGameService.selectSysGameList(sysGame));
+        return ajax;
     }
 }

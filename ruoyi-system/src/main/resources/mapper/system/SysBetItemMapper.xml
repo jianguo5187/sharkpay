@@ -39,6 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sort != null "> and sort = #{sort}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
         </where>
+        order by sort
     </select>
     
     <select id="selectSysBetItemByBetItemId" parameterType="Long" resultMap="SysBetItemResult">

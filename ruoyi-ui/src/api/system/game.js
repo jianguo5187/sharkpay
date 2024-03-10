@@ -42,3 +42,12 @@ export function delGame(gameId) {
     method: 'delete'
   })
 }
+
+// 查询有效的游戏列表
+export function getValidGame() {
+  return request({
+    url: '/system/game/getValidGame',
+    method: 'get'
+  })
+}
+

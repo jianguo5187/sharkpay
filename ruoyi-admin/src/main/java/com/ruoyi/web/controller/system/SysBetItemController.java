@@ -1,4 +1,4 @@
-package com.ruoyi.system.controller;
+package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
@@ -100,5 +100,16 @@ public class SysBetItemController extends BaseController
     public AjaxResult remove(@PathVariable Long[] betItemIds)
     {
         return toAjax(sysBetItemService.deleteSysBetItemByBetItemIds(betItemIds));
+    }
+
+    /**
+     * 查询游戏投注项列表
+     */
+    @GetMapping("/betItemList")
+    public AjaxResult betItemList(SysBetItem sysBetItem)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("betItemList", sysBetItemService.selectSysBetItemList(sysBetItem));
+        return ajax;
     }
 }
