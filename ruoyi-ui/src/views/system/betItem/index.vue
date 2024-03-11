@@ -1,84 +1,36 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
-      <el-form-item label="游戏" prop="gameId">
-        <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="getBetTypeList">
-          <el-option
-            clearable
-            v-for="item in gameListOptions"
-            :key="item.gameId"
-            :label="item.gameName"
-            :value="item.gameId"
-          ></el-option>
-        </el-select>
-      </el-form-item>
+      <el-row :gutter="20">
+        <el-form-item label="游戏" prop="gameId">
+          <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="getBetTypeList">
+            <el-option
+              clearable
+              v-for="item in gameListOptions"
+              :key="item.gameId"
+              :label="item.gameName"
+              :value="item.gameId"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="success" icon="el-icon-edit" size="mini" @click="handleGameUpdate">编辑</el-button>
+        </el-form-item>
+      </el-row>
+      <el-row :gutter="20">
+        <el-form-item label="游戏投注类型" prop="betItemType">
+          <el-select v-model="queryParams.betItemType" placeholder="请选择游戏投注类型" @change="handleQuery">
+            <el-option
+              clearable
+              v-for="item in betTypeListOptions"
+              :key="item.betTypeId"
+              :label="item.betTypeName"
+              :value="item.betTypeId"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+      </el-row>
 
-      <el-form-item label="游戏投注类型" prop="betItemType">
-        <el-select v-model="queryParams.betItemType" placeholder="请选择游戏投注类型" @change="handleQuery">
-          <el-option
-            clearable
-            v-for="item in betTypeListOptions"
-            :key="item.betTypeId"
-            :label="item.betTypeName"
-            :value="item.betTypeId"
-          ></el-option>
-        </el-select>
-      </el-form-item>
-
-<!--      <el-form-item label="投注项名" prop="betItemName">-->
-<!--        <el-input-->
-<!--          v-model="queryParams.betItemName"-->
-<!--          placeholder="请输入投注项名"-->
-<!--          clearable-->
-<!--          @keyup.enter.native="handleQuery"-->
-<!--        />-->
-<!--      </el-form-item>-->
-<!--      <el-form-item label="赔率" prop="odd">-->
-<!--        <el-input-->
-<!--          v-model="queryParams.odd"-->
-<!--          placeholder="请输入赔率"-->
-<!--          clearable-->
-<!--          @keyup.enter.native="handleQuery"-->
-<!--        />-->
-<!--      </el-form-item>-->
-<!--      <el-form-item label="最小投注金额" prop="minBetAmount">-->
-<!--        <el-input-->
-<!--          v-model="queryParams.minBetAmount"-->
-<!--          placeholder="请输入最小投注金额"-->
-<!--          clearable-->
-<!--          @keyup.enter.native="handleQuery"-->
-<!--        />-->
-<!--      </el-form-item>-->
-<!--      <el-form-item label="最大投注金额" prop="maxBetAmount">-->
-<!--        <el-input-->
-<!--          v-model="queryParams.maxBetAmount"-->
-<!--          placeholder="请输入最大投注金额"-->
-<!--          clearable-->
-<!--          @keyup.enter.native="handleQuery"-->
-<!--        />-->
-<!--      </el-form-item>-->
-<!--      <el-form-item label="排序" prop="sort">-->
-<!--        <el-input-->
-<!--          v-model="queryParams.sort"-->
-<!--          placeholder="请输入排序"-->
-<!--          clearable-->
-<!--          @keyup.enter.native="handleQuery"-->
-<!--        />-->
-<!--      </el-form-item>-->
-<!--      <el-form-item label="投注项状态" prop="status">-->
-<!--        <el-select v-model="queryParams.status" placeholder="请选择投注项状态" clearable>-->
-<!--          <el-option-->
-<!--            v-for="dict in dict.type.sys_bet_item_status"-->
-<!--            :key="dict.value"-->
-<!--            :label="dict.label"-->
-<!--            :value="dict.value"-->
-<!--          />-->
-<!--        </el-select>-->
-<!--      </el-form-item>-->
-      <el-form-item>
-        <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-<!--        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>-->
-      </el-form-item>
     </el-form>
 
     <el-row :gutter="10" class="mb8" v-if="1 == loginUserId">
@@ -92,40 +44,6 @@
           v-hasPermi="['system:betItem:add']"
         >新增</el-button>
       </el-col>
-<!--      <el-col :span="1.5">-->
-<!--        <el-button-->
-<!--          type="success"-->
-<!--          plain-->
-<!--          icon="el-icon-edit"-->
-<!--          size="mini"-->
-<!--          :disabled="single"-->
-<!--          @click="handleUpdate"-->
-<!--          v-hasPermi="['system:betItem:edit']"-->
-<!--        >修改</el-button>-->
-<!--      </el-col>-->
-<!--      <el-col :span="1.5">-->
-<!--        <el-button-->
-<!--          v-if="1 == loginUserId"-->
-<!--          type="danger"-->
-<!--          plain-->
-<!--          icon="el-icon-delete"-->
-<!--          size="mini"-->
-<!--          :disabled="multiple"-->
-<!--          @click="handleDelete"-->
-<!--          v-hasPermi="['system:betItem:remove']"-->
-<!--        >删除</el-button>-->
-<!--      </el-col>-->
-<!--      <el-col :span="1.5">-->
-<!--        <el-button-->
-<!--          type="warning"-->
-<!--          plain-->
-<!--          icon="el-icon-download"-->
-<!--          size="mini"-->
-<!--          @click="handleExport"-->
-<!--          v-hasPermi="['system:betItem:export']"-->
-<!--        >导出</el-button>-->
-<!--      </el-col>-->
-<!--      <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>-->
     </el-row>
 
     <el-row :gutter="20" class="well codes">
@@ -145,58 +63,9 @@
       </el-col>
     </el-row>
 
-<!--    <el-table v-loading="loading" :data="betItemList" @selection-change="handleSelectionChange">-->
-<!--      <el-table-column type="selection" width="55" align="center" />-->
-<!--      <el-table-column label="游戏投注项ID" align="center" prop="betItemId" />-->
-<!--      <el-table-column label="游戏ID" align="center" prop="gameId" />-->
-<!--      <el-table-column label="投注项类别" align="center" prop="betItemType" />-->
-<!--      <el-table-column label="投注项名" align="center" prop="betItemName" />-->
-<!--      <el-table-column label="特色定义内容" align="center" prop="betItemDescribe" />-->
-<!--      <el-table-column label="赔率" align="center" prop="odd" />-->
-<!--      <el-table-column label="最小投注金额" align="center" prop="minBetAmount" />-->
-<!--      <el-table-column label="最大投注金额" align="center" prop="maxBetAmount" />-->
-<!--      <el-table-column label="排序" align="center" prop="sort" />-->
-<!--      <el-table-column label="投注项状态" align="center" prop="status">-->
-<!--        <template slot-scope="scope">-->
-<!--          <dict-tag :options="dict.type.sys_bet_item_status" :value="scope.row.status"/>-->
-<!--        </template>-->
-<!--      </el-table-column>-->
-<!--      <el-table-column label="备注" align="center" prop="remark" />-->
-<!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">-->
-<!--        <template slot-scope="scope">-->
-<!--          <el-button-->
-<!--            size="mini"-->
-<!--            type="text"-->
-<!--            icon="el-icon-edit"-->
-<!--            @click="handleUpdate(scope.row)"-->
-<!--            v-hasPermi="['system:betItem:edit']"-->
-<!--          >修改</el-button>-->
-<!--          <el-button-->
-<!--            v-if="1 == loginUserId"-->
-<!--            size="mini"-->
-<!--            type="text"-->
-<!--            icon="el-icon-delete"-->
-<!--            @click="handleDelete(scope.row)"-->
-<!--            v-hasPermi="['system:betItem:remove']"-->
-<!--          >删除</el-button>-->
-<!--        </template>-->
-<!--      </el-table-column>-->
-<!--    </el-table>-->
-
-<!--    <pagination-->
-<!--      v-show="total>0"-->
-<!--      :total="total"-->
-<!--      :page.sync="queryParams.pageNum"-->
-<!--      :limit.sync="queryParams.pageSize"-->
-<!--      @pagination="getList"-->
-<!--    />-->
-
     <!-- 添加或修改游戏投注项对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="180px">
-<!--        <el-form-item label="游戏ID" prop="gameId">-->
-<!--          <el-input v-model="form.gameId" placeholder="请输入游戏ID" />-->
-<!--        </el-form-item>-->
         <el-form-item label="游戏" prop="gameId">
           <el-select v-model="form.gameId" placeholder="请选择游戏"  @change="fromGameChange">
             <el-option
@@ -236,25 +105,96 @@
         <el-form-item label="最大投注金额" prop="maxBetAmount">
           <el-input-number v-model="form.maxBetAmount" :min="0" placeholder="请输入最大投注金额" :precision="2"/>
         </el-form-item>
-<!--        <el-form-item label="投注项状态" prop="status">-->
-<!--          <el-radio-group v-model="form.status">-->
-<!--            <el-radio-->
-<!--              v-for="dict in dict.type.sys_bet_item_status"-->
-<!--              :key="dict.value"-->
-<!--              :label="dict.value"-->
-<!--            >{{dict.label}}</el-radio>-->
-<!--          </el-radio-group>-->
-<!--        </el-form-item>-->
         <el-form-item label="排序" prop="sort">
           <el-input-number v-model="form.sort" controls-position="right" :min="0" />
         </el-form-item>
-<!--        <el-form-item label="备注" prop="remark">-->
-<!--          <el-input v-model="form.remark" type="textarea" placeholder="请输入内容" />-->
-<!--        </el-form-item>-->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
         <el-button @click="cancel">取 消</el-button>
+      </div>
+    </el-dialog>
+
+    <!-- 添加或修改游戏对话框 -->
+    <el-dialog :title="title" :visible.sync="gameFormOpen" width="800px" append-to-body>
+      <el-form ref="gameForm" :model="gameForm" :rules="gameRules" label-width="120px">
+        <el-form-item label="游戏标识ID" prop="gameMarkId">
+          <el-input v-model="gameForm.gameMarkId" placeholder="请输入游戏标识ID" />
+        </el-form-item>
+        <el-form-item label="游戏图片" prop="gameImg">
+          <image-upload v-model="gameForm.gameImg"  :limit="1"/>
+        </el-form-item>
+        <el-form-item label="游戏类别" prop="gameType">
+          <el-select v-model="gameForm.gameType" placeholder="请选择游戏类别">
+            <el-option
+              v-for="dict in dict.type.sys_game_type"
+              :key="dict.value"
+              :label="dict.label"
+              :value="parseInt(dict.value)"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="游戏名" prop="gameName">
+          <el-input v-model="gameForm.gameName" placeholder="请输入游戏名" />
+        </el-form-item>
+        <el-form-item label="游戏别名" prop="gameAliasName">
+          <el-input v-model="gameForm.gameAliasName" placeholder="请输入游戏别名" />
+        </el-form-item>
+        <el-form-item label="描述">
+          <editor v-model="gameForm.gameDescribe" :min-height="192"/>
+        </el-form-item>
+        <el-form-item label="盈亏名" prop="profitLossName">
+          <el-input v-model="gameForm.profitLossName" placeholder="请输入盈亏名" />
+        </el-form-item>
+        <el-form-item label="记录表" prop="gameRecord">
+          <el-input v-model="gameForm.gameRecord" placeholder="请输入记录表" />
+        </el-form-item>
+        <el-form-item label="开奖表" prop="gameKj">
+          <el-input v-model="gameForm.gameKj" placeholder="请输入开奖表" />
+        </el-form-item>
+        <el-form-item label="佣金" prop="gameCommission">
+          <el-input-number v-model="gameForm.gameCommission" :min="0" placeholder="请输入佣金"/>
+        </el-form-item>
+        <el-form-item label="回水" prop="gameCashback">
+          <el-input-number v-model="gameForm.gameCashback" :min="0" placeholder="请输入回水"/>
+        </el-form-item>
+        <el-form-item label="最小投注金额" prop="minBetAmount">
+          <el-input-number v-model="gameForm.minBetAmount" :min="0" placeholder="请输入最小投注金额" :precision="2"/>
+        </el-form-item>
+        <el-form-item label="最大投注金额" prop="maxBetAmount">
+          <el-input-number v-model="gameForm.maxBetAmount" :min="0" placeholder="请输入最大投注金额" :precision="2"/>
+        </el-form-item>
+        <el-form-item label="封盘秒数" prop="endTime">
+          <el-input-number v-model="gameForm.endTime" :min="0" placeholder="请输入封盘秒数"/>
+        </el-form-item>
+        <el-form-item label="机器人比例" prop="robotRate">
+          <el-input-number v-model="gameForm.robotRate" :min="0" placeholder="请输入机器人比例"/>
+        </el-form-item>
+        <el-form-item label="游戏状态" prop="status">
+          <el-radio-group v-model="gameForm.status">
+            <el-radio
+              v-for="dict in dict.type.sys_game_status"
+              :key="dict.value"
+              :label="dict.value"
+            >{{dict.label}}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="是否隐藏" prop="isHidden">
+          <el-radio-group v-model="gameForm.isHidden">
+            <el-radio
+              v-for="dict in dict.type.sys_yes_no"
+              :key="dict.value"
+              :label="dict.value"
+            >{{dict.label}}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="排序" prop="sort">
+          <el-input-number v-model="gameForm.sort" controls-position="right" :min="0" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="gameFormSubmitForm">确 定</el-button>
+        <el-button @click="gameFormCancel">取 消</el-button>
       </div>
     </el-dialog>
   </div>
@@ -262,12 +202,12 @@
 
 <script>
 import { betItemList, getBetItem, delBetItem, addBetItem, updateBetItem } from "@/api/system/betItem";
-import {getValidGame} from "@/api/system/game";
+import {addGame, getGame, getValidGame, updateGame} from "@/api/system/game";
 import {getValidBetType} from "@/api/system/betType";
 
 export default {
   name: "BetItem",
-  dicts: ['sys_bet_item_status'],
+  dicts: ['sys_bet_item_status','sys_game_status','sys_yes_no'],
   data() {
     return {
       // 登录用户ID
@@ -320,6 +260,13 @@ export default {
         betItemName: [
           { required: true, message: "投注项名不能为空", trigger: "blur" }
         ],
+      },
+      // 是否显示弹出层
+      gameFormOpen: false,
+      // 编辑游戏表单参数
+      gameForm: {},
+      // 游戏表单校验
+      gameRules: {
       }
     };
   },
@@ -404,6 +351,44 @@ export default {
       };
       this.resetForm("form");
     },
+    // 取消按钮
+    gameFormCancel() {
+      this.gameFormOpen = false;
+      this.gameFormRest();
+    },
+    gameFormRest(){
+      this.gameForm = {
+        gameId: null,
+        gameImg: null,
+        gameType: null,
+        gameMarkId: null,
+        gameName: null,
+        gameAliasName: null,
+        gameDescribe: null,
+        profitLossName: null,
+        gameRecord: null,
+        gameKj: null,
+        gameCommission: null,
+        gameCommissionTwo: null,
+        gameCate: null,
+        gameCashback: null,
+        minBetAmount: null,
+        maxBetAmount: null,
+        endTime: null,
+        robotRate: null,
+        roomRule: null,
+        sort: null,
+        status: "0",
+        isHidden: "N",
+        houseOpen: null,
+        createBy: null,
+        createTime: null,
+        updateBy: null,
+        updateTime: null,
+        remark: null
+      };
+      this.resetForm("gameForm");
+    },
     /** 搜索按钮操作 */
     handleQuery() {
       this.queryParams.pageNum = 1;
@@ -425,6 +410,16 @@ export default {
       this.reset();
       this.open = true;
       this.title = "添加游戏投注项";
+    },
+    /** 游戏修改按钮操作 */
+    handleGameUpdate(){
+      this.gameFormRest();
+      const gameId = this.queryParams.gameId;
+      getGame(gameId).then(response => {
+        this.gameForm = response.data;
+        this.gameFormOpen = true;
+        this.title = "编辑游戏";
+      });
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
@@ -452,6 +447,26 @@ export default {
             addBetItem(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
+              this.getList();
+            });
+          }
+        }
+      });
+    },
+    /** 提交按钮 */
+    gameFormSubmitForm() {
+      this.$refs["gameForm"].validate(valid => {
+        if (valid) {
+          if (this.gameForm.gameId != null) {
+            updateGame(this.gameForm).then(response => {
+              this.$modal.msgSuccess("修改成功");
+              this.gameFormOpen = false;
+              this.getList();
+            });
+          } else {
+            addGame(this.gameForm).then(response => {
+              this.$modal.msgSuccess("新增成功");
+              this.gameFormOpen = false;
               this.getList();
             });
           }

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysChatMapper">
+    
+    <resultMap type="SysChat" id="SysChatResult">
+        <result property="chatId"    column="chat_id"    />
+        <result property="fromUserId"    column="from_user_id"    />
+        <result property="toUserId"    column="to_user_id"    />
+        <result property="content"    column="content"    />
+        <result property="isRead"    column="is_read"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.common.core.vo.resp.ChatUserListRespVO" id="ChatUserResult">
+        <result property="userId"    column="user_id"/>
+        <result property="nickName"    column="nick_name"/>
+        <result property="avatar"    column="avatar"/>
+        <result property="content"    column="content"/>
+        <result property="lastChatTime"    column="last_chat_time"/>
+        <result property="noReadMsgCount"    column="no_read_msg_count"/>
+    </resultMap>
+
+    <resultMap type="com.ruoyi.common.core.vo.resp.ChatContentRespVO" id="ChatContextResult">
+        <result property="chatFromUserId"    column="user_id"/>
+        <result property="nickName"    column="nick_name"/>
+        <result property="avatar"    column="avatar"/>
+        <result property="content"    column="content"/>
+        <result property="chatTime"    column="chat_time"/>
+    </resultMap>
+
+    <sql id="selectSysChatVo">
+        select chat_id, from_user_id, to_user_id, content, is_read, del_flag, create_by from sys_chat
+    </sql>
+
+    <select id="selectSysChatList" parameterType="SysChat" resultMap="SysChatResult">
+        <include refid="selectSysChatVo"/>
+        <where>  
+            <if test="fromUserId != null "> and from_user_id = #{fromUserId}</if>
+            <if test="toUserId != null "> and to_user_id = #{toUserId}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="isRead != null  and isRead != ''"> and is_read = #{isRead}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysChatByChatId" parameterType="Long" resultMap="SysChatResult">
+        <include refid="selectSysChatVo"/>
+        where chat_id = #{chatId}
+    </select>
+        
+    <insert id="insertSysChat" parameterType="SysChat" useGeneratedKeys="true" keyProperty="chatId">
+        insert into sys_chat(
+            <if test="fromUserId != null">from_user_id,</if>
+            <if test="toUserId != null">to_user_id,</if>
+            <if test="content != null">content,</if>
+            <if test="isRead != null">is_read,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            create_by
+        )values(
+            <if test="fromUserId != null">#{fromUserId},</if>
+            <if test="toUserId != null">#{toUserId},</if>
+            <if test="content != null">#{content},</if>
+            <if test="isRead != null">#{isRead},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateSysChat" parameterType="SysChat">
+        update sys_chat
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="fromUserId != null">from_user_id = #{fromUserId},</if>
+            <if test="toUserId != null">to_user_id = #{toUserId},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="isRead != null">is_read = #{isRead},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+        </trim>
+        where chat_id = #{chatId}
+    </update>
+
+    <delete id="deleteSysChatByChatId" parameterType="Long">
+        delete from sys_chat where chat_id = #{chatId}
+    </delete>
+
+    <delete id="deleteSysChatByChatIds" parameterType="Long">
+        delete from sys_chat where chat_id in 
+        <foreach item="chatId" collection="array" open="(" separator="," close=")">
+            #{chatId}
+        </foreach>
+    </delete>
+
+    <select id="selectChatUserListByUserId" parameterType="Long" resultMap="ChatUserResult">
+        SELECT
+            u.user_id,
+            u.nick_name,
+            u.avatar,
+            c.content,
+            c.last_chat_time,
+            IFNULL(nc.no_read_msg_count,0) as no_read_msg_count
+        FROM
+            sys_user u
+            LEFT JOIN sys_dept d ON u.dept_id = d.dept_id
+            LEFT JOIN (
+                SELECT
+                    CASE
+                        WHEN sc.to_user_id = #{userId}
+                            THEN
+                                sc.from_user_id
+                        ELSE
+                            sc.to_user_id
+                        END AS user_id ,
+                            sc.content,
+                    date_format(sc.create_by,'%Y/%m/%d') as last_chat_time
+                FROM
+                    sys_chat sc
+                WHERE
+                    sc.del_flag = '0'
+                AND sc.chat_id in (
+                        SELECT
+                            max(chat.chat_id)
+                        FROM
+                            sys_chat chat
+                        WHERE
+                            sc.del_flag = '0'
+                        AND (
+                                chat.to_user_id = #{userId}
+                            OR
+                                chat.from_user_id = #{userId}
+                            )
+                        group by CASE
+                        WHEN chat.to_user_id = #{userId}
+                        THEN
+                            chat.from_user_id
+                        ELSE
+                            chat.to_user_id
+                        END
+                    )
+            ) c ON u.user_id = c.user_id
+        LEFT JOIN (
+            SELECT
+                CASE WHEN nc_chat.to_user_id = #{userId}
+                THEN
+                    nc_chat.from_user_id
+                ELSE
+                    nc_chat.to_user_id
+            END AS user_id ,
+            SUM(
+                CASE WHEN nc_chat.from_user_id = #{userId}
+                THEN
+                    0
+                ELSE
+                    1
+            END) AS no_read_msg_count
+            FROM
+                sys_chat nc_chat
+            WHERE
+                nc_chat.del_flag = '0'
+            AND nc_chat.is_read = '0'
+            AND (
+                nc_chat.to_user_id = #{userId}
+                OR
+                nc_chat.from_user_id = #{userId}
+            )
+            group by
+                CASE
+                    WHEN nc_chat.to_user_id = #{userId}
+                    THEN
+                        nc_chat.from_user_id
+                    ELSE
+                        nc_chat.to_user_id
+                END
+        ) nc ON u.user_id = nc.user_id
+        WHERE
+            u.del_flag = '0'
+        AND u.user_id !=  #{userId}
+        <!-- 数据范围过滤 -->
+
+        <if test="deptId != null and deptId != 0">
+            AND (
+            <if test="parentUserId != null and parentUserId != 0">
+                u.user_id =  #{parentUserId} OR
+            </if>
+                d.dept_id IN ( SELECT dept_id FROM sys_dept WHERE dept_id = #{deptId} or find_in_set( #{deptId} , ancestors ) )
+            )
+        </if>
+        order by u.user_id asc
+    </select>
+
+    <select id="selectChatContentList" resultMap="ChatContextResult">
+        SELECT
+            main.user_id,
+            main.nick_name,
+            main.avatar,
+            main.content,
+            date_format(main.create_by,'%Y/%m/%d') as chat_time
+        FROM(
+            SELECT
+                u.user_id,
+                u.nick_name,
+                u.avatar,
+                c.content,
+                c.create_by,'%Y/%m/%d'
+            FROM
+                sys_chat c
+                    INNER JOIN sys_user u ON u.user_id = c.from_user_id
+            WHERE
+                u.del_flag = '0'
+              AND c.del_flag = '0'
+              AND (
+                    (
+                        c.from_user_id = #{chatFromUser} AND c.to_user_id = #{chatToUser}
+                        )
+                    OR
+                    (
+                        c.to_user_id = #{chatFromUser} AND c.from_user_id = #{chatToUser}
+                        )
+                )
+            ORDER BY c.create_by desc
+            limit #{pageNumber} , 20
+        )main
+        ORDER BY main.create_by asc
+    </select>
+
+    <update id="updateChatReaded">
+        update sys_chat
+        SET is_read = '1'
+        where
+            del_flag = '0'
+        AND is_read = '0'
+        AND from_user_id = #{chatFromUser}
+        AND to_user_id = #{chatToUser}
+    </update>
+
+    <select id="historyList" resultMap="SysChatResult">
+        <include refid="selectSysChatVo"/>
+        where del_flag = '0'
+        AND (
+        (
+        from_user_id = #{chatFromUser} AND to_user_id = #{chatToUser}
+        )
+        OR
+        (
+        to_user_id = #{chatFromUser} AND from_user_id = #{chatToUser}
+        )
+        )
+        order by chatId desc
+        <if test="pageNumber != null">
+            limit #{pageNumber} , #{pageRowCount}
+        </if>
+    </select>
+
+
+</mapper>

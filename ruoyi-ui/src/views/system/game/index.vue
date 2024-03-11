@@ -197,12 +197,6 @@
         <el-form-item label="佣金" prop="gameCommission">
           <el-input-number v-model="form.gameCommission" :min="0" placeholder="请输入佣金"/>
         </el-form-item>
-<!--        <el-form-item label="2级佣金" prop="gameCommissionTwo">-->
-<!--          <el-input v-model="form.gameCommissionTwo" placeholder="请输入2级佣金" />-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="回水彩种" prop="gameCate">-->
-<!--          <el-input v-model="form.gameCate" placeholder="请输入回水彩种" />-->
-<!--        </el-form-item>-->
         <el-form-item label="回水" prop="gameCashback">
           <el-input-number v-model="form.gameCashback" :min="0" placeholder="请输入回水"/>
         </el-form-item>
@@ -218,9 +212,6 @@
         <el-form-item label="机器人比例" prop="robotRate">
           <el-input-number v-model="form.robotRate" :min="0" placeholder="请输入机器人比例"/>
         </el-form-item>
-<!--        <el-form-item label="房间规则" prop="roomRule">-->
-<!--          <el-input v-model="form.roomRule" type="textarea" placeholder="请输入内容" />-->
-<!--        </el-form-item>-->
         <el-form-item label="游戏状态" prop="status">
           <el-radio-group v-model="form.status">
             <el-radio
@@ -242,12 +233,6 @@
         <el-form-item label="排序" prop="sort">
           <el-input-number v-model="form.sort" controls-position="right" :min="0" />
         </el-form-item>
-<!--        <el-form-item label="房间模式" prop="houseOpen">-->
-<!--          <el-input v-model="form.houseOpen" placeholder="请输入房间模式" />-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="备注" prop="remark">-->
-<!--          <el-input v-model="form.remark" type="textarea" placeholder="请输入内容" />-->
-<!--        </el-form-item>-->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
