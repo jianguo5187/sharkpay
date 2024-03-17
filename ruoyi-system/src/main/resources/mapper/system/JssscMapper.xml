@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.JssscMapper">
+    
+    <resultMap type="Jsssc" id="JssscResult">
+        <result property="id"    column="id"    />
+        <result property="time"    column="time"    />
+        <result property="num1"    column="num1"    />
+        <result property="num2"    column="num2"    />
+        <result property="num3"    column="num3"    />
+        <result property="num4"    column="num4"    />
+        <result property="num5"    column="num5"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectJssscVo">
+        select id, time, num1, num2, num3, num4, num5, create_by, create_time, update_by, update_time, remark from jsssc
+    </sql>
+
+    <select id="selectJssscList" parameterType="Jsssc" resultMap="JssscResult">
+        <include refid="selectJssscVo"/>
+        <where>  
+            <if test="time != null "> and time = #{time}</if>
+            <if test="num1 != null "> and num1 = #{num1}</if>
+            <if test="num2 != null "> and num2 = #{num2}</if>
+            <if test="num3 != null "> and num3 = #{num3}</if>
+            <if test="num4 != null "> and num4 = #{num4}</if>
+            <if test="num5 != null "> and num5 = #{num5}</if>
+        </where>
+    </select>
+    
+    <select id="selectJssscById" parameterType="Long" resultMap="JssscResult">
+        <include refid="selectJssscVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertJsssc" parameterType="Jsssc" useGeneratedKeys="true" keyProperty="id">
+        insert into jsssc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="time != null">time,</if>
+            <if test="num1 != null">num1,</if>
+            <if test="num2 != null">num2,</if>
+            <if test="num3 != null">num3,</if>
+            <if test="num4 != null">num4,</if>
+            <if test="num5 != null">num5,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="time != null">#{time},</if>
+            <if test="num1 != null">#{num1},</if>
+            <if test="num2 != null">#{num2},</if>
+            <if test="num3 != null">#{num3},</if>
+            <if test="num4 != null">#{num4},</if>
+            <if test="num5 != null">#{num5},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJsssc" parameterType="Jsssc">
+        update jsssc
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="time != null">time = #{time},</if>
+            <if test="num1 != null">num1 = #{num1},</if>
+            <if test="num2 != null">num2 = #{num2},</if>
+            <if test="num3 != null">num3 = #{num3},</if>
+            <if test="num4 != null">num4 = #{num4},</if>
+            <if test="num5 != null">num5 = #{num5},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteJssscById" parameterType="Long">
+        delete from jsssc where id = #{id}
+    </delete>
+
+    <delete id="deleteJssscByIds" parameterType="String">
+        delete from jsssc where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

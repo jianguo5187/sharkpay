@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.Azxy10Mapper">
+    
+    <resultMap type="Azxy10" id="Azxy10Result">
+        <result property="id"    column="id"    />
+        <result property="time"    column="time"    />
+        <result property="num1"    column="num1"    />
+        <result property="num2"    column="num2"    />
+        <result property="num3"    column="num3"    />
+        <result property="num4"    column="num4"    />
+        <result property="num5"    column="num5"    />
+        <result property="num6"    column="num6"    />
+        <result property="num7"    column="num7"    />
+        <result property="num8"    column="num8"    />
+        <result property="num9"    column="num9"    />
+        <result property="num10"    column="num10"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectAzxy10Vo">
+        select id, time, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, create_by, create_time, update_by, update_time, remark from azxy10
+    </sql>
+
+    <select id="selectAzxy10List" parameterType="Azxy10" resultMap="Azxy10Result">
+        <include refid="selectAzxy10Vo"/>
+        <where>  
+            <if test="time != null "> and time = #{time}</if>
+            <if test="num1 != null "> and num1 = #{num1}</if>
+            <if test="num2 != null "> and num2 = #{num2}</if>
+            <if test="num3 != null "> and num3 = #{num3}</if>
+            <if test="num4 != null "> and num4 = #{num4}</if>
+            <if test="num5 != null "> and num5 = #{num5}</if>
+            <if test="num6 != null "> and num6 = #{num6}</if>
+            <if test="num7 != null "> and num7 = #{num7}</if>
+            <if test="num8 != null "> and num8 = #{num8}</if>
+            <if test="num9 != null "> and num9 = #{num9}</if>
+            <if test="num10 != null "> and num10 = #{num10}</if>
+        </where>
+    </select>
+    
+    <select id="selectAzxy10ById" parameterType="Long" resultMap="Azxy10Result">
+        <include refid="selectAzxy10Vo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAzxy10" parameterType="Azxy10" useGeneratedKeys="true" keyProperty="id">
+        insert into azxy10
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="time != null">time,</if>
+            <if test="num1 != null">num1,</if>
+            <if test="num2 != null">num2,</if>
+            <if test="num3 != null">num3,</if>
+            <if test="num4 != null">num4,</if>
+            <if test="num5 != null">num5,</if>
+            <if test="num6 != null">num6,</if>
+            <if test="num7 != null">num7,</if>
+            <if test="num8 != null">num8,</if>
+            <if test="num9 != null">num9,</if>
+            <if test="num10 != null">num10,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="time != null">#{time},</if>
+            <if test="num1 != null">#{num1},</if>
+            <if test="num2 != null">#{num2},</if>
+            <if test="num3 != null">#{num3},</if>
+            <if test="num4 != null">#{num4},</if>
+            <if test="num5 != null">#{num5},</if>
+            <if test="num6 != null">#{num6},</if>
+            <if test="num7 != null">#{num7},</if>
+            <if test="num8 != null">#{num8},</if>
+            <if test="num9 != null">#{num9},</if>
+            <if test="num10 != null">#{num10},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAzxy10" parameterType="Azxy10">
+        update azxy10
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="time != null">time = #{time},</if>
+            <if test="num1 != null">num1 = #{num1},</if>
+            <if test="num2 != null">num2 = #{num2},</if>
+            <if test="num3 != null">num3 = #{num3},</if>
+            <if test="num4 != null">num4 = #{num4},</if>
+            <if test="num5 != null">num5 = #{num5},</if>
+            <if test="num6 != null">num6 = #{num6},</if>
+            <if test="num7 != null">num7 = #{num7},</if>
+            <if test="num8 != null">num8 = #{num8},</if>
+            <if test="num9 != null">num9 = #{num9},</if>
+            <if test="num10 != null">num10 = #{num10},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAzxy10ById" parameterType="Long">
+        delete from azxy10 where id = #{id}
+    </delete>
+
+    <delete id="deleteAzxy10ByIds" parameterType="String">
+        delete from azxy10 where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -24,8 +24,8 @@ public class SysBetItem extends BaseEntity
     private Long gameId;
 
     /** 投注项类别 */
-    @Excel(name = "投注项类别")
-    private String betItemType;
+    @Excel(name = "投注项类别ID")
+    private Long betItemType;
 
     /** 投注项名 */
     @Excel(name = "投注项名")
@@ -73,12 +73,12 @@ public class SysBetItem extends BaseEntity
     {
         return gameId;
     }
-    public void setBetItemType(String betItemType) 
+    public void setBetItemType(Long betItemType)
     {
         this.betItemType = betItemType;
     }
 
-    public String getBetItemType() 
+    public Long getBetItemType()
     {
         return betItemType;
     }

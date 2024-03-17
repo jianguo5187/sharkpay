@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.FalseUserMapper">
+    
+    <resultMap type="FalseUser" id="FalseUserResult">
+        <result property="id"    column="id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="user"    column="user"    />
+        <result property="robotPic"    column="robot_pic"    />
+        <result property="robotBetMoney"    column="robot_bet_money"    />
+        <result property="robotBetNum"    column="robot_bet_num"    />
+        <result property="robotBetTime"    column="robot_bet_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="groupId"    column="group_id"    />
+        <result property="playType"    column="play_type"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectFalseUserVo">
+        SELECT
+            f.id,
+            f.user_name,
+            f.USER,
+            f.robot_pic,
+            f.robot_bet_money,
+            f.robot_bet_num,
+            f.robot_bet_time,
+            f.game_id,
+            f.group_id,
+            f.play_type,
+            f.create_by,
+            f.create_time,
+            f.update_by,
+            f.update_time,
+            f.remark,
+            g.game_name
+        FROM
+            false_user f
+        inner join sys_game g on f.game_id = g.game_id
+    </sql>
+
+    <select id="selectFalseUserList" parameterType="FalseUser" resultMap="FalseUserResult">
+        <include refid="selectFalseUserVo"/>
+        <where>  
+            <if test="userName != null  and userName != ''"> and f.user_name like concat('%', #{userName}, '%')</if>
+            <if test="user != null  and user != ''"> and f.user = #{user}</if>
+            <if test="robotPic != null  and robotPic != ''"> and f.robot_pic = #{robotPic}</if>
+            <if test="robotBetMoney != null  and robotBetMoney != ''"> and f.robot_bet_money = #{robotBetMoney}</if>
+            <if test="robotBetNum != null  and robotBetNum != ''"> and f.robot_bet_num = #{robotBetNum}</if>
+            <if test="robotBetTime != null  and robotBetTime != ''"> and f.robot_bet_time = #{robotBetTime}</if>
+            <if test="gameId != null "> and f.game_id = #{gameId}</if>
+            <if test="groupId != null "> and f.group_id = #{groupId}</if>
+            <if test="playType != null "> and f.play_type = #{playType}</if>
+        </where>
+    </select>
+    
+    <select id="selectFalseUserById" parameterType="Long" resultMap="FalseUserResult">
+        <include refid="selectFalseUserVo"/>
+        where f.id = #{id}
+    </select>
+        
+    <insert id="insertFalseUser" parameterType="FalseUser" useGeneratedKeys="true" keyProperty="id">
+        insert into false_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">user_name,</if>
+            <if test="user != null">user,</if>
+            <if test="robotPic != null">robot_pic,</if>
+            <if test="robotBetMoney != null">robot_bet_money,</if>
+            <if test="robotBetNum != null">robot_bet_num,</if>
+            <if test="robotBetTime != null">robot_bet_time,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="groupId != null">group_id,</if>
+            <if test="playType != null">play_type,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userName != null">#{userName},</if>
+            <if test="user != null">#{user},</if>
+            <if test="robotPic != null">#{robotPic},</if>
+            <if test="robotBetMoney != null">#{robotBetMoney},</if>
+            <if test="robotBetNum != null">#{robotBetNum},</if>
+            <if test="robotBetTime != null">#{robotBetTime},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="groupId != null">#{groupId},</if>
+            <if test="playType != null">#{playType},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFalseUser" parameterType="FalseUser">
+        update false_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="user != null">user = #{user},</if>
+            <if test="robotPic != null">robot_pic = #{robotPic},</if>
+            <if test="robotBetMoney != null">robot_bet_money = #{robotBetMoney},</if>
+            <if test="robotBetNum != null">robot_bet_num = #{robotBetNum},</if>
+            <if test="robotBetTime != null">robot_bet_time = #{robotBetTime},</if>
+            <if test="gameId != null">game_id = #{gameId},</if>
+            <if test="groupId != null">group_id = #{groupId},</if>
+            <if test="playType != null">play_type = #{playType},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteFalseUserById" parameterType="Long">
+        delete from false_user where id = #{id}
+    </delete>
+
+    <delete id="deleteFalseUserByIds" parameterType="String">
+        delete from false_user where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

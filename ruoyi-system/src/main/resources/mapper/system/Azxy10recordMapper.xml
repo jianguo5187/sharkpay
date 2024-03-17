@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.Azxy10recordMapper">
+    
+    <resultMap type="Azxy10record" id="Azxy10recordResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="periods"    column="periods"    />
+        <result property="status"    column="status"    />
+        <result property="recordTime"    column="record_time"    />
+        <result property="checkTime"    column="check_time"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="type1Big"    column="type1_big"    />
+        <result property="type1Small"    column="type1_small"    />
+        <result property="type1Single"    column="type1_single"    />
+        <result property="type1Double"    column="type1_double"    />
+        <result property="type1Num3"    column="type1_num3"    />
+        <result property="type1Num4"    column="type1_num4"    />
+        <result property="type1Num5"    column="type1_num5"    />
+        <result property="type1Num6"    column="type1_num6"    />
+        <result property="type1Num7"    column="type1_num7"    />
+        <result property="type1Num8"    column="type1_num8"    />
+        <result property="type1Num9"    column="type1_num9"    />
+        <result property="type1Num10"    column="type1_num10"    />
+        <result property="type1Num11"    column="type1_num11"    />
+        <result property="type1Num12"    column="type1_num12"    />
+        <result property="type1Num13"    column="type1_num13"    />
+        <result property="type1Num14"    column="type1_num14"    />
+        <result property="type1Num15"    column="type1_num15"    />
+        <result property="type1Num16"    column="type1_num16"    />
+        <result property="type1Num17"    column="type1_num17"    />
+        <result property="type1Num18"    column="type1_num18"    />
+        <result property="type1Num19"    column="type1_num19"    />
+        <result property="type2Big"    column="type2_big"    />
+        <result property="type2Small"    column="type2_small"    />
+        <result property="type2Single"    column="type2_single"    />
+        <result property="type2Double"    column="type2_double"    />
+        <result property="type2Loong"    column="type2_loong"    />
+        <result property="type2Tiger"    column="type2_tiger"    />
+        <result property="type2Num1"    column="type2_num1"    />
+        <result property="type2Num2"    column="type2_num2"    />
+        <result property="type2Num3"    column="type2_num3"    />
+        <result property="type2Num4"    column="type2_num4"    />
+        <result property="type2Num5"    column="type2_num5"    />
+        <result property="type2Num6"    column="type2_num6"    />
+        <result property="type2Num7"    column="type2_num7"    />
+        <result property="type2Num8"    column="type2_num8"    />
+        <result property="type2Num9"    column="type2_num9"    />
+        <result property="type2Num10"    column="type2_num10"    />
+        <result property="type3Big"    column="type3_big"    />
+        <result property="type3Small"    column="type3_small"    />
+        <result property="type3Single"    column="type3_single"    />
+        <result property="type3Double"    column="type3_double"    />
+        <result property="type3Loong"    column="type3_loong"    />
+        <result property="type3Tiger"    column="type3_tiger"    />
+        <result property="type3Num1"    column="type3_num1"    />
+        <result property="type3Num2"    column="type3_num2"    />
+        <result property="type3Num3"    column="type3_num3"    />
+        <result property="type3Num4"    column="type3_num4"    />
+        <result property="type3Num5"    column="type3_num5"    />
+        <result property="type3Num6"    column="type3_num6"    />
+        <result property="type3Num7"    column="type3_num7"    />
+        <result property="type3Num8"    column="type3_num8"    />
+        <result property="type3Num9"    column="type3_num9"    />
+        <result property="type3Num10"    column="type3_num10"    />
+        <result property="type4Big"    column="type4_big"    />
+        <result property="type4Small"    column="type4_small"    />
+        <result property="type4Single"    column="type4_single"    />
+        <result property="type4Double"    column="type4_double"    />
+        <result property="type4Loong"    column="type4_loong"    />
+        <result property="type4Tiger"    column="type4_tiger"    />
+        <result property="type4Num1"    column="type4_num1"    />
+        <result property="type4Num2"    column="type4_num2"    />
+        <result property="type4Num3"    column="type4_num3"    />
+        <result property="type4Num4"    column="type4_num4"    />
+        <result property="type4Num5"    column="type4_num5"    />
+        <result property="type4Num6"    column="type4_num6"    />
+        <result property="type4Num7"    column="type4_num7"    />
+        <result property="type4Num8"    column="type4_num8"    />
+        <result property="type4Num9"    column="type4_num9"    />
+        <result property="type4Num10"    column="type4_num10"    />
+        <result property="type5Big"    column="type5_big"    />
+        <result property="type5Small"    column="type5_small"    />
+        <result property="type5Single"    column="type5_single"    />
+        <result property="type5Double"    column="type5_double"    />
+        <result property="type5Loong"    column="type5_loong"    />
+        <result property="type5Tiger"    column="type5_tiger"    />
+        <result property="type5Num1"    column="type5_num1"    />
+        <result property="type5Num2"    column="type5_num2"    />
+        <result property="type5Num3"    column="type5_num3"    />
+        <result property="type5Num4"    column="type5_num4"    />
+        <result property="type5Num5"    column="type5_num5"    />
+        <result property="type5Num6"    column="type5_num6"    />
+        <result property="type5Num7"    column="type5_num7"    />
+        <result property="type5Num8"    column="type5_num8"    />
+        <result property="type5Num9"    column="type5_num9"    />
+        <result property="type5Num10"    column="type5_num10"    />
+        <result property="type6Big"    column="type6_big"    />
+        <result property="type6Small"    column="type6_small"    />
+        <result property="type6Single"    column="type6_single"    />
+        <result property="type6Double"    column="type6_double"    />
+        <result property="type6Loong"    column="type6_loong"    />
+        <result property="type6Tiger"    column="type6_tiger"    />
+        <result property="type6Num1"    column="type6_num1"    />
+        <result property="type6Num2"    column="type6_num2"    />
+        <result property="type6Num3"    column="type6_num3"    />
+        <result property="type6Num4"    column="type6_num4"    />
+        <result property="type6Num5"    column="type6_num5"    />
+        <result property="type6Num6"    column="type6_num6"    />
+        <result property="type6Num7"    column="type6_num7"    />
+        <result property="type6Num8"    column="type6_num8"    />
+        <result property="type6Num9"    column="type6_num9"    />
+        <result property="type6Num10"    column="type6_num10"    />
+        <result property="type7Big"    column="type7_big"    />
+        <result property="type7Small"    column="type7_small"    />
+        <result property="type7Single"    column="type7_single"    />
+        <result property="type7Double"    column="type7_double"    />
+        <result property="type7Loong"    column="type7_loong"    />
+        <result property="type7Tiger"    column="type7_tiger"    />
+        <result property="type7Num1"    column="type7_num1"    />
+        <result property="type7Num2"    column="type7_num2"    />
+        <result property="type7Num3"    column="type7_num3"    />
+        <result property="type7Num4"    column="type7_num4"    />
+        <result property="type7Num5"    column="type7_num5"    />
+        <result property="type7Num6"    column="type7_num6"    />
+        <result property="type7Num7"    column="type7_num7"    />
+        <result property="type7Num8"    column="type7_num8"    />
+        <result property="type7Num9"    column="type7_num9"    />
+        <result property="type7Num10"    column="type7_num10"    />
+        <result property="type8Big"    column="type8_big"    />
+        <result property="type8Small"    column="type8_small"    />
+        <result property="type8Single"    column="type8_single"    />
+        <result property="type8Double"    column="type8_double"    />
+        <result property="type8Loong"    column="type8_loong"    />
+        <result property="type8Tiger"    column="type8_tiger"    />
+        <result property="type8Num1"    column="type8_num1"    />
+        <result property="type8Num2"    column="type8_num2"    />
+        <result property="type8Num3"    column="type8_num3"    />
+        <result property="type8Num4"    column="type8_num4"    />
+        <result property="type8Num5"    column="type8_num5"    />
+        <result property="type8Num6"    column="type8_num6"    />
+        <result property="type8Num7"    column="type8_num7"    />
+        <result property="type8Num8"    column="type8_num8"    />
+        <result property="type8Num9"    column="type8_num9"    />
+        <result property="type8Num10"    column="type8_num10"    />
+        <result property="type9Big"    column="type9_big"    />
+        <result property="type9Small"    column="type9_small"    />
+        <result property="type9Single"    column="type9_single"    />
+        <result property="type9Double"    column="type9_double"    />
+        <result property="type9Loong"    column="type9_loong"    />
+        <result property="type9Tiger"    column="type9_tiger"    />
+        <result property="type9Num1"    column="type9_num1"    />
+        <result property="type9Num2"    column="type9_num2"    />
+        <result property="type9Num3"    column="type9_num3"    />
+        <result property="type9Num4"    column="type9_num4"    />
+        <result property="type9Num5"    column="type9_num5"    />
+        <result property="type9Num6"    column="type9_num6"    />
+        <result property="type9Num7"    column="type9_num7"    />
+        <result property="type9Num8"    column="type9_num8"    />
+        <result property="type9Num9"    column="type9_num9"    />
+        <result property="type9Num10"    column="type9_num10"    />
+        <result property="type10Big"    column="type10_big"    />
+        <result property="type10Small"    column="type10_small"    />
+        <result property="type10Single"    column="type10_single"    />
+        <result property="type10Double"    column="type10_double"    />
+        <result property="type10Loong"    column="type10_loong"    />
+        <result property="type10Tiger"    column="type10_tiger"    />
+        <result property="type10Num1"    column="type10_num1"    />
+        <result property="type10Num2"    column="type10_num2"    />
+        <result property="type10Num3"    column="type10_num3"    />
+        <result property="type10Num4"    column="type10_num4"    />
+        <result property="type10Num5"    column="type10_num5"    />
+        <result property="type10Num6"    column="type10_num6"    />
+        <result property="type10Num7"    column="type10_num7"    />
+        <result property="type10Num8"    column="type10_num8"    />
+        <result property="type10Num9"    column="type10_num9"    />
+        <result property="type10Num10"    column="type10_num10"    />
+        <result property="type11Big"    column="type11_big"    />
+        <result property="type11Small"    column="type11_small"    />
+        <result property="type11Single"    column="type11_single"    />
+        <result property="type11Double"    column="type11_double"    />
+        <result property="type11Loong"    column="type11_loong"    />
+        <result property="type11Tiger"    column="type11_tiger"    />
+        <result property="type11Num1"    column="type11_num1"    />
+        <result property="type11Num2"    column="type11_num2"    />
+        <result property="type11Num3"    column="type11_num3"    />
+        <result property="type11Num4"    column="type11_num4"    />
+        <result property="type11Num5"    column="type11_num5"    />
+        <result property="type11Num6"    column="type11_num6"    />
+        <result property="type11Num7"    column="type11_num7"    />
+        <result property="type11Num8"    column="type11_num8"    />
+        <result property="type11Num9"    column="type11_num9"    />
+        <result property="type11Num10"    column="type11_num10"    />
+        <result property="bigSingle"    column="big_single"    />
+        <result property="bigDouble"    column="big_double"    />
+        <result property="smallSingle"    column="small_single"    />
+        <result property="smallDouble"    column="small_double"    />
+        <result property="house"    column="house"    />
+        <result property="num1"    column="num1"    />
+        <result property="num2"    column="num2"    />
+        <result property="num3"    column="num3"    />
+        <result property="num4"    column="num4"    />
+        <result property="num5"    column="num5"    />
+        <result property="num6"    column="num6"    />
+        <result property="num7"    column="num7"    />
+        <result property="num8"    column="num8"    />
+        <result property="num9"    column="num9"    />
+        <result property="num10"    column="num10"    />
+        <result property="sumNum"    column="sum_num"    />
+        <result property="hzId"    column="hz_id"    />
+        <result property="hzUser"    column="hz_user"    />
+        <result property="isDeduct"    column="is_deduct"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectAzxy10recordVo">
+        select id, user_id, periods, status, record_time, check_time, count_money, win_money, type1_big, type1_small, type1_single, type1_double, type1_num3, type1_num4, type1_num5, type1_num6, type1_num7, type1_num8, type1_num9, type1_num10, type1_num11, type1_num12, type1_num13, type1_num14, type1_num15, type1_num16, type1_num17, type1_num18, type1_num19, type2_big, type2_small, type2_single, type2_double, type2_loong, type2_tiger, type2_num1, type2_num2, type2_num3, type2_num4, type2_num5, type2_num6, type2_num7, type2_num8, type2_num9, type2_num10, type3_big, type3_small, type3_single, type3_double, type3_loong, type3_tiger, type3_num1, type3_num2, type3_num3, type3_num4, type3_num5, type3_num6, type3_num7, type3_num8, type3_num9, type3_num10, type4_big, type4_small, type4_single, type4_double, type4_loong, type4_tiger, type4_num1, type4_num2, type4_num3, type4_num4, type4_num5, type4_num6, type4_num7, type4_num8, type4_num9, type4_num10, type5_big, type5_small, type5_single, type5_double, type5_loong, type5_tiger, type5_num1, type5_num2, type5_num3, type5_num4, type5_num5, type5_num6, type5_num7, type5_num8, type5_num9, type5_num10, type6_big, type6_small, type6_single, type6_double, type6_loong, type6_tiger, type6_num1, type6_num2, type6_num3, type6_num4, type6_num5, type6_num6, type6_num7, type6_num8, type6_num9, type6_num10, type7_big, type7_small, type7_single, type7_double, type7_loong, type7_tiger, type7_num1, type7_num2, type7_num3, type7_num4, type7_num5, type7_num6, type7_num7, type7_num8, type7_num9, type7_num10, type8_big, type8_small, type8_single, type8_double, type8_loong, type8_tiger, type8_num1, type8_num2, type8_num3, type8_num4, type8_num5, type8_num6, type8_num7, type8_num8, type8_num9, type8_num10, type9_big, type9_small, type9_single, type9_double, type9_loong, type9_tiger, type9_num1, type9_num2, type9_num3, type9_num4, type9_num5, type9_num6, type9_num7, type9_num8, type9_num9, type9_num10, type10_big, type10_small, type10_single, type10_double, type10_loong, type10_tiger, type10_num1, type10_num2, type10_num3, type10_num4, type10_num5, type10_num6, type10_num7, type10_num8, type10_num9, type10_num10, type11_big, type11_small, type11_single, type11_double, type11_loong, type11_tiger, type11_num1, type11_num2, type11_num3, type11_num4, type11_num5, type11_num6, type11_num7, type11_num8, type11_num9, type11_num10, big_single, big_double, small_single, small_double, house, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, sum_num, hz_id, hz_user, is_deduct, create_by, create_time, update_by, update_time, remark from azxy10record
+    </sql>
+
+    <select id="selectAzxy10recordList" parameterType="Azxy10record" resultMap="Azxy10recordResult">
+        <include refid="selectAzxy10recordVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="periods != null "> and periods = #{periods}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="recordTime != null "> and record_time = #{recordTime}</if>
+            <if test="checkTime != null "> and check_time = #{checkTime}</if>
+            <if test="countMoney != null "> and count_money = #{countMoney}</if>
+            <if test="winMoney != null "> and win_money = #{winMoney}</if>
+            <if test="type1Big != null "> and type1_big = #{type1Big}</if>
+            <if test="type1Small != null "> and type1_small = #{type1Small}</if>
+            <if test="type1Single != null "> and type1_single = #{type1Single}</if>
+            <if test="type1Double != null "> and type1_double = #{type1Double}</if>
+            <if test="type1Num3 != null "> and type1_num3 = #{type1Num3}</if>
+            <if test="type1Num4 != null "> and type1_num4 = #{type1Num4}</if>
+            <if test="type1Num5 != null "> and type1_num5 = #{type1Num5}</if>
+            <if test="type1Num6 != null "> and type1_num6 = #{type1Num6}</if>
+            <if test="type1Num7 != null "> and type1_num7 = #{type1Num7}</if>
+            <if test="type1Num8 != null "> and type1_num8 = #{type1Num8}</if>
+            <if test="type1Num9 != null "> and type1_num9 = #{type1Num9}</if>
+            <if test="type1Num10 != null "> and type1_num10 = #{type1Num10}</if>
+            <if test="type1Num11 != null "> and type1_num11 = #{type1Num11}</if>
+            <if test="type1Num12 != null "> and type1_num12 = #{type1Num12}</if>
+            <if test="type1Num13 != null "> and type1_num13 = #{type1Num13}</if>
+            <if test="type1Num14 != null "> and type1_num14 = #{type1Num14}</if>
+            <if test="type1Num15 != null "> and type1_num15 = #{type1Num15}</if>
+            <if test="type1Num16 != null "> and type1_num16 = #{type1Num16}</if>
+            <if test="type1Num17 != null "> and type1_num17 = #{type1Num17}</if>
+            <if test="type1Num18 != null "> and type1_num18 = #{type1Num18}</if>
+            <if test="type1Num19 != null "> and type1_num19 = #{type1Num19}</if>
+            <if test="type2Big != null "> and type2_big = #{type2Big}</if>
+            <if test="type2Small != null "> and type2_small = #{type2Small}</if>
+            <if test="type2Single != null "> and type2_single = #{type2Single}</if>
+            <if test="type2Double != null "> and type2_double = #{type2Double}</if>
+            <if test="type2Loong != null "> and type2_loong = #{type2Loong}</if>
+            <if test="type2Tiger != null "> and type2_tiger = #{type2Tiger}</if>
+            <if test="type2Num1 != null "> and type2_num1 = #{type2Num1}</if>
+            <if test="type2Num2 != null "> and type2_num2 = #{type2Num2}</if>
+            <if test="type2Num3 != null "> and type2_num3 = #{type2Num3}</if>
+            <if test="type2Num4 != null "> and type2_num4 = #{type2Num4}</if>
+            <if test="type2Num5 != null "> and type2_num5 = #{type2Num5}</if>
+            <if test="type2Num6 != null "> and type2_num6 = #{type2Num6}</if>
+            <if test="type2Num7 != null "> and type2_num7 = #{type2Num7}</if>
+            <if test="type2Num8 != null "> and type2_num8 = #{type2Num8}</if>
+            <if test="type2Num9 != null "> and type2_num9 = #{type2Num9}</if>
+            <if test="type2Num10 != null "> and type2_num10 = #{type2Num10}</if>
+            <if test="type3Big != null "> and type3_big = #{type3Big}</if>
+            <if test="type3Small != null "> and type3_small = #{type3Small}</if>
+            <if test="type3Single != null "> and type3_single = #{type3Single}</if>
+            <if test="type3Double != null "> and type3_double = #{type3Double}</if>
+            <if test="type3Loong != null "> and type3_loong = #{type3Loong}</if>
+            <if test="type3Tiger != null "> and type3_tiger = #{type3Tiger}</if>
+            <if test="type3Num1 != null "> and type3_num1 = #{type3Num1}</if>
+            <if test="type3Num2 != null "> and type3_num2 = #{type3Num2}</if>
+            <if test="type3Num3 != null "> and type3_num3 = #{type3Num3}</if>
+            <if test="type3Num4 != null "> and type3_num4 = #{type3Num4}</if>
+            <if test="type3Num5 != null "> and type3_num5 = #{type3Num5}</if>
+            <if test="type3Num6 != null "> and type3_num6 = #{type3Num6}</if>
+            <if test="type3Num7 != null "> and type3_num7 = #{type3Num7}</if>
+            <if test="type3Num8 != null "> and type3_num8 = #{type3Num8}</if>
+            <if test="type3Num9 != null "> and type3_num9 = #{type3Num9}</if>
+            <if test="type3Num10 != null "> and type3_num10 = #{type3Num10}</if>
+            <if test="type4Big != null "> and type4_big = #{type4Big}</if>
+            <if test="type4Small != null "> and type4_small = #{type4Small}</if>
+            <if test="type4Single != null "> and type4_single = #{type4Single}</if>
+            <if test="type4Double != null "> and type4_double = #{type4Double}</if>
+            <if test="type4Loong != null "> and type4_loong = #{type4Loong}</if>
+            <if test="type4Tiger != null "> and type4_tiger = #{type4Tiger}</if>
+            <if test="type4Num1 != null "> and type4_num1 = #{type4Num1}</if>
+            <if test="type4Num2 != null "> and type4_num2 = #{type4Num2}</if>
+            <if test="type4Num3 != null "> and type4_num3 = #{type4Num3}</if>
+            <if test="type4Num4 != null "> and type4_num4 = #{type4Num4}</if>
+            <if test="type4Num5 != null "> and type4_num5 = #{type4Num5}</if>
+            <if test="type4Num6 != null "> and type4_num6 = #{type4Num6}</if>
+            <if test="type4Num7 != null "> and type4_num7 = #{type4Num7}</if>
+            <if test="type4Num8 != null "> and type4_num8 = #{type4Num8}</if>
+            <if test="type4Num9 != null "> and type4_num9 = #{type4Num9}</if>
+            <if test="type4Num10 != null "> and type4_num10 = #{type4Num10}</if>
+            <if test="type5Big != null "> and type5_big = #{type5Big}</if>
+            <if test="type5Small != null "> and type5_small = #{type5Small}</if>
+            <if test="type5Single != null "> and type5_single = #{type5Single}</if>
+            <if test="type5Double != null "> and type5_double = #{type5Double}</if>
+            <if test="type5Loong != null "> and type5_loong = #{type5Loong}</if>
+            <if test="type5Tiger != null "> and type5_tiger = #{type5Tiger}</if>
+            <if test="type5Num1 != null "> and type5_num1 = #{type5Num1}</if>
+            <if test="type5Num2 != null "> and type5_num2 = #{type5Num2}</if>
+            <if test="type5Num3 != null "> and type5_num3 = #{type5Num3}</if>
+            <if test="type5Num4 != null "> and type5_num4 = #{type5Num4}</if>
+            <if test="type5Num5 != null "> and type5_num5 = #{type5Num5}</if>
+            <if test="type5Num6 != null "> and type5_num6 = #{type5Num6}</if>
+            <if test="type5Num7 != null "> and type5_num7 = #{type5Num7}</if>
+            <if test="type5Num8 != null "> and type5_num8 = #{type5Num8}</if>
+            <if test="type5Num9 != null "> and type5_num9 = #{type5Num9}</if>
+            <if test="type5Num10 != null "> and type5_num10 = #{type5Num10}</if>
+            <if test="type6Big != null "> and type6_big = #{type6Big}</if>
+            <if test="type6Small != null "> and type6_small = #{type6Small}</if>
+            <if test="type6Single != null "> and type6_single = #{type6Single}</if>
+            <if test="type6Double != null "> and type6_double = #{type6Double}</if>
+            <if test="type6Loong != null "> and type6_loong = #{type6Loong}</if>
+            <if test="type6Tiger != null "> and type6_tiger = #{type6Tiger}</if>
+            <if test="type6Num1 != null "> and type6_num1 = #{type6Num1}</if>
+            <if test="type6Num2 != null "> and type6_num2 = #{type6Num2}</if>
+            <if test="type6Num3 != null "> and type6_num3 = #{type6Num3}</if>
+            <if test="type6Num4 != null "> and type6_num4 = #{type6Num4}</if>
+            <if test="type6Num5 != null "> and type6_num5 = #{type6Num5}</if>
+            <if test="type6Num6 != null "> and type6_num6 = #{type6Num6}</if>
+            <if test="type6Num7 != null "> and type6_num7 = #{type6Num7}</if>
+            <if test="type6Num8 != null "> and type6_num8 = #{type6Num8}</if>
+            <if test="type6Num9 != null "> and type6_num9 = #{type6Num9}</if>
+            <if test="type6Num10 != null "> and type6_num10 = #{type6Num10}</if>
+            <if test="type7Big != null "> and type7_big = #{type7Big}</if>
+            <if test="type7Small != null "> and type7_small = #{type7Small}</if>
+            <if test="type7Single != null "> and type7_single = #{type7Single}</if>
+            <if test="type7Double != null "> and type7_double = #{type7Double}</if>
+            <if test="type7Loong != null "> and type7_loong = #{type7Loong}</if>
+            <if test="type7Tiger != null "> and type7_tiger = #{type7Tiger}</if>
+            <if test="type7Num1 != null "> and type7_num1 = #{type7Num1}</if>
+            <if test="type7Num2 != null "> and type7_num2 = #{type7Num2}</if>
+            <if test="type7Num3 != null "> and type7_num3 = #{type7Num3}</if>
+            <if test="type7Num4 != null "> and type7_num4 = #{type7Num4}</if>
+            <if test="type7Num5 != null "> and type7_num5 = #{type7Num5}</if>
+            <if test="type7Num6 != null "> and type7_num6 = #{type7Num6}</if>
+            <if test="type7Num7 != null "> and type7_num7 = #{type7Num7}</if>
+            <if test="type7Num8 != null "> and type7_num8 = #{type7Num8}</if>
+            <if test="type7Num9 != null "> and type7_num9 = #{type7Num9}</if>
+            <if test="type7Num10 != null "> and type7_num10 = #{type7Num10}</if>
+            <if test="type8Big != null "> and type8_big = #{type8Big}</if>
+            <if test="type8Small != null "> and type8_small = #{type8Small}</if>
+            <if test="type8Single != null "> and type8_single = #{type8Single}</if>
+            <if test="type8Double != null "> and type8_double = #{type8Double}</if>
+            <if test="type8Loong != null "> and type8_loong = #{type8Loong}</if>
+            <if test="type8Tiger != null "> and type8_tiger = #{type8Tiger}</if>
+            <if test="type8Num1 != null "> and type8_num1 = #{type8Num1}</if>
+            <if test="type8Num2 != null "> and type8_num2 = #{type8Num2}</if>
+            <if test="type8Num3 != null "> and type8_num3 = #{type8Num3}</if>
+            <if test="type8Num4 != null "> and type8_num4 = #{type8Num4}</if>
+            <if test="type8Num5 != null "> and type8_num5 = #{type8Num5}</if>
+            <if test="type8Num6 != null "> and type8_num6 = #{type8Num6}</if>
+            <if test="type8Num7 != null "> and type8_num7 = #{type8Num7}</if>
+            <if test="type8Num8 != null "> and type8_num8 = #{type8Num8}</if>
+            <if test="type8Num9 != null "> and type8_num9 = #{type8Num9}</if>
+            <if test="type8Num10 != null "> and type8_num10 = #{type8Num10}</if>
+            <if test="type9Big != null "> and type9_big = #{type9Big}</if>
+            <if test="type9Small != null "> and type9_small = #{type9Small}</if>
+            <if test="type9Single != null "> and type9_single = #{type9Single}</if>
+            <if test="type9Double != null "> and type9_double = #{type9Double}</if>
+            <if test="type9Loong != null "> and type9_loong = #{type9Loong}</if>
+            <if test="type9Tiger != null "> and type9_tiger = #{type9Tiger}</if>
+            <if test="type9Num1 != null "> and type9_num1 = #{type9Num1}</if>
+            <if test="type9Num2 != null "> and type9_num2 = #{type9Num2}</if>
+            <if test="type9Num3 != null "> and type9_num3 = #{type9Num3}</if>
+            <if test="type9Num4 != null "> and type9_num4 = #{type9Num4}</if>
+            <if test="type9Num5 != null "> and type9_num5 = #{type9Num5}</if>
+            <if test="type9Num6 != null "> and type9_num6 = #{type9Num6}</if>
+            <if test="type9Num7 != null "> and type9_num7 = #{type9Num7}</if>
+            <if test="type9Num8 != null "> and type9_num8 = #{type9Num8}</if>
+            <if test="type9Num9 != null "> and type9_num9 = #{type9Num9}</if>
+            <if test="type9Num10 != null "> and type9_num10 = #{type9Num10}</if>
+            <if test="type10Big != null "> and type10_big = #{type10Big}</if>
+            <if test="type10Small != null "> and type10_small = #{type10Small}</if>
+            <if test="type10Single != null "> and type10_single = #{type10Single}</if>
+            <if test="type10Double != null "> and type10_double = #{type10Double}</if>
+            <if test="type10Loong != null "> and type10_loong = #{type10Loong}</if>
+            <if test="type10Tiger != null "> and type10_tiger = #{type10Tiger}</if>
+            <if test="type10Num1 != null "> and type10_num1 = #{type10Num1}</if>
+            <if test="type10Num2 != null "> and type10_num2 = #{type10Num2}</if>
+            <if test="type10Num3 != null "> and type10_num3 = #{type10Num3}</if>
+            <if test="type10Num4 != null "> and type10_num4 = #{type10Num4}</if>
+            <if test="type10Num5 != null "> and type10_num5 = #{type10Num5}</if>
+            <if test="type10Num6 != null "> and type10_num6 = #{type10Num6}</if>
+            <if test="type10Num7 != null "> and type10_num7 = #{type10Num7}</if>
+            <if test="type10Num8 != null "> and type10_num8 = #{type10Num8}</if>
+            <if test="type10Num9 != null "> and type10_num9 = #{type10Num9}</if>
+            <if test="type10Num10 != null "> and type10_num10 = #{type10Num10}</if>
+            <if test="type11Big != null "> and type11_big = #{type11Big}</if>
+            <if test="type11Small != null "> and type11_small = #{type11Small}</if>
+            <if test="type11Single != null "> and type11_single = #{type11Single}</if>
+            <if test="type11Double != null "> and type11_double = #{type11Double}</if>
+            <if test="type11Loong != null "> and type11_loong = #{type11Loong}</if>
+            <if test="type11Tiger != null "> and type11_tiger = #{type11Tiger}</if>
+            <if test="type11Num1 != null "> and type11_num1 = #{type11Num1}</if>
+            <if test="type11Num2 != null "> and type11_num2 = #{type11Num2}</if>
+            <if test="type11Num3 != null "> and type11_num3 = #{type11Num3}</if>
+            <if test="type11Num4 != null "> and type11_num4 = #{type11Num4}</if>
+            <if test="type11Num5 != null "> and type11_num5 = #{type11Num5}</if>
+            <if test="type11Num6 != null "> and type11_num6 = #{type11Num6}</if>
+            <if test="type11Num7 != null "> and type11_num7 = #{type11Num7}</if>
+            <if test="type11Num8 != null "> and type11_num8 = #{type11Num8}</if>
+            <if test="type11Num9 != null "> and type11_num9 = #{type11Num9}</if>
+            <if test="type11Num10 != null "> and type11_num10 = #{type11Num10}</if>
+            <if test="bigSingle != null "> and big_single = #{bigSingle}</if>
+            <if test="bigDouble != null "> and big_double = #{bigDouble}</if>
+            <if test="smallSingle != null "> and small_single = #{smallSingle}</if>
+            <if test="smallDouble != null "> and small_double = #{smallDouble}</if>
+            <if test="house != null "> and house = #{house}</if>
+            <if test="num1 != null "> and num1 = #{num1}</if>
+            <if test="num2 != null "> and num2 = #{num2}</if>
+            <if test="num3 != null "> and num3 = #{num3}</if>
+            <if test="num4 != null "> and num4 = #{num4}</if>
+            <if test="num5 != null "> and num5 = #{num5}</if>
+            <if test="num6 != null "> and num6 = #{num6}</if>
+            <if test="num7 != null "> and num7 = #{num7}</if>
+            <if test="num8 != null "> and num8 = #{num8}</if>
+            <if test="num9 != null "> and num9 = #{num9}</if>
+            <if test="num10 != null "> and num10 = #{num10}</if>
+            <if test="sumNum != null "> and sum_num = #{sumNum}</if>
+            <if test="hzId != null "> and hz_id = #{hzId}</if>
+            <if test="hzUser != null "> and hz_user = #{hzUser}</if>
+            <if test="isDeduct != null "> and is_deduct = #{isDeduct}</if>
+        </where>
+    </select>
+    
+    <select id="selectAzxy10recordById" parameterType="Long" resultMap="Azxy10recordResult">
+        <include refid="selectAzxy10recordVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAzxy10record" parameterType="Azxy10record" useGeneratedKeys="true" keyProperty="id">
+        insert into azxy10record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="periods != null">periods,</if>
+            <if test="status != null">status,</if>
+            <if test="recordTime != null">record_time,</if>
+            <if test="checkTime != null">check_time,</if>
+            <if test="countMoney != null">count_money,</if>
+            <if test="winMoney != null">win_money,</if>
+            <if test="type1Big != null">type1_big,</if>
+            <if test="type1Small != null">type1_small,</if>
+            <if test="type1Single != null">type1_single,</if>
+            <if test="type1Double != null">type1_double,</if>
+            <if test="type1Num3 != null">type1_num3,</if>
+            <if test="type1Num4 != null">type1_num4,</if>
+            <if test="type1Num5 != null">type1_num5,</if>
+            <if test="type1Num6 != null">type1_num6,</if>
+            <if test="type1Num7 != null">type1_num7,</if>
+            <if test="type1Num8 != null">type1_num8,</if>
+            <if test="type1Num9 != null">type1_num9,</if>
+            <if test="type1Num10 != null">type1_num10,</if>
+            <if test="type1Num11 != null">type1_num11,</if>
+            <if test="type1Num12 != null">type1_num12,</if>
+            <if test="type1Num13 != null">type1_num13,</if>
+            <if test="type1Num14 != null">type1_num14,</if>
+            <if test="type1Num15 != null">type1_num15,</if>
+            <if test="type1Num16 != null">type1_num16,</if>
+            <if test="type1Num17 != null">type1_num17,</if>
+            <if test="type1Num18 != null">type1_num18,</if>
+            <if test="type1Num19 != null">type1_num19,</if>
+            <if test="type2Big != null">type2_big,</if>
+            <if test="type2Small != null">type2_small,</if>
+            <if test="type2Single != null">type2_single,</if>
+            <if test="type2Double != null">type2_double,</if>
+            <if test="type2Loong != null">type2_loong,</if>
+            <if test="type2Tiger != null">type2_tiger,</if>
+            <if test="type2Num1 != null">type2_num1,</if>
+            <if test="type2Num2 != null">type2_num2,</if>
+            <if test="type2Num3 != null">type2_num3,</if>
+            <if test="type2Num4 != null">type2_num4,</if>
+            <if test="type2Num5 != null">type2_num5,</if>
+            <if test="type2Num6 != null">type2_num6,</if>
+            <if test="type2Num7 != null">type2_num7,</if>
+            <if test="type2Num8 != null">type2_num8,</if>
+            <if test="type2Num9 != null">type2_num9,</if>
+            <if test="type2Num10 != null">type2_num10,</if>
+            <if test="type3Big != null">type3_big,</if>
+            <if test="type3Small != null">type3_small,</if>
+            <if test="type3Single != null">type3_single,</if>
+            <if test="type3Double != null">type3_double,</if>
+            <if test="type3Loong != null">type3_loong,</if>
+            <if test="type3Tiger != null">type3_tiger,</if>
+            <if test="type3Num1 != null">type3_num1,</if>
+            <if test="type3Num2 != null">type3_num2,</if>
+            <if test="type3Num3 != null">type3_num3,</if>
+            <if test="type3Num4 != null">type3_num4,</if>
+            <if test="type3Num5 != null">type3_num5,</if>
+            <if test="type3Num6 != null">type3_num6,</if>
+            <if test="type3Num7 != null">type3_num7,</if>
+            <if test="type3Num8 != null">type3_num8,</if>
+            <if test="type3Num9 != null">type3_num9,</if>
+            <if test="type3Num10 != null">type3_num10,</if>
+            <if test="type4Big != null">type4_big,</if>
+            <if test="type4Small != null">type4_small,</if>
+            <if test="type4Single != null">type4_single,</if>
+            <if test="type4Double != null">type4_double,</if>
+            <if test="type4Loong != null">type4_loong,</if>
+            <if test="type4Tiger != null">type4_tiger,</if>
+            <if test="type4Num1 != null">type4_num1,</if>
+            <if test="type4Num2 != null">type4_num2,</if>
+            <if test="type4Num3 != null">type4_num3,</if>
+            <if test="type4Num4 != null">type4_num4,</if>
+            <if test="type4Num5 != null">type4_num5,</if>
+            <if test="type4Num6 != null">type4_num6,</if>
+            <if test="type4Num7 != null">type4_num7,</if>
+            <if test="type4Num8 != null">type4_num8,</if>
+            <if test="type4Num9 != null">type4_num9,</if>
+            <if test="type4Num10 != null">type4_num10,</if>
+            <if test="type5Big != null">type5_big,</if>
+            <if test="type5Small != null">type5_small,</if>
+            <if test="type5Single != null">type5_single,</if>
+            <if test="type5Double != null">type5_double,</if>
+            <if test="type5Loong != null">type5_loong,</if>
+            <if test="type5Tiger != null">type5_tiger,</if>
+            <if test="type5Num1 != null">type5_num1,</if>
+            <if test="type5Num2 != null">type5_num2,</if>
+            <if test="type5Num3 != null">type5_num3,</if>
+            <if test="type5Num4 != null">type5_num4,</if>
+            <if test="type5Num5 != null">type5_num5,</if>
+            <if test="type5Num6 != null">type5_num6,</if>
+            <if test="type5Num7 != null">type5_num7,</if>
+            <if test="type5Num8 != null">type5_num8,</if>
+            <if test="type5Num9 != null">type5_num9,</if>
+            <if test="type5Num10 != null">type5_num10,</if>
+            <if test="type6Big != null">type6_big,</if>
+            <if test="type6Small != null">type6_small,</if>
+            <if test="type6Single != null">type6_single,</if>
+            <if test="type6Double != null">type6_double,</if>
+            <if test="type6Loong != null">type6_loong,</if>
+            <if test="type6Tiger != null">type6_tiger,</if>
+            <if test="type6Num1 != null">type6_num1,</if>
+            <if test="type6Num2 != null">type6_num2,</if>
+            <if test="type6Num3 != null">type6_num3,</if>
+            <if test="type6Num4 != null">type6_num4,</if>
+            <if test="type6Num5 != null">type6_num5,</if>
+            <if test="type6Num6 != null">type6_num6,</if>
+            <if test="type6Num7 != null">type6_num7,</if>
+            <if test="type6Num8 != null">type6_num8,</if>
+            <if test="type6Num9 != null">type6_num9,</if>
+            <if test="type6Num10 != null">type6_num10,</if>
+            <if test="type7Big != null">type7_big,</if>
+            <if test="type7Small != null">type7_small,</if>
+            <if test="type7Single != null">type7_single,</if>
+            <if test="type7Double != null">type7_double,</if>
+            <if test="type7Loong != null">type7_loong,</if>
+            <if test="type7Tiger != null">type7_tiger,</if>
+            <if test="type7Num1 != null">type7_num1,</if>
+            <if test="type7Num2 != null">type7_num2,</if>
+            <if test="type7Num3 != null">type7_num3,</if>
+            <if test="type7Num4 != null">type7_num4,</if>
+            <if test="type7Num5 != null">type7_num5,</if>
+            <if test="type7Num6 != null">type7_num6,</if>
+            <if test="type7Num7 != null">type7_num7,</if>
+            <if test="type7Num8 != null">type7_num8,</if>
+            <if test="type7Num9 != null">type7_num9,</if>
+            <if test="type7Num10 != null">type7_num10,</if>
+            <if test="type8Big != null">type8_big,</if>
+            <if test="type8Small != null">type8_small,</if>
+            <if test="type8Single != null">type8_single,</if>
+            <if test="type8Double != null">type8_double,</if>
+            <if test="type8Loong != null">type8_loong,</if>
+            <if test="type8Tiger != null">type8_tiger,</if>
+            <if test="type8Num1 != null">type8_num1,</if>
+            <if test="type8Num2 != null">type8_num2,</if>
+            <if test="type8Num3 != null">type8_num3,</if>
+            <if test="type8Num4 != null">type8_num4,</if>
+            <if test="type8Num5 != null">type8_num5,</if>
+            <if test="type8Num6 != null">type8_num6,</if>
+            <if test="type8Num7 != null">type8_num7,</if>
+            <if test="type8Num8 != null">type8_num8,</if>
+            <if test="type8Num9 != null">type8_num9,</if>
+            <if test="type8Num10 != null">type8_num10,</if>
+            <if test="type9Big != null">type9_big,</if>
+            <if test="type9Small != null">type9_small,</if>
+            <if test="type9Single != null">type9_single,</if>
+            <if test="type9Double != null">type9_double,</if>
+            <if test="type9Loong != null">type9_loong,</if>
+            <if test="type9Tiger != null">type9_tiger,</if>
+            <if test="type9Num1 != null">type9_num1,</if>
+            <if test="type9Num2 != null">type9_num2,</if>
+            <if test="type9Num3 != null">type9_num3,</if>
+            <if test="type9Num4 != null">type9_num4,</if>
+            <if test="type9Num5 != null">type9_num5,</if>
+            <if test="type9Num6 != null">type9_num6,</if>
+            <if test="type9Num7 != null">type9_num7,</if>
+            <if test="type9Num8 != null">type9_num8,</if>
+            <if test="type9Num9 != null">type9_num9,</if>
+            <if test="type9Num10 != null">type9_num10,</if>
+            <if test="type10Big != null">type10_big,</if>
+            <if test="type10Small != null">type10_small,</if>
+            <if test="type10Single != null">type10_single,</if>
+            <if test="type10Double != null">type10_double,</if>
+            <if test="type10Loong != null">type10_loong,</if>
+            <if test="type10Tiger != null">type10_tiger,</if>
+            <if test="type10Num1 != null">type10_num1,</if>
+            <if test="type10Num2 != null">type10_num2,</if>
+            <if test="type10Num3 != null">type10_num3,</if>
+            <if test="type10Num4 != null">type10_num4,</if>
+            <if test="type10Num5 != null">type10_num5,</if>
+            <if test="type10Num6 != null">type10_num6,</if>
+            <if test="type10Num7 != null">type10_num7,</if>
+            <if test="type10Num8 != null">type10_num8,</if>
+            <if test="type10Num9 != null">type10_num9,</if>
+            <if test="type10Num10 != null">type10_num10,</if>
+            <if test="type11Big != null">type11_big,</if>
+            <if test="type11Small != null">type11_small,</if>
+            <if test="type11Single != null">type11_single,</if>
+            <if test="type11Double != null">type11_double,</if>
+            <if test="type11Loong != null">type11_loong,</if>
+            <if test="type11Tiger != null">type11_tiger,</if>
+            <if test="type11Num1 != null">type11_num1,</if>
+            <if test="type11Num2 != null">type11_num2,</if>
+            <if test="type11Num3 != null">type11_num3,</if>
+            <if test="type11Num4 != null">type11_num4,</if>
+            <if test="type11Num5 != null">type11_num5,</if>
+            <if test="type11Num6 != null">type11_num6,</if>
+            <if test="type11Num7 != null">type11_num7,</if>
+            <if test="type11Num8 != null">type11_num8,</if>
+            <if test="type11Num9 != null">type11_num9,</if>
+            <if test="type11Num10 != null">type11_num10,</if>
+            <if test="bigSingle != null">big_single,</if>
+            <if test="bigDouble != null">big_double,</if>
+            <if test="smallSingle != null">small_single,</if>
+            <if test="smallDouble != null">small_double,</if>
+            <if test="house != null">house,</if>
+            <if test="num1 != null">num1,</if>
+            <if test="num2 != null">num2,</if>
+            <if test="num3 != null">num3,</if>
+            <if test="num4 != null">num4,</if>
+            <if test="num5 != null">num5,</if>
+            <if test="num6 != null">num6,</if>
+            <if test="num7 != null">num7,</if>
+            <if test="num8 != null">num8,</if>
+            <if test="num9 != null">num9,</if>
+            <if test="num10 != null">num10,</if>
+            <if test="sumNum != null">sum_num,</if>
+            <if test="hzId != null">hz_id,</if>
+            <if test="hzUser != null">hz_user,</if>
+            <if test="isDeduct != null">is_deduct,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="periods != null">#{periods},</if>
+            <if test="status != null">#{status},</if>
+            <if test="recordTime != null">#{recordTime},</if>
+            <if test="checkTime != null">#{checkTime},</if>
+            <if test="countMoney != null">#{countMoney},</if>
+            <if test="winMoney != null">#{winMoney},</if>
+            <if test="type1Big != null">#{type1Big},</if>
+            <if test="type1Small != null">#{type1Small},</if>
+            <if test="type1Single != null">#{type1Single},</if>
+            <if test="type1Double != null">#{type1Double},</if>
+            <if test="type1Num3 != null">#{type1Num3},</if>
+            <if test="type1Num4 != null">#{type1Num4},</if>
+            <if test="type1Num5 != null">#{type1Num5},</if>
+            <if test="type1Num6 != null">#{type1Num6},</if>
+            <if test="type1Num7 != null">#{type1Num7},</if>
+            <if test="type1Num8 != null">#{type1Num8},</if>
+            <if test="type1Num9 != null">#{type1Num9},</if>
+            <if test="type1Num10 != null">#{type1Num10},</if>
+            <if test="type1Num11 != null">#{type1Num11},</if>
+            <if test="type1Num12 != null">#{type1Num12},</if>
+            <if test="type1Num13 != null">#{type1Num13},</if>
+            <if test="type1Num14 != null">#{type1Num14},</if>
+            <if test="type1Num15 != null">#{type1Num15},</if>
+            <if test="type1Num16 != null">#{type1Num16},</if>
+            <if test="type1Num17 != null">#{type1Num17},</if>
+            <if test="type1Num18 != null">#{type1Num18},</if>
+            <if test="type1Num19 != null">#{type1Num19},</if>
+            <if test="type2Big != null">#{type2Big},</if>
+            <if test="type2Small != null">#{type2Small},</if>
+            <if test="type2Single != null">#{type2Single},</if>
+            <if test="type2Double != null">#{type2Double},</if>
+            <if test="type2Loong != null">#{type2Loong},</if>
+            <if test="type2Tiger != null">#{type2Tiger},</if>
+            <if test="type2Num1 != null">#{type2Num1},</if>
+            <if test="type2Num2 != null">#{type2Num2},</if>
+            <if test="type2Num3 != null">#{type2Num3},</if>
+            <if test="type2Num4 != null">#{type2Num4},</if>
+            <if test="type2Num5 != null">#{type2Num5},</if>
+            <if test="type2Num6 != null">#{type2Num6},</if>
+            <if test="type2Num7 != null">#{type2Num7},</if>
+            <if test="type2Num8 != null">#{type2Num8},</if>
+            <if test="type2Num9 != null">#{type2Num9},</if>
+            <if test="type2Num10 != null">#{type2Num10},</if>
+            <if test="type3Big != null">#{type3Big},</if>
+            <if test="type3Small != null">#{type3Small},</if>
+            <if test="type3Single != null">#{type3Single},</if>
+            <if test="type3Double != null">#{type3Double},</if>
+            <if test="type3Loong != null">#{type3Loong},</if>
+            <if test="type3Tiger != null">#{type3Tiger},</if>
+            <if test="type3Num1 != null">#{type3Num1},</if>
+            <if test="type3Num2 != null">#{type3Num2},</if>
+            <if test="type3Num3 != null">#{type3Num3},</if>
+            <if test="type3Num4 != null">#{type3Num4},</if>
+            <if test="type3Num5 != null">#{type3Num5},</if>
+            <if test="type3Num6 != null">#{type3Num6},</if>
+            <if test="type3Num7 != null">#{type3Num7},</if>
+            <if test="type3Num8 != null">#{type3Num8},</if>
+            <if test="type3Num9 != null">#{type3Num9},</if>
+            <if test="type3Num10 != null">#{type3Num10},</if>
+            <if test="type4Big != null">#{type4Big},</if>
+            <if test="type4Small != null">#{type4Small},</if>
+            <if test="type4Single != null">#{type4Single},</if>
+            <if test="type4Double != null">#{type4Double},</if>
+            <if test="type4Loong != null">#{type4Loong},</if>
+            <if test="type4Tiger != null">#{type4Tiger},</if>
+            <if test="type4Num1 != null">#{type4Num1},</if>
+            <if test="type4Num2 != null">#{type4Num2},</if>
+            <if test="type4Num3 != null">#{type4Num3},</if>
+            <if test="type4Num4 != null">#{type4Num4},</if>
+            <if test="type4Num5 != null">#{type4Num5},</if>
+            <if test="type4Num6 != null">#{type4Num6},</if>
+            <if test="type4Num7 != null">#{type4Num7},</if>
+            <if test="type4Num8 != null">#{type4Num8},</if>
+            <if test="type4Num9 != null">#{type4Num9},</if>
+            <if test="type4Num10 != null">#{type4Num10},</if>
+            <if test="type5Big != null">#{type5Big},</if>
+            <if test="type5Small != null">#{type5Small},</if>
+            <if test="type5Single != null">#{type5Single},</if>
+            <if test="type5Double != null">#{type5Double},</if>
+            <if test="type5Loong != null">#{type5Loong},</if>
+            <if test="type5Tiger != null">#{type5Tiger},</if>
+            <if test="type5Num1 != null">#{type5Num1},</if>
+            <if test="type5Num2 != null">#{type5Num2},</if>
+            <if test="type5Num3 != null">#{type5Num3},</if>
+            <if test="type5Num4 != null">#{type5Num4},</if>
+            <if test="type5Num5 != null">#{type5Num5},</if>
+            <if test="type5Num6 != null">#{type5Num6},</if>
+            <if test="type5Num7 != null">#{type5Num7},</if>
+            <if test="type5Num8 != null">#{type5Num8},</if>
+            <if test="type5Num9 != null">#{type5Num9},</if>
+            <if test="type5Num10 != null">#{type5Num10},</if>
+            <if test="type6Big != null">#{type6Big},</if>
+            <if test="type6Small != null">#{type6Small},</if>
+            <if test="type6Single != null">#{type6Single},</if>
+            <if test="type6Double != null">#{type6Double},</if>
+            <if test="type6Loong != null">#{type6Loong},</if>
+            <if test="type6Tiger != null">#{type6Tiger},</if>
+            <if test="type6Num1 != null">#{type6Num1},</if>
+            <if test="type6Num2 != null">#{type6Num2},</if>
+            <if test="type6Num3 != null">#{type6Num3},</if>
+            <if test="type6Num4 != null">#{type6Num4},</if>
+            <if test="type6Num5 != null">#{type6Num5},</if>
+            <if test="type6Num6 != null">#{type6Num6},</if>
+            <if test="type6Num7 != null">#{type6Num7},</if>
+            <if test="type6Num8 != null">#{type6Num8},</if>
+            <if test="type6Num9 != null">#{type6Num9},</if>
+            <if test="type6Num10 != null">#{type6Num10},</if>
+            <if test="type7Big != null">#{type7Big},</if>
+            <if test="type7Small != null">#{type7Small},</if>
+            <if test="type7Single != null">#{type7Single},</if>
+            <if test="type7Double != null">#{type7Double},</if>
+            <if test="type7Loong != null">#{type7Loong},</if>
+            <if test="type7Tiger != null">#{type7Tiger},</if>
+            <if test="type7Num1 != null">#{type7Num1},</if>
+            <if test="type7Num2 != null">#{type7Num2},</if>
+            <if test="type7Num3 != null">#{type7Num3},</if>
+            <if test="type7Num4 != null">#{type7Num4},</if>
+            <if test="type7Num5 != null">#{type7Num5},</if>
+            <if test="type7Num6 != null">#{type7Num6},</if>
+            <if test="type7Num7 != null">#{type7Num7},</if>
+            <if test="type7Num8 != null">#{type7Num8},</if>
+            <if test="type7Num9 != null">#{type7Num9},</if>
+            <if test="type7Num10 != null">#{type7Num10},</if>
+            <if test="type8Big != null">#{type8Big},</if>
+            <if test="type8Small != null">#{type8Small},</if>
+            <if test="type8Single != null">#{type8Single},</if>
+            <if test="type8Double != null">#{type8Double},</if>
+            <if test="type8Loong != null">#{type8Loong},</if>
+            <if test="type8Tiger != null">#{type8Tiger},</if>
+            <if test="type8Num1 != null">#{type8Num1},</if>
+            <if test="type8Num2 != null">#{type8Num2},</if>
+            <if test="type8Num3 != null">#{type8Num3},</if>
+            <if test="type8Num4 != null">#{type8Num4},</if>
+            <if test="type8Num5 != null">#{type8Num5},</if>
+            <if test="type8Num6 != null">#{type8Num6},</if>
+            <if test="type8Num7 != null">#{type8Num7},</if>
+            <if test="type8Num8 != null">#{type8Num8},</if>
+            <if test="type8Num9 != null">#{type8Num9},</if>
+            <if test="type8Num10 != null">#{type8Num10},</if>
+            <if test="type9Big != null">#{type9Big},</if>
+            <if test="type9Small != null">#{type9Small},</if>
+            <if test="type9Single != null">#{type9Single},</if>
+            <if test="type9Double != null">#{type9Double},</if>
+            <if test="type9Loong != null">#{type9Loong},</if>
+            <if test="type9Tiger != null">#{type9Tiger},</if>
+            <if test="type9Num1 != null">#{type9Num1},</if>
+            <if test="type9Num2 != null">#{type9Num2},</if>
+            <if test="type9Num3 != null">#{type9Num3},</if>
+            <if test="type9Num4 != null">#{type9Num4},</if>
+            <if test="type9Num5 != null">#{type9Num5},</if>
+            <if test="type9Num6 != null">#{type9Num6},</if>
+            <if test="type9Num7 != null">#{type9Num7},</if>
+            <if test="type9Num8 != null">#{type9Num8},</if>
+            <if test="type9Num9 != null">#{type9Num9},</if>
+            <if test="type9Num10 != null">#{type9Num10},</if>
+            <if test="type10Big != null">#{type10Big},</if>
+            <if test="type10Small != null">#{type10Small},</if>
+            <if test="type10Single != null">#{type10Single},</if>
+            <if test="type10Double != null">#{type10Double},</if>
+            <if test="type10Loong != null">#{type10Loong},</if>
+            <if test="type10Tiger != null">#{type10Tiger},</if>
+            <if test="type10Num1 != null">#{type10Num1},</if>
+            <if test="type10Num2 != null">#{type10Num2},</if>
+            <if test="type10Num3 != null">#{type10Num3},</if>
+            <if test="type10Num4 != null">#{type10Num4},</if>
+            <if test="type10Num5 != null">#{type10Num5},</if>
+            <if test="type10Num6 != null">#{type10Num6},</if>
+            <if test="type10Num7 != null">#{type10Num7},</if>
+            <if test="type10Num8 != null">#{type10Num8},</if>
+            <if test="type10Num9 != null">#{type10Num9},</if>
+            <if test="type10Num10 != null">#{type10Num10},</if>
+            <if test="type11Big != null">#{type11Big},</if>
+            <if test="type11Small != null">#{type11Small},</if>
+            <if test="type11Single != null">#{type11Single},</if>
+            <if test="type11Double != null">#{type11Double},</if>
+            <if test="type11Loong != null">#{type11Loong},</if>
+            <if test="type11Tiger != null">#{type11Tiger},</if>
+            <if test="type11Num1 != null">#{type11Num1},</if>
+            <if test="type11Num2 != null">#{type11Num2},</if>
+            <if test="type11Num3 != null">#{type11Num3},</if>
+            <if test="type11Num4 != null">#{type11Num4},</if>
+            <if test="type11Num5 != null">#{type11Num5},</if>
+            <if test="type11Num6 != null">#{type11Num6},</if>
+            <if test="type11Num7 != null">#{type11Num7},</if>
+            <if test="type11Num8 != null">#{type11Num8},</if>
+            <if test="type11Num9 != null">#{type11Num9},</if>
+            <if test="type11Num10 != null">#{type11Num10},</if>
+            <if test="bigSingle != null">#{bigSingle},</if>
+            <if test="bigDouble != null">#{bigDouble},</if>
+            <if test="smallSingle != null">#{smallSingle},</if>
+            <if test="smallDouble != null">#{smallDouble},</if>
+            <if test="house != null">#{house},</if>
+            <if test="num1 != null">#{num1},</if>
+            <if test="num2 != null">#{num2},</if>
+            <if test="num3 != null">#{num3},</if>
+            <if test="num4 != null">#{num4},</if>
+            <if test="num5 != null">#{num5},</if>
+            <if test="num6 != null">#{num6},</if>
+            <if test="num7 != null">#{num7},</if>
+            <if test="num8 != null">#{num8},</if>
+            <if test="num9 != null">#{num9},</if>
+            <if test="num10 != null">#{num10},</if>
+            <if test="sumNum != null">#{sumNum},</if>
+            <if test="hzId != null">#{hzId},</if>
+            <if test="hzUser != null">#{hzUser},</if>
+            <if test="isDeduct != null">#{isDeduct},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAzxy10record" parameterType="Azxy10record">
+        update azxy10record
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="periods != null">periods = #{periods},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="recordTime != null">record_time = #{recordTime},</if>
+            <if test="checkTime != null">check_time = #{checkTime},</if>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="type1Big != null">type1_big = #{type1Big},</if>
+            <if test="type1Small != null">type1_small = #{type1Small},</if>
+            <if test="type1Single != null">type1_single = #{type1Single},</if>
+            <if test="type1Double != null">type1_double = #{type1Double},</if>
+            <if test="type1Num3 != null">type1_num3 = #{type1Num3},</if>
+            <if test="type1Num4 != null">type1_num4 = #{type1Num4},</if>
+            <if test="type1Num5 != null">type1_num5 = #{type1Num5},</if>
+            <if test="type1Num6 != null">type1_num6 = #{type1Num6},</if>
+            <if test="type1Num7 != null">type1_num7 = #{type1Num7},</if>
+            <if test="type1Num8 != null">type1_num8 = #{type1Num8},</if>
+            <if test="type1Num9 != null">type1_num9 = #{type1Num9},</if>
+            <if test="type1Num10 != null">type1_num10 = #{type1Num10},</if>
+            <if test="type1Num11 != null">type1_num11 = #{type1Num11},</if>
+            <if test="type1Num12 != null">type1_num12 = #{type1Num12},</if>
+            <if test="type1Num13 != null">type1_num13 = #{type1Num13},</if>
+            <if test="type1Num14 != null">type1_num14 = #{type1Num14},</if>
+            <if test="type1Num15 != null">type1_num15 = #{type1Num15},</if>
+            <if test="type1Num16 != null">type1_num16 = #{type1Num16},</if>
+            <if test="type1Num17 != null">type1_num17 = #{type1Num17},</if>
+            <if test="type1Num18 != null">type1_num18 = #{type1Num18},</if>
+            <if test="type1Num19 != null">type1_num19 = #{type1Num19},</if>
+            <if test="type2Big != null">type2_big = #{type2Big},</if>
+            <if test="type2Small != null">type2_small = #{type2Small},</if>
+            <if test="type2Single != null">type2_single = #{type2Single},</if>
+            <if test="type2Double != null">type2_double = #{type2Double},</if>
+            <if test="type2Loong != null">type2_loong = #{type2Loong},</if>
+            <if test="type2Tiger != null">type2_tiger = #{type2Tiger},</if>
+            <if test="type2Num1 != null">type2_num1 = #{type2Num1},</if>
+            <if test="type2Num2 != null">type2_num2 = #{type2Num2},</if>
+            <if test="type2Num3 != null">type2_num3 = #{type2Num3},</if>
+            <if test="type2Num4 != null">type2_num4 = #{type2Num4},</if>
+            <if test="type2Num5 != null">type2_num5 = #{type2Num5},</if>
+            <if test="type2Num6 != null">type2_num6 = #{type2Num6},</if>
+            <if test="type2Num7 != null">type2_num7 = #{type2Num7},</if>
+            <if test="type2Num8 != null">type2_num8 = #{type2Num8},</if>
+            <if test="type2Num9 != null">type2_num9 = #{type2Num9},</if>
+            <if test="type2Num10 != null">type2_num10 = #{type2Num10},</if>
+            <if test="type3Big != null">type3_big = #{type3Big},</if>
+            <if test="type3Small != null">type3_small = #{type3Small},</if>
+            <if test="type3Single != null">type3_single = #{type3Single},</if>
+            <if test="type3Double != null">type3_double = #{type3Double},</if>
+            <if test="type3Loong != null">type3_loong = #{type3Loong},</if>
+            <if test="type3Tiger != null">type3_tiger = #{type3Tiger},</if>
+            <if test="type3Num1 != null">type3_num1 = #{type3Num1},</if>
+            <if test="type3Num2 != null">type3_num2 = #{type3Num2},</if>
+            <if test="type3Num3 != null">type3_num3 = #{type3Num3},</if>
+            <if test="type3Num4 != null">type3_num4 = #{type3Num4},</if>
+            <if test="type3Num5 != null">type3_num5 = #{type3Num5},</if>
+            <if test="type3Num6 != null">type3_num6 = #{type3Num6},</if>
+            <if test="type3Num7 != null">type3_num7 = #{type3Num7},</if>
+            <if test="type3Num8 != null">type3_num8 = #{type3Num8},</if>
+            <if test="type3Num9 != null">type3_num9 = #{type3Num9},</if>
+            <if test="type3Num10 != null">type3_num10 = #{type3Num10},</if>
+            <if test="type4Big != null">type4_big = #{type4Big},</if>
+            <if test="type4Small != null">type4_small = #{type4Small},</if>
+            <if test="type4Single != null">type4_single = #{type4Single},</if>
+            <if test="type4Double != null">type4_double = #{type4Double},</if>
+            <if test="type4Loong != null">type4_loong = #{type4Loong},</if>
+            <if test="type4Tiger != null">type4_tiger = #{type4Tiger},</if>
+            <if test="type4Num1 != null">type4_num1 = #{type4Num1},</if>
+            <if test="type4Num2 != null">type4_num2 = #{type4Num2},</if>
+            <if test="type4Num3 != null">type4_num3 = #{type4Num3},</if>
+            <if test="type4Num4 != null">type4_num4 = #{type4Num4},</if>
+            <if test="type4Num5 != null">type4_num5 = #{type4Num5},</if>
+            <if test="type4Num6 != null">type4_num6 = #{type4Num6},</if>
+            <if test="type4Num7 != null">type4_num7 = #{type4Num7},</if>
+            <if test="type4Num8 != null">type4_num8 = #{type4Num8},</if>
+            <if test="type4Num9 != null">type4_num9 = #{type4Num9},</if>
+            <if test="type4Num10 != null">type4_num10 = #{type4Num10},</if>
+            <if test="type5Big != null">type5_big = #{type5Big},</if>
+            <if test="type5Small != null">type5_small = #{type5Small},</if>
+            <if test="type5Single != null">type5_single = #{type5Single},</if>
+            <if test="type5Double != null">type5_double = #{type5Double},</if>
+            <if test="type5Loong != null">type5_loong = #{type5Loong},</if>
+            <if test="type5Tiger != null">type5_tiger = #{type5Tiger},</if>
+            <if test="type5Num1 != null">type5_num1 = #{type5Num1},</if>
+            <if test="type5Num2 != null">type5_num2 = #{type5Num2},</if>
+            <if test="type5Num3 != null">type5_num3 = #{type5Num3},</if>
+            <if test="type5Num4 != null">type5_num4 = #{type5Num4},</if>
+            <if test="type5Num5 != null">type5_num5 = #{type5Num5},</if>
+            <if test="type5Num6 != null">type5_num6 = #{type5Num6},</if>
+            <if test="type5Num7 != null">type5_num7 = #{type5Num7},</if>
+            <if test="type5Num8 != null">type5_num8 = #{type5Num8},</if>
+            <if test="type5Num9 != null">type5_num9 = #{type5Num9},</if>
+            <if test="type5Num10 != null">type5_num10 = #{type5Num10},</if>
+            <if test="type6Big != null">type6_big = #{type6Big},</if>
+            <if test="type6Small != null">type6_small = #{type6Small},</if>
+            <if test="type6Single != null">type6_single = #{type6Single},</if>
+            <if test="type6Double != null">type6_double = #{type6Double},</if>
+            <if test="type6Loong != null">type6_loong = #{type6Loong},</if>
+            <if test="type6Tiger != null">type6_tiger = #{type6Tiger},</if>
+            <if test="type6Num1 != null">type6_num1 = #{type6Num1},</if>
+            <if test="type6Num2 != null">type6_num2 = #{type6Num2},</if>
+            <if test="type6Num3 != null">type6_num3 = #{type6Num3},</if>
+            <if test="type6Num4 != null">type6_num4 = #{type6Num4},</if>
+            <if test="type6Num5 != null">type6_num5 = #{type6Num5},</if>
+            <if test="type6Num6 != null">type6_num6 = #{type6Num6},</if>
+            <if test="type6Num7 != null">type6_num7 = #{type6Num7},</if>
+            <if test="type6Num8 != null">type6_num8 = #{type6Num8},</if>
+            <if test="type6Num9 != null">type6_num9 = #{type6Num9},</if>
+            <if test="type6Num10 != null">type6_num10 = #{type6Num10},</if>
+            <if test="type7Big != null">type7_big = #{type7Big},</if>
+            <if test="type7Small != null">type7_small = #{type7Small},</if>
+            <if test="type7Single != null">type7_single = #{type7Single},</if>
+            <if test="type7Double != null">type7_double = #{type7Double},</if>
+            <if test="type7Loong != null">type7_loong = #{type7Loong},</if>
+            <if test="type7Tiger != null">type7_tiger = #{type7Tiger},</if>
+            <if test="type7Num1 != null">type7_num1 = #{type7Num1},</if>
+            <if test="type7Num2 != null">type7_num2 = #{type7Num2},</if>
+            <if test="type7Num3 != null">type7_num3 = #{type7Num3},</if>
+            <if test="type7Num4 != null">type7_num4 = #{type7Num4},</if>
+            <if test="type7Num5 != null">type7_num5 = #{type7Num5},</if>
+            <if test="type7Num6 != null">type7_num6 = #{type7Num6},</if>
+            <if test="type7Num7 != null">type7_num7 = #{type7Num7},</if>
+            <if test="type7Num8 != null">type7_num8 = #{type7Num8},</if>
+            <if test="type7Num9 != null">type7_num9 = #{type7Num9},</if>
+            <if test="type7Num10 != null">type7_num10 = #{type7Num10},</if>
+            <if test="type8Big != null">type8_big = #{type8Big},</if>
+            <if test="type8Small != null">type8_small = #{type8Small},</if>
+            <if test="type8Single != null">type8_single = #{type8Single},</if>
+            <if test="type8Double != null">type8_double = #{type8Double},</if>
+            <if test="type8Loong != null">type8_loong = #{type8Loong},</if>
+            <if test="type8Tiger != null">type8_tiger = #{type8Tiger},</if>
+            <if test="type8Num1 != null">type8_num1 = #{type8Num1},</if>
+            <if test="type8Num2 != null">type8_num2 = #{type8Num2},</if>
+            <if test="type8Num3 != null">type8_num3 = #{type8Num3},</if>
+            <if test="type8Num4 != null">type8_num4 = #{type8Num4},</if>
+            <if test="type8Num5 != null">type8_num5 = #{type8Num5},</if>
+            <if test="type8Num6 != null">type8_num6 = #{type8Num6},</if>
+            <if test="type8Num7 != null">type8_num7 = #{type8Num7},</if>
+            <if test="type8Num8 != null">type8_num8 = #{type8Num8},</if>
+            <if test="type8Num9 != null">type8_num9 = #{type8Num9},</if>
+            <if test="type8Num10 != null">type8_num10 = #{type8Num10},</if>
+            <if test="type9Big != null">type9_big = #{type9Big},</if>
+            <if test="type9Small != null">type9_small = #{type9Small},</if>
+            <if test="type9Single != null">type9_single = #{type9Single},</if>
+            <if test="type9Double != null">type9_double = #{type9Double},</if>
+            <if test="type9Loong != null">type9_loong = #{type9Loong},</if>
+            <if test="type9Tiger != null">type9_tiger = #{type9Tiger},</if>
+            <if test="type9Num1 != null">type9_num1 = #{type9Num1},</if>
+            <if test="type9Num2 != null">type9_num2 = #{type9Num2},</if>
+            <if test="type9Num3 != null">type9_num3 = #{type9Num3},</if>
+            <if test="type9Num4 != null">type9_num4 = #{type9Num4},</if>
+            <if test="type9Num5 != null">type9_num5 = #{type9Num5},</if>
+            <if test="type9Num6 != null">type9_num6 = #{type9Num6},</if>
+            <if test="type9Num7 != null">type9_num7 = #{type9Num7},</if>
+            <if test="type9Num8 != null">type9_num8 = #{type9Num8},</if>
+            <if test="type9Num9 != null">type9_num9 = #{type9Num9},</if>
+            <if test="type9Num10 != null">type9_num10 = #{type9Num10},</if>
+            <if test="type10Big != null">type10_big = #{type10Big},</if>
+            <if test="type10Small != null">type10_small = #{type10Small},</if>
+            <if test="type10Single != null">type10_single = #{type10Single},</if>
+            <if test="type10Double != null">type10_double = #{type10Double},</if>
+            <if test="type10Loong != null">type10_loong = #{type10Loong},</if>
+            <if test="type10Tiger != null">type10_tiger = #{type10Tiger},</if>
+            <if test="type10Num1 != null">type10_num1 = #{type10Num1},</if>
+            <if test="type10Num2 != null">type10_num2 = #{type10Num2},</if>
+            <if test="type10Num3 != null">type10_num3 = #{type10Num3},</if>
+            <if test="type10Num4 != null">type10_num4 = #{type10Num4},</if>
+            <if test="type10Num5 != null">type10_num5 = #{type10Num5},</if>
+            <if test="type10Num6 != null">type10_num6 = #{type10Num6},</if>
+            <if test="type10Num7 != null">type10_num7 = #{type10Num7},</if>
+            <if test="type10Num8 != null">type10_num8 = #{type10Num8},</if>
+            <if test="type10Num9 != null">type10_num9 = #{type10Num9},</if>
+            <if test="type10Num10 != null">type10_num10 = #{type10Num10},</if>
+            <if test="type11Big != null">type11_big = #{type11Big},</if>
+            <if test="type11Small != null">type11_small = #{type11Small},</if>
+            <if test="type11Single != null">type11_single = #{type11Single},</if>
+            <if test="type11Double != null">type11_double = #{type11Double},</if>
+            <if test="type11Loong != null">type11_loong = #{type11Loong},</if>
+            <if test="type11Tiger != null">type11_tiger = #{type11Tiger},</if>
+            <if test="type11Num1 != null">type11_num1 = #{type11Num1},</if>
+            <if test="type11Num2 != null">type11_num2 = #{type11Num2},</if>
+            <if test="type11Num3 != null">type11_num3 = #{type11Num3},</if>
+            <if test="type11Num4 != null">type11_num4 = #{type11Num4},</if>
+            <if test="type11Num5 != null">type11_num5 = #{type11Num5},</if>
+            <if test="type11Num6 != null">type11_num6 = #{type11Num6},</if>
+            <if test="type11Num7 != null">type11_num7 = #{type11Num7},</if>
+            <if test="type11Num8 != null">type11_num8 = #{type11Num8},</if>
+            <if test="type11Num9 != null">type11_num9 = #{type11Num9},</if>
+            <if test="type11Num10 != null">type11_num10 = #{type11Num10},</if>
+            <if test="bigSingle != null">big_single = #{bigSingle},</if>
+            <if test="bigDouble != null">big_double = #{bigDouble},</if>
+            <if test="smallSingle != null">small_single = #{smallSingle},</if>
+            <if test="smallDouble != null">small_double = #{smallDouble},</if>
+            <if test="house != null">house = #{house},</if>
+            <if test="num1 != null">num1 = #{num1},</if>
+            <if test="num2 != null">num2 = #{num2},</if>
+            <if test="num3 != null">num3 = #{num3},</if>
+            <if test="num4 != null">num4 = #{num4},</if>
+            <if test="num5 != null">num5 = #{num5},</if>
+            <if test="num6 != null">num6 = #{num6},</if>
+            <if test="num7 != null">num7 = #{num7},</if>
+            <if test="num8 != null">num8 = #{num8},</if>
+            <if test="num9 != null">num9 = #{num9},</if>
+            <if test="num10 != null">num10 = #{num10},</if>
+            <if test="sumNum != null">sum_num = #{sumNum},</if>
+            <if test="hzId != null">hz_id = #{hzId},</if>
+            <if test="hzUser != null">hz_user = #{hzUser},</if>
+            <if test="isDeduct != null">is_deduct = #{isDeduct},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAzxy10recordById" parameterType="Long">
+        delete from azxy10record where id = #{id}
+    </delete>
+
+    <delete id="deleteAzxy10recordByIds" parameterType="String">
+        delete from azxy10record where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

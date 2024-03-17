@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.Jnd28Mapper">
+    
+    <resultMap type="Jnd28" id="Jnd28Result">
+        <result property="id"    column="id"    />
+        <result property="num1"    column="num1"    />
+        <result property="num2"    column="num2"    />
+        <result property="num3"    column="num3"    />
+        <result property="sumNum"    column="sum_num"    />
+        <result property="betTime"    column="bet_time"    />
+        <result property="preTime"    column="pre_time"    />
+        <result property="status"    column="status"    />
+        <result property="theTime"    column="the_time"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectJnd28Vo">
+        select id, num1, num2, num3, sum_num, bet_time, pre_time, status, the_time, count_money, win_money, create_by, create_time, update_by, update_time, remark from jnd28
+    </sql>
+
+    <select id="selectJnd28List" parameterType="Jnd28" resultMap="Jnd28Result">
+        <include refid="selectJnd28Vo"/>
+        <where>  
+            <if test="num1 != null "> and num1 = #{num1}</if>
+            <if test="num2 != null "> and num2 = #{num2}</if>
+            <if test="num3 != null "> and num3 = #{num3}</if>
+            <if test="sumNum != null "> and sum_num = #{sumNum}</if>
+            <if test="betTime != null "> and bet_time = #{betTime}</if>
+            <if test="preTime != null "> and pre_time = #{preTime}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="theTime != null "> and the_time = #{theTime}</if>
+            <if test="countMoney != null "> and count_money = #{countMoney}</if>
+            <if test="winMoney != null "> and win_money = #{winMoney}</if>
+        </where>
+    </select>
+    
+    <select id="selectJnd28ById" parameterType="Long" resultMap="Jnd28Result">
+        <include refid="selectJnd28Vo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertJnd28" parameterType="Jnd28" useGeneratedKeys="true" keyProperty="id">
+        insert into jnd28
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="num1 != null">num1,</if>
+            <if test="num2 != null">num2,</if>
+            <if test="num3 != null">num3,</if>
+            <if test="sumNum != null">sum_num,</if>
+            <if test="betTime != null">bet_time,</if>
+            <if test="preTime != null">pre_time,</if>
+            <if test="status != null">status,</if>
+            <if test="theTime != null">the_time,</if>
+            <if test="countMoney != null">count_money,</if>
+            <if test="winMoney != null">win_money,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="num1 != null">#{num1},</if>
+            <if test="num2 != null">#{num2},</if>
+            <if test="num3 != null">#{num3},</if>
+            <if test="sumNum != null">#{sumNum},</if>
+            <if test="betTime != null">#{betTime},</if>
+            <if test="preTime != null">#{preTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="theTime != null">#{theTime},</if>
+            <if test="countMoney != null">#{countMoney},</if>
+            <if test="winMoney != null">#{winMoney},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJnd28" parameterType="Jnd28">
+        update jnd28
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="num1 != null">num1 = #{num1},</if>
+            <if test="num2 != null">num2 = #{num2},</if>
+            <if test="num3 != null">num3 = #{num3},</if>
+            <if test="sumNum != null">sum_num = #{sumNum},</if>
+            <if test="betTime != null">bet_time = #{betTime},</if>
+            <if test="preTime != null">pre_time = #{preTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="theTime != null">the_time = #{theTime},</if>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteJnd28ById" parameterType="Long">
+        delete from jnd28 where id = #{id}
+    </delete>
+
+    <delete id="deleteJnd28ByIds" parameterType="String">
+        delete from jnd28 where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
