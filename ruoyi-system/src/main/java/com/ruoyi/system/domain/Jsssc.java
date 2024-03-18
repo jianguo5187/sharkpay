@@ -21,29 +21,29 @@ public class Jsssc extends BaseEntity
     private Long id;
 
     /** 开奖时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date time;
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
-    private Long num1;
+    private Integer num1;
 
     /** 开奖号码2 */
     @Excel(name = "开奖号码2")
-    private Long num2;
+    private Integer num2;
 
     /** 开奖号码3 */
     @Excel(name = "开奖号码3")
-    private Long num3;
+    private Integer num3;
 
     /** 开奖号码4 */
     @Excel(name = "开奖号码4")
-    private Long num4;
+    private Integer num4;
 
     /** 开奖号码5 */
     @Excel(name = "开奖号码5")
-    private Long num5;
+    private Integer num5;
 
     public void setId(Long id) 
     {
@@ -63,50 +63,45 @@ public class Jsssc extends BaseEntity
     {
         return time;
     }
-    public void setNum1(Long num1) 
-    {
+
+    public Integer getNum1() {
+        return num1;
+    }
+
+    public void setNum1(Integer num1) {
         this.num1 = num1;
     }
 
-    public Long getNum1() 
-    {
-        return num1;
+    public Integer getNum2() {
+        return num2;
     }
-    public void setNum2(Long num2) 
-    {
+
+    public void setNum2(Integer num2) {
         this.num2 = num2;
     }
 
-    public Long getNum2() 
-    {
-        return num2;
+    public Integer getNum3() {
+        return num3;
     }
-    public void setNum3(Long num3) 
-    {
+
+    public void setNum3(Integer num3) {
         this.num3 = num3;
     }
 
-    public Long getNum3() 
-    {
-        return num3;
+    public Integer getNum4() {
+        return num4;
     }
-    public void setNum4(Long num4) 
-    {
+
+    public void setNum4(Integer num4) {
         this.num4 = num4;
     }
 
-    public Long getNum4() 
-    {
-        return num4;
-    }
-    public void setNum5(Long num5) 
-    {
-        this.num5 = num5;
+    public Integer getNum5() {
+        return num5;
     }
 
-    public Long getNum5() 
-    {
-        return num5;
+    public void setNum5(Integer num5) {
+        this.num5 = num5;
     }
 
     @Override

@@ -93,4 +93,9 @@ public class JssscServiceImpl implements IJssscService
     {
         return jssscMapper.deleteJssscById(id);
     }
+
+    @Override
+    public Jsssc selectLastRecord() {
+        return jssscMapper.selectLastRecord();
+    }
 }

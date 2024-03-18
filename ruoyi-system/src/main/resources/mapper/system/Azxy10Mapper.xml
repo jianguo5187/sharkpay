@@ -49,10 +49,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectAzxy10Vo"/>
         where id = #{id}
     </select>
+
+    <select id="selectLastRecord" resultMap="Azxy10Result">
+        <include refid="selectAzxy10Vo"/>
+        order by id desc
+        limit 1
+    </select>
         
     <insert id="insertAzxy10" parameterType="Azxy10" useGeneratedKeys="true" keyProperty="id">
-        insert into azxy10
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into azxy10(
+            <if test="id != null">id,</if>
             <if test="time != null">time,</if>
             <if test="num1 != null">num1,</if>
             <if test="num2 != null">num2,</if>
@@ -65,12 +71,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num9 != null">num9,</if>
             <if test="num10 != null">num10,</if>
             <if test="createBy != null">create_by,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        create_time
+        )values(
+            <if test="id != null">#{id},</if>
             <if test="time != null">#{time},</if>
             <if test="num1 != null">#{num1},</if>
             <if test="num2 != null">#{num2},</if>
@@ -83,11 +86,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num9 != null">#{num9},</if>
             <if test="num10 != null">#{num10},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate()
+        )
     </insert>
 
     <update id="updateAzxy10" parameterType="Azxy10">

@@ -22,27 +22,27 @@ public class Jnd28 extends BaseEntity
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
-    private Long num1;
+    private Integer num1;
 
     /** 开奖号码2 */
     @Excel(name = "开奖号码2")
-    private Long num2;
+    private Integer num2;
 
     /** 开奖号码3 */
     @Excel(name = "开奖号码3")
-    private Long num3;
+    private Integer num3;
 
     /** 开奖合计号码 */
     @Excel(name = "开奖合计号码")
-    private Long sumNum;
+    private Integer sumNum;
 
     /** 封盘投注截止时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "封盘投注截止时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date betTime;
 
     /** 预计开奖时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "预计开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date preTime;
 
@@ -51,7 +51,7 @@ public class Jnd28 extends BaseEntity
     private String status;
 
     /** 开奖时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date theTime;
 
@@ -72,39 +72,39 @@ public class Jnd28 extends BaseEntity
     {
         return id;
     }
-    public void setNum1(Long num1) 
+    public void setNum1(Integer num1)
     {
         this.num1 = num1;
     }
 
-    public Long getNum1() 
+    public Integer getNum1()
     {
         return num1;
     }
-    public void setNum2(Long num2) 
+    public void setNum2(Integer num2)
     {
         this.num2 = num2;
     }
 
-    public Long getNum2() 
+    public Integer getNum2()
     {
         return num2;
     }
-    public void setNum3(Long num3) 
+    public void setNum3(Integer num3)
     {
         this.num3 = num3;
     }
 
-    public Long getNum3() 
+    public Integer getNum3()
     {
         return num3;
     }
-    public void setSumNum(Long sumNum) 
+    public void setSumNum(Integer sumNum)
     {
         this.sumNum = sumNum;
     }
 
-    public Long getSumNum() 
+    public Integer getSumNum()
     {
         return sumNum;
     }

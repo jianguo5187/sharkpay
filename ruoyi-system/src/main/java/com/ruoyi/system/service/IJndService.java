@@ -58,4 +58,6 @@ public interface IJndService
      * @return 结果
      */
     public int deleteJndById(Long id);
+
+    public Jnd selectLastRecord();
 }

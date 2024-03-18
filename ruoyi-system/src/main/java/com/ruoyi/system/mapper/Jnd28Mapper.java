@@ -58,4 +58,7 @@ public interface Jnd28Mapper
      * @return 结果
      */
     public int deleteJnd28ByIds(Long[] ids);
+
+
+    public Jnd28 selectLastRecord();
 }

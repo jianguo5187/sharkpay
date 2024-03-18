@@ -58,4 +58,6 @@ public interface IJssscService
      * @return 结果
      */
     public int deleteJssscById(Long id);
+
+    public Jsssc selectLastRecord();
 }

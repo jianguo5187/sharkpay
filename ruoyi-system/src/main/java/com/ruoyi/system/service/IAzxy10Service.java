@@ -58,4 +58,6 @@ public interface IAzxy10Service
      * @return 结果
      */
     public int deleteAzxy10ById(Long id);
+
+    public Azxy10 selectLastRecord();
 }

@@ -21,7 +21,7 @@ public class Jnd extends BaseEntity
     private Long id;
 
     /** 开奖时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date time;
 
@@ -107,15 +107,15 @@ public class Jnd extends BaseEntity
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
-    private Long sum1;
+    private Integer sum1;
 
     /** 开奖号码2 */
     @Excel(name = "开奖号码2")
-    private Long sum2;
+    private Integer sum2;
 
     /** 开奖号码3 */
     @Excel(name = "开奖号码3")
-    private Long sum3;
+    private Integer sum3;
 
     public void setId(Long id) 
     {
@@ -315,30 +315,30 @@ public class Jnd extends BaseEntity
     {
         return num20;
     }
-    public void setSum1(Long sum1) 
+    public void setSum1(Integer sum1)
     {
         this.sum1 = sum1;
     }
 
-    public Long getSum1() 
+    public Integer getSum1()
     {
         return sum1;
     }
-    public void setSum2(Long sum2) 
+    public void setSum2(Integer sum2)
     {
         this.sum2 = sum2;
     }
 
-    public Long getSum2() 
+    public Integer getSum2()
     {
         return sum2;
     }
-    public void setSum3(Long sum3) 
+    public void setSum3(Integer sum3)
     {
         this.sum3 = sum3;
     }
 
-    public Long getSum3() 
+    public Integer getSum3()
     {
         return sum3;
     }

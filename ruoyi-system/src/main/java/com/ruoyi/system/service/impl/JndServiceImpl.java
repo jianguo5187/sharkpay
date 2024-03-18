@@ -93,4 +93,9 @@ public class JndServiceImpl implements IJndService
     {
         return jndMapper.deleteJndById(id);
     }
+
+    @Override
+    public Jnd selectLastRecord() {
+        return jndMapper.selectLastRecord();
+    }
 }

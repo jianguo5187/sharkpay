@@ -47,6 +47,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectJnd28Vo"/>
         where id = #{id}
     </select>
+
+    <select id="selectLastRecord" resultMap="Jnd28Result">
+        <include refid="selectJnd28Vo"/>
+        order by id desc
+        limit 1
+    </select>
         
     <insert id="insertJnd28" parameterType="Jnd28" useGeneratedKeys="true" keyProperty="id">
         insert into jnd28

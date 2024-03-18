@@ -75,71 +75,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectJndVo"/>
         where id = #{id}
     </select>
+
+    <select id="selectLastRecord" resultMap="JndResult">
+        <include refid="selectJndVo"/>
+        order by id desc
+        limit 1
+    </select>
         
     <insert id="insertJnd" parameterType="Jnd" useGeneratedKeys="true" keyProperty="id">
-        insert into jnd
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into jnd(
+            <if test="id != null">id,</if>
             <if test="time != null">time,</if>
-            <if test="num1 != null">num1,</if>
-            <if test="num2 != null">num2,</if>
-            <if test="num3 != null">num3,</if>
-            <if test="num4 != null">num4,</if>
-            <if test="num5 != null">num5,</if>
-            <if test="num6 != null">num6,</if>
-            <if test="num7 != null">num7,</if>
-            <if test="num8 != null">num8,</if>
-            <if test="num9 != null">num9,</if>
-            <if test="num10 != null">num10,</if>
-            <if test="num11 != null">num11,</if>
-            <if test="num12 != null">num12,</if>
-            <if test="num13 != null">num13,</if>
-            <if test="num14 != null">num14,</if>
-            <if test="num15 != null">num15,</if>
-            <if test="num16 != null">num16,</if>
-            <if test="num17 != null">num17,</if>
-            <if test="num18 != null">num18,</if>
-            <if test="num19 != null">num19,</if>
-            <if test="num20 != null">num20,</if>
             <if test="sum1 != null">sum_1,</if>
             <if test="sum2 != null">sum_2,</if>
             <if test="sum3 != null">sum_3,</if>
             <if test="createBy != null">create_by,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        create_time
+        )values(
+            <if test="id != null">#{id},</if>
             <if test="time != null">#{time},</if>
-            <if test="num1 != null">#{num1},</if>
-            <if test="num2 != null">#{num2},</if>
-            <if test="num3 != null">#{num3},</if>
-            <if test="num4 != null">#{num4},</if>
-            <if test="num5 != null">#{num5},</if>
-            <if test="num6 != null">#{num6},</if>
-            <if test="num7 != null">#{num7},</if>
-            <if test="num8 != null">#{num8},</if>
-            <if test="num9 != null">#{num9},</if>
-            <if test="num10 != null">#{num10},</if>
-            <if test="num11 != null">#{num11},</if>
-            <if test="num12 != null">#{num12},</if>
-            <if test="num13 != null">#{num13},</if>
-            <if test="num14 != null">#{num14},</if>
-            <if test="num15 != null">#{num15},</if>
-            <if test="num16 != null">#{num16},</if>
-            <if test="num17 != null">#{num17},</if>
-            <if test="num18 != null">#{num18},</if>
-            <if test="num19 != null">#{num19},</if>
-            <if test="num20 != null">#{num20},</if>
             <if test="sum1 != null">#{sum1},</if>
             <if test="sum2 != null">#{sum2},</if>
             <if test="sum3 != null">#{sum3},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate()
+        )
     </insert>
 
     <update id="updateJnd" parameterType="Jnd">

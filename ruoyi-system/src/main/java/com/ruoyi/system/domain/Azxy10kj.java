@@ -61,12 +61,12 @@ public class Azxy10kj extends BaseEntity
     private Long num10;
 
     /** 封盘投注截止时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "封盘投注截止时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date betTime;
 
     /** 预计开奖时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "预计开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date preTime;
 
@@ -75,7 +75,7 @@ public class Azxy10kj extends BaseEntity
     private String status;
 
     /** 开奖时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date theTime;
 

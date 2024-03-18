@@ -93,4 +93,9 @@ public class Azxy10ServiceImpl implements IAzxy10Service
     {
         return azxy10Mapper.deleteAzxy10ById(id);
     }
+
+    @Override
+    public Azxy10 selectLastRecord() {
+        return azxy10Mapper.selectLastRecord();
+    }
 }

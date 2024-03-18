@@ -58,4 +58,6 @@ public interface Azxy10Mapper
      * @return 结果
      */
     public int deleteAzxy10ByIds(Long[] ids);
+
+    public Azxy10 selectLastRecord();
 }

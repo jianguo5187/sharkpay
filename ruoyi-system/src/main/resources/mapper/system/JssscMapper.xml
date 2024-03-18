@@ -39,10 +39,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectJssscVo"/>
         where id = #{id}
     </select>
+
+    <select id="selectLastRecord" resultMap="JssscResult">
+        <include refid="selectJssscVo"/>
+        order by id desc
+        limit 1
+    </select>
         
     <insert id="insertJsssc" parameterType="Jsssc" useGeneratedKeys="true" keyProperty="id">
-        insert into jsssc
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into jsssc(
+            <if test="id != null">id,</if>
             <if test="time != null">time,</if>
             <if test="num1 != null">num1,</if>
             <if test="num2 != null">num2,</if>
@@ -50,12 +56,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num4 != null">num4,</if>
             <if test="num5 != null">num5,</if>
             <if test="createBy != null">create_by,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        create_time
+        )values(
+            <if test="id != null">#{id},</if>
             <if test="time != null">#{time},</if>
             <if test="num1 != null">#{num1},</if>
             <if test="num2 != null">#{num2},</if>
@@ -63,11 +66,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num4 != null">#{num4},</if>
             <if test="num5 != null">#{num5},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate()
+        )
     </insert>
 
     <update id="updateJsssc" parameterType="Jsssc">

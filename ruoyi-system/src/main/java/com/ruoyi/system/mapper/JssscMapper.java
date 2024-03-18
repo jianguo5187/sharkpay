@@ -58,4 +58,6 @@ public interface JssscMapper
      * @return 结果
      */
     public int deleteJssscByIds(Long[] ids);
+
+    public Jsssc selectLastRecord();
 }
