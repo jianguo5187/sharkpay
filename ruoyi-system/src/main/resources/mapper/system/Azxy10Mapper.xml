@@ -55,6 +55,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by id desc
         limit 1
     </select>
+
+    <select id="selectAzxy10ListByParam" resultMap="Azxy10Result">
+        <include refid="selectAzxy10Vo"/>
+        <if test="idDescFlg != null and idDescFlg != '' ">
+            order by id desc
+        </if>
+        <if test="limitNumber != null">
+            limit #{limitNumber}
+        </if>
+    </select>
         
     <insert id="insertAzxy10" parameterType="Azxy10" useGeneratedKeys="true" keyProperty="id">
         insert into azxy10(
@@ -92,7 +102,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <update id="updateAzxy10" parameterType="Azxy10">
         update azxy10
-        <trim prefix="SET" suffixOverrides=",">
+        <set>
             <if test="time != null">time = #{time},</if>
             <if test="num1 != null">num1 = #{num1},</if>
             <if test="num2 != null">num2 = #{num2},</if>
@@ -104,12 +114,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num8 != null">num8 = #{num8},</if>
             <if test="num9 != null">num9 = #{num9},</if>
             <if test="num10 != null">num10 = #{num10},</if>
-            <if test="createBy != null">create_by = #{createBy},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
-            <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where id = #{id}
     </update>
 

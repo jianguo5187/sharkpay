@@ -58,4 +58,6 @@ public interface SysGameMapper
      * @return 结果
      */
     public int deleteSysGameByGameIds(Long[] gameIds);
+
+    public SysGame selectSysGameByGameMarkId(String gameMarkId);
 }

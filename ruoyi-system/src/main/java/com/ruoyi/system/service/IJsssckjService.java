@@ -58,4 +58,6 @@ public interface IJsssckjService
      * @return 结果
      */
     public int deleteJsssckjById(Long id);
+
+    public Jsssckj selectLastRecord(String status);
 }

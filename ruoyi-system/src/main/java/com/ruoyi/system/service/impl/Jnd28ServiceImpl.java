@@ -94,5 +94,5 @@ public class Jnd28ServiceImpl implements IJnd28Service
         return jnd28Mapper.deleteJnd28ById(id);
     }
 
-    public Jnd28 selectLastRecord(){return  jnd28Mapper.selectLastRecord();}
+    public Jnd28 selectLastRecord(String status){return  jnd28Mapper.selectLastRecord(status);}
 }

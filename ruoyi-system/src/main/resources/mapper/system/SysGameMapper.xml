@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="minBetAmount"    column="min_bet_amount"    />
         <result property="maxBetAmount"    column="max_bet_amount"    />
         <result property="endTime"    column="end_time"    />
+        <result property="lotteryInterval"    column="lottery_interval"    />
         <result property="robotRate"    column="robot_rate"    />
         <result property="roomRule"    column="room_rule"    />
         <result property="sort"    column="sort"    />
@@ -36,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectSysGameVo">
-        select game_id, game_img, game_type, game_mark_id, game_name, game_alias_name, game_describe, profit_loss_name, game_record, game_kj, game_commission, game_commission_two, game_cate, game_cashback, min_bet_amount, max_bet_amount, end_time, robot_rate, room_rule, sort, status, is_hidden, house_open, create_by, create_time, update_by, update_time, remark from sys_game
+        select game_id, game_img, game_type, game_mark_id, game_name, game_alias_name, game_describe, profit_loss_name, game_record, game_kj, game_commission, game_commission_two, game_cate, game_cashback, min_bet_amount, max_bet_amount, end_time, lottery_interval, robot_rate, room_rule, sort, status, is_hidden, house_open, create_by, create_time, update_by, update_time, remark from sys_game
     </sql>
 
     <select id="selectSysGameList" parameterType="SysGame" resultMap="SysGameResult">
@@ -68,6 +69,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectSysGameVo"/>
         where game_id = #{gameId}
     </select>
+
+    <select id="selectSysGameByGameMarkId" parameterType="String" resultMap="SysGameResult">
+        <include refid="selectSysGameVo"/>
+        where game_mark_id = #{gameMarkId}
+        limit 1
+    </select>
         
     <insert id="insertSysGame" parameterType="SysGame" useGeneratedKeys="true" keyProperty="gameId">
         insert into sys_game
@@ -88,6 +95,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="minBetAmount != null">min_bet_amount,</if>
             <if test="maxBetAmount != null">max_bet_amount,</if>
             <if test="endTime != null">end_time,</if>
+            <if test="lotteryInterval != null">lottery_interval,</if>
             <if test="robotRate != null">robot_rate,</if>
             <if test="roomRule != null">room_rule,</if>
             <if test="sort != null">sort,</if>
@@ -117,6 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="minBetAmount != null">#{minBetAmount},</if>
             <if test="maxBetAmount != null">#{maxBetAmount},</if>
             <if test="endTime != null">#{endTime},</if>
+            <if test="lotteryInterval != null">#{lotteryInterval},</if>
             <if test="robotRate != null">#{robotRate},</if>
             <if test="roomRule != null">#{roomRule},</if>
             <if test="sort != null">#{sort},</if>
@@ -150,6 +159,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="minBetAmount != null">min_bet_amount = #{minBetAmount},</if>
             <if test="maxBetAmount != null">max_bet_amount = #{maxBetAmount},</if>
             <if test="endTime != null">end_time = #{endTime},</if>
+            <if test="lotteryInterval != null">lottery_interval = #{lotteryInterval},</if>
             <if test="robotRate != null">robot_rate = #{robotRate},</if>
             <if test="roomRule != null">room_rule = #{roomRule},</if>
             <if test="sort != null">sort = #{sort},</if>

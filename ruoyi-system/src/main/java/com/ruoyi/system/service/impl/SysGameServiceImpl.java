@@ -93,4 +93,9 @@ public class SysGameServiceImpl implements ISysGameService
     {
         return sysGameMapper.deleteSysGameByGameId(gameId);
     }
+
+    @Override
+    public SysGame selectSysGameByGameMarkId(String gameMarkId) {
+        return sysGameMapper.selectSysGameByGameMarkId(gameMarkId);
+    }
 }

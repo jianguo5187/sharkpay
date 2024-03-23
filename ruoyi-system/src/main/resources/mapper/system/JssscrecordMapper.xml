@@ -112,10 +112,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="num5"    column="num5"    />
         <result property="sum"    column="sum"    />
         <result property="isDelete"    column="is_delete"    />
+        <result property="isDeduct"    column="is_deduct"    />
         <result property="house"    column="house"    />
         <result property="hzId"    column="hz_id"    />
         <result property="hzUser"    column="hz_user"    />
-        <result property="isDeduct"    column="is_deduct"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -124,7 +124,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectJssscrecordVo">
-        select id, user_id, periods, status, record_time, check_time, count_money, win_money, sum_big, sum_small, sum_single, sum_double, sum_loong, sum_tiger, sum_sum, num1_big, num1_small, num1_single, num1_double, num1_0, num1_1, num1_2, num1_3, num1_4, num1_5, num1_6, num1_7, num1_8, num1_9, num2_big, num2_small, num2_single, num2_double, num2_0, num2_1, num2_2, num2_3, num2_4, num2_5, num2_6, num2_7, num2_8, num2_9, num3_big, num3_small, num3_single, num3_double, num3_0, num3_1, num3_2, num3_3, num3_4, num3_5, num3_6, num3_7, num3_8, num3_9, num4_big, num4_small, num4_single, num4_double, num4_0, num4_1, num4_2, num4_3, num4_4, num4_5, num4_6, num4_7, num4_8, num4_9, num5_big, num5_small, num5_single, num5_double, num5_0, num5_1, num5_2, num5_3, num5_4, num5_5, num5_6, num5_7, num5_8, num5_9, first_bao, first_dui, first_sun, first_ban, first_za, mid_bao, mid_dui, mid_sun, mid_ban, mid_za, back_bao, back_dui, back_sun, back_ban, back_za, num1, num2, num3, num4, num5, sum, is_delete, house, hz_id, hz_user, is_deduct, create_by, create_time, update_by, update_time, remark from jssscrecord
+        select id, user_id, periods, status, record_time, check_time, count_money, win_money, sum_big, sum_small, sum_single, sum_double, sum_loong, sum_tiger, sum_sum, num1_big, num1_small, num1_single, num1_double, num1_0, num1_1, num1_2, num1_3, num1_4, num1_5, num1_6, num1_7, num1_8, num1_9, num2_big, num2_small, num2_single, num2_double, num2_0, num2_1, num2_2, num2_3, num2_4, num2_5, num2_6, num2_7, num2_8, num2_9, num3_big, num3_small, num3_single, num3_double, num3_0, num3_1, num3_2, num3_3, num3_4, num3_5, num3_6, num3_7, num3_8, num3_9, num4_big, num4_small, num4_single, num4_double, num4_0, num4_1, num4_2, num4_3, num4_4, num4_5, num4_6, num4_7, num4_8, num4_9, num5_big, num5_small, num5_single, num5_double, num5_0, num5_1, num5_2, num5_3, num5_4, num5_5, num5_6, num5_7, num5_8, num5_9, first_bao, first_dui, first_sun, first_ban, first_za, mid_bao, mid_dui, mid_sun, mid_ban, mid_za, back_bao, back_dui, back_sun, back_ban, back_za, num1, num2, num3, num4, num5, sum, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from jssscrecord
     </sql>
 
     <select id="selectJssscrecordList" parameterType="Jssscrecord" resultMap="JssscrecordResult">
@@ -235,11 +235,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num4 != null "> and num4 = #{num4}</if>
             <if test="num5 != null "> and num5 = #{num5}</if>
             <if test="sum != null "> and sum = #{sum}</if>
-            <if test="isDelete != null "> and is_delete = #{isDelete}</if>
+            <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
+            <if test="isDeduct != null  and isDeduct != ''"> and is_deduct = #{isDeduct}</if>
             <if test="house != null "> and house = #{house}</if>
-            <if test="hzId != null "> and hz_id = #{hzId}</if>
-            <if test="hzUser != null "> and hz_user = #{hzUser}</if>
-            <if test="isDeduct != null "> and is_deduct = #{isDeduct}</if>
+            <if test="hzId != null  and hzId != ''"> and hz_id = #{hzId}</if>
+            <if test="hzUser != null  and hzUser != ''"> and hz_user = #{hzUser}</if>
         </where>
     </select>
     
@@ -356,11 +356,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num4 != null">num4,</if>
             <if test="num5 != null">num5,</if>
             <if test="sum != null">sum,</if>
-            <if test="isDelete != null">is_delete,</if>
+            <if test="isDelete != null and isDelete != ''">is_delete,</if>
+            <if test="isDeduct != null and isDeduct != ''">is_deduct,</if>
             <if test="house != null">house,</if>
-            <if test="hzId != null">hz_id,</if>
+            <if test="hzId != null and hzId != ''">hz_id,</if>
             <if test="hzUser != null">hz_user,</if>
-            <if test="isDeduct != null">is_deduct,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateBy != null">update_by,</if>
@@ -473,11 +473,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num4 != null">#{num4},</if>
             <if test="num5 != null">#{num5},</if>
             <if test="sum != null">#{sum},</if>
-            <if test="isDelete != null">#{isDelete},</if>
+            <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
+            <if test="isDeduct != null and isDeduct != ''">#{isDeduct},</if>
             <if test="house != null">#{house},</if>
-            <if test="hzId != null">#{hzId},</if>
+            <if test="hzId != null and hzId != ''">#{hzId},</if>
             <if test="hzUser != null">#{hzUser},</if>
-            <if test="isDeduct != null">#{isDeduct},</if>
             <if test="createBy != null">#{createBy},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateBy != null">#{updateBy},</if>
@@ -594,11 +594,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num4 != null">num4 = #{num4},</if>
             <if test="num5 != null">num5 = #{num5},</if>
             <if test="sum != null">sum = #{sum},</if>
-            <if test="isDelete != null">is_delete = #{isDelete},</if>
+            <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
+            <if test="isDeduct != null and isDeduct != ''">is_deduct = #{isDeduct},</if>
             <if test="house != null">house = #{house},</if>
-            <if test="hzId != null">hz_id = #{hzId},</if>
+            <if test="hzId != null and hzId != ''">hz_id = #{hzId},</if>
             <if test="hzUser != null">hz_user = #{hzUser},</if>
-            <if test="isDeduct != null">is_deduct = #{isDeduct},</if>
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>

@@ -81,7 +81,11 @@ public class SysGame extends BaseEntity
 
     /** 封盘秒数 */
     @Excel(name = "封盘秒数")
-    private Long endTime;
+    private Integer endTime;
+
+    /** 开奖间隔秒数 */
+    @Excel(name = "开奖间隔秒数")
+    private Integer lotteryInterval;
 
     /** 机器人比例 */
     @Excel(name = "机器人比例")
@@ -249,16 +253,25 @@ public class SysGame extends BaseEntity
     {
         return maxBetAmount;
     }
-    public void setEndTime(Long endTime) 
+    public void setEndTime(Integer endTime)
     {
         this.endTime = endTime;
     }
 
-    public Long getEndTime() 
+    public Integer getEndTime()
     {
         return endTime;
     }
-    public void setRobotRate(Integer robotRate) 
+
+    public Integer getLotteryInterval() {
+        return lotteryInterval;
+    }
+
+    public void setLotteryInterval(Integer lotteryInterval) {
+        this.lotteryInterval = lotteryInterval;
+    }
+
+    public void setRobotRate(Integer robotRate)
     {
         this.robotRate = robotRate;
     }

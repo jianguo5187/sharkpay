@@ -58,4 +58,6 @@ public interface JsssckjMapper
      * @return 结果
      */
     public int deleteJsssckjByIds(Long[] ids);
+
+    public Jsssckj selectLastRecord(String status);
 }

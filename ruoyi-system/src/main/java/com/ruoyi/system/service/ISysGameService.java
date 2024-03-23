@@ -58,4 +58,7 @@ public interface ISysGameService
      * @return 结果
      */
     public int deleteSysGameByGameId(Long gameId);
+
+
+    public SysGame selectSysGameByGameMarkId(String gameMarkId);
 }

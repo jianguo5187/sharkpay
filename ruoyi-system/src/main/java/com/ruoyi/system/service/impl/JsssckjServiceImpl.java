@@ -93,4 +93,9 @@ public class JsssckjServiceImpl implements IJsssckjService
     {
         return jsssckjMapper.deleteJsssckjById(id);
     }
+
+    @Override
+    public Jsssckj selectLastRecord(String status) {
+        return jsssckjMapper.selectLastRecord(status);
+    }
 }

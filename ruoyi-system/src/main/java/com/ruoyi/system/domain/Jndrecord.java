@@ -12,7 +12,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 加拿大下注对象 jndrecord
  * 
  * @author ruoyi
- * @date 2024-03-17
+ * @date 2024-03-23
  */
 public class Jndrecord extends BaseEntity
 {
@@ -34,17 +34,18 @@ public class Jndrecord extends BaseEntity
     private String status;
 
     /** 投注时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Excel(name = "投注时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date recordTime;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 确认时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Excel(name = "确认时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date checkTime;
 
     /** 下注金额 */
     @Excel(name = "下注金额")
-    private Long countMoney;
+    private BigDecimal countMoney;
 
     /** 中奖金额 */
     @Excel(name = "中奖金额")
@@ -52,191 +53,191 @@ public class Jndrecord extends BaseEntity
 
     /** 下注大的金额 */
     @Excel(name = "下注大的金额")
-    private Long big;
+    private BigDecimal big;
 
     /** 下注小的金额 */
     @Excel(name = "下注小的金额")
-    private Long small;
+    private BigDecimal small;
 
     /** 下注单的金额 */
     @Excel(name = "下注单的金额")
-    private Long single;
+    private BigDecimal single;
 
     /** 下注双的金额 */
     @Excel(name = "下注双的金额")
-    private Long doubleAmount;
+    private BigDecimal doubleAmount;
 
     /** 下注极大的金额 */
     @Excel(name = "下注极大的金额")
-    private Long muchBig;
+    private BigDecimal muchBig;
 
     /** 下注大单的金额 */
     @Excel(name = "下注大单的金额")
-    private Long bigSingle;
+    private BigDecimal bigSingle;
 
     /** 下注小单的金额 */
     @Excel(name = "下注小单的金额")
-    private Long smallSingle;
+    private BigDecimal smallSingle;
 
     /** 下注大双的金额 */
     @Excel(name = "下注大双的金额")
-    private Long bigDouble;
+    private BigDecimal bigDouble;
 
     /** 下注小双的金额 */
     @Excel(name = "下注小双的金额")
-    private Long smallDouble;
+    private BigDecimal smallDouble;
 
     /** 下注极小的金额 */
     @Excel(name = "下注极小的金额")
-    private Long muchSmall;
+    private BigDecimal muchSmall;
 
     /** 下注数字0的金额 */
     @Excel(name = "下注数字0的金额")
-    private Long num0;
+    private BigDecimal num0;
 
     /** 下注数字1的金额 */
     @Excel(name = "下注数字1的金额")
-    private Long num1;
+    private BigDecimal num1;
 
     /** 下注数字2的金额 */
     @Excel(name = "下注数字2的金额")
-    private Long num2;
+    private BigDecimal num2;
 
     /** 下注数字3的金额 */
     @Excel(name = "下注数字3的金额")
-    private Long num3;
+    private BigDecimal num3;
 
     /** 下注数字4的金额 */
     @Excel(name = "下注数字4的金额")
-    private Long num4;
+    private BigDecimal num4;
 
     /** 下注数字5的金额 */
     @Excel(name = "下注数字5的金额")
-    private Long num5;
+    private BigDecimal num5;
 
     /** 下注数字6的金额 */
     @Excel(name = "下注数字6的金额")
-    private Long num6;
+    private BigDecimal num6;
 
     /** 下注数字7的金额 */
     @Excel(name = "下注数字7的金额")
-    private Long num7;
+    private BigDecimal num7;
 
     /** 下注数字8的金额 */
     @Excel(name = "下注数字8的金额")
-    private Long num8;
+    private BigDecimal num8;
 
     /** 下注数字9的金额 */
     @Excel(name = "下注数字9的金额")
-    private Long num9;
+    private BigDecimal num9;
 
     /** 下注数字10的金额 */
     @Excel(name = "下注数字10的金额")
-    private Long num10;
+    private BigDecimal num10;
 
     /** 下注数字11的金额 */
     @Excel(name = "下注数字11的金额")
-    private Long num11;
+    private BigDecimal num11;
 
     /** 下注数字12的金额 */
     @Excel(name = "下注数字12的金额")
-    private Long num12;
+    private BigDecimal num12;
 
     /** 下注数字13的金额 */
     @Excel(name = "下注数字13的金额")
-    private Long num13;
+    private BigDecimal num13;
 
     /** 下注数字14的金额 */
     @Excel(name = "下注数字14的金额")
-    private Long num14;
+    private BigDecimal num14;
 
     /** 下注数字15的金额 */
     @Excel(name = "下注数字15的金额")
-    private Long num15;
+    private BigDecimal num15;
 
     /** 下注数字16的金额 */
     @Excel(name = "下注数字16的金额")
-    private Long num16;
+    private BigDecimal num16;
 
     /** 下注数字17的金额 */
     @Excel(name = "下注数字17的金额")
-    private Long num17;
+    private BigDecimal num17;
 
     /** 下注数字18的金额 */
     @Excel(name = "下注数字18的金额")
-    private Long num18;
+    private BigDecimal num18;
 
     /** 下注数字19的金额 */
     @Excel(name = "下注数字19的金额")
-    private Long num19;
+    private BigDecimal num19;
 
     /** 下注数字20的金额 */
     @Excel(name = "下注数字20的金额")
-    private Long num20;
+    private BigDecimal num20;
 
     /** 下注数字21的金额 */
     @Excel(name = "下注数字21的金额")
-    private Long num21;
+    private BigDecimal num21;
 
     /** 下注数字22的金额 */
     @Excel(name = "下注数字22的金额")
-    private Long num22;
+    private BigDecimal num22;
 
     /** 下注数字23的金额 */
     @Excel(name = "下注数字23的金额")
-    private Long num23;
+    private BigDecimal num23;
 
     /** 下注数字24的金额 */
     @Excel(name = "下注数字24的金额")
-    private Long num24;
+    private BigDecimal num24;
 
     /** 下注数字25的金额 */
     @Excel(name = "下注数字25的金额")
-    private Long num25;
+    private BigDecimal num25;
 
     /** 下注数字26的金额 */
     @Excel(name = "下注数字26的金额")
-    private Long num26;
+    private BigDecimal num26;
 
     /** 下注数字27的金额 */
     @Excel(name = "下注数字27的金额")
-    private Long num27;
+    private BigDecimal num27;
 
     /** 下注红的金额 */
     @Excel(name = "下注红的金额")
-    private Long red;
+    private BigDecimal red;
 
     /** 下注绿的金额 */
     @Excel(name = "下注绿的金额")
-    private Long green;
+    private BigDecimal green;
 
     /** 下注蓝的金额 */
     @Excel(name = "下注蓝的金额")
-    private Long blue;
+    private BigDecimal blue;
 
     /** 下注龙的金额 */
     @Excel(name = "下注龙的金额")
-    private Long loong;
+    private BigDecimal loong;
 
     /** 下注虎的金额 */
     @Excel(name = "下注虎的金额")
-    private Long tiger;
+    private BigDecimal tiger;
 
     /** 下注合的金额 */
     @Excel(name = "下注合的金额")
-    private Long close;
+    private BigDecimal close;
 
     /** 下注豹子的金额 */
     @Excel(name = "下注豹子的金额")
-    private Long leopard;
+    private BigDecimal leopard;
 
     /** 下注对子的金额 */
     @Excel(name = "下注对子的金额")
-    private Long pairs;
+    private BigDecimal pairs;
 
     /** 下注顺子的金额 */
     @Excel(name = "下注顺子的金额")
-    private Long shun;
+    private BigDecimal shun;
 
     /** VIP房间 */
     @Excel(name = "VIP房间")
@@ -258,25 +259,25 @@ public class Jndrecord extends BaseEntity
     @Excel(name = "开奖合算数字")
     private Long sumNum;
 
-    /** 是否合庄模式 */
-    @Excel(name = "是否合庄模式")
-    private Integer hzId;
-
-    /** 是否用户 */
-    @Excel(name = "是否用户")
-    private Long hzUser;
-
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
-    private Integer isDelete;
+    /** 是否扣除(0否 1是) */
+    @Excel(name = "是否扣除(0否 1是)")
+    private String isDelete;
 
     /** 是否扣除 */
     @Excel(name = "是否扣除")
-    private Integer isDeduct;
+    private String isDeduct;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 房间号 */
+    @Excel(name = "房间号")
     private Integer house;
+
+    /** 是否合庄模式 */
+    @Excel(name = "是否合庄模式")
+    private String hzId;
+
+    /** 是否用户(0否 1是) */
+    @Excel(name = "是否用户(0否 1是)")
+    private String hzUser;
 
     public void setId(Long id) 
     {
@@ -332,12 +333,12 @@ public class Jndrecord extends BaseEntity
     {
         return checkTime;
     }
-    public void setCountMoney(Long countMoney) 
+    public void setCountMoney(BigDecimal countMoney) 
     {
         this.countMoney = countMoney;
     }
 
-    public Long getCountMoney() 
+    public BigDecimal getCountMoney() 
     {
         return countMoney;
     }
@@ -350,426 +351,426 @@ public class Jndrecord extends BaseEntity
     {
         return winMoney;
     }
-    public void setBig(Long big) 
+    public void setBig(BigDecimal big) 
     {
         this.big = big;
     }
 
-    public Long getBig() 
+    public BigDecimal getBig() 
     {
         return big;
     }
-    public void setSmall(Long small) 
+    public void setSmall(BigDecimal small) 
     {
         this.small = small;
     }
 
-    public Long getSmall() 
+    public BigDecimal getSmall() 
     {
         return small;
     }
-    public void setSingle(Long single) 
+    public void setSingle(BigDecimal single) 
     {
         this.single = single;
     }
 
-    public Long getSingle() 
+    public BigDecimal getSingle() 
     {
         return single;
     }
-    public void setDoubleAmount(Long doubleAmount) 
+    public void setDoubleAmount(BigDecimal doubleAmount) 
     {
         this.doubleAmount = doubleAmount;
     }
 
-    public Long getDoubleAmount() 
+    public BigDecimal getDoubleAmount() 
     {
         return doubleAmount;
     }
-    public void setMuchBig(Long muchBig) 
+    public void setMuchBig(BigDecimal muchBig) 
     {
         this.muchBig = muchBig;
     }
 
-    public Long getMuchBig() 
+    public BigDecimal getMuchBig() 
     {
         return muchBig;
     }
-    public void setBigSingle(Long bigSingle) 
+    public void setBigSingle(BigDecimal bigSingle) 
     {
         this.bigSingle = bigSingle;
     }
 
-    public Long getBigSingle() 
+    public BigDecimal getBigSingle() 
     {
         return bigSingle;
     }
-    public void setSmallSingle(Long smallSingle) 
+    public void setSmallSingle(BigDecimal smallSingle) 
     {
         this.smallSingle = smallSingle;
     }
 
-    public Long getSmallSingle() 
+    public BigDecimal getSmallSingle() 
     {
         return smallSingle;
     }
-    public void setBigDouble(Long bigDouble) 
+    public void setBigDouble(BigDecimal bigDouble) 
     {
         this.bigDouble = bigDouble;
     }
 
-    public Long getBigDouble() 
+    public BigDecimal getBigDouble() 
     {
         return bigDouble;
     }
-    public void setSmallDouble(Long smallDouble) 
+    public void setSmallDouble(BigDecimal smallDouble) 
     {
         this.smallDouble = smallDouble;
     }
 
-    public Long getSmallDouble() 
+    public BigDecimal getSmallDouble() 
     {
         return smallDouble;
     }
-    public void setMuchSmall(Long muchSmall) 
+    public void setMuchSmall(BigDecimal muchSmall) 
     {
         this.muchSmall = muchSmall;
     }
 
-    public Long getMuchSmall() 
+    public BigDecimal getMuchSmall() 
     {
         return muchSmall;
     }
-    public void setNum0(Long num0) 
+    public void setNum0(BigDecimal num0) 
     {
         this.num0 = num0;
     }
 
-    public Long getNum0() 
+    public BigDecimal getNum0() 
     {
         return num0;
     }
-    public void setNum1(Long num1) 
+    public void setNum1(BigDecimal num1) 
     {
         this.num1 = num1;
     }
 
-    public Long getNum1() 
+    public BigDecimal getNum1() 
     {
         return num1;
     }
-    public void setNum2(Long num2) 
+    public void setNum2(BigDecimal num2) 
     {
         this.num2 = num2;
     }
 
-    public Long getNum2() 
+    public BigDecimal getNum2() 
     {
         return num2;
     }
-    public void setNum3(Long num3) 
+    public void setNum3(BigDecimal num3) 
     {
         this.num3 = num3;
     }
 
-    public Long getNum3() 
+    public BigDecimal getNum3() 
     {
         return num3;
     }
-    public void setNum4(Long num4) 
+    public void setNum4(BigDecimal num4) 
     {
         this.num4 = num4;
     }
 
-    public Long getNum4() 
+    public BigDecimal getNum4() 
     {
         return num4;
     }
-    public void setNum5(Long num5) 
+    public void setNum5(BigDecimal num5) 
     {
         this.num5 = num5;
     }
 
-    public Long getNum5() 
+    public BigDecimal getNum5() 
     {
         return num5;
     }
-    public void setNum6(Long num6) 
+    public void setNum6(BigDecimal num6) 
     {
         this.num6 = num6;
     }
 
-    public Long getNum6() 
+    public BigDecimal getNum6() 
     {
         return num6;
     }
-    public void setNum7(Long num7) 
+    public void setNum7(BigDecimal num7) 
     {
         this.num7 = num7;
     }
 
-    public Long getNum7() 
+    public BigDecimal getNum7() 
     {
         return num7;
     }
-    public void setNum8(Long num8) 
+    public void setNum8(BigDecimal num8) 
     {
         this.num8 = num8;
     }
 
-    public Long getNum8() 
+    public BigDecimal getNum8() 
     {
         return num8;
     }
-    public void setNum9(Long num9) 
+    public void setNum9(BigDecimal num9) 
     {
         this.num9 = num9;
     }
 
-    public Long getNum9() 
+    public BigDecimal getNum9() 
     {
         return num9;
     }
-    public void setNum10(Long num10) 
+    public void setNum10(BigDecimal num10) 
     {
         this.num10 = num10;
     }
 
-    public Long getNum10() 
+    public BigDecimal getNum10() 
     {
         return num10;
     }
-    public void setNum11(Long num11) 
+    public void setNum11(BigDecimal num11) 
     {
         this.num11 = num11;
     }
 
-    public Long getNum11() 
+    public BigDecimal getNum11() 
     {
         return num11;
     }
-    public void setNum12(Long num12) 
+    public void setNum12(BigDecimal num12) 
     {
         this.num12 = num12;
     }
 
-    public Long getNum12() 
+    public BigDecimal getNum12() 
     {
         return num12;
     }
-    public void setNum13(Long num13) 
+    public void setNum13(BigDecimal num13) 
     {
         this.num13 = num13;
     }
 
-    public Long getNum13() 
+    public BigDecimal getNum13() 
     {
         return num13;
     }
-    public void setNum14(Long num14) 
+    public void setNum14(BigDecimal num14) 
     {
         this.num14 = num14;
     }
 
-    public Long getNum14() 
+    public BigDecimal getNum14() 
     {
         return num14;
     }
-    public void setNum15(Long num15) 
+    public void setNum15(BigDecimal num15) 
     {
         this.num15 = num15;
     }
 
-    public Long getNum15() 
+    public BigDecimal getNum15() 
     {
         return num15;
     }
-    public void setNum16(Long num16) 
+    public void setNum16(BigDecimal num16) 
     {
         this.num16 = num16;
     }
 
-    public Long getNum16() 
+    public BigDecimal getNum16() 
     {
         return num16;
     }
-    public void setNum17(Long num17) 
+    public void setNum17(BigDecimal num17) 
     {
         this.num17 = num17;
     }
 
-    public Long getNum17() 
+    public BigDecimal getNum17() 
     {
         return num17;
     }
-    public void setNum18(Long num18) 
+    public void setNum18(BigDecimal num18) 
     {
         this.num18 = num18;
     }
 
-    public Long getNum18() 
+    public BigDecimal getNum18() 
     {
         return num18;
     }
-    public void setNum19(Long num19) 
+    public void setNum19(BigDecimal num19) 
     {
         this.num19 = num19;
     }
 
-    public Long getNum19() 
+    public BigDecimal getNum19() 
     {
         return num19;
     }
-    public void setNum20(Long num20) 
+    public void setNum20(BigDecimal num20) 
     {
         this.num20 = num20;
     }
 
-    public Long getNum20() 
+    public BigDecimal getNum20() 
     {
         return num20;
     }
-    public void setNum21(Long num21) 
+    public void setNum21(BigDecimal num21) 
     {
         this.num21 = num21;
     }
 
-    public Long getNum21() 
+    public BigDecimal getNum21() 
     {
         return num21;
     }
-    public void setNum22(Long num22) 
+    public void setNum22(BigDecimal num22) 
     {
         this.num22 = num22;
     }
 
-    public Long getNum22() 
+    public BigDecimal getNum22() 
     {
         return num22;
     }
-    public void setNum23(Long num23) 
+    public void setNum23(BigDecimal num23) 
     {
         this.num23 = num23;
     }
 
-    public Long getNum23() 
+    public BigDecimal getNum23() 
     {
         return num23;
     }
-    public void setNum24(Long num24) 
+    public void setNum24(BigDecimal num24) 
     {
         this.num24 = num24;
     }
 
-    public Long getNum24() 
+    public BigDecimal getNum24() 
     {
         return num24;
     }
-    public void setNum25(Long num25) 
+    public void setNum25(BigDecimal num25) 
     {
         this.num25 = num25;
     }
 
-    public Long getNum25() 
+    public BigDecimal getNum25() 
     {
         return num25;
     }
-    public void setNum26(Long num26) 
+    public void setNum26(BigDecimal num26) 
     {
         this.num26 = num26;
     }
 
-    public Long getNum26() 
+    public BigDecimal getNum26() 
     {
         return num26;
     }
-    public void setNum27(Long num27) 
+    public void setNum27(BigDecimal num27) 
     {
         this.num27 = num27;
     }
 
-    public Long getNum27() 
+    public BigDecimal getNum27() 
     {
         return num27;
     }
-    public void setRed(Long red) 
+    public void setRed(BigDecimal red) 
     {
         this.red = red;
     }
 
-    public Long getRed() 
+    public BigDecimal getRed() 
     {
         return red;
     }
-    public void setGreen(Long green) 
+    public void setGreen(BigDecimal green) 
     {
         this.green = green;
     }
 
-    public Long getGreen() 
+    public BigDecimal getGreen() 
     {
         return green;
     }
-    public void setBlue(Long blue) 
+    public void setBlue(BigDecimal blue) 
     {
         this.blue = blue;
     }
 
-    public Long getBlue() 
+    public BigDecimal getBlue() 
     {
         return blue;
     }
-    public void setLoong(Long loong) 
+    public void setLoong(BigDecimal loong) 
     {
         this.loong = loong;
     }
 
-    public Long getLoong() 
+    public BigDecimal getLoong() 
     {
         return loong;
     }
-    public void setTiger(Long tiger) 
+    public void setTiger(BigDecimal tiger) 
     {
         this.tiger = tiger;
     }
 
-    public Long getTiger() 
+    public BigDecimal getTiger() 
     {
         return tiger;
     }
-    public void setClose(Long close) 
+    public void setClose(BigDecimal close) 
     {
         this.close = close;
     }
 
-    public Long getClose() 
+    public BigDecimal getClose() 
     {
         return close;
     }
-    public void setLeopard(Long leopard) 
+    public void setLeopard(BigDecimal leopard) 
     {
         this.leopard = leopard;
     }
 
-    public Long getLeopard() 
+    public BigDecimal getLeopard() 
     {
         return leopard;
     }
-    public void setPairs(Long pairs) 
+    public void setPairs(BigDecimal pairs) 
     {
         this.pairs = pairs;
     }
 
-    public Long getPairs() 
+    public BigDecimal getPairs() 
     {
         return pairs;
     }
-    public void setShun(Long shun) 
+    public void setShun(BigDecimal shun) 
     {
         this.shun = shun;
     }
 
-    public Long getShun() 
+    public BigDecimal getShun() 
     {
         return shun;
     }
@@ -818,39 +819,21 @@ public class Jndrecord extends BaseEntity
     {
         return sumNum;
     }
-    public void setHzId(Integer hzId) 
-    {
-        this.hzId = hzId;
-    }
-
-    public Integer getHzId() 
-    {
-        return hzId;
-    }
-    public void setHzUser(Long hzUser) 
-    {
-        this.hzUser = hzUser;
-    }
-
-    public Long getHzUser() 
-    {
-        return hzUser;
-    }
-    public void setIsDelete(Integer isDelete) 
+    public void setIsDelete(String isDelete) 
     {
         this.isDelete = isDelete;
     }
 
-    public Integer getIsDelete() 
+    public String getIsDelete() 
     {
         return isDelete;
     }
-    public void setIsDeduct(Integer isDeduct) 
+    public void setIsDeduct(String isDeduct) 
     {
         this.isDeduct = isDeduct;
     }
 
-    public Integer getIsDeduct() 
+    public String getIsDeduct() 
     {
         return isDeduct;
     }
@@ -862,6 +845,24 @@ public class Jndrecord extends BaseEntity
     public Integer getHouse() 
     {
         return house;
+    }
+    public void setHzId(String hzId) 
+    {
+        this.hzId = hzId;
+    }
+
+    public String getHzId() 
+    {
+        return hzId;
+    }
+    public void setHzUser(String hzUser) 
+    {
+        this.hzUser = hzUser;
+    }
+
+    public String getHzUser() 
+    {
+        return hzUser;
     }
 
     @Override
@@ -927,11 +928,11 @@ public class Jndrecord extends BaseEntity
             .append("n2", getN2())
             .append("n3", getN3())
             .append("sumNum", getSumNum())
-            .append("hzId", getHzId())
-            .append("hzUser", getHzUser())
             .append("isDelete", getIsDelete())
             .append("isDeduct", getIsDeduct())
             .append("house", getHouse())
+            .append("hzId", getHzId())
+            .append("hzUser", getHzUser())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

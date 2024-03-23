@@ -48,8 +48,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <select id="selectLastRecord" resultMap="Jnd28Result">
+    <select id="selectLastRecord" parameterType="String" resultMap="Jnd28Result">
         <include refid="selectJnd28Vo"/>
+        where 1 = 1
+        <if test="status != null  and status != ''"> and status = #{status}</if>
         order by id desc
         limit 1
     </select>

@@ -83,6 +83,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectJsssckjVo"/>
         where id = #{id}
     </select>
+
+    <select id="selectLastRecord" parameterType="String" resultMap="JsssckjResult">
+        <include refid="selectJsssckjVo"/>
+        where 1 = 1
+        <if test="status != null  and status != ''"> and status = #{status}</if>
+        order by id desc
+        limit 1
+    </select>
         
     <insert id="insertJsssckj" parameterType="Jsssckj" useGeneratedKeys="true" keyProperty="id">
         insert into jsssckj

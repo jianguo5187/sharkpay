@@ -98,4 +98,9 @@ public class Azxy10ServiceImpl implements IAzxy10Service
     public Azxy10 selectLastRecord() {
         return azxy10Mapper.selectLastRecord();
     }
+
+    @Override
+    public List<Azxy10> selectAzxy10ListByParam(String idDescFlg, Integer limitNumber) {
+        return azxy10Mapper.selectAzxy10ListByParam(idDescFlg,limitNumber);
+    }
 }

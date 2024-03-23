@@ -58,4 +58,8 @@ public interface IAzxy10kjService
      * @return 结果
      */
     public int deleteAzxy10kjById(Long id);
+
+    public Azxy10kj selectLastRecord(String status);
+
+    public List<Azxy10kj> selectAzxy10kjListWithStatusZeroAndLimit(Long id,String status,String idAscFlg,String idDescFlg,Integer limitNumber);
 }

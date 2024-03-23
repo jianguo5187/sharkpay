@@ -209,6 +209,9 @@
         <el-form-item label="封盘秒数" prop="endTime">
           <el-input-number v-model="form.endTime" :min="0" placeholder="请输入封盘秒数"/>
         </el-form-item>
+        <el-form-item label="开奖间隔秒数" prop="lotteryInterval">
+          <el-input-number v-model="form.lotteryInterval" :min="0" placeholder="请输入开奖间隔秒数"/>
+        </el-form-item>
         <el-form-item label="机器人比例" prop="robotRate">
           <el-input-number v-model="form.robotRate" :min="0" placeholder="请输入机器人比例"/>
         </el-form-item>
@@ -339,6 +342,7 @@ export default {
         minBetAmount: null,
         maxBetAmount: null,
         endTime: null,
+        lotteryInterval: null,
         robotRate: null,
         roomRule: null,
         sort: null,

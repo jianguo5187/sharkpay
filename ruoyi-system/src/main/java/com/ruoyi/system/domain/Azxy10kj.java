@@ -22,43 +22,43 @@ public class Azxy10kj extends BaseEntity
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
-    private Long num1;
+    private Integer num1;
 
     /** 开奖号码2 */
     @Excel(name = "开奖号码2")
-    private Long num2;
+    private Integer num2;
 
     /** 开奖号码3 */
     @Excel(name = "开奖号码3")
-    private Long num3;
+    private Integer num3;
 
     /** 开奖号码4 */
     @Excel(name = "开奖号码4")
-    private Long num4;
+    private Integer num4;
 
     /** 开奖号码5 */
     @Excel(name = "开奖号码5")
-    private Long num5;
+    private Integer num5;
 
     /** 开奖号码6 */
     @Excel(name = "开奖号码6")
-    private Long num6;
+    private Integer num6;
 
     /** 开奖号码7 */
     @Excel(name = "开奖号码7")
-    private Long num7;
+    private Integer num7;
 
     /** 开奖号码8 */
     @Excel(name = "开奖号码8")
-    private Long num8;
+    private Integer num8;
 
     /** 开奖号码9 */
     @Excel(name = "开奖号码9")
-    private Long num9;
+    private Integer num9;
 
     /** 开奖号码10 */
     @Excel(name = "开奖号码10")
-    private Long num10;
+    private Integer num10;
 
     /** 封盘投注截止时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -96,93 +96,93 @@ public class Azxy10kj extends BaseEntity
     {
         return id;
     }
-    public void setNum1(Long num1) 
+    public void setNum1(Integer num1)
     {
         this.num1 = num1;
     }
 
-    public Long getNum1() 
+    public Integer getNum1()
     {
         return num1;
     }
-    public void setNum2(Long num2) 
+    public void setNum2(Integer num2)
     {
         this.num2 = num2;
     }
 
-    public Long getNum2() 
+    public Integer getNum2()
     {
         return num2;
     }
-    public void setNum3(Long num3) 
+    public void setNum3(Integer num3)
     {
         this.num3 = num3;
     }
 
-    public Long getNum3() 
+    public Integer getNum3()
     {
         return num3;
     }
-    public void setNum4(Long num4) 
+    public void setNum4(Integer num4)
     {
         this.num4 = num4;
     }
 
-    public Long getNum4() 
+    public Integer getNum4()
     {
         return num4;
     }
-    public void setNum5(Long num5) 
+    public void setNum5(Integer num5)
     {
         this.num5 = num5;
     }
 
-    public Long getNum5() 
+    public Integer getNum5()
     {
         return num5;
     }
-    public void setNum6(Long num6) 
+    public void setNum6(Integer num6)
     {
         this.num6 = num6;
     }
 
-    public Long getNum6() 
+    public Integer getNum6()
     {
         return num6;
     }
-    public void setNum7(Long num7) 
+    public void setNum7(Integer num7)
     {
         this.num7 = num7;
     }
 
-    public Long getNum7() 
+    public Integer getNum7()
     {
         return num7;
     }
-    public void setNum8(Long num8) 
+    public void setNum8(Integer num8)
     {
         this.num8 = num8;
     }
 
-    public Long getNum8() 
+    public Integer getNum8()
     {
         return num8;
     }
-    public void setNum9(Long num9) 
+    public void setNum9(Integer num9)
     {
         this.num9 = num9;
     }
 
-    public Long getNum9() 
+    public Integer getNum9()
     {
         return num9;
     }
-    public void setNum10(Long num10) 
+    public void setNum10(Integer num10)
     {
         this.num10 = num10;
     }
 
-    public Long getNum10() 
+    public Integer getNum10()
     {
         return num10;
     }

@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Azxy10kj;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 澳洲幸运10开奖Mapper接口
@@ -58,4 +59,8 @@ public interface Azxy10kjMapper
      * @return 结果
      */
     public int deleteAzxy10kjByIds(Long[] ids);
+
+    public Azxy10kj selectLastRecord(String status);
+
+    public List<Azxy10kj> selectAzxy10kjListWithStatusZeroAndLimit(@Param("id") Long id, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg,@Param("limitNumber") Integer limitNumber);
 }

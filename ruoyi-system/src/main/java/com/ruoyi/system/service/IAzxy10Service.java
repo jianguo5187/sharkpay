@@ -60,4 +60,6 @@ public interface IAzxy10Service
     public int deleteAzxy10ById(Long id);
 
     public Azxy10 selectLastRecord();
+
+    public List<Azxy10> selectAzxy10ListByParam(String idDescFlg,Integer limitNumber);
 }

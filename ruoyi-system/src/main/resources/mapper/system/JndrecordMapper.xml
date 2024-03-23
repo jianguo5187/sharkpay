@@ -65,11 +65,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="n2"    column="n2"    />
         <result property="n3"    column="n3"    />
         <result property="sumNum"    column="sum_num"    />
-        <result property="hzId"    column="hz_id"    />
-        <result property="hzUser"    column="hz_user"    />
         <result property="isDelete"    column="is_delete"    />
         <result property="isDeduct"    column="is_deduct"    />
         <result property="house"    column="house"    />
+        <result property="hzId"    column="hz_id"    />
+        <result property="hzUser"    column="hz_user"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectJndrecordVo">
-        select id, user_id, periods, status, record_time, check_time, count_money, win_money, big, small, single, double_amount, much_Big, big_Single, small_Single, big_Double, small_Double, much_Small, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12, num13, num14, num15, num16, num17, num18, num19, num20, num21, num22, num23, num24, num25, num26, num27, red, green, blue, loong, tiger, close, leopard, pairs, shun, vip, n1, n2, n3, sum_num, hz_id, hz_user, is_delete, is_deduct, house, create_by, create_time, update_by, update_time, remark from jndrecord
+        select id, user_id, periods, status, record_time, check_time, count_money, win_money, big, small, single, double_amount, much_Big, big_Single, small_Single, big_Double, small_Double, much_Small, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12, num13, num14, num15, num16, num17, num18, num19, num20, num21, num22, num23, num24, num25, num26, num27, red, green, blue, loong, tiger, close, leopard, pairs, shun, vip, n1, n2, n3, sum_num, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from jndrecord
     </sql>
 
     <select id="selectJndrecordList" parameterType="Jndrecord" resultMap="JndrecordResult">
@@ -143,11 +143,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="n2 != null "> and n2 = #{n2}</if>
             <if test="n3 != null "> and n3 = #{n3}</if>
             <if test="sumNum != null "> and sum_num = #{sumNum}</if>
-            <if test="hzId != null "> and hz_id = #{hzId}</if>
-            <if test="hzUser != null "> and hz_user = #{hzUser}</if>
-            <if test="isDelete != null "> and is_delete = #{isDelete}</if>
-            <if test="isDeduct != null "> and is_deduct = #{isDeduct}</if>
+            <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
+            <if test="isDeduct != null  and isDeduct != ''"> and is_deduct = #{isDeduct}</if>
             <if test="house != null "> and house = #{house}</if>
+            <if test="hzId != null  and hzId != ''"> and hz_id = #{hzId}</if>
+            <if test="hzUser != null  and hzUser != ''"> and hz_user = #{hzUser}</if>
         </where>
     </select>
     
@@ -218,11 +218,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="n2 != null">n2,</if>
             <if test="n3 != null">n3,</if>
             <if test="sumNum != null">sum_num,</if>
-            <if test="hzId != null">hz_id,</if>
-            <if test="hzUser != null">hz_user,</if>
-            <if test="isDelete != null">is_delete,</if>
-            <if test="isDeduct != null">is_deduct,</if>
+            <if test="isDelete != null and isDelete != ''">is_delete,</if>
+            <if test="isDeduct != null and isDeduct != ''">is_deduct,</if>
             <if test="house != null">house,</if>
+            <if test="hzId != null and hzId != ''">hz_id,</if>
+            <if test="hzUser != null">hz_user,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateBy != null">update_by,</if>
@@ -289,11 +289,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="n2 != null">#{n2},</if>
             <if test="n3 != null">#{n3},</if>
             <if test="sumNum != null">#{sumNum},</if>
-            <if test="hzId != null">#{hzId},</if>
-            <if test="hzUser != null">#{hzUser},</if>
-            <if test="isDelete != null">#{isDelete},</if>
-            <if test="isDeduct != null">#{isDeduct},</if>
+            <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
+            <if test="isDeduct != null and isDeduct != ''">#{isDeduct},</if>
             <if test="house != null">#{house},</if>
+            <if test="hzId != null and hzId != ''">#{hzId},</if>
+            <if test="hzUser != null">#{hzUser},</if>
             <if test="createBy != null">#{createBy},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateBy != null">#{updateBy},</if>
@@ -364,11 +364,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="n2 != null">n2 = #{n2},</if>
             <if test="n3 != null">n3 = #{n3},</if>
             <if test="sumNum != null">sum_num = #{sumNum},</if>
-            <if test="hzId != null">hz_id = #{hzId},</if>
-            <if test="hzUser != null">hz_user = #{hzUser},</if>
-            <if test="isDelete != null">is_delete = #{isDelete},</if>
-            <if test="isDeduct != null">is_deduct = #{isDeduct},</if>
+            <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
+            <if test="isDeduct != null and isDeduct != ''">is_deduct = #{isDeduct},</if>
             <if test="house != null">house = #{house},</if>
+            <if test="hzId != null and hzId != ''">hz_id = #{hzId},</if>
+            <if test="hzUser != null">hz_user = #{hzUser},</if>
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>

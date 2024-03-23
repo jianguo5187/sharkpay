@@ -93,4 +93,14 @@ public class Azxy10kjServiceImpl implements IAzxy10kjService
     {
         return azxy10kjMapper.deleteAzxy10kjById(id);
     }
+
+    @Override
+    public Azxy10kj selectLastRecord(String status) {
+        return azxy10kjMapper.selectLastRecord(status);
+    }
+
+    @Override
+    public List<Azxy10kj> selectAzxy10kjListWithStatusZeroAndLimit(Long id, String status,String idAscFlg,String idDescFlg, Integer limitNumber) {
+        return azxy10kjMapper.selectAzxy10kjListWithStatusZeroAndLimit(id,status,idAscFlg,idDescFlg,limitNumber);
+    }
 }

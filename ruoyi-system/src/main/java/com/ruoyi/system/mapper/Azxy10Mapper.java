@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Azxy10;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 澳洲幸运10开奖历史Mapper接口
@@ -60,4 +61,5 @@ public interface Azxy10Mapper
     public int deleteAzxy10ByIds(Long[] ids);
 
     public Azxy10 selectLastRecord();
+    public List<Azxy10> selectAzxy10ListByParam( @Param("idDescFlg") String idDescFlg,@Param("limitNumber") Integer limitNumber);
 }

@@ -59,5 +59,5 @@ public interface IJnd28Service
      */
     public int deleteJnd28ById(Long id);
 
-    public Jnd28 selectLastRecord();
+    public Jnd28 selectLastRecord(String status);
 }
