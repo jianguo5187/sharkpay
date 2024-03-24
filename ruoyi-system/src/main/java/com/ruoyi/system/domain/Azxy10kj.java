@@ -81,11 +81,11 @@ public class Azxy10kj extends BaseEntity
 
     /** 总下注金额 */
     @Excel(name = "总下注金额")
-    private Long countMoney;
+    private Float countMoney;
 
     /** 总中奖金额 */
     @Excel(name = "总中奖金额")
-    private Long winMoney;
+    private Float winMoney;
 
     public void setId(Long id) 
     {
@@ -222,21 +222,21 @@ public class Azxy10kj extends BaseEntity
     {
         return theTime;
     }
-    public void setCountMoney(Long countMoney) 
+    public void setCountMoney(Float countMoney)
     {
         this.countMoney = countMoney;
     }
 
-    public Long getCountMoney() 
+    public Float getCountMoney()
     {
         return countMoney;
     }
-    public void setWinMoney(Long winMoney) 
+    public void setWinMoney(Float winMoney)
     {
         this.winMoney = winMoney;
     }
 
-    public Long getWinMoney() 
+    public Float getWinMoney()
     {
         return winMoney;
     }

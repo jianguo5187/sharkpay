@@ -1,6 +1,5 @@
 package com.ruoyi.system.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -45,199 +44,199 @@ public class Jndrecord extends BaseEntity
 
     /** 下注金额 */
     @Excel(name = "下注金额")
-    private BigDecimal countMoney;
+    private Float countMoney;
 
     /** 中奖金额 */
     @Excel(name = "中奖金额")
-    private BigDecimal winMoney;
+    private Float winMoney;
 
     /** 下注大的金额 */
     @Excel(name = "下注大的金额")
-    private BigDecimal big;
+    private Float big;
 
     /** 下注小的金额 */
     @Excel(name = "下注小的金额")
-    private BigDecimal small;
+    private Float small;
 
     /** 下注单的金额 */
     @Excel(name = "下注单的金额")
-    private BigDecimal single;
+    private Float single;
 
     /** 下注双的金额 */
     @Excel(name = "下注双的金额")
-    private BigDecimal doubleAmount;
+    private Float doubleAmount;
 
     /** 下注极大的金额 */
     @Excel(name = "下注极大的金额")
-    private BigDecimal muchBig;
+    private Float muchBig;
 
     /** 下注大单的金额 */
     @Excel(name = "下注大单的金额")
-    private BigDecimal bigSingle;
+    private Float bigSingle;
 
     /** 下注小单的金额 */
     @Excel(name = "下注小单的金额")
-    private BigDecimal smallSingle;
+    private Float smallSingle;
 
     /** 下注大双的金额 */
     @Excel(name = "下注大双的金额")
-    private BigDecimal bigDouble;
+    private Float bigDouble;
 
     /** 下注小双的金额 */
     @Excel(name = "下注小双的金额")
-    private BigDecimal smallDouble;
+    private Float smallDouble;
 
     /** 下注极小的金额 */
     @Excel(name = "下注极小的金额")
-    private BigDecimal muchSmall;
+    private Float muchSmall;
 
     /** 下注数字0的金额 */
     @Excel(name = "下注数字0的金额")
-    private BigDecimal num0;
+    private Float num0;
 
     /** 下注数字1的金额 */
     @Excel(name = "下注数字1的金额")
-    private BigDecimal num1;
+    private Float num1;
 
     /** 下注数字2的金额 */
     @Excel(name = "下注数字2的金额")
-    private BigDecimal num2;
+    private Float num2;
 
     /** 下注数字3的金额 */
     @Excel(name = "下注数字3的金额")
-    private BigDecimal num3;
+    private Float num3;
 
     /** 下注数字4的金额 */
     @Excel(name = "下注数字4的金额")
-    private BigDecimal num4;
+    private Float num4;
 
     /** 下注数字5的金额 */
     @Excel(name = "下注数字5的金额")
-    private BigDecimal num5;
+    private Float num5;
 
     /** 下注数字6的金额 */
     @Excel(name = "下注数字6的金额")
-    private BigDecimal num6;
+    private Float num6;
 
     /** 下注数字7的金额 */
     @Excel(name = "下注数字7的金额")
-    private BigDecimal num7;
+    private Float num7;
 
     /** 下注数字8的金额 */
     @Excel(name = "下注数字8的金额")
-    private BigDecimal num8;
+    private Float num8;
 
     /** 下注数字9的金额 */
     @Excel(name = "下注数字9的金额")
-    private BigDecimal num9;
+    private Float num9;
 
     /** 下注数字10的金额 */
     @Excel(name = "下注数字10的金额")
-    private BigDecimal num10;
+    private Float num10;
 
     /** 下注数字11的金额 */
     @Excel(name = "下注数字11的金额")
-    private BigDecimal num11;
+    private Float num11;
 
     /** 下注数字12的金额 */
     @Excel(name = "下注数字12的金额")
-    private BigDecimal num12;
+    private Float num12;
 
     /** 下注数字13的金额 */
     @Excel(name = "下注数字13的金额")
-    private BigDecimal num13;
+    private Float num13;
 
     /** 下注数字14的金额 */
     @Excel(name = "下注数字14的金额")
-    private BigDecimal num14;
+    private Float num14;
 
     /** 下注数字15的金额 */
     @Excel(name = "下注数字15的金额")
-    private BigDecimal num15;
+    private Float num15;
 
     /** 下注数字16的金额 */
     @Excel(name = "下注数字16的金额")
-    private BigDecimal num16;
+    private Float num16;
 
     /** 下注数字17的金额 */
     @Excel(name = "下注数字17的金额")
-    private BigDecimal num17;
+    private Float num17;
 
     /** 下注数字18的金额 */
     @Excel(name = "下注数字18的金额")
-    private BigDecimal num18;
+    private Float num18;
 
     /** 下注数字19的金额 */
     @Excel(name = "下注数字19的金额")
-    private BigDecimal num19;
+    private Float num19;
 
     /** 下注数字20的金额 */
     @Excel(name = "下注数字20的金额")
-    private BigDecimal num20;
+    private Float num20;
 
     /** 下注数字21的金额 */
     @Excel(name = "下注数字21的金额")
-    private BigDecimal num21;
+    private Float num21;
 
     /** 下注数字22的金额 */
     @Excel(name = "下注数字22的金额")
-    private BigDecimal num22;
+    private Float num22;
 
     /** 下注数字23的金额 */
     @Excel(name = "下注数字23的金额")
-    private BigDecimal num23;
+    private Float num23;
 
     /** 下注数字24的金额 */
     @Excel(name = "下注数字24的金额")
-    private BigDecimal num24;
+    private Float num24;
 
     /** 下注数字25的金额 */
     @Excel(name = "下注数字25的金额")
-    private BigDecimal num25;
+    private Float num25;
 
     /** 下注数字26的金额 */
     @Excel(name = "下注数字26的金额")
-    private BigDecimal num26;
+    private Float num26;
 
     /** 下注数字27的金额 */
     @Excel(name = "下注数字27的金额")
-    private BigDecimal num27;
+    private Float num27;
 
     /** 下注红的金额 */
     @Excel(name = "下注红的金额")
-    private BigDecimal red;
+    private Float red;
 
     /** 下注绿的金额 */
     @Excel(name = "下注绿的金额")
-    private BigDecimal green;
+    private Float green;
 
     /** 下注蓝的金额 */
     @Excel(name = "下注蓝的金额")
-    private BigDecimal blue;
+    private Float blue;
 
     /** 下注龙的金额 */
     @Excel(name = "下注龙的金额")
-    private BigDecimal loong;
+    private Float loong;
 
     /** 下注虎的金额 */
     @Excel(name = "下注虎的金额")
-    private BigDecimal tiger;
+    private Float tiger;
 
     /** 下注合的金额 */
     @Excel(name = "下注合的金额")
-    private BigDecimal close;
+    private Float close;
 
     /** 下注豹子的金额 */
     @Excel(name = "下注豹子的金额")
-    private BigDecimal leopard;
+    private Float leopard;
 
     /** 下注对子的金额 */
     @Excel(name = "下注对子的金额")
-    private BigDecimal pairs;
+    private Float pairs;
 
     /** 下注顺子的金额 */
     @Excel(name = "下注顺子的金额")
-    private BigDecimal shun;
+    private Float shun;
 
     /** VIP房间 */
     @Excel(name = "VIP房间")
@@ -333,444 +332,444 @@ public class Jndrecord extends BaseEntity
     {
         return checkTime;
     }
-    public void setCountMoney(BigDecimal countMoney) 
+    public void setCountMoney(Float countMoney) 
     {
         this.countMoney = countMoney;
     }
 
-    public BigDecimal getCountMoney() 
+    public Float getCountMoney() 
     {
         return countMoney;
     }
-    public void setWinMoney(BigDecimal winMoney) 
+    public void setWinMoney(Float winMoney) 
     {
         this.winMoney = winMoney;
     }
 
-    public BigDecimal getWinMoney() 
+    public Float getWinMoney() 
     {
         return winMoney;
     }
-    public void setBig(BigDecimal big) 
+    public void setBig(Float big) 
     {
         this.big = big;
     }
 
-    public BigDecimal getBig() 
+    public Float getBig() 
     {
         return big;
     }
-    public void setSmall(BigDecimal small) 
+    public void setSmall(Float small) 
     {
         this.small = small;
     }
 
-    public BigDecimal getSmall() 
+    public Float getSmall() 
     {
         return small;
     }
-    public void setSingle(BigDecimal single) 
+    public void setSingle(Float single) 
     {
         this.single = single;
     }
 
-    public BigDecimal getSingle() 
+    public Float getSingle() 
     {
         return single;
     }
-    public void setDoubleAmount(BigDecimal doubleAmount) 
+    public void setDoubleAmount(Float doubleAmount) 
     {
         this.doubleAmount = doubleAmount;
     }
 
-    public BigDecimal getDoubleAmount() 
+    public Float getDoubleAmount() 
     {
         return doubleAmount;
     }
-    public void setMuchBig(BigDecimal muchBig) 
+    public void setMuchBig(Float muchBig) 
     {
         this.muchBig = muchBig;
     }
 
-    public BigDecimal getMuchBig() 
+    public Float getMuchBig() 
     {
         return muchBig;
     }
-    public void setBigSingle(BigDecimal bigSingle) 
+    public void setBigSingle(Float bigSingle) 
     {
         this.bigSingle = bigSingle;
     }
 
-    public BigDecimal getBigSingle() 
+    public Float getBigSingle() 
     {
         return bigSingle;
     }
-    public void setSmallSingle(BigDecimal smallSingle) 
+    public void setSmallSingle(Float smallSingle) 
     {
         this.smallSingle = smallSingle;
     }
 
-    public BigDecimal getSmallSingle() 
+    public Float getSmallSingle() 
     {
         return smallSingle;
     }
-    public void setBigDouble(BigDecimal bigDouble) 
+    public void setBigDouble(Float bigDouble) 
     {
         this.bigDouble = bigDouble;
     }
 
-    public BigDecimal getBigDouble() 
+    public Float getBigDouble() 
     {
         return bigDouble;
     }
-    public void setSmallDouble(BigDecimal smallDouble) 
+    public void setSmallDouble(Float smallDouble) 
     {
         this.smallDouble = smallDouble;
     }
 
-    public BigDecimal getSmallDouble() 
+    public Float getSmallDouble() 
     {
         return smallDouble;
     }
-    public void setMuchSmall(BigDecimal muchSmall) 
+    public void setMuchSmall(Float muchSmall) 
     {
         this.muchSmall = muchSmall;
     }
 
-    public BigDecimal getMuchSmall() 
+    public Float getMuchSmall() 
     {
         return muchSmall;
     }
-    public void setNum0(BigDecimal num0) 
+    public void setNum0(Float num0) 
     {
         this.num0 = num0;
     }
 
-    public BigDecimal getNum0() 
+    public Float getNum0() 
     {
         return num0;
     }
-    public void setNum1(BigDecimal num1) 
+    public void setNum1(Float num1) 
     {
         this.num1 = num1;
     }
 
-    public BigDecimal getNum1() 
+    public Float getNum1() 
     {
         return num1;
     }
-    public void setNum2(BigDecimal num2) 
+    public void setNum2(Float num2) 
     {
         this.num2 = num2;
     }
 
-    public BigDecimal getNum2() 
+    public Float getNum2() 
     {
         return num2;
     }
-    public void setNum3(BigDecimal num3) 
+    public void setNum3(Float num3) 
     {
         this.num3 = num3;
     }
 
-    public BigDecimal getNum3() 
+    public Float getNum3() 
     {
         return num3;
     }
-    public void setNum4(BigDecimal num4) 
+    public void setNum4(Float num4) 
     {
         this.num4 = num4;
     }
 
-    public BigDecimal getNum4() 
+    public Float getNum4() 
     {
         return num4;
     }
-    public void setNum5(BigDecimal num5) 
+    public void setNum5(Float num5) 
     {
         this.num5 = num5;
     }
 
-    public BigDecimal getNum5() 
+    public Float getNum5() 
     {
         return num5;
     }
-    public void setNum6(BigDecimal num6) 
+    public void setNum6(Float num6) 
     {
         this.num6 = num6;
     }
 
-    public BigDecimal getNum6() 
+    public Float getNum6() 
     {
         return num6;
     }
-    public void setNum7(BigDecimal num7) 
+    public void setNum7(Float num7) 
     {
         this.num7 = num7;
     }
 
-    public BigDecimal getNum7() 
+    public Float getNum7() 
     {
         return num7;
     }
-    public void setNum8(BigDecimal num8) 
+    public void setNum8(Float num8) 
     {
         this.num8 = num8;
     }
 
-    public BigDecimal getNum8() 
+    public Float getNum8() 
     {
         return num8;
     }
-    public void setNum9(BigDecimal num9) 
+    public void setNum9(Float num9) 
     {
         this.num9 = num9;
     }
 
-    public BigDecimal getNum9() 
+    public Float getNum9() 
     {
         return num9;
     }
-    public void setNum10(BigDecimal num10) 
+    public void setNum10(Float num10) 
     {
         this.num10 = num10;
     }
 
-    public BigDecimal getNum10() 
+    public Float getNum10() 
     {
         return num10;
     }
-    public void setNum11(BigDecimal num11) 
+    public void setNum11(Float num11) 
     {
         this.num11 = num11;
     }
 
-    public BigDecimal getNum11() 
+    public Float getNum11() 
     {
         return num11;
     }
-    public void setNum12(BigDecimal num12) 
+    public void setNum12(Float num12) 
     {
         this.num12 = num12;
     }
 
-    public BigDecimal getNum12() 
+    public Float getNum12() 
     {
         return num12;
     }
-    public void setNum13(BigDecimal num13) 
+    public void setNum13(Float num13) 
     {
         this.num13 = num13;
     }
 
-    public BigDecimal getNum13() 
+    public Float getNum13() 
     {
         return num13;
     }
-    public void setNum14(BigDecimal num14) 
+    public void setNum14(Float num14) 
     {
         this.num14 = num14;
     }
 
-    public BigDecimal getNum14() 
+    public Float getNum14() 
     {
         return num14;
     }
-    public void setNum15(BigDecimal num15) 
+    public void setNum15(Float num15) 
     {
         this.num15 = num15;
     }
 
-    public BigDecimal getNum15() 
+    public Float getNum15() 
     {
         return num15;
     }
-    public void setNum16(BigDecimal num16) 
+    public void setNum16(Float num16) 
     {
         this.num16 = num16;
     }
 
-    public BigDecimal getNum16() 
+    public Float getNum16() 
     {
         return num16;
     }
-    public void setNum17(BigDecimal num17) 
+    public void setNum17(Float num17) 
     {
         this.num17 = num17;
     }
 
-    public BigDecimal getNum17() 
+    public Float getNum17() 
     {
         return num17;
     }
-    public void setNum18(BigDecimal num18) 
+    public void setNum18(Float num18) 
     {
         this.num18 = num18;
     }
 
-    public BigDecimal getNum18() 
+    public Float getNum18() 
     {
         return num18;
     }
-    public void setNum19(BigDecimal num19) 
+    public void setNum19(Float num19) 
     {
         this.num19 = num19;
     }
 
-    public BigDecimal getNum19() 
+    public Float getNum19() 
     {
         return num19;
     }
-    public void setNum20(BigDecimal num20) 
+    public void setNum20(Float num20) 
     {
         this.num20 = num20;
     }
 
-    public BigDecimal getNum20() 
+    public Float getNum20() 
     {
         return num20;
     }
-    public void setNum21(BigDecimal num21) 
+    public void setNum21(Float num21) 
     {
         this.num21 = num21;
     }
 
-    public BigDecimal getNum21() 
+    public Float getNum21() 
     {
         return num21;
     }
-    public void setNum22(BigDecimal num22) 
+    public void setNum22(Float num22) 
     {
         this.num22 = num22;
     }
 
-    public BigDecimal getNum22() 
+    public Float getNum22() 
     {
         return num22;
     }
-    public void setNum23(BigDecimal num23) 
+    public void setNum23(Float num23) 
     {
         this.num23 = num23;
     }
 
-    public BigDecimal getNum23() 
+    public Float getNum23() 
     {
         return num23;
     }
-    public void setNum24(BigDecimal num24) 
+    public void setNum24(Float num24) 
     {
         this.num24 = num24;
     }
 
-    public BigDecimal getNum24() 
+    public Float getNum24() 
     {
         return num24;
     }
-    public void setNum25(BigDecimal num25) 
+    public void setNum25(Float num25) 
     {
         this.num25 = num25;
     }
 
-    public BigDecimal getNum25() 
+    public Float getNum25() 
     {
         return num25;
     }
-    public void setNum26(BigDecimal num26) 
+    public void setNum26(Float num26) 
     {
         this.num26 = num26;
     }
 
-    public BigDecimal getNum26() 
+    public Float getNum26() 
     {
         return num26;
     }
-    public void setNum27(BigDecimal num27) 
+    public void setNum27(Float num27) 
     {
         this.num27 = num27;
     }
 
-    public BigDecimal getNum27() 
+    public Float getNum27() 
     {
         return num27;
     }
-    public void setRed(BigDecimal red) 
+    public void setRed(Float red) 
     {
         this.red = red;
     }
 
-    public BigDecimal getRed() 
+    public Float getRed() 
     {
         return red;
     }
-    public void setGreen(BigDecimal green) 
+    public void setGreen(Float green) 
     {
         this.green = green;
     }
 
-    public BigDecimal getGreen() 
+    public Float getGreen() 
     {
         return green;
     }
-    public void setBlue(BigDecimal blue) 
+    public void setBlue(Float blue) 
     {
         this.blue = blue;
     }
 
-    public BigDecimal getBlue() 
+    public Float getBlue() 
     {
         return blue;
     }
-    public void setLoong(BigDecimal loong) 
+    public void setLoong(Float loong) 
     {
         this.loong = loong;
     }
 
-    public BigDecimal getLoong() 
+    public Float getLoong() 
     {
         return loong;
     }
-    public void setTiger(BigDecimal tiger) 
+    public void setTiger(Float tiger) 
     {
         this.tiger = tiger;
     }
 
-    public BigDecimal getTiger() 
+    public Float getTiger() 
     {
         return tiger;
     }
-    public void setClose(BigDecimal close) 
+    public void setClose(Float close) 
     {
         this.close = close;
     }
 
-    public BigDecimal getClose() 
+    public Float getClose() 
     {
         return close;
     }
-    public void setLeopard(BigDecimal leopard) 
+    public void setLeopard(Float leopard) 
     {
         this.leopard = leopard;
     }
 
-    public BigDecimal getLeopard() 
+    public Float getLeopard() 
     {
         return leopard;
     }
-    public void setPairs(BigDecimal pairs) 
+    public void setPairs(Float pairs) 
     {
         this.pairs = pairs;
     }
 
-    public BigDecimal getPairs() 
+    public Float getPairs() 
     {
         return pairs;
     }
-    public void setShun(BigDecimal shun) 
+    public void setShun(Float shun) 
     {
         this.shun = shun;
     }
 
-    public BigDecimal getShun() 
+    public Float getShun() 
     {
         return shun;
     }

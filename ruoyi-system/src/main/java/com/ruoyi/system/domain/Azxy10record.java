@@ -1,6 +1,5 @@
 package com.ruoyi.system.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -38,757 +37,757 @@ public class Azxy10record extends BaseEntity
     @Excel(name = "投注时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date recordTime;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 操作 */
+    @Excel(name = "操作")
     private Date checkTime;
 
     /** 下注金额 */
     @Excel(name = "下注金额")
-    private BigDecimal countMoney;
+    private Float countMoney;
 
     /** 中奖金额 */
     @Excel(name = "中奖金额")
-    private BigDecimal winMoney;
+    private Float winMoney;
 
     /** 下注冠亚和大的金额 */
     @Excel(name = "下注冠亚和大的金额")
-    private BigDecimal type1Big;
+    private Float type1Big;
 
     /** 下注冠亚和小的金额 */
     @Excel(name = "下注冠亚和小的金额")
-    private BigDecimal type1Small;
+    private Float type1Small;
 
     /** 下注冠亚和单的金额 */
     @Excel(name = "下注冠亚和单的金额")
-    private BigDecimal type1Single;
+    private Float type1Single;
 
     /** 下注冠亚和双的金额 */
     @Excel(name = "下注冠亚和双的金额")
-    private BigDecimal type1Double;
+    private Float type1Double;
 
     /** 下注冠亚和3的金额 */
     @Excel(name = "下注冠亚和3的金额")
-    private BigDecimal type1Num3;
+    private Float type1Num3;
 
     /** 下注冠亚和4的金额 */
     @Excel(name = "下注冠亚和4的金额")
-    private BigDecimal type1Num4;
+    private Float type1Num4;
 
     /** 下注冠亚和5的金额 */
     @Excel(name = "下注冠亚和5的金额")
-    private BigDecimal type1Num5;
+    private Float type1Num5;
 
     /** 下注冠亚和6的金额 */
     @Excel(name = "下注冠亚和6的金额")
-    private BigDecimal type1Num6;
+    private Float type1Num6;
 
     /** 下注冠亚和7的金额 */
     @Excel(name = "下注冠亚和7的金额")
-    private BigDecimal type1Num7;
+    private Float type1Num7;
 
     /** 下注冠亚和8的金额 */
     @Excel(name = "下注冠亚和8的金额")
-    private BigDecimal type1Num8;
+    private Float type1Num8;
 
     /** 下注冠亚和9的金额 */
     @Excel(name = "下注冠亚和9的金额")
-    private BigDecimal type1Num9;
+    private Float type1Num9;
 
     /** 下注冠亚和10的金额 */
     @Excel(name = "下注冠亚和10的金额")
-    private BigDecimal type1Num10;
+    private Float type1Num10;
 
     /** 下注冠亚和11的金额 */
     @Excel(name = "下注冠亚和11的金额")
-    private BigDecimal type1Num11;
+    private Float type1Num11;
 
     /** 下注冠亚和12的金额 */
     @Excel(name = "下注冠亚和12的金额")
-    private BigDecimal type1Num12;
+    private Float type1Num12;
 
     /** 下注冠亚和13的金额 */
     @Excel(name = "下注冠亚和13的金额")
-    private BigDecimal type1Num13;
+    private Float type1Num13;
 
     /** 下注冠亚和14的金额 */
     @Excel(name = "下注冠亚和14的金额")
-    private BigDecimal type1Num14;
+    private Float type1Num14;
 
     /** 下注冠亚和15的金额 */
     @Excel(name = "下注冠亚和15的金额")
-    private BigDecimal type1Num15;
+    private Float type1Num15;
 
     /** 下注冠亚和16的金额 */
     @Excel(name = "下注冠亚和16的金额")
-    private BigDecimal type1Num16;
+    private Float type1Num16;
 
     /** 下注冠亚和17的金额 */
     @Excel(name = "下注冠亚和17的金额")
-    private BigDecimal type1Num17;
+    private Float type1Num17;
 
     /** 下注冠亚和18的金额 */
     @Excel(name = "下注冠亚和18的金额")
-    private BigDecimal type1Num18;
+    private Float type1Num18;
 
     /** 下注冠亚和19的金额 */
     @Excel(name = "下注冠亚和19的金额")
-    private BigDecimal type1Num19;
+    private Float type1Num19;
 
     /** 下注冠军大的金额 */
     @Excel(name = "下注冠军大的金额")
-    private BigDecimal type2Big;
+    private Float type2Big;
 
     /** 下注冠军小的金额 */
     @Excel(name = "下注冠军小的金额")
-    private BigDecimal type2Small;
+    private Float type2Small;
 
     /** 下注冠军单的金额 */
     @Excel(name = "下注冠军单的金额")
-    private BigDecimal type2Single;
+    private Float type2Single;
 
     /** 下注冠军双的金额 */
     @Excel(name = "下注冠军双的金额")
-    private BigDecimal type2Double;
+    private Float type2Double;
 
     /** 下注冠军龙的金额 */
     @Excel(name = "下注冠军龙的金额")
-    private BigDecimal type2Loong;
+    private Float type2Loong;
 
     /** 下注冠军虎的金额 */
     @Excel(name = "下注冠军虎的金额")
-    private BigDecimal type2Tiger;
+    private Float type2Tiger;
 
     /** 下注冠军1的金额 */
     @Excel(name = "下注冠军1的金额")
-    private BigDecimal type2Num1;
+    private Float type2Num1;
 
     /** 下注冠军2的金额 */
     @Excel(name = "下注冠军2的金额")
-    private BigDecimal type2Num2;
+    private Float type2Num2;
 
     /** 下注冠军3的金额 */
     @Excel(name = "下注冠军3的金额")
-    private BigDecimal type2Num3;
+    private Float type2Num3;
 
     /** 下注冠军4的金额 */
     @Excel(name = "下注冠军4的金额")
-    private BigDecimal type2Num4;
+    private Float type2Num4;
 
     /** 下注冠军5的金额 */
     @Excel(name = "下注冠军5的金额")
-    private BigDecimal type2Num5;
+    private Float type2Num5;
 
     /** 下注冠军6的金额 */
     @Excel(name = "下注冠军6的金额")
-    private BigDecimal type2Num6;
+    private Float type2Num6;
 
     /** 下注冠军7的金额 */
     @Excel(name = "下注冠军7的金额")
-    private BigDecimal type2Num7;
+    private Float type2Num7;
 
     /** 下注冠军8的金额 */
     @Excel(name = "下注冠军8的金额")
-    private BigDecimal type2Num8;
+    private Float type2Num8;
 
     /** 下注冠军9的金额 */
     @Excel(name = "下注冠军9的金额")
-    private BigDecimal type2Num9;
+    private Float type2Num9;
 
     /** 下注冠军10的金额 */
     @Excel(name = "下注冠军10的金额")
-    private BigDecimal type2Num10;
+    private Float type2Num10;
 
     /** 下注亚军大的金额 */
     @Excel(name = "下注亚军大的金额")
-    private BigDecimal type3Big;
+    private Float type3Big;
 
     /** 下注亚军小的金额 */
     @Excel(name = "下注亚军小的金额")
-    private BigDecimal type3Small;
+    private Float type3Small;
 
     /** 下注亚军单的金额 */
     @Excel(name = "下注亚军单的金额")
-    private BigDecimal type3Single;
+    private Float type3Single;
 
     /** 下注亚军双的金额 */
     @Excel(name = "下注亚军双的金额")
-    private BigDecimal type3Double;
+    private Float type3Double;
 
     /** 下注亚军龙的金额 */
     @Excel(name = "下注亚军龙的金额")
-    private BigDecimal type3Loong;
+    private Float type3Loong;
 
     /** 下注亚军虎的金额 */
     @Excel(name = "下注亚军虎的金额")
-    private BigDecimal type3Tiger;
+    private Float type3Tiger;
 
     /** 下注亚军1的金额 */
     @Excel(name = "下注亚军1的金额")
-    private BigDecimal type3Num1;
+    private Float type3Num1;
 
     /** 下注亚军2的金额 */
     @Excel(name = "下注亚军2的金额")
-    private BigDecimal type3Num2;
+    private Float type3Num2;
 
     /** 下注亚军3的金额 */
     @Excel(name = "下注亚军3的金额")
-    private BigDecimal type3Num3;
+    private Float type3Num3;
 
     /** 下注亚军4的金额 */
     @Excel(name = "下注亚军4的金额")
-    private BigDecimal type3Num4;
+    private Float type3Num4;
 
     /** 下注亚军5的金额 */
     @Excel(name = "下注亚军5的金额")
-    private BigDecimal type3Num5;
+    private Float type3Num5;
 
     /** 下注亚军6的金额 */
     @Excel(name = "下注亚军6的金额")
-    private BigDecimal type3Num6;
+    private Float type3Num6;
 
     /** 下注亚军7的金额 */
     @Excel(name = "下注亚军7的金额")
-    private BigDecimal type3Num7;
+    private Float type3Num7;
 
     /** 下注亚军8的金额 */
     @Excel(name = "下注亚军8的金额")
-    private BigDecimal type3Num8;
+    private Float type3Num8;
 
     /** 下注亚军9的金额 */
     @Excel(name = "下注亚军9的金额")
-    private BigDecimal type3Num9;
+    private Float type3Num9;
 
     /** 下注亚军10的金额 */
     @Excel(name = "下注亚军10的金额")
-    private BigDecimal type3Num10;
+    private Float type3Num10;
 
     /** 下注第三名大的金额 */
     @Excel(name = "下注第三名大的金额")
-    private BigDecimal type4Big;
+    private Float type4Big;
 
     /** 下注第三名小的金额 */
     @Excel(name = "下注第三名小的金额")
-    private BigDecimal type4Small;
+    private Float type4Small;
 
     /** 下注第三名单的金额 */
     @Excel(name = "下注第三名单的金额")
-    private BigDecimal type4Single;
+    private Float type4Single;
 
     /** 下注第三名双的金额 */
     @Excel(name = "下注第三名双的金额")
-    private BigDecimal type4Double;
+    private Float type4Double;
 
     /** 下注第三名龙的金额 */
     @Excel(name = "下注第三名龙的金额")
-    private BigDecimal type4Loong;
+    private Float type4Loong;
 
     /** 下注第三名虎的金额 */
     @Excel(name = "下注第三名虎的金额")
-    private BigDecimal type4Tiger;
+    private Float type4Tiger;
 
     /** 下注第三名1的金额 */
     @Excel(name = "下注第三名1的金额")
-    private BigDecimal type4Num1;
+    private Float type4Num1;
 
     /** 下注第三名2的金额 */
     @Excel(name = "下注第三名2的金额")
-    private BigDecimal type4Num2;
+    private Float type4Num2;
 
     /** 下注第三名3的金额 */
     @Excel(name = "下注第三名3的金额")
-    private BigDecimal type4Num3;
+    private Float type4Num3;
 
     /** 下注第三名4的金额 */
     @Excel(name = "下注第三名4的金额")
-    private BigDecimal type4Num4;
+    private Float type4Num4;
 
     /** 下注第三名5的金额 */
     @Excel(name = "下注第三名5的金额")
-    private BigDecimal type4Num5;
+    private Float type4Num5;
 
     /** 下注第三名6的金额 */
     @Excel(name = "下注第三名6的金额")
-    private BigDecimal type4Num6;
+    private Float type4Num6;
 
     /** 下注第三名7的金额 */
     @Excel(name = "下注第三名7的金额")
-    private BigDecimal type4Num7;
+    private Float type4Num7;
 
     /** 下注第三名8的金额 */
     @Excel(name = "下注第三名8的金额")
-    private BigDecimal type4Num8;
+    private Float type4Num8;
 
     /** 下注第三名9的金额 */
     @Excel(name = "下注第三名9的金额")
-    private BigDecimal type4Num9;
+    private Float type4Num9;
 
     /** 下注第三名10的金额 */
     @Excel(name = "下注第三名10的金额")
-    private BigDecimal type4Num10;
+    private Float type4Num10;
 
     /** 下注第四名大的金额 */
     @Excel(name = "下注第四名大的金额")
-    private BigDecimal type5Big;
+    private Float type5Big;
 
     /** 下注第四名小的金额 */
     @Excel(name = "下注第四名小的金额")
-    private BigDecimal type5Small;
+    private Float type5Small;
 
     /** 下注第四名单的金额 */
     @Excel(name = "下注第四名单的金额")
-    private BigDecimal type5Single;
+    private Float type5Single;
 
     /** 下注第四名双的金额 */
     @Excel(name = "下注第四名双的金额")
-    private BigDecimal type5Double;
+    private Float type5Double;
 
     /** 下注第四名龙的金额 */
     @Excel(name = "下注第四名龙的金额")
-    private BigDecimal type5Loong;
+    private Float type5Loong;
 
     /** 下注第四名虎的金额 */
     @Excel(name = "下注第四名虎的金额")
-    private BigDecimal type5Tiger;
+    private Float type5Tiger;
 
     /** 下注第四名1的金额 */
     @Excel(name = "下注第四名1的金额")
-    private BigDecimal type5Num1;
+    private Float type5Num1;
 
     /** 下注第四名2的金额 */
     @Excel(name = "下注第四名2的金额")
-    private BigDecimal type5Num2;
+    private Float type5Num2;
 
     /** 下注第四名3的金额 */
     @Excel(name = "下注第四名3的金额")
-    private BigDecimal type5Num3;
+    private Float type5Num3;
 
     /** 下注第四名4的金额 */
     @Excel(name = "下注第四名4的金额")
-    private BigDecimal type5Num4;
+    private Float type5Num4;
 
     /** 下注第四名5的金额 */
     @Excel(name = "下注第四名5的金额")
-    private BigDecimal type5Num5;
+    private Float type5Num5;
 
     /** 下注第四名6的金额 */
     @Excel(name = "下注第四名6的金额")
-    private BigDecimal type5Num6;
+    private Float type5Num6;
 
     /** 下注第四名7的金额 */
     @Excel(name = "下注第四名7的金额")
-    private BigDecimal type5Num7;
+    private Float type5Num7;
 
     /** 下注第四名8的金额 */
     @Excel(name = "下注第四名8的金额")
-    private BigDecimal type5Num8;
+    private Float type5Num8;
 
     /** 下注第四名9的金额 */
     @Excel(name = "下注第四名9的金额")
-    private BigDecimal type5Num9;
+    private Float type5Num9;
 
     /** 下注第四名10的金额 */
     @Excel(name = "下注第四名10的金额")
-    private BigDecimal type5Num10;
+    private Float type5Num10;
 
     /** 下注第五名大的金额 */
     @Excel(name = "下注第五名大的金额")
-    private BigDecimal type6Big;
+    private Float type6Big;
 
     /** 下注第五名小的金额 */
     @Excel(name = "下注第五名小的金额")
-    private BigDecimal type6Small;
+    private Float type6Small;
 
     /** 下注第五名单的金额 */
     @Excel(name = "下注第五名单的金额")
-    private BigDecimal type6Single;
+    private Float type6Single;
 
     /** 下注第五名双的金额 */
     @Excel(name = "下注第五名双的金额")
-    private BigDecimal type6Double;
+    private Float type6Double;
 
     /** 下注第五名龙的金额 */
     @Excel(name = "下注第五名龙的金额")
-    private BigDecimal type6Loong;
+    private Float type6Loong;
 
     /** 下注第五名虎的金额 */
     @Excel(name = "下注第五名虎的金额")
-    private BigDecimal type6Tiger;
+    private Float type6Tiger;
 
     /** 下注第五名1的金额 */
     @Excel(name = "下注第五名1的金额")
-    private BigDecimal type6Num1;
+    private Float type6Num1;
 
     /** 下注第五名2的金额 */
     @Excel(name = "下注第五名2的金额")
-    private BigDecimal type6Num2;
+    private Float type6Num2;
 
     /** 下注第五名3的金额 */
     @Excel(name = "下注第五名3的金额")
-    private BigDecimal type6Num3;
+    private Float type6Num3;
 
     /** 下注第五名4的金额 */
     @Excel(name = "下注第五名4的金额")
-    private BigDecimal type6Num4;
+    private Float type6Num4;
 
     /** 下注第五名5的金额 */
     @Excel(name = "下注第五名5的金额")
-    private BigDecimal type6Num5;
+    private Float type6Num5;
 
     /** 下注第五名6的金额 */
     @Excel(name = "下注第五名6的金额")
-    private BigDecimal type6Num6;
+    private Float type6Num6;
 
     /** 下注第五名7的金额 */
     @Excel(name = "下注第五名7的金额")
-    private BigDecimal type6Num7;
+    private Float type6Num7;
 
     /** 下注第五名8的金额 */
     @Excel(name = "下注第五名8的金额")
-    private BigDecimal type6Num8;
+    private Float type6Num8;
 
     /** 下注第五名9的金额 */
     @Excel(name = "下注第五名9的金额")
-    private BigDecimal type6Num9;
+    private Float type6Num9;
 
     /** 下注第五名10的金额 */
     @Excel(name = "下注第五名10的金额")
-    private BigDecimal type6Num10;
+    private Float type6Num10;
 
     /** 下注第六名大的金额 */
     @Excel(name = "下注第六名大的金额")
-    private BigDecimal type7Big;
+    private Float type7Big;
 
     /** 下注第六名小的金额 */
     @Excel(name = "下注第六名小的金额")
-    private BigDecimal type7Small;
+    private Float type7Small;
 
     /** 下注第六名单的金额 */
     @Excel(name = "下注第六名单的金额")
-    private BigDecimal type7Single;
+    private Float type7Single;
 
     /** 下注第六名双的金额 */
     @Excel(name = "下注第六名双的金额")
-    private BigDecimal type7Double;
+    private Float type7Double;
 
     /** 下注第六名龙的金额 */
     @Excel(name = "下注第六名龙的金额")
-    private BigDecimal type7Loong;
+    private Float type7Loong;
 
     /** 下注第六名虎的金额 */
     @Excel(name = "下注第六名虎的金额")
-    private BigDecimal type7Tiger;
+    private Float type7Tiger;
 
     /** 下注第六名1的金额 */
     @Excel(name = "下注第六名1的金额")
-    private BigDecimal type7Num1;
+    private Float type7Num1;
 
     /** 下注第六名2的金额 */
     @Excel(name = "下注第六名2的金额")
-    private BigDecimal type7Num2;
+    private Float type7Num2;
 
     /** 下注第六名3的金额 */
     @Excel(name = "下注第六名3的金额")
-    private BigDecimal type7Num3;
+    private Float type7Num3;
 
     /** 下注第六名4的金额 */
     @Excel(name = "下注第六名4的金额")
-    private BigDecimal type7Num4;
+    private Float type7Num4;
 
     /** 下注第六名5的金额 */
     @Excel(name = "下注第六名5的金额")
-    private BigDecimal type7Num5;
+    private Float type7Num5;
 
     /** 下注第六名6的金额 */
     @Excel(name = "下注第六名6的金额")
-    private BigDecimal type7Num6;
+    private Float type7Num6;
 
     /** 下注第六名7的金额 */
     @Excel(name = "下注第六名7的金额")
-    private BigDecimal type7Num7;
+    private Float type7Num7;
 
     /** 下注第六名8的金额 */
     @Excel(name = "下注第六名8的金额")
-    private BigDecimal type7Num8;
+    private Float type7Num8;
 
     /** 下注第六名9的金额 */
     @Excel(name = "下注第六名9的金额")
-    private BigDecimal type7Num9;
+    private Float type7Num9;
 
     /** 下注第六名10的金额 */
     @Excel(name = "下注第六名10的金额")
-    private BigDecimal type7Num10;
+    private Float type7Num10;
 
     /** 下注第七名大的金额 */
     @Excel(name = "下注第七名大的金额")
-    private BigDecimal type8Big;
+    private Float type8Big;
 
     /** 下注第七名小的金额 */
     @Excel(name = "下注第七名小的金额")
-    private BigDecimal type8Small;
+    private Float type8Small;
 
     /** 下注第七名单的金额 */
     @Excel(name = "下注第七名单的金额")
-    private BigDecimal type8Single;
+    private Float type8Single;
 
     /** 下注第七名双的金额 */
     @Excel(name = "下注第七名双的金额")
-    private BigDecimal type8Double;
+    private Float type8Double;
 
     /** 下注第七名龙的金额 */
     @Excel(name = "下注第七名龙的金额")
-    private BigDecimal type8Loong;
+    private Float type8Loong;
 
     /** 下注第七名虎的金额 */
     @Excel(name = "下注第七名虎的金额")
-    private BigDecimal type8Tiger;
+    private Float type8Tiger;
 
     /** 下注第七名1的金额 */
     @Excel(name = "下注第七名1的金额")
-    private BigDecimal type8Num1;
+    private Float type8Num1;
 
     /** 下注第七名2的金额 */
     @Excel(name = "下注第七名2的金额")
-    private BigDecimal type8Num2;
+    private Float type8Num2;
 
     /** 下注第七名3的金额 */
     @Excel(name = "下注第七名3的金额")
-    private BigDecimal type8Num3;
+    private Float type8Num3;
 
     /** 下注第七名4的金额 */
     @Excel(name = "下注第七名4的金额")
-    private BigDecimal type8Num4;
+    private Float type8Num4;
 
     /** 下注第七名5的金额 */
     @Excel(name = "下注第七名5的金额")
-    private BigDecimal type8Num5;
+    private Float type8Num5;
 
     /** 下注第七名6的金额 */
     @Excel(name = "下注第七名6的金额")
-    private BigDecimal type8Num6;
+    private Float type8Num6;
 
     /** 下注第七名7的金额 */
     @Excel(name = "下注第七名7的金额")
-    private BigDecimal type8Num7;
+    private Float type8Num7;
 
     /** 下注第七名8的金额 */
     @Excel(name = "下注第七名8的金额")
-    private BigDecimal type8Num8;
+    private Float type8Num8;
 
     /** 下注第七名9的金额 */
     @Excel(name = "下注第七名9的金额")
-    private BigDecimal type8Num9;
+    private Float type8Num9;
 
     /** 下注第七名10的金额 */
     @Excel(name = "下注第七名10的金额")
-    private BigDecimal type8Num10;
+    private Float type8Num10;
 
     /** 下注第八名大的金额 */
     @Excel(name = "下注第八名大的金额")
-    private BigDecimal type9Big;
+    private Float type9Big;
 
     /** 下注第八名小的金额 */
     @Excel(name = "下注第八名小的金额")
-    private BigDecimal type9Small;
+    private Float type9Small;
 
     /** 下注第八名单的金额 */
     @Excel(name = "下注第八名单的金额")
-    private BigDecimal type9Single;
+    private Float type9Single;
 
     /** 下注第八名双的金额 */
     @Excel(name = "下注第八名双的金额")
-    private BigDecimal type9Double;
+    private Float type9Double;
 
     /** 下注第八名龙的金额 */
     @Excel(name = "下注第八名龙的金额")
-    private BigDecimal type9Loong;
+    private Float type9Loong;
 
     /** 下注第八名虎的金额 */
     @Excel(name = "下注第八名虎的金额")
-    private BigDecimal type9Tiger;
+    private Float type9Tiger;
 
     /** 下注第八名1的金额 */
     @Excel(name = "下注第八名1的金额")
-    private BigDecimal type9Num1;
+    private Float type9Num1;
 
     /** 下注第八名2的金额 */
     @Excel(name = "下注第八名2的金额")
-    private BigDecimal type9Num2;
+    private Float type9Num2;
 
     /** 下注第八名3的金额 */
     @Excel(name = "下注第八名3的金额")
-    private BigDecimal type9Num3;
+    private Float type9Num3;
 
     /** 下注第八名4的金额 */
     @Excel(name = "下注第八名4的金额")
-    private BigDecimal type9Num4;
+    private Float type9Num4;
 
     /** 下注第八名5的金额 */
     @Excel(name = "下注第八名5的金额")
-    private BigDecimal type9Num5;
+    private Float type9Num5;
 
     /** 下注第八名6的金额 */
     @Excel(name = "下注第八名6的金额")
-    private BigDecimal type9Num6;
+    private Float type9Num6;
 
     /** 下注第八名7的金额 */
     @Excel(name = "下注第八名7的金额")
-    private BigDecimal type9Num7;
+    private Float type9Num7;
 
     /** 下注第八名8的金额 */
     @Excel(name = "下注第八名8的金额")
-    private BigDecimal type9Num8;
+    private Float type9Num8;
 
     /** 下注第八名9的金额 */
     @Excel(name = "下注第八名9的金额")
-    private BigDecimal type9Num9;
+    private Float type9Num9;
 
     /** 下注第八名10的金额 */
     @Excel(name = "下注第八名10的金额")
-    private BigDecimal type9Num10;
+    private Float type9Num10;
 
     /** 下注第九名大的金额 */
     @Excel(name = "下注第九名大的金额")
-    private BigDecimal type10Big;
+    private Float type10Big;
 
     /** 下注第九名小的金额 */
     @Excel(name = "下注第九名小的金额")
-    private BigDecimal type10Small;
+    private Float type10Small;
 
     /** 下注第九名单的金额 */
     @Excel(name = "下注第九名单的金额")
-    private BigDecimal type10Single;
+    private Float type10Single;
 
     /** 下注第九名双的金额 */
     @Excel(name = "下注第九名双的金额")
-    private BigDecimal type10Double;
+    private Float type10Double;
 
     /** 下注第九名龙的金额 */
     @Excel(name = "下注第九名龙的金额")
-    private BigDecimal type10Loong;
+    private Float type10Loong;
 
     /** 下注第九名虎的金额 */
     @Excel(name = "下注第九名虎的金额")
-    private BigDecimal type10Tiger;
+    private Float type10Tiger;
 
     /** 下注第九名1的金额 */
     @Excel(name = "下注第九名1的金额")
-    private BigDecimal type10Num1;
+    private Float type10Num1;
 
     /** 下注第九名2的金额 */
     @Excel(name = "下注第九名2的金额")
-    private BigDecimal type10Num2;
+    private Float type10Num2;
 
     /** 下注第九名3的金额 */
     @Excel(name = "下注第九名3的金额")
-    private BigDecimal type10Num3;
+    private Float type10Num3;
 
     /** 下注第九名4的金额 */
     @Excel(name = "下注第九名4的金额")
-    private BigDecimal type10Num4;
+    private Float type10Num4;
 
     /** 下注第九名5的金额 */
     @Excel(name = "下注第九名5的金额")
-    private BigDecimal type10Num5;
+    private Float type10Num5;
 
     /** 下注第九名6的金额 */
     @Excel(name = "下注第九名6的金额")
-    private BigDecimal type10Num6;
+    private Float type10Num6;
 
     /** 下注第九名7的金额 */
     @Excel(name = "下注第九名7的金额")
-    private BigDecimal type10Num7;
+    private Float type10Num7;
 
     /** 下注第九名8的金额 */
     @Excel(name = "下注第九名8的金额")
-    private BigDecimal type10Num8;
+    private Float type10Num8;
 
     /** 下注第九名9的金额 */
     @Excel(name = "下注第九名9的金额")
-    private BigDecimal type10Num9;
+    private Float type10Num9;
 
     /** 下注第九名10的金额 */
     @Excel(name = "下注第九名10的金额")
-    private BigDecimal type10Num10;
+    private Float type10Num10;
 
     /** 下注第十名大的金额 */
     @Excel(name = "下注第十名大的金额")
-    private BigDecimal type11Big;
+    private Float type11Big;
 
     /** 下注第十名小的金额 */
     @Excel(name = "下注第十名小的金额")
-    private BigDecimal type11Small;
+    private Float type11Small;
 
     /** 下注第十名单的金额 */
     @Excel(name = "下注第十名单的金额")
-    private BigDecimal type11Single;
+    private Float type11Single;
 
     /** 下注第十名双的金额 */
     @Excel(name = "下注第十名双的金额")
-    private BigDecimal type11Double;
+    private Float type11Double;
 
     /** 下注第十名龙的金额 */
     @Excel(name = "下注第十名龙的金额")
-    private BigDecimal type11Loong;
+    private Float type11Loong;
 
     /** 下注第十名虎的金额 */
     @Excel(name = "下注第十名虎的金额")
-    private BigDecimal type11Tiger;
+    private Float type11Tiger;
 
     /** 下注第十名1的金额 */
     @Excel(name = "下注第十名1的金额")
-    private BigDecimal type11Num1;
+    private Float type11Num1;
 
     /** 下注第十名2的金额 */
     @Excel(name = "下注第十名2的金额")
-    private BigDecimal type11Num2;
+    private Float type11Num2;
 
     /** 下注第十名3的金额 */
     @Excel(name = "下注第十名3的金额")
-    private BigDecimal type11Num3;
+    private Float type11Num3;
 
     /** 下注第十名4的金额 */
     @Excel(name = "下注第十名4的金额")
-    private BigDecimal type11Num4;
+    private Float type11Num4;
 
     /** 下注第十名5的金额 */
     @Excel(name = "下注第十名5的金额")
-    private BigDecimal type11Num5;
+    private Float type11Num5;
 
     /** 下注第十名6的金额 */
     @Excel(name = "下注第十名6的金额")
-    private BigDecimal type11Num6;
+    private Float type11Num6;
 
     /** 下注第十名7的金额 */
     @Excel(name = "下注第十名7的金额")
-    private BigDecimal type11Num7;
+    private Float type11Num7;
 
     /** 下注第十名8的金额 */
     @Excel(name = "下注第十名8的金额")
-    private BigDecimal type11Num8;
+    private Float type11Num8;
 
     /** 下注第十名9的金额 */
     @Excel(name = "下注第十名9的金额")
-    private BigDecimal type11Num9;
+    private Float type11Num9;
 
     /** 下注第十名10的金额 */
     @Excel(name = "下注第十名10的金额")
-    private BigDecimal type11Num10;
+    private Float type11Num10;
 
     /** 下注大单的金额 */
     @Excel(name = "下注大单的金额")
-    private BigDecimal bigSingle;
+    private Float bigSingle;
 
     /** 下注大双的金额 */
     @Excel(name = "下注大双的金额")
-    private BigDecimal bigDouble;
+    private Float bigDouble;
 
     /** 下注小单的金额 */
     @Excel(name = "下注小单的金额")
-    private BigDecimal smallSingle;
+    private Float smallSingle;
 
     /** 下注小双的金额 */
     @Excel(name = "下注小双的金额")
-    private BigDecimal smallDouble;
+    private Float smallDouble;
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
@@ -908,1686 +907,1686 @@ public class Azxy10record extends BaseEntity
     {
         return checkTime;
     }
-    public void setCountMoney(BigDecimal countMoney) 
+    public void setCountMoney(Float countMoney) 
     {
         this.countMoney = countMoney;
     }
 
-    public BigDecimal getCountMoney() 
+    public Float getCountMoney() 
     {
         return countMoney;
     }
-    public void setWinMoney(BigDecimal winMoney) 
+    public void setWinMoney(Float winMoney) 
     {
         this.winMoney = winMoney;
     }
 
-    public BigDecimal getWinMoney() 
+    public Float getWinMoney() 
     {
         return winMoney;
     }
-    public void setType1Big(BigDecimal type1Big) 
+    public void setType1Big(Float type1Big) 
     {
         this.type1Big = type1Big;
     }
 
-    public BigDecimal getType1Big() 
+    public Float getType1Big() 
     {
         return type1Big;
     }
-    public void setType1Small(BigDecimal type1Small) 
+    public void setType1Small(Float type1Small) 
     {
         this.type1Small = type1Small;
     }
 
-    public BigDecimal getType1Small() 
+    public Float getType1Small() 
     {
         return type1Small;
     }
-    public void setType1Single(BigDecimal type1Single) 
+    public void setType1Single(Float type1Single) 
     {
         this.type1Single = type1Single;
     }
 
-    public BigDecimal getType1Single() 
+    public Float getType1Single() 
     {
         return type1Single;
     }
-    public void setType1Double(BigDecimal type1Double) 
+    public void setType1Double(Float type1Double) 
     {
         this.type1Double = type1Double;
     }
 
-    public BigDecimal getType1Double() 
+    public Float getType1Double() 
     {
         return type1Double;
     }
-    public void setType1Num3(BigDecimal type1Num3) 
+    public void setType1Num3(Float type1Num3) 
     {
         this.type1Num3 = type1Num3;
     }
 
-    public BigDecimal getType1Num3() 
+    public Float getType1Num3() 
     {
         return type1Num3;
     }
-    public void setType1Num4(BigDecimal type1Num4) 
+    public void setType1Num4(Float type1Num4) 
     {
         this.type1Num4 = type1Num4;
     }
 
-    public BigDecimal getType1Num4() 
+    public Float getType1Num4() 
     {
         return type1Num4;
     }
-    public void setType1Num5(BigDecimal type1Num5) 
+    public void setType1Num5(Float type1Num5) 
     {
         this.type1Num5 = type1Num5;
     }
 
-    public BigDecimal getType1Num5() 
+    public Float getType1Num5() 
     {
         return type1Num5;
     }
-    public void setType1Num6(BigDecimal type1Num6) 
+    public void setType1Num6(Float type1Num6) 
     {
         this.type1Num6 = type1Num6;
     }
 
-    public BigDecimal getType1Num6() 
+    public Float getType1Num6() 
     {
         return type1Num6;
     }
-    public void setType1Num7(BigDecimal type1Num7) 
+    public void setType1Num7(Float type1Num7) 
     {
         this.type1Num7 = type1Num7;
     }
 
-    public BigDecimal getType1Num7() 
+    public Float getType1Num7() 
     {
         return type1Num7;
     }
-    public void setType1Num8(BigDecimal type1Num8) 
+    public void setType1Num8(Float type1Num8) 
     {
         this.type1Num8 = type1Num8;
     }
 
-    public BigDecimal getType1Num8() 
+    public Float getType1Num8() 
     {
         return type1Num8;
     }
-    public void setType1Num9(BigDecimal type1Num9) 
+    public void setType1Num9(Float type1Num9) 
     {
         this.type1Num9 = type1Num9;
     }
 
-    public BigDecimal getType1Num9() 
+    public Float getType1Num9() 
     {
         return type1Num9;
     }
-    public void setType1Num10(BigDecimal type1Num10) 
+    public void setType1Num10(Float type1Num10) 
     {
         this.type1Num10 = type1Num10;
     }
 
-    public BigDecimal getType1Num10() 
+    public Float getType1Num10() 
     {
         return type1Num10;
     }
-    public void setType1Num11(BigDecimal type1Num11) 
+    public void setType1Num11(Float type1Num11) 
     {
         this.type1Num11 = type1Num11;
     }
 
-    public BigDecimal getType1Num11() 
+    public Float getType1Num11() 
     {
         return type1Num11;
     }
-    public void setType1Num12(BigDecimal type1Num12) 
+    public void setType1Num12(Float type1Num12) 
     {
         this.type1Num12 = type1Num12;
     }
 
-    public BigDecimal getType1Num12() 
+    public Float getType1Num12() 
     {
         return type1Num12;
     }
-    public void setType1Num13(BigDecimal type1Num13) 
+    public void setType1Num13(Float type1Num13) 
     {
         this.type1Num13 = type1Num13;
     }
 
-    public BigDecimal getType1Num13() 
+    public Float getType1Num13() 
     {
         return type1Num13;
     }
-    public void setType1Num14(BigDecimal type1Num14) 
+    public void setType1Num14(Float type1Num14) 
     {
         this.type1Num14 = type1Num14;
     }
 
-    public BigDecimal getType1Num14() 
+    public Float getType1Num14() 
     {
         return type1Num14;
     }
-    public void setType1Num15(BigDecimal type1Num15) 
+    public void setType1Num15(Float type1Num15) 
     {
         this.type1Num15 = type1Num15;
     }
 
-    public BigDecimal getType1Num15() 
+    public Float getType1Num15() 
     {
         return type1Num15;
     }
-    public void setType1Num16(BigDecimal type1Num16) 
+    public void setType1Num16(Float type1Num16) 
     {
         this.type1Num16 = type1Num16;
     }
 
-    public BigDecimal getType1Num16() 
+    public Float getType1Num16() 
     {
         return type1Num16;
     }
-    public void setType1Num17(BigDecimal type1Num17) 
+    public void setType1Num17(Float type1Num17) 
     {
         this.type1Num17 = type1Num17;
     }
 
-    public BigDecimal getType1Num17() 
+    public Float getType1Num17() 
     {
         return type1Num17;
     }
-    public void setType1Num18(BigDecimal type1Num18) 
+    public void setType1Num18(Float type1Num18) 
     {
         this.type1Num18 = type1Num18;
     }
 
-    public BigDecimal getType1Num18() 
+    public Float getType1Num18() 
     {
         return type1Num18;
     }
-    public void setType1Num19(BigDecimal type1Num19) 
+    public void setType1Num19(Float type1Num19) 
     {
         this.type1Num19 = type1Num19;
     }
 
-    public BigDecimal getType1Num19() 
+    public Float getType1Num19() 
     {
         return type1Num19;
     }
-    public void setType2Big(BigDecimal type2Big) 
+    public void setType2Big(Float type2Big) 
     {
         this.type2Big = type2Big;
     }
 
-    public BigDecimal getType2Big() 
+    public Float getType2Big() 
     {
         return type2Big;
     }
-    public void setType2Small(BigDecimal type2Small) 
+    public void setType2Small(Float type2Small) 
     {
         this.type2Small = type2Small;
     }
 
-    public BigDecimal getType2Small() 
+    public Float getType2Small() 
     {
         return type2Small;
     }
-    public void setType2Single(BigDecimal type2Single) 
+    public void setType2Single(Float type2Single) 
     {
         this.type2Single = type2Single;
     }
 
-    public BigDecimal getType2Single() 
+    public Float getType2Single() 
     {
         return type2Single;
     }
-    public void setType2Double(BigDecimal type2Double) 
+    public void setType2Double(Float type2Double) 
     {
         this.type2Double = type2Double;
     }
 
-    public BigDecimal getType2Double() 
+    public Float getType2Double() 
     {
         return type2Double;
     }
-    public void setType2Loong(BigDecimal type2Loong) 
+    public void setType2Loong(Float type2Loong) 
     {
         this.type2Loong = type2Loong;
     }
 
-    public BigDecimal getType2Loong() 
+    public Float getType2Loong() 
     {
         return type2Loong;
     }
-    public void setType2Tiger(BigDecimal type2Tiger) 
+    public void setType2Tiger(Float type2Tiger) 
     {
         this.type2Tiger = type2Tiger;
     }
 
-    public BigDecimal getType2Tiger() 
+    public Float getType2Tiger() 
     {
         return type2Tiger;
     }
-    public void setType2Num1(BigDecimal type2Num1) 
+    public void setType2Num1(Float type2Num1) 
     {
         this.type2Num1 = type2Num1;
     }
 
-    public BigDecimal getType2Num1() 
+    public Float getType2Num1() 
     {
         return type2Num1;
     }
-    public void setType2Num2(BigDecimal type2Num2) 
+    public void setType2Num2(Float type2Num2) 
     {
         this.type2Num2 = type2Num2;
     }
 
-    public BigDecimal getType2Num2() 
+    public Float getType2Num2() 
     {
         return type2Num2;
     }
-    public void setType2Num3(BigDecimal type2Num3) 
+    public void setType2Num3(Float type2Num3) 
     {
         this.type2Num3 = type2Num3;
     }
 
-    public BigDecimal getType2Num3() 
+    public Float getType2Num3() 
     {
         return type2Num3;
     }
-    public void setType2Num4(BigDecimal type2Num4) 
+    public void setType2Num4(Float type2Num4) 
     {
         this.type2Num4 = type2Num4;
     }
 
-    public BigDecimal getType2Num4() 
+    public Float getType2Num4() 
     {
         return type2Num4;
     }
-    public void setType2Num5(BigDecimal type2Num5) 
+    public void setType2Num5(Float type2Num5) 
     {
         this.type2Num5 = type2Num5;
     }
 
-    public BigDecimal getType2Num5() 
+    public Float getType2Num5() 
     {
         return type2Num5;
     }
-    public void setType2Num6(BigDecimal type2Num6) 
+    public void setType2Num6(Float type2Num6) 
     {
         this.type2Num6 = type2Num6;
     }
 
-    public BigDecimal getType2Num6() 
+    public Float getType2Num6() 
     {
         return type2Num6;
     }
-    public void setType2Num7(BigDecimal type2Num7) 
+    public void setType2Num7(Float type2Num7) 
     {
         this.type2Num7 = type2Num7;
     }
 
-    public BigDecimal getType2Num7() 
+    public Float getType2Num7() 
     {
         return type2Num7;
     }
-    public void setType2Num8(BigDecimal type2Num8) 
+    public void setType2Num8(Float type2Num8) 
     {
         this.type2Num8 = type2Num8;
     }
 
-    public BigDecimal getType2Num8() 
+    public Float getType2Num8() 
     {
         return type2Num8;
     }
-    public void setType2Num9(BigDecimal type2Num9) 
+    public void setType2Num9(Float type2Num9) 
     {
         this.type2Num9 = type2Num9;
     }
 
-    public BigDecimal getType2Num9() 
+    public Float getType2Num9() 
     {
         return type2Num9;
     }
-    public void setType2Num10(BigDecimal type2Num10) 
+    public void setType2Num10(Float type2Num10) 
     {
         this.type2Num10 = type2Num10;
     }
 
-    public BigDecimal getType2Num10() 
+    public Float getType2Num10() 
     {
         return type2Num10;
     }
-    public void setType3Big(BigDecimal type3Big) 
+    public void setType3Big(Float type3Big) 
     {
         this.type3Big = type3Big;
     }
 
-    public BigDecimal getType3Big() 
+    public Float getType3Big() 
     {
         return type3Big;
     }
-    public void setType3Small(BigDecimal type3Small) 
+    public void setType3Small(Float type3Small) 
     {
         this.type3Small = type3Small;
     }
 
-    public BigDecimal getType3Small() 
+    public Float getType3Small() 
     {
         return type3Small;
     }
-    public void setType3Single(BigDecimal type3Single) 
+    public void setType3Single(Float type3Single) 
     {
         this.type3Single = type3Single;
     }
 
-    public BigDecimal getType3Single() 
+    public Float getType3Single() 
     {
         return type3Single;
     }
-    public void setType3Double(BigDecimal type3Double) 
+    public void setType3Double(Float type3Double) 
     {
         this.type3Double = type3Double;
     }
 
-    public BigDecimal getType3Double() 
+    public Float getType3Double() 
     {
         return type3Double;
     }
-    public void setType3Loong(BigDecimal type3Loong) 
+    public void setType3Loong(Float type3Loong) 
     {
         this.type3Loong = type3Loong;
     }
 
-    public BigDecimal getType3Loong() 
+    public Float getType3Loong() 
     {
         return type3Loong;
     }
-    public void setType3Tiger(BigDecimal type3Tiger) 
+    public void setType3Tiger(Float type3Tiger) 
     {
         this.type3Tiger = type3Tiger;
     }
 
-    public BigDecimal getType3Tiger() 
+    public Float getType3Tiger() 
     {
         return type3Tiger;
     }
-    public void setType3Num1(BigDecimal type3Num1) 
+    public void setType3Num1(Float type3Num1) 
     {
         this.type3Num1 = type3Num1;
     }
 
-    public BigDecimal getType3Num1() 
+    public Float getType3Num1() 
     {
         return type3Num1;
     }
-    public void setType3Num2(BigDecimal type3Num2) 
+    public void setType3Num2(Float type3Num2) 
     {
         this.type3Num2 = type3Num2;
     }
 
-    public BigDecimal getType3Num2() 
+    public Float getType3Num2() 
     {
         return type3Num2;
     }
-    public void setType3Num3(BigDecimal type3Num3) 
+    public void setType3Num3(Float type3Num3) 
     {
         this.type3Num3 = type3Num3;
     }
 
-    public BigDecimal getType3Num3() 
+    public Float getType3Num3() 
     {
         return type3Num3;
     }
-    public void setType3Num4(BigDecimal type3Num4) 
+    public void setType3Num4(Float type3Num4) 
     {
         this.type3Num4 = type3Num4;
     }
 
-    public BigDecimal getType3Num4() 
+    public Float getType3Num4() 
     {
         return type3Num4;
     }
-    public void setType3Num5(BigDecimal type3Num5) 
+    public void setType3Num5(Float type3Num5) 
     {
         this.type3Num5 = type3Num5;
     }
 
-    public BigDecimal getType3Num5() 
+    public Float getType3Num5() 
     {
         return type3Num5;
     }
-    public void setType3Num6(BigDecimal type3Num6) 
+    public void setType3Num6(Float type3Num6) 
     {
         this.type3Num6 = type3Num6;
     }
 
-    public BigDecimal getType3Num6() 
+    public Float getType3Num6() 
     {
         return type3Num6;
     }
-    public void setType3Num7(BigDecimal type3Num7) 
+    public void setType3Num7(Float type3Num7) 
     {
         this.type3Num7 = type3Num7;
     }
 
-    public BigDecimal getType3Num7() 
+    public Float getType3Num7() 
     {
         return type3Num7;
     }
-    public void setType3Num8(BigDecimal type3Num8) 
+    public void setType3Num8(Float type3Num8) 
     {
         this.type3Num8 = type3Num8;
     }
 
-    public BigDecimal getType3Num8() 
+    public Float getType3Num8() 
     {
         return type3Num8;
     }
-    public void setType3Num9(BigDecimal type3Num9) 
+    public void setType3Num9(Float type3Num9) 
     {
         this.type3Num9 = type3Num9;
     }
 
-    public BigDecimal getType3Num9() 
+    public Float getType3Num9() 
     {
         return type3Num9;
     }
-    public void setType3Num10(BigDecimal type3Num10) 
+    public void setType3Num10(Float type3Num10) 
     {
         this.type3Num10 = type3Num10;
     }
 
-    public BigDecimal getType3Num10() 
+    public Float getType3Num10() 
     {
         return type3Num10;
     }
-    public void setType4Big(BigDecimal type4Big) 
+    public void setType4Big(Float type4Big) 
     {
         this.type4Big = type4Big;
     }
 
-    public BigDecimal getType4Big() 
+    public Float getType4Big() 
     {
         return type4Big;
     }
-    public void setType4Small(BigDecimal type4Small) 
+    public void setType4Small(Float type4Small) 
     {
         this.type4Small = type4Small;
     }
 
-    public BigDecimal getType4Small() 
+    public Float getType4Small() 
     {
         return type4Small;
     }
-    public void setType4Single(BigDecimal type4Single) 
+    public void setType4Single(Float type4Single) 
     {
         this.type4Single = type4Single;
     }
 
-    public BigDecimal getType4Single() 
+    public Float getType4Single() 
     {
         return type4Single;
     }
-    public void setType4Double(BigDecimal type4Double) 
+    public void setType4Double(Float type4Double) 
     {
         this.type4Double = type4Double;
     }
 
-    public BigDecimal getType4Double() 
+    public Float getType4Double() 
     {
         return type4Double;
     }
-    public void setType4Loong(BigDecimal type4Loong) 
+    public void setType4Loong(Float type4Loong) 
     {
         this.type4Loong = type4Loong;
     }
 
-    public BigDecimal getType4Loong() 
+    public Float getType4Loong() 
     {
         return type4Loong;
     }
-    public void setType4Tiger(BigDecimal type4Tiger) 
+    public void setType4Tiger(Float type4Tiger) 
     {
         this.type4Tiger = type4Tiger;
     }
 
-    public BigDecimal getType4Tiger() 
+    public Float getType4Tiger() 
     {
         return type4Tiger;
     }
-    public void setType4Num1(BigDecimal type4Num1) 
+    public void setType4Num1(Float type4Num1) 
     {
         this.type4Num1 = type4Num1;
     }
 
-    public BigDecimal getType4Num1() 
+    public Float getType4Num1() 
     {
         return type4Num1;
     }
-    public void setType4Num2(BigDecimal type4Num2) 
+    public void setType4Num2(Float type4Num2) 
     {
         this.type4Num2 = type4Num2;
     }
 
-    public BigDecimal getType4Num2() 
+    public Float getType4Num2() 
     {
         return type4Num2;
     }
-    public void setType4Num3(BigDecimal type4Num3) 
+    public void setType4Num3(Float type4Num3) 
     {
         this.type4Num3 = type4Num3;
     }
 
-    public BigDecimal getType4Num3() 
+    public Float getType4Num3() 
     {
         return type4Num3;
     }
-    public void setType4Num4(BigDecimal type4Num4) 
+    public void setType4Num4(Float type4Num4) 
     {
         this.type4Num4 = type4Num4;
     }
 
-    public BigDecimal getType4Num4() 
+    public Float getType4Num4() 
     {
         return type4Num4;
     }
-    public void setType4Num5(BigDecimal type4Num5) 
+    public void setType4Num5(Float type4Num5) 
     {
         this.type4Num5 = type4Num5;
     }
 
-    public BigDecimal getType4Num5() 
+    public Float getType4Num5() 
     {
         return type4Num5;
     }
-    public void setType4Num6(BigDecimal type4Num6) 
+    public void setType4Num6(Float type4Num6) 
     {
         this.type4Num6 = type4Num6;
     }
 
-    public BigDecimal getType4Num6() 
+    public Float getType4Num6() 
     {
         return type4Num6;
     }
-    public void setType4Num7(BigDecimal type4Num7) 
+    public void setType4Num7(Float type4Num7) 
     {
         this.type4Num7 = type4Num7;
     }
 
-    public BigDecimal getType4Num7() 
+    public Float getType4Num7() 
     {
         return type4Num7;
     }
-    public void setType4Num8(BigDecimal type4Num8) 
+    public void setType4Num8(Float type4Num8) 
     {
         this.type4Num8 = type4Num8;
     }
 
-    public BigDecimal getType4Num8() 
+    public Float getType4Num8() 
     {
         return type4Num8;
     }
-    public void setType4Num9(BigDecimal type4Num9) 
+    public void setType4Num9(Float type4Num9) 
     {
         this.type4Num9 = type4Num9;
     }
 
-    public BigDecimal getType4Num9() 
+    public Float getType4Num9() 
     {
         return type4Num9;
     }
-    public void setType4Num10(BigDecimal type4Num10) 
+    public void setType4Num10(Float type4Num10) 
     {
         this.type4Num10 = type4Num10;
     }
 
-    public BigDecimal getType4Num10() 
+    public Float getType4Num10() 
     {
         return type4Num10;
     }
-    public void setType5Big(BigDecimal type5Big) 
+    public void setType5Big(Float type5Big) 
     {
         this.type5Big = type5Big;
     }
 
-    public BigDecimal getType5Big() 
+    public Float getType5Big() 
     {
         return type5Big;
     }
-    public void setType5Small(BigDecimal type5Small) 
+    public void setType5Small(Float type5Small) 
     {
         this.type5Small = type5Small;
     }
 
-    public BigDecimal getType5Small() 
+    public Float getType5Small() 
     {
         return type5Small;
     }
-    public void setType5Single(BigDecimal type5Single) 
+    public void setType5Single(Float type5Single) 
     {
         this.type5Single = type5Single;
     }
 
-    public BigDecimal getType5Single() 
+    public Float getType5Single() 
     {
         return type5Single;
     }
-    public void setType5Double(BigDecimal type5Double) 
+    public void setType5Double(Float type5Double) 
     {
         this.type5Double = type5Double;
     }
 
-    public BigDecimal getType5Double() 
+    public Float getType5Double() 
     {
         return type5Double;
     }
-    public void setType5Loong(BigDecimal type5Loong) 
+    public void setType5Loong(Float type5Loong) 
     {
         this.type5Loong = type5Loong;
     }
 
-    public BigDecimal getType5Loong() 
+    public Float getType5Loong() 
     {
         return type5Loong;
     }
-    public void setType5Tiger(BigDecimal type5Tiger) 
+    public void setType5Tiger(Float type5Tiger) 
     {
         this.type5Tiger = type5Tiger;
     }
 
-    public BigDecimal getType5Tiger() 
+    public Float getType5Tiger() 
     {
         return type5Tiger;
     }
-    public void setType5Num1(BigDecimal type5Num1) 
+    public void setType5Num1(Float type5Num1) 
     {
         this.type5Num1 = type5Num1;
     }
 
-    public BigDecimal getType5Num1() 
+    public Float getType5Num1() 
     {
         return type5Num1;
     }
-    public void setType5Num2(BigDecimal type5Num2) 
+    public void setType5Num2(Float type5Num2) 
     {
         this.type5Num2 = type5Num2;
     }
 
-    public BigDecimal getType5Num2() 
+    public Float getType5Num2() 
     {
         return type5Num2;
     }
-    public void setType5Num3(BigDecimal type5Num3) 
+    public void setType5Num3(Float type5Num3) 
     {
         this.type5Num3 = type5Num3;
     }
 
-    public BigDecimal getType5Num3() 
+    public Float getType5Num3() 
     {
         return type5Num3;
     }
-    public void setType5Num4(BigDecimal type5Num4) 
+    public void setType5Num4(Float type5Num4) 
     {
         this.type5Num4 = type5Num4;
     }
 
-    public BigDecimal getType5Num4() 
+    public Float getType5Num4() 
     {
         return type5Num4;
     }
-    public void setType5Num5(BigDecimal type5Num5) 
+    public void setType5Num5(Float type5Num5) 
     {
         this.type5Num5 = type5Num5;
     }
 
-    public BigDecimal getType5Num5() 
+    public Float getType5Num5() 
     {
         return type5Num5;
     }
-    public void setType5Num6(BigDecimal type5Num6) 
+    public void setType5Num6(Float type5Num6) 
     {
         this.type5Num6 = type5Num6;
     }
 
-    public BigDecimal getType5Num6() 
+    public Float getType5Num6() 
     {
         return type5Num6;
     }
-    public void setType5Num7(BigDecimal type5Num7) 
+    public void setType5Num7(Float type5Num7) 
     {
         this.type5Num7 = type5Num7;
     }
 
-    public BigDecimal getType5Num7() 
+    public Float getType5Num7() 
     {
         return type5Num7;
     }
-    public void setType5Num8(BigDecimal type5Num8) 
+    public void setType5Num8(Float type5Num8) 
     {
         this.type5Num8 = type5Num8;
     }
 
-    public BigDecimal getType5Num8() 
+    public Float getType5Num8() 
     {
         return type5Num8;
     }
-    public void setType5Num9(BigDecimal type5Num9) 
+    public void setType5Num9(Float type5Num9) 
     {
         this.type5Num9 = type5Num9;
     }
 
-    public BigDecimal getType5Num9() 
+    public Float getType5Num9() 
     {
         return type5Num9;
     }
-    public void setType5Num10(BigDecimal type5Num10) 
+    public void setType5Num10(Float type5Num10) 
     {
         this.type5Num10 = type5Num10;
     }
 
-    public BigDecimal getType5Num10() 
+    public Float getType5Num10() 
     {
         return type5Num10;
     }
-    public void setType6Big(BigDecimal type6Big) 
+    public void setType6Big(Float type6Big) 
     {
         this.type6Big = type6Big;
     }
 
-    public BigDecimal getType6Big() 
+    public Float getType6Big() 
     {
         return type6Big;
     }
-    public void setType6Small(BigDecimal type6Small) 
+    public void setType6Small(Float type6Small) 
     {
         this.type6Small = type6Small;
     }
 
-    public BigDecimal getType6Small() 
+    public Float getType6Small() 
     {
         return type6Small;
     }
-    public void setType6Single(BigDecimal type6Single) 
+    public void setType6Single(Float type6Single) 
     {
         this.type6Single = type6Single;
     }
 
-    public BigDecimal getType6Single() 
+    public Float getType6Single() 
     {
         return type6Single;
     }
-    public void setType6Double(BigDecimal type6Double) 
+    public void setType6Double(Float type6Double) 
     {
         this.type6Double = type6Double;
     }
 
-    public BigDecimal getType6Double() 
+    public Float getType6Double() 
     {
         return type6Double;
     }
-    public void setType6Loong(BigDecimal type6Loong) 
+    public void setType6Loong(Float type6Loong) 
     {
         this.type6Loong = type6Loong;
     }
 
-    public BigDecimal getType6Loong() 
+    public Float getType6Loong() 
     {
         return type6Loong;
     }
-    public void setType6Tiger(BigDecimal type6Tiger) 
+    public void setType6Tiger(Float type6Tiger) 
     {
         this.type6Tiger = type6Tiger;
     }
 
-    public BigDecimal getType6Tiger() 
+    public Float getType6Tiger() 
     {
         return type6Tiger;
     }
-    public void setType6Num1(BigDecimal type6Num1) 
+    public void setType6Num1(Float type6Num1) 
     {
         this.type6Num1 = type6Num1;
     }
 
-    public BigDecimal getType6Num1() 
+    public Float getType6Num1() 
     {
         return type6Num1;
     }
-    public void setType6Num2(BigDecimal type6Num2) 
+    public void setType6Num2(Float type6Num2) 
     {
         this.type6Num2 = type6Num2;
     }
 
-    public BigDecimal getType6Num2() 
+    public Float getType6Num2() 
     {
         return type6Num2;
     }
-    public void setType6Num3(BigDecimal type6Num3) 
+    public void setType6Num3(Float type6Num3) 
     {
         this.type6Num3 = type6Num3;
     }
 
-    public BigDecimal getType6Num3() 
+    public Float getType6Num3() 
     {
         return type6Num3;
     }
-    public void setType6Num4(BigDecimal type6Num4) 
+    public void setType6Num4(Float type6Num4) 
     {
         this.type6Num4 = type6Num4;
     }
 
-    public BigDecimal getType6Num4() 
+    public Float getType6Num4() 
     {
         return type6Num4;
     }
-    public void setType6Num5(BigDecimal type6Num5) 
+    public void setType6Num5(Float type6Num5) 
     {
         this.type6Num5 = type6Num5;
     }
 
-    public BigDecimal getType6Num5() 
+    public Float getType6Num5() 
     {
         return type6Num5;
     }
-    public void setType6Num6(BigDecimal type6Num6) 
+    public void setType6Num6(Float type6Num6) 
     {
         this.type6Num6 = type6Num6;
     }
 
-    public BigDecimal getType6Num6() 
+    public Float getType6Num6() 
     {
         return type6Num6;
     }
-    public void setType6Num7(BigDecimal type6Num7) 
+    public void setType6Num7(Float type6Num7) 
     {
         this.type6Num7 = type6Num7;
     }
 
-    public BigDecimal getType6Num7() 
+    public Float getType6Num7() 
     {
         return type6Num7;
     }
-    public void setType6Num8(BigDecimal type6Num8) 
+    public void setType6Num8(Float type6Num8) 
     {
         this.type6Num8 = type6Num8;
     }
 
-    public BigDecimal getType6Num8() 
+    public Float getType6Num8() 
     {
         return type6Num8;
     }
-    public void setType6Num9(BigDecimal type6Num9) 
+    public void setType6Num9(Float type6Num9) 
     {
         this.type6Num9 = type6Num9;
     }
 
-    public BigDecimal getType6Num9() 
+    public Float getType6Num9() 
     {
         return type6Num9;
     }
-    public void setType6Num10(BigDecimal type6Num10) 
+    public void setType6Num10(Float type6Num10) 
     {
         this.type6Num10 = type6Num10;
     }
 
-    public BigDecimal getType6Num10() 
+    public Float getType6Num10() 
     {
         return type6Num10;
     }
-    public void setType7Big(BigDecimal type7Big) 
+    public void setType7Big(Float type7Big) 
     {
         this.type7Big = type7Big;
     }
 
-    public BigDecimal getType7Big() 
+    public Float getType7Big() 
     {
         return type7Big;
     }
-    public void setType7Small(BigDecimal type7Small) 
+    public void setType7Small(Float type7Small) 
     {
         this.type7Small = type7Small;
     }
 
-    public BigDecimal getType7Small() 
+    public Float getType7Small() 
     {
         return type7Small;
     }
-    public void setType7Single(BigDecimal type7Single) 
+    public void setType7Single(Float type7Single) 
     {
         this.type7Single = type7Single;
     }
 
-    public BigDecimal getType7Single() 
+    public Float getType7Single() 
     {
         return type7Single;
     }
-    public void setType7Double(BigDecimal type7Double) 
+    public void setType7Double(Float type7Double) 
     {
         this.type7Double = type7Double;
     }
 
-    public BigDecimal getType7Double() 
+    public Float getType7Double() 
     {
         return type7Double;
     }
-    public void setType7Loong(BigDecimal type7Loong) 
+    public void setType7Loong(Float type7Loong) 
     {
         this.type7Loong = type7Loong;
     }
 
-    public BigDecimal getType7Loong() 
+    public Float getType7Loong() 
     {
         return type7Loong;
     }
-    public void setType7Tiger(BigDecimal type7Tiger) 
+    public void setType7Tiger(Float type7Tiger) 
     {
         this.type7Tiger = type7Tiger;
     }
 
-    public BigDecimal getType7Tiger() 
+    public Float getType7Tiger() 
     {
         return type7Tiger;
     }
-    public void setType7Num1(BigDecimal type7Num1) 
+    public void setType7Num1(Float type7Num1) 
     {
         this.type7Num1 = type7Num1;
     }
 
-    public BigDecimal getType7Num1() 
+    public Float getType7Num1() 
     {
         return type7Num1;
     }
-    public void setType7Num2(BigDecimal type7Num2) 
+    public void setType7Num2(Float type7Num2) 
     {
         this.type7Num2 = type7Num2;
     }
 
-    public BigDecimal getType7Num2() 
+    public Float getType7Num2() 
     {
         return type7Num2;
     }
-    public void setType7Num3(BigDecimal type7Num3) 
+    public void setType7Num3(Float type7Num3) 
     {
         this.type7Num3 = type7Num3;
     }
 
-    public BigDecimal getType7Num3() 
+    public Float getType7Num3() 
     {
         return type7Num3;
     }
-    public void setType7Num4(BigDecimal type7Num4) 
+    public void setType7Num4(Float type7Num4) 
     {
         this.type7Num4 = type7Num4;
     }
 
-    public BigDecimal getType7Num4() 
+    public Float getType7Num4() 
     {
         return type7Num4;
     }
-    public void setType7Num5(BigDecimal type7Num5) 
+    public void setType7Num5(Float type7Num5) 
     {
         this.type7Num5 = type7Num5;
     }
 
-    public BigDecimal getType7Num5() 
+    public Float getType7Num5() 
     {
         return type7Num5;
     }
-    public void setType7Num6(BigDecimal type7Num6) 
+    public void setType7Num6(Float type7Num6) 
     {
         this.type7Num6 = type7Num6;
     }
 
-    public BigDecimal getType7Num6() 
+    public Float getType7Num6() 
     {
         return type7Num6;
     }
-    public void setType7Num7(BigDecimal type7Num7) 
+    public void setType7Num7(Float type7Num7) 
     {
         this.type7Num7 = type7Num7;
     }
 
-    public BigDecimal getType7Num7() 
+    public Float getType7Num7() 
     {
         return type7Num7;
     }
-    public void setType7Num8(BigDecimal type7Num8) 
+    public void setType7Num8(Float type7Num8) 
     {
         this.type7Num8 = type7Num8;
     }
 
-    public BigDecimal getType7Num8() 
+    public Float getType7Num8() 
     {
         return type7Num8;
     }
-    public void setType7Num9(BigDecimal type7Num9) 
+    public void setType7Num9(Float type7Num9) 
     {
         this.type7Num9 = type7Num9;
     }
 
-    public BigDecimal getType7Num9() 
+    public Float getType7Num9() 
     {
         return type7Num9;
     }
-    public void setType7Num10(BigDecimal type7Num10) 
+    public void setType7Num10(Float type7Num10) 
     {
         this.type7Num10 = type7Num10;
     }
 
-    public BigDecimal getType7Num10() 
+    public Float getType7Num10() 
     {
         return type7Num10;
     }
-    public void setType8Big(BigDecimal type8Big) 
+    public void setType8Big(Float type8Big) 
     {
         this.type8Big = type8Big;
     }
 
-    public BigDecimal getType8Big() 
+    public Float getType8Big() 
     {
         return type8Big;
     }
-    public void setType8Small(BigDecimal type8Small) 
+    public void setType8Small(Float type8Small) 
     {
         this.type8Small = type8Small;
     }
 
-    public BigDecimal getType8Small() 
+    public Float getType8Small() 
     {
         return type8Small;
     }
-    public void setType8Single(BigDecimal type8Single) 
+    public void setType8Single(Float type8Single) 
     {
         this.type8Single = type8Single;
     }
 
-    public BigDecimal getType8Single() 
+    public Float getType8Single() 
     {
         return type8Single;
     }
-    public void setType8Double(BigDecimal type8Double) 
+    public void setType8Double(Float type8Double) 
     {
         this.type8Double = type8Double;
     }
 
-    public BigDecimal getType8Double() 
+    public Float getType8Double() 
     {
         return type8Double;
     }
-    public void setType8Loong(BigDecimal type8Loong) 
+    public void setType8Loong(Float type8Loong) 
     {
         this.type8Loong = type8Loong;
     }
 
-    public BigDecimal getType8Loong() 
+    public Float getType8Loong() 
     {
         return type8Loong;
     }
-    public void setType8Tiger(BigDecimal type8Tiger) 
+    public void setType8Tiger(Float type8Tiger) 
     {
         this.type8Tiger = type8Tiger;
     }
 
-    public BigDecimal getType8Tiger() 
+    public Float getType8Tiger() 
     {
         return type8Tiger;
     }
-    public void setType8Num1(BigDecimal type8Num1) 
+    public void setType8Num1(Float type8Num1) 
     {
         this.type8Num1 = type8Num1;
     }
 
-    public BigDecimal getType8Num1() 
+    public Float getType8Num1() 
     {
         return type8Num1;
     }
-    public void setType8Num2(BigDecimal type8Num2) 
+    public void setType8Num2(Float type8Num2) 
     {
         this.type8Num2 = type8Num2;
     }
 
-    public BigDecimal getType8Num2() 
+    public Float getType8Num2() 
     {
         return type8Num2;
     }
-    public void setType8Num3(BigDecimal type8Num3) 
+    public void setType8Num3(Float type8Num3) 
     {
         this.type8Num3 = type8Num3;
     }
 
-    public BigDecimal getType8Num3() 
+    public Float getType8Num3() 
     {
         return type8Num3;
     }
-    public void setType8Num4(BigDecimal type8Num4) 
+    public void setType8Num4(Float type8Num4) 
     {
         this.type8Num4 = type8Num4;
     }
 
-    public BigDecimal getType8Num4() 
+    public Float getType8Num4() 
     {
         return type8Num4;
     }
-    public void setType8Num5(BigDecimal type8Num5) 
+    public void setType8Num5(Float type8Num5) 
     {
         this.type8Num5 = type8Num5;
     }
 
-    public BigDecimal getType8Num5() 
+    public Float getType8Num5() 
     {
         return type8Num5;
     }
-    public void setType8Num6(BigDecimal type8Num6) 
+    public void setType8Num6(Float type8Num6) 
     {
         this.type8Num6 = type8Num6;
     }
 
-    public BigDecimal getType8Num6() 
+    public Float getType8Num6() 
     {
         return type8Num6;
     }
-    public void setType8Num7(BigDecimal type8Num7) 
+    public void setType8Num7(Float type8Num7) 
     {
         this.type8Num7 = type8Num7;
     }
 
-    public BigDecimal getType8Num7() 
+    public Float getType8Num7() 
     {
         return type8Num7;
     }
-    public void setType8Num8(BigDecimal type8Num8) 
+    public void setType8Num8(Float type8Num8) 
     {
         this.type8Num8 = type8Num8;
     }
 
-    public BigDecimal getType8Num8() 
+    public Float getType8Num8() 
     {
         return type8Num8;
     }
-    public void setType8Num9(BigDecimal type8Num9) 
+    public void setType8Num9(Float type8Num9) 
     {
         this.type8Num9 = type8Num9;
     }
 
-    public BigDecimal getType8Num9() 
+    public Float getType8Num9() 
     {
         return type8Num9;
     }
-    public void setType8Num10(BigDecimal type8Num10) 
+    public void setType8Num10(Float type8Num10) 
     {
         this.type8Num10 = type8Num10;
     }
 
-    public BigDecimal getType8Num10() 
+    public Float getType8Num10() 
     {
         return type8Num10;
     }
-    public void setType9Big(BigDecimal type9Big) 
+    public void setType9Big(Float type9Big) 
     {
         this.type9Big = type9Big;
     }
 
-    public BigDecimal getType9Big() 
+    public Float getType9Big() 
     {
         return type9Big;
     }
-    public void setType9Small(BigDecimal type9Small) 
+    public void setType9Small(Float type9Small) 
     {
         this.type9Small = type9Small;
     }
 
-    public BigDecimal getType9Small() 
+    public Float getType9Small() 
     {
         return type9Small;
     }
-    public void setType9Single(BigDecimal type9Single) 
+    public void setType9Single(Float type9Single) 
     {
         this.type9Single = type9Single;
     }
 
-    public BigDecimal getType9Single() 
+    public Float getType9Single() 
     {
         return type9Single;
     }
-    public void setType9Double(BigDecimal type9Double) 
+    public void setType9Double(Float type9Double) 
     {
         this.type9Double = type9Double;
     }
 
-    public BigDecimal getType9Double() 
+    public Float getType9Double() 
     {
         return type9Double;
     }
-    public void setType9Loong(BigDecimal type9Loong) 
+    public void setType9Loong(Float type9Loong) 
     {
         this.type9Loong = type9Loong;
     }
 
-    public BigDecimal getType9Loong() 
+    public Float getType9Loong() 
     {
         return type9Loong;
     }
-    public void setType9Tiger(BigDecimal type9Tiger) 
+    public void setType9Tiger(Float type9Tiger) 
     {
         this.type9Tiger = type9Tiger;
     }
 
-    public BigDecimal getType9Tiger() 
+    public Float getType9Tiger() 
     {
         return type9Tiger;
     }
-    public void setType9Num1(BigDecimal type9Num1) 
+    public void setType9Num1(Float type9Num1) 
     {
         this.type9Num1 = type9Num1;
     }
 
-    public BigDecimal getType9Num1() 
+    public Float getType9Num1() 
     {
         return type9Num1;
     }
-    public void setType9Num2(BigDecimal type9Num2) 
+    public void setType9Num2(Float type9Num2) 
     {
         this.type9Num2 = type9Num2;
     }
 
-    public BigDecimal getType9Num2() 
+    public Float getType9Num2() 
     {
         return type9Num2;
     }
-    public void setType9Num3(BigDecimal type9Num3) 
+    public void setType9Num3(Float type9Num3) 
     {
         this.type9Num3 = type9Num3;
     }
 
-    public BigDecimal getType9Num3() 
+    public Float getType9Num3() 
     {
         return type9Num3;
     }
-    public void setType9Num4(BigDecimal type9Num4) 
+    public void setType9Num4(Float type9Num4) 
     {
         this.type9Num4 = type9Num4;
     }
 
-    public BigDecimal getType9Num4() 
+    public Float getType9Num4() 
     {
         return type9Num4;
     }
-    public void setType9Num5(BigDecimal type9Num5) 
+    public void setType9Num5(Float type9Num5) 
     {
         this.type9Num5 = type9Num5;
     }
 
-    public BigDecimal getType9Num5() 
+    public Float getType9Num5() 
     {
         return type9Num5;
     }
-    public void setType9Num6(BigDecimal type9Num6) 
+    public void setType9Num6(Float type9Num6) 
     {
         this.type9Num6 = type9Num6;
     }
 
-    public BigDecimal getType9Num6() 
+    public Float getType9Num6() 
     {
         return type9Num6;
     }
-    public void setType9Num7(BigDecimal type9Num7) 
+    public void setType9Num7(Float type9Num7) 
     {
         this.type9Num7 = type9Num7;
     }
 
-    public BigDecimal getType9Num7() 
+    public Float getType9Num7() 
     {
         return type9Num7;
     }
-    public void setType9Num8(BigDecimal type9Num8) 
+    public void setType9Num8(Float type9Num8) 
     {
         this.type9Num8 = type9Num8;
     }
 
-    public BigDecimal getType9Num8() 
+    public Float getType9Num8() 
     {
         return type9Num8;
     }
-    public void setType9Num9(BigDecimal type9Num9) 
+    public void setType9Num9(Float type9Num9) 
     {
         this.type9Num9 = type9Num9;
     }
 
-    public BigDecimal getType9Num9() 
+    public Float getType9Num9() 
     {
         return type9Num9;
     }
-    public void setType9Num10(BigDecimal type9Num10) 
+    public void setType9Num10(Float type9Num10) 
     {
         this.type9Num10 = type9Num10;
     }
 
-    public BigDecimal getType9Num10() 
+    public Float getType9Num10() 
     {
         return type9Num10;
     }
-    public void setType10Big(BigDecimal type10Big) 
+    public void setType10Big(Float type10Big) 
     {
         this.type10Big = type10Big;
     }
 
-    public BigDecimal getType10Big() 
+    public Float getType10Big() 
     {
         return type10Big;
     }
-    public void setType10Small(BigDecimal type10Small) 
+    public void setType10Small(Float type10Small) 
     {
         this.type10Small = type10Small;
     }
 
-    public BigDecimal getType10Small() 
+    public Float getType10Small() 
     {
         return type10Small;
     }
-    public void setType10Single(BigDecimal type10Single) 
+    public void setType10Single(Float type10Single) 
     {
         this.type10Single = type10Single;
     }
 
-    public BigDecimal getType10Single() 
+    public Float getType10Single() 
     {
         return type10Single;
     }
-    public void setType10Double(BigDecimal type10Double) 
+    public void setType10Double(Float type10Double) 
     {
         this.type10Double = type10Double;
     }
 
-    public BigDecimal getType10Double() 
+    public Float getType10Double() 
     {
         return type10Double;
     }
-    public void setType10Loong(BigDecimal type10Loong) 
+    public void setType10Loong(Float type10Loong) 
     {
         this.type10Loong = type10Loong;
     }
 
-    public BigDecimal getType10Loong() 
+    public Float getType10Loong() 
     {
         return type10Loong;
     }
-    public void setType10Tiger(BigDecimal type10Tiger) 
+    public void setType10Tiger(Float type10Tiger) 
     {
         this.type10Tiger = type10Tiger;
     }
 
-    public BigDecimal getType10Tiger() 
+    public Float getType10Tiger() 
     {
         return type10Tiger;
     }
-    public void setType10Num1(BigDecimal type10Num1) 
+    public void setType10Num1(Float type10Num1) 
     {
         this.type10Num1 = type10Num1;
     }
 
-    public BigDecimal getType10Num1() 
+    public Float getType10Num1() 
     {
         return type10Num1;
     }
-    public void setType10Num2(BigDecimal type10Num2) 
+    public void setType10Num2(Float type10Num2) 
     {
         this.type10Num2 = type10Num2;
     }
 
-    public BigDecimal getType10Num2() 
+    public Float getType10Num2() 
     {
         return type10Num2;
     }
-    public void setType10Num3(BigDecimal type10Num3) 
+    public void setType10Num3(Float type10Num3) 
     {
         this.type10Num3 = type10Num3;
     }
 
-    public BigDecimal getType10Num3() 
+    public Float getType10Num3() 
     {
         return type10Num3;
     }
-    public void setType10Num4(BigDecimal type10Num4) 
+    public void setType10Num4(Float type10Num4) 
     {
         this.type10Num4 = type10Num4;
     }
 
-    public BigDecimal getType10Num4() 
+    public Float getType10Num4() 
     {
         return type10Num4;
     }
-    public void setType10Num5(BigDecimal type10Num5) 
+    public void setType10Num5(Float type10Num5) 
     {
         this.type10Num5 = type10Num5;
     }
 
-    public BigDecimal getType10Num5() 
+    public Float getType10Num5() 
     {
         return type10Num5;
     }
-    public void setType10Num6(BigDecimal type10Num6) 
+    public void setType10Num6(Float type10Num6) 
     {
         this.type10Num6 = type10Num6;
     }
 
-    public BigDecimal getType10Num6() 
+    public Float getType10Num6() 
     {
         return type10Num6;
     }
-    public void setType10Num7(BigDecimal type10Num7) 
+    public void setType10Num7(Float type10Num7) 
     {
         this.type10Num7 = type10Num7;
     }
 
-    public BigDecimal getType10Num7() 
+    public Float getType10Num7() 
     {
         return type10Num7;
     }
-    public void setType10Num8(BigDecimal type10Num8) 
+    public void setType10Num8(Float type10Num8) 
     {
         this.type10Num8 = type10Num8;
     }
 
-    public BigDecimal getType10Num8() 
+    public Float getType10Num8() 
     {
         return type10Num8;
     }
-    public void setType10Num9(BigDecimal type10Num9) 
+    public void setType10Num9(Float type10Num9) 
     {
         this.type10Num9 = type10Num9;
     }
 
-    public BigDecimal getType10Num9() 
+    public Float getType10Num9() 
     {
         return type10Num9;
     }
-    public void setType10Num10(BigDecimal type10Num10) 
+    public void setType10Num10(Float type10Num10) 
     {
         this.type10Num10 = type10Num10;
     }
 
-    public BigDecimal getType10Num10() 
+    public Float getType10Num10() 
     {
         return type10Num10;
     }
-    public void setType11Big(BigDecimal type11Big) 
+    public void setType11Big(Float type11Big) 
     {
         this.type11Big = type11Big;
     }
 
-    public BigDecimal getType11Big() 
+    public Float getType11Big() 
     {
         return type11Big;
     }
-    public void setType11Small(BigDecimal type11Small) 
+    public void setType11Small(Float type11Small) 
     {
         this.type11Small = type11Small;
     }
 
-    public BigDecimal getType11Small() 
+    public Float getType11Small() 
     {
         return type11Small;
     }
-    public void setType11Single(BigDecimal type11Single) 
+    public void setType11Single(Float type11Single) 
     {
         this.type11Single = type11Single;
     }
 
-    public BigDecimal getType11Single() 
+    public Float getType11Single() 
     {
         return type11Single;
     }
-    public void setType11Double(BigDecimal type11Double) 
+    public void setType11Double(Float type11Double) 
     {
         this.type11Double = type11Double;
     }
 
-    public BigDecimal getType11Double() 
+    public Float getType11Double() 
     {
         return type11Double;
     }
-    public void setType11Loong(BigDecimal type11Loong) 
+    public void setType11Loong(Float type11Loong) 
     {
         this.type11Loong = type11Loong;
     }
 
-    public BigDecimal getType11Loong() 
+    public Float getType11Loong() 
     {
         return type11Loong;
     }
-    public void setType11Tiger(BigDecimal type11Tiger) 
+    public void setType11Tiger(Float type11Tiger) 
     {
         this.type11Tiger = type11Tiger;
     }
 
-    public BigDecimal getType11Tiger() 
+    public Float getType11Tiger() 
     {
         return type11Tiger;
     }
-    public void setType11Num1(BigDecimal type11Num1) 
+    public void setType11Num1(Float type11Num1) 
     {
         this.type11Num1 = type11Num1;
     }
 
-    public BigDecimal getType11Num1() 
+    public Float getType11Num1() 
     {
         return type11Num1;
     }
-    public void setType11Num2(BigDecimal type11Num2) 
+    public void setType11Num2(Float type11Num2) 
     {
         this.type11Num2 = type11Num2;
     }
 
-    public BigDecimal getType11Num2() 
+    public Float getType11Num2() 
     {
         return type11Num2;
     }
-    public void setType11Num3(BigDecimal type11Num3) 
+    public void setType11Num3(Float type11Num3) 
     {
         this.type11Num3 = type11Num3;
     }
 
-    public BigDecimal getType11Num3() 
+    public Float getType11Num3() 
     {
         return type11Num3;
     }
-    public void setType11Num4(BigDecimal type11Num4) 
+    public void setType11Num4(Float type11Num4) 
     {
         this.type11Num4 = type11Num4;
     }
 
-    public BigDecimal getType11Num4() 
+    public Float getType11Num4() 
     {
         return type11Num4;
     }
-    public void setType11Num5(BigDecimal type11Num5) 
+    public void setType11Num5(Float type11Num5) 
     {
         this.type11Num5 = type11Num5;
     }
 
-    public BigDecimal getType11Num5() 
+    public Float getType11Num5() 
     {
         return type11Num5;
     }
-    public void setType11Num6(BigDecimal type11Num6) 
+    public void setType11Num6(Float type11Num6) 
     {
         this.type11Num6 = type11Num6;
     }
 
-    public BigDecimal getType11Num6() 
+    public Float getType11Num6() 
     {
         return type11Num6;
     }
-    public void setType11Num7(BigDecimal type11Num7) 
+    public void setType11Num7(Float type11Num7) 
     {
         this.type11Num7 = type11Num7;
     }
 
-    public BigDecimal getType11Num7() 
+    public Float getType11Num7() 
     {
         return type11Num7;
     }
-    public void setType11Num8(BigDecimal type11Num8) 
+    public void setType11Num8(Float type11Num8) 
     {
         this.type11Num8 = type11Num8;
     }
 
-    public BigDecimal getType11Num8() 
+    public Float getType11Num8() 
     {
         return type11Num8;
     }
-    public void setType11Num9(BigDecimal type11Num9) 
+    public void setType11Num9(Float type11Num9) 
     {
         this.type11Num9 = type11Num9;
     }
 
-    public BigDecimal getType11Num9() 
+    public Float getType11Num9() 
     {
         return type11Num9;
     }
-    public void setType11Num10(BigDecimal type11Num10) 
+    public void setType11Num10(Float type11Num10) 
     {
         this.type11Num10 = type11Num10;
     }
 
-    public BigDecimal getType11Num10() 
+    public Float getType11Num10() 
     {
         return type11Num10;
     }
-    public void setBigSingle(BigDecimal bigSingle) 
+    public void setBigSingle(Float bigSingle) 
     {
         this.bigSingle = bigSingle;
     }
 
-    public BigDecimal getBigSingle() 
+    public Float getBigSingle() 
     {
         return bigSingle;
     }
-    public void setBigDouble(BigDecimal bigDouble) 
+    public void setBigDouble(Float bigDouble) 
     {
         this.bigDouble = bigDouble;
     }
 
-    public BigDecimal getBigDouble() 
+    public Float getBigDouble() 
     {
         return bigDouble;
     }
-    public void setSmallSingle(BigDecimal smallSingle) 
+    public void setSmallSingle(Float smallSingle) 
     {
         this.smallSingle = smallSingle;
     }
 
-    public BigDecimal getSmallSingle() 
+    public Float getSmallSingle() 
     {
         return smallSingle;
     }
-    public void setSmallDouble(BigDecimal smallDouble) 
+    public void setSmallDouble(Float smallDouble) 
     {
         this.smallDouble = smallDouble;
     }
 
-    public BigDecimal getSmallDouble() 
+    public Float getSmallDouble() 
     {
         return smallDouble;
     }

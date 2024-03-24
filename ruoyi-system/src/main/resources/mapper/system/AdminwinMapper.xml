@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.AdminwinMapper">
+    
+    <resultMap type="Adminwin" id="AdminwinResult">
+        <result property="id"    column="id"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectAdminwinVo">
+        select id, win_time, game_id, game_name, win_money, create_by, create_time, update_by, update_time, remark from adminwin
+    </sql>
+
+    <select id="selectAdminwinList" parameterType="Adminwin" resultMap="AdminwinResult">
+        <include refid="selectAdminwinVo"/>
+        <where>  
+            <if test="winTime != null "> and win_time = #{winTime}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="winMoney != null "> and win_money = #{winMoney}</if>
+        </where>
+    </select>
+    
+    <select id="selectAdminwinById" parameterType="Long" resultMap="AdminwinResult">
+        <include refid="selectAdminwinVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectTodayAdminwin" resultMap="AdminwinResult">
+        <include refid="selectAdminwinVo"/>
+        where DATE_FORMAT(win_time,'%Y-%m-%d')=CURDATE()
+            and game_id = #{gameId}
+    </select>
+        
+    <insert id="insertAdminwin" parameterType="Adminwin" useGeneratedKeys="true" keyProperty="id">
+        insert into adminwin(
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="winMoney != null">win_money,</if>
+            <if test="createBy != null">create_by,</if>
+        win_time,
+        create_time
+        )values(
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="winMoney != null">#{winMoney},</if>
+            <if test="createBy != null">#{createBy},</if>
+        CURDATE(),
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateAdminwin" parameterType="Adminwin">
+        update adminwin
+        <set>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAdminwinById" parameterType="Long">
+        delete from adminwin where id = #{id}
+    </delete>
+
+    <delete id="deleteAdminwinByIds" parameterType="Long">
+        delete from adminwin where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

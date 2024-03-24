@@ -28,6 +28,7 @@
             <template slot-scope="scope">
               <el-select v-model="scope.row.javaType">
                 <el-option label="Long" value="Long" />
+                <el-option label="Float" value="Float" />
                 <el-option label="String" value="String" />
                 <el-option label="Integer" value="Integer" />
                 <el-option label="Double" value="Double" />

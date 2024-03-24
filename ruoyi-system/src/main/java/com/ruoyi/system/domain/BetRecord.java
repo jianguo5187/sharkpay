@@ -59,21 +59,21 @@ public class BetRecord extends BaseEntity
     @Excel(name = "游戏种类")
     private Integer playGroup;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 操作 */
+    @Excel(name = "操作")
     private Integer option;
 
     /** 投注金额 */
     @Excel(name = "投注金额")
-    private Integer money;
+    private Float money;
 
     /** 投注后用户余额 */
     @Excel(name = "投注后用户余额")
-    private BigDecimal balance;
+    private Float balance;
 
     /** 输赢结果 */
     @Excel(name = "输赢结果")
-    private BigDecimal accountResult;
+    private Float accountResult;
 
     /** 结算区分（0未结算 1已结算） */
     @Excel(name = "结算区分", readConverterExp = "0=未结算,1=已结算")
@@ -83,8 +83,8 @@ public class BetRecord extends BaseEntity
     @Excel(name = "开奖结果")
     private String gameResult;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 是否删除(0否 1是) */
+    @Excel(name = "是否删除(0否 1是)")
     private String isDelete;
 
     /** 是否机器人下注 */
@@ -202,34 +202,34 @@ public class BetRecord extends BaseEntity
         this.option = option;
     }
 
-    public Integer getOption() 
+    public Integer getOption()
     {
         return option;
     }
-    public void setMoney(Integer money) 
+    public void setMoney(Float money)
     {
         this.money = money;
     }
 
-    public Integer getMoney() 
+    public Float getMoney()
     {
         return money;
     }
-    public void setBalance(BigDecimal balance) 
+    public void setBalance(Float balance)
     {
         this.balance = balance;
     }
 
-    public BigDecimal getBalance() 
+    public Float getBalance()
     {
         return balance;
     }
-    public void setAccountResult(BigDecimal accountResult) 
+    public void setAccountResult(Float accountResult)
     {
         this.accountResult = accountResult;
     }
 
-    public BigDecimal getAccountResult() 
+    public Float getAccountResult()
     {
         return accountResult;
     }

@@ -39,6 +39,18 @@ public class GameTaskServiceImpl implements IGameTaskService {
     @Autowired
     private IJsssckjService jsssckjService;
 
+    @Autowired
+    private IUserwinService userwinService;
+
+    @Autowired
+    private IUsermoneyService usermoneyService;
+
+    @Autowired
+    private IAdminwinService adminwinService;
+
+    @Autowired
+    private ISysUserService sysUserService;
+
     @Override
     public void saveAzxy10InfoFromOfficial(List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
         // 澳洲幸运10
@@ -297,6 +309,47 @@ public class GameTaskServiceImpl implements IGameTaskService {
         }
 
         Azxy10kj azxy10kj = azxy10kjService.selectAzxy10kjById(periodId);
+        Float adminWinMoney = 0f;
+        String gameResult = azxy10kj.getNum1() + "+" +
+                            azxy10kj.getNum2() + "+" +
+                            azxy10kj.getNum3() + "+" +
+                            azxy10kj.getNum4() + "+" +
+                            azxy10kj.getNum5() + "+" +
+                            azxy10kj.getNum6() + "+" +
+                            azxy10kj.getNum7() + "+" +
+                            azxy10kj.getNum8() + "+" +
+                            azxy10kj.getNum9() + "+" +
+                            azxy10kj.getNum10();
+
+        for(Azxy10record azxy10record : azxy10recordList){
+
+        }
+
+        Adminwin todayAdminwin = adminwinService.selectTodayAdminwin(gameInfo.getGameId());
+        if(todayAdminwin == null){
+            todayAdminwin = new Adminwin();
+            todayAdminwin.setGameId(gameInfo.getGameId());
+            todayAdminwin.setGameName(gameInfo.getGameName());
+            todayAdminwin.setWinMoney(adminWinMoney);
+            todayAdminwin.setCreateBy("lotteryAzxy10");
+
+            adminwinService.insertAdminwin(todayAdminwin);
+        }else{
+            todayAdminwin.setWinMoney(adminWinMoney +todayAdminwin.getWinMoney());
+            todayAdminwin.setUpdateBy("lotteryAzxy10");
+            adminwinService.updateAdminwin(todayAdminwin);
+        }
+
+//        azxy10kj.setCountMoney();
+        searchAzxy10Record = new Azxy10record();
+        searchAzxy10Record.setPeriods(periodId);
+        List<Azxy10record> openedAzxy10recordList = azxy10recordService.selectAzxy10recordList(searchAzxy10Record);
+        Float countMoney = 0f;
+        Float winMoney = 0f;
+
+        for(Azxy10record azxy10record : openedAzxy10recordList){
+            countMoney += azxy10record.getCountMoney();
+        }
     }
 
 

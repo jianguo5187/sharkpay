@@ -27,83 +27,83 @@ public class Jnd extends BaseEntity
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num1;
+    private Integer num1;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num2;
+    private Integer num2;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num3;
+    private Integer num3;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num4;
+    private Integer num4;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num5;
+    private Integer num5;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num6;
+    private Integer num6;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num7;
+    private Integer num7;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num8;
+    private Integer num8;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num9;
+    private Integer num9;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num10;
+    private Integer num10;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num11;
+    private Integer num11;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num12;
+    private Integer num12;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num13;
+    private Integer num13;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num14;
+    private Integer num14;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num15;
+    private Integer num15;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num16;
+    private Integer num16;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num17;
+    private Integer num17;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num18;
+    private Integer num18;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num19;
+    private Integer num19;
 
     /** 无效字段 */
     @Excel(name = "无效字段")
-    private Long num20;
+    private Integer num20;
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
@@ -135,183 +135,183 @@ public class Jnd extends BaseEntity
     {
         return time;
     }
-    public void setNum1(Long num1) 
+    public void setNum1(Integer num1)
     {
         this.num1 = num1;
     }
 
-    public Long getNum1() 
+    public Integer getNum1()
     {
         return num1;
     }
-    public void setNum2(Long num2) 
+    public void setNum2(Integer num2)
     {
         this.num2 = num2;
     }
 
-    public Long getNum2() 
+    public Integer getNum2()
     {
         return num2;
     }
-    public void setNum3(Long num3) 
+    public void setNum3(Integer num3)
     {
         this.num3 = num3;
     }
 
-    public Long getNum3() 
+    public Integer getNum3()
     {
         return num3;
     }
-    public void setNum4(Long num4) 
+    public void setNum4(Integer num4)
     {
         this.num4 = num4;
     }
 
-    public Long getNum4() 
+    public Integer getNum4()
     {
         return num4;
     }
-    public void setNum5(Long num5) 
+    public void setNum5(Integer num5)
     {
         this.num5 = num5;
     }
 
-    public Long getNum5() 
+    public Integer getNum5()
     {
         return num5;
     }
-    public void setNum6(Long num6) 
+    public void setNum6(Integer num6)
     {
         this.num6 = num6;
     }
 
-    public Long getNum6() 
+    public Integer getNum6()
     {
         return num6;
     }
-    public void setNum7(Long num7) 
+    public void setNum7(Integer num7)
     {
         this.num7 = num7;
     }
 
-    public Long getNum7() 
+    public Integer getNum7()
     {
         return num7;
     }
-    public void setNum8(Long num8) 
+    public void setNum8(Integer num8)
     {
         this.num8 = num8;
     }
 
-    public Long getNum8() 
+    public Integer getNum8()
     {
         return num8;
     }
-    public void setNum9(Long num9) 
+    public void setNum9(Integer num9)
     {
         this.num9 = num9;
     }
 
-    public Long getNum9() 
+    public Integer getNum9()
     {
         return num9;
     }
-    public void setNum10(Long num10) 
+    public void setNum10(Integer num10)
     {
         this.num10 = num10;
     }
 
-    public Long getNum10() 
+    public Integer getNum10()
     {
         return num10;
     }
-    public void setNum11(Long num11) 
+    public void setNum11(Integer num11)
     {
         this.num11 = num11;
     }
 
-    public Long getNum11() 
+    public Integer getNum11()
     {
         return num11;
     }
-    public void setNum12(Long num12) 
+    public void setNum12(Integer num12)
     {
         this.num12 = num12;
     }
 
-    public Long getNum12() 
+    public Integer getNum12()
     {
         return num12;
     }
-    public void setNum13(Long num13) 
+    public void setNum13(Integer num13)
     {
         this.num13 = num13;
     }
 
-    public Long getNum13() 
+    public Integer getNum13()
     {
         return num13;
     }
-    public void setNum14(Long num14) 
+    public void setNum14(Integer num14)
     {
         this.num14 = num14;
     }
 
-    public Long getNum14() 
+    public Integer getNum14()
     {
         return num14;
     }
-    public void setNum15(Long num15) 
+    public void setNum15(Integer num15)
     {
         this.num15 = num15;
     }
 
-    public Long getNum15() 
+    public Integer getNum15()
     {
         return num15;
     }
-    public void setNum16(Long num16) 
+    public void setNum16(Integer num16)
     {
         this.num16 = num16;
     }
 
-    public Long getNum16() 
+    public Integer getNum16()
     {
         return num16;
     }
-    public void setNum17(Long num17) 
+    public void setNum17(Integer num17)
     {
         this.num17 = num17;
     }
 
-    public Long getNum17() 
+    public Integer getNum17()
     {
         return num17;
     }
-    public void setNum18(Long num18) 
+    public void setNum18(Integer num18)
     {
         this.num18 = num18;
     }
 
-    public Long getNum18() 
+    public Integer getNum18()
     {
         return num18;
     }
-    public void setNum19(Long num19) 
+    public void setNum19(Integer num19)
     {
         this.num19 = num19;
     }
 
-    public Long getNum19() 
+    public Integer getNum19()
     {
         return num19;
     }
-    public void setNum20(Long num20) 
+    public void setNum20(Integer num20)
     {
         this.num20 = num20;
     }
 
-    public Long getNum20() 
+    public Integer getNum20()
     {
         return num20;
     }

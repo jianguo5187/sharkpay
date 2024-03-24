@@ -41,99 +41,99 @@ public class Jsssckj extends BaseEntity
 
     /** 总下注金额 */
     @Excel(name = "总下注金额")
-    private Long countMoney;
+    private Float countMoney;
 
     /** 总中奖金额 */
     @Excel(name = "总中奖金额")
-    private Long winMoney;
+    private Float winMoney;
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
-    private Long num1;
+    private Integer num1;
 
     /** 开奖号码2 */
     @Excel(name = "开奖号码2")
-    private Long num2;
+    private Integer num2;
 
     /** 开奖号码3 */
     @Excel(name = "开奖号码3")
-    private Long num3;
+    private Integer num3;
 
     /** 开奖号码4 */
     @Excel(name = "开奖号码4")
-    private Long num4;
+    private Integer num4;
 
     /** 开奖号码5 */
     @Excel(name = "开奖号码5")
-    private Long num5;
+    private Integer num5;
 
     /** 开奖合计号码 */
     @Excel(name = "开奖合计号码")
-    private Long sum;
+    private Integer sum;
 
     /** 开奖号码1大小 */
     @Excel(name = "开奖号码1大小")
-    private Long num1Bs;
+    private Integer num1Bs;
 
     /** 开奖号码1单双 */
     @Excel(name = "开奖号码1单双")
-    private Long num1Sd;
+    private Integer num1Sd;
 
     /** 开奖号码2大小 */
     @Excel(name = "开奖号码2大小")
-    private Long num2Bs;
+    private Integer num2Bs;
 
     /** 开奖号码2单双 */
     @Excel(name = "开奖号码2单双")
-    private Long num2Sd;
+    private Integer num2Sd;
 
     /** 开奖号码3大小 */
     @Excel(name = "开奖号码3大小")
-    private Long num3Bs;
+    private Integer num3Bs;
 
     /** 开奖号码3单双 */
     @Excel(name = "开奖号码3单双")
-    private Long num3Sd;
+    private Integer num3Sd;
 
     /** 开奖号码4大小 */
     @Excel(name = "开奖号码4大小")
-    private Long num4Bs;
+    private Integer num4Bs;
 
     /** 开奖号码4单双 */
     @Excel(name = "开奖号码4单双")
-    private Long num4Sd;
+    private Integer num4Sd;
 
     /** 开奖号码5大小 */
     @Excel(name = "开奖号码5大小")
-    private Long num5Bs;
+    private Integer num5Bs;
 
     /** 开奖号码5单双 */
     @Excel(name = "开奖号码5单双")
-    private Long num5Sd;
+    private Integer num5Sd;
 
     /** 开奖合计号码大小 */
     @Excel(name = "开奖合计号码大小")
-    private Long sumBs;
+    private Integer sumBs;
 
     /** 开奖合计号码单双 */
     @Excel(name = "开奖合计号码单双")
-    private Long sumSd;
+    private Integer sumSd;
 
     /** 开奖合计号码和虎龙 */
     @Excel(name = "开奖合计号码和虎龙")
-    private Long sumLts;
+    private Integer sumLts;
 
     /** 开奖号码(123)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂] */
     @Excel(name = "开奖号码(123)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]")
-    private Long numF;
+    private Integer numF;
 
     /** 开奖号码(234)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂] */
     @Excel(name = "开奖号码(234)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]")
-    private Long numM;
+    private Integer numM;
 
     /** 开奖号码(345)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂] */
     @Excel(name = "开奖号码(345)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]")
-    private Long numB;
+    private Integer numB;
 
     public void setId(Long id) 
     {
@@ -180,219 +180,219 @@ public class Jsssckj extends BaseEntity
     {
         return theTime;
     }
-    public void setCountMoney(Long countMoney) 
+    public void setCountMoney(Float countMoney)
     {
         this.countMoney = countMoney;
     }
 
-    public Long getCountMoney() 
+    public Float getCountMoney()
     {
         return countMoney;
     }
-    public void setWinMoney(Long winMoney) 
+    public void setWinMoney(Float winMoney)
     {
         this.winMoney = winMoney;
     }
 
-    public Long getWinMoney() 
+    public Float getWinMoney()
     {
         return winMoney;
     }
-    public void setNum1(Long num1) 
+    public void setNum1(Integer num1)
     {
         this.num1 = num1;
     }
 
-    public Long getNum1() 
+    public Integer getNum1()
     {
         return num1;
     }
-    public void setNum2(Long num2) 
+    public void setNum2(Integer num2)
     {
         this.num2 = num2;
     }
 
-    public Long getNum2() 
+    public Integer getNum2()
     {
         return num2;
     }
-    public void setNum3(Long num3) 
+    public void setNum3(Integer num3)
     {
         this.num3 = num3;
     }
 
-    public Long getNum3() 
+    public Integer getNum3()
     {
         return num3;
     }
-    public void setNum4(Long num4) 
+    public void setNum4(Integer num4)
     {
         this.num4 = num4;
     }
 
-    public Long getNum4() 
+    public Integer getNum4()
     {
         return num4;
     }
-    public void setNum5(Long num5) 
+    public void setNum5(Integer num5)
     {
         this.num5 = num5;
     }
 
-    public Long getNum5() 
+    public Integer getNum5()
     {
         return num5;
     }
-    public void setSum(Long sum) 
+    public void setSum(Integer sum)
     {
         this.sum = sum;
     }
 
-    public Long getSum() 
+    public Integer getSum()
     {
         return sum;
     }
-    public void setNum1Bs(Long num1Bs) 
+    public void setNum1Bs(Integer num1Bs)
     {
         this.num1Bs = num1Bs;
     }
 
-    public Long getNum1Bs() 
+    public Integer getNum1Bs()
     {
         return num1Bs;
     }
-    public void setNum1Sd(Long num1Sd) 
+    public void setNum1Sd(Integer num1Sd)
     {
         this.num1Sd = num1Sd;
     }
 
-    public Long getNum1Sd() 
+    public Integer getNum1Sd()
     {
         return num1Sd;
     }
-    public void setNum2Bs(Long num2Bs) 
+    public void setNum2Bs(Integer num2Bs)
     {
         this.num2Bs = num2Bs;
     }
 
-    public Long getNum2Bs() 
+    public Integer getNum2Bs()
     {
         return num2Bs;
     }
-    public void setNum2Sd(Long num2Sd) 
+    public void setNum2Sd(Integer num2Sd)
     {
         this.num2Sd = num2Sd;
     }
 
-    public Long getNum2Sd() 
+    public Integer getNum2Sd()
     {
         return num2Sd;
     }
-    public void setNum3Bs(Long num3Bs) 
+    public void setNum3Bs(Integer num3Bs)
     {
         this.num3Bs = num3Bs;
     }
 
-    public Long getNum3Bs() 
+    public Integer getNum3Bs()
     {
         return num3Bs;
     }
-    public void setNum3Sd(Long num3Sd) 
+    public void setNum3Sd(Integer num3Sd)
     {
         this.num3Sd = num3Sd;
     }
 
-    public Long getNum3Sd() 
+    public Integer getNum3Sd()
     {
         return num3Sd;
     }
-    public void setNum4Bs(Long num4Bs) 
+    public void setNum4Bs(Integer num4Bs)
     {
         this.num4Bs = num4Bs;
     }
 
-    public Long getNum4Bs() 
+    public Integer getNum4Bs()
     {
         return num4Bs;
     }
-    public void setNum4Sd(Long num4Sd) 
+    public void setNum4Sd(Integer num4Sd)
     {
         this.num4Sd = num4Sd;
     }
 
-    public Long getNum4Sd() 
+    public Integer getNum4Sd()
     {
         return num4Sd;
     }
-    public void setNum5Bs(Long num5Bs) 
+    public void setNum5Bs(Integer num5Bs)
     {
         this.num5Bs = num5Bs;
     }
 
-    public Long getNum5Bs() 
+    public Integer getNum5Bs()
     {
         return num5Bs;
     }
-    public void setNum5Sd(Long num5Sd) 
+    public void setNum5Sd(Integer num5Sd)
     {
         this.num5Sd = num5Sd;
     }
 
-    public Long getNum5Sd() 
+    public Integer getNum5Sd()
     {
         return num5Sd;
     }
-    public void setSumBs(Long sumBs) 
+    public void setSumBs(Integer sumBs)
     {
         this.sumBs = sumBs;
     }
 
-    public Long getSumBs() 
+    public Integer getSumBs()
     {
         return sumBs;
     }
-    public void setSumSd(Long sumSd) 
+    public void setSumSd(Integer sumSd)
     {
         this.sumSd = sumSd;
     }
 
-    public Long getSumSd() 
+    public Integer getSumSd()
     {
         return sumSd;
     }
-    public void setSumLts(Long sumLts) 
+    public void setSumLts(Integer sumLts)
     {
         this.sumLts = sumLts;
     }
 
-    public Long getSumLts() 
+    public Integer getSumLts()
     {
         return sumLts;
     }
-    public void setNumF(Long numF) 
+    public void setNumF(Integer numF)
     {
         this.numF = numF;
     }
 
-    public Long getNumF() 
+    public Integer getNumF()
     {
         return numF;
     }
-    public void setNumM(Long numM) 
+    public void setNumM(Integer numM)
     {
         this.numM = numM;
     }
 
-    public Long getNumM() 
+    public Integer getNumM()
     {
         return numM;
     }
-    public void setNumB(Long numB) 
+    public void setNumB(Integer numB)
     {
         this.numB = numB;
     }
 
-    public Long getNumB() 
+    public Integer getNumB()
     {
         return numB;
     }

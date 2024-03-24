@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.UsermoneyMapper">
+    
+    <resultMap type="Usermoney" id="UsermoneyResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="cashContent"    column="cash_content"    />
+        <result property="cashTime"    column="cash_time"    />
+        <result property="cashMoney"    column="cash_money"    />
+        <result property="type"    column="type"    />
+        <result property="userBalance"    column="user_balance"    />
+        <result property="unionPayId"    column="union_pay_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="userPay"    column="user_pay"    />
+        <result property="userAccount"    column="user_account"    />
+        <result property="cashDescribe"    column="cash_describe"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="house"    column="house"    />
+        <result property="isDelete"    column="is_delete"    />
+        <result property="hzId"    column="hz_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectUsermoneyVo">
+        select id, user_id, cash_content, cash_time, cash_money, type, user_balance, union_pay_id, user_name, user_pay, user_account, cash_describe, game_id, game_name, house, is_delete, hz_id, create_by, create_time, update_by, update_time, remark from usermoney
+    </sql>
+
+    <select id="selectUsermoneyList" parameterType="Usermoney" resultMap="UsermoneyResult">
+        <include refid="selectUsermoneyVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="cashContent != null  and cashContent != ''"> and cash_content = #{cashContent}</if>
+            <if test="cashTime != null "> and cash_time = #{cashTime}</if>
+            <if test="cashMoney != null "> and cash_money = #{cashMoney}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="userBalance != null "> and user_balance = #{userBalance}</if>
+            <if test="unionPayId != null "> and union_pay_id = #{unionPayId}</if>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="userPay != null  and userPay != ''"> and user_pay = #{userPay}</if>
+            <if test="userAccount != null  and userAccount != ''"> and user_account = #{userAccount}</if>
+            <if test="cashDescribe != null  and cashDescribe != ''"> and cash_describe = #{cashDescribe}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="house != null "> and house = #{house}</if>
+            <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
+            <if test="hzId != null  and hzId != ''"> and hz_id = #{hzId}</if>
+        </where>
+    </select>
+    
+    <select id="selectUsermoneyById" parameterType="Long" resultMap="UsermoneyResult">
+        <include refid="selectUsermoneyVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertUsermoney" parameterType="Usermoney" useGeneratedKeys="true" keyProperty="id">
+        insert into usermoney(
+            <if test="userId != null">user_id,</if>
+            <if test="cashContent != null">cash_content,</if>
+            <if test="cashMoney != null">cash_money,</if>
+            <if test="type != null">type,</if>
+            <if test="userBalance != null">user_balance,</if>
+            <if test="unionPayId != null">union_pay_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="userPay != null">user_pay,</if>
+            <if test="userAccount != null">user_account,</if>
+            <if test="cashDescribe != null">cash_describe,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="house != null">house,</if>
+            <if test="isDelete != null and isDelete != ''">is_delete,</if>
+            <if test="hzId != null and hzId != ''">hz_id,</if>
+            <if test="createBy != null">create_by,</if>
+        cash_time,
+        create_time
+        )values(
+            <if test="userId != null">#{userId},</if>
+            <if test="cashContent != null">#{cashContent},</if>
+            <if test="cashMoney != null">#{cashMoney},</if>
+            <if test="type != null">#{type},</if>
+            <if test="userBalance != null">#{userBalance},</if>
+            <if test="unionPayId != null">#{unionPayId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="userPay != null">#{userPay},</if>
+            <if test="userAccount != null">#{userAccount},</if>
+            <if test="cashDescribe != null">#{cashDescribe},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="house != null">#{house},</if>
+            <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
+            <if test="hzId != null and hzId != ''">#{hzId},</if>
+            <if test="createBy != null">#{createBy},</if>
+        CURDATE(),
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateUsermoney" parameterType="Usermoney">
+        update usermoney
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="cashContent != null">cash_content = #{cashContent},</if>
+            <if test="cashTime != null">cash_time = #{cashTime},</if>
+            <if test="cashMoney != null">cash_money = #{cashMoney},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="userBalance != null">user_balance = #{userBalance},</if>
+            <if test="unionPayId != null">union_pay_id = #{unionPayId},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="userPay != null">user_pay = #{userPay},</if>
+            <if test="userAccount != null">user_account = #{userAccount},</if>
+            <if test="cashDescribe != null">cash_describe = #{cashDescribe},</if>
+            <if test="gameId != null">game_id = #{gameId},</if>
+            <if test="gameName != null">game_name = #{gameName},</if>
+            <if test="house != null">house = #{house},</if>
+            <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
+            <if test="hzId != null and hzId != ''">hz_id = #{hzId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUsermoneyById" parameterType="Long">
+        delete from usermoney where id = #{id}
+    </delete>
+
+    <delete id="deleteUsermoneyByIds" parameterType="Long">
+        delete from usermoney where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
