@@ -72,22 +72,26 @@ public class SysBetItemController extends BaseController
     /**
      * 新增游戏投注项
      */
-    @PreAuthorize("@ss.hasPermi('system:betItem:add')")
     @Log(title = "游戏投注项", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody SysBetItem sysBetItem)
     {
+        if(!sysBetItemService.checkBetItemCodeUnique(sysBetItem)){
+            return error("游戏投注项Cd'" + sysBetItem.getBetItemCode() + "'已存在");
+        }
         return toAjax(sysBetItemService.insertSysBetItem(sysBetItem));
     }
 
     /**
      * 修改游戏投注项
      */
-    @PreAuthorize("@ss.hasPermi('system:betItem:edit')")
     @Log(title = "游戏投注项", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody SysBetItem sysBetItem)
     {
+        if(!sysBetItemService.checkBetItemCodeUnique(sysBetItem)){
+            return error("游戏投注项Cd'" + sysBetItem.getBetItemCode() + "'已存在");
+        }
         return toAjax(sysBetItemService.updateSysBetItem(sysBetItem));
     }
 

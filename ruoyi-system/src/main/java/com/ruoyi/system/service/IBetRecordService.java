@@ -58,4 +58,7 @@ public interface IBetRecordService
      * @return 结果
      */
     public int deleteBetRecordByBetId(Long betId);
+
+
+    public int updateLotteryResult(BetRecord betRecord);
 }

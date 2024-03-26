@@ -2,6 +2,7 @@ package com.ruoyi.system.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.Azxy10recordMapper;
@@ -92,5 +93,15 @@ public class Azxy10recordServiceImpl implements IAzxy10recordService
     public int deleteAzxy10recordById(Long id)
     {
         return azxy10recordMapper.deleteAzxy10recordById(id);
+    }
+
+    @Override
+    public int updateAzxy10recordTotalAmountByPeriodId(Azxy10record azxy10record) {
+        return azxy10recordMapper.updateAzxy10recordTotalAmountByPeriodId(azxy10record);
+    }
+
+    @Override
+    public RecordSumRespVo selectSumRecordByPeriodId(Long periodId) {
+        return azxy10recordMapper.selectSumRecordByPeriodId(periodId);
     }
 }

@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.SysBetItem;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 游戏投注项Mapper接口
@@ -58,4 +59,6 @@ public interface SysBetItemMapper
      * @return 结果
      */
     public int deleteSysBetItemByBetItemIds(Long[] betItemIds);
+
+    public SysBetItem checkBetItemCodeUnique(@Param("gameId")Long gameId, @Param("betItemCode")String betItemCode);
 }

@@ -2,6 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Azxy10record;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 
 /**
  * 澳洲幸运10下注Service接口
@@ -58,4 +59,8 @@ public interface IAzxy10recordService
      * @return 结果
      */
     public int deleteAzxy10recordById(Long id);
+
+    public int updateAzxy10recordTotalAmountByPeriodId(Azxy10record azxy10record);
+
+    public RecordSumRespVo selectSumRecordByPeriodId(Long periodId);
 }

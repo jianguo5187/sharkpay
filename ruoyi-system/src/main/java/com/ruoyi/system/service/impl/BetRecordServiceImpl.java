@@ -93,4 +93,9 @@ public class BetRecordServiceImpl implements IBetRecordService
     {
         return betRecordMapper.deleteBetRecordByBetId(betId);
     }
+
+    @Override
+    public int updateLotteryResult(BetRecord betRecord) {
+        return betRecordMapper.updateLotteryResult(betRecord);
+    }
 }

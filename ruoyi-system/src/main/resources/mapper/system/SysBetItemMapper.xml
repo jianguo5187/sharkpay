@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="betItemId"    column="bet_item_id"    />
         <result property="gameId"    column="game_id"    />
         <result property="betItemType"    column="bet_item_type"    />
+        <result property="betItemCode"    column="bet_item_code"    />
         <result property="betItemName"    column="bet_item_name"    />
         <result property="betItemDescribe"    column="bet_item_describe"    />
         <result property="odd"    column="odd"    />
@@ -23,14 +24,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectSysBetItemVo">
-        select bet_item_id, game_id, bet_item_type, bet_item_name, bet_item_describe, odd, min_bet_amount, max_bet_amount, sort, status, create_by, create_time, update_by, update_time, remark from sys_bet_item
+        select bet_item_id, game_id, bet_item_type, bet_item_code, bet_item_name, bet_item_describe, odd, min_bet_amount, max_bet_amount, sort, status, create_by, create_time, update_by, update_time, remark from sys_bet_item
     </sql>
 
     <select id="selectSysBetItemList" parameterType="SysBetItem" resultMap="SysBetItemResult">
         <include refid="selectSysBetItemVo"/>
         <where>  
             <if test="gameId != null "> and game_id = #{gameId}</if>
-            <if test="betItemType != null  and betItemType != ''"> and bet_item_type = #{betItemType}</if>
+            <if test="betItemType != null "> and bet_item_type = #{betItemType}</if>
+            <if test="betItemCode != null  and betItemCode != ''"> and bet_item_code = #{betItemCode}</if>
             <if test="betItemName != null  and betItemName != ''"> and bet_item_name like concat('%', #{betItemName}, '%')</if>
             <if test="betItemDescribe != null  and betItemDescribe != ''"> and bet_item_describe = #{betItemDescribe}</if>
             <if test="odd != null "> and odd = #{odd}</if>
@@ -39,7 +41,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sort != null "> and sort = #{sort}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
         </where>
-        order by sort
     </select>
     
     <select id="selectSysBetItemByBetItemId" parameterType="Long" resultMap="SysBetItemResult">
@@ -51,7 +52,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into sys_bet_item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="gameId != null">game_id,</if>
-            <if test="betItemType != null and betItemType != ''">bet_item_type,</if>
+            <if test="betItemType != null">bet_item_type,</if>
+            <if test="betItemCode != null and betItemCode != ''">bet_item_code,</if>
             <if test="betItemName != null and betItemName != ''">bet_item_name,</if>
             <if test="betItemDescribe != null">bet_item_describe,</if>
             <if test="odd != null">odd,</if>
@@ -67,7 +69,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="gameId != null">#{gameId},</if>
-            <if test="betItemType != null and betItemType != ''">#{betItemType},</if>
+            <if test="betItemType != null">#{betItemType},</if>
+            <if test="betItemCode != null and betItemCode != ''">#{betItemCode},</if>
             <if test="betItemName != null and betItemName != ''">#{betItemName},</if>
             <if test="betItemDescribe != null">#{betItemDescribe},</if>
             <if test="odd != null">#{odd},</if>
@@ -87,7 +90,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update sys_bet_item
         <trim prefix="SET" suffixOverrides=",">
             <if test="gameId != null">game_id = #{gameId},</if>
-            <if test="betItemType != null and betItemType != ''">bet_item_type = #{betItemType},</if>
+            <if test="betItemType != null">bet_item_type = #{betItemType},</if>
+            <if test="betItemCode != null and betItemCode != ''">bet_item_code = #{betItemCode},</if>
             <if test="betItemName != null and betItemName != ''">bet_item_name = #{betItemName},</if>
             <if test="betItemDescribe != null">bet_item_describe = #{betItemDescribe},</if>
             <if test="odd != null">odd = #{odd},</if>
@@ -114,4 +118,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{betItemId}
         </foreach>
     </delete>
+
+    <select id="checkBetItemCodeUnique" resultMap="SysBetItemResult">
+        select bet_item_id, game_id
+        from sys_bet_item
+        where game_id = #{gameId}
+        and bet_item_code = #{betItemCode}
+        limit 1
+    </select>
 </mapper>

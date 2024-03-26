@@ -1,7 +1,8 @@
 package com.ruoyi.system.service;
 
-import java.util.List;
 import com.ruoyi.system.domain.SysBetItem;
+
+import java.util.List;
 
 /**
  * 游戏投注项Service接口
@@ -58,4 +59,6 @@ public interface ISysBetItemService
      * @return 结果
      */
     public int deleteSysBetItemByBetItemId(Long betItemId);
+
+    public boolean checkBetItemCodeUnique(SysBetItem sysBetItem);
 }

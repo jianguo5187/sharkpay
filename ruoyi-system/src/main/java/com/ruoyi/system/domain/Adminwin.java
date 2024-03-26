@@ -21,7 +21,7 @@ public class Adminwin extends BaseEntity
     private Long id;
 
     /** 盈亏时间(YMD) */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "盈亏时间(YMD)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date winTime;
 

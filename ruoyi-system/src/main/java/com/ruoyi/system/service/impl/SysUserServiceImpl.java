@@ -541,4 +541,9 @@ public class SysUserServiceImpl implements ISysUserService
         }
         return successMsg.toString();
     }
+
+    @Override
+    public int updateUserAmount(SysUser user) {
+        return userMapper.updateUserAmount(user);
+    }
 }

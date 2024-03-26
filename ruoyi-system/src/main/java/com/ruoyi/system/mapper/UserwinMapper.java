@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 用户盈亏Mapper接口
@@ -59,5 +60,5 @@ public interface UserwinMapper
      */
     public int deleteUserwinByIds(Long[] ids);
 
-    public Userwin selectTodayUserwin(Long gameId);
+    public Userwin selectTodayUserwin(@Param("gameId")Long gameId, @Param("userId")Long userId);
 }

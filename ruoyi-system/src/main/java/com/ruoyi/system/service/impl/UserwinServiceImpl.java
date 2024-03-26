@@ -95,7 +95,7 @@ public class UserwinServiceImpl implements IUserwinService
     }
 
     @Override
-    public Userwin selectTodayUserwin(Long gameId) {
-        return userwinMapper.selectTodayUserwin(gameId);
+    public Userwin selectTodayUserwin(Long gameId,Long userId) {
+        return userwinMapper.selectTodayUserwin(gameId,userId);
     }
 }

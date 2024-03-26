@@ -71,12 +71,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
         
     <insert id="insertBetRecord" parameterType="BetRecord" useGeneratedKeys="true" keyProperty="betId">
-        insert into bet_record
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into bet_record(
             <if test="userId != null">user_id,</if>
             <if test="periods != null">periods,</if>
-            <if test="recordTime != null">record_time,</if>
-            <if test="timeCheckpoint != null">time_checkpoint,</if>
             <if test="gameId != null">game_id,</if>
             <if test="gameName != null">game_name,</if>
             <if test="playType != null and playType != ''">play_type,</if>
@@ -95,16 +92,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="robotImg != null">robot_img,</if>
             <if test="houseId != null">house_id,</if>
             <if test="createBy != null">create_by,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        record_time,
+        time_checkpoint,
+        create_time
+        )values(
             <if test="userId != null">#{userId},</if>
             <if test="periods != null">#{periods},</if>
-            <if test="recordTime != null">#{recordTime},</if>
-            <if test="timeCheckpoint != null">#{timeCheckpoint},</if>
             <if test="gameId != null">#{gameId},</if>
             <if test="gameName != null">#{gameName},</if>
             <if test="playType != null and playType != ''">#{playType},</if>
@@ -123,22 +116,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="robotImg != null">#{robotImg},</if>
             <if test="houseId != null">#{houseId},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate(),
+        sysdate(),
+        sysdate()
+        )
     </insert>
 
     <update id="updateBetRecord" parameterType="BetRecord">
         update bet_record
-        <trim prefix="SET" suffixOverrides=",">
-            <if test="userId != null">user_id = #{userId},</if>
-            <if test="periods != null">periods = #{periods},</if>
-            <if test="recordTime != null">record_time = #{recordTime},</if>
-            <if test="timeCheckpoint != null">time_checkpoint = #{timeCheckpoint},</if>
-            <if test="gameId != null">game_id = #{gameId},</if>
-            <if test="gameName != null">game_name = #{gameName},</if>
+        <set>
             <if test="playType != null and playType != ''">play_type = #{playType},</if>
             <if test="playDetail != null and playDetail != ''">play_detail = #{playDetail},</if>
             <if test="playGroup != null">play_group = #{playGroup},</if>
@@ -154,13 +140,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="robotPic != null">robot_pic = #{robotPic},</if>
             <if test="robotImg != null">robot_img = #{robotImg},</if>
             <if test="houseId != null">house_id = #{houseId},</if>
-            <if test="createBy != null">create_by = #{createBy},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
-            <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where bet_id = #{betId}
+    </update>
+
+    <update id="updateLotteryResult" parameterType="BetRecord">
+        update bet_record
+        <set>
+            settle_flg = '1',
+            <if test="accountResult != null">account_result = #{accountResult},</if>
+            <if test="gameResult != null and gameResult != ''">game_result = #{gameResult},</if>
+            update_time = sysdate()
+        </set>
+        where 1= 1
+        <if test="userId != null "> and user_id = #{userId}</if>
+        <if test="periods != null "> and periods = #{periods}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="playType != null  and playType != ''"> and play_type = #{playType}</if>
+        <if test="playDetail != null  and playDetail != ''"> and play_detail = #{playDetail}</if>
+        <if test="playGroup != null "> and play_group = #{playGroup}</if>
+        <if test="option != null "> and option = #{option}</if>
+        <if test="settleFlg != null  and settleFlg != ''"> and settle_flg = #{settleFlg}</if>
+        <if test="gameResult != null  and gameResult != ''"> and game_result = #{gameResult}</if>
+        <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
+        <if test="isRobot != null  and isRobot != ''"> and is_robot = #{isRobot}</if>
+        <if test="robotNickName != null  and robotNickName != ''"> and robot_nick_name like concat('%', #{robotNickName}, '%')</if>
+        <if test="robotPic != null  and robotPic != ''"> and robot_pic = #{robotPic}</if>
+        <if test="robotImg != null  and robotImg != ''"> and robot_img = #{robotImg}</if>
+        <if test="houseId != null "> and house_id = #{houseId}</if>
     </update>
 
     <delete id="deleteBetRecordByBetId" parameterType="Long">

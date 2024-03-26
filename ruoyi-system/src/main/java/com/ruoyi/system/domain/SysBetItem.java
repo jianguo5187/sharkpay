@@ -1,6 +1,5 @@
 package com.ruoyi.system.domain;
 
-import java.math.BigDecimal;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -10,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 游戏投注项对象 sys_bet_item
  * 
  * @author ruoyi
- * @date 2024-03-06
+ * @date 2024-03-25
  */
 public class SysBetItem extends BaseEntity
 {
@@ -24,8 +23,12 @@ public class SysBetItem extends BaseEntity
     private Long gameId;
 
     /** 投注项类别 */
-    @Excel(name = "投注项类别ID")
+    @Excel(name = "投注项类别")
     private Long betItemType;
+
+    /** 投注项cd */
+    @Excel(name = "投注项cd")
+    private String betItemCode;
 
     /** 投注项名 */
     @Excel(name = "投注项名")
@@ -37,15 +40,15 @@ public class SysBetItem extends BaseEntity
 
     /** 赔率 */
     @Excel(name = "赔率")
-    private BigDecimal odd;
+    private Float odd;
 
     /** 最小投注金额 */
     @Excel(name = "最小投注金额")
-    private BigDecimal minBetAmount;
+    private Float minBetAmount;
 
     /** 最大投注金额 */
     @Excel(name = "最大投注金额")
-    private BigDecimal maxBetAmount;
+    private Float maxBetAmount;
 
     /** 排序 */
     @Excel(name = "排序")
@@ -73,14 +76,23 @@ public class SysBetItem extends BaseEntity
     {
         return gameId;
     }
-    public void setBetItemType(Long betItemType)
+    public void setBetItemType(Long betItemType) 
     {
         this.betItemType = betItemType;
     }
 
-    public Long getBetItemType()
+    public Long getBetItemType() 
     {
         return betItemType;
+    }
+    public void setBetItemCode(String betItemCode) 
+    {
+        this.betItemCode = betItemCode;
+    }
+
+    public String getBetItemCode() 
+    {
+        return betItemCode;
     }
     public void setBetItemName(String betItemName) 
     {
@@ -100,30 +112,30 @@ public class SysBetItem extends BaseEntity
     {
         return betItemDescribe;
     }
-    public void setOdd(BigDecimal odd)
+    public void setOdd(Float odd) 
     {
         this.odd = odd;
     }
 
-    public BigDecimal getOdd()
+    public Float getOdd() 
     {
         return odd;
     }
-    public void setMinBetAmount(BigDecimal minBetAmount)
+    public void setMinBetAmount(Float minBetAmount) 
     {
         this.minBetAmount = minBetAmount;
     }
 
-    public BigDecimal getMinBetAmount()
+    public Float getMinBetAmount() 
     {
         return minBetAmount;
     }
-    public void setMaxBetAmount(BigDecimal maxBetAmount)
+    public void setMaxBetAmount(Float maxBetAmount) 
     {
         this.maxBetAmount = maxBetAmount;
     }
 
-    public BigDecimal getMaxBetAmount()
+    public Float getMaxBetAmount() 
     {
         return maxBetAmount;
     }
@@ -152,6 +164,7 @@ public class SysBetItem extends BaseEntity
             .append("betItemId", getBetItemId())
             .append("gameId", getGameId())
             .append("betItemType", getBetItemType())
+            .append("betItemCode", getBetItemCode())
             .append("betItemName", getBetItemName())
             .append("betItemDescribe", getBetItemDescribe())
             .append("odd", getOdd())

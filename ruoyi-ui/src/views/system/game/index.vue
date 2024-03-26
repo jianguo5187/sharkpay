@@ -161,7 +161,7 @@
     <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="120px">
         <el-form-item label="游戏标识ID" prop="gameMarkId">
-          <el-input v-model="form.gameMarkId" placeholder="请输入游戏标识ID" />
+          <el-input v-model="form.gameMarkId" placeholder="请输入游戏标识ID" :disabled="1 != loginUserId"/>
         </el-form-item>
         <el-form-item label="游戏图片" prop="gameImg">
           <image-upload v-model="form.gameImg"  :limit="1"/>

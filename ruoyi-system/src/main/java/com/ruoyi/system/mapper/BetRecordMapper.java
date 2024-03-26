@@ -58,4 +58,7 @@ public interface BetRecordMapper
      * @return 结果
      */
     public int deleteBetRecordByBetIds(Long[] betIds);
+
+
+    public int updateLotteryResult(BetRecord betRecord);
 }

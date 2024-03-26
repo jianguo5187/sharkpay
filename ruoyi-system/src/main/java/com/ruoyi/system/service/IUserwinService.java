@@ -59,5 +59,5 @@ public interface IUserwinService
      */
     public int deleteUserwinById(Long id);
 
-    public Userwin selectTodayUserwin(Long gameId);
+    public Userwin selectTodayUserwin(Long gameId,Long userId);
 }

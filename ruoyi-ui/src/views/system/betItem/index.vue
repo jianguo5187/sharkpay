@@ -36,12 +36,12 @@
     <el-row :gutter="10" class="mb8" v-if="1 == loginUserId">
       <el-col :span="1.5">
         <el-button
+          v-if="1 == loginUserId"
           type="primary"
           plain
           icon="el-icon-plus"
           size="mini"
           @click="handleAdd"
-          v-hasPermi="['system:betItem:add']"
         >新增</el-button>
       </el-col>
     </el-row>
@@ -90,6 +90,9 @@
           </el-select>
         </el-form-item>
 
+        <el-form-item label="投注项Code" prop="betItemCode" v-if="1 == loginUserId">
+          <el-input v-model="form.betItemCode" placeholder="请输入投注项Code" />
+        </el-form-item>
         <el-form-item label="投注项名" prop="betItemName">
           <el-input v-model="form.betItemName" placeholder="请输入投注项名" />
         </el-form-item>
@@ -119,7 +122,7 @@
     <el-dialog :title="title" :visible.sync="gameFormOpen" width="800px" append-to-body>
       <el-form ref="gameForm" :model="gameForm" :rules="gameRules" label-width="120px">
         <el-form-item label="游戏标识ID" prop="gameMarkId">
-          <el-input v-model="gameForm.gameMarkId" placeholder="请输入游戏标识ID" />
+          <el-input v-model="gameForm.gameMarkId" placeholder="请输入游戏标识ID" :disabled="1 != loginUserId"/>
         </el-form-item>
         <el-form-item label="游戏图片" prop="gameImg">
           <image-upload v-model="gameForm.gameImg"  :limit="1"/>
@@ -257,6 +260,9 @@ export default {
         betItemType: [
           { required: true, message: "投注项类别不能为空", trigger: "change" }
         ],
+        betItemCode: [
+          { required: true, message: "投注项cd不能为空", trigger: "blur" }
+        ],
         betItemName: [
           { required: true, message: "投注项名不能为空", trigger: "blur" }
         ],
@@ -336,6 +342,7 @@ export default {
         betItemId: null,
         gameId: null,
         betItemType: null,
+        betItemCode: null,
         betItemName: null,
         betItemDescribe: null,
         odd: null,

@@ -221,6 +221,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.RecordSumRespVo" id="RecordSumResult">
+        <result property="userCount"    column="user_count"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+    </resultMap>
+
     <sql id="selectAzxy10recordVo">
         select id, user_id, periods, status, record_time, check_time, count_money, win_money, type1_big, type1_small, type1_single, type1_double, type1_num3, type1_num4, type1_num5, type1_num6, type1_num7, type1_num8, type1_num9, type1_num10, type1_num11, type1_num12, type1_num13, type1_num14, type1_num15, type1_num16, type1_num17, type1_num18, type1_num19, type2_big, type2_small, type2_single, type2_double, type2_loong, type2_tiger, type2_num1, type2_num2, type2_num3, type2_num4, type2_num5, type2_num6, type2_num7, type2_num8, type2_num9, type2_num10, type3_big, type3_small, type3_single, type3_double, type3_loong, type3_tiger, type3_num1, type3_num2, type3_num3, type3_num4, type3_num5, type3_num6, type3_num7, type3_num8, type3_num9, type3_num10, type4_big, type4_small, type4_single, type4_double, type4_loong, type4_tiger, type4_num1, type4_num2, type4_num3, type4_num4, type4_num5, type4_num6, type4_num7, type4_num8, type4_num9, type4_num10, type5_big, type5_small, type5_single, type5_double, type5_loong, type5_tiger, type5_num1, type5_num2, type5_num3, type5_num4, type5_num5, type5_num6, type5_num7, type5_num8, type5_num9, type5_num10, type6_big, type6_small, type6_single, type6_double, type6_loong, type6_tiger, type6_num1, type6_num2, type6_num3, type6_num4, type6_num5, type6_num6, type6_num7, type6_num8, type6_num9, type6_num10, type7_big, type7_small, type7_single, type7_double, type7_loong, type7_tiger, type7_num1, type7_num2, type7_num3, type7_num4, type7_num5, type7_num6, type7_num7, type7_num8, type7_num9, type7_num10, type8_big, type8_small, type8_single, type8_double, type8_loong, type8_tiger, type8_num1, type8_num2, type8_num3, type8_num4, type8_num5, type8_num6, type8_num7, type8_num8, type8_num9, type8_num10, type9_big, type9_small, type9_single, type9_double, type9_loong, type9_tiger, type9_num1, type9_num2, type9_num3, type9_num4, type9_num5, type9_num6, type9_num7, type9_num8, type9_num9, type9_num10, type10_big, type10_small, type10_single, type10_double, type10_loong, type10_tiger, type10_num1, type10_num2, type10_num3, type10_num4, type10_num5, type10_num6, type10_num7, type10_num8, type10_num9, type10_num10, type11_big, type11_small, type11_single, type11_double, type11_loong, type11_tiger, type11_num1, type11_num2, type11_num3, type11_num4, type11_num5, type11_num6, type11_num7, type11_num8, type11_num9, type11_num10, big_single, big_double, small_single, small_double, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, sum_num, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from azxy10record
     </sql>
@@ -880,12 +886,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <update id="updateAzxy10record" parameterType="Azxy10record">
         update azxy10record
-        <trim prefix="SET" suffixOverrides=",">
-            <if test="userId != null">user_id = #{userId},</if>
-            <if test="periods != null">periods = #{periods},</if>
+        <set>
             <if test="status != null">status = #{status},</if>
-            <if test="recordTime != null">record_time = #{recordTime},</if>
-            <if test="checkTime != null">check_time = #{checkTime},</if>
             <if test="countMoney != null">count_money = #{countMoney},</if>
             <if test="winMoney != null">win_money = #{winMoney},</if>
             <if test="type1Big != null">type1_big = #{type1Big},</if>
@@ -1089,13 +1091,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="house != null">house = #{house},</if>
             <if test="hzId != null and hzId != ''">hz_id = #{hzId},</if>
             <if test="hzUser != null">hz_user = #{hzUser},</if>
-            <if test="createBy != null">create_by = #{createBy},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
-            <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where id = #{id}
+    </update>
+
+    <update id="updateAzxy10recordTotalAmountByPeriodId" parameterType="Azxy10record">
+        update azxy10record
+        <set>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            update_time = sysdate()
+        </set>
+        where periods = #{periods}
     </update>
 
     <delete id="deleteAzxy10recordById" parameterType="Long">
@@ -1108,4 +1116,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <select id="selectSumRecordByPeriodId" parameterType="Long" resultMap="RecordSumResult">
+        SELECT
+             COUNT(user_id) as user_count
+            ,SUM(count_money) as CountMoney
+            ,SUM(win_money) as WinMoney
+        from azxy10kj
+        where periods = #{periodId}
+        limit 1
+    </select>
 </mapper>

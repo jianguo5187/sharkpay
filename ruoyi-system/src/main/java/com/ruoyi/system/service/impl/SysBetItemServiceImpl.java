@@ -1,7 +1,10 @@
 package com.ruoyi.system.service.impl;
 
 import java.util.List;
+
+import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.SysBetItemMapper;
@@ -92,5 +95,16 @@ public class SysBetItemServiceImpl implements ISysBetItemService
     public int deleteSysBetItemByBetItemId(Long betItemId)
     {
         return sysBetItemMapper.deleteSysBetItemByBetItemId(betItemId);
+    }
+
+    @Override
+    public boolean checkBetItemCodeUnique(SysBetItem sysBetItem) {
+        SysBetItem betItem = sysBetItemMapper.checkBetItemCodeUnique(sysBetItem.getGameId(), sysBetItem.getBetItemCode());
+
+        if (StringUtils.isNotNull(betItem))
+        {
+            return UserConstants.NOT_UNIQUE;
+        }
+        return UserConstants.UNIQUE;
     }
 }

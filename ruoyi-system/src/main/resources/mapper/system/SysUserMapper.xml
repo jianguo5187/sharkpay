@@ -221,5 +221,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			#{userId}
         </foreach> 
  	</delete>
-	
+
+
+	<update id="updateUserAmount" parameterType="SysUser">
+		update sys_user
+		<set>
+			<if test="amount != null">amount = #{amount},</if>
+			<if test="score != null">score = #{score},</if>
+			<if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+			update_time = sysdate()
+		</set>
+		where user_id = #{userId}
+	</update>
 </mapper> 

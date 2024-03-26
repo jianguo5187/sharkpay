@@ -74,7 +74,7 @@ public class SysUser extends BaseEntity
     private Float amount;
 
     /** 积分 */
-    private Integer score;
+    private Float score;
 
     /** 部门对象 */
     @Excels({
@@ -261,11 +261,11 @@ public class SysUser extends BaseEntity
         this.amount = amount;
     }
 
-    public Integer getScore() {
+    public Float getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Float score) {
         this.score = score;
     }
 

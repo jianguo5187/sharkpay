@@ -30,7 +30,7 @@ public class Usermoney extends BaseEntity
     private String cashContent;
 
     /** 资金流水时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "资金流水时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date cashTime;
 
@@ -40,11 +40,11 @@ public class Usermoney extends BaseEntity
 
     /** 1、申请充值、2、充值成功3、充值失败4、申请提现5、提现成功6、提现失败7、购买彩票8、彩票中奖9、彩票撤单 10、下线创收 11、提取返利 12、代理佣金13、代理金额由于下线开奖变动14、代理金额转入15、代理金额转出16.牛牛押金返还 */
     @Excel(name = "1、申请充值、2、充值成功3、充值失败4、申请提现5、提现成功6、提现失败7、购买彩票8、彩票中奖9、彩票撤单 10、下线创收 11、提取返利 12、代理佣金13、代理金额由于下线开奖变动14、代理金额转入15、代理金额转出16.牛牛押金返还")
-    private Integer type;
+    private String type;
 
     /** 账户剩余金额 */
     @Excel(name = "账户剩余金额")
-    private BigDecimal userBalance;
+    private Float userBalance;
 
     /** 提现账户ID */
     @Excel(name = "提现账户ID")
@@ -131,21 +131,21 @@ public class Usermoney extends BaseEntity
     {
         return cashMoney;
     }
-    public void setType(Integer type) 
+    public void setType(String type)
     {
         this.type = type;
     }
 
-    public Integer getType() 
+    public String getType()
     {
         return type;
     }
-    public void setUserBalance(BigDecimal userBalance) 
+    public void setUserBalance(Float userBalance)
     {
         this.userBalance = userBalance;
     }
 
-    public BigDecimal getUserBalance() 
+    public Float getUserBalance()
     {
         return userBalance;
     }
