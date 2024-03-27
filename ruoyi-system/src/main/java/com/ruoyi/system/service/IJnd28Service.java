@@ -60,4 +60,6 @@ public interface IJnd28Service
     public int deleteJnd28ById(Long id);
 
     public Jnd28 selectLastRecord(String status);
+
+    public List<Jnd28> selectJnd28ListWithStatusZeroAndLimit(Long id,String status,String idAscFlg,String idDescFlg,Integer limitNumber);
 }

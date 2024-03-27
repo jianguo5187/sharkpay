@@ -60,4 +60,6 @@ public interface IJndService
     public int deleteJndById(Long id);
 
     public Jnd selectLastRecord();
+
+    public List<Jnd> selectJndListByParam(String idDescFlg,Integer limitNumber);
 }

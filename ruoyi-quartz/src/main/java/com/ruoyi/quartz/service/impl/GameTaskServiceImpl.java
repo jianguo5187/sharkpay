@@ -36,6 +36,9 @@ public class GameTaskServiceImpl implements IGameTaskService {
     @Autowired
     private Azxy10LotteryServiceImpl azxy10LotteryService;
 
+    @Autowired
+    private Jnd28LotteryServiceImpl jnd28LotteryService;
+
     @Override
     public void saveAzxy10InfoFromOfficial(List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
         // 澳洲幸运10
@@ -179,7 +182,7 @@ public class GameTaskServiceImpl implements IGameTaskService {
 
     @Override
     public void lotteryJndBalance(String gameCode) {
-
+        jnd28LotteryService.lotteryJnd28(gameCode);
     }
 
     @Override

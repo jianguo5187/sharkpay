@@ -23,6 +23,9 @@ public class EntityMapTransUtils {
      */
     public static Map<String, Object> entityToMap1(Object obj){
         Map<String, Object> map = new HashMap<String, Object>();
+        if(obj == null){
+            return null;
+        }
         Class<?> clazz = obj.getClass();
         for(Field field : clazz.getDeclaredFields()){
             field.setAccessible(true);

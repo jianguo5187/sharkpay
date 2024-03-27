@@ -81,6 +81,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by id desc
         limit 1
     </select>
+
+    <select id="selectJndListByParam" resultMap="JndResult">
+        <include refid="selectJndVo"/>
+        <if test="idDescFlg != null and idDescFlg != '' ">
+            order by id desc
+        </if>
+        <if test="limitNumber != null">
+            limit #{limitNumber}
+        </if>
+    </select>
         
     <insert id="insertJnd" parameterType="Jnd" useGeneratedKeys="true" keyProperty="id">
         insert into jnd(
@@ -104,7 +114,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <update id="updateJnd" parameterType="Jnd">
         update jnd
-        <trim prefix="SET" suffixOverrides=",">
+        <set>
             <if test="time != null">time = #{time},</if>
             <if test="num1 != null">num1 = #{num1},</if>
             <if test="num2 != null">num2 = #{num2},</if>
@@ -129,12 +139,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sum1 != null">sum_1 = #{sum1},</if>
             <if test="sum2 != null">sum_2 = #{sum2},</if>
             <if test="sum3 != null">sum_3 = #{sum3},</if>
-            <if test="createBy != null">create_by = #{createBy},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
-            <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where id = #{id}
     </update>
 

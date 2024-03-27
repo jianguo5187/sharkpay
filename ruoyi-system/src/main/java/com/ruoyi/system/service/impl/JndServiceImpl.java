@@ -98,4 +98,9 @@ public class JndServiceImpl implements IJndService
     public Jnd selectLastRecord() {
         return jndMapper.selectLastRecord();
     }
+
+    @Override
+    public List<Jnd> selectJndListByParam(String idDescFlg, Integer limitNumber) {
+        return jndMapper.selectJndListByParam(idDescFlg,limitNumber);
+    }
 }

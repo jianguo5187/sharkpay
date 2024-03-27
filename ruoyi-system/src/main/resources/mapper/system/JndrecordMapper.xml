@@ -77,6 +77,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.RecordSumRespVo" id="RecordSumResult">
+        <result property="userCount"    column="user_count"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+    </resultMap>
+
     <sql id="selectJndrecordVo">
         select id, user_id, periods, status, record_time, check_time, count_money, win_money, big, small, single, double_amount, much_Big, big_Single, small_Single, big_Double, small_Double, much_Small, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12, num13, num14, num15, num16, num17, num18, num19, num20, num21, num22, num23, num24, num25, num26, num27, red, green, blue, loong, tiger, close, leopard, pairs, shun, vip, n1, n2, n3, sum_num, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from jndrecord
     </sql>
@@ -157,13 +163,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
         
     <insert id="insertJndrecord" parameterType="Jndrecord" useGeneratedKeys="true" keyProperty="id">
-        insert into jndrecord
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into jndrecord(
             <if test="userId != null">user_id,</if>
             <if test="periods != null">periods,</if>
             <if test="status != null">status,</if>
-            <if test="recordTime != null">record_time,</if>
-            <if test="checkTime != null">check_time,</if>
             <if test="countMoney != null">count_money,</if>
             <if test="winMoney != null">win_money,</if>
             <if test="big != null">big,</if>
@@ -224,17 +227,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">hz_id,</if>
             <if test="hzUser != null">hz_user,</if>
             <if test="createBy != null">create_by,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        record_time,
+        check_time,
+        create_time
+        )values(
             <if test="userId != null">#{userId},</if>
             <if test="periods != null">#{periods},</if>
             <if test="status != null">#{status},</if>
-            <if test="recordTime != null">#{recordTime},</if>
-            <if test="checkTime != null">#{checkTime},</if>
             <if test="countMoney != null">#{countMoney},</if>
             <if test="winMoney != null">#{winMoney},</if>
             <if test="big != null">#{big},</if>
@@ -295,21 +294,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">#{hzId},</if>
             <if test="hzUser != null">#{hzUser},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate(),
+        sysdate(),
+        sysdate()
+        )
     </insert>
 
     <update id="updateJndrecord" parameterType="Jndrecord">
         update jndrecord
-        <trim prefix="SET" suffixOverrides=",">
-            <if test="userId != null">user_id = #{userId},</if>
-            <if test="periods != null">periods = #{periods},</if>
+        <set>
             <if test="status != null">status = #{status},</if>
-            <if test="recordTime != null">record_time = #{recordTime},</if>
-            <if test="checkTime != null">check_time = #{checkTime},</if>
             <if test="countMoney != null">count_money = #{countMoney},</if>
             <if test="winMoney != null">win_money = #{winMoney},</if>
             <if test="big != null">big = #{big},</if>
@@ -374,8 +368,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">update_by = #{updateBy},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where id = #{id}
+    </update>
+
+    <update id="updateJndrecordTotalAmountByPeriodId" parameterType="Jndrecord">
+        update jndrecord
+        <set>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            update_time = sysdate()
+        </set>
+        where periods = #{periods}
     </update>
 
     <delete id="deleteJndrecordById" parameterType="Long">
@@ -388,4 +393,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+
+    <select id="selectSumRecordByPeriodId" parameterType="Long" resultMap="RecordSumResult">
+        SELECT
+            COUNT(user_id) as user_count
+             ,SUM(count_money) as CountMoney
+             ,SUM(win_money) as WinMoney
+        from jndrecord
+        where periods = #{periodId}
+            limit 1
+    </select>
 </mapper>

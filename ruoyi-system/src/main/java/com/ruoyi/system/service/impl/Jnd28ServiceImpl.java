@@ -95,4 +95,9 @@ public class Jnd28ServiceImpl implements IJnd28Service
     }
 
     public Jnd28 selectLastRecord(String status){return  jnd28Mapper.selectLastRecord(status);}
+
+    @Override
+    public List<Jnd28> selectJnd28ListWithStatusZeroAndLimit(Long id, String status, String idAscFlg, String idDescFlg, Integer limitNumber) {
+        return jnd28Mapper.selectJnd28ListWithStatusZeroAndLimit(id,status,idAscFlg,idDescFlg,limitNumber);
+    }
 }

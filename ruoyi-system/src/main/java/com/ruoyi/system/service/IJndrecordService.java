@@ -2,6 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Jndrecord;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 
 /**
  * 加拿大下注Service接口
@@ -58,4 +59,8 @@ public interface IJndrecordService
      * @return 结果
      */
     public int deleteJndrecordById(Long id);
+
+    public int updateJndrecordTotalAmountByPeriodId(Jndrecord jndrecord);
+
+    public RecordSumRespVo selectSumRecordByPeriodId(Long periodId);
 }

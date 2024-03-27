@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Jnd;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 加拿大开奖历史Mapper接口
@@ -59,4 +60,7 @@ public interface JndMapper
      */
     public int deleteJndByIds(Long[] ids);
     public Jnd selectLastRecord();
+
+
+    public List<Jnd> selectJndListByParam(@Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 }

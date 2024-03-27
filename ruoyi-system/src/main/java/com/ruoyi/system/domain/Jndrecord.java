@@ -244,19 +244,19 @@ public class Jndrecord extends BaseEntity
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
-    private Long n1;
+    private Integer n1;
 
     /** 开奖号码2 */
     @Excel(name = "开奖号码2")
-    private Long n2;
+    private Integer n2;
 
     /** 开奖号码3 */
     @Excel(name = "开奖号码3")
-    private Long n3;
+    private Integer n3;
 
     /** 开奖合算数字 */
     @Excel(name = "开奖合算数字")
-    private Long sumNum;
+    private Integer sumNum;
 
     /** 是否扣除(0否 1是) */
     @Excel(name = "是否扣除(0否 1是)")
@@ -782,39 +782,39 @@ public class Jndrecord extends BaseEntity
     {
         return vip;
     }
-    public void setN1(Long n1) 
+    public void setN1(Integer n1)
     {
         this.n1 = n1;
     }
 
-    public Long getN1() 
+    public Integer getN1()
     {
         return n1;
     }
-    public void setN2(Long n2) 
+    public void setN2(Integer n2)
     {
         this.n2 = n2;
     }
 
-    public Long getN2() 
+    public Integer getN2()
     {
         return n2;
     }
-    public void setN3(Long n3) 
+    public void setN3(Integer n3)
     {
         this.n3 = n3;
     }
 
-    public Long getN3() 
+    public Integer getN3()
     {
         return n3;
     }
-    public void setSumNum(Long sumNum) 
+    public void setSumNum(Integer sumNum)
     {
         this.sumNum = sumNum;
     }
 
-    public Long getSumNum() 
+    public Integer getSumNum()
     {
         return sumNum;
     }

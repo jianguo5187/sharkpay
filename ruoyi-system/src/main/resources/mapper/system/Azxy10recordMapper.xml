@@ -451,13 +451,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
         
     <insert id="insertAzxy10record" parameterType="Azxy10record" useGeneratedKeys="true" keyProperty="id">
-        insert into azxy10record
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into azxy10record(
             <if test="userId != null">user_id,</if>
             <if test="periods != null">periods,</if>
             <if test="status != null">status,</if>
-            <if test="recordTime != null">record_time,</if>
-            <if test="checkTime != null">check_time,</if>
             <if test="countMoney != null">count_money,</if>
             <if test="winMoney != null">win_money,</if>
             <if test="type1Big != null">type1_big,</if>
@@ -666,13 +663,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">update_by,</if>
             <if test="updateTime != null">update_time,</if>
             <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        record_time,
+        check_time,
+        create_time
+        )values(
             <if test="userId != null">#{userId},</if>
             <if test="periods != null">#{periods},</if>
             <if test="status != null">#{status},</if>
-            <if test="recordTime != null">#{recordTime},</if>
-            <if test="checkTime != null">#{checkTime},</if>
             <if test="countMoney != null">#{countMoney},</if>
             <if test="winMoney != null">#{winMoney},</if>
             <if test="type1Big != null">#{type1Big},</if>
@@ -877,11 +874,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">#{hzId},</if>
             <if test="hzUser != null">#{hzUser},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate(),
+        sysdate(),
+        sysdate()
+        )
     </insert>
 
     <update id="updateAzxy10record" parameterType="Azxy10record">

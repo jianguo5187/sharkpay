@@ -57,8 +57,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
         
     <insert id="insertJnd28" parameterType="Jnd28" useGeneratedKeys="true" keyProperty="id">
-        insert into jnd28
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into jnd28(
+            <if test="id != null">id,</if>
             <if test="num1 != null">num1,</if>
             <if test="num2 != null">num2,</if>
             <if test="num3 != null">num3,</if>
@@ -71,11 +71,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="winMoney != null">win_money,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        create_time
+        )values(
+            <if test="id != null">#{id},</if>
             <if test="num1 != null">#{num1},</if>
             <if test="num2 != null">#{num2},</if>
             <if test="num3 != null">#{num3},</if>
@@ -87,16 +85,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="countMoney != null">#{countMoney},</if>
             <if test="winMoney != null">#{winMoney},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate()
+        )
     </insert>
 
     <update id="updateJnd28" parameterType="Jnd28">
         update jnd28
-        <trim prefix="SET" suffixOverrides=",">
+        <set>
             <if test="num1 != null">num1 = #{num1},</if>
             <if test="num2 != null">num2 = #{num2},</if>
             <if test="num3 != null">num3 = #{num3},</if>
@@ -107,12 +102,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="theTime != null">the_time = #{theTime},</if>
             <if test="countMoney != null">count_money = #{countMoney},</if>
             <if test="winMoney != null">win_money = #{winMoney},</if>
-            <if test="createBy != null">create_by = #{createBy},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
-            <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where id = #{id}
     </update>
 
@@ -126,4 +118,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+
+    <select id="selectJnd28ListWithStatusZeroAndLimit" resultMap="Jnd28Result">
+        <include refid="selectJnd28Vo"/>
+        where 1 = 1
+        <if test="status != null  and status != ''"> and status = #{status}</if>
+        <if test="id != null "> and id &lt; #{id}</if>
+        <if test="idAscFlg != null and idAscFlg != '' ">
+            order by id asc
+        </if>
+        <if test="idDescFlg != null and idDescFlg != '' ">
+            order by id desc
+        </if>
+        <if test="limitNumber != null">
+            limit #{limitNumber}
+        </if>
+    </select>
 </mapper>

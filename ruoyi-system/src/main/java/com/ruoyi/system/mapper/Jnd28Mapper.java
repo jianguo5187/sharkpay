@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Jnd28;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 加拿大开奖Mapper接口
@@ -61,4 +62,7 @@ public interface Jnd28Mapper
 
 
     public Jnd28 selectLastRecord(String status);
+
+
+    public List<Jnd28> selectJnd28ListWithStatusZeroAndLimit(@Param("id") Long id, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 }

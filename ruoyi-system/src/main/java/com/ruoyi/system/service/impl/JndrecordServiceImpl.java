@@ -2,6 +2,7 @@ package com.ruoyi.system.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.JndrecordMapper;
@@ -92,5 +93,15 @@ public class JndrecordServiceImpl implements IJndrecordService
     public int deleteJndrecordById(Long id)
     {
         return jndrecordMapper.deleteJndrecordById(id);
+    }
+
+    @Override
+    public int updateJndrecordTotalAmountByPeriodId(Jndrecord jndrecord) {
+        return jndrecordMapper.updateJndrecordTotalAmountByPeriodId(jndrecord);
+    }
+
+    @Override
+    public RecordSumRespVo selectSumRecordByPeriodId(Long periodId) {
+        return jndrecordMapper.selectSumRecordByPeriodId(periodId);
     }
 }

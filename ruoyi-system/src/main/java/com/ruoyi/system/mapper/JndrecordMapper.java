@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Jndrecord;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 
 /**
  * 加拿大下注Mapper接口
@@ -58,4 +59,8 @@ public interface JndrecordMapper
      * @return 结果
      */
     public int deleteJndrecordByIds(Long[] ids);
+
+    public int updateJndrecordTotalAmountByPeriodId(Jndrecord jndrecord);
+
+    public RecordSumRespVo selectSumRecordByPeriodId(Long periodId);
 }
