@@ -98,4 +98,9 @@ public class JssscServiceImpl implements IJssscService
     public Jsssc selectLastRecord() {
         return jssscMapper.selectLastRecord();
     }
+
+    @Override
+    public List<Jsssc> selectJssscListByParam(String idDescFlg, Integer limitNumber) {
+        return jssscMapper.selectJssscListByParam(idDescFlg,limitNumber);
+    }
 }

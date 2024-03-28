@@ -11,7 +11,7 @@
  Target Server Version : 50726 (5.7.26)
  File Encoding         : 65001
 
- Date: 26/03/2024 22:28:51
+ Date: 28/03/2024 21:34:12
 */
 
 SET NAMES utf8mb4;
@@ -65,59 +65,107 @@ CREATE TABLE `azxy10`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21098052 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21100336 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of azxy10
 -- ----------------------------
-INSERT INTO `azxy10` VALUES (21098004, '2024-03-20 19:13:40', 4, 8, 5, 3, 1, 7, 2, 10, 9, 6, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098005, '2024-03-20 19:18:40', 5, 2, 10, 6, 1, 7, 3, 4, 8, 9, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098006, '2024-03-20 19:23:40', 10, 6, 4, 8, 2, 1, 9, 5, 7, 3, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098007, '2024-03-20 19:28:40', 10, 1, 7, 2, 4, 8, 9, 5, 3, 6, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098008, '2024-03-20 19:33:40', 7, 4, 8, 6, 1, 10, 5, 2, 3, 9, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098009, '2024-03-20 19:38:40', 1, 9, 3, 7, 2, 5, 10, 4, 8, 6, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098010, '2024-03-20 19:43:40', 1, 10, 6, 3, 9, 2, 4, 8, 7, 5, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098011, '2024-03-20 19:48:40', 10, 8, 4, 7, 6, 2, 9, 3, 5, 1, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098012, '2024-03-20 19:53:40', 8, 10, 4, 1, 5, 6, 7, 3, 2, 9, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098013, '2024-03-20 19:58:40', 3, 2, 8, 7, 5, 4, 9, 1, 6, 10, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098014, '2024-03-20 20:03:40', 7, 5, 2, 8, 9, 10, 4, 6, 3, 1, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098015, '2024-03-20 20:08:40', 9, 4, 2, 7, 1, 10, 8, 3, 6, 5, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098016, '2024-03-20 20:13:40', 7, 6, 1, 4, 5, 9, 3, 2, 10, 8, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098017, '2024-03-20 20:18:40', 1, 3, 7, 4, 2, 8, 10, 9, 6, 5, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098018, '2024-03-20 20:23:40', 10, 5, 2, 1, 6, 4, 8, 3, 9, 7, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098019, '2024-03-20 20:28:40', 4, 6, 7, 9, 3, 10, 2, 1, 5, 8, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098020, '2024-03-20 20:33:40', 7, 8, 3, 4, 2, 9, 10, 6, 1, 5, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098021, '2024-03-20 20:38:40', 8, 10, 3, 1, 4, 7, 2, 6, 5, 9, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098022, '2024-03-20 20:43:40', 2, 5, 4, 6, 3, 7, 8, 9, 1, 10, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098023, '2024-03-20 20:48:40', 8, 10, 9, 1, 6, 4, 3, 7, 2, 5, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098024, '2024-03-20 20:53:40', 5, 2, 4, 9, 10, 6, 1, 8, 3, 7, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098025, '2024-03-20 20:58:40', 1, 6, 2, 4, 10, 8, 3, 5, 9, 7, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098026, '2024-03-20 21:03:40', 4, 6, 1, 5, 2, 3, 8, 7, 10, 9, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098027, '2024-03-20 21:08:40', 9, 5, 1, 10, 4, 8, 6, 2, 7, 3, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098028, '2024-03-20 21:13:40', 7, 8, 1, 4, 2, 9, 3, 5, 10, 6, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098029, '2024-03-20 21:18:40', 8, 5, 1, 4, 6, 3, 9, 10, 7, 2, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098030, '2024-03-20 21:23:40', 4, 9, 8, 2, 1, 5, 3, 6, 7, 10, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098031, '2024-03-20 21:28:40', 3, 7, 2, 1, 8, 4, 10, 6, 5, 9, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098032, '2024-03-20 21:33:40', 8, 5, 1, 9, 3, 2, 7, 10, 6, 4, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098033, '2024-03-20 21:38:40', 9, 5, 4, 2, 1, 6, 7, 8, 3, 10, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098034, '2024-03-20 21:43:40', 8, 10, 6, 9, 4, 2, 1, 7, 5, 3, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098035, '2024-03-20 21:48:40', 6, 3, 2, 5, 8, 7, 10, 9, 1, 4, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098036, '2024-03-20 21:53:40', 5, 6, 2, 4, 9, 1, 10, 3, 8, 7, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098037, '2024-03-20 21:58:40', 5, 4, 8, 10, 6, 1, 3, 9, 2, 7, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098038, '2024-03-20 22:03:40', 2, 3, 7, 6, 10, 9, 8, 1, 4, 5, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098039, '2024-03-20 22:08:40', 6, 4, 3, 10, 5, 8, 7, 2, 1, 9, 'TASK', '2024-03-20 23:09:26', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098040, '2024-03-20 22:13:40', 9, 4, 7, 3, 10, 8, 1, 2, 6, 5, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098041, '2024-03-20 22:18:40', 8, 4, 7, 5, 1, 3, 2, 9, 6, 10, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098042, '2024-03-20 22:23:40', 7, 2, 9, 10, 5, 8, 4, 6, 1, 3, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098043, '2024-03-20 22:28:40', 1, 6, 3, 5, 10, 7, 9, 4, 2, 8, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098044, '2024-03-20 22:33:40', 2, 1, 5, 9, 3, 10, 8, 7, 4, 6, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098045, '2024-03-20 22:38:40', 1, 3, 10, 8, 6, 9, 5, 7, 2, 4, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098046, '2024-03-20 22:43:40', 7, 10, 9, 8, 6, 2, 3, 4, 1, 5, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098047, '2024-03-20 22:48:40', 2, 5, 8, 6, 7, 4, 3, 10, 9, 1, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098048, '2024-03-20 22:53:40', 6, 7, 3, 9, 5, 4, 2, 8, 10, 1, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098049, '2024-03-20 22:58:40', 10, 5, 3, 2, 6, 8, 9, 4, 1, 7, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098050, '2024-03-20 23:03:40', 4, 7, 9, 6, 3, 1, 8, 5, 2, 10, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
-INSERT INTO `azxy10` VALUES (21098051, '2024-03-20 23:08:40', 7, 1, 5, 10, 9, 6, 4, 8, 2, 3, 'TASK', '2024-03-20 23:09:25', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099729, '2024-03-26 18:58:40', 4, 5, 6, 3, 9, 1, 8, 2, 10, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099730, '2024-03-26 19:03:40', 7, 2, 6, 1, 3, 5, 9, 8, 4, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099731, '2024-03-26 19:08:40', 2, 1, 8, 5, 7, 4, 3, 6, 9, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099732, '2024-03-26 19:13:40', 7, 5, 8, 4, 2, 6, 1, 9, 3, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099733, '2024-03-26 19:18:40', 1, 8, 3, 6, 5, 2, 10, 7, 4, 9, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099734, '2024-03-26 19:23:40', 4, 6, 8, 10, 3, 5, 7, 9, 2, 1, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099735, '2024-03-26 19:28:40', 2, 5, 7, 1, 8, 9, 4, 10, 6, 3, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099736, '2024-03-26 19:33:40', 4, 2, 10, 7, 5, 1, 8, 3, 6, 9, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099737, '2024-03-26 19:38:40', 5, 7, 2, 4, 10, 3, 1, 9, 8, 6, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099738, '2024-03-26 19:43:40', 8, 9, 2, 4, 7, 10, 6, 3, 1, 5, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099739, '2024-03-26 19:48:40', 4, 7, 6, 3, 1, 10, 8, 2, 5, 9, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099740, '2024-03-26 19:53:40', 3, 1, 10, 6, 9, 7, 5, 4, 2, 8, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099741, '2024-03-26 19:58:40', 5, 3, 8, 9, 6, 2, 1, 10, 4, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099742, '2024-03-26 20:03:40', 4, 7, 2, 3, 6, 5, 8, 9, 10, 1, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099743, '2024-03-26 20:08:40', 9, 6, 3, 10, 2, 5, 8, 1, 4, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099744, '2024-03-26 20:13:40', 4, 9, 8, 10, 6, 7, 2, 1, 5, 3, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099745, '2024-03-26 20:18:40', 4, 2, 3, 7, 1, 5, 9, 8, 6, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099746, '2024-03-26 20:23:40', 2, 10, 9, 5, 3, 7, 6, 1, 8, 4, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099747, '2024-03-26 20:28:40', 4, 2, 1, 7, 6, 5, 8, 9, 3, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099748, '2024-03-26 20:33:40', 6, 5, 4, 10, 7, 8, 1, 2, 9, 3, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099749, '2024-03-26 20:38:40', 3, 8, 9, 4, 5, 7, 1, 6, 10, 2, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099750, '2024-03-26 20:43:40', 4, 10, 8, 5, 9, 7, 6, 1, 2, 3, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099751, '2024-03-26 20:48:40', 1, 4, 9, 10, 3, 6, 2, 8, 5, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099752, '2024-03-26 20:53:40', 2, 7, 6, 8, 1, 9, 10, 5, 3, 4, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099753, '2024-03-26 20:58:40', 1, 2, 10, 5, 6, 3, 9, 7, 4, 8, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099754, '2024-03-26 21:03:40', 10, 1, 5, 6, 3, 9, 2, 8, 4, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099755, '2024-03-26 21:08:40', 2, 4, 3, 9, 7, 1, 8, 6, 5, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099756, '2024-03-26 21:13:40', 2, 8, 4, 9, 3, 6, 5, 10, 1, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099757, '2024-03-26 21:18:40', 9, 6, 2, 10, 5, 4, 8, 1, 7, 3, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099758, '2024-03-26 21:23:40', 9, 2, 4, 5, 10, 6, 3, 1, 8, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099759, '2024-03-26 21:28:40', 6, 8, 2, 1, 10, 5, 7, 4, 9, 3, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099760, '2024-03-26 21:33:40', 9, 5, 2, 7, 6, 4, 8, 10, 1, 3, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099761, '2024-03-26 21:38:40', 2, 7, 8, 1, 4, 5, 3, 6, 10, 9, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099762, '2024-03-26 21:43:40', 3, 5, 6, 1, 8, 4, 9, 2, 10, 7, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099763, '2024-03-26 21:48:40', 9, 4, 7, 1, 6, 3, 8, 10, 5, 2, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099764, '2024-03-26 21:53:40', 3, 7, 1, 2, 5, 8, 6, 4, 10, 9, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099765, '2024-03-26 21:58:40', 10, 8, 1, 7, 5, 2, 6, 4, 3, 9, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099766, '2024-03-26 22:03:40', 6, 4, 8, 7, 5, 2, 3, 9, 1, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099767, '2024-03-26 22:08:40', 2, 5, 4, 10, 1, 6, 7, 3, 9, 8, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099768, '2024-03-26 22:13:40', 10, 2, 7, 9, 4, 1, 3, 8, 6, 5, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099769, '2024-03-26 22:18:40', 3, 9, 7, 8, 4, 1, 10, 5, 6, 2, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099770, '2024-03-26 22:23:40', 3, 2, 9, 7, 1, 4, 5, 8, 6, 10, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099771, '2024-03-26 22:28:40', 5, 6, 2, 10, 4, 9, 8, 7, 3, 1, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099772, '2024-03-26 22:33:40', 6, 2, 4, 8, 1, 3, 5, 7, 10, 9, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099773, '2024-03-26 22:38:40', 5, 10, 8, 7, 9, 1, 4, 3, 6, 2, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099774, '2024-03-26 22:43:40', 8, 10, 1, 7, 2, 6, 3, 5, 9, 4, 'TASK', '2024-03-26 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099775, '2024-03-26 22:48:40', 7, 6, 10, 8, 1, 2, 4, 5, 3, 9, 'TASK', '2024-03-26 22:50:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21099776, '2024-03-26 22:53:40', 8, 7, 9, 4, 6, 10, 3, 1, 5, 2, 'TASK', '2024-03-26 22:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100038, '2024-03-27 20:43:40', 10, 2, 9, 3, 7, 4, 8, 5, 6, 1, 'TASK', '2024-03-27 20:48:02', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100039, '2024-03-27 20:48:40', 7, 9, 3, 10, 6, 8, 5, 2, 4, 1, 'TASK', '2024-03-27 20:50:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100040, '2024-03-27 20:53:40', 6, 3, 4, 1, 7, 8, 5, 10, 2, 9, 'TASK', '2024-03-27 20:55:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100041, '2024-03-27 20:58:40', 7, 9, 6, 10, 3, 4, 2, 8, 5, 1, 'TASK', '2024-03-27 21:00:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100042, '2024-03-27 21:03:40', 1, 2, 5, 8, 10, 3, 9, 6, 4, 7, 'TASK', '2024-03-27 21:05:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100043, '2024-03-27 21:08:40', 6, 8, 10, 2, 5, 3, 7, 4, 1, 9, 'TASK', '2024-03-27 21:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100044, '2024-03-27 21:13:40', 1, 6, 9, 10, 4, 2, 3, 8, 5, 7, 'TASK', '2024-03-27 21:15:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100045, '2024-03-27 21:18:40', 9, 5, 10, 7, 8, 3, 4, 1, 2, 6, 'TASK', '2024-03-27 21:20:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100046, '2024-03-27 21:23:40', 9, 8, 2, 10, 3, 6, 4, 5, 1, 7, 'TASK', '2024-03-27 21:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100047, '2024-03-27 21:28:40', 3, 4, 1, 10, 9, 8, 2, 6, 7, 5, 'TASK', '2024-03-27 21:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100048, '2024-03-27 21:33:40', 7, 1, 2, 4, 8, 5, 6, 3, 10, 9, 'TASK', '2024-03-27 21:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100049, '2024-03-27 21:38:40', 8, 4, 10, 9, 5, 7, 2, 3, 1, 6, 'TASK', '2024-03-27 21:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100050, '2024-03-27 21:43:40', 9, 6, 7, 2, 4, 8, 10, 1, 3, 5, 'TASK', '2024-03-27 21:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100051, '2024-03-27 21:48:40', 5, 8, 2, 10, 9, 3, 6, 7, 4, 1, 'TASK', '2024-03-27 21:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100052, '2024-03-27 21:53:40', 1, 4, 3, 9, 5, 8, 6, 7, 10, 2, 'TASK', '2024-03-27 21:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100053, '2024-03-27 21:58:40', 3, 5, 2, 8, 7, 4, 6, 10, 1, 9, 'TASK', '2024-03-27 22:00:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100054, '2024-03-27 22:03:40', 2, 5, 8, 4, 6, 10, 7, 3, 9, 1, 'TASK', '2024-03-27 22:05:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100055, '2024-03-27 22:08:40', 3, 6, 5, 10, 2, 1, 4, 8, 7, 9, 'TASK', '2024-03-27 22:10:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100056, '2024-03-27 22:13:40', 7, 5, 1, 6, 10, 2, 4, 9, 3, 8, 'TASK', '2024-03-27 22:15:09', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100057, '2024-03-27 22:18:40', 5, 2, 8, 4, 3, 9, 10, 1, 6, 7, 'TASK', '2024-03-27 22:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100058, '2024-03-27 22:23:40', 3, 1, 10, 7, 2, 8, 4, 6, 5, 9, 'TASK', '2024-03-27 22:25:03', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100059, '2024-03-27 22:28:40', 10, 9, 7, 8, 5, 1, 4, 6, 2, 3, 'TASK', '2024-03-27 22:30:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100060, '2024-03-27 22:33:40', 8, 10, 5, 3, 4, 2, 1, 7, 6, 9, 'TASK', '2024-03-27 22:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100061, '2024-03-27 22:38:40', 3, 6, 7, 8, 1, 2, 10, 5, 9, 4, 'TASK', '2024-03-27 22:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100062, '2024-03-27 22:43:40', 5, 9, 8, 4, 7, 2, 6, 10, 1, 3, 'TASK', '2024-03-27 22:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100063, '2024-03-27 22:48:40', 3, 10, 9, 6, 5, 4, 1, 2, 7, 8, 'TASK', '2024-03-27 22:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100064, '2024-03-27 22:53:40', 3, 5, 9, 1, 6, 10, 4, 7, 2, 8, 'TASK', '2024-03-27 22:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100065, '2024-03-27 22:58:40', 7, 4, 6, 8, 9, 10, 5, 1, 3, 2, 'TASK', '2024-03-27 22:59:03', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100066, '2024-03-27 23:03:40', 7, 2, 9, 8, 6, 3, 4, 1, 5, 10, 'TASK', '2024-03-27 23:05:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100067, '2024-03-27 23:08:40', 8, 6, 4, 5, 9, 7, 10, 2, 3, 1, 'TASK', '2024-03-27 23:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100068, '2024-03-27 23:13:40', 4, 1, 10, 2, 7, 5, 3, 6, 9, 8, 'TASK', '2024-03-27 23:15:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100069, '2024-03-27 23:18:40', 6, 4, 10, 5, 7, 2, 3, 8, 9, 1, 'TASK', '2024-03-27 23:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100070, '2024-03-27 23:23:40', 2, 4, 6, 7, 3, 1, 5, 8, 10, 9, 'TASK', '2024-03-27 23:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100071, '2024-03-27 23:28:40', 5, 10, 3, 9, 7, 4, 2, 6, 1, 8, 'TASK', '2024-03-27 23:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100072, '2024-03-27 23:33:40', 8, 9, 10, 4, 7, 3, 2, 1, 5, 6, 'TASK', '2024-03-27 23:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100323, '2024-03-28 20:28:40', 3, 6, 9, 10, 1, 5, 7, 2, 8, 4, 'TASK', '2024-03-28 20:33:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100324, '2024-03-28 20:33:40', 4, 5, 8, 10, 3, 1, 2, 6, 9, 7, 'TASK', '2024-03-28 20:35:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100325, '2024-03-28 20:38:40', 3, 4, 7, 9, 8, 10, 1, 2, 6, 5, 'TASK', '2024-03-28 20:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100326, '2024-03-28 20:43:40', 3, 2, 8, 1, 10, 9, 4, 5, 6, 7, 'TASK', '2024-03-28 20:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100327, '2024-03-28 20:48:40', 8, 1, 3, 4, 6, 9, 5, 2, 7, 10, 'TASK', '2024-03-28 20:50:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100328, '2024-03-28 20:53:40', 2, 5, 10, 9, 8, 6, 7, 3, 4, 1, 'TASK', '2024-03-28 20:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100329, '2024-03-28 20:58:40', 2, 7, 6, 1, 10, 8, 9, 4, 3, 5, 'TASK', '2024-03-28 21:00:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100330, '2024-03-28 21:03:40', 2, 6, 4, 9, 8, 1, 5, 10, 3, 7, 'TASK', '2024-03-28 21:05:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100331, '2024-03-28 21:08:40', 10, 2, 7, 4, 6, 9, 8, 3, 5, 1, 'TASK', '2024-03-28 21:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100332, '2024-03-28 21:13:40', 4, 6, 2, 7, 1, 8, 5, 10, 3, 9, 'TASK', '2024-03-28 21:15:02', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100333, '2024-03-28 21:18:40', 3, 6, 7, 1, 8, 5, 2, 4, 9, 10, 'TASK', '2024-03-28 21:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100334, '2024-03-28 21:23:40', 3, 5, 8, 4, 10, 1, 6, 7, 9, 2, 'TASK', '2024-03-28 21:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21100335, '2024-03-28 21:28:40', 6, 7, 9, 8, 3, 1, 10, 5, 2, 4, 'TASK', '2024-03-28 21:30:01', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for azxy10kj
@@ -148,18 +196,11 @@ CREATE TABLE `azxy10kj`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `status`(`status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21098054 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of azxy10kj
 -- ----------------------------
-INSERT INTO `azxy10kj` VALUES (21098047, 2, 5, 8, 6, 7, 4, 3, 10, 9, 1, '2024-03-20 22:47:25', '2024-03-20 22:48:35', '1', '2024-03-20 22:48:40', 0, 0, '', '2024-03-20 23:09:32', '', NULL, '');
-INSERT INTO `azxy10kj` VALUES (21098048, 6, 7, 3, 9, 5, 4, 2, 8, 10, 1, '2024-03-20 22:52:25', '2024-03-20 22:53:35', '1', '2024-03-20 22:53:40', 0, 0, '', '2024-03-20 23:09:32', '', NULL, '');
-INSERT INTO `azxy10kj` VALUES (21098049, 10, 5, 3, 2, 6, 8, 9, 4, 1, 7, '2024-03-20 22:57:25', '2024-03-20 22:58:35', '1', '2024-03-20 22:58:40', 0, 0, '', '2024-03-20 23:09:32', '', NULL, '');
-INSERT INTO `azxy10kj` VALUES (21098050, 4, 7, 9, 6, 3, 1, 8, 5, 2, 10, '2024-03-20 23:02:25', '2024-03-20 23:03:35', '1', '2024-03-20 23:03:40', 0, 0, '', '2024-03-20 23:09:32', '', NULL, '');
-INSERT INTO `azxy10kj` VALUES (21098051, 7, 1, 5, 10, 9, 6, 4, 8, 2, 3, '2024-03-20 23:07:25', '2024-03-20 23:08:35', '1', '2024-03-20 23:08:40', 0, 0, '', '2024-03-20 23:09:32', '', NULL, '');
-INSERT INTO `azxy10kj` VALUES (21098052, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-03-20 23:12:30', '2024-03-20 23:13:40', '0', NULL, 0, 0, 'CreateAzxy10Data', '2024-03-20 23:09:32', '', NULL, '');
-INSERT INTO `azxy10kj` VALUES (21098053, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-03-20 23:17:30', '2024-03-20 23:18:40', '0', NULL, 0, 0, 'CreateAzxy10Data', '2024-03-20 23:09:32', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for azxy10record
@@ -556,7 +597,7 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gen_table
@@ -574,11 +615,12 @@ INSERT INTO `gen_table` VALUES (18, 'false_user', '投注机器人', NULL, NULL,
 INSERT INTO `gen_table` VALUES (21, 'sys_replace', '广告轮播图', NULL, NULL, 'SysReplace', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'replace', '广告轮播图', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-17 19:27:35', '', '2024-03-17 19:29:47', NULL);
 INSERT INTO `gen_table` VALUES (22, 'azxy10record', '澳洲幸运10下注表', NULL, NULL, 'Azxy10record', 'crud', '', 'com.ruoyi.system', 'system', 'azxy10record', '澳洲幸运10下注', 'ruoyi', '0', '/', NULL, 'admin', '2024-03-23 21:12:34', '', NULL, NULL);
 INSERT INTO `gen_table` VALUES (23, 'jndrecord', '加拿大下注表', NULL, NULL, 'Jndrecord', 'crud', '', 'com.ruoyi.system', 'system', 'jndrecord', '加拿大下注', 'ruoyi', '0', '/', NULL, 'admin', '2024-03-23 21:12:34', '', NULL, NULL);
-INSERT INTO `gen_table` VALUES (24, 'jssscrecord', '极速时时彩下注表', NULL, NULL, 'Jssscrecord', 'crud', '', 'com.ruoyi.system', 'system', 'jssscrecord', '极速时时彩下注', 'ruoyi', '0', '/', NULL, 'admin', '2024-03-23 21:12:34', '', NULL, NULL);
 INSERT INTO `gen_table` VALUES (28, 'adminwin', '管理员盈亏表', NULL, NULL, 'Adminwin', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'adminwin', '管理员盈亏', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-24 22:51:56', '', '2024-03-24 22:52:07', NULL);
 INSERT INTO `gen_table` VALUES (29, 'usermoney', '用户资金流水表', NULL, NULL, 'Usermoney', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'usermoney', '用户资金流水', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-24 22:51:56', '', '2024-03-24 22:52:19', NULL);
 INSERT INTO `gen_table` VALUES (30, 'userwin', '用户盈亏表', NULL, NULL, 'Userwin', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'userwin', '用户盈亏', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-24 22:51:56', '', '2024-03-24 22:52:27', NULL);
 INSERT INTO `gen_table` VALUES (31, 'sys_bet_item', '游戏投注项表', NULL, NULL, 'SysBetItem', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'betItem', '游戏投注项', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-25 19:52:44', '', '2024-03-25 19:53:28', NULL);
+INSERT INTO `gen_table` VALUES (33, 'wave', '数字红绿蓝属性表', NULL, NULL, 'Wave', 'crud', '', 'com.ruoyi.system', 'system', 'wave', '数字红绿蓝属性', 'ruoyi', '0', '/', NULL, 'admin', '2024-03-27 20:56:32', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (34, 'jssscrecord', '极速时时彩下注表', NULL, NULL, 'Jssscrecord', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'jssscrecord', '极速时时彩下注', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25', NULL);
 
 -- ----------------------------
 -- Table structure for gen_table_column
@@ -608,7 +650,7 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1310 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1495 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gen_table_column
@@ -1116,122 +1158,6 @@ INSERT INTO `gen_table_column` VALUES (1088, 23, 'create_time', '创建时间', 
 INSERT INTO `gen_table_column` VALUES (1089, 23, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 68, 'admin', '2024-03-23 21:12:34', '', NULL);
 INSERT INTO `gen_table_column` VALUES (1090, 23, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 69, 'admin', '2024-03-23 21:12:34', '', NULL);
 INSERT INTO `gen_table_column` VALUES (1091, 23, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 70, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1092, 24, 'id', '下注表ID', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1093, 24, 'user_id', '用户ID', 'bigint(20)', 'Long', 'userId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1094, 24, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1095, 24, 'status', '投注状态（0投注 1撤单）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 4, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1096, 24, 'record_time', '投注时间', 'datetime', 'Date', 'recordTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1097, 24, 'check_time', '确认时间', 'timestamp', 'Date', 'checkTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 6, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1098, 24, 'count_money', '下注金额', 'float(11,2)', 'BigDecimal', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1099, 24, 'win_money', '中奖金额', 'float(11,2)', 'BigDecimal', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1100, 24, 'sum_big', '下注和值大的金额', 'float(11,2)', 'BigDecimal', 'sumBig', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1101, 24, 'sum_small', '下注和值小的金额', 'float(11,2)', 'BigDecimal', 'sumSmall', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1102, 24, 'sum_single', '下注和值单的金额', 'float(11,2)', 'BigDecimal', 'sumSingle', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1103, 24, 'sum_double', '下注和值双的金额', 'float(11,2)', 'BigDecimal', 'sumDouble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-03-23 21:12:34', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1104, 24, 'sum_loong', '下注和值龙的金额', 'float(11,2)', 'BigDecimal', 'sumLoong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1105, 24, 'sum_tiger', '下注和值虎的金额', 'float(11,2)', 'BigDecimal', 'sumTiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1106, 24, 'sum_sum', '下注和值和的金额', 'float(11,2)', 'BigDecimal', 'sumSum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1107, 24, 'num1_big', '下注买1号球大的金额', 'float(11,2)', 'BigDecimal', 'num1Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1108, 24, 'num1_small', '下注买1号球小的金额', 'float(11,2)', 'BigDecimal', 'num1Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1109, 24, 'num1_single', '下注买1号球单的金额', 'float(11,2)', 'BigDecimal', 'num1Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1110, 24, 'num1_double', '下注买1号球双的金额', 'float(11,2)', 'BigDecimal', 'num1Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1111, 24, 'num1_0', '下注买1号球0的金额', 'float(11,2)', 'BigDecimal', 'num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1112, 24, 'num1_1', '下注买1号球1的金额', 'float(11,2)', 'BigDecimal', 'num11', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1113, 24, 'num1_2', '下注买1号球2的金额', 'float(11,2)', 'BigDecimal', 'num12', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1114, 24, 'num1_3', '下注买1号球3的金额', 'float(11,2)', 'BigDecimal', 'num13', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1115, 24, 'num1_4', '下注买1号球4的金额', 'float(11,2)', 'BigDecimal', 'num14', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1116, 24, 'num1_5', '下注买1号球5的金额', 'float(11,2)', 'BigDecimal', 'num15', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1117, 24, 'num1_6', '下注买1号球6的金额', 'float(11,2)', 'BigDecimal', 'num16', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 26, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1118, 24, 'num1_7', '下注买1号球7的金额', 'float(11,2)', 'BigDecimal', 'num17', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1119, 24, 'num1_8', '下注买1号球8的金额', 'float(11,2)', 'BigDecimal', 'num18', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1120, 24, 'num1_9', '下注买1号球9的金额', 'float(11,2)', 'BigDecimal', 'num19', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1121, 24, 'num2_big', '下注买2号球大的金额', 'float(11,2)', 'BigDecimal', 'num2Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 30, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1122, 24, 'num2_small', '下注买2号球小的金额', 'float(11,2)', 'BigDecimal', 'num2Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 31, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1123, 24, 'num2_single', '下注买2号球单的金额', 'float(11,2)', 'BigDecimal', 'num2Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 32, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1124, 24, 'num2_double', '下注买2号球双的金额', 'float(11,2)', 'BigDecimal', 'num2Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 33, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1125, 24, 'num2_0', '下注买2号球0的金额', 'float(11,2)', 'BigDecimal', 'num20', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 34, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1126, 24, 'num2_1', '下注买2号球1的金额', 'float(11,2)', 'BigDecimal', 'num21', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 35, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1127, 24, 'num2_2', '下注买2号球2的金额', 'float(11,2)', 'BigDecimal', 'num22', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 36, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1128, 24, 'num2_3', '下注买2号球3的金额', 'float(11,2)', 'BigDecimal', 'num23', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 37, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1129, 24, 'num2_4', '下注买2号球4的金额', 'float(11,2)', 'BigDecimal', 'num24', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 38, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1130, 24, 'num2_5', '下注买2号球5的金额', 'float(11,2)', 'BigDecimal', 'num25', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 39, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1131, 24, 'num2_6', '下注买2号球6的金额', 'float(11,2)', 'BigDecimal', 'num26', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 40, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1132, 24, 'num2_7', '下注买2号球7的金额', 'float(11,2)', 'BigDecimal', 'num27', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 41, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1133, 24, 'num2_8', '下注买2号球8的金额', 'float(11,2)', 'BigDecimal', 'num28', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 42, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1134, 24, 'num2_9', '下注买2号球9的金额', 'float(11,2)', 'BigDecimal', 'num29', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 43, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1135, 24, 'num3_big', '下注买3号球大的金额', 'float(11,2)', 'BigDecimal', 'num3Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 44, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1136, 24, 'num3_small', '下注买3号球小的金额', 'float(11,2)', 'BigDecimal', 'num3Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 45, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1137, 24, 'num3_single', '下注买3号球单的金额', 'float(11,2)', 'BigDecimal', 'num3Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 46, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1138, 24, 'num3_double', '下注买3号球双的金额', 'float(11,2)', 'BigDecimal', 'num3Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 47, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1139, 24, 'num3_0', '下注买3号球0的金额', 'float(11,2)', 'BigDecimal', 'num30', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 48, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1140, 24, 'num3_1', '下注买3号球1的金额', 'float(11,2)', 'BigDecimal', 'num31', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 49, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1141, 24, 'num3_2', '下注买3号球2的金额', 'float(11,2)', 'BigDecimal', 'num32', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 50, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1142, 24, 'num3_3', '下注买3号球3的金额', 'float(11,2)', 'BigDecimal', 'num33', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 51, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1143, 24, 'num3_4', '下注买3号球4的金额', 'float(11,2)', 'BigDecimal', 'num34', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 52, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1144, 24, 'num3_5', '下注买3号球5的金额', 'float(11,2)', 'BigDecimal', 'num35', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 53, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1145, 24, 'num3_6', '下注买3号球6的金额', 'float(11,2)', 'BigDecimal', 'num36', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 54, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1146, 24, 'num3_7', '下注买3号球7的金额', 'float(11,2)', 'BigDecimal', 'num37', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 55, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1147, 24, 'num3_8', '下注买3号球8的金额', 'float(11,2)', 'BigDecimal', 'num38', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 56, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1148, 24, 'num3_9', '下注买3号球9的金额', 'float(11,2)', 'BigDecimal', 'num39', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 57, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1149, 24, 'num4_big', '下注买4号球大的金额', 'float(11,2)', 'BigDecimal', 'num4Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 58, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1150, 24, 'num4_small', '下注买4号球小的金额', 'float(11,2)', 'BigDecimal', 'num4Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 59, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1151, 24, 'num4_single', '下注买4号球单的金额', 'float(11,2)', 'BigDecimal', 'num4Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 60, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1152, 24, 'num4_double', '下注买4号球双的金额', 'float(11,2)', 'BigDecimal', 'num4Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 61, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1153, 24, 'num4_0', '下注买4号球0的金额', 'float(11,2)', 'BigDecimal', 'num40', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 62, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1154, 24, 'num4_1', '下注买4号球1的金额', 'float(11,2)', 'BigDecimal', 'num41', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 63, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1155, 24, 'num4_2', '下注买4号球2的金额', 'float(11,2)', 'BigDecimal', 'num42', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 64, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1156, 24, 'num4_3', '下注买4号球3的金额', 'float(11,2)', 'BigDecimal', 'num43', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 65, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1157, 24, 'num4_4', '下注买4号球4的金额', 'float(11,2)', 'BigDecimal', 'num44', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 66, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1158, 24, 'num4_5', '下注买4号球5的金额', 'float(11,2)', 'BigDecimal', 'num45', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 67, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1159, 24, 'num4_6', '下注买4号球6的金额', 'float(11,2)', 'BigDecimal', 'num46', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 68, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1160, 24, 'num4_7', '下注买4号球7的金额', 'float(11,2)', 'BigDecimal', 'num47', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 69, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1161, 24, 'num4_8', '下注买4号球8的金额', 'float(11,2)', 'BigDecimal', 'num48', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 70, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1162, 24, 'num4_9', '下注买4号球9的金额', 'float(11,2)', 'BigDecimal', 'num49', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 71, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1163, 24, 'num5_big', '下注买5号球大的金额', 'float(11,2)', 'BigDecimal', 'num5Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 72, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1164, 24, 'num5_small', '下注买5号球小的金额', 'float(11,2)', 'BigDecimal', 'num5Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 73, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1165, 24, 'num5_single', '下注买5号球单的金额', 'float(11,2)', 'BigDecimal', 'num5Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 74, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1166, 24, 'num5_double', '下注买5号球双的金额', 'float(11,2)', 'BigDecimal', 'num5Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 75, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1167, 24, 'num5_0', '下注买5号球0的金额', 'float(11,2)', 'BigDecimal', 'num50', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 76, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1168, 24, 'num5_1', '下注买5号球1的金额', 'float(11,2)', 'BigDecimal', 'num51', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 77, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1169, 24, 'num5_2', '下注买5号球2的金额', 'float(11,2)', 'BigDecimal', 'num52', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 78, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1170, 24, 'num5_3', '下注买5号球3的金额', 'float(11,2)', 'BigDecimal', 'num53', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 79, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1171, 24, 'num5_4', '下注买5号球4的金额', 'float(11,2)', 'BigDecimal', 'num54', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 80, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1172, 24, 'num5_5', '下注买5号球5的金额', 'float(11,2)', 'BigDecimal', 'num55', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 81, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1173, 24, 'num5_6', '下注买5号球6的金额', 'float(11,2)', 'BigDecimal', 'num56', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 82, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1174, 24, 'num5_7', '下注买5号球7的金额', 'float(11,2)', 'BigDecimal', 'num57', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 83, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1175, 24, 'num5_8', '下注买5号球8的金额', 'float(11,2)', 'BigDecimal', 'num58', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 84, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1176, 24, 'num5_9', '下注买5号球9的金额', 'float(11,2)', 'BigDecimal', 'num59', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 85, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1177, 24, 'first_bao', '下注买前三豹的金额', 'float(11,2)', 'BigDecimal', 'firstBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 86, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1178, 24, 'first_dui', '下注买前三对的金额', 'float(11,2)', 'BigDecimal', 'firstDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 87, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1179, 24, 'first_sun', '下注买前三顺的金额', 'float(11,2)', 'BigDecimal', 'firstSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 88, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1180, 24, 'first_ban', '下注买前三半的金额', 'float(11,2)', 'BigDecimal', 'firstBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 89, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1181, 24, 'first_za', '下注买前三杂的金额', 'float(11,2)', 'BigDecimal', 'firstZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 90, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1182, 24, 'mid_bao', '下注买中三豹的的金额', 'float(11,2)', 'BigDecimal', 'midBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 91, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1183, 24, 'mid_dui', '下注买中三对的的金额', 'float(11,2)', 'BigDecimal', 'midDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 92, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1184, 24, 'mid_sun', '下注买中三顺的的金额', 'float(11,2)', 'BigDecimal', 'midSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 93, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1185, 24, 'mid_ban', '下注买中三半的的金额', 'float(11,2)', 'BigDecimal', 'midBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 94, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1186, 24, 'mid_za', '下注买中三杂的的金额', 'float(11,2)', 'BigDecimal', 'midZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 95, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1187, 24, 'back_bao', '下注买后三豹的的金额', 'float(11,2)', 'BigDecimal', 'backBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 96, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1188, 24, 'back_dui', '下注买后三对的的金额', 'float(11,2)', 'BigDecimal', 'backDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 97, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1189, 24, 'back_sun', '下注买后三顺的的金额', 'float(11,2)', 'BigDecimal', 'backSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 98, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1190, 24, 'back_ban', '下注买后三半的的金额', 'float(11,2)', 'BigDecimal', 'backBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 99, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1191, 24, 'back_za', '下注买后三杂的的金额', 'float(11,2)', 'BigDecimal', 'backZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 100, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1192, 24, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 101, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1193, 24, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 102, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1194, 24, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 103, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1195, 24, 'num4', '开奖号码4', 'int(11)', 'Long', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 104, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1196, 24, 'num5', '开奖号码5', 'int(11)', 'Long', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 105, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1197, 24, 'sum', '开奖合算数字', 'int(11)', 'Long', 'sum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 106, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1198, 24, 'is_delete', '是否扣除(0否 1是)', 'char(1)', 'String', 'isDelete', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 107, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1199, 24, 'is_deduct', '是否扣除', 'char(1)', 'String', 'isDeduct', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 108, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1200, 24, 'house', '房间号', 'int(4)', 'Integer', 'house', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 109, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1201, 24, 'hz_id', '是否合庄模式', 'char(1)', 'String', 'hzId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 110, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1202, 24, 'hz_user', '是否用户(0否 1是)', 'char(1)', 'String', 'hzUser', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 111, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1203, 24, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 112, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1204, 24, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 113, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1205, 24, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 114, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1206, 24, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 115, 'admin', '2024-03-23 21:12:35', '', NULL);
-INSERT INTO `gen_table_column` VALUES (1207, 24, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 116, 'admin', '2024-03-23 21:12:35', '', NULL);
 INSERT INTO `gen_table_column` VALUES (1251, 28, 'id', '管理员盈亏ID', 'int(11)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-03-24 22:51:56', '', '2024-03-24 22:52:07');
 INSERT INTO `gen_table_column` VALUES (1252, 28, 'win_time', '盈亏时间(YMD)', 'datetime', 'Date', 'winTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 2, 'admin', '2024-03-24 22:51:56', '', '2024-03-24 22:52:07');
 INSERT INTO `gen_table_column` VALUES (1253, 28, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-03-24 22:51:56', '', '2024-03-24 22:52:07');
@@ -1291,6 +1217,157 @@ INSERT INTO `gen_table_column` VALUES (1306, 31, 'create_time', '创建时间', 
 INSERT INTO `gen_table_column` VALUES (1307, 31, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 14, 'admin', '2024-03-25 19:52:44', '', '2024-03-25 19:53:28');
 INSERT INTO `gen_table_column` VALUES (1308, 31, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 15, 'admin', '2024-03-25 19:52:44', '', '2024-03-25 19:53:28');
 INSERT INTO `gen_table_column` VALUES (1309, 31, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 16, 'admin', '2024-03-25 19:52:44', '', '2024-03-25 19:53:28');
+INSERT INTO `gen_table_column` VALUES (1344, 33, 'id', '数字红绿蓝属性ID', 'int(11) unsigned', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1345, 33, 'game_id', '游戏ID', 'int(11)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1346, 33, 'num0', '数字0红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num0', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1347, 33, 'num1', '数字1红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num1', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1348, 33, 'num2', '数字2红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num2', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1349, 33, 'num3', '数字3红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num3', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1350, 33, 'num4', '数字4红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num4', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1351, 33, 'num5', '数字5红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num5', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1352, 33, 'num6', '数字6红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num6', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1353, 33, 'num7', '数字7红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num7', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1354, 33, 'num8', '数字8红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num8', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1355, 33, 'num9', '数字9红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num9', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1356, 33, 'num10', '数字10红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num10', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1357, 33, 'num11', '数字11红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num11', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1358, 33, 'num12', '数字12红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num12', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1359, 33, 'num13', '数字13红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num13', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1360, 33, 'num14', '数字14红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num14', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1361, 33, 'num15', '数字15红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num15', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1362, 33, 'num16', '数字16红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num16', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1363, 33, 'num17', '数字17红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num17', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1364, 33, 'num18', '数字18红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num18', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1365, 33, 'num19', '数字19红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num19', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1366, 33, 'num20', '数字20红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num20', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1367, 33, 'num21', '数字21红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num21', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1368, 33, 'num22', '数字22红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num22', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1369, 33, 'num23', '数字23红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num23', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 26, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1370, 33, 'num24', '数字24红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num24', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1371, 33, 'num25', '数字25红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num25', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1372, 33, 'num26', '数字26红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num26', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1373, 33, 'num27', '数字27红绿蓝属性(1：绿 2：红 3：蓝)', 'int(2)', 'Integer', 'num27', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 30, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1374, 33, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 31, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1375, 33, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 32, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1376, 33, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 33, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1377, 33, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 34, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1378, 33, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 35, 'admin', '2024-03-27 20:56:32', '', NULL);
+INSERT INTO `gen_table_column` VALUES (1379, 34, 'id', '下注表ID', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1380, 34, 'user_id', '用户ID', 'bigint(20)', 'Long', 'userId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1381, 34, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1382, 34, 'status', '投注状态（0投注 1撤单）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 4, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1383, 34, 'record_time', '投注时间', 'datetime', 'Date', 'recordTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1384, 34, 'check_time', '确认时间', 'timestamp', 'Date', 'checkTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 6, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1385, 34, 'count_money', '下注金额', 'float(11,2)', 'Float', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1386, 34, 'win_money', '中奖金额', 'float(11,2)', 'Float', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1387, 34, 'sum_big', '下注和值大的金额', 'float(11,2)', 'Float', 'sumBig', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1388, 34, 'sum_small', '下注和值小的金额', 'float(11,2)', 'Float', 'sumSmall', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1389, 34, 'sum_single', '下注和值单的金额', 'float(11,2)', 'Float', 'sumSingle', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1390, 34, 'sum_double', '下注和值双的金额', 'float(11,2)', 'Float', 'sumDouble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1391, 34, 'sum_loong', '下注和值龙的金额', 'float(11,2)', 'Float', 'sumLoong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1392, 34, 'sum_tiger', '下注和值虎的金额', 'float(11,2)', 'Float', 'sumTiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1393, 34, 'sum_sum', '下注和值和的金额', 'float(11,2)', 'Float', 'sumSum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1394, 34, 'num1_big', '下注买1号球大的金额', 'float(11,2)', 'Float', 'num1Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1395, 34, 'num1_small', '下注买1号球小的金额', 'float(11,2)', 'Float', 'num1Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1396, 34, 'num1_single', '下注买1号球单的金额', 'float(11,2)', 'Float', 'num1Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1397, 34, 'num1_double', '下注买1号球双的金额', 'float(11,2)', 'Float', 'num1Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1398, 34, 'num1_ball0', '下注买1号球0的金额', 'float(11,2)', 'Float', 'num1Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1399, 34, 'num1_ball1', '下注买1号球1的金额', 'float(11,2)', 'Float', 'num1Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1400, 34, 'num1_ball2', '下注买1号球2的金额', 'float(11,2)', 'Float', 'num1Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1401, 34, 'num1_ball3', '下注买1号球3的金额', 'float(11,2)', 'Float', 'num1Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1402, 34, 'num1_ball4', '下注买1号球4的金额', 'float(11,2)', 'Float', 'num1Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1403, 34, 'num1_ball5', '下注买1号球5的金额', 'float(11,2)', 'Float', 'num1Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1404, 34, 'num1_ball6', '下注买1号球6的金额', 'float(11,2)', 'Float', 'num1Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 26, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1405, 34, 'num1_ball7', '下注买1号球7的金额', 'float(11,2)', 'Float', 'num1Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1406, 34, 'num1_ball8', '下注买1号球8的金额', 'float(11,2)', 'Float', 'num1Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1407, 34, 'num1_ball9', '下注买1号球9的金额', 'float(11,2)', 'Float', 'num1Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1408, 34, 'num2_big', '下注买2号球大的金额', 'float(11,2)', 'Float', 'num2Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 30, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1409, 34, 'num2_small', '下注买2号球小的金额', 'float(11,2)', 'Float', 'num2Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 31, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1410, 34, 'num2_single', '下注买2号球单的金额', 'float(11,2)', 'Float', 'num2Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 32, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1411, 34, 'num2_double', '下注买2号球双的金额', 'float(11,2)', 'Float', 'num2Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 33, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1412, 34, 'num2_ball0', '下注买2号球0的金额', 'float(11,2)', 'Float', 'num2Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 34, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1413, 34, 'num2_ball1', '下注买2号球1的金额', 'float(11,2)', 'Float', 'num2Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 35, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1414, 34, 'num2_ball2', '下注买2号球2的金额', 'float(11,2)', 'Float', 'num2Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 36, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1415, 34, 'num2_ball3', '下注买2号球3的金额', 'float(11,2)', 'Float', 'num2Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 37, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1416, 34, 'num2_ball4', '下注买2号球4的金额', 'float(11,2)', 'Float', 'num2Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 38, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1417, 34, 'num2_ball5', '下注买2号球5的金额', 'float(11,2)', 'Float', 'num2Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 39, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1418, 34, 'num2_ball6', '下注买2号球6的金额', 'float(11,2)', 'Float', 'num2Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 40, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1419, 34, 'num2_ball7', '下注买2号球7的金额', 'float(11,2)', 'Float', 'num2Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 41, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1420, 34, 'num2_ball8', '下注买2号球8的金额', 'float(11,2)', 'Float', 'num2Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 42, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1421, 34, 'num2_ball9', '下注买2号球9的金额', 'float(11,2)', 'Float', 'num2Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 43, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1422, 34, 'num3_big', '下注买3号球大的金额', 'float(11,2)', 'Float', 'num3Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 44, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1423, 34, 'num3_small', '下注买3号球小的金额', 'float(11,2)', 'Float', 'num3Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 45, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1424, 34, 'num3_single', '下注买3号球单的金额', 'float(11,2)', 'Float', 'num3Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 46, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1425, 34, 'num3_double', '下注买3号球双的金额', 'float(11,2)', 'Float', 'num3Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 47, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1426, 34, 'num3_ball0', '下注买3号球0的金额', 'float(11,2)', 'Float', 'num3Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 48, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1427, 34, 'num3_ball1', '下注买3号球1的金额', 'float(11,2)', 'Float', 'num3Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 49, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1428, 34, 'num3_ball2', '下注买3号球2的金额', 'float(11,2)', 'Float', 'num3Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 50, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1429, 34, 'num3_ball3', '下注买3号球3的金额', 'float(11,2)', 'Float', 'num3Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 51, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1430, 34, 'num3_ball4', '下注买3号球4的金额', 'float(11,2)', 'Float', 'num3Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 52, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1431, 34, 'num3_ball5', '下注买3号球5的金额', 'float(11,2)', 'Float', 'num3Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 53, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1432, 34, 'num3_ball6', '下注买3号球6的金额', 'float(11,2)', 'Float', 'num3Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 54, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1433, 34, 'num3_ball7', '下注买3号球7的金额', 'float(11,2)', 'Float', 'num3Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 55, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1434, 34, 'num3_ball8', '下注买3号球8的金额', 'float(11,2)', 'Float', 'num3Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 56, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1435, 34, 'num3_ball9', '下注买3号球9的金额', 'float(11,2)', 'Float', 'num3Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 57, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1436, 34, 'num4_big', '下注买4号球大的金额', 'float(11,2)', 'Float', 'num4Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 58, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1437, 34, 'num4_small', '下注买4号球小的金额', 'float(11,2)', 'Float', 'num4Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 59, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1438, 34, 'num4_single', '下注买4号球单的金额', 'float(11,2)', 'Float', 'num4Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 60, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1439, 34, 'num4_double', '下注买4号球双的金额', 'float(11,2)', 'Float', 'num4Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 61, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1440, 34, 'num4_ball0', '下注买4号球0的金额', 'float(11,2)', 'Float', 'num4Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 62, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1441, 34, 'num4_ball1', '下注买4号球1的金额', 'float(11,2)', 'Float', 'num4Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 63, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1442, 34, 'num4_ball2', '下注买4号球2的金额', 'float(11,2)', 'Float', 'num4Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 64, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1443, 34, 'num4_ball3', '下注买4号球3的金额', 'float(11,2)', 'Float', 'num4Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 65, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1444, 34, 'num4_ball4', '下注买4号球4的金额', 'float(11,2)', 'Float', 'num4Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 66, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1445, 34, 'num4_ball5', '下注买4号球5的金额', 'float(11,2)', 'Float', 'num4Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 67, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1446, 34, 'num4_ball6', '下注买4号球6的金额', 'float(11,2)', 'Float', 'num4Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 68, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1447, 34, 'num4_ball7', '下注买4号球7的金额', 'float(11,2)', 'Float', 'num4Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 69, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1448, 34, 'num4_ball8', '下注买4号球8的金额', 'float(11,2)', 'Float', 'num4Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 70, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1449, 34, 'num4_ball9', '下注买4号球9的金额', 'float(11,2)', 'Float', 'num4Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 71, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1450, 34, 'num5_big', '下注买5号球大的金额', 'float(11,2)', 'Float', 'num5Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 72, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1451, 34, 'num5_small', '下注买5号球小的金额', 'float(11,2)', 'Float', 'num5Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 73, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1452, 34, 'num5_single', '下注买5号球单的金额', 'float(11,2)', 'Float', 'num5Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 74, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1453, 34, 'num5_double', '下注买5号球双的金额', 'float(11,2)', 'Float', 'num5Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 75, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1454, 34, 'num5_ball0', '下注买5号球0的金额', 'float(11,2)', 'Float', 'num5Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 76, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1455, 34, 'num5_ball1', '下注买5号球1的金额', 'float(11,2)', 'Float', 'num5Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 77, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1456, 34, 'num5_ball2', '下注买5号球2的金额', 'float(11,2)', 'Float', 'num5Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 78, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1457, 34, 'num5_ball3', '下注买5号球3的金额', 'float(11,2)', 'Float', 'num5Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 79, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1458, 34, 'num5_ball4', '下注买5号球4的金额', 'float(11,2)', 'Float', 'num5Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 80, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1459, 34, 'num5_ball5', '下注买5号球5的金额', 'float(11,2)', 'Float', 'num5Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 81, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1460, 34, 'num5_ball6', '下注买5号球6的金额', 'float(11,2)', 'Float', 'num5Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 82, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1461, 34, 'num5_ball7', '下注买5号球7的金额', 'float(11,2)', 'Float', 'num5Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 83, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1462, 34, 'num5_ball8', '下注买5号球8的金额', 'float(11,2)', 'Float', 'num5Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 84, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1463, 34, 'num5_ball9', '下注买5号球9的金额', 'float(11,2)', 'Float', 'num5Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 85, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1464, 34, 'first_bao', '下注买前三豹的金额', 'float(11,2)', 'Float', 'firstBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 86, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1465, 34, 'first_dui', '下注买前三对的金额', 'float(11,2)', 'Float', 'firstDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 87, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1466, 34, 'first_sun', '下注买前三顺的金额', 'float(11,2)', 'Float', 'firstSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 88, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1467, 34, 'first_ban', '下注买前三半的金额', 'float(11,2)', 'Float', 'firstBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 89, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1468, 34, 'first_za', '下注买前三杂的金额', 'float(11,2)', 'Float', 'firstZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 90, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1469, 34, 'mid_bao', '下注买中三豹的的金额', 'float(11,2)', 'Float', 'midBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 91, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1470, 34, 'mid_dui', '下注买中三对的的金额', 'float(11,2)', 'Float', 'midDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 92, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1471, 34, 'mid_sun', '下注买中三顺的的金额', 'float(11,2)', 'Float', 'midSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 93, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1472, 34, 'mid_ban', '下注买中三半的的金额', 'float(11,2)', 'Float', 'midBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 94, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1473, 34, 'mid_za', '下注买中三杂的的金额', 'float(11,2)', 'Float', 'midZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 95, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1474, 34, 'back_bao', '下注买后三豹的的金额', 'float(11,2)', 'Float', 'backBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 96, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1475, 34, 'back_dui', '下注买后三对的的金额', 'float(11,2)', 'Float', 'backDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 97, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1476, 34, 'back_sun', '下注买后三顺的的金额', 'float(11,2)', 'Float', 'backSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 98, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1477, 34, 'back_ban', '下注买后三半的的金额', 'float(11,2)', 'Float', 'backBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 99, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1478, 34, 'back_za', '下注买后三杂的的金额', 'float(11,2)', 'Float', 'backZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 100, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1479, 34, 'num1', '开奖号码1', 'int(11)', 'Integer', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 101, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1480, 34, 'num2', '开奖号码2', 'int(11)', 'Integer', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 102, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1481, 34, 'num3', '开奖号码3', 'int(11)', 'Integer', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 103, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1482, 34, 'num4', '开奖号码4', 'int(11)', 'Integer', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 104, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1483, 34, 'num5', '开奖号码5', 'int(11)', 'Integer', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 105, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1484, 34, 'sum', '开奖合算数字', 'int(11)', 'Integer', 'sum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 106, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1485, 34, 'is_delete', '是否扣除(0否 1是)', 'char(1)', 'String', 'isDelete', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 107, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1486, 34, 'is_deduct', '是否扣除', 'char(1)', 'String', 'isDeduct', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 108, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1487, 34, 'house', '房间号', 'int(4)', 'Integer', 'house', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 109, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1488, 34, 'hz_id', '是否合庄模式', 'char(1)', 'String', 'hzId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 110, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1489, 34, 'hz_user', '是否用户(0否 1是)', 'char(1)', 'String', 'hzUser', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 111, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1490, 34, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 112, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1491, 34, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 113, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1492, 34, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 114, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1493, 34, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 115, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1494, 34, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 116, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
 
 -- ----------------------------
 -- Table structure for jnd
@@ -1328,74 +1405,129 @@ CREATE TABLE `jnd`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3117794 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3121319 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jnd
 -- ----------------------------
-INSERT INTO `jnd` VALUES (3117356, '2024-03-18 16:43:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 2, 8, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117357, '2024-03-18 16:47:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 6, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117358, '2024-03-18 16:50:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 2, 6, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117359, '2024-03-18 16:54:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 1, 8, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117360, '2024-03-18 16:57:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 8, 8, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117361, '2024-03-18 17:01:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 8, 2, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117362, '2024-03-18 17:04:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 2, 0, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117363, '2024-03-18 17:08:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 9, 9, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117364, '2024-03-18 17:11:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 7, 0, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117365, '2024-03-18 17:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 6, 1, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117366, '2024-03-18 17:18:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 8, 1, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117367, '2024-03-18 17:22:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 9, 2, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117368, '2024-03-18 17:25:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 5, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117369, '2024-03-18 17:29:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 8, 6, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117370, '2024-03-18 17:32:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 5, 6, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117371, '2024-03-18 17:36:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 0, 2, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117372, '2024-03-18 17:39:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 5, 1, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117373, '2024-03-18 17:43:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 8, 0, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117374, '2024-03-18 17:46:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 1, 2, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117375, '2024-03-18 17:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 6, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117376, '2024-03-18 17:53:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 9, 4, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117377, '2024-03-18 17:57:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117378, '2024-03-18 18:00:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 0, 3, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117379, '2024-03-18 18:04:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 2, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117380, '2024-03-18 18:07:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 9, 4, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117381, '2024-03-18 18:11:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 1, 2, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117382, '2024-03-18 18:14:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 0, 5, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117383, '2024-03-18 18:18:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 3, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117384, '2024-03-18 18:21:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 8, 5, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117385, '2024-03-18 18:25:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 5, 3, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117386, '2024-03-18 18:28:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 5, 7, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117387, '2024-03-18 18:32:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 9, 6, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117388, '2024-03-18 18:35:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 5, 5, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117389, '2024-03-18 18:39:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 1, 1, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117390, '2024-03-18 18:42:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 9, 4, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117391, '2024-03-18 18:46:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 0, 9, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117392, '2024-03-18 18:49:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 4, 4, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117393, '2024-03-18 18:53:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 5, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117394, '2024-03-18 18:56:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 6, 3, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117395, '2024-03-18 19:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 7, 1, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117396, '2024-03-18 21:00:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 4, 3, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117397, '2024-03-18 21:04:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 1, 5, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117398, '2024-03-18 21:07:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 3, 9, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117399, '2024-03-18 21:11:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 8, 2, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117400, '2024-03-18 21:14:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 1, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117401, '2024-03-18 21:18:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 8, 9, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117402, '2024-03-18 21:21:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 6, 8, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117403, '2024-03-18 21:25:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 9, 9, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117404, '2024-03-18 21:28:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 9, 4, 'TASK', '2024-03-18 21:34:41', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117405, '2024-03-18 21:32:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 2, 0, 'TASK', '2024-03-18 21:34:38', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117406, '2024-03-18 21:35:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 5, 'TASK', '2024-03-18 21:36:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117407, '2024-03-18 21:39:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 9, 'TASK', '2024-03-18 21:39:56', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117408, '2024-03-18 21:42:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 9, 4, 'TASK', '2024-03-18 21:43:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117409, '2024-03-18 21:46:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 9, 4, 'TASK', '2024-03-18 21:47:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117410, '2024-03-18 21:49:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 8, 3, 'TASK', '2024-03-18 21:50:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117411, '2024-03-18 21:53:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 2, 7, 'TASK', '2024-03-18 21:54:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117412, '2024-03-18 21:56:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 0, 6, 'TASK', '2024-03-18 21:57:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117413, '2024-03-18 22:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 1, 7, 'TASK', '2024-03-18 22:01:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117414, '2024-03-18 22:03:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 6, 4, 'TASK', '2024-03-18 22:04:01', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117415, '2024-03-18 22:07:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 8, 'TASK', '2024-03-18 22:08:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117791, '2024-03-19 21:00:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 9, 8, 'TASK', '2024-03-19 21:04:00', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117792, '2024-03-19 21:04:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 0, 1, 'TASK', '2024-03-19 21:13:20', '', NULL, '');
-INSERT INTO `jnd` VALUES (3117793, '2024-03-19 21:07:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 8, 4, 'TASK', '2024-03-19 21:25:55', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120509, '2024-03-26 19:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 8, 0, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120510, '2024-03-26 20:01:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120511, '2024-03-26 20:04:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 9, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120512, '2024-03-26 20:08:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120513, '2024-03-26 20:11:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 8, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120514, '2024-03-26 20:15:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 4, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120515, '2024-03-26 20:18:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 6, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120516, '2024-03-26 20:22:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 4, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120517, '2024-03-26 20:25:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120518, '2024-03-26 20:29:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120519, '2024-03-26 20:32:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 4, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120520, '2024-03-26 20:36:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 9, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120521, '2024-03-26 20:39:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120522, '2024-03-26 20:43:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120523, '2024-03-26 20:46:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 9, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120524, '2024-03-26 20:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 7, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120525, '2024-03-26 20:53:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 9, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120526, '2024-03-26 20:57:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 3, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120527, '2024-03-26 21:00:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 0, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120528, '2024-03-26 21:04:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 9, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120529, '2024-03-26 21:07:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 8, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120530, '2024-03-26 21:11:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 3, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120531, '2024-03-26 21:14:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 8, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120532, '2024-03-26 21:18:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 5, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120533, '2024-03-26 21:21:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 0, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120534, '2024-03-26 21:25:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 2, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120535, '2024-03-26 21:28:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 6, 0, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120536, '2024-03-26 21:32:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 3, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120537, '2024-03-26 21:35:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120538, '2024-03-26 21:39:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 3, 0, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120539, '2024-03-26 21:42:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 7, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120540, '2024-03-26 21:46:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 8, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120541, '2024-03-26 21:49:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120542, '2024-03-26 21:53:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 0, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120543, '2024-03-26 21:56:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 4, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120544, '2024-03-26 22:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 6, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120545, '2024-03-26 22:03:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120546, '2024-03-26 22:07:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 3, 0, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120547, '2024-03-26 22:10:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 9, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120548, '2024-03-26 22:14:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 8, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120549, '2024-03-26 22:17:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 9, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120550, '2024-03-26 22:21:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 9, 0, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120551, '2024-03-26 22:24:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 4, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120552, '2024-03-26 22:28:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 5, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120553, '2024-03-26 22:31:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 0, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120554, '2024-03-26 22:35:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120555, '2024-03-26 22:38:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 6, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120556, '2024-03-26 22:42:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120557, '2024-03-26 22:45:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 7, 'TASK', '2024-03-26 22:47:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120558, '2024-03-26 22:49:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 7, 8, 'TASK', '2024-03-26 22:50:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120559, '2024-03-26 22:52:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 7, 9, 'TASK', '2024-03-26 22:54:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120917, '2024-03-27 20:46:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 8, 7, 'TASK', '2024-03-27 20:48:02', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120918, '2024-03-27 20:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 0, 4, 'TASK', '2024-03-27 20:51:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120919, '2024-03-27 20:53:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 0, 2, 'TASK', '2024-03-27 20:54:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120920, '2024-03-27 20:57:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 5, 'TASK', '2024-03-27 20:58:04', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120921, '2024-03-27 21:00:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 8, 8, 'TASK', '2024-03-27 21:01:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120922, '2024-03-27 21:04:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 0, 1, 'TASK', '2024-03-27 21:05:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120923, '2024-03-27 21:07:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 8, 3, 'TASK', '2024-03-27 21:08:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120924, '2024-03-27 21:11:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 1, 0, 'TASK', '2024-03-27 21:12:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120925, '2024-03-27 21:14:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 7, 8, 'TASK', '2024-03-27 21:15:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120926, '2024-03-27 21:18:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 9, 'TASK', '2024-03-27 21:19:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120927, '2024-03-27 21:21:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4, 1, 'TASK', '2024-03-27 21:22:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120928, '2024-03-27 21:25:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 5, 6, 'TASK', '2024-03-27 21:26:02', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120929, '2024-03-27 21:28:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 3, 2, 'TASK', '2024-03-27 21:29:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120930, '2024-03-27 21:32:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 7, 2, 'TASK', '2024-03-27 21:33:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120931, '2024-03-27 21:35:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 7, 'TASK', '2024-03-27 21:36:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120932, '2024-03-27 21:39:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 3, 'TASK', '2024-03-27 21:40:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120933, '2024-03-27 21:42:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 4, 5, 'TASK', '2024-03-27 21:44:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120934, '2024-03-27 21:46:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 8, 9, 'TASK', '2024-03-27 21:47:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120935, '2024-03-27 21:49:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 8, 9, 'TASK', '2024-03-27 21:50:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120936, '2024-03-27 21:53:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, 6, 'TASK', '2024-03-27 21:54:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120937, '2024-03-27 21:56:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 9, 2, 'TASK', '2024-03-27 21:57:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120938, '2024-03-27 22:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 8, 1, 'TASK', '2024-03-27 22:01:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120939, '2024-03-27 22:03:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 6, 'TASK', '2024-03-27 22:04:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120940, '2024-03-27 22:07:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 3, 2, 'TASK', '2024-03-27 22:08:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120941, '2024-03-27 22:10:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 1, 2, 'TASK', '2024-03-27 22:11:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120942, '2024-03-27 22:14:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 5, 4, 'TASK', '2024-03-27 22:15:02', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120943, '2024-03-27 22:17:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 8, 7, 'TASK', '2024-03-27 22:19:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120944, '2024-03-27 22:21:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 6, 9, 'TASK', '2024-03-27 22:22:04', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120945, '2024-03-27 22:24:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 4, 0, 'TASK', '2024-03-27 22:25:02', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120946, '2024-03-27 22:28:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 8, 6, 'TASK', '2024-03-27 22:29:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120947, '2024-03-27 22:31:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 6, 5, 'TASK', '2024-03-27 22:32:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120948, '2024-03-27 22:35:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 'TASK', '2024-03-27 22:36:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120949, '2024-03-27 22:38:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 9, 0, 'TASK', '2024-03-27 22:39:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120950, '2024-03-27 22:42:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 5, 0, 'TASK', '2024-03-27 22:43:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120951, '2024-03-27 22:45:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 5, 7, 'TASK', '2024-03-27 22:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120952, '2024-03-27 22:49:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 0, 'TASK', '2024-03-27 22:50:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120953, '2024-03-27 22:52:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 2, 'TASK', '2024-03-27 22:53:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120954, '2024-03-27 22:56:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 9, 7, 'TASK', '2024-03-27 22:57:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120955, '2024-03-27 22:59:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 4, 'TASK', '2024-03-27 23:00:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120956, '2024-03-27 23:03:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 5, 4, 'TASK', '2024-03-27 23:04:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120957, '2024-03-27 23:06:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 9, 'TASK', '2024-03-27 23:07:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120958, '2024-03-27 23:10:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 8, 2, 'TASK', '2024-03-27 23:11:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120959, '2024-03-27 23:13:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 9, 1, 'TASK', '2024-03-27 23:15:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120960, '2024-03-27 23:17:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 4, 7, 'TASK', '2024-03-27 23:18:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120961, '2024-03-27 23:20:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 6, 6, 'TASK', '2024-03-27 23:21:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120962, '2024-03-27 23:24:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 7, 4, 'TASK', '2024-03-27 23:25:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120963, '2024-03-27 23:27:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4, 4, 'TASK', '2024-03-27 23:28:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120964, '2024-03-27 23:31:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 6, 8, 'TASK', '2024-03-27 23:32:06', '', NULL, '');
+INSERT INTO `jnd` VALUES (3120965, '2024-03-27 23:34:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 8, 5, 'TASK', '2024-03-27 23:35:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121301, '2024-03-28 20:32:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 0, 3, 'TASK', '2024-03-28 20:33:02', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121302, '2024-03-28 20:36:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 2, 'TASK', '2024-03-28 20:37:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121303, '2024-03-28 20:39:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 3, 5, 'TASK', '2024-03-28 20:40:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121304, '2024-03-28 20:43:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 5, 'TASK', '2024-03-28 20:44:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121305, '2024-03-28 20:46:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 8, 0, 'TASK', '2024-03-28 20:47:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121306, '2024-03-28 20:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 4, 7, 'TASK', '2024-03-28 20:51:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121307, '2024-03-28 20:53:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 3, 5, 'TASK', '2024-03-28 20:54:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121308, '2024-03-28 20:57:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 9, 'TASK', '2024-03-28 20:58:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121309, '2024-03-28 21:00:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 2, 4, 'TASK', '2024-03-28 21:01:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121310, '2024-03-28 21:04:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 8, 6, 'TASK', '2024-03-28 21:05:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121311, '2024-03-28 21:07:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 6, 9, 'TASK', '2024-03-28 21:08:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121312, '2024-03-28 21:11:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 0, 9, 'TASK', '2024-03-28 21:12:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121313, '2024-03-28 21:14:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 7, 'TASK', '2024-03-28 21:15:02', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121314, '2024-03-28 21:18:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 3, 1, 'TASK', '2024-03-28 21:19:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121315, '2024-03-28 21:21:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 8, 8, 'TASK', '2024-03-28 21:22:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121316, '2024-03-28 21:25:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 8, 0, 'TASK', '2024-03-28 21:26:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121317, '2024-03-28 21:28:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 6, 'TASK', '2024-03-28 21:29:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3121318, '2024-03-28 21:32:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 4, 1, 'TASK', '2024-03-28 21:33:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jnd28
@@ -1528,77 +1660,256 @@ CREATE TABLE `jsssc`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3939448 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3949837 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jsssc
 -- ----------------------------
-INSERT INTO `jsssc` VALUES (3938282, '2024-03-18 20:50:33', 9, 10, 2, 3, 6, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938283, '2024-03-18 20:51:48', 9, 6, 7, 3, 2, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938284, '2024-03-18 20:53:03', 3, 2, 5, 7, 6, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938285, '2024-03-18 20:54:18', 2, 7, 9, 3, 4, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938286, '2024-03-18 20:55:33', 4, 9, 5, 2, 1, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938287, '2024-03-18 20:56:48', 8, 2, 1, 3, 7, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938288, '2024-03-18 20:58:03', 6, 3, 2, 10, 7, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938289, '2024-03-18 20:59:18', 3, 5, 2, 9, 10, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938290, '2024-03-18 21:00:33', 2, 9, 3, 6, 5, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938291, '2024-03-18 21:01:48', 3, 2, 9, 4, 6, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938292, '2024-03-18 21:03:03', 4, 10, 5, 3, 9, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938293, '2024-03-18 21:04:18', 10, 9, 1, 4, 8, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938294, '2024-03-18 21:05:33', 7, 2, 1, 9, 3, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938295, '2024-03-18 21:06:48', 5, 7, 6, 10, 2, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938296, '2024-03-18 21:08:03', 8, 9, 3, 1, 5, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938297, '2024-03-18 21:09:18', 10, 7, 3, 2, 8, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938298, '2024-03-18 21:10:33', 8, 5, 2, 1, 3, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938299, '2024-03-18 21:11:48', 4, 7, 1, 5, 9, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938300, '2024-03-18 21:13:03', 3, 8, 2, 1, 5, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938301, '2024-03-18 21:14:18', 5, 1, 3, 8, 4, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938302, '2024-03-18 21:15:33', 7, 8, 3, 10, 4, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938303, '2024-03-18 21:16:48', 7, 1, 2, 10, 3, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938304, '2024-03-18 21:18:03', 6, 8, 5, 4, 9, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938305, '2024-03-18 21:19:18', 5, 4, 2, 10, 7, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938306, '2024-03-18 21:20:33', 2, 3, 7, 5, 1, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938307, '2024-03-18 21:21:48', 10, 8, 1, 3, 2, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938308, '2024-03-18 21:23:03', 1, 6, 5, 4, 2, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938309, '2024-03-18 21:24:18', 3, 4, 9, 2, 10, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938310, '2024-03-18 21:25:33', 7, 6, 3, 2, 8, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938311, '2024-03-18 21:26:48', 5, 10, 7, 6, 4, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938312, '2024-03-18 21:28:03', 7, 2, 3, 6, 8, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938313, '2024-03-18 21:29:18', 5, 9, 10, 2, 4, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938314, '2024-03-18 21:30:33', 2, 8, 4, 10, 6, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938315, '2024-03-18 21:31:48', 3, 7, 8, 2, 4, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938316, '2024-03-18 21:33:03', 6, 4, 5, 8, 9, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938317, '2024-03-18 21:34:18', 10, 2, 1, 7, 9, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938318, '2024-03-18 21:35:33', 5, 7, 1, 6, 10, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938319, '2024-03-18 21:36:48', 10, 3, 8, 9, 6, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938320, '2024-03-18 21:38:03', 10, 3, 2, 7, 1, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938321, '2024-03-18 21:39:18', 5, 1, 3, 6, 10, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938322, '2024-03-18 21:40:33', 3, 2, 4, 8, 7, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938323, '2024-03-18 21:41:48', 2, 3, 10, 7, 9, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938324, '2024-03-18 21:43:03', 3, 7, 4, 6, 9, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938325, '2024-03-18 21:44:18', 3, 10, 5, 2, 7, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938326, '2024-03-18 21:45:33', 7, 3, 10, 1, 2, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938327, '2024-03-18 21:46:48', 7, 4, 6, 3, 1, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938328, '2024-03-18 21:48:03', 3, 2, 6, 1, 8, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938329, '2024-03-18 21:49:18', 7, 9, 5, 8, 6, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938330, '2024-03-18 21:50:33', 7, 2, 5, 3, 8, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938331, '2024-03-18 21:51:48', 5, 10, 8, 2, 4, 'TASK', '2024-03-18 21:52:42', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938332, '2024-03-18 21:53:03', 1, 6, 9, 5, 10, 'TASK', '2024-03-18 21:54:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938333, '2024-03-18 21:54:18', 6, 10, 2, 3, 8, 'TASK', '2024-03-18 21:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938334, '2024-03-18 21:55:33', 5, 4, 10, 6, 3, 'TASK', '2024-03-18 21:56:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938335, '2024-03-18 21:56:48', 4, 2, 9, 3, 7, 'TASK', '2024-03-18 21:57:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938336, '2024-03-18 21:58:03', 4, 7, 9, 6, 2, 'TASK', '2024-03-18 21:59:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938337, '2024-03-18 21:59:18', 8, 6, 4, 7, 10, 'TASK', '2024-03-18 22:00:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938338, '2024-03-18 22:00:33', 3, 8, 2, 10, 4, 'TASK', '2024-03-18 22:01:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938339, '2024-03-18 22:01:48', 8, 9, 5, 2, 4, 'TASK', '2024-03-18 22:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938340, '2024-03-18 22:03:03', 4, 9, 10, 8, 1, 'TASK', '2024-03-18 22:04:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938341, '2024-03-18 22:04:18', 1, 6, 3, 8, 2, 'TASK', '2024-03-18 22:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938342, '2024-03-18 22:05:33', 8, 4, 10, 2, 3, 'TASK', '2024-03-18 22:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3938343, '2024-03-18 22:06:48', 6, 7, 4, 2, 8, 'TASK', '2024-03-18 22:07:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3939444, '2024-03-19 21:03:03', 2, 3, 5, 7, 8, 'TASK', '2024-03-19 21:04:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3939445, '2024-03-19 21:04:18', 3, 9, 4, 2, 8, 'TASK', '2024-03-19 21:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3939446, '2024-03-19 21:05:33', 8, 4, 7, 3, 10, 'TASK', '2024-03-19 21:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3939447, '2024-03-19 21:06:48', 5, 9, 6, 1, 7, 'TASK', '2024-03-19 21:07:10', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947541, '2024-03-26 21:44:18', 4, 6, 7, 5, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947542, '2024-03-26 21:45:33', 3, 10, 5, 1, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947543, '2024-03-26 21:46:48', 8, 7, 3, 9, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947544, '2024-03-26 21:48:03', 10, 5, 3, 7, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947545, '2024-03-26 21:49:18', 6, 4, 3, 7, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947546, '2024-03-26 21:50:33', 4, 3, 10, 6, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947547, '2024-03-26 21:51:48', 6, 1, 2, 5, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947548, '2024-03-26 21:53:03', 5, 2, 9, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947549, '2024-03-26 21:54:18', 6, 7, 9, 2, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947550, '2024-03-26 21:55:33', 4, 2, 5, 10, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947551, '2024-03-26 21:56:48', 5, 6, 1, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947552, '2024-03-26 21:58:03', 7, 5, 9, 6, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947553, '2024-03-26 21:59:18', 6, 5, 8, 4, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947554, '2024-03-26 22:00:33', 3, 10, 6, 8, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947555, '2024-03-26 22:01:48', 10, 2, 8, 3, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947556, '2024-03-26 22:03:03', 2, 10, 1, 8, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947557, '2024-03-26 22:04:18', 8, 1, 3, 5, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947558, '2024-03-26 22:05:33', 1, 4, 6, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947559, '2024-03-26 22:06:48', 7, 9, 8, 6, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947560, '2024-03-26 22:08:03', 6, 7, 1, 10, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947561, '2024-03-26 22:09:18', 9, 7, 4, 1, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947562, '2024-03-26 22:10:33', 5, 8, 3, 7, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947563, '2024-03-26 22:11:48', 4, 1, 3, 2, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947564, '2024-03-26 22:13:03', 1, 3, 9, 10, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947565, '2024-03-26 22:14:18', 7, 6, 5, 2, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947566, '2024-03-26 22:15:33', 7, 5, 3, 6, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947567, '2024-03-26 22:16:48', 3, 5, 9, 7, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947568, '2024-03-26 22:18:03', 6, 10, 5, 3, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947569, '2024-03-26 22:19:18', 9, 10, 2, 1, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947570, '2024-03-26 22:20:33', 8, 5, 2, 10, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947571, '2024-03-26 22:21:48', 5, 10, 9, 2, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947572, '2024-03-26 22:23:03', 6, 2, 3, 1, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947573, '2024-03-26 22:24:18', 8, 1, 9, 7, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947574, '2024-03-26 22:25:33', 5, 7, 4, 9, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947575, '2024-03-26 22:26:48', 9, 4, 5, 7, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947576, '2024-03-26 22:28:03', 5, 7, 2, 3, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947577, '2024-03-26 22:29:18', 7, 1, 6, 8, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947578, '2024-03-26 22:30:33', 8, 1, 5, 9, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947579, '2024-03-26 22:31:48', 1, 4, 9, 7, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947580, '2024-03-26 22:33:03', 4, 2, 8, 6, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947581, '2024-03-26 22:34:18', 8, 6, 9, 7, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947582, '2024-03-26 22:35:33', 5, 6, 4, 3, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947583, '2024-03-26 22:36:48', 10, 4, 5, 8, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947584, '2024-03-26 22:38:03', 9, 8, 6, 3, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947585, '2024-03-26 22:39:18', 1, 4, 7, 10, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947586, '2024-03-26 22:40:33', 5, 4, 2, 8, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947587, '2024-03-26 22:41:48', 5, 7, 10, 1, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947588, '2024-03-26 22:43:03', 5, 1, 7, 8, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947589, '2024-03-26 22:44:18', 8, 7, 5, 4, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947590, '2024-03-26 22:45:33', 6, 8, 9, 2, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947591, '2024-03-26 22:46:48', 4, 1, 9, 2, 3, 'TASK', '2024-03-26 22:47:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947592, '2024-03-26 22:48:03', 9, 4, 7, 10, 6, 'TASK', '2024-03-26 22:49:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947593, '2024-03-26 22:49:18', 5, 1, 6, 9, 10, 'TASK', '2024-03-26 22:50:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947594, '2024-03-26 22:50:33', 10, 6, 8, 2, 5, 'TASK', '2024-03-26 22:51:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947595, '2024-03-26 22:51:48', 1, 8, 2, 6, 7, 'TASK', '2024-03-26 22:52:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947596, '2024-03-26 22:53:03', 1, 8, 3, 6, 5, 'TASK', '2024-03-26 22:54:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947597, '2024-03-26 22:54:18', 5, 4, 10, 1, 8, 'TASK', '2024-03-26 22:55:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3947598, '2024-03-26 22:55:33', 1, 3, 9, 6, 8, 'TASK', '2024-03-26 22:56:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948647, '2024-03-27 20:46:48', 6, 8, 3, 5, 9, 'TASK', '2024-03-27 20:48:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948648, '2024-03-27 20:48:03', 1, 2, 5, 10, 4, 'TASK', '2024-03-27 20:49:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948649, '2024-03-27 20:49:18', 2, 4, 1, 10, 9, 'TASK', '2024-03-27 20:50:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948650, '2024-03-27 20:50:33', 3, 9, 10, 8, 6, 'TASK', '2024-03-27 20:51:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948651, '2024-03-27 20:51:48', 7, 4, 6, 10, 1, 'TASK', '2024-03-27 20:52:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948652, '2024-03-27 20:53:03', 10, 7, 8, 1, 4, 'TASK', '2024-03-27 20:54:03', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948653, '2024-03-27 20:54:18', 10, 5, 9, 7, 4, 'TASK', '2024-03-27 20:55:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948654, '2024-03-27 20:55:33', 1, 8, 3, 10, 7, 'TASK', '2024-03-27 20:56:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948655, '2024-03-27 20:56:48', 6, 3, 10, 5, 7, 'TASK', '2024-03-27 20:57:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948656, '2024-03-27 20:58:03', 4, 8, 5, 3, 9, 'TASK', '2024-03-27 20:59:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948657, '2024-03-27 20:59:18', 3, 4, 8, 10, 9, 'TASK', '2024-03-27 21:00:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948658, '2024-03-27 21:00:33', 8, 6, 3, 4, 9, 'TASK', '2024-03-27 21:01:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948659, '2024-03-27 21:01:48', 2, 9, 10, 6, 5, 'TASK', '2024-03-27 21:02:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948660, '2024-03-27 21:03:03', 6, 9, 3, 5, 7, 'TASK', '2024-03-27 21:04:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948661, '2024-03-27 21:04:18', 5, 9, 8, 10, 2, 'TASK', '2024-03-27 21:05:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948662, '2024-03-27 21:05:33', 7, 2, 9, 3, 4, 'TASK', '2024-03-27 21:06:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948663, '2024-03-27 21:06:48', 10, 8, 7, 4, 1, 'TASK', '2024-03-27 21:07:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948664, '2024-03-27 21:08:03', 5, 6, 2, 4, 3, 'TASK', '2024-03-27 21:09:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948665, '2024-03-27 21:09:18', 1, 5, 2, 6, 3, 'TASK', '2024-03-27 21:10:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948666, '2024-03-27 21:10:33', 3, 2, 1, 9, 8, 'TASK', '2024-03-27 21:11:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948667, '2024-03-27 21:11:48', 10, 3, 7, 5, 9, 'TASK', '2024-03-27 21:12:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948668, '2024-03-27 21:13:03', 10, 8, 7, 9, 6, 'TASK', '2024-03-27 21:14:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948669, '2024-03-27 21:14:18', 3, 5, 6, 8, 2, 'TASK', '2024-03-27 21:15:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948670, '2024-03-27 21:15:33', 5, 1, 8, 9, 7, 'TASK', '2024-03-27 21:16:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948671, '2024-03-27 21:16:48', 5, 2, 10, 9, 4, 'TASK', '2024-03-27 21:17:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948672, '2024-03-27 21:18:03', 8, 5, 7, 6, 10, 'TASK', '2024-03-27 21:19:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948673, '2024-03-27 21:19:18', 3, 10, 2, 4, 6, 'TASK', '2024-03-27 21:20:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948674, '2024-03-27 21:20:33', 3, 6, 10, 8, 2, 'TASK', '2024-03-27 21:21:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948675, '2024-03-27 21:21:48', 10, 4, 8, 2, 3, 'TASK', '2024-03-27 21:22:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948676, '2024-03-27 21:23:03', 10, 8, 7, 1, 5, 'TASK', '2024-03-27 21:24:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948677, '2024-03-27 21:24:18', 5, 2, 6, 1, 4, 'TASK', '2024-03-27 21:25:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948678, '2024-03-27 21:25:33', 2, 5, 10, 4, 6, 'TASK', '2024-03-27 21:26:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948679, '2024-03-27 21:26:48', 6, 1, 10, 3, 7, 'TASK', '2024-03-27 21:27:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948680, '2024-03-27 21:28:03', 2, 3, 4, 1, 5, 'TASK', '2024-03-27 21:29:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948681, '2024-03-27 21:29:18', 9, 1, 3, 7, 6, 'TASK', '2024-03-27 21:30:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948682, '2024-03-27 21:30:33', 1, 10, 9, 4, 8, 'TASK', '2024-03-27 21:31:03', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948683, '2024-03-27 21:31:48', 6, 5, 2, 9, 4, 'TASK', '2024-03-27 21:32:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948684, '2024-03-27 21:33:03', 6, 5, 7, 10, 9, 'TASK', '2024-03-27 21:34:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948685, '2024-03-27 21:34:18', 5, 1, 4, 7, 9, 'TASK', '2024-03-27 21:35:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948686, '2024-03-27 21:35:33', 7, 9, 4, 2, 6, 'TASK', '2024-03-27 21:36:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948687, '2024-03-27 21:36:48', 7, 5, 8, 10, 6, 'TASK', '2024-03-27 21:37:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948688, '2024-03-27 21:38:03', 2, 3, 7, 1, 5, 'TASK', '2024-03-27 21:39:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948689, '2024-03-27 21:39:18', 7, 4, 10, 8, 6, 'TASK', '2024-03-27 21:40:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948690, '2024-03-27 21:40:33', 4, 2, 1, 6, 9, 'TASK', '2024-03-27 21:41:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948691, '2024-03-27 21:41:48', 4, 6, 3, 5, 10, 'TASK', '2024-03-27 21:42:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948692, '2024-03-27 21:43:03', 2, 8, 6, 5, 7, 'TASK', '2024-03-27 21:44:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948693, '2024-03-27 21:44:18', 9, 5, 7, 8, 4, 'TASK', '2024-03-27 21:45:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948694, '2024-03-27 21:45:33', 5, 1, 4, 8, 3, 'TASK', '2024-03-27 21:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948695, '2024-03-27 21:46:48', 3, 2, 7, 1, 8, 'TASK', '2024-03-27 21:47:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948696, '2024-03-27 21:48:03', 7, 8, 5, 10, 6, 'TASK', '2024-03-27 21:49:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948697, '2024-03-27 21:49:18', 4, 10, 9, 1, 6, 'TASK', '2024-03-27 21:50:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948698, '2024-03-27 21:50:33', 8, 1, 6, 5, 7, 'TASK', '2024-03-27 21:51:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948699, '2024-03-27 21:51:48', 8, 2, 4, 9, 10, 'TASK', '2024-03-27 21:52:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948700, '2024-03-27 21:53:03', 2, 1, 8, 4, 6, 'TASK', '2024-03-27 21:54:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948701, '2024-03-27 21:54:18', 3, 8, 2, 5, 9, 'TASK', '2024-03-27 21:55:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948702, '2024-03-27 21:55:33', 1, 9, 7, 8, 4, 'TASK', '2024-03-27 21:56:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948703, '2024-03-27 21:56:48', 10, 2, 5, 3, 7, 'TASK', '2024-03-27 21:57:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948704, '2024-03-27 21:58:03', 3, 2, 9, 5, 7, 'TASK', '2024-03-27 21:59:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948705, '2024-03-27 21:59:18', 8, 10, 7, 2, 3, 'TASK', '2024-03-27 22:00:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948706, '2024-03-27 22:00:33', 5, 4, 9, 2, 3, 'TASK', '2024-03-27 22:01:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948707, '2024-03-27 22:01:48', 7, 6, 4, 3, 10, 'TASK', '2024-03-27 22:02:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948708, '2024-03-27 22:03:03', 6, 8, 10, 2, 3, 'TASK', '2024-03-27 22:04:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948709, '2024-03-27 22:04:18', 1, 5, 7, 4, 6, 'TASK', '2024-03-27 22:05:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948710, '2024-03-27 22:05:33', 8, 6, 5, 3, 9, 'TASK', '2024-03-27 22:06:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948711, '2024-03-27 22:06:48', 3, 1, 4, 8, 10, 'TASK', '2024-03-27 22:07:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948712, '2024-03-27 22:08:03', 7, 4, 6, 1, 10, 'TASK', '2024-03-27 22:09:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948713, '2024-03-27 22:09:18', 3, 4, 9, 5, 7, 'TASK', '2024-03-27 22:10:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948714, '2024-03-27 22:10:33', 4, 10, 3, 9, 6, 'TASK', '2024-03-27 22:11:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948715, '2024-03-27 22:11:48', 5, 2, 4, 8, 7, 'TASK', '2024-03-27 22:12:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948716, '2024-03-27 22:13:03', 9, 2, 5, 10, 4, 'TASK', '2024-03-27 22:14:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948717, '2024-03-27 22:14:18', 8, 5, 7, 1, 10, 'TASK', '2024-03-27 22:15:03', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948718, '2024-03-27 22:15:33', 7, 9, 8, 10, 1, 'TASK', '2024-03-27 22:16:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948719, '2024-03-27 22:16:48', 2, 6, 7, 8, 5, 'TASK', '2024-03-27 22:17:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948720, '2024-03-27 22:18:03', 2, 8, 6, 5, 1, 'TASK', '2024-03-27 22:19:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948721, '2024-03-27 22:19:18', 1, 4, 7, 9, 10, 'TASK', '2024-03-27 22:20:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948722, '2024-03-27 22:20:33', 8, 2, 7, 3, 6, 'TASK', '2024-03-27 22:21:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948723, '2024-03-27 22:21:48', 2, 4, 3, 7, 6, 'TASK', '2024-03-27 22:22:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948724, '2024-03-27 22:23:03', 5, 7, 10, 2, 1, 'TASK', '2024-03-27 22:24:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948725, '2024-03-27 22:24:18', 5, 9, 1, 6, 10, 'TASK', '2024-03-27 22:25:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948726, '2024-03-27 22:25:33', 8, 6, 1, 10, 4, 'TASK', '2024-03-27 22:26:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948727, '2024-03-27 22:26:48', 3, 10, 5, 2, 7, 'TASK', '2024-03-27 22:27:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948728, '2024-03-27 22:28:03', 10, 1, 6, 8, 4, 'TASK', '2024-03-27 22:29:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948729, '2024-03-27 22:29:18', 6, 4, 7, 1, 8, 'TASK', '2024-03-27 22:30:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948730, '2024-03-27 22:30:33', 8, 9, 3, 5, 10, 'TASK', '2024-03-27 22:31:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948731, '2024-03-27 22:31:48', 3, 1, 8, 4, 10, 'TASK', '2024-03-27 22:32:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948732, '2024-03-27 22:33:03', 10, 8, 7, 1, 2, 'TASK', '2024-03-27 22:34:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948733, '2024-03-27 22:34:18', 2, 4, 5, 9, 8, 'TASK', '2024-03-27 22:35:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948734, '2024-03-27 22:35:33', 2, 6, 5, 3, 7, 'TASK', '2024-03-27 22:36:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948735, '2024-03-27 22:36:48', 6, 3, 5, 2, 10, 'TASK', '2024-03-27 22:37:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948736, '2024-03-27 22:38:03', 3, 2, 10, 6, 4, 'TASK', '2024-03-27 22:39:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948737, '2024-03-27 22:39:18', 8, 7, 2, 10, 4, 'TASK', '2024-03-27 22:40:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948738, '2024-03-27 22:40:33', 1, 6, 10, 9, 4, 'TASK', '2024-03-27 22:41:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948739, '2024-03-27 22:41:48', 2, 3, 10, 6, 5, 'TASK', '2024-03-27 22:42:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948740, '2024-03-27 22:43:03', 1, 5, 4, 2, 9, 'TASK', '2024-03-27 22:44:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948741, '2024-03-27 22:44:18', 5, 9, 7, 10, 1, 'TASK', '2024-03-27 22:45:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948742, '2024-03-27 22:45:33', 3, 9, 7, 2, 1, 'TASK', '2024-03-27 22:46:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948743, '2024-03-27 22:46:48', 10, 7, 8, 4, 5, 'TASK', '2024-03-27 22:47:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948744, '2024-03-27 22:48:03', 9, 7, 2, 5, 6, 'TASK', '2024-03-27 22:49:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948745, '2024-03-27 22:49:18', 8, 6, 3, 10, 2, 'TASK', '2024-03-27 22:50:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948746, '2024-03-27 22:50:33', 1, 8, 6, 9, 5, 'TASK', '2024-03-27 22:51:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948747, '2024-03-27 22:51:48', 3, 8, 2, 10, 1, 'TASK', '2024-03-27 22:52:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948748, '2024-03-27 22:53:03', 1, 2, 3, 10, 6, 'TASK', '2024-03-27 22:54:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948749, '2024-03-27 22:54:18', 7, 9, 2, 10, 4, 'TASK', '2024-03-27 22:55:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948750, '2024-03-27 22:55:33', 1, 2, 9, 3, 7, 'TASK', '2024-03-27 22:56:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948751, '2024-03-27 22:56:48', 3, 1, 9, 7, 6, 'TASK', '2024-03-27 22:57:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948752, '2024-03-27 22:58:03', 9, 10, 6, 1, 8, 'TASK', '2024-03-27 22:59:03', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948753, '2024-03-27 22:59:18', 8, 5, 2, 6, 1, 'TASK', '2024-03-27 23:00:04', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948754, '2024-03-27 23:00:33', 9, 4, 2, 8, 7, 'TASK', '2024-03-27 23:01:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948755, '2024-03-27 23:01:48', 1, 2, 6, 3, 9, 'TASK', '2024-03-27 23:02:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948756, '2024-03-27 23:03:03', 6, 5, 8, 7, 4, 'TASK', '2024-03-27 23:04:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948757, '2024-03-27 23:04:18', 6, 10, 2, 1, 3, 'TASK', '2024-03-27 23:05:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948758, '2024-03-27 23:05:33', 4, 10, 5, 3, 1, 'TASK', '2024-03-27 23:06:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948759, '2024-03-27 23:06:48', 7, 3, 8, 5, 6, 'TASK', '2024-03-27 23:07:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948760, '2024-03-27 23:08:03', 10, 6, 2, 4, 5, 'TASK', '2024-03-27 23:09:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948761, '2024-03-27 23:09:18', 5, 7, 2, 9, 6, 'TASK', '2024-03-27 23:10:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948762, '2024-03-27 23:10:33', 6, 3, 5, 9, 7, 'TASK', '2024-03-27 23:11:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948763, '2024-03-27 23:11:48', 3, 8, 9, 2, 1, 'TASK', '2024-03-27 23:12:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948764, '2024-03-27 23:13:03', 7, 8, 2, 3, 6, 'TASK', '2024-03-27 23:14:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948765, '2024-03-27 23:14:18', 6, 10, 8, 1, 4, 'TASK', '2024-03-27 23:15:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948766, '2024-03-27 23:15:33', 7, 3, 5, 1, 2, 'TASK', '2024-03-27 23:16:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948767, '2024-03-27 23:16:48', 9, 8, 1, 4, 6, 'TASK', '2024-03-27 23:17:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948768, '2024-03-27 23:18:03', 6, 5, 7, 3, 9, 'TASK', '2024-03-27 23:19:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948769, '2024-03-27 23:19:18', 9, 4, 8, 6, 3, 'TASK', '2024-03-27 23:20:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948770, '2024-03-27 23:20:33', 7, 3, 4, 10, 9, 'TASK', '2024-03-27 23:21:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948771, '2024-03-27 23:21:48', 9, 7, 1, 6, 3, 'TASK', '2024-03-27 23:22:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948772, '2024-03-27 23:23:03', 2, 6, 9, 3, 4, 'TASK', '2024-03-27 23:24:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948773, '2024-03-27 23:24:18', 8, 6, 4, 5, 1, 'TASK', '2024-03-27 23:25:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948774, '2024-03-27 23:25:33', 8, 3, 4, 9, 7, 'TASK', '2024-03-27 23:26:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948775, '2024-03-27 23:26:48', 7, 9, 2, 6, 8, 'TASK', '2024-03-27 23:27:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948776, '2024-03-27 23:28:03', 3, 4, 1, 8, 5, 'TASK', '2024-03-27 23:29:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948777, '2024-03-27 23:29:18', 2, 6, 3, 1, 5, 'TASK', '2024-03-27 23:30:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948778, '2024-03-27 23:30:33', 3, 9, 10, 4, 6, 'TASK', '2024-03-27 23:31:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948779, '2024-03-27 23:31:48', 2, 6, 8, 10, 3, 'TASK', '2024-03-27 23:32:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948780, '2024-03-27 23:33:03', 6, 9, 10, 7, 1, 'TASK', '2024-03-27 23:34:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948781, '2024-03-27 23:34:18', 10, 8, 9, 1, 7, 'TASK', '2024-03-27 23:35:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948782, '2024-03-27 23:35:33', 7, 10, 3, 9, 2, 'TASK', '2024-03-27 23:36:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3948783, '2024-03-27 23:36:48', 7, 10, 6, 4, 5, 'TASK', '2024-03-27 23:37:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949787, '2024-03-28 20:31:48', 2, 4, 1, 8, 6, 'TASK', '2024-03-28 20:33:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949788, '2024-03-28 20:33:03', 9, 8, 6, 4, 1, 'TASK', '2024-03-28 20:34:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949789, '2024-03-28 20:34:18', 3, 6, 2, 1, 9, 'TASK', '2024-03-28 20:35:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949790, '2024-03-28 20:35:33', 10, 5, 9, 3, 7, 'TASK', '2024-03-28 20:36:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949791, '2024-03-28 20:36:48', 1, 10, 3, 7, 2, 'TASK', '2024-03-28 20:37:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949792, '2024-03-28 20:38:03', 7, 6, 8, 4, 10, 'TASK', '2024-03-28 20:39:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949793, '2024-03-28 20:39:18', 8, 3, 4, 9, 6, 'TASK', '2024-03-28 20:40:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949794, '2024-03-28 20:40:33', 5, 4, 2, 1, 9, 'TASK', '2024-03-28 20:41:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949795, '2024-03-28 20:41:48', 10, 7, 5, 1, 3, 'TASK', '2024-03-28 20:42:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949796, '2024-03-28 20:43:03', 3, 4, 1, 9, 8, 'TASK', '2024-03-28 20:44:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949797, '2024-03-28 20:44:18', 5, 4, 3, 7, 1, 'TASK', '2024-03-28 20:45:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949798, '2024-03-28 20:45:33', 9, 4, 2, 6, 1, 'TASK', '2024-03-28 20:46:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949799, '2024-03-28 20:46:48', 1, 2, 10, 8, 4, 'TASK', '2024-03-28 20:47:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949800, '2024-03-28 20:48:03', 7, 4, 5, 2, 3, 'TASK', '2024-03-28 20:49:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949801, '2024-03-28 20:49:18', 3, 9, 6, 5, 10, 'TASK', '2024-03-28 20:50:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949802, '2024-03-28 20:50:33', 8, 5, 2, 7, 1, 'TASK', '2024-03-28 20:51:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949803, '2024-03-28 20:51:48', 5, 6, 10, 1, 8, 'TASK', '2024-03-28 20:52:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949804, '2024-03-28 20:53:03', 7, 9, 6, 3, 4, 'TASK', '2024-03-28 20:54:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949805, '2024-03-28 20:54:18', 6, 10, 3, 4, 5, 'TASK', '2024-03-28 20:55:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949806, '2024-03-28 20:55:33', 4, 5, 10, 9, 3, 'TASK', '2024-03-28 20:56:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949807, '2024-03-28 20:56:48', 6, 4, 5, 7, 8, 'TASK', '2024-03-28 20:57:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949808, '2024-03-28 20:58:03', 10, 5, 4, 3, 8, 'TASK', '2024-03-28 20:59:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949809, '2024-03-28 20:59:18', 9, 1, 8, 6, 4, 'TASK', '2024-03-28 21:00:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949810, '2024-03-28 21:00:33', 5, 1, 9, 4, 6, 'TASK', '2024-03-28 21:01:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949811, '2024-03-28 21:01:48', 10, 9, 5, 4, 3, 'TASK', '2024-03-28 21:02:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949812, '2024-03-28 21:03:03', 10, 3, 6, 7, 8, 'TASK', '2024-03-28 21:04:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949813, '2024-03-28 21:04:18', 4, 7, 5, 3, 1, 'TASK', '2024-03-28 21:05:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949814, '2024-03-28 21:05:33', 8, 7, 4, 6, 5, 'TASK', '2024-03-28 21:06:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949815, '2024-03-28 21:06:48', 3, 9, 6, 7, 1, 'TASK', '2024-03-28 21:07:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949816, '2024-03-28 21:08:03', 1, 4, 9, 5, 10, 'TASK', '2024-03-28 21:09:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949817, '2024-03-28 21:09:18', 5, 8, 9, 6, 7, 'TASK', '2024-03-28 21:10:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949818, '2024-03-28 21:10:33', 5, 8, 3, 7, 4, 'TASK', '2024-03-28 21:11:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949819, '2024-03-28 21:11:48', 7, 1, 5, 4, 2, 'TASK', '2024-03-28 21:12:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949820, '2024-03-28 21:13:03', 8, 4, 5, 7, 9, 'TASK', '2024-03-28 21:14:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949821, '2024-03-28 21:14:18', 3, 6, 1, 5, 7, 'TASK', '2024-03-28 21:15:03', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949822, '2024-03-28 21:15:33', 9, 2, 3, 10, 4, 'TASK', '2024-03-28 21:16:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949823, '2024-03-28 21:16:48', 2, 10, 9, 4, 3, 'TASK', '2024-03-28 21:17:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949824, '2024-03-28 21:18:03', 3, 2, 7, 10, 6, 'TASK', '2024-03-28 21:19:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949825, '2024-03-28 21:19:18', 8, 10, 4, 7, 6, 'TASK', '2024-03-28 21:20:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949826, '2024-03-28 21:20:33', 2, 1, 3, 9, 8, 'TASK', '2024-03-28 21:21:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949827, '2024-03-28 21:21:48', 10, 3, 5, 9, 4, 'TASK', '2024-03-28 21:22:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949828, '2024-03-28 21:23:03', 1, 7, 3, 10, 4, 'TASK', '2024-03-28 21:24:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949829, '2024-03-28 21:24:18', 2, 7, 4, 10, 9, 'TASK', '2024-03-28 21:25:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949830, '2024-03-28 21:25:33', 6, 7, 5, 9, 2, 'TASK', '2024-03-28 21:26:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949831, '2024-03-28 21:26:48', 8, 7, 2, 5, 9, 'TASK', '2024-03-28 21:27:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949832, '2024-03-28 21:28:03', 5, 10, 7, 8, 4, 'TASK', '2024-03-28 21:29:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949833, '2024-03-28 21:29:18', 10, 8, 9, 5, 4, 'TASK', '2024-03-28 21:30:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949834, '2024-03-28 21:30:33', 9, 1, 7, 2, 4, 'TASK', '2024-03-28 21:31:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949835, '2024-03-28 21:31:48', 7, 10, 4, 5, 8, 'TASK', '2024-03-28 21:32:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (3949836, '2024-03-28 21:33:03', 3, 7, 1, 2, 9, 'TASK', '2024-03-28 21:34:01', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jsssckj
@@ -1672,72 +1983,72 @@ CREATE TABLE `jssscrecord`  (
   `num1_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球小的金额',
   `num1_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球单的金额',
   `num1_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球双的金额',
-  `num1_0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球0的金额',
-  `num1_1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球1的金额',
-  `num1_2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球2的金额',
-  `num1_3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球3的金额',
-  `num1_4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球4的金额',
-  `num1_5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球5的金额',
-  `num1_6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球6的金额',
-  `num1_7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球7的金额',
-  `num1_8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球8的金额',
-  `num1_9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球9的金额',
+  `num1_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球0的金额',
+  `num1_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球1的金额',
+  `num1_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球2的金额',
+  `num1_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球3的金额',
+  `num1_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球4的金额',
+  `num1_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球5的金额',
+  `num1_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球6的金额',
+  `num1_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球7的金额',
+  `num1_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球8的金额',
+  `num1_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球9的金额',
   `num2_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球大的金额',
   `num2_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球小的金额',
   `num2_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球单的金额',
   `num2_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球双的金额',
-  `num2_0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球0的金额',
-  `num2_1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球1的金额',
-  `num2_2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球2的金额',
-  `num2_3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球3的金额',
-  `num2_4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球4的金额',
-  `num2_5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球5的金额',
-  `num2_6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球6的金额',
-  `num2_7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球7的金额',
-  `num2_8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球8的金额',
-  `num2_9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球9的金额',
+  `num2_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球0的金额',
+  `num2_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球1的金额',
+  `num2_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球2的金额',
+  `num2_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球3的金额',
+  `num2_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球4的金额',
+  `num2_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球5的金额',
+  `num2_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球6的金额',
+  `num2_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球7的金额',
+  `num2_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球8的金额',
+  `num2_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球9的金额',
   `num3_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球大的金额',
   `num3_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球小的金额',
   `num3_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球单的金额',
   `num3_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球双的金额',
-  `num3_0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球0的金额',
-  `num3_1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球1的金额',
-  `num3_2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球2的金额',
-  `num3_3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球3的金额',
-  `num3_4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球4的金额',
-  `num3_5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球5的金额',
-  `num3_6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球6的金额',
-  `num3_7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球7的金额',
-  `num3_8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球8的金额',
-  `num3_9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球9的金额',
+  `num3_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球0的金额',
+  `num3_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球1的金额',
+  `num3_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球2的金额',
+  `num3_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球3的金额',
+  `num3_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球4的金额',
+  `num3_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球5的金额',
+  `num3_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球6的金额',
+  `num3_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球7的金额',
+  `num3_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球8的金额',
+  `num3_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球9的金额',
   `num4_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球大的金额',
   `num4_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球小的金额',
   `num4_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球单的金额',
   `num4_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球双的金额',
-  `num4_0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球0的金额',
-  `num4_1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球1的金额',
-  `num4_2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球2的金额',
-  `num4_3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球3的金额',
-  `num4_4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球4的金额',
-  `num4_5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球5的金额',
-  `num4_6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球6的金额',
-  `num4_7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球7的金额',
-  `num4_8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球8的金额',
-  `num4_9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球9的金额',
+  `num4_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球0的金额',
+  `num4_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球1的金额',
+  `num4_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球2的金额',
+  `num4_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球3的金额',
+  `num4_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球4的金额',
+  `num4_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球5的金额',
+  `num4_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球6的金额',
+  `num4_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球7的金额',
+  `num4_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球8的金额',
+  `num4_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球9的金额',
   `num5_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球大的金额',
   `num5_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球小的金额',
   `num5_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球单的金额',
   `num5_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球双的金额',
-  `num5_0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球0的金额',
-  `num5_1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球1的金额',
-  `num5_2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球2的金额',
-  `num5_3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球3的金额',
-  `num5_4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球4的金额',
-  `num5_5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球5的金额',
-  `num5_6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球6的金额',
-  `num5_7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球7的金额',
-  `num5_8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球8的金额',
-  `num5_9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球9的金额',
+  `num5_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球0的金额',
+  `num5_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球1的金额',
+  `num5_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球2的金额',
+  `num5_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球3的金额',
+  `num5_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球4的金额',
+  `num5_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球5的金额',
+  `num5_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球6的金额',
+  `num5_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球7的金额',
+  `num5_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球8的金额',
+  `num5_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球9的金额',
   `first_bao` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三豹的金额',
   `first_dui` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三对的金额',
   `first_sun` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三顺的金额',
@@ -2070,326 +2381,326 @@ INSERT INTO `sys_bet_item` VALUES (45, 1, 3, 'close', '合', NULL, 2.04, 9999.99
 INSERT INTO `sys_bet_item` VALUES (46, 1, 3, 'leopard', '豹子', NULL, 2.04, 9999.99, 2.00, 46, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
 INSERT INTO `sys_bet_item` VALUES (47, 1, 3, 'pairs', '对子', NULL, 2.04, 9999.99, 2.00, 47, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
 INSERT INTO `sys_bet_item` VALUES (48, 1, 3, 'shun', '顺子', NULL, 2.04, 9999.99, 2.00, 48, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (49, 2, 4, 'big', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (50, 2, 4, 'small', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (51, 2, 4, 'single', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-25 20:16:46', '');
-INSERT INTO `sys_bet_item` VALUES (52, 2, 4, 'doubleFlg', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (53, 2, 4, 'muchbig', '极大', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (54, 2, 4, 'bigsingle', '大单', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (55, 2, 4, 'smallsingle', '小单', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (56, 2, 4, 'bigdouble', '大双', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (57, 2, 4, 'smalldouble', '小双', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (58, 2, 4, 'muchsmall', '极小', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (59, 2, 5, 'num0', '0 ', NULL, 500.01, 1000.00, 5.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:03:41', '');
-INSERT INTO `sys_bet_item` VALUES (60, 2, 5, 'num1', '1 ', NULL, 188.00, 9999.99, 5.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:08', '');
-INSERT INTO `sys_bet_item` VALUES (61, 2, 5, 'num2', '2 ', NULL, 120.00, 1000.00, 5.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:19', '');
-INSERT INTO `sys_bet_item` VALUES (62, 2, 5, 'num3', '3 ', NULL, 72.00, 1000.00, 5.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:40', '');
-INSERT INTO `sys_bet_item` VALUES (63, 2, 5, 'num4', '4 ', NULL, 38.00, 1000.00, 5.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:54', '');
-INSERT INTO `sys_bet_item` VALUES (64, 2, 5, 'num5', '5 ', NULL, 30.00, 1000.00, 5.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:18:07', '');
-INSERT INTO `sys_bet_item` VALUES (65, 2, 5, 'num6', '6 ', NULL, 24.00, 1000.00, 5.00, 18, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:18:24', '');
-INSERT INTO `sys_bet_item` VALUES (66, 2, 5, 'num7', '7 ', NULL, 19.00, 10000.00, 5.00, 19, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:18:39', '');
-INSERT INTO `sys_bet_item` VALUES (67, 2, 5, 'num8', '8 ', NULL, 17.00, 10000.00, 5.00, 20, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:19:02', '');
-INSERT INTO `sys_bet_item` VALUES (68, 2, 5, 'num9', '9 ', NULL, 15.00, 9999.99, 5.00, 21, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (69, 2, 5, 'num10', '10', NULL, 14.00, 9999.99, 5.00, 22, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (70, 2, 5, 'num11', '11', NULL, 13.00, 9999.99, 5.00, 23, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (71, 2, 5, 'num12', '12', NULL, 12.00, 9999.99, 5.00, 24, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (72, 2, 5, 'num13', '13', NULL, 12.00, 9999.99, 5.00, 25, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (73, 2, 5, 'num14', '14', NULL, 12.00, 9999.99, 5.00, 26, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (74, 2, 5, 'num15', '15', NULL, 12.00, 9999.99, 5.00, 27, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (75, 2, 5, 'num16', '16', NULL, 13.00, 9999.99, 5.00, 28, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (76, 2, 5, 'num17', '17', NULL, 14.00, 9999.99, 5.00, 29, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (77, 2, 5, 'num18', '18', NULL, 15.00, 9999.99, 5.00, 30, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (78, 2, 5, 'num19', '19', NULL, 17.00, 9999.99, 5.00, 31, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (79, 2, 5, 'num20', '20', NULL, 19.00, 9999.99, 5.00, 32, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (80, 2, 5, 'num21', '21', NULL, 24.00, 9999.99, 5.00, 33, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (81, 2, 5, 'num22', '22', NULL, 30.00, 9999.99, 5.00, 34, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (82, 2, 5, 'num23', '23', NULL, 38.00, 9999.99, 5.00, 35, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (83, 2, 5, 'num24', '24', NULL, 72.00, 9999.99, 5.00, 36, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (84, 2, 5, 'num25', '25', NULL, 120.00, 9999.99, 5.00, 37, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (85, 2, 5, 'num26', '26', NULL, 188.00, 9999.99, 5.00, 38, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (86, 2, 5, 'num27', '27', NULL, 500.00, 9999.99, 2.00, 39, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (87, 2, 6, 'red', '红', NULL, 2.04, 9999.99, 2.00, 40, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (88, 2, 6, 'green', '绿', NULL, 2.04, 9999.99, 2.00, 41, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (89, 2, 6, 'blue', '蓝', NULL, 2.04, 9999.99, 2.00, 42, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (90, 2, 6, 'loong', '龙', NULL, 2.04, 9999.99, 2.00, 43, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (91, 2, 6, 'tiger', '虎', NULL, 2.04, 9999.99, 2.00, 44, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (92, 2, 6, 'close', '合', NULL, 2.04, 9999.99, 2.00, 45, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (93, 2, 6, 'leopard', '豹子', NULL, 2.04, 9999.99, 2.00, 46, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (94, 2, 6, 'pairs', '对子', NULL, 2.04, 9999.99, 2.00, 47, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (95, 2, 6, 'shun', '顺子', NULL, 2.04, 9999.99, 2.00, 48, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (96, 9, 7, 'big', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (97, 9, 7, 'small', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (98, 9, 7, 'single', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (99, 9, 7, 'doubleFlg', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (100, 9, 7, 'num3', '3 ', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (101, 9, 7, 'num4', '4 ', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (102, 9, 7, 'num5', '5 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (103, 9, 7, 'num6', '6 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (104, 9, 7, 'num7', '7 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (105, 9, 7, 'num8', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (106, 9, 7, 'num9', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (107, 9, 7, 'num10', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (108, 9, 7, 'num11', '11', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (109, 9, 7, 'num12', '12', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (110, 9, 7, 'num13', '13', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (111, 9, 7, 'num14', '14', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (112, 9, 7, 'num15', '15', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (113, 9, 7, 'num16', '16', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (114, 9, 7, 'num17', '17', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (115, 9, 7, 'num18', '18', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (116, 9, 7, 'num19', '19', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (117, 9, 8, 'big1', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (118, 9, 8, 'small1', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (119, 9, 8, 'single1', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (120, 9, 8, 'double1', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (121, 9, 8, 'loong1', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (122, 9, 8, 'tiger1', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (123, 9, 8, 'num1Under1', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (124, 9, 8, 'num2Under1', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (125, 9, 8, 'num3Under1', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (126, 9, 8, 'num4Under1', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (127, 9, 8, 'num5Under1', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (128, 9, 8, 'num6Under1', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (129, 9, 8, 'num7Under1', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (130, 9, 8, 'num8Under1', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (131, 9, 8, 'num9Under1', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (132, 9, 8, 'num10Under1', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (133, 9, 9, 'big2', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (134, 9, 9, 'small2', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (135, 9, 9, 'single2', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (136, 9, 9, 'double2', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (137, 9, 9, 'loong2', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (138, 9, 9, 'tiger2', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (139, 9, 9, 'num1Under2', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (140, 9, 9, 'num2Under2', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (141, 9, 9, 'num3Under2', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (142, 9, 9, 'num4Under2', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (143, 9, 9, 'num5Under2', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (144, 9, 9, 'num6Under2', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (145, 9, 9, 'num7Under2', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (146, 9, 9, 'num8Under2', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (147, 9, 9, 'num9Under2', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (148, 9, 9, 'num10Under2', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (149, 9, 10, 'big3', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (150, 9, 10, 'small3', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (151, 9, 10, 'single3', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (152, 9, 10, 'double3', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (153, 9, 10, 'loong3', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (154, 9, 10, 'tiger3', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (155, 9, 10, 'num1Under3', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (156, 9, 10, 'num2Under3', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (157, 9, 10, 'num3Under3', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (158, 9, 10, 'num4Under3', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (159, 9, 10, 'num5Under3', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (160, 9, 10, 'num6Under3', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (161, 9, 10, 'num7Under3', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (162, 9, 10, 'num8Under3', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (163, 9, 10, 'num9Under3', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (164, 9, 10, 'num10Under3', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (165, 9, 11, 'big4', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (166, 9, 11, 'small4', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (167, 9, 11, 'single4', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (168, 9, 11, 'double4', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (169, 9, 11, 'loong4', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (170, 9, 11, 'tiger4', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (171, 9, 11, 'num1Under4', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (172, 9, 11, 'num2Under4', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (173, 9, 11, 'num3Under4', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (174, 9, 11, 'num4Under4', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (175, 9, 11, 'num5Under4', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (176, 9, 11, 'num6Under4', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (177, 9, 11, 'num7Under4', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (178, 9, 11, 'num8Under4', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (179, 9, 11, 'num9Under4', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (180, 9, 11, 'num10Under4', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (181, 9, 12, 'big5', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (182, 9, 12, 'small5', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (183, 9, 12, 'single5', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (184, 9, 12, 'double5', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (185, 9, 12, 'loong5', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (186, 9, 12, 'tiger5', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (187, 9, 12, 'num1Under5', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (188, 9, 12, 'num2Under5', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (189, 9, 12, 'num3Under5', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (190, 9, 12, 'num4Under5', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (191, 9, 12, 'num5Under5', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (192, 9, 12, 'num6Under5', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (193, 9, 12, 'num7Under5', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (194, 9, 12, 'num8Under5', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (195, 9, 12, 'num9Under5', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (196, 9, 12, 'num10Under5', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (197, 9, 13, 'big6', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (198, 9, 13, 'small6', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (199, 9, 13, 'single6', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (200, 9, 13, 'double6', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (201, 9, 13, 'loong6', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (202, 9, 13, 'tiger6', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (203, 9, 13, 'num1Under6', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (204, 9, 13, 'num2Under6', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (205, 9, 13, 'num3Under6', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (206, 9, 13, 'num4Under6', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (207, 9, 13, 'num5Under6', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (208, 9, 13, 'num6Under6', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (209, 9, 13, 'num7Under6', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (210, 9, 13, 'num8Under6', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (211, 9, 13, 'num9Under6', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (212, 9, 13, 'num10Under6', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (213, 9, 14, 'big7', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (214, 9, 14, 'small7', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (215, 9, 14, 'single7', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (216, 9, 14, 'double7', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (217, 9, 14, 'loong7', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (218, 9, 14, 'tiger7', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (219, 9, 14, 'num1Under7', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (220, 9, 14, 'num2Under7', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (221, 9, 14, 'num3Under7', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (222, 9, 14, 'num4Under7', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (223, 9, 14, 'num5Under7', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (224, 9, 14, 'num6Under7', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (225, 9, 14, 'num7Under7', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (226, 9, 14, 'num8Under7', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (227, 9, 14, 'num9Under7', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (228, 9, 14, 'num10Under7', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (229, 9, 15, 'big8', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (230, 9, 15, 'small8', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (231, 9, 15, 'single8', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (232, 9, 15, 'double8', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (233, 9, 15, 'loong8', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (234, 9, 15, 'tiger8', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (235, 9, 15, 'num1Under8', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (236, 9, 15, 'num2Under8', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (237, 9, 15, 'num3Under8', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (238, 9, 15, 'num4Under8', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (239, 9, 15, 'num5Under8', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (240, 9, 15, 'num6Under8', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (241, 9, 15, 'num7Under8', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (242, 9, 15, 'num8Under8', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (243, 9, 15, 'num9Under8', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (244, 9, 15, 'num10Under8', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (245, 9, 16, 'big9', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (246, 9, 16, 'small9', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (247, 9, 16, 'single9', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (248, 9, 16, 'double9', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (249, 9, 16, 'loong9', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (250, 9, 16, 'tiger9', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (251, 9, 16, 'num1Under9', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (252, 9, 16, 'num2Under9', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (253, 9, 16, 'num3Under9', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (254, 9, 16, 'num4Under9', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (255, 9, 16, 'num5Under9', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (256, 9, 16, 'num6Under9', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (257, 9, 16, 'num7Under9', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (258, 9, 16, 'num8Under9', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (259, 9, 16, 'num9Under9', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (260, 9, 16, 'num10Under9', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (261, 9, 17, 'big10', '大', NULL, 2.04, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (262, 9, 17, 'small10', '小', NULL, 2.01, 9999.99, 2.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (263, 9, 17, 'single10', '单', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (264, 9, 17, 'double10', '双', NULL, 2.00, 9999.99, 5.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (265, 9, 17, 'loong10', '龙', NULL, 15.00, 500.00, 2.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (266, 9, 17, 'tiger10', '虎', NULL, 4.20, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (267, 9, 17, 'num1Under10', '1 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (268, 9, 17, 'num2Under10', '2 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
-INSERT INTO `sys_bet_item` VALUES (269, 9, 17, 'num3Under10', '3 ', NULL, 4.20, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
-INSERT INTO `sys_bet_item` VALUES (270, 9, 17, 'num4Under10', '4 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (271, 9, 17, 'num5Under10', '5 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (272, 9, 17, 'num6Under10', '6 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (273, 9, 17, 'num7Under10', '7 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (274, 9, 17, 'num8Under10', '8 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (275, 9, 17, 'num9Under10', '9 ', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (276, 9, 17, 'num10Under10', '10', NULL, 15.00, 1000.00, 2.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
-INSERT INTO `sys_bet_item` VALUES (277, 15, 18, 'sumBig', '大', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (278, 15, 18, 'sumSmall', '小', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (279, 15, 18, 'sumSingle', '单', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (280, 15, 18, 'sumDouble', '双', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (281, 15, 18, 'sumLoong', '龙', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (282, 15, 18, 'sumTiger', '虎', NULL, 4.20, 9999.99, 5.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (283, 15, 18, 'sumSum', '和', NULL, 4.60, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (284, 15, 19, 'num1Big', '0 ', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (285, 15, 19, 'num1Small', '1 ', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (286, 15, 19, 'num1Single', '2 ', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (287, 15, 19, 'num1Double', '3 ', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (288, 15, 19, 'num1Under0', '4 ', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (289, 15, 19, 'num1Under1', '5 ', NULL, 4.20, 9999.99, 5.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (290, 15, 19, 'num1Under2', '6 ', NULL, 4.60, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (291, 15, 19, 'num1Under3', '7 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (292, 15, 19, 'num1Under4', '8 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (293, 15, 19, 'num1Under5', '9 ', NULL, 4.60, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (294, 15, 19, 'num1Under6', '大', NULL, 4.60, 9999.99, 5.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (295, 15, 19, 'num1Under7', '小', NULL, 4.60, 9999.99, 5.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (296, 15, 19, 'num1Under8', '单', NULL, 4.60, 9999.99, 5.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (297, 15, 19, 'num1Under9', '双', NULL, 4.60, 9999.99, 5.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (298, 15, 20, 'num2Under0', '0 ', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (299, 15, 20, 'num2Under1', '1 ', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (300, 15, 20, 'num2Under2', '2 ', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (301, 15, 20, 'num2Under3', '3 ', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (302, 15, 20, 'num2Under4', '4 ', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (303, 15, 20, 'num2Under5', '5 ', NULL, 4.20, 9999.99, 5.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (304, 15, 20, 'num2Under6', '6 ', NULL, 4.60, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (305, 15, 20, 'num2Under7', '7 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (306, 15, 20, 'num2Under8', '8 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (307, 15, 20, 'num2Under9', '9 ', NULL, 4.60, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (308, 15, 20, 'num2Big', '大', NULL, 4.60, 9999.99, 5.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (309, 15, 20, 'num2Small', '小', NULL, 4.60, 9999.99, 5.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (310, 15, 20, 'num2Single', '单', NULL, 4.60, 9999.99, 5.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (311, 15, 20, 'num2Double', '双', NULL, 4.60, 9999.99, 5.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (312, 15, 21, 'num3Under0', '0 ', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (313, 15, 21, 'num3Under1', '1 ', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (314, 15, 21, 'num3Under2', '2 ', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (315, 15, 21, 'num3Under3', '3 ', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (316, 15, 21, 'num3Under4', '4 ', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (317, 15, 21, 'num3Under5', '5 ', NULL, 4.20, 9999.99, 5.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (318, 15, 21, 'num3Under6', '6 ', NULL, 4.60, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (319, 15, 21, 'num3Under7', '7 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (320, 15, 21, 'num3Under8', '8 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (321, 15, 21, 'num3Under9', '9 ', NULL, 4.60, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (322, 15, 21, 'num3Big', '大', NULL, 4.60, 9999.99, 5.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (323, 15, 21, 'num3Small', '小', NULL, 4.60, 9999.99, 5.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (324, 15, 21, 'num3Single', '单', NULL, 4.60, 9999.99, 5.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (325, 15, 21, 'num3Double', '双', NULL, 4.60, 9999.99, 5.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (326, 15, 22, 'num4Under0', '0 ', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (327, 15, 22, 'num4Under1', '1 ', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (328, 15, 22, 'num4Under2', '2 ', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (329, 15, 22, 'num4Under3', '3 ', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (330, 15, 22, 'num4Under4', '4 ', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (331, 15, 22, 'num4Under5', '5 ', NULL, 4.20, 9999.99, 5.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (332, 15, 22, 'num4Under6', '6 ', NULL, 4.60, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (333, 15, 22, 'num4Under7', '7 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (334, 15, 22, 'num4Under8', '8 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (335, 15, 22, 'num4Under9', '9 ', NULL, 4.60, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (336, 15, 22, 'num4Big', '大', NULL, 4.60, 9999.99, 5.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (337, 15, 22, 'num4Small', '小', NULL, 4.60, 9999.99, 5.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (338, 15, 22, 'num4Single', '单', NULL, 4.60, 9999.99, 5.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (339, 15, 22, 'num4Double', '双', NULL, 4.60, 9999.99, 5.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (340, 15, 23, 'num5Under0', '0 ', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (341, 15, 23, 'num5Under1', '1 ', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (342, 15, 23, 'num5Under2', '2 ', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (343, 15, 23, 'num5Under3', '3 ', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (344, 15, 23, 'num5Under4', '4 ', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (345, 15, 23, 'num5Under5', '5 ', NULL, 4.20, 9999.99, 5.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
-INSERT INTO `sys_bet_item` VALUES (346, 15, 23, 'num5Under6', '6 ', NULL, 4.60, 9999.99, 5.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (347, 15, 23, 'num5Under7', '7 ', NULL, 4.60, 9999.99, 5.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (348, 15, 23, 'num5Under8', '8 ', NULL, 4.60, 9999.99, 5.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (349, 15, 23, 'num5Under9', '9 ', NULL, 4.60, 9999.99, 5.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (350, 15, 23, 'num5Big', '大', NULL, 4.60, 9999.99, 5.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (351, 15, 23, 'num5Small', '小', NULL, 4.60, 9999.99, 5.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (352, 15, 23, 'num5Single', '单', NULL, 4.60, 9999.99, 5.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (353, 15, 23, 'num5Double', '双', NULL, 4.60, 9999.99, 5.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
-INSERT INTO `sys_bet_item` VALUES (354, 15, 24, 'fBao', '豹', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (355, 15, 24, 'fDui', '对', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (356, 15, 24, 'fSun', '顺', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (357, 15, 24, 'fBan', '半', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (358, 15, 24, 'fZa', '杂', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (359, 15, 25, 'mBao', '豹', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (360, 15, 25, 'mDui', '对', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (361, 15, 25, 'mSun', '顺', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (362, 15, 25, 'mBan', '半', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (363, 15, 25, 'mZa', '杂', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
-INSERT INTO `sys_bet_item` VALUES (364, 15, 26, 'bBao', '豹', NULL, 2.04, 9999.99, 2.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
-INSERT INTO `sys_bet_item` VALUES (365, 15, 26, 'bDui', '对', NULL, 2.01, 9999.99, 2.00, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
-INSERT INTO `sys_bet_item` VALUES (366, 15, 26, 'bSun', '顺', NULL, 2.00, 9999.99, 5.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
-INSERT INTO `sys_bet_item` VALUES (367, 15, 26, 'bBan', '半', NULL, 2.00, 9999.99, 5.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
-INSERT INTO `sys_bet_item` VALUES (368, 15, 26, 'bZa', '杂', NULL, 15.00, 500.00, 2.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (49, 2, 4, 'big', '大', NULL, 2.00, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (50, 2, 4, 'small', '小', NULL, 2.00, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (51, 2, 4, 'single', '单', NULL, 2.00, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-25 20:16:46', '');
+INSERT INTO `sys_bet_item` VALUES (52, 2, 4, 'doubleFlg', '双', NULL, 2.00, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (53, 2, 4, 'muchbig', '极大', NULL, 15.00, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (54, 2, 4, 'bigsingle', '大单', NULL, 4.20, 5.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (55, 2, 4, 'smallsingle', '小单', NULL, 4.60, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (56, 2, 4, 'bigdouble', '大双', NULL, 4.60, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (57, 2, 4, 'smalldouble', '小双', NULL, 4.20, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (58, 2, 4, 'muchsmall', '极小', NULL, 15.00, 2.00, 1000.00, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (59, 2, 5, 'num0', '0 ', NULL, 500.00, 5.00, 1000.00, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:03:41', '');
+INSERT INTO `sys_bet_item` VALUES (60, 2, 5, 'num1', '1 ', NULL, 188.00, 5.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:08', '');
+INSERT INTO `sys_bet_item` VALUES (61, 2, 5, 'num2', '2 ', NULL, 128.00, 5.00, 1000.00, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:19', '');
+INSERT INTO `sys_bet_item` VALUES (62, 2, 5, 'num3', '3 ', NULL, 68.00, 5.00, 1000.00, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:40', '');
+INSERT INTO `sys_bet_item` VALUES (63, 2, 5, 'num4', '4 ', NULL, 46.00, 5.00, 1000.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:17:54', '');
+INSERT INTO `sys_bet_item` VALUES (64, 2, 5, 'num5', '5 ', NULL, 30.00, 5.00, 1000.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:18:07', '');
+INSERT INTO `sys_bet_item` VALUES (65, 2, 5, 'num6', '6 ', NULL, 18.00, 5.00, 1000.00, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:18:24', '');
+INSERT INTO `sys_bet_item` VALUES (66, 2, 5, 'num7', '7 ', NULL, 16.00, 5.00, 10000.00, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:18:39', '');
+INSERT INTO `sys_bet_item` VALUES (67, 2, 5, 'num8', '8 ', NULL, 15.00, 5.00, 10000.00, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 23:19:02', '');
+INSERT INTO `sys_bet_item` VALUES (68, 2, 5, 'num9', '9 ', NULL, 14.00, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (69, 2, 5, 'num10', '10', NULL, 13.00, 5.00, 9999.99, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (70, 2, 5, 'num11', '11', NULL, 13.00, 5.00, 9999.99, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (71, 2, 5, 'num12', '12', NULL, 12.00, 5.00, 9999.99, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (72, 2, 5, 'num13', '13', NULL, 12.00, 5.00, 9999.99, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (73, 2, 5, 'num14', '14', NULL, 12.00, 5.00, 9999.99, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (74, 2, 5, 'num15', '15', NULL, 12.00, 5.00, 9999.99, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (75, 2, 5, 'num16', '16', NULL, 13.00, 5.00, 9999.99, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (76, 2, 5, 'num17', '17', NULL, 14.00, 5.00, 9999.99, 18, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (77, 2, 5, 'num18', '18', NULL, 15.00, 5.00, 9999.99, 19, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (78, 2, 5, 'num19', '19', NULL, 17.00, 5.00, 9999.99, 20, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (79, 2, 5, 'num20', '20', NULL, 16.00, 5.00, 9999.99, 21, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (80, 2, 5, 'num21', '21', NULL, 18.00, 5.00, 9999.99, 22, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (81, 2, 5, 'num22', '22', NULL, 30.00, 5.00, 9999.99, 23, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (82, 2, 5, 'num23', '23', NULL, 46.00, 5.00, 9999.99, 24, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (83, 2, 5, 'num24', '24', NULL, 68.00, 5.00, 9999.99, 25, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (84, 2, 5, 'num25', '25', NULL, 128.00, 5.00, 9999.99, 26, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (85, 2, 5, 'num26', '26', NULL, 188.00, 5.00, 9999.99, 27, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (86, 2, 5, 'num27', '27', NULL, 500.00, 2.00, 9999.99, 28, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (87, 2, 6, 'red', '红', NULL, 2.85, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (88, 2, 6, 'green', '绿', NULL, 3.00, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (89, 2, 6, 'blue', '蓝', NULL, 3.00, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (90, 2, 6, 'loong', '龙', NULL, 2.00, 2.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (91, 2, 6, 'tiger', '虎', NULL, 2.00, 2.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (92, 2, 6, 'close', '合', NULL, 2.00, 2.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (93, 2, 6, 'leopard', '豹子', NULL, 80.00, 2.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (94, 2, 6, 'pairs', '对子', NULL, 3.30, 2.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (95, 2, 6, 'shun', '顺子', NULL, 15.00, 2.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (96, 9, 7, 'big', '大', NULL, 2.10, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:13:18', '');
+INSERT INTO `sys_bet_item` VALUES (97, 9, 7, 'small', '小', NULL, 1.70, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:13:27', '');
+INSERT INTO `sys_bet_item` VALUES (98, 9, 7, 'single', '单', NULL, 1.70, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:13:32', '');
+INSERT INTO `sys_bet_item` VALUES (99, 9, 7, 'doubleFlg', '双', NULL, 2.10, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:13:39', '');
+INSERT INTO `sys_bet_item` VALUES (100, 9, 7, 'num3', '3 ', NULL, 41.00, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:09:47', '');
+INSERT INTO `sys_bet_item` VALUES (101, 9, 7, 'num4', '4 ', NULL, 41.00, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:01', '');
+INSERT INTO `sys_bet_item` VALUES (102, 9, 7, 'num5', '5 ', NULL, 20.00, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:05', '');
+INSERT INTO `sys_bet_item` VALUES (103, 9, 7, 'num6', '6 ', NULL, 20.00, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:08', '');
+INSERT INTO `sys_bet_item` VALUES (104, 9, 7, 'num7', '7 ', NULL, 12.00, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:13', '');
+INSERT INTO `sys_bet_item` VALUES (105, 9, 7, 'num8', '8 ', NULL, 12.00, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:17', '');
+INSERT INTO `sys_bet_item` VALUES (106, 9, 7, 'num9', '9 ', NULL, 9.00, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:23', '');
+INSERT INTO `sys_bet_item` VALUES (107, 9, 7, 'num10', '10', NULL, 9.00, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:26', '');
+INSERT INTO `sys_bet_item` VALUES (108, 9, 7, 'num11', '11', NULL, 7.00, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:40', '');
+INSERT INTO `sys_bet_item` VALUES (109, 9, 7, 'num12', '12', NULL, 9.00, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:44', '');
+INSERT INTO `sys_bet_item` VALUES (110, 9, 7, 'num13', '13', NULL, 9.00, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:47', '');
+INSERT INTO `sys_bet_item` VALUES (111, 9, 7, 'num14', '14', NULL, 12.00, 2.00, 1000.00, 18, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:52', '');
+INSERT INTO `sys_bet_item` VALUES (112, 9, 7, 'num15', '15', NULL, 12.00, 2.00, 1000.00, 19, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:54', '');
+INSERT INTO `sys_bet_item` VALUES (113, 9, 7, 'num16', '16', NULL, 20.00, 2.00, 1000.00, 20, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:10:59', '');
+INSERT INTO `sys_bet_item` VALUES (114, 9, 7, 'num17', '17', NULL, 20.00, 2.00, 1000.00, 21, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:02', '');
+INSERT INTO `sys_bet_item` VALUES (115, 9, 7, 'num18', '18', NULL, 41.00, 2.00, 1000.00, 22, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:06', '');
+INSERT INTO `sys_bet_item` VALUES (116, 9, 7, 'num19', '19', NULL, 41.00, 2.00, 1000.00, 23, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:14', '');
+INSERT INTO `sys_bet_item` VALUES (117, 9, 8, 'big1', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:34', '');
+INSERT INTO `sys_bet_item` VALUES (118, 9, 8, 'small1', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:37', '');
+INSERT INTO `sys_bet_item` VALUES (119, 9, 8, 'single1', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:40', '');
+INSERT INTO `sys_bet_item` VALUES (120, 9, 8, 'double1', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:46', '');
+INSERT INTO `sys_bet_item` VALUES (121, 9, 8, 'loong1', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (122, 9, 8, 'tiger1', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (123, 9, 8, 'num1Under1', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (124, 9, 8, 'num2Under1', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (125, 9, 8, 'num3Under1', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (126, 9, 8, 'num4Under1', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (127, 9, 8, 'num5Under1', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (128, 9, 8, 'num6Under1', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (129, 9, 8, 'num7Under1', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (130, 9, 8, 'num8Under1', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (131, 9, 8, 'num9Under1', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (132, 9, 8, 'num10Under1', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (133, 9, 9, 'big2', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:55', '');
+INSERT INTO `sys_bet_item` VALUES (134, 9, 9, 'small2', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:11:58', '');
+INSERT INTO `sys_bet_item` VALUES (135, 9, 9, 'single2', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:00', '');
+INSERT INTO `sys_bet_item` VALUES (136, 9, 9, 'double2', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:04', '');
+INSERT INTO `sys_bet_item` VALUES (137, 9, 9, 'loong2', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (138, 9, 9, 'tiger2', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (139, 9, 9, 'num1Under2', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (140, 9, 9, 'num2Under2', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (141, 9, 9, 'num3Under2', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (142, 9, 9, 'num4Under2', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (143, 9, 9, 'num5Under2', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (144, 9, 9, 'num6Under2', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (145, 9, 9, 'num7Under2', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (146, 9, 9, 'num8Under2', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (147, 9, 9, 'num9Under2', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (148, 9, 9, 'num10Under2', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (149, 9, 10, 'big3', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:30', '');
+INSERT INTO `sys_bet_item` VALUES (150, 9, 10, 'small3', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:33', '');
+INSERT INTO `sys_bet_item` VALUES (151, 9, 10, 'single3', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:35', '');
+INSERT INTO `sys_bet_item` VALUES (152, 9, 10, 'double3', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:38', '');
+INSERT INTO `sys_bet_item` VALUES (153, 9, 10, 'loong3', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:44', '');
+INSERT INTO `sys_bet_item` VALUES (154, 9, 10, 'tiger3', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:12:46', '');
+INSERT INTO `sys_bet_item` VALUES (155, 9, 10, 'num1Under3', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (156, 9, 10, 'num2Under3', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (157, 9, 10, 'num3Under3', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (158, 9, 10, 'num4Under3', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (159, 9, 10, 'num5Under3', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (160, 9, 10, 'num6Under3', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (161, 9, 10, 'num7Under3', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (162, 9, 10, 'num8Under3', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (163, 9, 10, 'num9Under3', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (164, 9, 10, 'num10Under3', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (165, 9, 11, 'big4', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (166, 9, 11, 'small4', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (167, 9, 11, 'single4', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (168, 9, 11, 'double4', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (169, 9, 11, 'loong4', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (170, 9, 11, 'tiger4', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (171, 9, 11, 'num1Under4', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (172, 9, 11, 'num2Under4', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (173, 9, 11, 'num3Under4', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (174, 9, 11, 'num4Under4', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (175, 9, 11, 'num5Under4', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (176, 9, 11, 'num6Under4', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (177, 9, 11, 'num7Under4', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (178, 9, 11, 'num8Under4', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (179, 9, 11, 'num9Under4', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (180, 9, 11, 'num10Under4', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (181, 9, 12, 'big5', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (182, 9, 12, 'small5', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (183, 9, 12, 'single5', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (184, 9, 12, 'double5', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (185, 9, 12, 'loong5', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (186, 9, 12, 'tiger5', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (187, 9, 12, 'num1Under5', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (188, 9, 12, 'num2Under5', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (189, 9, 12, 'num3Under5', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (190, 9, 12, 'num4Under5', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (191, 9, 12, 'num5Under5', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (192, 9, 12, 'num6Under5', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (193, 9, 12, 'num7Under5', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (194, 9, 12, 'num8Under5', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (195, 9, 12, 'num9Under5', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (196, 9, 12, 'num10Under5', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (197, 9, 13, 'big6', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (198, 9, 13, 'small6', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (199, 9, 13, 'single6', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (200, 9, 13, 'double6', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (201, 9, 13, 'loong6', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (202, 9, 13, 'tiger6', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (203, 9, 13, 'num1Under6', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (204, 9, 13, 'num2Under6', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (205, 9, 13, 'num3Under6', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (206, 9, 13, 'num4Under6', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (207, 9, 13, 'num5Under6', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (208, 9, 13, 'num6Under6', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (209, 9, 13, 'num7Under6', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (210, 9, 13, 'num8Under6', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (211, 9, 13, 'num9Under6', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (212, 9, 13, 'num10Under6', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (213, 9, 14, 'big7', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (214, 9, 14, 'small7', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (215, 9, 14, 'single7', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (216, 9, 14, 'double7', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (217, 9, 14, 'loong7', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (218, 9, 14, 'tiger7', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (219, 9, 14, 'num1Under7', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (220, 9, 14, 'num2Under7', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (221, 9, 14, 'num3Under7', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (222, 9, 14, 'num4Under7', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (223, 9, 14, 'num5Under7', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (224, 9, 14, 'num6Under7', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (225, 9, 14, 'num7Under7', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (226, 9, 14, 'num8Under7', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (227, 9, 14, 'num9Under7', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (228, 9, 14, 'num10Under7', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (229, 9, 15, 'big8', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (230, 9, 15, 'small8', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (231, 9, 15, 'single8', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (232, 9, 15, 'double8', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (233, 9, 15, 'loong8', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (234, 9, 15, 'tiger8', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (235, 9, 15, 'num1Under8', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (236, 9, 15, 'num2Under8', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (237, 9, 15, 'num3Under8', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (238, 9, 15, 'num4Under8', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (239, 9, 15, 'num5Under8', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (240, 9, 15, 'num6Under8', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (241, 9, 15, 'num7Under8', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (242, 9, 15, 'num8Under8', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (243, 9, 15, 'num9Under8', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (244, 9, 15, 'num10Under8', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (245, 9, 16, 'big9', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (246, 9, 16, 'small9', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (247, 9, 16, 'single9', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (248, 9, 16, 'double9', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (249, 9, 16, 'loong9', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (250, 9, 16, 'tiger9', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (251, 9, 16, 'num1Under9', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (252, 9, 16, 'num2Under9', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (253, 9, 16, 'num3Under9', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (254, 9, 16, 'num4Under9', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (255, 9, 16, 'num5Under9', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (256, 9, 16, 'num6Under9', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (257, 9, 16, 'num7Under9', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (258, 9, 16, 'num8Under9', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (259, 9, 16, 'num9Under9', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (260, 9, 16, 'num10Under9', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (261, 9, 17, 'big10', '大', NULL, 1.98, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (262, 9, 17, 'small10', '小', NULL, 1.98, 2.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (263, 9, 17, 'single10', '单', NULL, 1.98, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (264, 9, 17, 'double10', '双', NULL, 1.98, 5.00, 9999.99, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (265, 9, 17, 'loong10', '龙', NULL, 1.98, 2.00, 500.00, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (266, 9, 17, 'tiger10', '虎', NULL, 1.98, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (267, 9, 17, 'num1Under10', '1 ', NULL, 9.90, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (268, 9, 17, 'num2Under10', '2 ', NULL, 9.90, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:43', '');
+INSERT INTO `sys_bet_item` VALUES (269, 9, 17, 'num3Under10', '3 ', NULL, 9.90, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:20', '');
+INSERT INTO `sys_bet_item` VALUES (270, 9, 17, 'num4Under10', '4 ', NULL, 9.90, 2.00, 1000.00, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (271, 9, 17, 'num5Under10', '5 ', NULL, 9.90, 2.00, 1000.00, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (272, 9, 17, 'num6Under10', '6 ', NULL, 9.90, 2.00, 1000.00, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (273, 9, 17, 'num7Under10', '7 ', NULL, 9.90, 2.00, 1000.00, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (274, 9, 17, 'num8Under10', '8 ', NULL, 9.90, 2.00, 1000.00, 15, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (275, 9, 17, 'num9Under10', '9 ', NULL, 9.90, 2.00, 1000.00, 16, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (276, 9, 17, 'num10Under10', '10', NULL, 9.90, 2.00, 1000.00, 17, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:59:37', '');
+INSERT INTO `sys_bet_item` VALUES (277, 15, 18, 'sumBig', '大', NULL, 1.96, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:17:39', '');
+INSERT INTO `sys_bet_item` VALUES (278, 15, 18, 'sumSmall', '小', NULL, 1.96, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:17:45', '');
+INSERT INTO `sys_bet_item` VALUES (279, 15, 18, 'sumSingle', '单', NULL, 1.96, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:17:48', '');
+INSERT INTO `sys_bet_item` VALUES (280, 15, 18, 'sumDouble', '双', NULL, 1.96, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:17:51', '');
+INSERT INTO `sys_bet_item` VALUES (281, 15, 18, 'sumLoong', '龙', NULL, 1.96, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:17:58', '');
+INSERT INTO `sys_bet_item` VALUES (282, 15, 18, 'sumTiger', '虎', NULL, 1.96, 5.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:18:02', '');
+INSERT INTO `sys_bet_item` VALUES (283, 15, 18, 'sumSum', '和', NULL, 8.00, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-28 21:18:06', '');
+INSERT INTO `sys_bet_item` VALUES (284, 15, 19, 'num1Big', '0 ', NULL, 9.80, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (285, 15, 19, 'num1Small', '1 ', NULL, 9.80, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (286, 15, 19, 'num1Single', '2 ', NULL, 9.80, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (287, 15, 19, 'num1Double', '3 ', NULL, 9.80, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (288, 15, 19, 'num1Under0', '4 ', NULL, 9.80, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (289, 15, 19, 'num1Under1', '5 ', NULL, 9.80, 5.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (290, 15, 19, 'num1Under2', '6 ', NULL, 9.80, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (291, 15, 19, 'num1Under3', '7 ', NULL, 9.80, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (292, 15, 19, 'num1Under4', '8 ', NULL, 9.80, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (293, 15, 19, 'num1Under5', '9 ', NULL, 9.80, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (294, 15, 19, 'num1Under6', '大', NULL, 1.96, 5.00, 9999.99, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (295, 15, 19, 'num1Under7', '小', NULL, 1.96, 5.00, 9999.99, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (296, 15, 19, 'num1Under8', '单', NULL, 1.96, 5.00, 9999.99, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (297, 15, 19, 'num1Under9', '双', NULL, 1.96, 5.00, 9999.99, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (298, 15, 20, 'num2Under0', '0 ', NULL, 9.80, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (299, 15, 20, 'num2Under1', '1 ', NULL, 9.80, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (300, 15, 20, 'num2Under2', '2 ', NULL, 9.80, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (301, 15, 20, 'num2Under3', '3 ', NULL, 9.80, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (302, 15, 20, 'num2Under4', '4 ', NULL, 9.80, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (303, 15, 20, 'num2Under5', '5 ', NULL, 9.80, 5.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (304, 15, 20, 'num2Under6', '6 ', NULL, 9.80, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (305, 15, 20, 'num2Under7', '7 ', NULL, 9.80, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (306, 15, 20, 'num2Under8', '8 ', NULL, 9.80, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (307, 15, 20, 'num2Under9', '9 ', NULL, 9.80, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (308, 15, 20, 'num2Big', '大', NULL, 1.96, 5.00, 9999.99, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (309, 15, 20, 'num2Small', '小', NULL, 1.96, 5.00, 9999.99, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (310, 15, 20, 'num2Single', '单', NULL, 1.96, 5.00, 9999.99, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (311, 15, 20, 'num2Double', '双', NULL, 1.96, 5.00, 9999.99, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (312, 15, 21, 'num3Under0', '0 ', NULL, 9.80, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (313, 15, 21, 'num3Under1', '1 ', NULL, 9.80, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (314, 15, 21, 'num3Under2', '2 ', NULL, 9.80, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (315, 15, 21, 'num3Under3', '3 ', NULL, 9.80, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (316, 15, 21, 'num3Under4', '4 ', NULL, 9.80, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (317, 15, 21, 'num3Under5', '5 ', NULL, 9.80, 5.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (318, 15, 21, 'num3Under6', '6 ', NULL, 9.80, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (319, 15, 21, 'num3Under7', '7 ', NULL, 9.80, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (320, 15, 21, 'num3Under8', '8 ', NULL, 9.80, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (321, 15, 21, 'num3Under9', '9 ', NULL, 9.80, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (322, 15, 21, 'num3Big', '大', NULL, 1.96, 5.00, 9999.99, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (323, 15, 21, 'num3Small', '小', NULL, 1.96, 5.00, 9999.99, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (324, 15, 21, 'num3Single', '单', NULL, 1.96, 5.00, 9999.99, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (325, 15, 21, 'num3Double', '双', NULL, 1.96, 5.00, 9999.99, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (326, 15, 22, 'num4Under0', '0 ', NULL, 9.80, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (327, 15, 22, 'num4Under1', '1 ', NULL, 9.80, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (328, 15, 22, 'num4Under2', '2 ', NULL, 9.80, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (329, 15, 22, 'num4Under3', '3 ', NULL, 9.80, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (330, 15, 22, 'num4Under4', '4 ', NULL, 9.80, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (331, 15, 22, 'num4Under5', '5 ', NULL, 9.80, 5.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (332, 15, 22, 'num4Under6', '6 ', NULL, 9.80, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (333, 15, 22, 'num4Under7', '7 ', NULL, 9.80, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (334, 15, 22, 'num4Under8', '8 ', NULL, 9.80, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (335, 15, 22, 'num4Under9', '9 ', NULL, 9.80, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (336, 15, 22, 'num4Big', '大', NULL, 1.96, 5.00, 9999.99, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (337, 15, 22, 'num4Small', '小', NULL, 1.96, 5.00, 9999.99, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (338, 15, 22, 'num4Single', '单', NULL, 1.96, 5.00, 9999.99, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (339, 15, 22, 'num4Double', '双', NULL, 1.96, 5.00, 9999.99, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (340, 15, 23, 'num5Under0', '0 ', NULL, 9.80, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (341, 15, 23, 'num5Under1', '1 ', NULL, 9.80, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (342, 15, 23, 'num5Under2', '2 ', NULL, 9.80, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (343, 15, 23, 'num5Under3', '3 ', NULL, 9.80, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (344, 15, 23, 'num5Under4', '4 ', NULL, 9.80, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (345, 15, 23, 'num5Under5', '5 ', NULL, 9.80, 5.00, 9999.99, 6, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:35', '');
+INSERT INTO `sys_bet_item` VALUES (346, 15, 23, 'num5Under6', '6 ', NULL, 9.80, 5.00, 9999.99, 7, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (347, 15, 23, 'num5Under7', '7 ', NULL, 9.80, 5.00, 9999.99, 8, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (348, 15, 23, 'num5Under8', '8 ', NULL, 9.80, 5.00, 9999.99, 9, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (349, 15, 23, 'num5Under9', '9 ', NULL, 9.80, 5.00, 9999.99, 10, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (350, 15, 23, 'num5Big', '大', NULL, 1.96, 5.00, 9999.99, 11, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (351, 15, 23, 'num5Small', '小', NULL, 1.96, 5.00, 9999.99, 12, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (352, 15, 23, 'num5Single', '单', NULL, 1.96, 5.00, 9999.99, 13, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (353, 15, 23, 'num5Double', '双', NULL, 1.96, 5.00, 9999.99, 14, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:57:50', '');
+INSERT INTO `sys_bet_item` VALUES (354, 15, 24, 'fBao', '豹', NULL, 70.00, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (355, 15, 24, 'fDui', '对', NULL, 3.20, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (356, 15, 24, 'fSun', '顺', NULL, 14.00, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (357, 15, 24, 'fBan', '半', NULL, 2.40, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (358, 15, 24, 'fZa', '杂', NULL, 2.90, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (359, 15, 25, 'mBao', '豹', NULL, 70.00, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (360, 15, 25, 'mDui', '对', NULL, 3.20, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (361, 15, 25, 'mSun', '顺', NULL, 14.00, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (362, 15, 25, 'mBan', '半', NULL, 2.40, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (363, 15, 25, 'mZa', '杂', NULL, 2.90, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
+INSERT INTO `sys_bet_item` VALUES (364, 15, 26, 'bBao', '豹', NULL, 70.00, 2.00, 9999.99, 1, '0', '', '2024-03-09 22:05:44', '', '2024-03-09 22:11:10', '');
+INSERT INTO `sys_bet_item` VALUES (365, 15, 26, 'bDui', '对', NULL, 3.20, 2.00, 9999.99, 2, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:17', '');
+INSERT INTO `sys_bet_item` VALUES (366, 15, 26, 'bSun', '顺', NULL, 14.00, 5.00, 9999.99, 3, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:41', '');
+INSERT INTO `sys_bet_item` VALUES (367, 15, 26, 'bBan', '半', NULL, 2.40, 5.00, 9999.99, 4, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:56:57', '');
+INSERT INTO `sys_bet_item` VALUES (368, 15, 26, 'bZa', '杂', NULL, 2.90, 2.00, 500.00, 5, '0', '', '2024-03-09 22:05:44', '', '2024-03-10 22:58:18', '');
 
 -- ----------------------------
 -- Table structure for sys_bet_type
@@ -2666,7 +2977,7 @@ CREATE TABLE `sys_game`  (
 -- Records of sys_game
 -- ----------------------------
 INSERT INTO `sys_game` VALUES (1, '/profile/upload/2024/03/06/jnd2.0_20240306222925A002.jpg', 3, 'jnd20', '加拿大2.0', '加拿大28', 0xE38090E58AA0E68BBFE5A4A7322E30E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A322E30E5808DEFBC88E5BC8031332F3134E8B594312E35E5808DEFBC89E5B08FE58D952FE5A4A7E58F8CEFBC9A342E36E5808DE5B08FE58F8C2FE5A4A7E58D95EFBC9A342E32E5808DE69E81E5A4A72FE69E81E5B08FEFBC9A3135E5808DE38090E789B9E6AE8AE8B594E78E87E38091E4B9B0E5B08FE68896E58D95EFBC8CE5BC80E5A596E4B8BA3133E4B894E8B594EFBC9A312E35E5808DE4B9B0E5A4A7E68896E58F8CEFBC8CE5BC80E5A596E4B8BA3134E4B894E8B594EFBC9A312E35E5808DE4B88BE6B3A8E5B08FE58D95E5BC80E5A596E4B8BA3133E4B8ADE5A596E59B9EE69CAC266E6273703BE4B88BE6B3A8E5A4A7E58F8CE5BC80E5A596E4B8BA3134E4B8ADE5A596E59B9EE69CAC266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E58F8DE58D83E58886E4B98B3135E38091E38090E6999AE4B88A30303A3135E5898DE7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, NULL, NULL, NULL, 3.00, NULL, NULL, 0.00, 2.00, 10000.00, 60, 0, 20, NULL, 1, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-11 19:19:01', '');
-INSERT INTO `sys_game` VALUES (2, '/profile/upload/2024/03/09/jnd28_20240309200723A001.jpg', 3, 'jnd28', '加拿大2.8', '加拿大2.8', 0xE38090E58AA0E68BBFE5A4A7322E38E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A322E38E5808DE5B08FE58D952FE5A4A7E58F8CEFBC9A36E5808DE5B08FE58F8C2FE5A4A7E58D95EFBC9A36E5808DE69E81E5A4A72FE69E81E5B08FEFBC9A3136E5808DE5AFB9E5AD902F33266E6273703B20266E6273703BE9A1BAE5AD902F3132266E6273703B20266E6273703BE8B1B9E5AD902F3630266E6273703BE38090E789B9E6AE8AE8B594E78E87E38091E5BC80E695B0E5AD9731332F31342FE5AFB9E5AD902FE9A1BAE5AD902FE8B1B9E5AD902F20E4B8ADE5A596E58D95E6B3A8E7BB84E59088E59B9EE69CAC266E6273703BE695B0E5AD97EFBC8830302F3237EFBC89EFBC9A353230E5808DE695B0E5AD97EFBC8830312F3236EFBC89EFBC9A323430E5808DE695B0E5AD97EFBC8830322F3235EFBC89EFBC9A313230E5808DE695B0E5AD97EFBC8830332F3234EFBC89EFBC9A3732E5808DE695B0E5AD97EFBC8830342F3233EFBC89EFBC9A3438E5808DE695B0E5AD97EFBC8830352F3232EFBC89EFBC9A3330E5808DE695B0E5AD97EFBC8830362F3231EFBC89EFBC9A3234E5808DE695B0E5AD97EFBC8830372F3230EFBC89EFBC9A3139E5808DE695B0E5AD97EFBC8830382F3139EFBC89EFBC9A3137E5808DE695B0E5AD97EFBC8830392F3138EFBC89EFBC9A3135E5808DE695B0E5AD97EFBC8831302F3137EFBC89EFBC9A3134E5808DE695B0E5AD97EFBC8831312F3136EFBC89EFBC9A3133E5808DE695B0E5AD97EFBC8831322F3135EFBC89EFBC9A3132E5808DE695B0E5AD97EFBC8831332F3134EFBC89EFBC9A3132E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E58C85E590ABE69CACE98791EFBC81266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE7BB84E59088EFBC9A3130303030E5B081E9A1B6266E6273703BE69E81E5A4A72FE69E81E5B08FEFBC9A3130303030E5B081E9A1B6266E6273703BE695B0E5AD9730302F3237EFBC9A31303030E5B081E9A1B6E695B0E5AD97312F3236EFBC9A33303030E5B081E9A1B6E5AFB9E9A1BAE5AD90EFBC9A3130303030E5B081E9A1B6E8B1B9E5AD90EFBC9A35303030E5B081E9A1B6E58D95E782B9E695B0E5AD97E69C80E9AB98E8B594E4BB98353030303030E38090E4BA8FE68D9FE58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3135E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jnd28', 'jndrecord', 'jnd28', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 75, 0, 20, NULL, 2, '0', 'N', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:07:58', '');
+INSERT INTO `sys_game` VALUES (2, '/profile/upload/2024/03/09/jnd28_20240309200723A001.jpg', 3, 'jnd28', '加拿大2.8', '加拿大2.8', 0xE38090E58AA0E68BBFE5A4A7322E38E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A322E38E5808DE5B08FE58D952FE5A4A7E58F8CEFBC9A36E5808DE5B08FE58F8C2FE5A4A7E58D95EFBC9A36E5808DE69E81E5A4A72FE69E81E5B08FEFBC9A3136E5808DE5AFB9E5AD902F33266E6273703B20266E6273703BE9A1BAE5AD902F3132266E6273703B20266E6273703BE8B1B9E5AD902F3630266E6273703BE38090E789B9E6AE8AE8B594E78E87E38091E5BC80E695B0E5AD9731332F31342FE5AFB9E5AD902FE9A1BAE5AD902FE8B1B9E5AD902F20E4B8ADE5A596E58D95E6B3A8E7BB84E59088E59B9EE69CAC266E6273703BE695B0E5AD97EFBC8830302F3237EFBC89EFBC9A353230E5808DE695B0E5AD97EFBC8830312F3236EFBC89EFBC9A323430E5808DE695B0E5AD97EFBC8830322F3235EFBC89EFBC9A313230E5808DE695B0E5AD97EFBC8830332F3234EFBC89EFBC9A3732E5808DE695B0E5AD97EFBC8830342F3233EFBC89EFBC9A3438E5808DE695B0E5AD97EFBC8830352F3232EFBC89EFBC9A3330E5808DE695B0E5AD97EFBC8830362F3231EFBC89EFBC9A3234E5808DE695B0E5AD97EFBC8830372F3230EFBC89EFBC9A3139E5808DE695B0E5AD97EFBC8830382F3139EFBC89EFBC9A3137E5808DE695B0E5AD97EFBC8830392F3138EFBC89EFBC9A3135E5808DE695B0E5AD97EFBC8831302F3137EFBC89EFBC9A3134E5808DE695B0E5AD97EFBC8831312F3136EFBC89EFBC9A3133E5808DE695B0E5AD97EFBC8831322F3135EFBC89EFBC9A3132E5808DE695B0E5AD97EFBC8831332F3134EFBC89EFBC9A3132E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E58C85E590ABE69CACE98791EFBC81266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE7BB84E59088EFBC9A3130303030E5B081E9A1B6266E6273703BE69E81E5A4A72FE69E81E5B08FEFBC9A3130303030E5B081E9A1B6266E6273703BE695B0E5AD9730302F3237EFBC9A31303030E5B081E9A1B6E695B0E5AD97312F3236EFBC9A33303030E5B081E9A1B6E5AFB9E9A1BAE5AD90EFBC9A3130303030E5B081E9A1B6E8B1B9E5AD90EFBC9A35303030E5B081E9A1B6E58D95E782B9E695B0E5AD97E69C80E9AB98E8B594E4BB98353030303030E38090E4BA8FE68D9FE58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3135E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jnd28', 'jndrecord', 'jnd28', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 75, 210, 20, NULL, 2, '0', 'N', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:07:58', '');
 INSERT INTO `sys_game` VALUES (3, '/profile/upload/2024/03/09/jnd32_20240309200821A002.jpg', 3, 'jnd32', '加拿大3.2', '加拿大3.2', 0xE38090E58AA0E68BBFE5A4A7332E32E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A332E32E5808DE5B08FE58D952FE5A4A7E58F8CEFBC9A362E36E5808DE5B08FE58F8C2FE5A4A7E58D95EFBC9A362E36E5808DE69E81E5A4A72FE69E81E5B08FEFBC9A3135E5808DE38090E789B9E6AE8AE8B594E78E87E38091E5A4A7E5B08FE58D95E58F8C20E6ADA3E5B8B8E8B594E78E87332E32E5808DEFBC8CE5BC80E5A596E7BB93E69E9CE98187E5BC80E5A596E58CBAE4B889E4B8AAE695B0E5AD97E585B6E4B8ADE4B880E4B8AAE5B8A630E6889639E4B88EE5BC80E5A596E7BB93E69E9C3133E688963134EFBC8CE4B8ADE5A596E59B9EE69CACE98791E38082E7BB84E59088EFBC8CE6ADA3E5B8B8E8B594E78E87362E36E5808DEFBC8CE5BC80E5A596E7BB93E69E9CE98187E5BC80E5A596E58CBAE4B889E4B8AAE695B0E5AD97E585B6E4B8ADE4B880E4B8AAE5B8A630E6889639E4B88EE5BC80E5A596E7BB93E69E9C3133E688963134EFBC8CE4B8ADE5A596E59B9EE69CACE98791E38082E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B35E38091E38090E6B581E6B0B4E58F8DE58D83E58886E4B98B35E38091, NULL, NULL, NULL, 0.00, NULL, NULL, 15.00, 5.00, 20000.00, 75, 0, 20, NULL, 3, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:08:45', '');
 INSERT INTO `sys_game` VALUES (4, '/profile/upload/2024/03/09/jspc28_20240309200907A003.png', 3, 'jspc28', '比特2.0', '比特28', 0xE38090E6BEB3E6B4B2E69E81E9809F322E30E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A322E30E5808DEFBC88E5BC8031332F3134E8B594312E36E5808DEFBC89E5B08FE58D952FE5A4A7E58F8CEFBC9A342E36E5808DE5B08FE58F8C2FE5A4A7E58D95EFBC9A342E32E5808DE69E81E5A4A72FE69E81E5B08FEFBC9A3135E5808DE38090E789B9E6AE8AE8B594E78E87E38091E4B9B0E5B08FE68896E58D95EFBC8CE5BC80E5A596E4B8BA3133E4B894E8B594EFBC9A312E36E5808DE4B9B0E5A4A7E68896E58F8CEFBC8CE5BC80E5A596E4B8BA3134E4B894E8B594EFBC9A312E36E5808DE4B88BE6B3A8E5B08FE58D95E5BC80E5A596E4B8BA3133E4B8ADE5A596E59B9EE69CAC266E6273703BE4B88BE6B3A8E5A4A7E58F8CE5BC80E5A596E4B8BA3134E4B8ADE5A596E59B9EE69CAC266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E58F8DE58D83E58886E4B98B3230E38091E38090E6999AE4B88A30303A3135E5898DE7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, NULL, NULL, NULL, 10.00, NULL, NULL, 20.00, 2.00, 20000.00, 20, 0, 20, NULL, 4, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:09:59', '');
 INSERT INTO `sys_game` VALUES (5, '/profile/upload/2024/03/09/bt28_20240309201046A004.png', 3, 'bt28', '比特2.8', '比特2.8', 0xE38090E6BEB3E6B4B2E69E81E9809F322E38E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A322E38E5808DE5B08FE58D952FE5A4A7E58F8CEFBC9A36E5808DE5B08FE58F8C2FE5A4A7E58D95EFBC9A36E5808DE69E81E5A4A72FE69E81E5B08FEFBC9A3135E5808DE5AFB9E5AD902F33266E6273703B20266E6273703BE9A1BAE5AD902F3132266E6273703B20266E6273703BE8B1B9E5AD902F3530266E6273703BE38090E789B9E6AE8AE8B594E78E87E38091E5BC80E695B0E5AD9731332F31342FE5AFB9E5AD902FE9A1BAE5AD902FE8B1B9E5AD902F20E4B8ADE5A596E58D95E6B3A8E7BB84E59088E59B9EE69CAC266E6273703BE695B0E5AD97EFBC8830302F3237EFBC89EFBC9A353030E5808DE695B0E5AD97EFBC8830312F3236EFBC89EFBC9A323430E5808DE695B0E5AD97EFBC8830322F3235EFBC89EFBC9A313230E5808DE695B0E5AD97EFBC8830332F3234EFBC89EFBC9A3732E5808DE695B0E5AD97EFBC8830342F3233EFBC89EFBC9A3438E5808DE695B0E5AD97EFBC8830352F3232EFBC89EFBC9A3333E5808DE695B0E5AD97EFBC8830362F3231EFBC89EFBC9A3235E5808DE695B0E5AD97EFBC8830372F3230EFBC89EFBC9A3230E5808DE695B0E5AD97EFBC8830382F3139EFBC89EFBC9A3137E5808DE695B0E5AD97EFBC8830392F3138EFBC89EFBC9A3135E5808DE695B0E5AD97EFBC8831302F3137EFBC89EFBC9A3134E5808DE695B0E5AD97EFBC8831312F3136EFBC89EFBC9A3134E5808DE695B0E5AD97EFBC8831322F3135EFBC89EFBC9A3133E5808DE695B0E5AD97EFBC8831332F3134EFBC89EFBC9A3132E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E58C85E590ABE69CACE98791EFBC81266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE7BB84E59088EFBC9A3130303030E5B081E9A1B6266E6273703BE69E81E5A4A72FE69E81E5B08FEFBC9A3130303030E5B081E9A1B6266E6273703BE695B0E5AD9730302F3237EFBC9A31303030E5B081E9A1B6E695B0E5AD97312F3236EFBC9A33303030E5B081E9A1B6E5AFB9E9A1BAE5AD90EFBC9A3130303030E5B081E9A1B6E8B1B9E5AD90EFBC9A35303030E5B081E9A1B6E58D95E782B9E695B0E5AD97E69C80E9AB98E8B594E4BB98353030303030E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3135E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, NULL, NULL, NULL, 5.00, NULL, NULL, 5.00, 5.00, 50000.00, 20, 0, 20, NULL, 5, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:11:14', '');
@@ -2679,7 +2990,7 @@ INSERT INTO `sys_game` VALUES (11, '/profile/upload/2024/03/09/xyft_202403092020
 INSERT INTO `sys_game` VALUES (12, '/profile/upload/2024/03/09/jssc_20240309202124A011.jpg', 10, 'jssc', '168极速赛车', '168极速赛车', 0xE38090E69E81E9809FE8B59BE8BDA6392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jssc', 'jsscrecord', 'jssc10', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 35, 0, 20, NULL, 12, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:21:54', '');
 INSERT INTO `sys_game` VALUES (13, '/profile/upload/2024/03/09/jsft_20240309202548A012.jpg', 10, 'jsft', '168极速飞艇', '168极速飞艇', 0xE38090E69E81E9809FE9A39EE88987E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jsfei', 'jsfeirecord', 'jsfei10', 0.00, NULL, NULL, 5.00, 5.00, 50000.00, 5, 0, 20, NULL, 13, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:26:22', '');
 INSERT INTO `sys_game` VALUES (14, '/profile/upload/2024/03/09/jssc2_20240309202640A013.jpg', 10, 'jssc2', '168极速赛车高赔率', '168极速赛车高赔率', 0xE38090E69E81E9809FE8B59BE8BDA6392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, NULL, NULL, NULL, 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 35, 0, 20, NULL, 14, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:27:07', '');
-INSERT INTO `sys_game` VALUES (15, '/profile/upload/2024/03/09/jsssc_20240309202724A014.jpg', 5, 'jsscmet', '168极速时时彩', '168极速时时彩', 0xE38090E69E81E9809FE697B6E697B6E5BDA9E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D302D39E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jsssc', 'jssscrecord', 'jsssckj', 0.00, NULL, NULL, 5.00, 5.00, 100000.00, 35, 0, 30, NULL, 15, '0', 'N', 0, '', '2024-03-06 22:34:06', '', '2024-03-20 22:20:37', '');
+INSERT INTO `sys_game` VALUES (15, '/profile/upload/2024/03/09/jsssc_20240309202724A014.jpg', 5, 'jsscmet', '168极速时时彩', '168极速时时彩', 0xE38090E69E81E9809FE697B6E697B6E5BDA9E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D302D39E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jsssc', 'jssscrecord', 'jsssckj', 0.00, NULL, NULL, 5.00, 5.00, 100000.00, 35, 75, 30, NULL, 15, '0', 'N', 0, '', '2024-03-06 22:34:06', '', '2024-03-20 22:20:37', '');
 INSERT INTO `sys_game` VALUES (16, '/profile/upload/2024/03/09/xyft2_20240309202820A015.jpg', 10, 'xyft2', '幸运飞艇高赔率', '幸运飞艇高赔率', 0xE38090E5B9B8E8BF90E9A39EE88987392E39E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC893130E8BDA6E58FB7EFBC9A392E39E5808DEFBC88E590ABE69CACE98791EFBC89E9BE992FE8998EEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC89E586A0E4BA9AE5928CE5A4A72FE58F8CEFBC9A322E31E5808DEFBC88E590ABE69CACE98791EFBC89E5B08F2FE58D95EFBC9A312E37E5808DEFBC88E590ABE69CACE98791EFBC89332F342F31382F3139EFBC9AE590ABE69CAC3431E5808D352F362F31362F3137EFBC9AE590ABE69CAC3230E5808D372F382F31342F3135EFBC9AE590ABE69CAC3133E5808D392F31302F31322F3133EFBC9AE590ABE69CAC39E5808D3131EFBC9AE590ABE69CAC37E5808D317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E2062722FE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091, 'Fei', 'feirecord', 'fei10', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 110, 0, 20, NULL, 16, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:28:48', '');
 
 -- ----------------------------
@@ -2709,9 +3020,9 @@ CREATE TABLE `sys_job`  (
 INSERT INTO `sys_job` VALUES (1, '系统默认（无参）', 'DEFAULT', 'ryTask.ryNoParams', '0/10 * * * * ?', '3', '1', '1', 'admin', '2024-03-05 21:03:11', '', NULL, '');
 INSERT INTO `sys_job` VALUES (2, '系统默认（有参）', 'DEFAULT', 'ryTask.ryParams(\'ry\')', '0/15 * * * * ?', '3', '1', '1', 'admin', '2024-03-05 21:03:11', '', NULL, '');
 INSERT INTO `sys_job` VALUES (3, '系统默认（多参）', 'DEFAULT', 'ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)', '0/20 * * * * ?', '3', '1', '1', 'admin', '2024-03-05 21:03:11', '', NULL, '');
-INSERT INTO `sys_job` VALUES (4, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '0 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-19 21:07:10', '');
-INSERT INTO `sys_job` VALUES (5, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '0 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:51:09', 'admin', '2024-03-19 21:07:10', '');
-INSERT INTO `sys_job` VALUES (6, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '0 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-19 21:07:10', '');
+INSERT INTO `sys_job` VALUES (4, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-26 22:44:43', '');
+INSERT INTO `sys_job` VALUES (5, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:51:09', 'admin', '2024-03-26 22:44:45', '');
+INSERT INTO `sys_job` VALUES (6, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-26 22:44:46', '');
 INSERT INTO `sys_job` VALUES (7, '澳洲幸运10定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'azxy10\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-19 21:27:53', '');
 INSERT INTO `sys_job` VALUES (8, '加拿大2.8定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jnd28\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:51:09', 'admin', '2024-03-19 21:27:57', '');
 INSERT INTO `sys_job` VALUES (9, '急速时时彩定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jsscmet\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-19 21:28:02', '');
@@ -2730,7 +3041,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 243 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1029 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -2977,6 +3288,792 @@ INSERT INTO `sys_job_log` VALUES (239, '澳洲幸运10定时获取开奖数据',
 INSERT INTO `sys_job_log` VALUES (240, '澳洲幸运10定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'azxy10\')', '澳洲幸运10定时开奖结算 总共耗时：8286毫秒', '0', '', '2024-03-20 22:46:32');
 INSERT INTO `sys_job_log` VALUES (241, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：583毫秒', '0', '', '2024-03-20 23:09:26');
 INSERT INTO `sys_job_log` VALUES (242, '澳洲幸运10定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'azxy10\')', '澳洲幸运10定时开奖结算 总共耗时：36毫秒', '0', '', '2024-03-20 23:09:32');
+INSERT INTO `sys_job_log` VALUES (243, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1170毫秒', '0', '', '2024-03-26 22:44:44');
+INSERT INTO `sys_job_log` VALUES (244, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1384毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (245, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1544毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (246, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1613毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (247, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1619毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (248, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1626毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (249, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1645毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (250, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1658毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (251, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1876毫秒', '0', '', '2024-03-26 22:44:45');
+INSERT INTO `sys_job_log` VALUES (252, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2468毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (253, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1315毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (254, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1201毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (255, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1277毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (256, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1205毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (257, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1203毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (258, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1306毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (259, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1281毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (260, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1350毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (261, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1194毫秒', '0', '', '2024-03-26 22:44:46');
+INSERT INTO `sys_job_log` VALUES (262, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：900毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (263, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：718毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (264, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1088毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (265, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1435毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (266, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1060毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (267, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1216毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (268, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1168毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (269, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1695毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (270, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1128毫秒', '0', '', '2024-03-26 22:44:47');
+INSERT INTO `sys_job_log` VALUES (271, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：593毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (272, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：865毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (273, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：770毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (274, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：881毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (275, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：680毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (276, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：882毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (277, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：842毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (278, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：830毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (279, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：798毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (280, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：616毫秒', '0', '', '2024-03-26 22:44:48');
+INSERT INTO `sys_job_log` VALUES (281, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2673毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (282, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：827毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (283, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：840毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (284, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：753毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (285, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：884毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (286, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：863毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (287, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：907毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (288, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：924毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (289, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：878毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (290, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1744毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (291, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：638毫秒', '0', '', '2024-03-26 22:44:49');
+INSERT INTO `sys_job_log` VALUES (292, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：689毫秒', '0', '', '2024-03-26 22:44:50');
+INSERT INTO `sys_job_log` VALUES (293, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：602毫秒', '0', '', '2024-03-26 22:44:50');
+INSERT INTO `sys_job_log` VALUES (294, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：808毫秒', '0', '', '2024-03-26 22:45:00');
+INSERT INTO `sys_job_log` VALUES (295, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：976毫秒', '0', '', '2024-03-26 22:45:00');
+INSERT INTO `sys_job_log` VALUES (296, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1993毫秒', '0', '', '2024-03-26 22:45:01');
+INSERT INTO `sys_job_log` VALUES (297, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：573毫秒', '0', '', '2024-03-26 22:46:00');
+INSERT INTO `sys_job_log` VALUES (298, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：619毫秒', '0', '', '2024-03-26 22:46:00');
+INSERT INTO `sys_job_log` VALUES (299, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：994毫秒', '0', '', '2024-03-26 22:46:00');
+INSERT INTO `sys_job_log` VALUES (300, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：925毫秒', '0', '', '2024-03-26 22:47:00');
+INSERT INTO `sys_job_log` VALUES (301, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：945毫秒', '0', '', '2024-03-26 22:47:00');
+INSERT INTO `sys_job_log` VALUES (302, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：947毫秒', '0', '', '2024-03-26 22:47:00');
+INSERT INTO `sys_job_log` VALUES (303, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：546毫秒', '0', '', '2024-03-26 22:48:00');
+INSERT INTO `sys_job_log` VALUES (304, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：617毫秒', '0', '', '2024-03-26 22:48:00');
+INSERT INTO `sys_job_log` VALUES (305, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：626毫秒', '0', '', '2024-03-26 22:48:00');
+INSERT INTO `sys_job_log` VALUES (306, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：581毫秒', '0', '', '2024-03-26 22:49:00');
+INSERT INTO `sys_job_log` VALUES (307, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：629毫秒', '0', '', '2024-03-26 22:49:00');
+INSERT INTO `sys_job_log` VALUES (308, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：917毫秒', '0', '', '2024-03-26 22:49:00');
+INSERT INTO `sys_job_log` VALUES (309, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：650毫秒', '0', '', '2024-03-26 22:50:00');
+INSERT INTO `sys_job_log` VALUES (310, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：661毫秒', '0', '', '2024-03-26 22:50:00');
+INSERT INTO `sys_job_log` VALUES (311, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1188毫秒', '0', '', '2024-03-26 22:50:01');
+INSERT INTO `sys_job_log` VALUES (312, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：606毫秒', '0', '', '2024-03-26 22:51:00');
+INSERT INTO `sys_job_log` VALUES (313, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：636毫秒', '0', '', '2024-03-26 22:51:00');
+INSERT INTO `sys_job_log` VALUES (314, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：667毫秒', '0', '', '2024-03-26 22:51:00');
+INSERT INTO `sys_job_log` VALUES (315, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1065毫秒', '0', '', '2024-03-26 22:52:01');
+INSERT INTO `sys_job_log` VALUES (316, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1144毫秒', '0', '', '2024-03-26 22:52:01');
+INSERT INTO `sys_job_log` VALUES (317, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1163毫秒', '0', '', '2024-03-26 22:52:01');
+INSERT INTO `sys_job_log` VALUES (318, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：663毫秒', '0', '', '2024-03-26 22:53:00');
+INSERT INTO `sys_job_log` VALUES (319, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：724毫秒', '0', '', '2024-03-26 22:53:00');
+INSERT INTO `sys_job_log` VALUES (320, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：809毫秒', '0', '', '2024-03-26 22:53:00');
+INSERT INTO `sys_job_log` VALUES (321, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：677毫秒', '0', '', '2024-03-26 22:54:00');
+INSERT INTO `sys_job_log` VALUES (322, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：700毫秒', '0', '', '2024-03-26 22:54:00');
+INSERT INTO `sys_job_log` VALUES (323, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：885毫秒', '0', '', '2024-03-26 22:54:00');
+INSERT INTO `sys_job_log` VALUES (324, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：789毫秒', '0', '', '2024-03-26 22:55:00');
+INSERT INTO `sys_job_log` VALUES (325, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：978毫秒', '0', '', '2024-03-26 22:55:00');
+INSERT INTO `sys_job_log` VALUES (326, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1128毫秒', '0', '', '2024-03-26 22:55:01');
+INSERT INTO `sys_job_log` VALUES (327, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：701毫秒', '0', '', '2024-03-26 22:56:00');
+INSERT INTO `sys_job_log` VALUES (328, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：773毫秒', '0', '', '2024-03-26 22:56:00');
+INSERT INTO `sys_job_log` VALUES (329, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：785毫秒', '0', '', '2024-03-26 22:56:00');
+INSERT INTO `sys_job_log` VALUES (330, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2810毫秒', '0', '', '2024-03-27 20:48:02');
+INSERT INTO `sys_job_log` VALUES (331, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2812毫秒', '0', '', '2024-03-27 20:48:02');
+INSERT INTO `sys_job_log` VALUES (332, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2810毫秒', '0', '', '2024-03-27 20:48:02');
+INSERT INTO `sys_job_log` VALUES (333, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：651毫秒', '0', '', '2024-03-27 20:49:00');
+INSERT INTO `sys_job_log` VALUES (334, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：650毫秒', '0', '', '2024-03-27 20:49:00');
+INSERT INTO `sys_job_log` VALUES (335, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：961毫秒', '0', '', '2024-03-27 20:49:00');
+INSERT INTO `sys_job_log` VALUES (336, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：582毫秒', '0', '', '2024-03-27 20:50:00');
+INSERT INTO `sys_job_log` VALUES (337, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：936毫秒', '0', '', '2024-03-27 20:50:00');
+INSERT INTO `sys_job_log` VALUES (338, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1467毫秒', '0', '', '2024-03-27 20:50:01');
+INSERT INTO `sys_job_log` VALUES (339, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：619毫秒', '0', '', '2024-03-27 20:51:00');
+INSERT INTO `sys_job_log` VALUES (340, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：631毫秒', '0', '', '2024-03-27 20:51:00');
+INSERT INTO `sys_job_log` VALUES (341, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：990毫秒', '0', '', '2024-03-27 20:51:01');
+INSERT INTO `sys_job_log` VALUES (342, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：636毫秒', '0', '', '2024-03-27 20:52:00');
+INSERT INTO `sys_job_log` VALUES (343, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：646毫秒', '0', '', '2024-03-27 20:52:00');
+INSERT INTO `sys_job_log` VALUES (344, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2561毫秒', '0', '', '2024-03-27 20:52:02');
+INSERT INTO `sys_job_log` VALUES (345, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：645毫秒', '0', '', '2024-03-27 20:53:00');
+INSERT INTO `sys_job_log` VALUES (346, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：665毫秒', '0', '', '2024-03-27 20:53:00');
+INSERT INTO `sys_job_log` VALUES (347, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：975毫秒', '0', '', '2024-03-27 20:53:00');
+INSERT INTO `sys_job_log` VALUES (348, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：778毫秒', '0', '', '2024-03-27 20:54:00');
+INSERT INTO `sys_job_log` VALUES (349, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：785毫秒', '0', '', '2024-03-27 20:54:00');
+INSERT INTO `sys_job_log` VALUES (350, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：3528毫秒', '0', '', '2024-03-27 20:54:03');
+INSERT INTO `sys_job_log` VALUES (351, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：660毫秒', '0', '', '2024-03-27 20:55:00');
+INSERT INTO `sys_job_log` VALUES (352, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：817毫秒', '0', '', '2024-03-27 20:55:00');
+INSERT INTO `sys_job_log` VALUES (353, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1163毫秒', '0', '', '2024-03-27 20:55:01');
+INSERT INTO `sys_job_log` VALUES (354, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：565毫秒', '0', '', '2024-03-27 20:56:01');
+INSERT INTO `sys_job_log` VALUES (355, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：574毫秒', '0', '', '2024-03-27 20:56:01');
+INSERT INTO `sys_job_log` VALUES (356, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：611毫秒', '0', '', '2024-03-27 20:56:01');
+INSERT INTO `sys_job_log` VALUES (357, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：566毫秒', '0', '', '2024-03-27 20:57:00');
+INSERT INTO `sys_job_log` VALUES (358, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：589毫秒', '0', '', '2024-03-27 20:57:00');
+INSERT INTO `sys_job_log` VALUES (359, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1016毫秒', '0', '', '2024-03-27 20:57:01');
+INSERT INTO `sys_job_log` VALUES (360, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：632毫秒', '0', '', '2024-03-27 20:58:00');
+INSERT INTO `sys_job_log` VALUES (361, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：710毫秒', '0', '', '2024-03-27 20:58:00');
+INSERT INTO `sys_job_log` VALUES (362, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：4699毫秒', '0', '', '2024-03-27 20:58:04');
+INSERT INTO `sys_job_log` VALUES (363, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：697毫秒', '0', '', '2024-03-27 20:59:00');
+INSERT INTO `sys_job_log` VALUES (364, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：807毫秒', '0', '', '2024-03-27 20:59:00');
+INSERT INTO `sys_job_log` VALUES (365, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：838毫秒', '0', '', '2024-03-27 20:59:00');
+INSERT INTO `sys_job_log` VALUES (366, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：633毫秒', '0', '', '2024-03-27 21:00:00');
+INSERT INTO `sys_job_log` VALUES (367, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：676毫秒', '0', '', '2024-03-27 21:00:00');
+INSERT INTO `sys_job_log` VALUES (368, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1422毫秒', '0', '', '2024-03-27 21:00:01');
+INSERT INTO `sys_job_log` VALUES (369, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：836毫秒', '0', '', '2024-03-27 21:01:00');
+INSERT INTO `sys_job_log` VALUES (370, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：855毫秒', '0', '', '2024-03-27 21:01:00');
+INSERT INTO `sys_job_log` VALUES (371, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：922毫秒', '0', '', '2024-03-27 21:01:00');
+INSERT INTO `sys_job_log` VALUES (372, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：707毫秒', '0', '', '2024-03-27 21:02:00');
+INSERT INTO `sys_job_log` VALUES (373, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：716毫秒', '0', '', '2024-03-27 21:02:00');
+INSERT INTO `sys_job_log` VALUES (374, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：773毫秒', '0', '', '2024-03-27 21:02:00');
+INSERT INTO `sys_job_log` VALUES (375, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：587毫秒', '0', '', '2024-03-27 21:03:00');
+INSERT INTO `sys_job_log` VALUES (376, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：595毫秒', '0', '', '2024-03-27 21:03:00');
+INSERT INTO `sys_job_log` VALUES (377, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1600毫秒', '0', '', '2024-03-27 21:03:01');
+INSERT INTO `sys_job_log` VALUES (378, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1301毫秒', '0', '', '2024-03-27 21:04:01');
+INSERT INTO `sys_job_log` VALUES (379, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1494毫秒', '0', '', '2024-03-27 21:04:01');
+INSERT INTO `sys_job_log` VALUES (380, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1545毫秒', '0', '', '2024-03-27 21:04:01');
+INSERT INTO `sys_job_log` VALUES (381, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：836毫秒', '0', '', '2024-03-27 21:05:00');
+INSERT INTO `sys_job_log` VALUES (382, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：829毫秒', '0', '', '2024-03-27 21:05:00');
+INSERT INTO `sys_job_log` VALUES (383, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：886毫秒', '0', '', '2024-03-27 21:05:00');
+INSERT INTO `sys_job_log` VALUES (384, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：584毫秒', '0', '', '2024-03-27 21:06:00');
+INSERT INTO `sys_job_log` VALUES (385, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：620毫秒', '0', '', '2024-03-27 21:06:00');
+INSERT INTO `sys_job_log` VALUES (386, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：621毫秒', '0', '', '2024-03-27 21:06:00');
+INSERT INTO `sys_job_log` VALUES (387, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：709毫秒', '0', '', '2024-03-27 21:07:00');
+INSERT INTO `sys_job_log` VALUES (388, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：711毫秒', '0', '', '2024-03-27 21:07:00');
+INSERT INTO `sys_job_log` VALUES (389, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：751毫秒', '0', '', '2024-03-27 21:07:00');
+INSERT INTO `sys_job_log` VALUES (390, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：672毫秒', '0', '', '2024-03-27 21:08:00');
+INSERT INTO `sys_job_log` VALUES (391, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：715毫秒', '0', '', '2024-03-27 21:08:00');
+INSERT INTO `sys_job_log` VALUES (392, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：798毫秒', '0', '', '2024-03-27 21:08:00');
+INSERT INTO `sys_job_log` VALUES (393, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：650毫秒', '0', '', '2024-03-27 21:09:00');
+INSERT INTO `sys_job_log` VALUES (394, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：667毫秒', '0', '', '2024-03-27 21:09:00');
+INSERT INTO `sys_job_log` VALUES (395, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1529毫秒', '0', '', '2024-03-27 21:09:01');
+INSERT INTO `sys_job_log` VALUES (396, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：559毫秒', '0', '', '2024-03-27 21:10:00');
+INSERT INTO `sys_job_log` VALUES (397, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：722毫秒', '0', '', '2024-03-27 21:10:00');
+INSERT INTO `sys_job_log` VALUES (398, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：725毫秒', '0', '', '2024-03-27 21:10:00');
+INSERT INTO `sys_job_log` VALUES (399, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：825毫秒', '0', '', '2024-03-27 21:11:00');
+INSERT INTO `sys_job_log` VALUES (400, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：827毫秒', '0', '', '2024-03-27 21:11:00');
+INSERT INTO `sys_job_log` VALUES (401, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1685毫秒', '0', '', '2024-03-27 21:11:01');
+INSERT INTO `sys_job_log` VALUES (402, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：739毫秒', '0', '', '2024-03-27 21:12:00');
+INSERT INTO `sys_job_log` VALUES (403, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：767毫秒', '0', '', '2024-03-27 21:12:00');
+INSERT INTO `sys_job_log` VALUES (404, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：773毫秒', '0', '', '2024-03-27 21:12:00');
+INSERT INTO `sys_job_log` VALUES (405, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：712毫秒', '0', '', '2024-03-27 21:13:00');
+INSERT INTO `sys_job_log` VALUES (406, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：716毫秒', '0', '', '2024-03-27 21:13:00');
+INSERT INTO `sys_job_log` VALUES (407, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：748毫秒', '0', '', '2024-03-27 21:13:00');
+INSERT INTO `sys_job_log` VALUES (408, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：515毫秒', '0', '', '2024-03-27 21:14:00');
+INSERT INTO `sys_job_log` VALUES (409, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1642毫秒', '0', '', '2024-03-27 21:14:01');
+INSERT INTO `sys_job_log` VALUES (410, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1728毫秒', '0', '', '2024-03-27 21:14:01');
+INSERT INTO `sys_job_log` VALUES (411, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：532毫秒', '0', '', '2024-03-27 21:15:00');
+INSERT INTO `sys_job_log` VALUES (412, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：536毫秒', '0', '', '2024-03-27 21:15:00');
+INSERT INTO `sys_job_log` VALUES (413, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1503毫秒', '0', '', '2024-03-27 21:15:01');
+INSERT INTO `sys_job_log` VALUES (414, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：640毫秒', '0', '', '2024-03-27 21:16:00');
+INSERT INTO `sys_job_log` VALUES (415, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：655毫秒', '0', '', '2024-03-27 21:16:00');
+INSERT INTO `sys_job_log` VALUES (416, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1039毫秒', '0', '', '2024-03-27 21:16:01');
+INSERT INTO `sys_job_log` VALUES (417, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：563毫秒', '0', '', '2024-03-27 21:17:00');
+INSERT INTO `sys_job_log` VALUES (418, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：617毫秒', '0', '', '2024-03-27 21:17:00');
+INSERT INTO `sys_job_log` VALUES (419, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1003毫秒', '0', '', '2024-03-27 21:17:01');
+INSERT INTO `sys_job_log` VALUES (420, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：657毫秒', '0', '', '2024-03-27 21:18:00');
+INSERT INTO `sys_job_log` VALUES (421, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：705毫秒', '0', '', '2024-03-27 21:18:00');
+INSERT INTO `sys_job_log` VALUES (422, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：711毫秒', '0', '', '2024-03-27 21:18:00');
+INSERT INTO `sys_job_log` VALUES (423, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1654毫秒', '0', '', '2024-03-27 21:19:01');
+INSERT INTO `sys_job_log` VALUES (424, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1666毫秒', '0', '', '2024-03-27 21:19:01');
+INSERT INTO `sys_job_log` VALUES (425, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1676毫秒', '0', '', '2024-03-27 21:19:01');
+INSERT INTO `sys_job_log` VALUES (426, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：574毫秒', '0', '', '2024-03-27 21:20:00');
+INSERT INTO `sys_job_log` VALUES (427, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1138毫秒', '0', '', '2024-03-27 21:20:01');
+INSERT INTO `sys_job_log` VALUES (428, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1154毫秒', '0', '', '2024-03-27 21:20:01');
+INSERT INTO `sys_job_log` VALUES (429, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：629毫秒', '0', '', '2024-03-27 21:21:00');
+INSERT INTO `sys_job_log` VALUES (430, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1613毫秒', '0', '', '2024-03-27 21:21:01');
+INSERT INTO `sys_job_log` VALUES (431, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：3612毫秒', '0', '', '2024-03-27 21:21:03');
+INSERT INTO `sys_job_log` VALUES (432, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：678毫秒', '0', '', '2024-03-27 21:22:00');
+INSERT INTO `sys_job_log` VALUES (433, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：684毫秒', '0', '', '2024-03-27 21:22:00');
+INSERT INTO `sys_job_log` VALUES (434, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：759毫秒', '0', '', '2024-03-27 21:22:00');
+INSERT INTO `sys_job_log` VALUES (435, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：798毫秒', '0', '', '2024-03-27 21:23:00');
+INSERT INTO `sys_job_log` VALUES (436, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：805毫秒', '0', '', '2024-03-27 21:23:00');
+INSERT INTO `sys_job_log` VALUES (437, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2452毫秒', '0', '', '2024-03-27 21:23:02');
+INSERT INTO `sys_job_log` VALUES (438, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：578毫秒', '0', '', '2024-03-27 21:24:00');
+INSERT INTO `sys_job_log` VALUES (439, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：597毫秒', '0', '', '2024-03-27 21:24:00');
+INSERT INTO `sys_job_log` VALUES (440, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：933毫秒', '0', '', '2024-03-27 21:24:00');
+INSERT INTO `sys_job_log` VALUES (441, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：611毫秒', '0', '', '2024-03-27 21:25:00');
+INSERT INTO `sys_job_log` VALUES (442, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：641毫秒', '0', '', '2024-03-27 21:25:00');
+INSERT INTO `sys_job_log` VALUES (443, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：978毫秒', '0', '', '2024-03-27 21:25:00');
+INSERT INTO `sys_job_log` VALUES (444, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：562毫秒', '0', '', '2024-03-27 21:26:00');
+INSERT INTO `sys_job_log` VALUES (445, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：644毫秒', '0', '', '2024-03-27 21:26:00');
+INSERT INTO `sys_job_log` VALUES (446, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2442毫秒', '0', '', '2024-03-27 21:26:02');
+INSERT INTO `sys_job_log` VALUES (447, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：637毫秒', '0', '', '2024-03-27 21:27:00');
+INSERT INTO `sys_job_log` VALUES (448, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：641毫秒', '0', '', '2024-03-27 21:27:00');
+INSERT INTO `sys_job_log` VALUES (449, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1550毫秒', '0', '', '2024-03-27 21:27:01');
+INSERT INTO `sys_job_log` VALUES (450, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：498毫秒', '0', '', '2024-03-27 21:28:00');
+INSERT INTO `sys_job_log` VALUES (451, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：903毫秒', '0', '', '2024-03-27 21:28:00');
+INSERT INTO `sys_job_log` VALUES (452, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：947毫秒', '0', '', '2024-03-27 21:28:00');
+INSERT INTO `sys_job_log` VALUES (453, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：672毫秒', '0', '', '2024-03-27 21:29:00');
+INSERT INTO `sys_job_log` VALUES (454, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：680毫秒', '0', '', '2024-03-27 21:29:00');
+INSERT INTO `sys_job_log` VALUES (455, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：953毫秒', '0', '', '2024-03-27 21:29:00');
+INSERT INTO `sys_job_log` VALUES (456, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：577毫秒', '0', '', '2024-03-27 21:30:00');
+INSERT INTO `sys_job_log` VALUES (457, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：649毫秒', '0', '', '2024-03-27 21:30:00');
+INSERT INTO `sys_job_log` VALUES (458, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：708毫秒', '0', '', '2024-03-27 21:30:00');
+INSERT INTO `sys_job_log` VALUES (459, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：878毫秒', '0', '', '2024-03-27 21:31:00');
+INSERT INTO `sys_job_log` VALUES (460, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1018毫秒', '0', '', '2024-03-27 21:31:01');
+INSERT INTO `sys_job_log` VALUES (461, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：3011毫秒', '0', '', '2024-03-27 21:31:03');
+INSERT INTO `sys_job_log` VALUES (462, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1026毫秒', '0', '', '2024-03-27 21:32:01');
+INSERT INTO `sys_job_log` VALUES (463, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1571毫秒', '0', '', '2024-03-27 21:32:01');
+INSERT INTO `sys_job_log` VALUES (464, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：3979毫秒', '0', '', '2024-03-27 21:32:03');
+INSERT INTO `sys_job_log` VALUES (465, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：705毫秒', '0', '', '2024-03-27 21:33:00');
+INSERT INTO `sys_job_log` VALUES (466, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：722毫秒', '0', '', '2024-03-27 21:33:00');
+INSERT INTO `sys_job_log` VALUES (467, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：732毫秒', '0', '', '2024-03-27 21:33:00');
+INSERT INTO `sys_job_log` VALUES (468, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1388毫秒', '0', '', '2024-03-27 21:34:01');
+INSERT INTO `sys_job_log` VALUES (469, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1391毫秒', '0', '', '2024-03-27 21:34:01');
+INSERT INTO `sys_job_log` VALUES (470, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1396毫秒', '0', '', '2024-03-27 21:34:01');
+INSERT INTO `sys_job_log` VALUES (471, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：583毫秒', '0', '', '2024-03-27 21:35:00');
+INSERT INTO `sys_job_log` VALUES (472, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1450毫秒', '0', '', '2024-03-27 21:35:01');
+INSERT INTO `sys_job_log` VALUES (473, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1839毫秒', '0', '', '2024-03-27 21:35:01');
+INSERT INTO `sys_job_log` VALUES (474, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：737毫秒', '0', '', '2024-03-27 21:36:00');
+INSERT INTO `sys_job_log` VALUES (475, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：739毫秒', '0', '', '2024-03-27 21:36:00');
+INSERT INTO `sys_job_log` VALUES (476, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：744毫秒', '0', '', '2024-03-27 21:36:00');
+INSERT INTO `sys_job_log` VALUES (477, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1072毫秒', '0', '', '2024-03-27 21:37:01');
+INSERT INTO `sys_job_log` VALUES (478, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1074毫秒', '0', '', '2024-03-27 21:37:01');
+INSERT INTO `sys_job_log` VALUES (479, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1500毫秒', '0', '', '2024-03-27 21:37:01');
+INSERT INTO `sys_job_log` VALUES (480, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：588毫秒', '0', '', '2024-03-27 21:38:00');
+INSERT INTO `sys_job_log` VALUES (481, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1071毫秒', '0', '', '2024-03-27 21:38:01');
+INSERT INTO `sys_job_log` VALUES (482, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：4553毫秒', '0', '', '2024-03-27 21:38:04');
+INSERT INTO `sys_job_log` VALUES (483, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：599毫秒', '0', '', '2024-03-27 21:39:00');
+INSERT INTO `sys_job_log` VALUES (484, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：605毫秒', '0', '', '2024-03-27 21:39:00');
+INSERT INTO `sys_job_log` VALUES (485, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1670毫秒', '0', '', '2024-03-27 21:39:01');
+INSERT INTO `sys_job_log` VALUES (486, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：676毫秒', '0', '', '2024-03-27 21:40:00');
+INSERT INTO `sys_job_log` VALUES (487, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：770毫秒', '0', '', '2024-03-27 21:40:00');
+INSERT INTO `sys_job_log` VALUES (488, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：798毫秒', '0', '', '2024-03-27 21:40:00');
+INSERT INTO `sys_job_log` VALUES (489, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：600毫秒', '0', '', '2024-03-27 21:41:00');
+INSERT INTO `sys_job_log` VALUES (490, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：610毫秒', '0', '', '2024-03-27 21:41:00');
+INSERT INTO `sys_job_log` VALUES (491, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1772毫秒', '0', '', '2024-03-27 21:41:01');
+INSERT INTO `sys_job_log` VALUES (492, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：685毫秒', '0', '', '2024-03-27 21:42:00');
+INSERT INTO `sys_job_log` VALUES (493, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：713毫秒', '0', '', '2024-03-27 21:42:00');
+INSERT INTO `sys_job_log` VALUES (494, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：739毫秒', '0', '', '2024-03-27 21:42:00');
+INSERT INTO `sys_job_log` VALUES (495, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：657毫秒', '0', '', '2024-03-27 21:43:00');
+INSERT INTO `sys_job_log` VALUES (496, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：664毫秒', '0', '', '2024-03-27 21:43:00');
+INSERT INTO `sys_job_log` VALUES (497, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1052毫秒', '0', '', '2024-03-27 21:43:01');
+INSERT INTO `sys_job_log` VALUES (498, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：610毫秒', '0', '', '2024-03-27 21:44:00');
+INSERT INTO `sys_job_log` VALUES (499, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1030毫秒', '0', '', '2024-03-27 21:44:01');
+INSERT INTO `sys_job_log` VALUES (500, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1588毫秒', '0', '', '2024-03-27 21:44:01');
+INSERT INTO `sys_job_log` VALUES (501, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：763毫秒', '0', '', '2024-03-27 21:45:00');
+INSERT INTO `sys_job_log` VALUES (502, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：768毫秒', '0', '', '2024-03-27 21:45:00');
+INSERT INTO `sys_job_log` VALUES (503, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1532毫秒', '0', '', '2024-03-27 21:45:01');
+INSERT INTO `sys_job_log` VALUES (504, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：735毫秒', '0', '', '2024-03-27 21:46:00');
+INSERT INTO `sys_job_log` VALUES (505, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：765毫秒', '0', '', '2024-03-27 21:46:00');
+INSERT INTO `sys_job_log` VALUES (506, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：797毫秒', '0', '', '2024-03-27 21:46:00');
+INSERT INTO `sys_job_log` VALUES (507, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：693毫秒', '0', '', '2024-03-27 21:47:00');
+INSERT INTO `sys_job_log` VALUES (508, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：759毫秒', '0', '', '2024-03-27 21:47:00');
+INSERT INTO `sys_job_log` VALUES (509, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1661毫秒', '0', '', '2024-03-27 21:47:01');
+INSERT INTO `sys_job_log` VALUES (510, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：650毫秒', '0', '', '2024-03-27 21:48:00');
+INSERT INTO `sys_job_log` VALUES (511, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：665毫秒', '0', '', '2024-03-27 21:48:00');
+INSERT INTO `sys_job_log` VALUES (512, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：907毫秒', '0', '', '2024-03-27 21:48:00');
+INSERT INTO `sys_job_log` VALUES (513, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：617毫秒', '0', '', '2024-03-27 21:49:00');
+INSERT INTO `sys_job_log` VALUES (514, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：673毫秒', '0', '', '2024-03-27 21:49:00');
+INSERT INTO `sys_job_log` VALUES (515, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1478毫秒', '0', '', '2024-03-27 21:49:01');
+INSERT INTO `sys_job_log` VALUES (516, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：691毫秒', '0', '', '2024-03-27 21:50:00');
+INSERT INTO `sys_job_log` VALUES (517, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：774毫秒', '0', '', '2024-03-27 21:50:00');
+INSERT INTO `sys_job_log` VALUES (518, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1959毫秒', '0', '', '2024-03-27 21:50:01');
+INSERT INTO `sys_job_log` VALUES (519, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：641毫秒', '0', '', '2024-03-27 21:51:00');
+INSERT INTO `sys_job_log` VALUES (520, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：691毫秒', '0', '', '2024-03-27 21:51:00');
+INSERT INTO `sys_job_log` VALUES (521, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：768毫秒', '0', '', '2024-03-27 21:51:00');
+INSERT INTO `sys_job_log` VALUES (522, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：592毫秒', '0', '', '2024-03-27 21:52:00');
+INSERT INTO `sys_job_log` VALUES (523, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1467毫秒', '0', '', '2024-03-27 21:52:01');
+INSERT INTO `sys_job_log` VALUES (524, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1472毫秒', '0', '', '2024-03-27 21:52:01');
+INSERT INTO `sys_job_log` VALUES (525, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：625毫秒', '0', '', '2024-03-27 21:53:00');
+INSERT INTO `sys_job_log` VALUES (526, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：716毫秒', '0', '', '2024-03-27 21:53:00');
+INSERT INTO `sys_job_log` VALUES (527, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1597毫秒', '0', '', '2024-03-27 21:53:01');
+INSERT INTO `sys_job_log` VALUES (528, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：629毫秒', '0', '', '2024-03-27 21:54:00');
+INSERT INTO `sys_job_log` VALUES (529, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：635毫秒', '0', '', '2024-03-27 21:54:00');
+INSERT INTO `sys_job_log` VALUES (530, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1455毫秒', '0', '', '2024-03-27 21:54:01');
+INSERT INTO `sys_job_log` VALUES (531, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：647毫秒', '0', '', '2024-03-27 21:55:00');
+INSERT INTO `sys_job_log` VALUES (532, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：713毫秒', '0', '', '2024-03-27 21:55:00');
+INSERT INTO `sys_job_log` VALUES (533, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：810毫秒', '0', '', '2024-03-27 21:55:00');
+INSERT INTO `sys_job_log` VALUES (534, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：615毫秒', '0', '', '2024-03-27 21:56:00');
+INSERT INTO `sys_job_log` VALUES (535, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1029毫秒', '0', '', '2024-03-27 21:56:01');
+INSERT INTO `sys_job_log` VALUES (536, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1033毫秒', '0', '', '2024-03-27 21:56:01');
+INSERT INTO `sys_job_log` VALUES (537, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：582毫秒', '0', '', '2024-03-27 21:57:00');
+INSERT INTO `sys_job_log` VALUES (538, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：642毫秒', '0', '', '2024-03-27 21:57:00');
+INSERT INTO `sys_job_log` VALUES (539, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：644毫秒', '0', '', '2024-03-27 21:57:00');
+INSERT INTO `sys_job_log` VALUES (540, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：564毫秒', '0', '', '2024-03-27 21:58:00');
+INSERT INTO `sys_job_log` VALUES (541, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：986毫秒', '0', '', '2024-03-27 21:58:00');
+INSERT INTO `sys_job_log` VALUES (542, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1485毫秒', '0', '', '2024-03-27 21:58:01');
+INSERT INTO `sys_job_log` VALUES (543, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：757毫秒', '0', '', '2024-03-27 21:59:00');
+INSERT INTO `sys_job_log` VALUES (544, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：791毫秒', '0', '', '2024-03-27 21:59:00');
+INSERT INTO `sys_job_log` VALUES (545, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2792毫秒', '0', '', '2024-03-27 21:59:02');
+INSERT INTO `sys_job_log` VALUES (546, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：577毫秒', '0', '', '2024-03-27 22:00:00');
+INSERT INTO `sys_job_log` VALUES (547, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：708毫秒', '0', '', '2024-03-27 22:00:00');
+INSERT INTO `sys_job_log` VALUES (548, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：925毫秒', '0', '', '2024-03-27 22:00:00');
+INSERT INTO `sys_job_log` VALUES (549, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：692毫秒', '0', '', '2024-03-27 22:01:00');
+INSERT INTO `sys_job_log` VALUES (550, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：698毫秒', '0', '', '2024-03-27 22:01:00');
+INSERT INTO `sys_job_log` VALUES (551, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1678毫秒', '0', '', '2024-03-27 22:01:01');
+INSERT INTO `sys_job_log` VALUES (552, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：925毫秒', '0', '', '2024-03-27 22:02:00');
+INSERT INTO `sys_job_log` VALUES (553, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1535毫秒', '0', '', '2024-03-27 22:02:01');
+INSERT INTO `sys_job_log` VALUES (554, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：3493毫秒', '0', '', '2024-03-27 22:02:03');
+INSERT INTO `sys_job_log` VALUES (555, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：672毫秒', '0', '', '2024-03-27 22:03:00');
+INSERT INTO `sys_job_log` VALUES (556, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：714毫秒', '0', '', '2024-03-27 22:03:00');
+INSERT INTO `sys_job_log` VALUES (557, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2635毫秒', '0', '', '2024-03-27 22:03:02');
+INSERT INTO `sys_job_log` VALUES (558, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：768毫秒', '0', '', '2024-03-27 22:04:00');
+INSERT INTO `sys_job_log` VALUES (559, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：888毫秒', '0', '', '2024-03-27 22:04:00');
+INSERT INTO `sys_job_log` VALUES (560, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1821毫秒', '0', '', '2024-03-27 22:04:01');
+INSERT INTO `sys_job_log` VALUES (561, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：787毫秒', '0', '', '2024-03-27 22:05:00');
+INSERT INTO `sys_job_log` VALUES (562, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：844毫秒', '0', '', '2024-03-27 22:05:00');
+INSERT INTO `sys_job_log` VALUES (563, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：859毫秒', '0', '', '2024-03-27 22:05:00');
+INSERT INTO `sys_job_log` VALUES (564, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：664毫秒', '0', '', '2024-03-27 22:06:00');
+INSERT INTO `sys_job_log` VALUES (565, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：696毫秒', '0', '', '2024-03-27 22:06:00');
+INSERT INTO `sys_job_log` VALUES (566, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1651毫秒', '0', '', '2024-03-27 22:06:01');
+INSERT INTO `sys_job_log` VALUES (567, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：662毫秒', '0', '', '2024-03-27 22:07:00');
+INSERT INTO `sys_job_log` VALUES (568, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：919毫秒', '0', '', '2024-03-27 22:07:00');
+INSERT INTO `sys_job_log` VALUES (569, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1544毫秒', '0', '', '2024-03-27 22:07:01');
+INSERT INTO `sys_job_log` VALUES (570, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：718毫秒', '0', '', '2024-03-27 22:08:00');
+INSERT INTO `sys_job_log` VALUES (571, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：799毫秒', '0', '', '2024-03-27 22:08:00');
+INSERT INTO `sys_job_log` VALUES (572, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：972毫秒', '0', '', '2024-03-27 22:08:00');
+INSERT INTO `sys_job_log` VALUES (573, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：630毫秒', '0', '', '2024-03-27 22:09:00');
+INSERT INTO `sys_job_log` VALUES (574, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：679毫秒', '0', '', '2024-03-27 22:09:00');
+INSERT INTO `sys_job_log` VALUES (575, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：683毫秒', '0', '', '2024-03-27 22:09:00');
+INSERT INTO `sys_job_log` VALUES (576, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：996毫秒', '0', '', '2024-03-27 22:10:01');
+INSERT INTO `sys_job_log` VALUES (577, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1004毫秒', '0', '', '2024-03-27 22:10:01');
+INSERT INTO `sys_job_log` VALUES (578, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1010毫秒', '0', '', '2024-03-27 22:10:01');
+INSERT INTO `sys_job_log` VALUES (579, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：859毫秒', '0', '', '2024-03-27 22:11:00');
+INSERT INTO `sys_job_log` VALUES (580, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：859毫秒', '0', '', '2024-03-27 22:11:00');
+INSERT INTO `sys_job_log` VALUES (581, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：863毫秒', '0', '', '2024-03-27 22:11:00');
+INSERT INTO `sys_job_log` VALUES (582, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：752毫秒', '0', '', '2024-03-27 22:12:00');
+INSERT INTO `sys_job_log` VALUES (583, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：754毫秒', '0', '', '2024-03-27 22:12:00');
+INSERT INTO `sys_job_log` VALUES (584, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1553毫秒', '0', '', '2024-03-27 22:12:01');
+INSERT INTO `sys_job_log` VALUES (585, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：580毫秒', '0', '', '2024-03-27 22:13:00');
+INSERT INTO `sys_job_log` VALUES (586, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：610毫秒', '0', '', '2024-03-27 22:13:00');
+INSERT INTO `sys_job_log` VALUES (587, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1060毫秒', '0', '', '2024-03-27 22:13:01');
+INSERT INTO `sys_job_log` VALUES (588, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：743毫秒', '0', '', '2024-03-27 22:14:00');
+INSERT INTO `sys_job_log` VALUES (589, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：757毫秒', '0', '', '2024-03-27 22:14:00');
+INSERT INTO `sys_job_log` VALUES (590, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1223毫秒', '0', '', '2024-03-27 22:14:01');
+INSERT INTO `sys_job_log` VALUES (591, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2655毫秒', '0', '', '2024-03-27 22:15:02');
+INSERT INTO `sys_job_log` VALUES (592, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：3137毫秒', '0', '', '2024-03-27 22:15:03');
+INSERT INTO `sys_job_log` VALUES (593, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：9712毫秒', '0', '', '2024-03-27 22:15:09');
+INSERT INTO `sys_job_log` VALUES (594, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：747毫秒', '0', '', '2024-03-27 22:16:00');
+INSERT INTO `sys_job_log` VALUES (595, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：749毫秒', '0', '', '2024-03-27 22:16:00');
+INSERT INTO `sys_job_log` VALUES (596, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：792毫秒', '0', '', '2024-03-27 22:16:00');
+INSERT INTO `sys_job_log` VALUES (597, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：732毫秒', '0', '', '2024-03-27 22:17:00');
+INSERT INTO `sys_job_log` VALUES (598, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：738毫秒', '0', '', '2024-03-27 22:17:00');
+INSERT INTO `sys_job_log` VALUES (599, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：827毫秒', '0', '', '2024-03-27 22:17:00');
+INSERT INTO `sys_job_log` VALUES (600, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：598毫秒', '0', '', '2024-03-27 22:18:00');
+INSERT INTO `sys_job_log` VALUES (601, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：697毫秒', '0', '', '2024-03-27 22:18:00');
+INSERT INTO `sys_job_log` VALUES (602, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1216毫秒', '0', '', '2024-03-27 22:18:01');
+INSERT INTO `sys_job_log` VALUES (603, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：769毫秒', '0', '', '2024-03-27 22:19:00');
+INSERT INTO `sys_job_log` VALUES (604, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：781毫秒', '0', '', '2024-03-27 22:19:00');
+INSERT INTO `sys_job_log` VALUES (605, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1064毫秒', '0', '', '2024-03-27 22:19:01');
+INSERT INTO `sys_job_log` VALUES (606, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：635毫秒', '0', '', '2024-03-27 22:20:00');
+INSERT INTO `sys_job_log` VALUES (607, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：652毫秒', '0', '', '2024-03-27 22:20:00');
+INSERT INTO `sys_job_log` VALUES (608, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1004毫秒', '0', '', '2024-03-27 22:20:01');
+INSERT INTO `sys_job_log` VALUES (609, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：671毫秒', '0', '', '2024-03-27 22:21:00');
+INSERT INTO `sys_job_log` VALUES (610, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：772毫秒', '0', '', '2024-03-27 22:21:00');
+INSERT INTO `sys_job_log` VALUES (611, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1472毫秒', '0', '', '2024-03-27 22:21:01');
+INSERT INTO `sys_job_log` VALUES (612, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：651毫秒', '0', '', '2024-03-27 22:22:00');
+INSERT INTO `sys_job_log` VALUES (613, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：653毫秒', '0', '', '2024-03-27 22:22:00');
+INSERT INTO `sys_job_log` VALUES (614, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：4884毫秒', '0', '', '2024-03-27 22:22:04');
+INSERT INTO `sys_job_log` VALUES (615, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：886毫秒', '0', '', '2024-03-27 22:23:00');
+INSERT INTO `sys_job_log` VALUES (616, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：966毫秒', '0', '', '2024-03-27 22:23:00');
+INSERT INTO `sys_job_log` VALUES (617, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：972毫秒', '0', '', '2024-03-27 22:23:00');
+INSERT INTO `sys_job_log` VALUES (618, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：579毫秒', '0', '', '2024-03-27 22:24:00');
+INSERT INTO `sys_job_log` VALUES (619, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：727毫秒', '0', '', '2024-03-27 22:24:00');
+INSERT INTO `sys_job_log` VALUES (620, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1687毫秒', '0', '', '2024-03-27 22:24:01');
+INSERT INTO `sys_job_log` VALUES (621, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2750毫秒', '0', '', '2024-03-27 22:25:02');
+INSERT INTO `sys_job_log` VALUES (622, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2833毫秒', '0', '', '2024-03-27 22:25:02');
+INSERT INTO `sys_job_log` VALUES (623, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：3644毫秒', '0', '', '2024-03-27 22:25:03');
+INSERT INTO `sys_job_log` VALUES (624, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：991毫秒', '0', '', '2024-03-27 22:26:01');
+INSERT INTO `sys_job_log` VALUES (625, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1097毫秒', '0', '', '2024-03-27 22:26:01');
+INSERT INTO `sys_job_log` VALUES (626, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1660毫秒', '0', '', '2024-03-27 22:26:01');
+INSERT INTO `sys_job_log` VALUES (627, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：678毫秒', '0', '', '2024-03-27 22:27:00');
+INSERT INTO `sys_job_log` VALUES (628, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：708毫秒', '0', '', '2024-03-27 22:27:00');
+INSERT INTO `sys_job_log` VALUES (629, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1477毫秒', '0', '', '2024-03-27 22:27:01');
+INSERT INTO `sys_job_log` VALUES (630, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：571毫秒', '0', '', '2024-03-27 22:28:00');
+INSERT INTO `sys_job_log` VALUES (631, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1050毫秒', '0', '', '2024-03-27 22:28:01');
+INSERT INTO `sys_job_log` VALUES (632, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1118毫秒', '0', '', '2024-03-27 22:28:01');
+INSERT INTO `sys_job_log` VALUES (633, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：670毫秒', '0', '', '2024-03-27 22:29:00');
+INSERT INTO `sys_job_log` VALUES (634, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：729毫秒', '0', '', '2024-03-27 22:29:00');
+INSERT INTO `sys_job_log` VALUES (635, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：874毫秒', '0', '', '2024-03-27 22:29:00');
+INSERT INTO `sys_job_log` VALUES (636, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：599毫秒', '0', '', '2024-03-27 22:30:00');
+INSERT INTO `sys_job_log` VALUES (637, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1368毫秒', '0', '', '2024-03-27 22:30:01');
+INSERT INTO `sys_job_log` VALUES (638, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1478毫秒', '0', '', '2024-03-27 22:30:01');
+INSERT INTO `sys_job_log` VALUES (639, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：559毫秒', '0', '', '2024-03-27 22:31:00');
+INSERT INTO `sys_job_log` VALUES (640, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1016毫秒', '0', '', '2024-03-27 22:31:01');
+INSERT INTO `sys_job_log` VALUES (641, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2713毫秒', '0', '', '2024-03-27 22:31:02');
+INSERT INTO `sys_job_log` VALUES (642, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：799毫秒', '0', '', '2024-03-27 22:32:00');
+INSERT INTO `sys_job_log` VALUES (643, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：802毫秒', '0', '', '2024-03-27 22:32:00');
+INSERT INTO `sys_job_log` VALUES (644, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：811毫秒', '0', '', '2024-03-27 22:32:00');
+INSERT INTO `sys_job_log` VALUES (645, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：599毫秒', '0', '', '2024-03-27 22:33:00');
+INSERT INTO `sys_job_log` VALUES (646, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：608毫秒', '0', '', '2024-03-27 22:33:00');
+INSERT INTO `sys_job_log` VALUES (647, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：622毫秒', '0', '', '2024-03-27 22:33:00');
+INSERT INTO `sys_job_log` VALUES (648, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：481毫秒', '0', '', '2024-03-27 22:34:00');
+INSERT INTO `sys_job_log` VALUES (649, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：910毫秒', '0', '', '2024-03-27 22:34:00');
+INSERT INTO `sys_job_log` VALUES (650, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2234毫秒', '0', '', '2024-03-27 22:34:02');
+INSERT INTO `sys_job_log` VALUES (651, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：708毫秒', '0', '', '2024-03-27 22:35:00');
+INSERT INTO `sys_job_log` VALUES (652, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：772毫秒', '0', '', '2024-03-27 22:35:00');
+INSERT INTO `sys_job_log` VALUES (653, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：830毫秒', '0', '', '2024-03-27 22:35:00');
+INSERT INTO `sys_job_log` VALUES (654, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：923毫秒', '0', '', '2024-03-27 22:36:00');
+INSERT INTO `sys_job_log` VALUES (655, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：926毫秒', '0', '', '2024-03-27 22:36:00');
+INSERT INTO `sys_job_log` VALUES (656, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：931毫秒', '0', '', '2024-03-27 22:36:00');
+INSERT INTO `sys_job_log` VALUES (657, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：546毫秒', '0', '', '2024-03-27 22:37:00');
+INSERT INTO `sys_job_log` VALUES (658, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1529毫秒', '0', '', '2024-03-27 22:37:01');
+INSERT INTO `sys_job_log` VALUES (659, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1531毫秒', '0', '', '2024-03-27 22:37:01');
+INSERT INTO `sys_job_log` VALUES (660, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：758毫秒', '0', '', '2024-03-27 22:38:00');
+INSERT INTO `sys_job_log` VALUES (661, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：776毫秒', '0', '', '2024-03-27 22:38:00');
+INSERT INTO `sys_job_log` VALUES (662, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1606毫秒', '0', '', '2024-03-27 22:38:01');
+INSERT INTO `sys_job_log` VALUES (663, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：671毫秒', '0', '', '2024-03-27 22:39:00');
+INSERT INTO `sys_job_log` VALUES (664, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：701毫秒', '0', '', '2024-03-27 22:39:00');
+INSERT INTO `sys_job_log` VALUES (665, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：806毫秒', '0', '', '2024-03-27 22:39:00');
+INSERT INTO `sys_job_log` VALUES (666, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：575毫秒', '0', '', '2024-03-27 22:40:00');
+INSERT INTO `sys_job_log` VALUES (667, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：679毫秒', '0', '', '2024-03-27 22:40:00');
+INSERT INTO `sys_job_log` VALUES (668, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：738毫秒', '0', '', '2024-03-27 22:40:00');
+INSERT INTO `sys_job_log` VALUES (669, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：709毫秒', '0', '', '2024-03-27 22:41:00');
+INSERT INTO `sys_job_log` VALUES (670, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：712毫秒', '0', '', '2024-03-27 22:41:00');
+INSERT INTO `sys_job_log` VALUES (671, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1131毫秒', '0', '', '2024-03-27 22:41:01');
+INSERT INTO `sys_job_log` VALUES (672, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：561毫秒', '0', '', '2024-03-27 22:42:00');
+INSERT INTO `sys_job_log` VALUES (673, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：950毫秒', '0', '', '2024-03-27 22:42:00');
+INSERT INTO `sys_job_log` VALUES (674, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1530毫秒', '0', '', '2024-03-27 22:42:01');
+INSERT INTO `sys_job_log` VALUES (675, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：607毫秒', '0', '', '2024-03-27 22:43:00');
+INSERT INTO `sys_job_log` VALUES (676, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：631毫秒', '0', '', '2024-03-27 22:43:00');
+INSERT INTO `sys_job_log` VALUES (677, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1008毫秒', '0', '', '2024-03-27 22:43:01');
+INSERT INTO `sys_job_log` VALUES (678, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：544毫秒', '0', '', '2024-03-27 22:44:00');
+INSERT INTO `sys_job_log` VALUES (679, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：667毫秒', '0', '', '2024-03-27 22:44:00');
+INSERT INTO `sys_job_log` VALUES (680, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1466毫秒', '0', '', '2024-03-27 22:44:01');
+INSERT INTO `sys_job_log` VALUES (681, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：692毫秒', '0', '', '2024-03-27 22:45:00');
+INSERT INTO `sys_job_log` VALUES (682, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：729毫秒', '0', '', '2024-03-27 22:45:00');
+INSERT INTO `sys_job_log` VALUES (683, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1471毫秒', '0', '', '2024-03-27 22:45:01');
+INSERT INTO `sys_job_log` VALUES (684, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：575毫秒', '0', '', '2024-03-27 22:46:00');
+INSERT INTO `sys_job_log` VALUES (685, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：607毫秒', '0', '', '2024-03-27 22:46:00');
+INSERT INTO `sys_job_log` VALUES (686, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1567毫秒', '0', '', '2024-03-27 22:46:01');
+INSERT INTO `sys_job_log` VALUES (687, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：839毫秒', '0', '', '2024-03-27 22:47:00');
+INSERT INTO `sys_job_log` VALUES (688, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：866毫秒', '0', '', '2024-03-27 22:47:00');
+INSERT INTO `sys_job_log` VALUES (689, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：990毫秒', '0', '', '2024-03-27 22:47:01');
+INSERT INTO `sys_job_log` VALUES (690, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：511毫秒', '0', '', '2024-03-27 22:48:00');
+INSERT INTO `sys_job_log` VALUES (691, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：663毫秒', '0', '', '2024-03-27 22:48:00');
+INSERT INTO `sys_job_log` VALUES (692, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：673毫秒', '0', '', '2024-03-27 22:48:00');
+INSERT INTO `sys_job_log` VALUES (693, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：693毫秒', '0', '', '2024-03-27 22:49:00');
+INSERT INTO `sys_job_log` VALUES (694, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：744毫秒', '0', '', '2024-03-27 22:49:00');
+INSERT INTO `sys_job_log` VALUES (695, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：748毫秒', '0', '', '2024-03-27 22:49:00');
+INSERT INTO `sys_job_log` VALUES (696, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：589毫秒', '0', '', '2024-03-27 22:50:00');
+INSERT INTO `sys_job_log` VALUES (697, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：634毫秒', '0', '', '2024-03-27 22:50:00');
+INSERT INTO `sys_job_log` VALUES (698, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1420毫秒', '0', '', '2024-03-27 22:50:01');
+INSERT INTO `sys_job_log` VALUES (699, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：701毫秒', '0', '', '2024-03-27 22:51:00');
+INSERT INTO `sys_job_log` VALUES (700, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：704毫秒', '0', '', '2024-03-27 22:51:00');
+INSERT INTO `sys_job_log` VALUES (701, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1020毫秒', '0', '', '2024-03-27 22:51:01');
+INSERT INTO `sys_job_log` VALUES (702, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：627毫秒', '0', '', '2024-03-27 22:52:00');
+INSERT INTO `sys_job_log` VALUES (703, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：655毫秒', '0', '', '2024-03-27 22:52:00');
+INSERT INTO `sys_job_log` VALUES (704, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：664毫秒', '0', '', '2024-03-27 22:52:00');
+INSERT INTO `sys_job_log` VALUES (705, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：596毫秒', '0', '', '2024-03-27 22:53:00');
+INSERT INTO `sys_job_log` VALUES (706, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：749毫秒', '0', '', '2024-03-27 22:53:00');
+INSERT INTO `sys_job_log` VALUES (707, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1515毫秒', '0', '', '2024-03-27 22:53:01');
+INSERT INTO `sys_job_log` VALUES (708, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：684毫秒', '0', '', '2024-03-27 22:54:00');
+INSERT INTO `sys_job_log` VALUES (709, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：730毫秒', '0', '', '2024-03-27 22:54:00');
+INSERT INTO `sys_job_log` VALUES (710, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：770毫秒', '0', '', '2024-03-27 22:54:00');
+INSERT INTO `sys_job_log` VALUES (711, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：704毫秒', '0', '', '2024-03-27 22:55:00');
+INSERT INTO `sys_job_log` VALUES (712, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：732毫秒', '0', '', '2024-03-27 22:55:00');
+INSERT INTO `sys_job_log` VALUES (713, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：764毫秒', '0', '', '2024-03-27 22:55:00');
+INSERT INTO `sys_job_log` VALUES (714, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：605毫秒', '0', '', '2024-03-27 22:56:00');
+INSERT INTO `sys_job_log` VALUES (715, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：660毫秒', '0', '', '2024-03-27 22:56:00');
+INSERT INTO `sys_job_log` VALUES (716, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2277毫秒', '0', '', '2024-03-27 22:56:02');
+INSERT INTO `sys_job_log` VALUES (717, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：655毫秒', '0', '', '2024-03-27 22:57:00');
+INSERT INTO `sys_job_log` VALUES (718, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：657毫秒', '0', '', '2024-03-27 22:57:00');
+INSERT INTO `sys_job_log` VALUES (719, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1392毫秒', '0', '', '2024-03-27 22:57:01');
+INSERT INTO `sys_job_log` VALUES (720, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：557毫秒', '0', '', '2024-03-27 22:58:00');
+INSERT INTO `sys_job_log` VALUES (721, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：585毫秒', '0', '', '2024-03-27 22:58:00');
+INSERT INTO `sys_job_log` VALUES (722, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：621毫秒', '0', '', '2024-03-27 22:58:00');
+INSERT INTO `sys_job_log` VALUES (723, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：3038毫秒', '0', '', '2024-03-27 22:59:03');
+INSERT INTO `sys_job_log` VALUES (724, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：3375毫秒', '0', '', '2024-03-27 22:59:03');
+INSERT INTO `sys_job_log` VALUES (725, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：3611毫秒', '0', '', '2024-03-27 22:59:03');
+INSERT INTO `sys_job_log` VALUES (726, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：500毫秒', '0', '', '2024-03-27 23:00:00');
+INSERT INTO `sys_job_log` VALUES (727, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1431毫秒', '0', '', '2024-03-27 23:00:01');
+INSERT INTO `sys_job_log` VALUES (728, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：4530毫秒', '0', '', '2024-03-27 23:00:04');
+INSERT INTO `sys_job_log` VALUES (729, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：600毫秒', '0', '', '2024-03-27 23:01:00');
+INSERT INTO `sys_job_log` VALUES (730, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：645毫秒', '0', '', '2024-03-27 23:01:00');
+INSERT INTO `sys_job_log` VALUES (731, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：956毫秒', '0', '', '2024-03-27 23:01:00');
+INSERT INTO `sys_job_log` VALUES (732, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：759毫秒', '0', '', '2024-03-27 23:02:00');
+INSERT INTO `sys_job_log` VALUES (733, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：772毫秒', '0', '', '2024-03-27 23:02:00');
+INSERT INTO `sys_job_log` VALUES (734, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：777毫秒', '0', '', '2024-03-27 23:02:00');
+INSERT INTO `sys_job_log` VALUES (735, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：873毫秒', '0', '', '2024-03-27 23:03:00');
+INSERT INTO `sys_job_log` VALUES (736, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1088毫秒', '0', '', '2024-03-27 23:03:01');
+INSERT INTO `sys_job_log` VALUES (737, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1587毫秒', '0', '', '2024-03-27 23:03:01');
+INSERT INTO `sys_job_log` VALUES (738, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：560毫秒', '0', '', '2024-03-27 23:04:00');
+INSERT INTO `sys_job_log` VALUES (739, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：582毫秒', '0', '', '2024-03-27 23:04:00');
+INSERT INTO `sys_job_log` VALUES (740, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：910毫秒', '0', '', '2024-03-27 23:04:00');
+INSERT INTO `sys_job_log` VALUES (741, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：633毫秒', '0', '', '2024-03-27 23:05:00');
+INSERT INTO `sys_job_log` VALUES (742, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：644毫秒', '0', '', '2024-03-27 23:05:00');
+INSERT INTO `sys_job_log` VALUES (743, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1036毫秒', '0', '', '2024-03-27 23:05:01');
+INSERT INTO `sys_job_log` VALUES (744, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：637毫秒', '0', '', '2024-03-27 23:06:00');
+INSERT INTO `sys_job_log` VALUES (745, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：670毫秒', '0', '', '2024-03-27 23:06:00');
+INSERT INTO `sys_job_log` VALUES (746, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：683毫秒', '0', '', '2024-03-27 23:06:00');
+INSERT INTO `sys_job_log` VALUES (747, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：680毫秒', '0', '', '2024-03-27 23:07:00');
+INSERT INTO `sys_job_log` VALUES (748, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：697毫秒', '0', '', '2024-03-27 23:07:00');
+INSERT INTO `sys_job_log` VALUES (749, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：732毫秒', '0', '', '2024-03-27 23:07:00');
+INSERT INTO `sys_job_log` VALUES (750, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：904毫秒', '0', '', '2024-03-27 23:08:00');
+INSERT INTO `sys_job_log` VALUES (751, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1622毫秒', '0', '', '2024-03-27 23:08:01');
+INSERT INTO `sys_job_log` VALUES (752, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：4673毫秒', '0', '', '2024-03-27 23:08:04');
+INSERT INTO `sys_job_log` VALUES (753, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：634毫秒', '0', '', '2024-03-27 23:09:00');
+INSERT INTO `sys_job_log` VALUES (754, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：714毫秒', '0', '', '2024-03-27 23:09:00');
+INSERT INTO `sys_job_log` VALUES (755, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：993毫秒', '0', '', '2024-03-27 23:09:00');
+INSERT INTO `sys_job_log` VALUES (756, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：551毫秒', '0', '', '2024-03-27 23:10:00');
+INSERT INTO `sys_job_log` VALUES (757, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：986毫秒', '0', '', '2024-03-27 23:10:00');
+INSERT INTO `sys_job_log` VALUES (758, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：4521毫秒', '0', '', '2024-03-27 23:10:04');
+INSERT INTO `sys_job_log` VALUES (759, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：578毫秒', '0', '', '2024-03-27 23:11:00');
+INSERT INTO `sys_job_log` VALUES (760, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：599毫秒', '0', '', '2024-03-27 23:11:00');
+INSERT INTO `sys_job_log` VALUES (761, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：875毫秒', '0', '', '2024-03-27 23:11:00');
+INSERT INTO `sys_job_log` VALUES (762, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：569毫秒', '0', '', '2024-03-27 23:12:00');
+INSERT INTO `sys_job_log` VALUES (763, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：699毫秒', '0', '', '2024-03-27 23:12:00');
+INSERT INTO `sys_job_log` VALUES (764, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1010毫秒', '0', '', '2024-03-27 23:12:01');
+INSERT INTO `sys_job_log` VALUES (765, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：600毫秒', '0', '', '2024-03-27 23:13:00');
+INSERT INTO `sys_job_log` VALUES (766, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：632毫秒', '0', '', '2024-03-27 23:13:00');
+INSERT INTO `sys_job_log` VALUES (767, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：672毫秒', '0', '', '2024-03-27 23:13:00');
+INSERT INTO `sys_job_log` VALUES (768, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：872毫秒', '0', '', '2024-03-27 23:14:00');
+INSERT INTO `sys_job_log` VALUES (769, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1180毫秒', '0', '', '2024-03-27 23:14:01');
+INSERT INTO `sys_job_log` VALUES (770, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1186毫秒', '0', '', '2024-03-27 23:14:01');
+INSERT INTO `sys_job_log` VALUES (771, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：543毫秒', '0', '', '2024-03-27 23:15:00');
+INSERT INTO `sys_job_log` VALUES (772, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：646毫秒', '0', '', '2024-03-27 23:15:00');
+INSERT INTO `sys_job_log` VALUES (773, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1469毫秒', '0', '', '2024-03-27 23:15:01');
+INSERT INTO `sys_job_log` VALUES (774, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：696毫秒', '0', '', '2024-03-27 23:16:00');
+INSERT INTO `sys_job_log` VALUES (775, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：698毫秒', '0', '', '2024-03-27 23:16:00');
+INSERT INTO `sys_job_log` VALUES (776, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：700毫秒', '0', '', '2024-03-27 23:16:00');
+INSERT INTO `sys_job_log` VALUES (777, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：609毫秒', '0', '', '2024-03-27 23:17:00');
+INSERT INTO `sys_job_log` VALUES (778, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1016毫秒', '0', '', '2024-03-27 23:17:01');
+INSERT INTO `sys_job_log` VALUES (779, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1044毫秒', '0', '', '2024-03-27 23:17:01');
+INSERT INTO `sys_job_log` VALUES (780, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：695毫秒', '0', '', '2024-03-27 23:18:00');
+INSERT INTO `sys_job_log` VALUES (781, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：702毫秒', '0', '', '2024-03-27 23:18:00');
+INSERT INTO `sys_job_log` VALUES (782, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1243毫秒', '0', '', '2024-03-27 23:18:01');
+INSERT INTO `sys_job_log` VALUES (783, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：841毫秒', '0', '', '2024-03-27 23:19:00');
+INSERT INTO `sys_job_log` VALUES (784, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：858毫秒', '0', '', '2024-03-27 23:19:00');
+INSERT INTO `sys_job_log` VALUES (785, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：6900毫秒', '0', '', '2024-03-27 23:19:06');
+INSERT INTO `sys_job_log` VALUES (786, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：891毫秒', '0', '', '2024-03-27 23:20:00');
+INSERT INTO `sys_job_log` VALUES (787, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：897毫秒', '0', '', '2024-03-27 23:20:00');
+INSERT INTO `sys_job_log` VALUES (788, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：937毫秒', '0', '', '2024-03-27 23:20:00');
+INSERT INTO `sys_job_log` VALUES (789, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：620毫秒', '0', '', '2024-03-27 23:21:00');
+INSERT INTO `sys_job_log` VALUES (790, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：703毫秒', '0', '', '2024-03-27 23:21:00');
+INSERT INTO `sys_job_log` VALUES (791, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：733毫秒', '0', '', '2024-03-27 23:21:00');
+INSERT INTO `sys_job_log` VALUES (792, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：541毫秒', '0', '', '2024-03-27 23:22:00');
+INSERT INTO `sys_job_log` VALUES (793, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：543毫秒', '0', '', '2024-03-27 23:22:00');
+INSERT INTO `sys_job_log` VALUES (794, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1658毫秒', '0', '', '2024-03-27 23:22:01');
+INSERT INTO `sys_job_log` VALUES (795, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：621毫秒', '0', '', '2024-03-27 23:23:00');
+INSERT INTO `sys_job_log` VALUES (796, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：731毫秒', '0', '', '2024-03-27 23:23:00');
+INSERT INTO `sys_job_log` VALUES (797, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：807毫秒', '0', '', '2024-03-27 23:23:00');
+INSERT INTO `sys_job_log` VALUES (798, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：511毫秒', '0', '', '2024-03-27 23:24:00');
+INSERT INTO `sys_job_log` VALUES (799, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：514毫秒', '0', '', '2024-03-27 23:24:00');
+INSERT INTO `sys_job_log` VALUES (800, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：535毫秒', '0', '', '2024-03-27 23:24:00');
+INSERT INTO `sys_job_log` VALUES (801, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：643毫秒', '0', '', '2024-03-27 23:25:00');
+INSERT INTO `sys_job_log` VALUES (802, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：647毫秒', '0', '', '2024-03-27 23:25:00');
+INSERT INTO `sys_job_log` VALUES (803, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：949毫秒', '0', '', '2024-03-27 23:25:00');
+INSERT INTO `sys_job_log` VALUES (804, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：464毫秒', '0', '', '2024-03-27 23:26:00');
+INSERT INTO `sys_job_log` VALUES (805, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：526毫秒', '0', '', '2024-03-27 23:26:00');
+INSERT INTO `sys_job_log` VALUES (806, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1452毫秒', '0', '', '2024-03-27 23:26:01');
+INSERT INTO `sys_job_log` VALUES (807, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：632毫秒', '0', '', '2024-03-27 23:27:00');
+INSERT INTO `sys_job_log` VALUES (808, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：633毫秒', '0', '', '2024-03-27 23:27:00');
+INSERT INTO `sys_job_log` VALUES (809, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：668毫秒', '0', '', '2024-03-27 23:27:00');
+INSERT INTO `sys_job_log` VALUES (810, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：562毫秒', '0', '', '2024-03-27 23:28:00');
+INSERT INTO `sys_job_log` VALUES (811, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：596毫秒', '0', '', '2024-03-27 23:28:00');
+INSERT INTO `sys_job_log` VALUES (812, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1502毫秒', '0', '', '2024-03-27 23:28:01');
+INSERT INTO `sys_job_log` VALUES (813, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2586毫秒', '0', '', '2024-03-27 23:29:02');
+INSERT INTO `sys_job_log` VALUES (814, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2623毫秒', '0', '', '2024-03-27 23:29:02');
+INSERT INTO `sys_job_log` VALUES (815, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2939毫秒', '0', '', '2024-03-27 23:29:02');
+INSERT INTO `sys_job_log` VALUES (816, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：580毫秒', '0', '', '2024-03-27 23:30:00');
+INSERT INTO `sys_job_log` VALUES (817, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：588毫秒', '0', '', '2024-03-27 23:30:00');
+INSERT INTO `sys_job_log` VALUES (818, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：609毫秒', '0', '', '2024-03-27 23:30:00');
+INSERT INTO `sys_job_log` VALUES (819, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：479毫秒', '0', '', '2024-03-27 23:31:00');
+INSERT INTO `sys_job_log` VALUES (820, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：492毫秒', '0', '', '2024-03-27 23:31:00');
+INSERT INTO `sys_job_log` VALUES (821, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1044毫秒', '0', '', '2024-03-27 23:31:01');
+INSERT INTO `sys_job_log` VALUES (822, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：550毫秒', '0', '', '2024-03-27 23:32:00');
+INSERT INTO `sys_job_log` VALUES (823, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1145毫秒', '0', '', '2024-03-27 23:32:01');
+INSERT INTO `sys_job_log` VALUES (824, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：6544毫秒', '0', '', '2024-03-27 23:32:06');
+INSERT INTO `sys_job_log` VALUES (825, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：559毫秒', '0', '', '2024-03-27 23:33:00');
+INSERT INTO `sys_job_log` VALUES (826, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：569毫秒', '0', '', '2024-03-27 23:33:00');
+INSERT INTO `sys_job_log` VALUES (827, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：840毫秒', '0', '', '2024-03-27 23:33:00');
+INSERT INTO `sys_job_log` VALUES (828, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：634毫秒', '0', '', '2024-03-27 23:34:00');
+INSERT INTO `sys_job_log` VALUES (829, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：667毫秒', '0', '', '2024-03-27 23:34:00');
+INSERT INTO `sys_job_log` VALUES (830, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：875毫秒', '0', '', '2024-03-27 23:34:00');
+INSERT INTO `sys_job_log` VALUES (831, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：531毫秒', '0', '', '2024-03-27 23:35:00');
+INSERT INTO `sys_job_log` VALUES (832, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：582毫秒', '0', '', '2024-03-27 23:35:00');
+INSERT INTO `sys_job_log` VALUES (833, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：623毫秒', '0', '', '2024-03-27 23:35:00');
+INSERT INTO `sys_job_log` VALUES (834, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：552毫秒', '0', '', '2024-03-27 23:36:00');
+INSERT INTO `sys_job_log` VALUES (835, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：811毫秒', '0', '', '2024-03-27 23:36:00');
+INSERT INTO `sys_job_log` VALUES (836, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：858毫秒', '0', '', '2024-03-27 23:36:00');
+INSERT INTO `sys_job_log` VALUES (837, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：519毫秒', '0', '', '2024-03-27 23:37:00');
+INSERT INTO `sys_job_log` VALUES (838, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：520毫秒', '0', '', '2024-03-27 23:37:00');
+INSERT INTO `sys_job_log` VALUES (839, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：838毫秒', '0', '', '2024-03-27 23:37:00');
+INSERT INTO `sys_job_log` VALUES (840, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：538毫秒', '0', '', '2024-03-27 23:38:00');
+INSERT INTO `sys_job_log` VALUES (841, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：772毫秒', '0', '', '2024-03-27 23:38:00');
+INSERT INTO `sys_job_log` VALUES (842, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1140毫秒', '0', '', '2024-03-27 23:38:01');
+INSERT INTO `sys_job_log` VALUES (843, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：854毫秒', '0', '', '2024-03-28 20:33:00');
+INSERT INTO `sys_job_log` VALUES (844, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1007毫秒', '0', '', '2024-03-28 20:33:01');
+INSERT INTO `sys_job_log` VALUES (845, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2054毫秒', '0', '', '2024-03-28 20:33:02');
+INSERT INTO `sys_job_log` VALUES (846, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：674毫秒', '0', '', '2024-03-28 20:34:00');
+INSERT INTO `sys_job_log` VALUES (847, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：753毫秒', '0', '', '2024-03-28 20:34:00');
+INSERT INTO `sys_job_log` VALUES (848, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1742毫秒', '0', '', '2024-03-28 20:34:01');
+INSERT INTO `sys_job_log` VALUES (849, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1862毫秒', '0', '', '2024-03-28 20:35:01');
+INSERT INTO `sys_job_log` VALUES (850, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1876毫秒', '0', '', '2024-03-28 20:35:01');
+INSERT INTO `sys_job_log` VALUES (851, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1881毫秒', '0', '', '2024-03-28 20:35:01');
+INSERT INTO `sys_job_log` VALUES (852, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1067毫秒', '0', '', '2024-03-28 20:36:01');
+INSERT INTO `sys_job_log` VALUES (853, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1114毫秒', '0', '', '2024-03-28 20:36:01');
+INSERT INTO `sys_job_log` VALUES (854, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1130毫秒', '0', '', '2024-03-28 20:36:01');
+INSERT INTO `sys_job_log` VALUES (855, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：612毫秒', '0', '', '2024-03-28 20:37:00');
+INSERT INTO `sys_job_log` VALUES (856, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：661毫秒', '0', '', '2024-03-28 20:37:00');
+INSERT INTO `sys_job_log` VALUES (857, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：769毫秒', '0', '', '2024-03-28 20:37:00');
+INSERT INTO `sys_job_log` VALUES (858, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：644毫秒', '0', '', '2024-03-28 20:38:00');
+INSERT INTO `sys_job_log` VALUES (859, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：659毫秒', '0', '', '2024-03-28 20:38:00');
+INSERT INTO `sys_job_log` VALUES (860, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：691毫秒', '0', '', '2024-03-28 20:38:00');
+INSERT INTO `sys_job_log` VALUES (861, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：705毫秒', '0', '', '2024-03-28 20:39:00');
+INSERT INTO `sys_job_log` VALUES (862, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：729毫秒', '0', '', '2024-03-28 20:39:00');
+INSERT INTO `sys_job_log` VALUES (863, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：798毫秒', '0', '', '2024-03-28 20:39:00');
+INSERT INTO `sys_job_log` VALUES (864, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：660毫秒', '0', '', '2024-03-28 20:40:00');
+INSERT INTO `sys_job_log` VALUES (865, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：666毫秒', '0', '', '2024-03-28 20:40:00');
+INSERT INTO `sys_job_log` VALUES (866, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：669毫秒', '0', '', '2024-03-28 20:40:00');
+INSERT INTO `sys_job_log` VALUES (867, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：633毫秒', '0', '', '2024-03-28 20:41:00');
+INSERT INTO `sys_job_log` VALUES (868, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：643毫秒', '0', '', '2024-03-28 20:41:00');
+INSERT INTO `sys_job_log` VALUES (869, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1858毫秒', '0', '', '2024-03-28 20:41:01');
+INSERT INTO `sys_job_log` VALUES (870, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：627毫秒', '0', '', '2024-03-28 20:42:00');
+INSERT INTO `sys_job_log` VALUES (871, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：663毫秒', '0', '', '2024-03-28 20:42:00');
+INSERT INTO `sys_job_log` VALUES (872, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：798毫秒', '0', '', '2024-03-28 20:42:00');
+INSERT INTO `sys_job_log` VALUES (873, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：765毫秒', '0', '', '2024-03-28 20:43:00');
+INSERT INTO `sys_job_log` VALUES (874, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：771毫秒', '0', '', '2024-03-28 20:43:00');
+INSERT INTO `sys_job_log` VALUES (875, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：958毫秒', '0', '', '2024-03-28 20:43:00');
+INSERT INTO `sys_job_log` VALUES (876, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：746毫秒', '0', '', '2024-03-28 20:44:00');
+INSERT INTO `sys_job_log` VALUES (877, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：786毫秒', '0', '', '2024-03-28 20:44:00');
+INSERT INTO `sys_job_log` VALUES (878, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：979毫秒', '0', '', '2024-03-28 20:44:00');
+INSERT INTO `sys_job_log` VALUES (879, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：657毫秒', '0', '', '2024-03-28 20:45:00');
+INSERT INTO `sys_job_log` VALUES (880, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：825毫秒', '0', '', '2024-03-28 20:45:00');
+INSERT INTO `sys_job_log` VALUES (881, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：863毫秒', '0', '', '2024-03-28 20:45:00');
+INSERT INTO `sys_job_log` VALUES (882, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：632毫秒', '0', '', '2024-03-28 20:46:00');
+INSERT INTO `sys_job_log` VALUES (883, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1538毫秒', '0', '', '2024-03-28 20:46:01');
+INSERT INTO `sys_job_log` VALUES (884, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1740毫秒', '0', '', '2024-03-28 20:46:01');
+INSERT INTO `sys_job_log` VALUES (885, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：770毫秒', '0', '', '2024-03-28 20:47:00');
+INSERT INTO `sys_job_log` VALUES (886, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：945毫秒', '0', '', '2024-03-28 20:47:00');
+INSERT INTO `sys_job_log` VALUES (887, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2295毫秒', '0', '', '2024-03-28 20:47:02');
+INSERT INTO `sys_job_log` VALUES (888, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：927毫秒', '0', '', '2024-03-28 20:48:00');
+INSERT INTO `sys_job_log` VALUES (889, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：930毫秒', '0', '', '2024-03-28 20:48:00');
+INSERT INTO `sys_job_log` VALUES (890, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1683毫秒', '0', '', '2024-03-28 20:48:01');
+INSERT INTO `sys_job_log` VALUES (891, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：739毫秒', '0', '', '2024-03-28 20:49:00');
+INSERT INTO `sys_job_log` VALUES (892, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：848毫秒', '0', '', '2024-03-28 20:49:00');
+INSERT INTO `sys_job_log` VALUES (893, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：977毫秒', '0', '', '2024-03-28 20:49:00');
+INSERT INTO `sys_job_log` VALUES (894, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：507毫秒', '0', '', '2024-03-28 20:50:00');
+INSERT INTO `sys_job_log` VALUES (895, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：588毫秒', '0', '', '2024-03-28 20:50:00');
+INSERT INTO `sys_job_log` VALUES (896, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1714毫秒', '0', '', '2024-03-28 20:50:01');
+INSERT INTO `sys_job_log` VALUES (897, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：804毫秒', '0', '', '2024-03-28 20:51:00');
+INSERT INTO `sys_job_log` VALUES (898, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：881毫秒', '0', '', '2024-03-28 20:51:00');
+INSERT INTO `sys_job_log` VALUES (899, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：886毫秒', '0', '', '2024-03-28 20:51:00');
+INSERT INTO `sys_job_log` VALUES (900, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：644毫秒', '0', '', '2024-03-28 20:52:00');
+INSERT INTO `sys_job_log` VALUES (901, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：660毫秒', '0', '', '2024-03-28 20:52:00');
+INSERT INTO `sys_job_log` VALUES (902, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：664毫秒', '0', '', '2024-03-28 20:52:00');
+INSERT INTO `sys_job_log` VALUES (903, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：805毫秒', '0', '', '2024-03-28 20:53:00');
+INSERT INTO `sys_job_log` VALUES (904, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：819毫秒', '0', '', '2024-03-28 20:53:00');
+INSERT INTO `sys_job_log` VALUES (905, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：832毫秒', '0', '', '2024-03-28 20:53:00');
+INSERT INTO `sys_job_log` VALUES (906, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：771毫秒', '0', '', '2024-03-28 20:54:00');
+INSERT INTO `sys_job_log` VALUES (907, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：786毫秒', '0', '', '2024-03-28 20:54:00');
+INSERT INTO `sys_job_log` VALUES (908, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：973毫秒', '0', '', '2024-03-28 20:54:00');
+INSERT INTO `sys_job_log` VALUES (909, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：765毫秒', '0', '', '2024-03-28 20:55:00');
+INSERT INTO `sys_job_log` VALUES (910, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1574毫秒', '0', '', '2024-03-28 20:55:01');
+INSERT INTO `sys_job_log` VALUES (911, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1997毫秒', '0', '', '2024-03-28 20:55:02');
+INSERT INTO `sys_job_log` VALUES (912, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：761毫秒', '0', '', '2024-03-28 20:56:00');
+INSERT INTO `sys_job_log` VALUES (913, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：785毫秒', '0', '', '2024-03-28 20:56:00');
+INSERT INTO `sys_job_log` VALUES (914, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：787毫秒', '0', '', '2024-03-28 20:56:00');
+INSERT INTO `sys_job_log` VALUES (915, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：712毫秒', '0', '', '2024-03-28 20:57:00');
+INSERT INTO `sys_job_log` VALUES (916, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：837毫秒', '0', '', '2024-03-28 20:57:00');
+INSERT INTO `sys_job_log` VALUES (917, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：836毫秒', '0', '', '2024-03-28 20:57:00');
+INSERT INTO `sys_job_log` VALUES (918, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：692毫秒', '0', '', '2024-03-28 20:58:00');
+INSERT INTO `sys_job_log` VALUES (919, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：704毫秒', '0', '', '2024-03-28 20:58:00');
+INSERT INTO `sys_job_log` VALUES (920, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：717毫秒', '0', '', '2024-03-28 20:58:00');
+INSERT INTO `sys_job_log` VALUES (921, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：784毫秒', '0', '', '2024-03-28 20:59:00');
+INSERT INTO `sys_job_log` VALUES (922, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：798毫秒', '0', '', '2024-03-28 20:59:00');
+INSERT INTO `sys_job_log` VALUES (923, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：857毫秒', '0', '', '2024-03-28 20:59:00');
+INSERT INTO `sys_job_log` VALUES (924, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：754毫秒', '0', '', '2024-03-28 21:00:00');
+INSERT INTO `sys_job_log` VALUES (925, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：767毫秒', '0', '', '2024-03-28 21:00:00');
+INSERT INTO `sys_job_log` VALUES (926, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：773毫秒', '0', '', '2024-03-28 21:00:00');
+INSERT INTO `sys_job_log` VALUES (927, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1663毫秒', '0', '', '2024-03-28 21:01:01');
+INSERT INTO `sys_job_log` VALUES (928, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1705毫秒', '0', '', '2024-03-28 21:01:01');
+INSERT INTO `sys_job_log` VALUES (929, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1714毫秒', '0', '', '2024-03-28 21:01:01');
+INSERT INTO `sys_job_log` VALUES (930, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：773毫秒', '0', '', '2024-03-28 21:02:00');
+INSERT INTO `sys_job_log` VALUES (931, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：830毫秒', '0', '', '2024-03-28 21:02:00');
+INSERT INTO `sys_job_log` VALUES (932, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2391毫秒', '0', '', '2024-03-28 21:02:02');
+INSERT INTO `sys_job_log` VALUES (933, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：787毫秒', '0', '', '2024-03-28 21:03:00');
+INSERT INTO `sys_job_log` VALUES (934, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：878毫秒', '0', '', '2024-03-28 21:03:00');
+INSERT INTO `sys_job_log` VALUES (935, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1680毫秒', '0', '', '2024-03-28 21:03:01');
+INSERT INTO `sys_job_log` VALUES (936, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：697毫秒', '0', '', '2024-03-28 21:04:00');
+INSERT INTO `sys_job_log` VALUES (937, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：747毫秒', '0', '', '2024-03-28 21:04:00');
+INSERT INTO `sys_job_log` VALUES (938, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：775毫秒', '0', '', '2024-03-28 21:04:00');
+INSERT INTO `sys_job_log` VALUES (939, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：801毫秒', '0', '', '2024-03-28 21:05:00');
+INSERT INTO `sys_job_log` VALUES (940, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1049毫秒', '0', '', '2024-03-28 21:05:01');
+INSERT INTO `sys_job_log` VALUES (941, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1444毫秒', '0', '', '2024-03-28 21:05:01');
+INSERT INTO `sys_job_log` VALUES (942, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：658毫秒', '0', '', '2024-03-28 21:06:00');
+INSERT INTO `sys_job_log` VALUES (943, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：716毫秒', '0', '', '2024-03-28 21:06:00');
+INSERT INTO `sys_job_log` VALUES (944, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1108毫秒', '0', '', '2024-03-28 21:06:01');
+INSERT INTO `sys_job_log` VALUES (945, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：678毫秒', '0', '', '2024-03-28 21:07:00');
+INSERT INTO `sys_job_log` VALUES (946, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：715毫秒', '0', '', '2024-03-28 21:07:00');
+INSERT INTO `sys_job_log` VALUES (947, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：865毫秒', '0', '', '2024-03-28 21:07:00');
+INSERT INTO `sys_job_log` VALUES (948, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：737毫秒', '0', '', '2024-03-28 21:08:00');
+INSERT INTO `sys_job_log` VALUES (949, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：741毫秒', '0', '', '2024-03-28 21:08:00');
+INSERT INTO `sys_job_log` VALUES (950, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：742毫秒', '0', '', '2024-03-28 21:08:00');
+INSERT INTO `sys_job_log` VALUES (951, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：671毫秒', '0', '', '2024-03-28 21:09:00');
+INSERT INTO `sys_job_log` VALUES (952, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：759毫秒', '0', '', '2024-03-28 21:09:00');
+INSERT INTO `sys_job_log` VALUES (953, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：821毫秒', '0', '', '2024-03-28 21:09:00');
+INSERT INTO `sys_job_log` VALUES (954, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：619毫秒', '0', '', '2024-03-28 21:10:00');
+INSERT INTO `sys_job_log` VALUES (955, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：628毫秒', '0', '', '2024-03-28 21:10:00');
+INSERT INTO `sys_job_log` VALUES (956, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：629毫秒', '0', '', '2024-03-28 21:10:00');
+INSERT INTO `sys_job_log` VALUES (957, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：713毫秒', '0', '', '2024-03-28 21:11:00');
+INSERT INTO `sys_job_log` VALUES (958, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：844毫秒', '0', '', '2024-03-28 21:11:00');
+INSERT INTO `sys_job_log` VALUES (959, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：984毫秒', '0', '', '2024-03-28 21:11:00');
+INSERT INTO `sys_job_log` VALUES (960, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：666毫秒', '0', '', '2024-03-28 21:12:00');
+INSERT INTO `sys_job_log` VALUES (961, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：900毫秒', '0', '', '2024-03-28 21:12:00');
+INSERT INTO `sys_job_log` VALUES (962, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2149毫秒', '0', '', '2024-03-28 21:12:02');
+INSERT INTO `sys_job_log` VALUES (963, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：951毫秒', '0', '', '2024-03-28 21:13:00');
+INSERT INTO `sys_job_log` VALUES (964, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：958毫秒', '0', '', '2024-03-28 21:13:00');
+INSERT INTO `sys_job_log` VALUES (965, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：965毫秒', '0', '', '2024-03-28 21:13:00');
+INSERT INTO `sys_job_log` VALUES (966, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：647毫秒', '0', '', '2024-03-28 21:14:00');
+INSERT INTO `sys_job_log` VALUES (967, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1134毫秒', '0', '', '2024-03-28 21:14:01');
+INSERT INTO `sys_job_log` VALUES (968, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1652毫秒', '0', '', '2024-03-28 21:14:01');
+INSERT INTO `sys_job_log` VALUES (969, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2806毫秒', '0', '', '2024-03-28 21:15:02');
+INSERT INTO `sys_job_log` VALUES (970, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2881毫秒', '0', '', '2024-03-28 21:15:02');
+INSERT INTO `sys_job_log` VALUES (971, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：3525毫秒', '0', '', '2024-03-28 21:15:03');
+INSERT INTO `sys_job_log` VALUES (972, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：695毫秒', '0', '', '2024-03-28 21:16:00');
+INSERT INTO `sys_job_log` VALUES (973, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：755毫秒', '0', '', '2024-03-28 21:16:00');
+INSERT INTO `sys_job_log` VALUES (974, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：789毫秒', '0', '', '2024-03-28 21:16:00');
+INSERT INTO `sys_job_log` VALUES (975, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：734毫秒', '0', '', '2024-03-28 21:17:00');
+INSERT INTO `sys_job_log` VALUES (976, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：789毫秒', '0', '', '2024-03-28 21:17:00');
+INSERT INTO `sys_job_log` VALUES (977, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：792毫秒', '0', '', '2024-03-28 21:17:00');
+INSERT INTO `sys_job_log` VALUES (978, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：654毫秒', '0', '', '2024-03-28 21:18:00');
+INSERT INTO `sys_job_log` VALUES (979, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：763毫秒', '0', '', '2024-03-28 21:18:00');
+INSERT INTO `sys_job_log` VALUES (980, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：763毫秒', '0', '', '2024-03-28 21:18:00');
+INSERT INTO `sys_job_log` VALUES (981, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：692毫秒', '0', '', '2024-03-28 21:19:00');
+INSERT INTO `sys_job_log` VALUES (982, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：724毫秒', '0', '', '2024-03-28 21:19:00');
+INSERT INTO `sys_job_log` VALUES (983, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：842毫秒', '0', '', '2024-03-28 21:19:00');
+INSERT INTO `sys_job_log` VALUES (984, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：624毫秒', '0', '', '2024-03-28 21:20:00');
+INSERT INTO `sys_job_log` VALUES (985, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：702毫秒', '0', '', '2024-03-28 21:20:00');
+INSERT INTO `sys_job_log` VALUES (986, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1036毫秒', '0', '', '2024-03-28 21:20:01');
+INSERT INTO `sys_job_log` VALUES (987, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：736毫秒', '0', '', '2024-03-28 21:21:00');
+INSERT INTO `sys_job_log` VALUES (988, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1415毫秒', '0', '', '2024-03-28 21:21:01');
+INSERT INTO `sys_job_log` VALUES (989, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2335毫秒', '0', '', '2024-03-28 21:21:02');
+INSERT INTO `sys_job_log` VALUES (990, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：634毫秒', '0', '', '2024-03-28 21:22:00');
+INSERT INTO `sys_job_log` VALUES (991, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：647毫秒', '0', '', '2024-03-28 21:22:00');
+INSERT INTO `sys_job_log` VALUES (992, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：725毫秒', '0', '', '2024-03-28 21:22:00');
+INSERT INTO `sys_job_log` VALUES (993, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：692毫秒', '0', '', '2024-03-28 21:23:00');
+INSERT INTO `sys_job_log` VALUES (994, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：722毫秒', '0', '', '2024-03-28 21:23:00');
+INSERT INTO `sys_job_log` VALUES (995, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：890毫秒', '0', '', '2024-03-28 21:23:00');
+INSERT INTO `sys_job_log` VALUES (996, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：629毫秒', '0', '', '2024-03-28 21:24:00');
+INSERT INTO `sys_job_log` VALUES (997, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：700毫秒', '0', '', '2024-03-28 21:24:00');
+INSERT INTO `sys_job_log` VALUES (998, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2065毫秒', '0', '', '2024-03-28 21:24:02');
+INSERT INTO `sys_job_log` VALUES (999, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：721毫秒', '0', '', '2024-03-28 21:25:00');
+INSERT INTO `sys_job_log` VALUES (1000, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：722毫秒', '0', '', '2024-03-28 21:25:00');
+INSERT INTO `sys_job_log` VALUES (1001, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：822毫秒', '0', '', '2024-03-28 21:25:00');
+INSERT INTO `sys_job_log` VALUES (1002, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：1766毫秒', '0', '', '2024-03-28 21:26:01');
+INSERT INTO `sys_job_log` VALUES (1003, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1961毫秒', '0', '', '2024-03-28 21:26:01');
+INSERT INTO `sys_job_log` VALUES (1004, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：2240毫秒', '0', '', '2024-03-28 21:26:02');
+INSERT INTO `sys_job_log` VALUES (1005, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：815毫秒', '0', '', '2024-03-28 21:27:00');
+INSERT INTO `sys_job_log` VALUES (1006, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1450毫秒', '0', '', '2024-03-28 21:27:01');
+INSERT INTO `sys_job_log` VALUES (1007, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2176毫秒', '0', '', '2024-03-28 21:27:02');
+INSERT INTO `sys_job_log` VALUES (1008, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：694毫秒', '0', '', '2024-03-28 21:28:00');
+INSERT INTO `sys_job_log` VALUES (1009, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：696毫秒', '0', '', '2024-03-28 21:28:00');
+INSERT INTO `sys_job_log` VALUES (1010, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：716毫秒', '0', '', '2024-03-28 21:28:00');
+INSERT INTO `sys_job_log` VALUES (1011, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：757毫秒', '0', '', '2024-03-28 21:29:00');
+INSERT INTO `sys_job_log` VALUES (1012, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：781毫秒', '0', '', '2024-03-28 21:29:00');
+INSERT INTO `sys_job_log` VALUES (1013, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：983毫秒', '0', '', '2024-03-28 21:29:00');
+INSERT INTO `sys_job_log` VALUES (1014, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：583毫秒', '0', '', '2024-03-28 21:30:00');
+INSERT INTO `sys_job_log` VALUES (1015, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：662毫秒', '0', '', '2024-03-28 21:30:00');
+INSERT INTO `sys_job_log` VALUES (1016, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1218毫秒', '0', '', '2024-03-28 21:30:01');
+INSERT INTO `sys_job_log` VALUES (1017, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：755毫秒', '0', '', '2024-03-28 21:31:00');
+INSERT INTO `sys_job_log` VALUES (1018, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：841毫秒', '0', '', '2024-03-28 21:31:00');
+INSERT INTO `sys_job_log` VALUES (1019, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2991毫秒', '0', '', '2024-03-28 21:31:02');
+INSERT INTO `sys_job_log` VALUES (1020, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：798毫秒', '0', '', '2024-03-28 21:32:00');
+INSERT INTO `sys_job_log` VALUES (1021, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：2019毫秒', '0', '', '2024-03-28 21:32:02');
+INSERT INTO `sys_job_log` VALUES (1022, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：2038毫秒', '0', '', '2024-03-28 21:32:02');
+INSERT INTO `sys_job_log` VALUES (1023, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：658毫秒', '0', '', '2024-03-28 21:33:00');
+INSERT INTO `sys_job_log` VALUES (1024, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1265毫秒', '0', '', '2024-03-28 21:33:01');
+INSERT INTO `sys_job_log` VALUES (1025, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：1403毫秒', '0', '', '2024-03-28 21:33:01');
+INSERT INTO `sys_job_log` VALUES (1026, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '加拿大2.8定时开奖数据 总共耗时：715毫秒', '0', '', '2024-03-28 21:34:00');
+INSERT INTO `sys_job_log` VALUES (1027, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '澳洲幸运10定时获取开奖数据 总共耗时：780毫秒', '0', '', '2024-03-28 21:34:00');
+INSERT INTO `sys_job_log` VALUES (1028, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '急速时时彩定时开奖数据 总共耗时：1469毫秒', '0', '', '2024-03-28 21:34:01');
 
 -- ----------------------------
 -- Table structure for sys_logininfor
@@ -2995,7 +4092,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status`) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 133 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -3026,6 +4123,13 @@ INSERT INTO `sys_logininfor` VALUES (122, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (123, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '退出成功', '2024-03-25 20:17:25');
 INSERT INTO `sys_logininfor` VALUES (124, 'sharkadmin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-25 20:17:30');
 INSERT INTO `sys_logininfor` VALUES (125, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-25 20:21:05');
+INSERT INTO `sys_logininfor` VALUES (126, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-26 22:44:32');
+INSERT INTO `sys_logininfor` VALUES (127, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '退出成功', '2024-03-26 22:45:26');
+INSERT INTO `sys_logininfor` VALUES (128, 'sharkadmin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-26 22:45:34');
+INSERT INTO `sys_logininfor` VALUES (129, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-27 20:49:15');
+INSERT INTO `sys_logininfor` VALUES (130, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-27 20:52:14');
+INSERT INTO `sys_logininfor` VALUES (131, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-27 22:58:47');
+INSERT INTO `sys_logininfor` VALUES (132, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-03-28 20:35:07');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -3214,7 +4318,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type`) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status`) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 366 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 422 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -3485,6 +4589,62 @@ INSERT INTO `sys_oper_log` VALUES (362, '游戏投注项', 2, 'com.ruoyi.web.con
 INSERT INTO `sys_oper_log` VALUES (363, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"big\",\"betItemDescribe\":\"(BLOB) 22 bytes\",\"betItemId\":51,\"betItemName\":\"单\",\"betItemType\":4,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":2,\"maxBetAmount\":5.0,\"minBetAmount\":9999.99,\"odd\":2.0,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-25 19:57:28\"}', '{\"msg\":\"游戏投注项Cd\'big\'已存在\",\"code\":500}', 0, NULL, '2024-03-25 20:16:24', 19);
 INSERT INTO `sys_oper_log` VALUES (364, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"big2\",\"betItemDescribe\":\"(BLOB) 22 bytes\",\"betItemId\":51,\"betItemName\":\"单\",\"betItemType\":4,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":2,\"maxBetAmount\":5.0,\"minBetAmount\":9999.99,\"odd\":2.0,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-25 20:16:35\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-25 20:16:35', 14);
 INSERT INTO `sys_oper_log` VALUES (365, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"single\",\"betItemDescribe\":\"(BLOB) 22 bytes\",\"betItemId\":51,\"betItemName\":\"单\",\"betItemType\":4,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":2,\"maxBetAmount\":5.0,\"minBetAmount\":9999.99,\"odd\":2.0,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-25 20:16:45\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-25 20:16:45', 13);
+INSERT INTO `sys_oper_log` VALUES (366, '定时任务', 2, 'com.ruoyi.quartz.controller.SysJobController.changeStatus()', 'PUT', 1, 'admin', '研发部门', '/monitor/job/changeStatus', '127.0.0.1', '内网IP', '{\"jobId\":4,\"misfirePolicy\":\"0\",\"params\":{},\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-26 22:44:43', 17);
+INSERT INTO `sys_oper_log` VALUES (367, '定时任务', 2, 'com.ruoyi.quartz.controller.SysJobController.changeStatus()', 'PUT', 1, 'admin', '研发部门', '/monitor/job/changeStatus', '127.0.0.1', '内网IP', '{\"jobId\":5,\"misfirePolicy\":\"0\",\"params\":{},\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-26 22:44:45', 5);
+INSERT INTO `sys_oper_log` VALUES (368, '定时任务', 2, 'com.ruoyi.quartz.controller.SysJobController.changeStatus()', 'PUT', 1, 'admin', '研发部门', '/monitor/job/changeStatus', '127.0.0.1', '内网IP', '{\"jobId\":6,\"misfirePolicy\":\"0\",\"params\":{},\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-26 22:44:46', 4);
+INSERT INTO `sys_oper_log` VALUES (369, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', '研发部门', '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\"tables\":\"wave\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-27 20:52:33', 89);
+INSERT INTO `sys_oper_log` VALUES (370, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', '研发部门', '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"wave\",\"className\":\"Wave\",\"columns\":[{\"capJavaField\":\"Id\",\"columnComment\":\"数字红绿蓝属性ID\",\"columnId\":1310,\"columnName\":\"id\",\"columnType\":\"int(10) unsigned\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 20:52:33\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":true,\"insert\":true,\"isIncrement\":\"1\",\"isInsert\":\"1\",\"isPk\":\"1\",\"isRequired\":\"0\",\"javaField\":\"id\",\"javaType\":\"Long\",\"list\":false,\"params\":{},\"pk\":true,\"query\":false,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":32,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Num0\",\"columnComment\":\"数字0红绿蓝属性(1：绿 2：红 3：蓝)\",\"columnId\":1311,\"columnName\":\"num0\",\"columnType\":\"int(2)\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 20:52:33\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"1\",\"javaField\":\"num0\",\"javaType\":\"Integer\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"EQ\",\"required\":true,\"sort\":2,\"superColumn\":false,\"tableId\":32,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Num1\",\"columnComment\":\"数字1红绿蓝属性(1：绿 2：红 3：蓝)\",\"columnId\":1312,\"columnName\":\"num1\",\"columnType\":\"int(2)\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 20:52:33\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"1\",\"javaField\":\"num1\",\"javaType\":\"Integer\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"EQ\",\"required\":true,\"sort\":3,\"superColumn\":false,\"tableId\":32,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Num2\",\"columnComment\":\"数字2红绿蓝属性(1：绿 2：红 3：蓝)\",\"columnId\":1313,\"columnName\":\"num2\",\"columnType\":\"int(2)\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 20:52:33\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isR', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-27 20:52:48', 48);
+INSERT INTO `sys_oper_log` VALUES (371, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', '研发部门', '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"wave\"}', NULL, 0, NULL, '2024-03-27 20:52:51', 237);
+INSERT INTO `sys_oper_log` VALUES (372, '代码生成', 3, 'com.ruoyi.generator.controller.GenController.remove()', 'DELETE', 1, 'admin', '研发部门', '/tool/gen/32', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-27 20:56:27', 46);
+INSERT INTO `sys_oper_log` VALUES (373, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', '研发部门', '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\"tables\":\"wave\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-27 20:56:32', 81);
+INSERT INTO `sys_oper_log` VALUES (374, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', '研发部门', '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"wave\"}', NULL, 0, NULL, '2024-03-27 20:56:43', 161);
+INSERT INTO `sys_oper_log` VALUES (375, '代码生成', 3, 'com.ruoyi.generator.controller.GenController.remove()', 'DELETE', 1, 'admin', '研发部门', '/tool/gen/24', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-27 22:59:07', 17);
+INSERT INTO `sys_oper_log` VALUES (376, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', '研发部门', '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\"tables\":\"jssscrecord\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-27 22:59:12', 170);
+INSERT INTO `sys_oper_log` VALUES (377, '代码生成', 2, 'com.ruoyi.generator.controller.GenController.editSave()', 'PUT', 1, 'admin', '研发部门', '/tool/gen', '127.0.0.1', '内网IP', '{\"businessName\":\"jssscrecord\",\"className\":\"Jssscrecord\",\"columns\":[{\"capJavaField\":\"Id\",\"columnComment\":\"下注表ID\",\"columnId\":1379,\"columnName\":\"id\",\"columnType\":\"bigint(20)\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 22:59:12\",\"dictType\":\"\",\"edit\":false,\"htmlType\":\"input\",\"increment\":true,\"insert\":true,\"isIncrement\":\"1\",\"isInsert\":\"1\",\"isPk\":\"1\",\"isRequired\":\"0\",\"javaField\":\"id\",\"javaType\":\"Long\",\"list\":false,\"params\":{},\"pk\":true,\"query\":false,\"queryType\":\"EQ\",\"required\":false,\"sort\":1,\"superColumn\":false,\"tableId\":34,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"UserId\",\"columnComment\":\"用户ID\",\"columnId\":1380,\"columnName\":\"user_id\",\"columnType\":\"bigint(20)\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 22:59:12\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"1\",\"javaField\":\"userId\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"EQ\",\"required\":true,\"sort\":2,\"superColumn\":false,\"tableId\":34,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Periods\",\"columnComment\":\"期数\",\"columnId\":1381,\"columnName\":\"periods\",\"columnType\":\"bigint(20)\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 22:59:12\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"input\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"1\",\"javaField\":\"periods\",\"javaType\":\"Long\",\"list\":true,\"params\":{},\"pk\":false,\"query\":true,\"queryType\":\"EQ\",\"required\":true,\"sort\":3,\"superColumn\":false,\"tableId\":34,\"updateBy\":\"\",\"usableColumn\":false},{\"capJavaField\":\"Status\",\"columnComment\":\"投注状态（0投注 1撤单）\",\"columnId\":1382,\"columnName\":\"status\",\"columnType\":\"char(1)\",\"createBy\":\"admin\",\"createTime\":\"2024-03-27 22:59:12\",\"dictType\":\"\",\"edit\":true,\"htmlType\":\"radio\",\"increment\":false,\"insert\":true,\"isEdit\":\"1\",\"isIncrement\":\"0\",\"isInsert\":\"1\",\"isList\":\"1\",\"isPk\":\"0\",\"isQuery\":\"1\",\"isRequired\":\"0\",\"jav', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-27 23:02:25', 117);
+INSERT INTO `sys_oper_log` VALUES (378, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', '研发部门', '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\"tables\":\"jssscrecord\"}', NULL, 0, NULL, '2024-03-27 23:02:29', 255);
+INSERT INTO `sys_oper_log` VALUES (379, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num3\",\"betItemId\":100,\"betItemName\":\"3 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":500.0,\"minBetAmount\":2.0,\"odd\":41.0,\"params\":{},\"remark\":\"\",\"sort\":6,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-10 22:58:18\"}', '{\"msg\":\"游戏投注项Cd\'num3\'已存在\",\"code\":500}', 0, NULL, '2024-03-28 21:04:47', 20);
+INSERT INTO `sys_oper_log` VALUES (380, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num3\",\"betItemId\":100,\"betItemName\":\"3 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":500.0,\"minBetAmount\":2.0,\"odd\":41.0,\"params\":{},\"remark\":\"\",\"sort\":6,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:09:46\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:09:46', 22);
+INSERT INTO `sys_oper_log` VALUES (381, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num4\",\"betItemId\":101,\"betItemName\":\"4 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":41.0,\"params\":{},\"remark\":\"\",\"sort\":7,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:01\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:01', 8);
+INSERT INTO `sys_oper_log` VALUES (382, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num5\",\"betItemId\":102,\"betItemName\":\"5 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":20.0,\"params\":{},\"remark\":\"\",\"sort\":8,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:04\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:04', 6);
+INSERT INTO `sys_oper_log` VALUES (383, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num6\",\"betItemId\":103,\"betItemName\":\"6 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":20.0,\"params\":{},\"remark\":\"\",\"sort\":9,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:07\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:07', 5);
+INSERT INTO `sys_oper_log` VALUES (384, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num7\",\"betItemId\":104,\"betItemName\":\"7 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":12.0,\"params\":{},\"remark\":\"\",\"sort\":10,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:13\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:13', 5);
+INSERT INTO `sys_oper_log` VALUES (385, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num8\",\"betItemId\":105,\"betItemName\":\"8 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":12.0,\"params\":{},\"remark\":\"\",\"sort\":12,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:16\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:16', 7);
+INSERT INTO `sys_oper_log` VALUES (386, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num9\",\"betItemId\":106,\"betItemName\":\"9 \",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":9.0,\"params\":{},\"remark\":\"\",\"sort\":13,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:23\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:23', 7);
+INSERT INTO `sys_oper_log` VALUES (387, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num10\",\"betItemId\":107,\"betItemName\":\"10\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":9.0,\"params\":{},\"remark\":\"\",\"sort\":14,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:26\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:26', 5);
+INSERT INTO `sys_oper_log` VALUES (388, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num11\",\"betItemId\":108,\"betItemName\":\"11\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":7.0,\"params\":{},\"remark\":\"\",\"sort\":15,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:39\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:39', 5);
+INSERT INTO `sys_oper_log` VALUES (389, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num12\",\"betItemId\":109,\"betItemName\":\"12\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":9.0,\"params\":{},\"remark\":\"\",\"sort\":16,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:43\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:43', 5);
+INSERT INTO `sys_oper_log` VALUES (390, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num13\",\"betItemId\":110,\"betItemName\":\"13\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":9.0,\"params\":{},\"remark\":\"\",\"sort\":17,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:46\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:46', 5);
+INSERT INTO `sys_oper_log` VALUES (391, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num14\",\"betItemId\":111,\"betItemName\":\"14\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":12.0,\"params\":{},\"remark\":\"\",\"sort\":18,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:51\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:51', 6);
+INSERT INTO `sys_oper_log` VALUES (392, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num15\",\"betItemId\":112,\"betItemName\":\"15\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":12.0,\"params\":{},\"remark\":\"\",\"sort\":19,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:54\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:54', 5);
+INSERT INTO `sys_oper_log` VALUES (393, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num16\",\"betItemId\":113,\"betItemName\":\"16\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":20.0,\"params\":{},\"remark\":\"\",\"sort\":20,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:10:59\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:10:59', 6);
+INSERT INTO `sys_oper_log` VALUES (394, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num17\",\"betItemId\":114,\"betItemName\":\"17\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":20.0,\"params\":{},\"remark\":\"\",\"sort\":21,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:02\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:02', 4);
+INSERT INTO `sys_oper_log` VALUES (395, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num18\",\"betItemId\":115,\"betItemName\":\"18\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":41.0,\"params\":{},\"remark\":\"\",\"sort\":22,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:06\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:06', 6);
+INSERT INTO `sys_oper_log` VALUES (396, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"num19\",\"betItemId\":116,\"betItemName\":\"19\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":1000.0,\"minBetAmount\":2.0,\"odd\":41.0,\"params\":{},\"remark\":\"\",\"sort\":23,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:13\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:13', 6);
+INSERT INTO `sys_oper_log` VALUES (397, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"big1\",\"betItemId\":117,\"betItemName\":\"大\",\"betItemType\":8,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":2,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:33\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:33', 4);
+INSERT INTO `sys_oper_log` VALUES (398, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"small1\",\"betItemId\":118,\"betItemName\":\"小\",\"betItemType\":8,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":3,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:36\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:36', 5);
+INSERT INTO `sys_oper_log` VALUES (399, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"single1\",\"betItemId\":119,\"betItemName\":\"单\",\"betItemType\":8,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:39\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:39', 5);
+INSERT INTO `sys_oper_log` VALUES (400, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"double1\",\"betItemId\":120,\"betItemName\":\"双\",\"betItemType\":8,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":5,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:46\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:46', 5);
+INSERT INTO `sys_oper_log` VALUES (401, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"big2\",\"betItemId\":133,\"betItemName\":\"大\",\"betItemType\":9,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":2,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:55\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:55', 5);
+INSERT INTO `sys_oper_log` VALUES (402, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"small2\",\"betItemId\":134,\"betItemName\":\"小\",\"betItemType\":9,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":3,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:11:57\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:11:57', 4);
+INSERT INTO `sys_oper_log` VALUES (403, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"single2\",\"betItemId\":135,\"betItemName\":\"单\",\"betItemType\":9,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:00\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:00', 4);
+INSERT INTO `sys_oper_log` VALUES (404, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"double2\",\"betItemId\":136,\"betItemName\":\"双\",\"betItemType\":9,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":5,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:03\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:03', 4);
+INSERT INTO `sys_oper_log` VALUES (405, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"big3\",\"betItemId\":149,\"betItemName\":\"大\",\"betItemType\":10,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":2,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:29\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:29', 5);
+INSERT INTO `sys_oper_log` VALUES (406, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"small3\",\"betItemId\":150,\"betItemName\":\"小\",\"betItemType\":10,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":3,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:32\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:32', 5);
+INSERT INTO `sys_oper_log` VALUES (407, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"single3\",\"betItemId\":151,\"betItemName\":\"单\",\"betItemType\":10,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:35\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:35', 5);
+INSERT INTO `sys_oper_log` VALUES (408, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"double3\",\"betItemId\":152,\"betItemName\":\"双\",\"betItemType\":10,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":5,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:38\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:38', 4);
+INSERT INTO `sys_oper_log` VALUES (409, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"loong3\",\"betItemId\":153,\"betItemName\":\"龙\",\"betItemType\":10,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":500.0,\"minBetAmount\":2.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":6,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:44\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:44', 5);
+INSERT INTO `sys_oper_log` VALUES (410, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"tiger3\",\"betItemId\":154,\"betItemName\":\"虎\",\"betItemType\":10,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.98,\"params\":{},\"remark\":\"\",\"sort\":7,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:12:46\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:12:46', 5);
+INSERT INTO `sys_oper_log` VALUES (411, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"big\",\"betItemId\":96,\"betItemName\":\"大\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":2.1,\"params\":{},\"remark\":\"\",\"sort\":2,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:13:17\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:13:17', 5);
+INSERT INTO `sys_oper_log` VALUES (412, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"small\",\"betItemId\":97,\"betItemName\":\"小\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":2.0,\"odd\":1.7,\"params\":{},\"remark\":\"\",\"sort\":3,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:13:26\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:13:26', 7);
+INSERT INTO `sys_oper_log` VALUES (413, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"single\",\"betItemId\":98,\"betItemName\":\"单\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":1.7,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:13:32\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:13:32', 5);
+INSERT INTO `sys_oper_log` VALUES (414, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"doubleFlg\",\"betItemId\":99,\"betItemName\":\"双\",\"betItemType\":7,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":9,\"maxBetAmount\":9999.99,\"minBetAmount\":5.0,\"odd\":2.1,\"params\":{},\"remark\":\"\",\"sort\":5,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:13:39\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:13:39', 6);
+INSERT INTO `sys_oper_log` VALUES (415, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"sumBig\",\"betItemId\":277,\"betItemName\":\"大\",\"betItemType\":18,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":15,\"maxBetAmount\":2.0,\"minBetAmount\":9999.99,\"odd\":1.96,\"params\":{},\"remark\":\"\",\"sort\":1,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:17:38\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:17:38', 5);
+INSERT INTO `sys_oper_log` VALUES (416, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"sumSmall\",\"betItemId\":278,\"betItemName\":\"小\",\"betItemType\":18,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":15,\"maxBetAmount\":2.0,\"minBetAmount\":9999.99,\"odd\":1.96,\"params\":{},\"remark\":\"\",\"sort\":2,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:17:45\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:17:45', 5);
+INSERT INTO `sys_oper_log` VALUES (417, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"sumSingle\",\"betItemId\":279,\"betItemName\":\"单\",\"betItemType\":18,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":15,\"maxBetAmount\":5.0,\"minBetAmount\":9999.99,\"odd\":1.96,\"params\":{},\"remark\":\"\",\"sort\":3,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:17:48\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:17:48', 3);
+INSERT INTO `sys_oper_log` VALUES (418, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"sumDouble\",\"betItemId\":280,\"betItemName\":\"双\",\"betItemType\":18,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":15,\"maxBetAmount\":5.0,\"minBetAmount\":9999.99,\"odd\":1.96,\"params\":{},\"remark\":\"\",\"sort\":4,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:17:50\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:17:50', 4);
+INSERT INTO `sys_oper_log` VALUES (419, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"sumLoong\",\"betItemId\":281,\"betItemName\":\"龙\",\"betItemType\":18,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":15,\"maxBetAmount\":2.0,\"minBetAmount\":500.0,\"odd\":1.96,\"params\":{},\"remark\":\"\",\"sort\":5,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:17:57\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:17:57', 4);
+INSERT INTO `sys_oper_log` VALUES (420, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"sumTiger\",\"betItemId\":282,\"betItemName\":\"虎\",\"betItemType\":18,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":15,\"maxBetAmount\":5.0,\"minBetAmount\":9999.99,\"odd\":1.96,\"params\":{},\"remark\":\"\",\"sort\":6,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:18:01\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:18:01', 4);
+INSERT INTO `sys_oper_log` VALUES (421, '游戏投注项', 2, 'com.ruoyi.web.controller.system.SysBetItemController.edit()', 'PUT', 1, 'admin', '研发部门', '/system/betItem', '127.0.0.1', '内网IP', '{\"betItemCode\":\"sumSum\",\"betItemId\":283,\"betItemName\":\"和\",\"betItemType\":18,\"createBy\":\"\",\"createTime\":\"2024-03-09 22:05:44\",\"gameId\":15,\"maxBetAmount\":5.0,\"minBetAmount\":9999.99,\"odd\":8.0,\"params\":{},\"remark\":\"\",\"sort\":7,\"status\":\"0\",\"updateBy\":\"\",\"updateTime\":\"2024-03-28 21:18:05\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-03-28 21:18:05', 5);
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -3642,8 +4802,8 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-03-25 20:21:05', 0.00, 0.00, 'admin', '2024-03-05 21:03:10', '', '2024-03-25 20:21:05', '管理员');
-INSERT INTO `sys_user` VALUES (2, 105, 'sharkadmin', '平台管理员', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '127.0.0.1', '2024-03-25 20:17:30', 0.00, 0.00, 'admin', '2024-03-05 21:03:10', 'admin', '2024-03-25 20:17:30', '测试员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-03-28 20:35:08', 0.00, 0.00, 'admin', '2024-03-05 21:03:10', '', '2024-03-28 20:35:07', '管理员');
+INSERT INTO `sys_user` VALUES (2, 105, 'sharkadmin', '平台管理员', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '127.0.0.1', '2024-03-26 22:45:35', 0.00, 0.00, 'admin', '2024-03-05 21:03:10', 'admin', '2024-03-26 22:45:34', '测试员');
 
 -- ----------------------------
 -- Table structure for sys_user_post
@@ -3737,5 +4897,53 @@ CREATE TABLE `userwin`  (
 -- ----------------------------
 -- Records of userwin
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for wave
+-- ----------------------------
+DROP TABLE IF EXISTS `wave`;
+CREATE TABLE `wave`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '数字红绿蓝属性ID',
+  `game_id` int(11) NOT NULL COMMENT '游戏ID',
+  `num0` int(2) NOT NULL DEFAULT 0 COMMENT '数字0红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num1` int(2) NOT NULL DEFAULT 0 COMMENT '数字1红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num2` int(2) NOT NULL DEFAULT 0 COMMENT '数字2红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num3` int(2) NOT NULL DEFAULT 0 COMMENT '数字3红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num4` int(2) NOT NULL DEFAULT 0 COMMENT '数字4红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num5` int(2) NOT NULL DEFAULT 0 COMMENT '数字5红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num6` int(2) NOT NULL DEFAULT 0 COMMENT '数字6红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num7` int(2) NOT NULL DEFAULT 0 COMMENT '数字7红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num8` int(2) NOT NULL DEFAULT 0 COMMENT '数字8红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num9` int(2) NOT NULL DEFAULT 0 COMMENT '数字9红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num10` int(2) NOT NULL DEFAULT 0 COMMENT '数字10红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num11` int(2) NOT NULL DEFAULT 0 COMMENT '数字11红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num12` int(2) NOT NULL DEFAULT 0 COMMENT '数字12红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num13` int(2) NOT NULL DEFAULT 0 COMMENT '数字13红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num14` int(2) NOT NULL DEFAULT 0 COMMENT '数字14红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num15` int(2) NOT NULL DEFAULT 0 COMMENT '数字15红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num16` int(2) NOT NULL DEFAULT 0 COMMENT '数字16红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num17` int(2) NOT NULL DEFAULT 0 COMMENT '数字17红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num18` int(2) NOT NULL DEFAULT 0 COMMENT '数字18红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num19` int(2) NOT NULL DEFAULT 0 COMMENT '数字19红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num20` int(2) NOT NULL DEFAULT 0 COMMENT '数字20红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num21` int(2) NOT NULL DEFAULT 0 COMMENT '数字21红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num22` int(2) NOT NULL DEFAULT 0 COMMENT '数字22红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num23` int(2) NOT NULL DEFAULT 0 COMMENT '数字23红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num24` int(2) NOT NULL DEFAULT 0 COMMENT '数字24红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num25` int(2) NOT NULL DEFAULT 0 COMMENT '数字25红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num26` int(2) NOT NULL DEFAULT 0 COMMENT '数字26红绿蓝属性(1：绿 2：红 3：蓝)',
+  `num27` int(2) NOT NULL DEFAULT 0 COMMENT '数字27红绿蓝属性(1：绿 2：红 3：蓝)',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '' COMMENT '备注',
+  UNIQUE INDEX `id`(`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '数字红绿蓝属性表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wave
+-- ----------------------------
+INSERT INTO `wave` VALUES (1, 2, 0, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 0, 0, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 'SYSTEM', '2024-03-27 20:59:53', '', NULL, '');
 
 SET FOREIGN_KEY_CHECKS = 1;

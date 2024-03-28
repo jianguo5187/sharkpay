@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Jssscrecord;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 
 /**
  * 极速时时彩下注Mapper接口
@@ -58,4 +59,8 @@ public interface JssscrecordMapper
      * @return 结果
      */
     public int deleteJssscrecordByIds(Long[] ids);
+
+    public int updateJssscrecordTotalAmountByPeriodId(Jssscrecord jssscrecord);
+
+    public RecordSumRespVo selectSumRecordByPeriodId(Long periodId);
 }

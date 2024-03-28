@@ -60,4 +60,6 @@ public interface IJssscService
     public int deleteJssscById(Long id);
 
     public Jsssc selectLastRecord();
+
+    public List<Jsssc> selectJssscListByParam(String idDescFlg,Integer limitNumber);
 }

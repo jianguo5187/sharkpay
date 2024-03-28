@@ -11,7 +11,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 极速时时彩下注对象 jssscrecord
  * 
  * @author ruoyi
- * @date 2024-03-23
+ * @date 2024-03-27
  */
 public class Jssscrecord extends BaseEntity
 {
@@ -78,285 +78,285 @@ public class Jssscrecord extends BaseEntity
     @Excel(name = "下注和值和的金额")
     private Float sumSum;
 
-    /** 下注买1号球大的金额 */
-    @Excel(name = "下注买1号球大的金额")
+    /** 下注买球1球大的金额 */
+    @Excel(name = "下注买球1球大的金额")
     private Float num1Big;
 
-    /** 下注买1号球小的金额 */
-    @Excel(name = "下注买1号球小的金额")
+    /** 下注买球1球小的金额 */
+    @Excel(name = "下注买球1球小的金额")
     private Float num1Small;
 
-    /** 下注买1号球单的金额 */
-    @Excel(name = "下注买1号球单的金额")
+    /** 下注买球1球单的金额 */
+    @Excel(name = "下注买球1球单的金额")
     private Float num1Single;
 
-    /** 下注买1号球双的金额 */
-    @Excel(name = "下注买1号球双的金额")
+    /** 下注买球1球双的金额 */
+    @Excel(name = "下注买球1球双的金额")
     private Float num1Double;
 
-    /** 下注买1号球0的金额 */
-    @Excel(name = "下注买1号球0的金额")
-    private Float num10;
+    /** 下注买球1号码0的金额 */
+    @Excel(name = "下注买球1号码0的金额")
+    private Float num1Ball0;
 
-    /** 下注买1号球1的金额 */
-    @Excel(name = "下注买1号球1的金额")
-    private Float num11;
+    /** 下注买球1号码1的金额 */
+    @Excel(name = "下注买球1号码1的金额")
+    private Float num1Ball1;
 
-    /** 下注买1号球2的金额 */
-    @Excel(name = "下注买1号球2的金额")
-    private Float num12;
+    /** 下注买球1号码2的金额 */
+    @Excel(name = "下注买球1号码2的金额")
+    private Float num1Ball2;
 
-    /** 下注买1号球3的金额 */
-    @Excel(name = "下注买1号球3的金额")
-    private Float num13;
+    /** 下注买球1号码3的金额 */
+    @Excel(name = "下注买球1号码3的金额")
+    private Float num1Ball3;
 
-    /** 下注买1号球4的金额 */
-    @Excel(name = "下注买1号球4的金额")
-    private Float num14;
+    /** 下注买球1号码4的金额 */
+    @Excel(name = "下注买球1号码4的金额")
+    private Float num1Ball4;
 
-    /** 下注买1号球5的金额 */
-    @Excel(name = "下注买1号球5的金额")
-    private Float num15;
+    /** 下注买球1号码5的金额 */
+    @Excel(name = "下注买球1号码5的金额")
+    private Float num1Ball5;
 
-    /** 下注买1号球6的金额 */
-    @Excel(name = "下注买1号球6的金额")
-    private Float num16;
+    /** 下注买球1号码6的金额 */
+    @Excel(name = "下注买球1号码6的金额")
+    private Float num1Ball6;
 
-    /** 下注买1号球7的金额 */
-    @Excel(name = "下注买1号球7的金额")
-    private Float num17;
+    /** 下注买球1号码7的金额 */
+    @Excel(name = "下注买球1号码7的金额")
+    private Float num1Ball7;
 
-    /** 下注买1号球8的金额 */
-    @Excel(name = "下注买1号球8的金额")
-    private Float num18;
+    /** 下注买球1号码8的金额 */
+    @Excel(name = "下注买球1号码8的金额")
+    private Float num1Ball8;
 
-    /** 下注买1号球9的金额 */
-    @Excel(name = "下注买1号球9的金额")
-    private Float num19;
+    /** 下注买球1号码9的金额 */
+    @Excel(name = "下注买球1号码9的金额")
+    private Float num1Ball9;
 
-    /** 下注买2号球大的金额 */
-    @Excel(name = "下注买2号球大的金额")
+    /** 下注买球2球大的金额 */
+    @Excel(name = "下注买球2球大的金额")
     private Float num2Big;
 
-    /** 下注买2号球小的金额 */
-    @Excel(name = "下注买2号球小的金额")
+    /** 下注买球2球小的金额 */
+    @Excel(name = "下注买球2球小的金额")
     private Float num2Small;
 
-    /** 下注买2号球单的金额 */
-    @Excel(name = "下注买2号球单的金额")
+    /** 下注买球2球单的金额 */
+    @Excel(name = "下注买球2球单的金额")
     private Float num2Single;
 
-    /** 下注买2号球双的金额 */
-    @Excel(name = "下注买2号球双的金额")
+    /** 下注买球2球双的金额 */
+    @Excel(name = "下注买球2球双的金额")
     private Float num2Double;
 
-    /** 下注买2号球0的金额 */
-    @Excel(name = "下注买2号球0的金额")
-    private Float num20;
+    /** 下注买球2号码0的金额 */
+    @Excel(name = "下注买球2号码0的金额")
+    private Float num2Ball0;
 
-    /** 下注买2号球1的金额 */
-    @Excel(name = "下注买2号球1的金额")
-    private Float num21;
+    /** 下注买球2号码1的金额 */
+    @Excel(name = "下注买球2号码1的金额")
+    private Float num2Ball1;
 
-    /** 下注买2号球2的金额 */
-    @Excel(name = "下注买2号球2的金额")
-    private Float num22;
+    /** 下注买球2号码2的金额 */
+    @Excel(name = "下注买球2号码2的金额")
+    private Float num2Ball2;
 
-    /** 下注买2号球3的金额 */
-    @Excel(name = "下注买2号球3的金额")
-    private Float num23;
+    /** 下注买球2号码3的金额 */
+    @Excel(name = "下注买球2号码3的金额")
+    private Float num2Ball3;
 
-    /** 下注买2号球4的金额 */
-    @Excel(name = "下注买2号球4的金额")
-    private Float num24;
+    /** 下注买球2号码4的金额 */
+    @Excel(name = "下注买球2号码4的金额")
+    private Float num2Ball4;
 
-    /** 下注买2号球5的金额 */
-    @Excel(name = "下注买2号球5的金额")
-    private Float num25;
+    /** 下注买球2号码5的金额 */
+    @Excel(name = "下注买球2号码5的金额")
+    private Float num2Ball5;
 
-    /** 下注买2号球6的金额 */
-    @Excel(name = "下注买2号球6的金额")
-    private Float num26;
+    /** 下注买球2号码6的金额 */
+    @Excel(name = "下注买球2号码6的金额")
+    private Float num2Ball6;
 
-    /** 下注买2号球7的金额 */
-    @Excel(name = "下注买2号球7的金额")
-    private Float num27;
+    /** 下注买球2号码7的金额 */
+    @Excel(name = "下注买球2号码7的金额")
+    private Float num2Ball7;
 
-    /** 下注买2号球8的金额 */
-    @Excel(name = "下注买2号球8的金额")
-    private Float num28;
+    /** 下注买球2号码8的金额 */
+    @Excel(name = "下注买球2号码8的金额")
+    private Float num2Ball8;
 
-    /** 下注买2号球9的金额 */
-    @Excel(name = "下注买2号球9的金额")
-    private Float num29;
+    /** 下注买球2号码9的金额 */
+    @Excel(name = "下注买球2号码9的金额")
+    private Float num2Ball9;
 
-    /** 下注买3号球大的金额 */
-    @Excel(name = "下注买3号球大的金额")
+    /** 下注买球3球大的金额 */
+    @Excel(name = "下注买球3球大的金额")
     private Float num3Big;
 
-    /** 下注买3号球小的金额 */
-    @Excel(name = "下注买3号球小的金额")
+    /** 下注买球3球小的金额 */
+    @Excel(name = "下注买球3球小的金额")
     private Float num3Small;
 
-    /** 下注买3号球单的金额 */
-    @Excel(name = "下注买3号球单的金额")
+    /** 下注买球3球单的金额 */
+    @Excel(name = "下注买球3球单的金额")
     private Float num3Single;
 
-    /** 下注买3号球双的金额 */
-    @Excel(name = "下注买3号球双的金额")
+    /** 下注买球3球双的金额 */
+    @Excel(name = "下注买球3球双的金额")
     private Float num3Double;
 
-    /** 下注买3号球0的金额 */
-    @Excel(name = "下注买3号球0的金额")
-    private Float num30;
+    /** 下注买球3号码0的金额 */
+    @Excel(name = "下注买球3号码0的金额")
+    private Float num3Ball0;
 
-    /** 下注买3号球1的金额 */
-    @Excel(name = "下注买3号球1的金额")
-    private Float num31;
+    /** 下注买球3号码1的金额 */
+    @Excel(name = "下注买球3号码1的金额")
+    private Float num3Ball1;
 
-    /** 下注买3号球2的金额 */
-    @Excel(name = "下注买3号球2的金额")
-    private Float num32;
+    /** 下注买球3号码2的金额 */
+    @Excel(name = "下注买球3号码2的金额")
+    private Float num3Ball2;
 
-    /** 下注买3号球3的金额 */
-    @Excel(name = "下注买3号球3的金额")
-    private Float num33;
+    /** 下注买球3号码3的金额 */
+    @Excel(name = "下注买球3号码3的金额")
+    private Float num3Ball3;
 
-    /** 下注买3号球4的金额 */
-    @Excel(name = "下注买3号球4的金额")
-    private Float num34;
+    /** 下注买球3号码4的金额 */
+    @Excel(name = "下注买球3号码4的金额")
+    private Float num3Ball4;
 
-    /** 下注买3号球5的金额 */
-    @Excel(name = "下注买3号球5的金额")
-    private Float num35;
+    /** 下注买球3号码5的金额 */
+    @Excel(name = "下注买球3号码5的金额")
+    private Float num3Ball5;
 
-    /** 下注买3号球6的金额 */
-    @Excel(name = "下注买3号球6的金额")
-    private Float num36;
+    /** 下注买球3号码6的金额 */
+    @Excel(name = "下注买球3号码6的金额")
+    private Float num3Ball6;
 
-    /** 下注买3号球7的金额 */
-    @Excel(name = "下注买3号球7的金额")
-    private Float num37;
+    /** 下注买球3号码7的金额 */
+    @Excel(name = "下注买球3号码7的金额")
+    private Float num3Ball7;
 
-    /** 下注买3号球8的金额 */
-    @Excel(name = "下注买3号球8的金额")
-    private Float num38;
+    /** 下注买球3号码8的金额 */
+    @Excel(name = "下注买球3号码8的金额")
+    private Float num3Ball8;
 
-    /** 下注买3号球9的金额 */
-    @Excel(name = "下注买3号球9的金额")
-    private Float num39;
+    /** 下注买球3号码9的金额 */
+    @Excel(name = "下注买球3号码9的金额")
+    private Float num3Ball9;
 
-    /** 下注买4号球大的金额 */
-    @Excel(name = "下注买4号球大的金额")
+    /** 下注买球4球大的金额 */
+    @Excel(name = "下注买球4球大的金额")
     private Float num4Big;
 
-    /** 下注买4号球小的金额 */
-    @Excel(name = "下注买4号球小的金额")
+    /** 下注买球4球小的金额 */
+    @Excel(name = "下注买球4球小的金额")
     private Float num4Small;
 
-    /** 下注买4号球单的金额 */
-    @Excel(name = "下注买4号球单的金额")
+    /** 下注买球4球单的金额 */
+    @Excel(name = "下注买球4球单的金额")
     private Float num4Single;
 
-    /** 下注买4号球双的金额 */
-    @Excel(name = "下注买4号球双的金额")
+    /** 下注买球4球双的金额 */
+    @Excel(name = "下注买球4球双的金额")
     private Float num4Double;
 
-    /** 下注买4号球0的金额 */
-    @Excel(name = "下注买4号球0的金额")
-    private Float num40;
+    /** 下注买球4号码0的金额 */
+    @Excel(name = "下注买球4号码0的金额")
+    private Float num4Ball0;
 
-    /** 下注买4号球1的金额 */
-    @Excel(name = "下注买4号球1的金额")
-    private Float num41;
+    /** 下注买球4号码1的金额 */
+    @Excel(name = "下注买球4号码1的金额")
+    private Float num4Ball1;
 
-    /** 下注买4号球2的金额 */
-    @Excel(name = "下注买4号球2的金额")
-    private Float num42;
+    /** 下注买球4号码2的金额 */
+    @Excel(name = "下注买球4号码2的金额")
+    private Float num4Ball2;
 
-    /** 下注买4号球3的金额 */
-    @Excel(name = "下注买4号球3的金额")
-    private Float num43;
+    /** 下注买球4号码3的金额 */
+    @Excel(name = "下注买球4号码3的金额")
+    private Float num4Ball3;
 
-    /** 下注买4号球4的金额 */
-    @Excel(name = "下注买4号球4的金额")
-    private Float num44;
+    /** 下注买球4号码4的金额 */
+    @Excel(name = "下注买球4号码4的金额")
+    private Float num4Ball4;
 
-    /** 下注买4号球5的金额 */
-    @Excel(name = "下注买4号球5的金额")
-    private Float num45;
+    /** 下注买球4号码5的金额 */
+    @Excel(name = "下注买球4号码5的金额")
+    private Float num4Ball5;
 
-    /** 下注买4号球6的金额 */
-    @Excel(name = "下注买4号球6的金额")
-    private Float num46;
+    /** 下注买球4号码6的金额 */
+    @Excel(name = "下注买球4号码6的金额")
+    private Float num4Ball6;
 
-    /** 下注买4号球7的金额 */
-    @Excel(name = "下注买4号球7的金额")
-    private Float num47;
+    /** 下注买球4号码7的金额 */
+    @Excel(name = "下注买球4号码7的金额")
+    private Float num4Ball7;
 
-    /** 下注买4号球8的金额 */
-    @Excel(name = "下注买4号球8的金额")
-    private Float num48;
+    /** 下注买球4号码8的金额 */
+    @Excel(name = "下注买球4号码8的金额")
+    private Float num4Ball8;
 
-    /** 下注买4号球9的金额 */
-    @Excel(name = "下注买4号球9的金额")
-    private Float num49;
+    /** 下注买球4号码9的金额 */
+    @Excel(name = "下注买球4号码9的金额")
+    private Float num4Ball9;
 
-    /** 下注买5号球大的金额 */
-    @Excel(name = "下注买5号球大的金额")
+    /** 下注买球5球大的金额 */
+    @Excel(name = "下注买球5球大的金额")
     private Float num5Big;
 
-    /** 下注买5号球小的金额 */
-    @Excel(name = "下注买5号球小的金额")
+    /** 下注买球5球小的金额 */
+    @Excel(name = "下注买球5球小的金额")
     private Float num5Small;
 
-    /** 下注买5号球单的金额 */
-    @Excel(name = "下注买5号球单的金额")
+    /** 下注买球5球单的金额 */
+    @Excel(name = "下注买球5球单的金额")
     private Float num5Single;
 
-    /** 下注买5号球双的金额 */
-    @Excel(name = "下注买5号球双的金额")
+    /** 下注买球5球双的金额 */
+    @Excel(name = "下注买球5球双的金额")
     private Float num5Double;
 
-    /** 下注买5号球0的金额 */
-    @Excel(name = "下注买5号球0的金额")
-    private Float num50;
+    /** 下注买球5号码0的金额 */
+    @Excel(name = "下注买球5号码0的金额")
+    private Float num5Ball0;
 
-    /** 下注买5号球1的金额 */
-    @Excel(name = "下注买5号球1的金额")
-    private Float num51;
+    /** 下注买球5号码1的金额 */
+    @Excel(name = "下注买球5号码1的金额")
+    private Float num5Ball1;
 
-    /** 下注买5号球2的金额 */
-    @Excel(name = "下注买5号球2的金额")
-    private Float num52;
+    /** 下注买球5号码2的金额 */
+    @Excel(name = "下注买球5号码2的金额")
+    private Float num5Ball2;
 
-    /** 下注买5号球3的金额 */
-    @Excel(name = "下注买5号球3的金额")
-    private Float num53;
+    /** 下注买球5号码3的金额 */
+    @Excel(name = "下注买球5号码3的金额")
+    private Float num5Ball3;
 
-    /** 下注买5号球4的金额 */
-    @Excel(name = "下注买5号球4的金额")
-    private Float num54;
+    /** 下注买球5号码4的金额 */
+    @Excel(name = "下注买球5号码4的金额")
+    private Float num5Ball4;
 
-    /** 下注买5号球5的金额 */
-    @Excel(name = "下注买5号球5的金额")
-    private Float num55;
+    /** 下注买球5号码5的金额 */
+    @Excel(name = "下注买球5号码5的金额")
+    private Float num5Ball5;
 
-    /** 下注买5号球6的金额 */
-    @Excel(name = "下注买5号球6的金额")
-    private Float num56;
+    /** 下注买球5号码6的金额 */
+    @Excel(name = "下注买球5号码6的金额")
+    private Float num5Ball6;
 
-    /** 下注买5号球7的金额 */
-    @Excel(name = "下注买5号球7的金额")
-    private Float num57;
+    /** 下注买球5号码7的金额 */
+    @Excel(name = "下注买球5号码7的金额")
+    private Float num5Ball7;
 
-    /** 下注买5号球8的金额 */
-    @Excel(name = "下注买5号球8的金额")
-    private Float num58;
+    /** 下注买球5号码8的金额 */
+    @Excel(name = "下注买球5号码8的金额")
+    private Float num5Ball8;
 
-    /** 下注买5号球9的金额 */
-    @Excel(name = "下注买5号球9的金额")
-    private Float num59;
+    /** 下注买球5号码9的金额 */
+    @Excel(name = "下注买球5号码9的金额")
+    private Float num5Ball9;
 
     /** 下注买前三豹的金额 */
     @Excel(name = "下注买前三豹的金额")
@@ -420,27 +420,27 @@ public class Jssscrecord extends BaseEntity
 
     /** 开奖号码1 */
     @Excel(name = "开奖号码1")
-    private Long num1;
+    private Integer num1;
 
     /** 开奖号码2 */
     @Excel(name = "开奖号码2")
-    private Long num2;
+    private Integer num2;
 
     /** 开奖号码3 */
     @Excel(name = "开奖号码3")
-    private Long num3;
+    private Integer num3;
 
     /** 开奖号码4 */
     @Excel(name = "开奖号码4")
-    private Long num4;
+    private Integer num4;
 
     /** 开奖号码5 */
     @Excel(name = "开奖号码5")
-    private Long num5;
+    private Integer num5;
 
     /** 开奖合算数字 */
     @Excel(name = "开奖合算数字")
-    private Long sum;
+    private Integer sum;
 
     /** 是否扣除(0否 1是) */
     @Excel(name = "是否扣除(0否 1是)")
@@ -633,95 +633,95 @@ public class Jssscrecord extends BaseEntity
     {
         return num1Double;
     }
-    public void setNum10(Float num10) 
+    public void setNum1Ball0(Float num1Ball0) 
     {
-        this.num10 = num10;
+        this.num1Ball0 = num1Ball0;
     }
 
-    public Float getNum10() 
+    public Float getNum1Ball0() 
     {
-        return num10;
+        return num1Ball0;
     }
-    public void setNum11(Float num11) 
+    public void setNum1Ball1(Float num1Ball1) 
     {
-        this.num11 = num11;
-    }
-
-    public Float getNum11() 
-    {
-        return num11;
-    }
-    public void setNum12(Float num12) 
-    {
-        this.num12 = num12;
+        this.num1Ball1 = num1Ball1;
     }
 
-    public Float getNum12() 
+    public Float getNum1Ball1() 
     {
-        return num12;
+        return num1Ball1;
     }
-    public void setNum13(Float num13) 
+    public void setNum1Ball2(Float num1Ball2) 
     {
-        this.num13 = num13;
-    }
-
-    public Float getNum13() 
-    {
-        return num13;
-    }
-    public void setNum14(Float num14) 
-    {
-        this.num14 = num14;
+        this.num1Ball2 = num1Ball2;
     }
 
-    public Float getNum14() 
+    public Float getNum1Ball2() 
     {
-        return num14;
+        return num1Ball2;
     }
-    public void setNum15(Float num15) 
+    public void setNum1Ball3(Float num1Ball3) 
     {
-        this.num15 = num15;
-    }
-
-    public Float getNum15() 
-    {
-        return num15;
-    }
-    public void setNum16(Float num16) 
-    {
-        this.num16 = num16;
+        this.num1Ball3 = num1Ball3;
     }
 
-    public Float getNum16() 
+    public Float getNum1Ball3() 
     {
-        return num16;
+        return num1Ball3;
     }
-    public void setNum17(Float num17) 
+    public void setNum1Ball4(Float num1Ball4) 
     {
-        this.num17 = num17;
-    }
-
-    public Float getNum17() 
-    {
-        return num17;
-    }
-    public void setNum18(Float num18) 
-    {
-        this.num18 = num18;
+        this.num1Ball4 = num1Ball4;
     }
 
-    public Float getNum18() 
+    public Float getNum1Ball4() 
     {
-        return num18;
+        return num1Ball4;
     }
-    public void setNum19(Float num19) 
+    public void setNum1Ball5(Float num1Ball5) 
     {
-        this.num19 = num19;
+        this.num1Ball5 = num1Ball5;
     }
 
-    public Float getNum19() 
+    public Float getNum1Ball5() 
     {
-        return num19;
+        return num1Ball5;
+    }
+    public void setNum1Ball6(Float num1Ball6) 
+    {
+        this.num1Ball6 = num1Ball6;
+    }
+
+    public Float getNum1Ball6() 
+    {
+        return num1Ball6;
+    }
+    public void setNum1Ball7(Float num1Ball7) 
+    {
+        this.num1Ball7 = num1Ball7;
+    }
+
+    public Float getNum1Ball7() 
+    {
+        return num1Ball7;
+    }
+    public void setNum1Ball8(Float num1Ball8) 
+    {
+        this.num1Ball8 = num1Ball8;
+    }
+
+    public Float getNum1Ball8() 
+    {
+        return num1Ball8;
+    }
+    public void setNum1Ball9(Float num1Ball9) 
+    {
+        this.num1Ball9 = num1Ball9;
+    }
+
+    public Float getNum1Ball9() 
+    {
+        return num1Ball9;
     }
     public void setNum2Big(Float num2Big) 
     {
@@ -759,95 +759,95 @@ public class Jssscrecord extends BaseEntity
     {
         return num2Double;
     }
-    public void setNum20(Float num20) 
+    public void setNum2Ball0(Float num2Ball0) 
     {
-        this.num20 = num20;
+        this.num2Ball0 = num2Ball0;
     }
 
-    public Float getNum20() 
+    public Float getNum2Ball0() 
     {
-        return num20;
+        return num2Ball0;
     }
-    public void setNum21(Float num21) 
+    public void setNum2Ball1(Float num2Ball1) 
     {
-        this.num21 = num21;
-    }
-
-    public Float getNum21() 
-    {
-        return num21;
-    }
-    public void setNum22(Float num22) 
-    {
-        this.num22 = num22;
+        this.num2Ball1 = num2Ball1;
     }
 
-    public Float getNum22() 
+    public Float getNum2Ball1() 
     {
-        return num22;
+        return num2Ball1;
     }
-    public void setNum23(Float num23) 
+    public void setNum2Ball2(Float num2Ball2) 
     {
-        this.num23 = num23;
-    }
-
-    public Float getNum23() 
-    {
-        return num23;
-    }
-    public void setNum24(Float num24) 
-    {
-        this.num24 = num24;
+        this.num2Ball2 = num2Ball2;
     }
 
-    public Float getNum24() 
+    public Float getNum2Ball2() 
     {
-        return num24;
+        return num2Ball2;
     }
-    public void setNum25(Float num25) 
+    public void setNum2Ball3(Float num2Ball3) 
     {
-        this.num25 = num25;
-    }
-
-    public Float getNum25() 
-    {
-        return num25;
-    }
-    public void setNum26(Float num26) 
-    {
-        this.num26 = num26;
+        this.num2Ball3 = num2Ball3;
     }
 
-    public Float getNum26() 
+    public Float getNum2Ball3() 
     {
-        return num26;
+        return num2Ball3;
     }
-    public void setNum27(Float num27) 
+    public void setNum2Ball4(Float num2Ball4) 
     {
-        this.num27 = num27;
-    }
-
-    public Float getNum27() 
-    {
-        return num27;
-    }
-    public void setNum28(Float num28) 
-    {
-        this.num28 = num28;
+        this.num2Ball4 = num2Ball4;
     }
 
-    public Float getNum28() 
+    public Float getNum2Ball4() 
     {
-        return num28;
+        return num2Ball4;
     }
-    public void setNum29(Float num29) 
+    public void setNum2Ball5(Float num2Ball5) 
     {
-        this.num29 = num29;
+        this.num2Ball5 = num2Ball5;
     }
 
-    public Float getNum29() 
+    public Float getNum2Ball5() 
     {
-        return num29;
+        return num2Ball5;
+    }
+    public void setNum2Ball6(Float num2Ball6) 
+    {
+        this.num2Ball6 = num2Ball6;
+    }
+
+    public Float getNum2Ball6() 
+    {
+        return num2Ball6;
+    }
+    public void setNum2Ball7(Float num2Ball7) 
+    {
+        this.num2Ball7 = num2Ball7;
+    }
+
+    public Float getNum2Ball7() 
+    {
+        return num2Ball7;
+    }
+    public void setNum2Ball8(Float num2Ball8) 
+    {
+        this.num2Ball8 = num2Ball8;
+    }
+
+    public Float getNum2Ball8() 
+    {
+        return num2Ball8;
+    }
+    public void setNum2Ball9(Float num2Ball9) 
+    {
+        this.num2Ball9 = num2Ball9;
+    }
+
+    public Float getNum2Ball9() 
+    {
+        return num2Ball9;
     }
     public void setNum3Big(Float num3Big) 
     {
@@ -885,95 +885,95 @@ public class Jssscrecord extends BaseEntity
     {
         return num3Double;
     }
-    public void setNum30(Float num30) 
+    public void setNum3Ball0(Float num3Ball0) 
     {
-        this.num30 = num30;
+        this.num3Ball0 = num3Ball0;
     }
 
-    public Float getNum30() 
+    public Float getNum3Ball0() 
     {
-        return num30;
+        return num3Ball0;
     }
-    public void setNum31(Float num31) 
+    public void setNum3Ball1(Float num3Ball1) 
     {
-        this.num31 = num31;
-    }
-
-    public Float getNum31() 
-    {
-        return num31;
-    }
-    public void setNum32(Float num32) 
-    {
-        this.num32 = num32;
+        this.num3Ball1 = num3Ball1;
     }
 
-    public Float getNum32() 
+    public Float getNum3Ball1() 
     {
-        return num32;
+        return num3Ball1;
     }
-    public void setNum33(Float num33) 
+    public void setNum3Ball2(Float num3Ball2) 
     {
-        this.num33 = num33;
-    }
-
-    public Float getNum33() 
-    {
-        return num33;
-    }
-    public void setNum34(Float num34) 
-    {
-        this.num34 = num34;
+        this.num3Ball2 = num3Ball2;
     }
 
-    public Float getNum34() 
+    public Float getNum3Ball2() 
     {
-        return num34;
+        return num3Ball2;
     }
-    public void setNum35(Float num35) 
+    public void setNum3Ball3(Float num3Ball3) 
     {
-        this.num35 = num35;
-    }
-
-    public Float getNum35() 
-    {
-        return num35;
-    }
-    public void setNum36(Float num36) 
-    {
-        this.num36 = num36;
+        this.num3Ball3 = num3Ball3;
     }
 
-    public Float getNum36() 
+    public Float getNum3Ball3() 
     {
-        return num36;
+        return num3Ball3;
     }
-    public void setNum37(Float num37) 
+    public void setNum3Ball4(Float num3Ball4) 
     {
-        this.num37 = num37;
-    }
-
-    public Float getNum37() 
-    {
-        return num37;
-    }
-    public void setNum38(Float num38) 
-    {
-        this.num38 = num38;
+        this.num3Ball4 = num3Ball4;
     }
 
-    public Float getNum38() 
+    public Float getNum3Ball4() 
     {
-        return num38;
+        return num3Ball4;
     }
-    public void setNum39(Float num39) 
+    public void setNum3Ball5(Float num3Ball5) 
     {
-        this.num39 = num39;
+        this.num3Ball5 = num3Ball5;
     }
 
-    public Float getNum39() 
+    public Float getNum3Ball5() 
     {
-        return num39;
+        return num3Ball5;
+    }
+    public void setNum3Ball6(Float num3Ball6) 
+    {
+        this.num3Ball6 = num3Ball6;
+    }
+
+    public Float getNum3Ball6() 
+    {
+        return num3Ball6;
+    }
+    public void setNum3Ball7(Float num3Ball7) 
+    {
+        this.num3Ball7 = num3Ball7;
+    }
+
+    public Float getNum3Ball7() 
+    {
+        return num3Ball7;
+    }
+    public void setNum3Ball8(Float num3Ball8) 
+    {
+        this.num3Ball8 = num3Ball8;
+    }
+
+    public Float getNum3Ball8() 
+    {
+        return num3Ball8;
+    }
+    public void setNum3Ball9(Float num3Ball9) 
+    {
+        this.num3Ball9 = num3Ball9;
+    }
+
+    public Float getNum3Ball9() 
+    {
+        return num3Ball9;
     }
     public void setNum4Big(Float num4Big) 
     {
@@ -1011,95 +1011,95 @@ public class Jssscrecord extends BaseEntity
     {
         return num4Double;
     }
-    public void setNum40(Float num40) 
+    public void setNum4Ball0(Float num4Ball0) 
     {
-        this.num40 = num40;
+        this.num4Ball0 = num4Ball0;
     }
 
-    public Float getNum40() 
+    public Float getNum4Ball0() 
     {
-        return num40;
+        return num4Ball0;
     }
-    public void setNum41(Float num41) 
+    public void setNum4Ball1(Float num4Ball1) 
     {
-        this.num41 = num41;
-    }
-
-    public Float getNum41() 
-    {
-        return num41;
-    }
-    public void setNum42(Float num42) 
-    {
-        this.num42 = num42;
+        this.num4Ball1 = num4Ball1;
     }
 
-    public Float getNum42() 
+    public Float getNum4Ball1() 
     {
-        return num42;
+        return num4Ball1;
     }
-    public void setNum43(Float num43) 
+    public void setNum4Ball2(Float num4Ball2) 
     {
-        this.num43 = num43;
-    }
-
-    public Float getNum43() 
-    {
-        return num43;
-    }
-    public void setNum44(Float num44) 
-    {
-        this.num44 = num44;
+        this.num4Ball2 = num4Ball2;
     }
 
-    public Float getNum44() 
+    public Float getNum4Ball2() 
     {
-        return num44;
+        return num4Ball2;
     }
-    public void setNum45(Float num45) 
+    public void setNum4Ball3(Float num4Ball3) 
     {
-        this.num45 = num45;
-    }
-
-    public Float getNum45() 
-    {
-        return num45;
-    }
-    public void setNum46(Float num46) 
-    {
-        this.num46 = num46;
+        this.num4Ball3 = num4Ball3;
     }
 
-    public Float getNum46() 
+    public Float getNum4Ball3() 
     {
-        return num46;
+        return num4Ball3;
     }
-    public void setNum47(Float num47) 
+    public void setNum4Ball4(Float num4Ball4) 
     {
-        this.num47 = num47;
-    }
-
-    public Float getNum47() 
-    {
-        return num47;
-    }
-    public void setNum48(Float num48) 
-    {
-        this.num48 = num48;
+        this.num4Ball4 = num4Ball4;
     }
 
-    public Float getNum48() 
+    public Float getNum4Ball4() 
     {
-        return num48;
+        return num4Ball4;
     }
-    public void setNum49(Float num49) 
+    public void setNum4Ball5(Float num4Ball5) 
     {
-        this.num49 = num49;
+        this.num4Ball5 = num4Ball5;
     }
 
-    public Float getNum49() 
+    public Float getNum4Ball5() 
     {
-        return num49;
+        return num4Ball5;
+    }
+    public void setNum4Ball6(Float num4Ball6) 
+    {
+        this.num4Ball6 = num4Ball6;
+    }
+
+    public Float getNum4Ball6() 
+    {
+        return num4Ball6;
+    }
+    public void setNum4Ball7(Float num4Ball7) 
+    {
+        this.num4Ball7 = num4Ball7;
+    }
+
+    public Float getNum4Ball7() 
+    {
+        return num4Ball7;
+    }
+    public void setNum4Ball8(Float num4Ball8) 
+    {
+        this.num4Ball8 = num4Ball8;
+    }
+
+    public Float getNum4Ball8() 
+    {
+        return num4Ball8;
+    }
+    public void setNum4Ball9(Float num4Ball9) 
+    {
+        this.num4Ball9 = num4Ball9;
+    }
+
+    public Float getNum4Ball9() 
+    {
+        return num4Ball9;
     }
     public void setNum5Big(Float num5Big) 
     {
@@ -1137,95 +1137,95 @@ public class Jssscrecord extends BaseEntity
     {
         return num5Double;
     }
-    public void setNum50(Float num50) 
+    public void setNum5Ball0(Float num5Ball0) 
     {
-        this.num50 = num50;
+        this.num5Ball0 = num5Ball0;
     }
 
-    public Float getNum50() 
+    public Float getNum5Ball0() 
     {
-        return num50;
+        return num5Ball0;
     }
-    public void setNum51(Float num51) 
+    public void setNum5Ball1(Float num5Ball1) 
     {
-        this.num51 = num51;
-    }
-
-    public Float getNum51() 
-    {
-        return num51;
-    }
-    public void setNum52(Float num52) 
-    {
-        this.num52 = num52;
+        this.num5Ball1 = num5Ball1;
     }
 
-    public Float getNum52() 
+    public Float getNum5Ball1() 
     {
-        return num52;
+        return num5Ball1;
     }
-    public void setNum53(Float num53) 
+    public void setNum5Ball2(Float num5Ball2) 
     {
-        this.num53 = num53;
-    }
-
-    public Float getNum53() 
-    {
-        return num53;
-    }
-    public void setNum54(Float num54) 
-    {
-        this.num54 = num54;
+        this.num5Ball2 = num5Ball2;
     }
 
-    public Float getNum54() 
+    public Float getNum5Ball2() 
     {
-        return num54;
+        return num5Ball2;
     }
-    public void setNum55(Float num55) 
+    public void setNum5Ball3(Float num5Ball3) 
     {
-        this.num55 = num55;
-    }
-
-    public Float getNum55() 
-    {
-        return num55;
-    }
-    public void setNum56(Float num56) 
-    {
-        this.num56 = num56;
+        this.num5Ball3 = num5Ball3;
     }
 
-    public Float getNum56() 
+    public Float getNum5Ball3() 
     {
-        return num56;
+        return num5Ball3;
     }
-    public void setNum57(Float num57) 
+    public void setNum5Ball4(Float num5Ball4) 
     {
-        this.num57 = num57;
-    }
-
-    public Float getNum57() 
-    {
-        return num57;
-    }
-    public void setNum58(Float num58) 
-    {
-        this.num58 = num58;
+        this.num5Ball4 = num5Ball4;
     }
 
-    public Float getNum58() 
+    public Float getNum5Ball4() 
     {
-        return num58;
+        return num5Ball4;
     }
-    public void setNum59(Float num59) 
+    public void setNum5Ball5(Float num5Ball5) 
     {
-        this.num59 = num59;
+        this.num5Ball5 = num5Ball5;
     }
 
-    public Float getNum59() 
+    public Float getNum5Ball5() 
     {
-        return num59;
+        return num5Ball5;
+    }
+    public void setNum5Ball6(Float num5Ball6) 
+    {
+        this.num5Ball6 = num5Ball6;
+    }
+
+    public Float getNum5Ball6() 
+    {
+        return num5Ball6;
+    }
+    public void setNum5Ball7(Float num5Ball7) 
+    {
+        this.num5Ball7 = num5Ball7;
+    }
+
+    public Float getNum5Ball7() 
+    {
+        return num5Ball7;
+    }
+    public void setNum5Ball8(Float num5Ball8) 
+    {
+        this.num5Ball8 = num5Ball8;
+    }
+
+    public Float getNum5Ball8() 
+    {
+        return num5Ball8;
+    }
+    public void setNum5Ball9(Float num5Ball9) 
+    {
+        this.num5Ball9 = num5Ball9;
+    }
+
+    public Float getNum5Ball9() 
+    {
+        return num5Ball9;
     }
     public void setFirstBao(Float firstBao) 
     {
@@ -1362,57 +1362,57 @@ public class Jssscrecord extends BaseEntity
     {
         return backZa;
     }
-    public void setNum1(Long num1) 
+    public void setNum1(Integer num1) 
     {
         this.num1 = num1;
     }
 
-    public Long getNum1() 
+    public Integer getNum1() 
     {
         return num1;
     }
-    public void setNum2(Long num2) 
+    public void setNum2(Integer num2) 
     {
         this.num2 = num2;
     }
 
-    public Long getNum2() 
+    public Integer getNum2() 
     {
         return num2;
     }
-    public void setNum3(Long num3) 
+    public void setNum3(Integer num3) 
     {
         this.num3 = num3;
     }
 
-    public Long getNum3() 
+    public Integer getNum3() 
     {
         return num3;
     }
-    public void setNum4(Long num4) 
+    public void setNum4(Integer num4) 
     {
         this.num4 = num4;
     }
 
-    public Long getNum4() 
+    public Integer getNum4() 
     {
         return num4;
     }
-    public void setNum5(Long num5) 
+    public void setNum5(Integer num5) 
     {
         this.num5 = num5;
     }
 
-    public Long getNum5() 
+    public Integer getNum5() 
     {
         return num5;
     }
-    public void setSum(Long sum) 
+    public void setSum(Integer sum) 
     {
         this.sum = sum;
     }
 
-    public Long getSum() 
+    public Integer getSum() 
     {
         return sum;
     }
@@ -1484,72 +1484,72 @@ public class Jssscrecord extends BaseEntity
             .append("num1Small", getNum1Small())
             .append("num1Single", getNum1Single())
             .append("num1Double", getNum1Double())
-            .append("num10", getNum10())
-            .append("num11", getNum11())
-            .append("num12", getNum12())
-            .append("num13", getNum13())
-            .append("num14", getNum14())
-            .append("num15", getNum15())
-            .append("num16", getNum16())
-            .append("num17", getNum17())
-            .append("num18", getNum18())
-            .append("num19", getNum19())
+            .append("num1Ball0", getNum1Ball0())
+            .append("num1Ball1", getNum1Ball1())
+            .append("num1Ball2", getNum1Ball2())
+            .append("num1Ball3", getNum1Ball3())
+            .append("num1Ball4", getNum1Ball4())
+            .append("num1Ball5", getNum1Ball5())
+            .append("num1Ball6", getNum1Ball6())
+            .append("num1Ball7", getNum1Ball7())
+            .append("num1Ball8", getNum1Ball8())
+            .append("num1Ball9", getNum1Ball9())
             .append("num2Big", getNum2Big())
             .append("num2Small", getNum2Small())
             .append("num2Single", getNum2Single())
             .append("num2Double", getNum2Double())
-            .append("num20", getNum20())
-            .append("num21", getNum21())
-            .append("num22", getNum22())
-            .append("num23", getNum23())
-            .append("num24", getNum24())
-            .append("num25", getNum25())
-            .append("num26", getNum26())
-            .append("num27", getNum27())
-            .append("num28", getNum28())
-            .append("num29", getNum29())
+            .append("num2Ball0", getNum2Ball0())
+            .append("num2Ball1", getNum2Ball1())
+            .append("num2Ball2", getNum2Ball2())
+            .append("num2Ball3", getNum2Ball3())
+            .append("num2Ball4", getNum2Ball4())
+            .append("num2Ball5", getNum2Ball5())
+            .append("num2Ball6", getNum2Ball6())
+            .append("num2Ball7", getNum2Ball7())
+            .append("num2Ball8", getNum2Ball8())
+            .append("num2Ball9", getNum2Ball9())
             .append("num3Big", getNum3Big())
             .append("num3Small", getNum3Small())
             .append("num3Single", getNum3Single())
             .append("num3Double", getNum3Double())
-            .append("num30", getNum30())
-            .append("num31", getNum31())
-            .append("num32", getNum32())
-            .append("num33", getNum33())
-            .append("num34", getNum34())
-            .append("num35", getNum35())
-            .append("num36", getNum36())
-            .append("num37", getNum37())
-            .append("num38", getNum38())
-            .append("num39", getNum39())
+            .append("num3Ball0", getNum3Ball0())
+            .append("num3Ball1", getNum3Ball1())
+            .append("num3Ball2", getNum3Ball2())
+            .append("num3Ball3", getNum3Ball3())
+            .append("num3Ball4", getNum3Ball4())
+            .append("num3Ball5", getNum3Ball5())
+            .append("num3Ball6", getNum3Ball6())
+            .append("num3Ball7", getNum3Ball7())
+            .append("num3Ball8", getNum3Ball8())
+            .append("num3Ball9", getNum3Ball9())
             .append("num4Big", getNum4Big())
             .append("num4Small", getNum4Small())
             .append("num4Single", getNum4Single())
             .append("num4Double", getNum4Double())
-            .append("num40", getNum40())
-            .append("num41", getNum41())
-            .append("num42", getNum42())
-            .append("num43", getNum43())
-            .append("num44", getNum44())
-            .append("num45", getNum45())
-            .append("num46", getNum46())
-            .append("num47", getNum47())
-            .append("num48", getNum48())
-            .append("num49", getNum49())
+            .append("num4Ball0", getNum4Ball0())
+            .append("num4Ball1", getNum4Ball1())
+            .append("num4Ball2", getNum4Ball2())
+            .append("num4Ball3", getNum4Ball3())
+            .append("num4Ball4", getNum4Ball4())
+            .append("num4Ball5", getNum4Ball5())
+            .append("num4Ball6", getNum4Ball6())
+            .append("num4Ball7", getNum4Ball7())
+            .append("num4Ball8", getNum4Ball8())
+            .append("num4Ball9", getNum4Ball9())
             .append("num5Big", getNum5Big())
             .append("num5Small", getNum5Small())
             .append("num5Single", getNum5Single())
             .append("num5Double", getNum5Double())
-            .append("num50", getNum50())
-            .append("num51", getNum51())
-            .append("num52", getNum52())
-            .append("num53", getNum53())
-            .append("num54", getNum54())
-            .append("num55", getNum55())
-            .append("num56", getNum56())
-            .append("num57", getNum57())
-            .append("num58", getNum58())
-            .append("num59", getNum59())
+            .append("num5Ball0", getNum5Ball0())
+            .append("num5Ball1", getNum5Ball1())
+            .append("num5Ball2", getNum5Ball2())
+            .append("num5Ball3", getNum5Ball3())
+            .append("num5Ball4", getNum5Ball4())
+            .append("num5Ball5", getNum5Ball5())
+            .append("num5Ball6", getNum5Ball6())
+            .append("num5Ball7", getNum5Ball7())
+            .append("num5Ball8", getNum5Ball8())
+            .append("num5Ball9", getNum5Ball9())
             .append("firstBao", getFirstBao())
             .append("firstDui", getFirstDui())
             .append("firstSun", getFirstSun())

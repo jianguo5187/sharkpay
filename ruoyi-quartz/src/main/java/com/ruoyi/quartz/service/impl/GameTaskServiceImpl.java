@@ -1,19 +1,16 @@
 package com.ruoyi.quartz.service.impl;
 
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.quartz.domain.GameOpenDataDto;
 import com.ruoyi.quartz.service.IGameTaskService;
-import com.ruoyi.system.domain.*;
-import com.ruoyi.system.domain.vo.RecordSumRespVo;
+import com.ruoyi.system.domain.Azxy10;
+import com.ruoyi.system.domain.Jnd;
+import com.ruoyi.system.domain.Jsssc;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class GameTaskServiceImpl implements IGameTaskService {
@@ -25,19 +22,16 @@ public class GameTaskServiceImpl implements IGameTaskService {
     private IJndService jndService;
 
     @Autowired
-    private IJnd28Service jnd28Service;
-
-    @Autowired
     private IJssscService jssscService;
-
-    @Autowired
-    private IJsssckjService jsssckjService;
 
     @Autowired
     private Azxy10LotteryServiceImpl azxy10LotteryService;
 
     @Autowired
     private Jnd28LotteryServiceImpl jnd28LotteryService;
+
+    @Autowired
+    private JssscLotteryServiceImpl jssscLotteryService;
 
     @Override
     public void saveAzxy10InfoFromOfficial(List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
@@ -252,6 +246,6 @@ public class GameTaskServiceImpl implements IGameTaskService {
 
     @Override
     public void lotteryJssscBalance(String gameCode) {
-
+        jssscLotteryService.lotteryJsssc(gameCode);
     }
 }

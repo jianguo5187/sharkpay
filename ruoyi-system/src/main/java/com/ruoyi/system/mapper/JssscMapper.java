@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Jsssc;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 极速时时彩开奖历史Mapper接口
@@ -60,4 +61,6 @@ public interface JssscMapper
     public int deleteJssscByIds(Long[] ids);
 
     public Jsssc selectLastRecord();
+
+    public List<Jsssc> selectJssscListByParam(@Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 }

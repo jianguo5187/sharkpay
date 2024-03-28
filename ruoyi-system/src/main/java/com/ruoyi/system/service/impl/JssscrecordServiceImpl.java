@@ -2,6 +2,7 @@ package com.ruoyi.system.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.JssscrecordMapper;
@@ -92,5 +93,15 @@ public class JssscrecordServiceImpl implements IJssscrecordService
     public int deleteJssscrecordById(Long id)
     {
         return jssscrecordMapper.deleteJssscrecordById(id);
+    }
+
+    @Override
+    public int updateJssscrecordTotalAmountByPeriodId(Jssscrecord jssscrecord) {
+        return jssscrecordMapper.updateJssscrecordTotalAmountByPeriodId(jssscrecord);
+    }
+
+    @Override
+    public RecordSumRespVo selectSumRecordByPeriodId(Long periodId) {
+        return jssscrecordMapper.selectSumRecordByPeriodId(periodId);
     }
 }

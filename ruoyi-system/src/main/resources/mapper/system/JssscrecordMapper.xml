@@ -24,72 +24,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="num1Small"    column="num1_small"    />
         <result property="num1Single"    column="num1_single"    />
         <result property="num1Double"    column="num1_double"    />
-        <result property="num10"    column="num1_0"    />
-        <result property="num11"    column="num1_1"    />
-        <result property="num12"    column="num1_2"    />
-        <result property="num13"    column="num1_3"    />
-        <result property="num14"    column="num1_4"    />
-        <result property="num15"    column="num1_5"    />
-        <result property="num16"    column="num1_6"    />
-        <result property="num17"    column="num1_7"    />
-        <result property="num18"    column="num1_8"    />
-        <result property="num19"    column="num1_9"    />
+        <result property="num1Ball0"    column="num1_ball0"    />
+        <result property="num1Ball1"    column="num1_ball1"    />
+        <result property="num1Ball2"    column="num1_ball2"    />
+        <result property="num1Ball3"    column="num1_ball3"    />
+        <result property="num1Ball4"    column="num1_ball4"    />
+        <result property="num1Ball5"    column="num1_ball5"    />
+        <result property="num1Ball6"    column="num1_ball6"    />
+        <result property="num1Ball7"    column="num1_ball7"    />
+        <result property="num1Ball8"    column="num1_ball8"    />
+        <result property="num1Ball9"    column="num1_ball9"    />
         <result property="num2Big"    column="num2_big"    />
         <result property="num2Small"    column="num2_small"    />
         <result property="num2Single"    column="num2_single"    />
         <result property="num2Double"    column="num2_double"    />
-        <result property="num20"    column="num2_0"    />
-        <result property="num21"    column="num2_1"    />
-        <result property="num22"    column="num2_2"    />
-        <result property="num23"    column="num2_3"    />
-        <result property="num24"    column="num2_4"    />
-        <result property="num25"    column="num2_5"    />
-        <result property="num26"    column="num2_6"    />
-        <result property="num27"    column="num2_7"    />
-        <result property="num28"    column="num2_8"    />
-        <result property="num29"    column="num2_9"    />
+        <result property="num2Ball0"    column="num2_ball0"    />
+        <result property="num2Ball1"    column="num2_ball1"    />
+        <result property="num2Ball2"    column="num2_ball2"    />
+        <result property="num2Ball3"    column="num2_ball3"    />
+        <result property="num2Ball4"    column="num2_ball4"    />
+        <result property="num2Ball5"    column="num2_ball5"    />
+        <result property="num2Ball6"    column="num2_ball6"    />
+        <result property="num2Ball7"    column="num2_ball7"    />
+        <result property="num2Ball8"    column="num2_ball8"    />
+        <result property="num2Ball9"    column="num2_ball9"    />
         <result property="num3Big"    column="num3_big"    />
         <result property="num3Small"    column="num3_small"    />
         <result property="num3Single"    column="num3_single"    />
         <result property="num3Double"    column="num3_double"    />
-        <result property="num30"    column="num3_0"    />
-        <result property="num31"    column="num3_1"    />
-        <result property="num32"    column="num3_2"    />
-        <result property="num33"    column="num3_3"    />
-        <result property="num34"    column="num3_4"    />
-        <result property="num35"    column="num3_5"    />
-        <result property="num36"    column="num3_6"    />
-        <result property="num37"    column="num3_7"    />
-        <result property="num38"    column="num3_8"    />
-        <result property="num39"    column="num3_9"    />
+        <result property="num3Ball0"    column="num3_ball0"    />
+        <result property="num3Ball1"    column="num3_ball1"    />
+        <result property="num3Ball2"    column="num3_ball2"    />
+        <result property="num3Ball3"    column="num3_ball3"    />
+        <result property="num3Ball4"    column="num3_ball4"    />
+        <result property="num3Ball5"    column="num3_ball5"    />
+        <result property="num3Ball6"    column="num3_ball6"    />
+        <result property="num3Ball7"    column="num3_ball7"    />
+        <result property="num3Ball8"    column="num3_ball8"    />
+        <result property="num3Ball9"    column="num3_ball9"    />
         <result property="num4Big"    column="num4_big"    />
         <result property="num4Small"    column="num4_small"    />
         <result property="num4Single"    column="num4_single"    />
         <result property="num4Double"    column="num4_double"    />
-        <result property="num40"    column="num4_0"    />
-        <result property="num41"    column="num4_1"    />
-        <result property="num42"    column="num4_2"    />
-        <result property="num43"    column="num4_3"    />
-        <result property="num44"    column="num4_4"    />
-        <result property="num45"    column="num4_5"    />
-        <result property="num46"    column="num4_6"    />
-        <result property="num47"    column="num4_7"    />
-        <result property="num48"    column="num4_8"    />
-        <result property="num49"    column="num4_9"    />
+        <result property="num4Ball0"    column="num4_ball0"    />
+        <result property="num4Ball1"    column="num4_ball1"    />
+        <result property="num4Ball2"    column="num4_ball2"    />
+        <result property="num4Ball3"    column="num4_ball3"    />
+        <result property="num4Ball4"    column="num4_ball4"    />
+        <result property="num4Ball5"    column="num4_ball5"    />
+        <result property="num4Ball6"    column="num4_ball6"    />
+        <result property="num4Ball7"    column="num4_ball7"    />
+        <result property="num4Ball8"    column="num4_ball8"    />
+        <result property="num4Ball9"    column="num4_ball9"    />
         <result property="num5Big"    column="num5_big"    />
         <result property="num5Small"    column="num5_small"    />
         <result property="num5Single"    column="num5_single"    />
         <result property="num5Double"    column="num5_double"    />
-        <result property="num50"    column="num5_0"    />
-        <result property="num51"    column="num5_1"    />
-        <result property="num52"    column="num5_2"    />
-        <result property="num53"    column="num5_3"    />
-        <result property="num54"    column="num5_4"    />
-        <result property="num55"    column="num5_5"    />
-        <result property="num56"    column="num5_6"    />
-        <result property="num57"    column="num5_7"    />
-        <result property="num58"    column="num5_8"    />
-        <result property="num59"    column="num5_9"    />
+        <result property="num5Ball0"    column="num5_ball0"    />
+        <result property="num5Ball1"    column="num5_ball1"    />
+        <result property="num5Ball2"    column="num5_ball2"    />
+        <result property="num5Ball3"    column="num5_ball3"    />
+        <result property="num5Ball4"    column="num5_ball4"    />
+        <result property="num5Ball5"    column="num5_ball5"    />
+        <result property="num5Ball6"    column="num5_ball6"    />
+        <result property="num5Ball7"    column="num5_ball7"    />
+        <result property="num5Ball8"    column="num5_ball8"    />
+        <result property="num5Ball9"    column="num5_ball9"    />
         <result property="firstBao"    column="first_bao"    />
         <result property="firstDui"    column="first_dui"    />
         <result property="firstSun"    column="first_sun"    />
@@ -124,7 +124,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectJssscrecordVo">
-        select id, user_id, periods, status, record_time, check_time, count_money, win_money, sum_big, sum_small, sum_single, sum_double, sum_loong, sum_tiger, sum_sum, num1_big, num1_small, num1_single, num1_double, num1_0, num1_1, num1_2, num1_3, num1_4, num1_5, num1_6, num1_7, num1_8, num1_9, num2_big, num2_small, num2_single, num2_double, num2_0, num2_1, num2_2, num2_3, num2_4, num2_5, num2_6, num2_7, num2_8, num2_9, num3_big, num3_small, num3_single, num3_double, num3_0, num3_1, num3_2, num3_3, num3_4, num3_5, num3_6, num3_7, num3_8, num3_9, num4_big, num4_small, num4_single, num4_double, num4_0, num4_1, num4_2, num4_3, num4_4, num4_5, num4_6, num4_7, num4_8, num4_9, num5_big, num5_small, num5_single, num5_double, num5_0, num5_1, num5_2, num5_3, num5_4, num5_5, num5_6, num5_7, num5_8, num5_9, first_bao, first_dui, first_sun, first_ban, first_za, mid_bao, mid_dui, mid_sun, mid_ban, mid_za, back_bao, back_dui, back_sun, back_ban, back_za, num1, num2, num3, num4, num5, sum, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from jssscrecord
+        select id, user_id, periods, status, record_time, check_time, count_money, win_money, sum_big, sum_small, sum_single, sum_double, sum_loong, sum_tiger, sum_sum, num1_big, num1_small, num1_single, num1_double, num1_ball0, num1_ball1, num1_ball2, num1_ball3, num1_ball4, num1_ball5, num1_ball6, num1_ball7, num1_ball8, num1_ball9, num2_big, num2_small, num2_single, num2_double, num2_ball0, num2_ball1, num2_ball2, num2_ball3, num2_ball4, num2_ball5, num2_ball6, num2_ball7, num2_ball8, num2_ball9, num3_big, num3_small, num3_single, num3_double, num3_ball0, num3_ball1, num3_ball2, num3_ball3, num3_ball4, num3_ball5, num3_ball6, num3_ball7, num3_ball8, num3_ball9, num4_big, num4_small, num4_single, num4_double, num4_ball0, num4_ball1, num4_ball2, num4_ball3, num4_ball4, num4_ball5, num4_ball6, num4_ball7, num4_ball8, num4_ball9, num5_big, num5_small, num5_single, num5_double, num5_ball0, num5_ball1, num5_ball2, num5_ball3, num5_ball4, num5_ball5, num5_ball6, num5_ball7, num5_ball8, num5_ball9, first_bao, first_dui, first_sun, first_ban, first_za, mid_bao, mid_dui, mid_sun, mid_ban, mid_za, back_bao, back_dui, back_sun, back_ban, back_za, num1, num2, num3, num4, num5, sum, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from jssscrecord
     </sql>
 
     <select id="selectJssscrecordList" parameterType="Jssscrecord" resultMap="JssscrecordResult">
@@ -148,72 +148,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num1Small != null "> and num1_small = #{num1Small}</if>
             <if test="num1Single != null "> and num1_single = #{num1Single}</if>
             <if test="num1Double != null "> and num1_double = #{num1Double}</if>
-            <if test="num10 != null "> and num1_0 = #{num10}</if>
-            <if test="num11 != null "> and num1_1 = #{num11}</if>
-            <if test="num12 != null "> and num1_2 = #{num12}</if>
-            <if test="num13 != null "> and num1_3 = #{num13}</if>
-            <if test="num14 != null "> and num1_4 = #{num14}</if>
-            <if test="num15 != null "> and num1_5 = #{num15}</if>
-            <if test="num16 != null "> and num1_6 = #{num16}</if>
-            <if test="num17 != null "> and num1_7 = #{num17}</if>
-            <if test="num18 != null "> and num1_8 = #{num18}</if>
-            <if test="num19 != null "> and num1_9 = #{num19}</if>
+            <if test="num1Ball0 != null "> and num1_ball0 = #{num1Ball0}</if>
+            <if test="num1Ball1 != null "> and num1_ball1 = #{num1Ball1}</if>
+            <if test="num1Ball2 != null "> and num1_ball2 = #{num1Ball2}</if>
+            <if test="num1Ball3 != null "> and num1_ball3 = #{num1Ball3}</if>
+            <if test="num1Ball4 != null "> and num1_ball4 = #{num1Ball4}</if>
+            <if test="num1Ball5 != null "> and num1_ball5 = #{num1Ball5}</if>
+            <if test="num1Ball6 != null "> and num1_ball6 = #{num1Ball6}</if>
+            <if test="num1Ball7 != null "> and num1_ball7 = #{num1Ball7}</if>
+            <if test="num1Ball8 != null "> and num1_ball8 = #{num1Ball8}</if>
+            <if test="num1Ball9 != null "> and num1_ball9 = #{num1Ball9}</if>
             <if test="num2Big != null "> and num2_big = #{num2Big}</if>
             <if test="num2Small != null "> and num2_small = #{num2Small}</if>
             <if test="num2Single != null "> and num2_single = #{num2Single}</if>
             <if test="num2Double != null "> and num2_double = #{num2Double}</if>
-            <if test="num20 != null "> and num2_0 = #{num20}</if>
-            <if test="num21 != null "> and num2_1 = #{num21}</if>
-            <if test="num22 != null "> and num2_2 = #{num22}</if>
-            <if test="num23 != null "> and num2_3 = #{num23}</if>
-            <if test="num24 != null "> and num2_4 = #{num24}</if>
-            <if test="num25 != null "> and num2_5 = #{num25}</if>
-            <if test="num26 != null "> and num2_6 = #{num26}</if>
-            <if test="num27 != null "> and num2_7 = #{num27}</if>
-            <if test="num28 != null "> and num2_8 = #{num28}</if>
-            <if test="num29 != null "> and num2_9 = #{num29}</if>
+            <if test="num2Ball0 != null "> and num2_ball0 = #{num2Ball0}</if>
+            <if test="num2Ball1 != null "> and num2_ball1 = #{num2Ball1}</if>
+            <if test="num2Ball2 != null "> and num2_ball2 = #{num2Ball2}</if>
+            <if test="num2Ball3 != null "> and num2_ball3 = #{num2Ball3}</if>
+            <if test="num2Ball4 != null "> and num2_ball4 = #{num2Ball4}</if>
+            <if test="num2Ball5 != null "> and num2_ball5 = #{num2Ball5}</if>
+            <if test="num2Ball6 != null "> and num2_ball6 = #{num2Ball6}</if>
+            <if test="num2Ball7 != null "> and num2_ball7 = #{num2Ball7}</if>
+            <if test="num2Ball8 != null "> and num2_ball8 = #{num2Ball8}</if>
+            <if test="num2Ball9 != null "> and num2_ball9 = #{num2Ball9}</if>
             <if test="num3Big != null "> and num3_big = #{num3Big}</if>
             <if test="num3Small != null "> and num3_small = #{num3Small}</if>
             <if test="num3Single != null "> and num3_single = #{num3Single}</if>
             <if test="num3Double != null "> and num3_double = #{num3Double}</if>
-            <if test="num30 != null "> and num3_0 = #{num30}</if>
-            <if test="num31 != null "> and num3_1 = #{num31}</if>
-            <if test="num32 != null "> and num3_2 = #{num32}</if>
-            <if test="num33 != null "> and num3_3 = #{num33}</if>
-            <if test="num34 != null "> and num3_4 = #{num34}</if>
-            <if test="num35 != null "> and num3_5 = #{num35}</if>
-            <if test="num36 != null "> and num3_6 = #{num36}</if>
-            <if test="num37 != null "> and num3_7 = #{num37}</if>
-            <if test="num38 != null "> and num3_8 = #{num38}</if>
-            <if test="num39 != null "> and num3_9 = #{num39}</if>
+            <if test="num3Ball0 != null "> and num3_ball0 = #{num3Ball0}</if>
+            <if test="num3Ball1 != null "> and num3_ball1 = #{num3Ball1}</if>
+            <if test="num3Ball2 != null "> and num3_ball2 = #{num3Ball2}</if>
+            <if test="num3Ball3 != null "> and num3_ball3 = #{num3Ball3}</if>
+            <if test="num3Ball4 != null "> and num3_ball4 = #{num3Ball4}</if>
+            <if test="num3Ball5 != null "> and num3_ball5 = #{num3Ball5}</if>
+            <if test="num3Ball6 != null "> and num3_ball6 = #{num3Ball6}</if>
+            <if test="num3Ball7 != null "> and num3_ball7 = #{num3Ball7}</if>
+            <if test="num3Ball8 != null "> and num3_ball8 = #{num3Ball8}</if>
+            <if test="num3Ball9 != null "> and num3_ball9 = #{num3Ball9}</if>
             <if test="num4Big != null "> and num4_big = #{num4Big}</if>
             <if test="num4Small != null "> and num4_small = #{num4Small}</if>
             <if test="num4Single != null "> and num4_single = #{num4Single}</if>
             <if test="num4Double != null "> and num4_double = #{num4Double}</if>
-            <if test="num40 != null "> and num4_0 = #{num40}</if>
-            <if test="num41 != null "> and num4_1 = #{num41}</if>
-            <if test="num42 != null "> and num4_2 = #{num42}</if>
-            <if test="num43 != null "> and num4_3 = #{num43}</if>
-            <if test="num44 != null "> and num4_4 = #{num44}</if>
-            <if test="num45 != null "> and num4_5 = #{num45}</if>
-            <if test="num46 != null "> and num4_6 = #{num46}</if>
-            <if test="num47 != null "> and num4_7 = #{num47}</if>
-            <if test="num48 != null "> and num4_8 = #{num48}</if>
-            <if test="num49 != null "> and num4_9 = #{num49}</if>
+            <if test="num4Ball0 != null "> and num4_ball0 = #{num4Ball0}</if>
+            <if test="num4Ball1 != null "> and num4_ball1 = #{num4Ball1}</if>
+            <if test="num4Ball2 != null "> and num4_ball2 = #{num4Ball2}</if>
+            <if test="num4Ball3 != null "> and num4_ball3 = #{num4Ball3}</if>
+            <if test="num4Ball4 != null "> and num4_ball4 = #{num4Ball4}</if>
+            <if test="num4Ball5 != null "> and num4_ball5 = #{num4Ball5}</if>
+            <if test="num4Ball6 != null "> and num4_ball6 = #{num4Ball6}</if>
+            <if test="num4Ball7 != null "> and num4_ball7 = #{num4Ball7}</if>
+            <if test="num4Ball8 != null "> and num4_ball8 = #{num4Ball8}</if>
+            <if test="num4Ball9 != null "> and num4_ball9 = #{num4Ball9}</if>
             <if test="num5Big != null "> and num5_big = #{num5Big}</if>
             <if test="num5Small != null "> and num5_small = #{num5Small}</if>
             <if test="num5Single != null "> and num5_single = #{num5Single}</if>
             <if test="num5Double != null "> and num5_double = #{num5Double}</if>
-            <if test="num50 != null "> and num5_0 = #{num50}</if>
-            <if test="num51 != null "> and num5_1 = #{num51}</if>
-            <if test="num52 != null "> and num5_2 = #{num52}</if>
-            <if test="num53 != null "> and num5_3 = #{num53}</if>
-            <if test="num54 != null "> and num5_4 = #{num54}</if>
-            <if test="num55 != null "> and num5_5 = #{num55}</if>
-            <if test="num56 != null "> and num5_6 = #{num56}</if>
-            <if test="num57 != null "> and num5_7 = #{num57}</if>
-            <if test="num58 != null "> and num5_8 = #{num58}</if>
-            <if test="num59 != null "> and num5_9 = #{num59}</if>
+            <if test="num5Ball0 != null "> and num5_ball0 = #{num5Ball0}</if>
+            <if test="num5Ball1 != null "> and num5_ball1 = #{num5Ball1}</if>
+            <if test="num5Ball2 != null "> and num5_ball2 = #{num5Ball2}</if>
+            <if test="num5Ball3 != null "> and num5_ball3 = #{num5Ball3}</if>
+            <if test="num5Ball4 != null "> and num5_ball4 = #{num5Ball4}</if>
+            <if test="num5Ball5 != null "> and num5_ball5 = #{num5Ball5}</if>
+            <if test="num5Ball6 != null "> and num5_ball6 = #{num5Ball6}</if>
+            <if test="num5Ball7 != null "> and num5_ball7 = #{num5Ball7}</if>
+            <if test="num5Ball8 != null "> and num5_ball8 = #{num5Ball8}</if>
+            <if test="num5Ball9 != null "> and num5_ball9 = #{num5Ball9}</if>
             <if test="firstBao != null "> and first_bao = #{firstBao}</if>
             <if test="firstDui != null "> and first_dui = #{firstDui}</if>
             <if test="firstSun != null "> and first_sun = #{firstSun}</if>
@@ -249,13 +249,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
         
     <insert id="insertJssscrecord" parameterType="Jssscrecord" useGeneratedKeys="true" keyProperty="id">
-        insert into jssscrecord
-        <trim prefix="(" suffix=")" suffixOverrides=",">
+        insert into jssscrecord(
             <if test="userId != null">user_id,</if>
             <if test="periods != null">periods,</if>
             <if test="status != null">status,</if>
-            <if test="recordTime != null">record_time,</if>
-            <if test="checkTime != null">check_time,</if>
             <if test="countMoney != null">count_money,</if>
             <if test="winMoney != null">win_money,</if>
             <if test="sumBig != null">sum_big,</if>
@@ -269,72 +266,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num1Small != null">num1_small,</if>
             <if test="num1Single != null">num1_single,</if>
             <if test="num1Double != null">num1_double,</if>
-            <if test="num10 != null">num1_0,</if>
-            <if test="num11 != null">num1_1,</if>
-            <if test="num12 != null">num1_2,</if>
-            <if test="num13 != null">num1_3,</if>
-            <if test="num14 != null">num1_4,</if>
-            <if test="num15 != null">num1_5,</if>
-            <if test="num16 != null">num1_6,</if>
-            <if test="num17 != null">num1_7,</if>
-            <if test="num18 != null">num1_8,</if>
-            <if test="num19 != null">num1_9,</if>
+            <if test="num1Ball0 != null">num1_ball0,</if>
+            <if test="num1Ball1 != null">num1_ball1,</if>
+            <if test="num1Ball2 != null">num1_ball2,</if>
+            <if test="num1Ball3 != null">num1_ball3,</if>
+            <if test="num1Ball4 != null">num1_ball4,</if>
+            <if test="num1Ball5 != null">num1_ball5,</if>
+            <if test="num1Ball6 != null">num1_ball6,</if>
+            <if test="num1Ball7 != null">num1_ball7,</if>
+            <if test="num1Ball8 != null">num1_ball8,</if>
+            <if test="num1Ball9 != null">num1_ball9,</if>
             <if test="num2Big != null">num2_big,</if>
             <if test="num2Small != null">num2_small,</if>
             <if test="num2Single != null">num2_single,</if>
             <if test="num2Double != null">num2_double,</if>
-            <if test="num20 != null">num2_0,</if>
-            <if test="num21 != null">num2_1,</if>
-            <if test="num22 != null">num2_2,</if>
-            <if test="num23 != null">num2_3,</if>
-            <if test="num24 != null">num2_4,</if>
-            <if test="num25 != null">num2_5,</if>
-            <if test="num26 != null">num2_6,</if>
-            <if test="num27 != null">num2_7,</if>
-            <if test="num28 != null">num2_8,</if>
-            <if test="num29 != null">num2_9,</if>
+            <if test="num2Ball0 != null">num2_ball0,</if>
+            <if test="num2Ball1 != null">num2_ball1,</if>
+            <if test="num2Ball2 != null">num2_ball2,</if>
+            <if test="num2Ball3 != null">num2_ball3,</if>
+            <if test="num2Ball4 != null">num2_ball4,</if>
+            <if test="num2Ball5 != null">num2_ball5,</if>
+            <if test="num2Ball6 != null">num2_ball6,</if>
+            <if test="num2Ball7 != null">num2_ball7,</if>
+            <if test="num2Ball8 != null">num2_ball8,</if>
+            <if test="num2Ball9 != null">num2_ball9,</if>
             <if test="num3Big != null">num3_big,</if>
             <if test="num3Small != null">num3_small,</if>
             <if test="num3Single != null">num3_single,</if>
             <if test="num3Double != null">num3_double,</if>
-            <if test="num30 != null">num3_0,</if>
-            <if test="num31 != null">num3_1,</if>
-            <if test="num32 != null">num3_2,</if>
-            <if test="num33 != null">num3_3,</if>
-            <if test="num34 != null">num3_4,</if>
-            <if test="num35 != null">num3_5,</if>
-            <if test="num36 != null">num3_6,</if>
-            <if test="num37 != null">num3_7,</if>
-            <if test="num38 != null">num3_8,</if>
-            <if test="num39 != null">num3_9,</if>
+            <if test="num3Ball0 != null">num3_ball0,</if>
+            <if test="num3Ball1 != null">num3_ball1,</if>
+            <if test="num3Ball2 != null">num3_ball2,</if>
+            <if test="num3Ball3 != null">num3_ball3,</if>
+            <if test="num3Ball4 != null">num3_ball4,</if>
+            <if test="num3Ball5 != null">num3_ball5,</if>
+            <if test="num3Ball6 != null">num3_ball6,</if>
+            <if test="num3Ball7 != null">num3_ball7,</if>
+            <if test="num3Ball8 != null">num3_ball8,</if>
+            <if test="num3Ball9 != null">num3_ball9,</if>
             <if test="num4Big != null">num4_big,</if>
             <if test="num4Small != null">num4_small,</if>
             <if test="num4Single != null">num4_single,</if>
             <if test="num4Double != null">num4_double,</if>
-            <if test="num40 != null">num4_0,</if>
-            <if test="num41 != null">num4_1,</if>
-            <if test="num42 != null">num4_2,</if>
-            <if test="num43 != null">num4_3,</if>
-            <if test="num44 != null">num4_4,</if>
-            <if test="num45 != null">num4_5,</if>
-            <if test="num46 != null">num4_6,</if>
-            <if test="num47 != null">num4_7,</if>
-            <if test="num48 != null">num4_8,</if>
-            <if test="num49 != null">num4_9,</if>
+            <if test="num4Ball0 != null">num4_ball0,</if>
+            <if test="num4Ball1 != null">num4_ball1,</if>
+            <if test="num4Ball2 != null">num4_ball2,</if>
+            <if test="num4Ball3 != null">num4_ball3,</if>
+            <if test="num4Ball4 != null">num4_ball4,</if>
+            <if test="num4Ball5 != null">num4_ball5,</if>
+            <if test="num4Ball6 != null">num4_ball6,</if>
+            <if test="num4Ball7 != null">num4_ball7,</if>
+            <if test="num4Ball8 != null">num4_ball8,</if>
+            <if test="num4Ball9 != null">num4_ball9,</if>
             <if test="num5Big != null">num5_big,</if>
             <if test="num5Small != null">num5_small,</if>
             <if test="num5Single != null">num5_single,</if>
             <if test="num5Double != null">num5_double,</if>
-            <if test="num50 != null">num5_0,</if>
-            <if test="num51 != null">num5_1,</if>
-            <if test="num52 != null">num5_2,</if>
-            <if test="num53 != null">num5_3,</if>
-            <if test="num54 != null">num5_4,</if>
-            <if test="num55 != null">num5_5,</if>
-            <if test="num56 != null">num5_6,</if>
-            <if test="num57 != null">num5_7,</if>
-            <if test="num58 != null">num5_8,</if>
-            <if test="num59 != null">num5_9,</if>
+            <if test="num5Ball0 != null">num5_ball0,</if>
+            <if test="num5Ball1 != null">num5_ball1,</if>
+            <if test="num5Ball2 != null">num5_ball2,</if>
+            <if test="num5Ball3 != null">num5_ball3,</if>
+            <if test="num5Ball4 != null">num5_ball4,</if>
+            <if test="num5Ball5 != null">num5_ball5,</if>
+            <if test="num5Ball6 != null">num5_ball6,</if>
+            <if test="num5Ball7 != null">num5_ball7,</if>
+            <if test="num5Ball8 != null">num5_ball8,</if>
+            <if test="num5Ball9 != null">num5_ball9,</if>
             <if test="firstBao != null">first_bao,</if>
             <if test="firstDui != null">first_dui,</if>
             <if test="firstSun != null">first_sun,</if>
@@ -362,17 +359,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">hz_id,</if>
             <if test="hzUser != null">hz_user,</if>
             <if test="createBy != null">create_by,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="remark != null">remark,</if>
-         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        record_time,
+        check_time,
+        create_time
+        )values(
             <if test="userId != null">#{userId},</if>
             <if test="periods != null">#{periods},</if>
             <if test="status != null">#{status},</if>
-            <if test="recordTime != null">#{recordTime},</if>
-            <if test="checkTime != null">#{checkTime},</if>
             <if test="countMoney != null">#{countMoney},</if>
             <if test="winMoney != null">#{winMoney},</if>
             <if test="sumBig != null">#{sumBig},</if>
@@ -386,72 +379,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num1Small != null">#{num1Small},</if>
             <if test="num1Single != null">#{num1Single},</if>
             <if test="num1Double != null">#{num1Double},</if>
-            <if test="num10 != null">#{num10},</if>
-            <if test="num11 != null">#{num11},</if>
-            <if test="num12 != null">#{num12},</if>
-            <if test="num13 != null">#{num13},</if>
-            <if test="num14 != null">#{num14},</if>
-            <if test="num15 != null">#{num15},</if>
-            <if test="num16 != null">#{num16},</if>
-            <if test="num17 != null">#{num17},</if>
-            <if test="num18 != null">#{num18},</if>
-            <if test="num19 != null">#{num19},</if>
+            <if test="num1Ball0 != null">#{num1Ball0},</if>
+            <if test="num1Ball1 != null">#{num1Ball1},</if>
+            <if test="num1Ball2 != null">#{num1Ball2},</if>
+            <if test="num1Ball3 != null">#{num1Ball3},</if>
+            <if test="num1Ball4 != null">#{num1Ball4},</if>
+            <if test="num1Ball5 != null">#{num1Ball5},</if>
+            <if test="num1Ball6 != null">#{num1Ball6},</if>
+            <if test="num1Ball7 != null">#{num1Ball7},</if>
+            <if test="num1Ball8 != null">#{num1Ball8},</if>
+            <if test="num1Ball9 != null">#{num1Ball9},</if>
             <if test="num2Big != null">#{num2Big},</if>
             <if test="num2Small != null">#{num2Small},</if>
             <if test="num2Single != null">#{num2Single},</if>
             <if test="num2Double != null">#{num2Double},</if>
-            <if test="num20 != null">#{num20},</if>
-            <if test="num21 != null">#{num21},</if>
-            <if test="num22 != null">#{num22},</if>
-            <if test="num23 != null">#{num23},</if>
-            <if test="num24 != null">#{num24},</if>
-            <if test="num25 != null">#{num25},</if>
-            <if test="num26 != null">#{num26},</if>
-            <if test="num27 != null">#{num27},</if>
-            <if test="num28 != null">#{num28},</if>
-            <if test="num29 != null">#{num29},</if>
+            <if test="num2Ball0 != null">#{num2Ball0},</if>
+            <if test="num2Ball1 != null">#{num2Ball1},</if>
+            <if test="num2Ball2 != null">#{num2Ball2},</if>
+            <if test="num2Ball3 != null">#{num2Ball3},</if>
+            <if test="num2Ball4 != null">#{num2Ball4},</if>
+            <if test="num2Ball5 != null">#{num2Ball5},</if>
+            <if test="num2Ball6 != null">#{num2Ball6},</if>
+            <if test="num2Ball7 != null">#{num2Ball7},</if>
+            <if test="num2Ball8 != null">#{num2Ball8},</if>
+            <if test="num2Ball9 != null">#{num2Ball9},</if>
             <if test="num3Big != null">#{num3Big},</if>
             <if test="num3Small != null">#{num3Small},</if>
             <if test="num3Single != null">#{num3Single},</if>
             <if test="num3Double != null">#{num3Double},</if>
-            <if test="num30 != null">#{num30},</if>
-            <if test="num31 != null">#{num31},</if>
-            <if test="num32 != null">#{num32},</if>
-            <if test="num33 != null">#{num33},</if>
-            <if test="num34 != null">#{num34},</if>
-            <if test="num35 != null">#{num35},</if>
-            <if test="num36 != null">#{num36},</if>
-            <if test="num37 != null">#{num37},</if>
-            <if test="num38 != null">#{num38},</if>
-            <if test="num39 != null">#{num39},</if>
+            <if test="num3Ball0 != null">#{num3Ball0},</if>
+            <if test="num3Ball1 != null">#{num3Ball1},</if>
+            <if test="num3Ball2 != null">#{num3Ball2},</if>
+            <if test="num3Ball3 != null">#{num3Ball3},</if>
+            <if test="num3Ball4 != null">#{num3Ball4},</if>
+            <if test="num3Ball5 != null">#{num3Ball5},</if>
+            <if test="num3Ball6 != null">#{num3Ball6},</if>
+            <if test="num3Ball7 != null">#{num3Ball7},</if>
+            <if test="num3Ball8 != null">#{num3Ball8},</if>
+            <if test="num3Ball9 != null">#{num3Ball9},</if>
             <if test="num4Big != null">#{num4Big},</if>
             <if test="num4Small != null">#{num4Small},</if>
             <if test="num4Single != null">#{num4Single},</if>
             <if test="num4Double != null">#{num4Double},</if>
-            <if test="num40 != null">#{num40},</if>
-            <if test="num41 != null">#{num41},</if>
-            <if test="num42 != null">#{num42},</if>
-            <if test="num43 != null">#{num43},</if>
-            <if test="num44 != null">#{num44},</if>
-            <if test="num45 != null">#{num45},</if>
-            <if test="num46 != null">#{num46},</if>
-            <if test="num47 != null">#{num47},</if>
-            <if test="num48 != null">#{num48},</if>
-            <if test="num49 != null">#{num49},</if>
+            <if test="num4Ball0 != null">#{num4Ball0},</if>
+            <if test="num4Ball1 != null">#{num4Ball1},</if>
+            <if test="num4Ball2 != null">#{num4Ball2},</if>
+            <if test="num4Ball3 != null">#{num4Ball3},</if>
+            <if test="num4Ball4 != null">#{num4Ball4},</if>
+            <if test="num4Ball5 != null">#{num4Ball5},</if>
+            <if test="num4Ball6 != null">#{num4Ball6},</if>
+            <if test="num4Ball7 != null">#{num4Ball7},</if>
+            <if test="num4Ball8 != null">#{num4Ball8},</if>
+            <if test="num4Ball9 != null">#{num4Ball9},</if>
             <if test="num5Big != null">#{num5Big},</if>
             <if test="num5Small != null">#{num5Small},</if>
             <if test="num5Single != null">#{num5Single},</if>
             <if test="num5Double != null">#{num5Double},</if>
-            <if test="num50 != null">#{num50},</if>
-            <if test="num51 != null">#{num51},</if>
-            <if test="num52 != null">#{num52},</if>
-            <if test="num53 != null">#{num53},</if>
-            <if test="num54 != null">#{num54},</if>
-            <if test="num55 != null">#{num55},</if>
-            <if test="num56 != null">#{num56},</if>
-            <if test="num57 != null">#{num57},</if>
-            <if test="num58 != null">#{num58},</if>
-            <if test="num59 != null">#{num59},</if>
+            <if test="num5Ball0 != null">#{num5Ball0},</if>
+            <if test="num5Ball1 != null">#{num5Ball1},</if>
+            <if test="num5Ball2 != null">#{num5Ball2},</if>
+            <if test="num5Ball3 != null">#{num5Ball3},</if>
+            <if test="num5Ball4 != null">#{num5Ball4},</if>
+            <if test="num5Ball5 != null">#{num5Ball5},</if>
+            <if test="num5Ball6 != null">#{num5Ball6},</if>
+            <if test="num5Ball7 != null">#{num5Ball7},</if>
+            <if test="num5Ball8 != null">#{num5Ball8},</if>
+            <if test="num5Ball9 != null">#{num5Ball9},</if>
             <if test="firstBao != null">#{firstBao},</if>
             <if test="firstDui != null">#{firstDui},</if>
             <if test="firstSun != null">#{firstSun},</if>
@@ -479,21 +472,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">#{hzId},</if>
             <if test="hzUser != null">#{hzUser},</if>
             <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="remark != null">#{remark},</if>
-         </trim>
+        sysdate(),
+        sysdate(),
+        sysdate()
+        )
     </insert>
 
     <update id="updateJssscrecord" parameterType="Jssscrecord">
         update jssscrecord
-        <trim prefix="SET" suffixOverrides=",">
-            <if test="userId != null">user_id = #{userId},</if>
-            <if test="periods != null">periods = #{periods},</if>
+        <set>
             <if test="status != null">status = #{status},</if>
-            <if test="recordTime != null">record_time = #{recordTime},</if>
-            <if test="checkTime != null">check_time = #{checkTime},</if>
             <if test="countMoney != null">count_money = #{countMoney},</if>
             <if test="winMoney != null">win_money = #{winMoney},</if>
             <if test="sumBig != null">sum_big = #{sumBig},</if>
@@ -507,72 +495,72 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num1Small != null">num1_small = #{num1Small},</if>
             <if test="num1Single != null">num1_single = #{num1Single},</if>
             <if test="num1Double != null">num1_double = #{num1Double},</if>
-            <if test="num10 != null">num1_0 = #{num10},</if>
-            <if test="num11 != null">num1_1 = #{num11},</if>
-            <if test="num12 != null">num1_2 = #{num12},</if>
-            <if test="num13 != null">num1_3 = #{num13},</if>
-            <if test="num14 != null">num1_4 = #{num14},</if>
-            <if test="num15 != null">num1_5 = #{num15},</if>
-            <if test="num16 != null">num1_6 = #{num16},</if>
-            <if test="num17 != null">num1_7 = #{num17},</if>
-            <if test="num18 != null">num1_8 = #{num18},</if>
-            <if test="num19 != null">num1_9 = #{num19},</if>
+            <if test="num1Ball0 != null">num1_ball0 = #{num1Ball0},</if>
+            <if test="num1Ball1 != null">num1_ball1 = #{num1Ball1},</if>
+            <if test="num1Ball2 != null">num1_ball2 = #{num1Ball2},</if>
+            <if test="num1Ball3 != null">num1_ball3 = #{num1Ball3},</if>
+            <if test="num1Ball4 != null">num1_ball4 = #{num1Ball4},</if>
+            <if test="num1Ball5 != null">num1_ball5 = #{num1Ball5},</if>
+            <if test="num1Ball6 != null">num1_ball6 = #{num1Ball6},</if>
+            <if test="num1Ball7 != null">num1_ball7 = #{num1Ball7},</if>
+            <if test="num1Ball8 != null">num1_ball8 = #{num1Ball8},</if>
+            <if test="num1Ball9 != null">num1_ball9 = #{num1Ball9},</if>
             <if test="num2Big != null">num2_big = #{num2Big},</if>
             <if test="num2Small != null">num2_small = #{num2Small},</if>
             <if test="num2Single != null">num2_single = #{num2Single},</if>
             <if test="num2Double != null">num2_double = #{num2Double},</if>
-            <if test="num20 != null">num2_0 = #{num20},</if>
-            <if test="num21 != null">num2_1 = #{num21},</if>
-            <if test="num22 != null">num2_2 = #{num22},</if>
-            <if test="num23 != null">num2_3 = #{num23},</if>
-            <if test="num24 != null">num2_4 = #{num24},</if>
-            <if test="num25 != null">num2_5 = #{num25},</if>
-            <if test="num26 != null">num2_6 = #{num26},</if>
-            <if test="num27 != null">num2_7 = #{num27},</if>
-            <if test="num28 != null">num2_8 = #{num28},</if>
-            <if test="num29 != null">num2_9 = #{num29},</if>
+            <if test="num2Ball0 != null">num2_ball0 = #{num2Ball0},</if>
+            <if test="num2Ball1 != null">num2_ball1 = #{num2Ball1},</if>
+            <if test="num2Ball2 != null">num2_ball2 = #{num2Ball2},</if>
+            <if test="num2Ball3 != null">num2_ball3 = #{num2Ball3},</if>
+            <if test="num2Ball4 != null">num2_ball4 = #{num2Ball4},</if>
+            <if test="num2Ball5 != null">num2_ball5 = #{num2Ball5},</if>
+            <if test="num2Ball6 != null">num2_ball6 = #{num2Ball6},</if>
+            <if test="num2Ball7 != null">num2_ball7 = #{num2Ball7},</if>
+            <if test="num2Ball8 != null">num2_ball8 = #{num2Ball8},</if>
+            <if test="num2Ball9 != null">num2_ball9 = #{num2Ball9},</if>
             <if test="num3Big != null">num3_big = #{num3Big},</if>
             <if test="num3Small != null">num3_small = #{num3Small},</if>
             <if test="num3Single != null">num3_single = #{num3Single},</if>
             <if test="num3Double != null">num3_double = #{num3Double},</if>
-            <if test="num30 != null">num3_0 = #{num30},</if>
-            <if test="num31 != null">num3_1 = #{num31},</if>
-            <if test="num32 != null">num3_2 = #{num32},</if>
-            <if test="num33 != null">num3_3 = #{num33},</if>
-            <if test="num34 != null">num3_4 = #{num34},</if>
-            <if test="num35 != null">num3_5 = #{num35},</if>
-            <if test="num36 != null">num3_6 = #{num36},</if>
-            <if test="num37 != null">num3_7 = #{num37},</if>
-            <if test="num38 != null">num3_8 = #{num38},</if>
-            <if test="num39 != null">num3_9 = #{num39},</if>
+            <if test="num3Ball0 != null">num3_ball0 = #{num3Ball0},</if>
+            <if test="num3Ball1 != null">num3_ball1 = #{num3Ball1},</if>
+            <if test="num3Ball2 != null">num3_ball2 = #{num3Ball2},</if>
+            <if test="num3Ball3 != null">num3_ball3 = #{num3Ball3},</if>
+            <if test="num3Ball4 != null">num3_ball4 = #{num3Ball4},</if>
+            <if test="num3Ball5 != null">num3_ball5 = #{num3Ball5},</if>
+            <if test="num3Ball6 != null">num3_ball6 = #{num3Ball6},</if>
+            <if test="num3Ball7 != null">num3_ball7 = #{num3Ball7},</if>
+            <if test="num3Ball8 != null">num3_ball8 = #{num3Ball8},</if>
+            <if test="num3Ball9 != null">num3_ball9 = #{num3Ball9},</if>
             <if test="num4Big != null">num4_big = #{num4Big},</if>
             <if test="num4Small != null">num4_small = #{num4Small},</if>
             <if test="num4Single != null">num4_single = #{num4Single},</if>
             <if test="num4Double != null">num4_double = #{num4Double},</if>
-            <if test="num40 != null">num4_0 = #{num40},</if>
-            <if test="num41 != null">num4_1 = #{num41},</if>
-            <if test="num42 != null">num4_2 = #{num42},</if>
-            <if test="num43 != null">num4_3 = #{num43},</if>
-            <if test="num44 != null">num4_4 = #{num44},</if>
-            <if test="num45 != null">num4_5 = #{num45},</if>
-            <if test="num46 != null">num4_6 = #{num46},</if>
-            <if test="num47 != null">num4_7 = #{num47},</if>
-            <if test="num48 != null">num4_8 = #{num48},</if>
-            <if test="num49 != null">num4_9 = #{num49},</if>
+            <if test="num4Ball0 != null">num4_ball0 = #{num4Ball0},</if>
+            <if test="num4Ball1 != null">num4_ball1 = #{num4Ball1},</if>
+            <if test="num4Ball2 != null">num4_ball2 = #{num4Ball2},</if>
+            <if test="num4Ball3 != null">num4_ball3 = #{num4Ball3},</if>
+            <if test="num4Ball4 != null">num4_ball4 = #{num4Ball4},</if>
+            <if test="num4Ball5 != null">num4_ball5 = #{num4Ball5},</if>
+            <if test="num4Ball6 != null">num4_ball6 = #{num4Ball6},</if>
+            <if test="num4Ball7 != null">num4_ball7 = #{num4Ball7},</if>
+            <if test="num4Ball8 != null">num4_ball8 = #{num4Ball8},</if>
+            <if test="num4Ball9 != null">num4_ball9 = #{num4Ball9},</if>
             <if test="num5Big != null">num5_big = #{num5Big},</if>
             <if test="num5Small != null">num5_small = #{num5Small},</if>
             <if test="num5Single != null">num5_single = #{num5Single},</if>
             <if test="num5Double != null">num5_double = #{num5Double},</if>
-            <if test="num50 != null">num5_0 = #{num50},</if>
-            <if test="num51 != null">num5_1 = #{num51},</if>
-            <if test="num52 != null">num5_2 = #{num52},</if>
-            <if test="num53 != null">num5_3 = #{num53},</if>
-            <if test="num54 != null">num5_4 = #{num54},</if>
-            <if test="num55 != null">num5_5 = #{num55},</if>
-            <if test="num56 != null">num5_6 = #{num56},</if>
-            <if test="num57 != null">num5_7 = #{num57},</if>
-            <if test="num58 != null">num5_8 = #{num58},</if>
-            <if test="num59 != null">num5_9 = #{num59},</if>
+            <if test="num5Ball0 != null">num5_ball0 = #{num5Ball0},</if>
+            <if test="num5Ball1 != null">num5_ball1 = #{num5Ball1},</if>
+            <if test="num5Ball2 != null">num5_ball2 = #{num5Ball2},</if>
+            <if test="num5Ball3 != null">num5_ball3 = #{num5Ball3},</if>
+            <if test="num5Ball4 != null">num5_ball4 = #{num5Ball4},</if>
+            <if test="num5Ball5 != null">num5_ball5 = #{num5Ball5},</if>
+            <if test="num5Ball6 != null">num5_ball6 = #{num5Ball6},</if>
+            <if test="num5Ball7 != null">num5_ball7 = #{num5Ball7},</if>
+            <if test="num5Ball8 != null">num5_ball8 = #{num5Ball8},</if>
+            <if test="num5Ball9 != null">num5_ball9 = #{num5Ball9},</if>
             <if test="firstBao != null">first_bao = #{firstBao},</if>
             <if test="firstDui != null">first_dui = #{firstDui},</if>
             <if test="firstSun != null">first_sun = #{firstSun},</if>
@@ -599,12 +587,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="house != null">house = #{house},</if>
             <if test="hzId != null and hzId != ''">hz_id = #{hzId},</if>
             <if test="hzUser != null">hz_user = #{hzUser},</if>
-            <if test="createBy != null">create_by = #{createBy},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
-            <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where id = #{id}
     </update>
 
@@ -618,4 +603,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <update id="updateJssscrecordTotalAmountByPeriodId" parameterType="Jssscrecord">
+        update jssscrecord
+        <set>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            update_time = sysdate()
+        </set>
+        where periods = #{periods}
+    </update>
+
+    <select id="selectSumRecordByPeriodId" parameterType="Long" resultMap="JssscrecordResult">
+        SELECT
+            COUNT(user_id) as user_count
+             ,SUM(count_money) as CountMoney
+             ,SUM(win_money) as WinMoney
+        from jssscrecord
+        where periods = #{periodId}
+            limit 1
+    </select>
 </mapper>

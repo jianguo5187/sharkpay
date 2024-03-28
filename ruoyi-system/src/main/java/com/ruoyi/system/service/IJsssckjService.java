@@ -60,4 +60,6 @@ public interface IJsssckjService
     public int deleteJsssckjById(Long id);
 
     public Jsssckj selectLastRecord(String status);
+
+    public List<Jsssckj> selectJsssckjListWithStatusZeroAndLimit(Long id, String status, String idAscFlg, String idDescFlg, Integer limitNumber);
 }

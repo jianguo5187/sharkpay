@@ -45,6 +45,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by id desc
         limit 1
     </select>
+
+    <select id="selectJssscListByParam" resultMap="JssscResult">
+        <include refid="selectJssscVo"/>
+        <if test="idDescFlg != null and idDescFlg != '' ">
+            order by id desc
+        </if>
+        <if test="limitNumber != null">
+            limit #{limitNumber}
+        </if>
+    </select>
         
     <insert id="insertJsssc" parameterType="Jsssc" useGeneratedKeys="true" keyProperty="id">
         insert into jsssc(

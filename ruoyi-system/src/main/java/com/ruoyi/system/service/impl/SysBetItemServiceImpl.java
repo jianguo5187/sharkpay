@@ -101,7 +101,7 @@ public class SysBetItemServiceImpl implements ISysBetItemService
     public boolean checkBetItemCodeUnique(SysBetItem sysBetItem) {
         SysBetItem betItem = sysBetItemMapper.checkBetItemCodeUnique(sysBetItem.getGameId(), sysBetItem.getBetItemCode());
 
-        if (StringUtils.isNotNull(betItem))
+        if (StringUtils.isNotNull(betItem) && betItem.getBetItemId().compareTo(sysBetItem.getBetItemId()) != 0)
         {
             return UserConstants.NOT_UNIQUE;
         }

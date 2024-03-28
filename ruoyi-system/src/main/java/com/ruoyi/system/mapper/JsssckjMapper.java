@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Jsssckj;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 极速时时彩开奖Mapper接口
@@ -60,4 +61,6 @@ public interface JsssckjMapper
     public int deleteJsssckjByIds(Long[] ids);
 
     public Jsssckj selectLastRecord(String status);
+
+    public List<Jsssckj> selectJsssckjListWithStatusZeroAndLimit(@Param("id") Long id, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 }

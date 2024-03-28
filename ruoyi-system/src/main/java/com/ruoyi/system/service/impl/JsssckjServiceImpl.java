@@ -98,4 +98,9 @@ public class JsssckjServiceImpl implements IJsssckjService
     public Jsssckj selectLastRecord(String status) {
         return jsssckjMapper.selectLastRecord(status);
     }
+
+    @Override
+    public List<Jsssckj> selectJsssckjListWithStatusZeroAndLimit(Long id, String status, String idAscFlg, String idDescFlg, Integer limitNumber) {
+        return jsssckjMapper.selectJsssckjListWithStatusZeroAndLimit(id,status,idAscFlg,idDescFlg,limitNumber);
+    }
 }
