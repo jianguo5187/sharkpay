@@ -1118,7 +1118,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              COUNT(user_id) as user_count
             ,SUM(count_money) as CountMoney
             ,SUM(win_money) as WinMoney
-        from azxy10kj
+        from azxy10record
         where periods = #{periodId}
         limit 1
     </select>

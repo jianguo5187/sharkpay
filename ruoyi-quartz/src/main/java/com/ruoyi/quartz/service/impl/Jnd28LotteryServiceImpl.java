@@ -123,6 +123,7 @@ public class Jnd28LotteryServiceImpl implements Jnd28LotteryService {
 
             //预计开奖时间
             calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval());
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime());
             newJnd28.setPreTime(calendar.getTime());
 
             //封盘投注截止时间
@@ -137,6 +138,7 @@ public class Jnd28LotteryServiceImpl implements Jnd28LotteryService {
 
             //预计开奖时间
             calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*2);
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime());
             newJnd28.setPreTime(calendar.getTime());
 
             //封盘投注截止时间

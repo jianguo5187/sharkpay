@@ -119,6 +119,7 @@ public class JssscLotteryServiceImpl implements JssscLotteryService {
 
             //预计开奖时间
             calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval());
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime());
             newJsssckj.setPreTime(calendar.getTime());
 
             //封盘投注截止时间
@@ -133,6 +134,7 @@ public class JssscLotteryServiceImpl implements JssscLotteryService {
 
             //预计开奖时间
             calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*2);
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime());
             newJsssckj.setPreTime(calendar.getTime());
 
             //封盘投注截止时间

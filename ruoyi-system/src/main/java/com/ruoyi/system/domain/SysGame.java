@@ -79,6 +79,10 @@ public class SysGame extends BaseEntity
     @Excel(name = "最大投注金额")
     private BigDecimal maxBetAmount;
 
+    /** 预计开奖延后时间 */
+    @Excel(name = "预计开奖延后时间")
+    private Integer leadTime;
+
     /** 封盘秒数 */
     @Excel(name = "封盘秒数")
     private Integer endTime;
@@ -261,6 +265,14 @@ public class SysGame extends BaseEntity
     public Integer getEndTime()
     {
         return endTime;
+    }
+
+    public Integer getLeadTime() {
+        return leadTime;
+    }
+
+    public void setLeadTime(Integer leadTime) {
+        this.leadTime = leadTime;
     }
 
     public Integer getLotteryInterval() {

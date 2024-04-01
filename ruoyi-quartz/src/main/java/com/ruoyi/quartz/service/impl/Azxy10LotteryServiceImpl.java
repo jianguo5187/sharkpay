@@ -10,10 +10,9 @@ import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -113,14 +112,37 @@ public class Azxy10LotteryServiceImpl implements Azxy10LotteryService {
         newAzxy10kj.setStatus("0");
         newAzxy10kj.setCreateBy("CreateAzxy10Data");
 
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String timeStr = formatter.format(azxy10Info.getTime());
+        String minStr = timeStr.substring(15,16);
+        Date time = null;
+        if(Integer.parseInt(minStr) <5 && azxy10Info.getId()%2 == 0){
+            String dateStr = timeStr.substring(0,15) + "3:45";
+            try {
+                time = formatter.parse(dateStr);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+        }else if(Integer.parseInt(minStr) > 5 || azxy10Info.getId()%2 != 0){
+            String dateStr = timeStr.substring(0,15) + "8:45";
+            try {
+                time = formatter.parse(dateStr);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            time = azxy10Info.getTime();
+        }
+
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(azxy10Info.getTime());
+        calendar.setTime(time);
 
         if(azxy10kjList.size() == 0 && firstAzxy10kj == null){
             newAzxy10kj.setId(azxy10Info.getId() + 1);
 
             //预计开奖时间
             calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval());
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime());
             newAzxy10kj.setPreTime(calendar.getTime());
 
             //封盘投注截止时间
@@ -135,6 +157,7 @@ public class Azxy10LotteryServiceImpl implements Azxy10LotteryService {
 
             //预计开奖时间
             calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*2);
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime());
             newAzxy10kj.setPreTime(calendar.getTime());
 
             //封盘投注截止时间
