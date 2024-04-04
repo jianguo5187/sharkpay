@@ -25,7 +25,7 @@ public class SysGame extends BaseEntity
 
     /** 游戏类别 */
     @Excel(name = "游戏类别")
-    private Long gameType;
+    private String gameType;
 
     /** 游戏标识ID */
     @Excel(name = "游戏标识ID")
@@ -131,12 +131,12 @@ public class SysGame extends BaseEntity
     {
         return gameImg;
     }
-    public void setGameType(Long gameType) 
+    public void setGameType(String gameType)
     {
         this.gameType = gameType;
     }
 
-    public Long getGameType() 
+    public String getGameType()
     {
         return gameType;
     }

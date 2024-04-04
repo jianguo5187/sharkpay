@@ -103,4 +103,9 @@ public class Azxy10kjServiceImpl implements IAzxy10kjService
     public List<Azxy10kj> selectAzxy10kjListWithStatusZeroAndLimit(Long id, String status,String idAscFlg,String idDescFlg, Integer limitNumber) {
         return azxy10kjMapper.selectAzxy10kjListWithStatusZeroAndLimit(id,status,idAscFlg,idDescFlg,limitNumber);
     }
+
+    @Override
+    public int updateAzxy10kjTotalAmountByPeriodId(Azxy10kj azxy10kj) {
+        return azxy10kjMapper.updateAzxy10kjTotalAmountByPeriodId(azxy10kj);
+    }
 }

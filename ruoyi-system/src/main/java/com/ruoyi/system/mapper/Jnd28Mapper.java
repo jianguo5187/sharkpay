@@ -65,4 +65,6 @@ public interface Jnd28Mapper
 
 
     public List<Jnd28> selectJnd28ListWithStatusZeroAndLimit(@Param("id") Long id, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
+
+    public int updateJnd28TotalAmountByPeriodId(Jnd28 jnd28);
 }

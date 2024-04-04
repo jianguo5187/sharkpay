@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.BetkjMapper">
+    
+    <resultMap type="com.ruoyi.system.domain.vo.BetkjRespVo" id="BetkjResult">
+        <result property="periods"    column="periods"    />
+        <result property="status"    column="status"    />
+        <result property="betOpenTime"    column="bet_open_time"    />
+        <result property="openResult"    column="open_result"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+    </resultMap>
+
+    <select id="selectBetkjList" resultMap="BetkjResult">
+        select
+              id as periods
+            , status as status
+            , case when status = '1' then bet_time else pre_time end as bet_open_time
+            , case when status = '1'
+                then
+                    <if test='gameType == "3"'>CONCAT(num1,'+',num2,'+',num3,'=',sum_num)</if>
+                    <if test='gameType == "5"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'=',sum)</if>
+                    <if test='gameType == "10"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'+',num6,'+',num7,'+',num8,'+',num9,'+',num10)</if>
+                else ''
+                end as open_result
+            , count_money as count_money
+            , win_money as win_money
+        from ${betkjTableName}
+        where 1 = 1
+        <if test="status != null  and status != ''"> and status = #{status}</if>
+        <if test="periods != null "> and id = #{periods}</if>
+        order by id desc
+    </select>
+</mapper>

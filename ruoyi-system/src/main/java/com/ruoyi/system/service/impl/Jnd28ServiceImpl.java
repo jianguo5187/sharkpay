@@ -100,4 +100,9 @@ public class Jnd28ServiceImpl implements IJnd28Service
     public List<Jnd28> selectJnd28ListWithStatusZeroAndLimit(Long id, String status, String idAscFlg, String idDescFlg, Integer limitNumber) {
         return jnd28Mapper.selectJnd28ListWithStatusZeroAndLimit(id,status,idAscFlg,idDescFlg,limitNumber);
     }
+
+    @Override
+    public int updateJnd28TotalAmountByPeriodId(Jnd28 jnd28) {
+        return jnd28Mapper.updateJnd28TotalAmountByPeriodId(jnd28);
+    }
 }

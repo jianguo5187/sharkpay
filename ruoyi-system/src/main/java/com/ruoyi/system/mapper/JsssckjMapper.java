@@ -63,4 +63,6 @@ public interface JsssckjMapper
     public Jsssckj selectLastRecord(String status);
 
     public List<Jsssckj> selectJsssckjListWithStatusZeroAndLimit(@Param("id") Long id, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
+
+    public int updateJsssckjTotalAmountByPeriodId(Jsssckj jsssckj);
 }

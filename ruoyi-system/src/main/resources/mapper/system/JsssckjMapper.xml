@@ -223,4 +223,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <update id="updateJsssckjTotalAmountByPeriodId" parameterType="Jsssckj">
+        update jsssckj
+        <set>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

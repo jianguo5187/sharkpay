@@ -716,13 +716,16 @@ public class Azxy10LotteryServiceImpl implements Azxy10LotteryService {
         }
 
         RecordSumRespVo recordSumRespVo = azxy10recordService.selectSumRecordByPeriodId(periodId);
-        if(recordSumRespVo != null){
-            Azxy10record updateAzxy10record = new Azxy10record();
-            updateAzxy10record.setPeriods(periodId);
-            updateAzxy10record.setCountMoney(recordSumRespVo.getCountMoney());
-            updateAzxy10record.setWinMoney(recordSumRespVo.getWinMoney());
-            azxy10recordService.updateAzxy10recordTotalAmountByPeriodId(updateAzxy10record);
-        }
+        azxy10kj.setCountMoney(recordSumRespVo.getCountMoney());
+        azxy10kj.setWinMoney(recordSumRespVo.getWinMoney());
+        azxy10kjService.updateAzxy10kjTotalAmountByPeriodId(azxy10kj);
+//        if(recordSumRespVo != null){
+//            Azxy10record updateAzxy10record = new Azxy10record();
+//            updateAzxy10record.setPeriods(periodId);
+//            updateAzxy10record.setCountMoney(recordSumRespVo.getCountMoney());
+//            updateAzxy10record.setWinMoney(recordSumRespVo.getWinMoney());
+//            azxy10recordService.updateAzxy10recordTotalAmountByPeriodId(updateAzxy10record);
+//        }
     }
 
     private Float getOddFromMapByOddKey(Map<String , SysBetItem> betItemMap, String betItemCode){

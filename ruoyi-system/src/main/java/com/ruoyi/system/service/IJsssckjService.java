@@ -62,4 +62,6 @@ public interface IJsssckjService
     public Jsssckj selectLastRecord(String status);
 
     public List<Jsssckj> selectJsssckjListWithStatusZeroAndLimit(Long id, String status, String idAscFlg, String idDescFlg, Integer limitNumber);
+
+    public int updateJsssckjTotalAmountByPeriodId(Jsssckj jsssckj);
 }

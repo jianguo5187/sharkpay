@@ -442,13 +442,17 @@ public class Jnd28LotteryServiceImpl implements Jnd28LotteryService {
         }
 
         RecordSumRespVo recordSumRespVo = jndrecordService.selectSumRecordByPeriodId(periodId);
-        if(recordSumRespVo != null){
-            Jndrecord updateJndrecord = new Jndrecord();
-            updateJndrecord.setPeriods(periodId);
-            updateJndrecord.setCountMoney(recordSumRespVo.getCountMoney());
-            updateJndrecord.setWinMoney(recordSumRespVo.getWinMoney());
-            jndrecordService.updateJndrecordTotalAmountByPeriodId(updateJndrecord);
-        }
+        jnd28.setCountMoney(recordSumRespVo.getCountMoney());
+        jnd28.setWinMoney(recordSumRespVo.getWinMoney());
+        jnd28Service.updateJnd28TotalAmountByPeriodId(jnd28);
+//
+//        if(recordSumRespVo != null){
+//            Jndrecord updateJndrecord = new Jndrecord();
+//            updateJndrecord.setPeriods(periodId);
+//            updateJndrecord.setCountMoney(recordSumRespVo.getCountMoney());
+//            updateJndrecord.setWinMoney(recordSumRespVo.getWinMoney());
+//            jndrecordService.updateJndrecordTotalAmountByPeriodId(updateJndrecord);
+//        }
     }
 
     private Float getOddFromMapByOddKey(Map<String , SysBetItem> betItemMap, String betItemCode){

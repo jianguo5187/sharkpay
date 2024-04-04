@@ -52,6 +52,10 @@ public class RyTask
         String url = gameUrl + gameCode + "&limit=50";
         String result = HttpUtils.sendGet(url);
         JSONObject resultJson = JSONObject.parseObject(result);
+        if(resultJson == null){
+            System.out.println("获取不到开奖网站数据");
+            return ;
+        }
         String data = resultJson.getString("data");
         System.out.println(data);
         List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);

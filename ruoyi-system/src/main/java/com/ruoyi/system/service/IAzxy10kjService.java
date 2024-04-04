@@ -62,4 +62,6 @@ public interface IAzxy10kjService
     public Azxy10kj selectLastRecord(String status);
 
     public List<Azxy10kj> selectAzxy10kjListWithStatusZeroAndLimit(Long id,String status,String idAscFlg,String idDescFlg,Integer limitNumber);
+
+    public int updateAzxy10kjTotalAmountByPeriodId(Azxy10kj azxy10kj);
 }

@@ -134,4 +134,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             limit #{limitNumber}
         </if>
     </select>
+
+    <update id="updateJnd28TotalAmountByPeriodId" parameterType="Jnd28">
+        update jnd28
+        <set>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

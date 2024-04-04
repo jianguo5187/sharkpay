@@ -522,6 +522,9 @@ public class JssscLotteryServiceImpl implements JssscLotteryService {
         }
 
         RecordSumRespVo recordSumRespVo = jssscrecordService.selectSumRecordByPeriodId(periodId);
+        jsssckj.setCountMoney(recordSumRespVo.getCountMoney());
+        jsssckj.setWinMoney(recordSumRespVo.getWinMoney());
+        jsssckjService.updateJsssckjTotalAmountByPeriodId(jsssckj);
         if(recordSumRespVo != null){
             Jssscrecord updateJssscrecord = new Jssscrecord();
             updateJssscrecord.setPeriods(periodId);

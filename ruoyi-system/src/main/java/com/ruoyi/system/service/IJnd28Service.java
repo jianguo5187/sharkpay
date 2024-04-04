@@ -62,4 +62,6 @@ public interface IJnd28Service
     public Jnd28 selectLastRecord(String status);
 
     public List<Jnd28> selectJnd28ListWithStatusZeroAndLimit(Long id,String status,String idAscFlg,String idDescFlg,Integer limitNumber);
+
+    public int updateJnd28TotalAmountByPeriodId(Jnd28 jnd28);
 }

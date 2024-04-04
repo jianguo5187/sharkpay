@@ -15,7 +15,7 @@ ruoyi:
   captchaType: char
 
 autoGame:
-  url: http://gfkj6.oifswdy.cn/admin/admin_index/get_open_data?code=
+  url: http://api.sqlscs.cn/home/api/getCodeData?code=
 
 # 开发环境配置
 server:

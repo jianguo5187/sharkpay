@@ -20,7 +20,7 @@ public class Jsssckj extends BaseEntity
     /** 期数 */
     private Long id;
 
-    /** 是否已经开奖（0已经开奖 1未开奖） */
+    /** 是否已经开奖（0未开奖 1已开奖） */
     @Excel(name = "是否已经开奖", readConverterExp = "0=已经开奖,1=未开奖")
     private String status;
 

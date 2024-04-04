@@ -63,4 +63,6 @@ public interface Azxy10kjMapper
     public Azxy10kj selectLastRecord(String status);
 
     public List<Azxy10kj> selectAzxy10kjListWithStatusZeroAndLimit(@Param("id") Long id, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg,@Param("limitNumber") Integer limitNumber);
+
+    public int updateAzxy10kjTotalAmountByPeriodId(Azxy10kj azxy10kj);
 }

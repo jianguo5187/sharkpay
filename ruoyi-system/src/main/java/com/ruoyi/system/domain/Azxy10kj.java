@@ -70,7 +70,7 @@ public class Azxy10kj extends BaseEntity
     @Excel(name = "预计开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date preTime;
 
-    /** 是否已经开奖（0已经开奖 1未开奖） */
+    /** 是否已经开奖（0未开奖 1已开奖） */
     @Excel(name = "是否已经开奖", readConverterExp = "0=已经开奖,1=未开奖")
     private String status;
 

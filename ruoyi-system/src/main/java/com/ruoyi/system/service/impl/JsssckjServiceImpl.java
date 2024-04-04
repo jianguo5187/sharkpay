@@ -103,4 +103,9 @@ public class JsssckjServiceImpl implements IJsssckjService
     public List<Jsssckj> selectJsssckjListWithStatusZeroAndLimit(Long id, String status, String idAscFlg, String idDescFlg, Integer limitNumber) {
         return jsssckjMapper.selectJsssckjListWithStatusZeroAndLimit(id,status,idAscFlg,idDescFlg,limitNumber);
     }
+
+    @Override
+    public int updateJsssckjTotalAmountByPeriodId(Jsssckj jsssckj) {
+        return jsssckjMapper.updateJsssckjTotalAmountByPeriodId(jsssckj);
+    }
 }
