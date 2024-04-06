@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.GameTenballOpenDataMapper">
+    
+    <resultMap type="GameTenballOpenData" id="GameTenballOpenDataResult">
+        <result property="id"    column="id"    />
+        <result property="periods"    column="periods"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="time"    column="time"    />
+        <result property="num1"    column="num1"    />
+        <result property="num2"    column="num2"    />
+        <result property="num3"    column="num3"    />
+        <result property="num4"    column="num4"    />
+        <result property="num5"    column="num5"    />
+        <result property="num6"    column="num6"    />
+        <result property="num7"    column="num7"    />
+        <result property="num8"    column="num8"    />
+        <result property="num9"    column="num9"    />
+        <result property="num10"    column="num10"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectGameTenballOpenDataVo">
+        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, create_by, create_time, update_by, update_time, remark from game_tenball_open_data
+    </sql>
+
+    <select id="selectGameTenballOpenDataList" parameterType="GameTenballOpenData" resultMap="GameTenballOpenDataResult">
+        <include refid="selectGameTenballOpenDataVo"/>
+        <where>  
+            <if test="periods != null "> and periods = #{periods}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="time != null "> and time = #{time}</if>
+            <if test="num1 != null "> and num1 = #{num1}</if>
+            <if test="num2 != null "> and num2 = #{num2}</if>
+            <if test="num3 != null "> and num3 = #{num3}</if>
+            <if test="num4 != null "> and num4 = #{num4}</if>
+            <if test="num5 != null "> and num5 = #{num5}</if>
+            <if test="num6 != null "> and num6 = #{num6}</if>
+            <if test="num7 != null "> and num7 = #{num7}</if>
+            <if test="num8 != null "> and num8 = #{num8}</if>
+            <if test="num9 != null "> and num9 = #{num9}</if>
+            <if test="num10 != null "> and num10 = #{num10}</if>
+        </where>
+    </select>
+    
+    <select id="selectGameTenballOpenDataById" parameterType="Long" resultMap="GameTenballOpenDataResult">
+        <include refid="selectGameTenballOpenDataVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGameTenballOpenData" parameterType="GameTenballOpenData" useGeneratedKeys="true" keyProperty="id">
+        insert into game_tenball_open_data(
+            <if test="periods != null">periods,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="time != null">time,</if>
+            <if test="num1 != null">num1,</if>
+            <if test="num2 != null">num2,</if>
+            <if test="num3 != null">num3,</if>
+            <if test="num4 != null">num4,</if>
+            <if test="num5 != null">num5,</if>
+            <if test="num6 != null">num6,</if>
+            <if test="num7 != null">num7,</if>
+            <if test="num8 != null">num8,</if>
+            <if test="num9 != null">num9,</if>
+            <if test="num10 != null">num10,</if>
+            <if test="createBy != null">create_by,</if>
+        create_time
+        )values(
+            <if test="periods != null">#{periods},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="time != null">#{time},</if>
+            <if test="num1 != null">#{num1},</if>
+            <if test="num2 != null">#{num2},</if>
+            <if test="num3 != null">#{num3},</if>
+            <if test="num4 != null">#{num4},</if>
+            <if test="num5 != null">#{num5},</if>
+            <if test="num6 != null">#{num6},</if>
+            <if test="num7 != null">#{num7},</if>
+            <if test="num8 != null">#{num8},</if>
+            <if test="num9 != null">#{num9},</if>
+            <if test="num10 != null">#{num10},</if>
+            <if test="createBy != null">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateGameTenballOpenData" parameterType="GameTenballOpenData">
+        update game_tenball_open_data
+        <set>
+            <if test="time != null">time = #{time},</if>
+            <if test="num1 != null">num1 = #{num1},</if>
+            <if test="num2 != null">num2 = #{num2},</if>
+            <if test="num3 != null">num3 = #{num3},</if>
+            <if test="num4 != null">num4 = #{num4},</if>
+            <if test="num5 != null">num5 = #{num5},</if>
+            <if test="num6 != null">num6 = #{num6},</if>
+            <if test="num7 != null">num7 = #{num7},</if>
+            <if test="num8 != null">num8 = #{num8},</if>
+            <if test="num9 != null">num9 = #{num9},</if>
+            <if test="num10 != null">num10 = #{num10},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGameTenballOpenDataById" parameterType="Long">
+        delete from game_tenball_open_data where id = #{id}
+    </delete>
+
+    <delete id="deleteGameTenballOpenDataByIds" parameterType="String">
+        delete from game_tenball_open_data where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectLastRecord" parameterType="Long" resultMap="GameTenballOpenDataResult">
+        <include refid="selectGameTenballOpenDataVo"/>
+        where 1 = 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        order by id desc
+        limit 1
+    </select>
+
+    <select id="selectGameTenballOpenDataListByParam" resultMap="GameTenballOpenDataResult">
+        <include refid="selectGameTenballOpenDataVo"/>
+        where 1 = 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="idDescFlg != null and idDescFlg != '' ">
+            order by id desc
+        </if>
+        <if test="limitNumber != null">
+            limit #{limitNumber}
+        </if>
+    </select>
+
+    <select id="selectGameTenballOpenDataByPeriods" parameterType="Long" resultMap="GameTenballOpenDataResult">
+        <include refid="selectGameTenballOpenDataVo"/>
+        where 1 = 1
+        <if test="periods != null "> and periods = #{periods}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        order by id desc
+        limit 1
+    </select>
+</mapper>

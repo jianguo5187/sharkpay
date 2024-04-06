@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.GameFiveballKjMapper">
+    
+    <resultMap type="GameFiveballKj" id="GameFiveballKjResult">
+        <result property="id"    column="id"    />
+        <result property="periods"    column="periods"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="status"    column="status"    />
+        <result property="betTime"    column="bet_time"    />
+        <result property="preTime"    column="pre_time"    />
+        <result property="theTime"    column="the_time"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="num1"    column="num1"    />
+        <result property="num2"    column="num2"    />
+        <result property="num3"    column="num3"    />
+        <result property="num4"    column="num4"    />
+        <result property="num5"    column="num5"    />
+        <result property="sum"    column="sum"    />
+        <result property="num1Bs"    column="num1_bs"    />
+        <result property="num1Sd"    column="num1_sd"    />
+        <result property="num2Bs"    column="num2_bs"    />
+        <result property="num2Sd"    column="num2_sd"    />
+        <result property="num3Bs"    column="num3_bs"    />
+        <result property="num3Sd"    column="num3_sd"    />
+        <result property="num4Bs"    column="num4_bs"    />
+        <result property="num4Sd"    column="num4_sd"    />
+        <result property="num5Bs"    column="num5_bs"    />
+        <result property="num5Sd"    column="num5_sd"    />
+        <result property="sumBs"    column="sum_bs"    />
+        <result property="sumSd"    column="sum_sd"    />
+        <result property="sumLts"    column="sum_lts"    />
+        <result property="numF"    column="num_f"    />
+        <result property="numM"    column="num_m"    />
+        <result property="numB"    column="num_b"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectGameFiveballKjVo">
+        select id, periods, game_id, game_name, status, bet_time, pre_time, the_time, count_money, win_money, num1, num2, num3, num4, num5, sum, num1_bs, num1_sd, num2_bs, num2_sd, num3_bs, num3_sd, num4_bs, num4_sd, num5_bs, num5_sd, sum_bs, sum_sd, sum_lts, num_f, num_m, num_b, create_by, create_time, update_by, update_time, remark from game_fiveball_kj
+    </sql>
+
+    <select id="selectGameFiveballKjList" parameterType="GameFiveballKj" resultMap="GameFiveballKjResult">
+        <include refid="selectGameFiveballKjVo"/>
+        <where>  
+            <if test="periods != null "> and periods = #{periods}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="betTime != null "> and bet_time = #{betTime}</if>
+            <if test="preTime != null "> and pre_time = #{preTime}</if>
+            <if test="theTime != null "> and the_time = #{theTime}</if>
+            <if test="countMoney != null "> and count_money = #{countMoney}</if>
+            <if test="winMoney != null "> and win_money = #{winMoney}</if>
+            <if test="num1 != null "> and num1 = #{num1}</if>
+            <if test="num2 != null "> and num2 = #{num2}</if>
+            <if test="num3 != null "> and num3 = #{num3}</if>
+            <if test="num4 != null "> and num4 = #{num4}</if>
+            <if test="num5 != null "> and num5 = #{num5}</if>
+            <if test="sum != null "> and sum = #{sum}</if>
+            <if test="num1Bs != null "> and num1_bs = #{num1Bs}</if>
+            <if test="num1Sd != null "> and num1_sd = #{num1Sd}</if>
+            <if test="num2Bs != null "> and num2_bs = #{num2Bs}</if>
+            <if test="num2Sd != null "> and num2_sd = #{num2Sd}</if>
+            <if test="num3Bs != null "> and num3_bs = #{num3Bs}</if>
+            <if test="num3Sd != null "> and num3_sd = #{num3Sd}</if>
+            <if test="num4Bs != null "> and num4_bs = #{num4Bs}</if>
+            <if test="num4Sd != null "> and num4_sd = #{num4Sd}</if>
+            <if test="num5Bs != null "> and num5_bs = #{num5Bs}</if>
+            <if test="num5Sd != null "> and num5_sd = #{num5Sd}</if>
+            <if test="sumBs != null "> and sum_bs = #{sumBs}</if>
+            <if test="sumSd != null "> and sum_sd = #{sumSd}</if>
+            <if test="sumLts != null "> and sum_lts = #{sumLts}</if>
+            <if test="numF != null "> and num_f = #{numF}</if>
+            <if test="numM != null "> and num_m = #{numM}</if>
+            <if test="numB != null "> and num_b = #{numB}</if>
+        </where>
+    </select>
+    
+    <select id="selectGameFiveballKjById" parameterType="Long" resultMap="GameFiveballKjResult">
+        <include refid="selectGameFiveballKjVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGameFiveballKj" parameterType="GameFiveballKj" useGeneratedKeys="true" keyProperty="id">
+        insert into game_fiveball_kj(
+            <if test="periods != null">periods,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="status != null">status,</if>
+            <if test="betTime != null">bet_time,</if>
+            <if test="preTime != null">pre_time,</if>
+            <if test="theTime != null">the_time,</if>
+            <if test="countMoney != null">count_money,</if>
+            <if test="winMoney != null">win_money,</if>
+            <if test="num1 != null">num1,</if>
+            <if test="num2 != null">num2,</if>
+            <if test="num3 != null">num3,</if>
+            <if test="num4 != null">num4,</if>
+            <if test="num5 != null">num5,</if>
+            <if test="sum != null">sum,</if>
+            <if test="num1Bs != null">num1_bs,</if>
+            <if test="num1Sd != null">num1_sd,</if>
+            <if test="num2Bs != null">num2_bs,</if>
+            <if test="num2Sd != null">num2_sd,</if>
+            <if test="num3Bs != null">num3_bs,</if>
+            <if test="num3Sd != null">num3_sd,</if>
+            <if test="num4Bs != null">num4_bs,</if>
+            <if test="num4Sd != null">num4_sd,</if>
+            <if test="num5Bs != null">num5_bs,</if>
+            <if test="num5Sd != null">num5_sd,</if>
+            <if test="sumBs != null">sum_bs,</if>
+            <if test="sumSd != null">sum_sd,</if>
+            <if test="sumLts != null">sum_lts,</if>
+            <if test="numF != null">num_f,</if>
+            <if test="numM != null">num_m,</if>
+            <if test="numB != null">num_b,</if>
+            <if test="createBy != null">create_by,</if>
+        create_time
+        )values(
+            <if test="periods != null">#{periods},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="status != null">#{status},</if>
+            <if test="betTime != null">#{betTime},</if>
+            <if test="preTime != null">#{preTime},</if>
+            <if test="theTime != null">#{theTime},</if>
+            <if test="countMoney != null">#{countMoney},</if>
+            <if test="winMoney != null">#{winMoney},</if>
+            <if test="num1 != null">#{num1},</if>
+            <if test="num2 != null">#{num2},</if>
+            <if test="num3 != null">#{num3},</if>
+            <if test="num4 != null">#{num4},</if>
+            <if test="num5 != null">#{num5},</if>
+            <if test="sum != null">#{sum},</if>
+            <if test="num1Bs != null">#{num1Bs},</if>
+            <if test="num1Sd != null">#{num1Sd},</if>
+            <if test="num2Bs != null">#{num2Bs},</if>
+            <if test="num2Sd != null">#{num2Sd},</if>
+            <if test="num3Bs != null">#{num3Bs},</if>
+            <if test="num3Sd != null">#{num3Sd},</if>
+            <if test="num4Bs != null">#{num4Bs},</if>
+            <if test="num4Sd != null">#{num4Sd},</if>
+            <if test="num5Bs != null">#{num5Bs},</if>
+            <if test="num5Sd != null">#{num5Sd},</if>
+            <if test="sumBs != null">#{sumBs},</if>
+            <if test="sumSd != null">#{sumSd},</if>
+            <if test="sumLts != null">#{sumLts},</if>
+            <if test="numF != null">#{numF},</if>
+            <if test="numM != null">#{numM},</if>
+            <if test="numB != null">#{numB},</if>
+            <if test="createBy != null">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateGameFiveballKj" parameterType="GameFiveballKj">
+        update game_fiveball_kj
+        <set>
+            <if test="status != null">status = #{status},</if>
+            <if test="betTime != null">bet_time = #{betTime},</if>
+            <if test="preTime != null">pre_time = #{preTime},</if>
+            <if test="theTime != null">the_time = #{theTime},</if>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="num1 != null">num1 = #{num1},</if>
+            <if test="num2 != null">num2 = #{num2},</if>
+            <if test="num3 != null">num3 = #{num3},</if>
+            <if test="num4 != null">num4 = #{num4},</if>
+            <if test="num5 != null">num5 = #{num5},</if>
+            <if test="sum != null">sum = #{sum},</if>
+            <if test="num1Bs != null">num1_bs = #{num1Bs},</if>
+            <if test="num1Sd != null">num1_sd = #{num1Sd},</if>
+            <if test="num2Bs != null">num2_bs = #{num2Bs},</if>
+            <if test="num2Sd != null">num2_sd = #{num2Sd},</if>
+            <if test="num3Bs != null">num3_bs = #{num3Bs},</if>
+            <if test="num3Sd != null">num3_sd = #{num3Sd},</if>
+            <if test="num4Bs != null">num4_bs = #{num4Bs},</if>
+            <if test="num4Sd != null">num4_sd = #{num4Sd},</if>
+            <if test="num5Bs != null">num5_bs = #{num5Bs},</if>
+            <if test="num5Sd != null">num5_sd = #{num5Sd},</if>
+            <if test="sumBs != null">sum_bs = #{sumBs},</if>
+            <if test="sumSd != null">sum_sd = #{sumSd},</if>
+            <if test="sumLts != null">sum_lts = #{sumLts},</if>
+            <if test="numF != null">num_f = #{numF},</if>
+            <if test="numM != null">num_m = #{numM},</if>
+            <if test="numB != null">num_b = #{numB},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGameFiveballKjById" parameterType="Long">
+        delete from game_fiveball_kj where id = #{id}
+    </delete>
+
+    <delete id="deleteGameFiveballKjByIds" parameterType="String">
+        delete from game_fiveball_kj where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectLastRecord" resultMap="GameFiveballKjResult">
+        <include refid="selectGameFiveballKjVo"/>
+        where 1 = 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="status != null  and status != ''"> and status = #{status}</if>
+        order by id desc
+        limit 1
+    </select>
+
+    <select id="selectGameFiveballKjListWithStatusZeroAndLimit" resultMap="GameFiveballKjResult">
+        <include refid="selectGameFiveballKjVo"/>
+        where 1 = 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="status != null  and status != ''"> and status = #{status}</if>
+        <if test="periods != null "> and periods &lt; #{periods}</if>
+        <if test="idAscFlg != null and idAscFlg != '' ">
+            order by id asc
+        </if>
+        <if test="idDescFlg != null and idDescFlg != '' ">
+            order by id desc
+        </if>
+        <if test="limitNumber != null">
+            limit #{limitNumber}
+        </if>
+    </select>
+
+    <update id="updateGameFiveballKjTotalAmountByPeriodId" parameterType="GameFiveballKj">
+        update game_fiveball_kj
+        <set>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

@@ -11,7 +11,7 @@
  Target Server Version : 50726 (5.7.26)
  File Encoding         : 65001
 
- Date: 04/04/2024 22:27:34
+ Date: 06/04/2024 15:21:19
 */
 
 SET NAMES utf8mb4;
@@ -66,7 +66,7 @@ CREATE TABLE `azxy10`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21102363 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21102854 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of azxy10
@@ -235,6 +235,57 @@ INSERT INTO `azxy10` VALUES (21102359, '2024-04-04 22:08:40', 1, 9, 6, 8, 3, 5, 
 INSERT INTO `azxy10` VALUES (21102360, '2024-04-04 22:13:40', 9, 3, 6, 10, 5, 2, 8, 1, 4, 7, 'TASK', '2024-04-04 22:15:00', '', NULL, '');
 INSERT INTO `azxy10` VALUES (21102361, '2024-04-04 22:18:40', 4, 3, 2, 5, 10, 6, 1, 9, 7, 8, 'TASK', '2024-04-04 22:19:00', '', NULL, '');
 INSERT INTO `azxy10` VALUES (21102362, '2024-04-04 22:23:40', 4, 3, 9, 6, 10, 8, 5, 2, 7, 1, 'TASK', '2024-04-04 22:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102803, '2024-04-06 11:08:40', 5, 2, 6, 9, 3, 10, 1, 7, 8, 4, 'TASK', '2024-04-06 11:12:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102804, '2024-04-06 11:13:40', 6, 1, 3, 7, 2, 10, 8, 9, 4, 5, 'TASK', '2024-04-06 11:15:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102805, '2024-04-06 11:18:40', 7, 10, 2, 4, 8, 5, 3, 6, 1, 9, 'TASK', '2024-04-06 11:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102806, '2024-04-06 11:23:40', 4, 1, 6, 8, 5, 9, 3, 10, 7, 2, 'TASK', '2024-04-06 11:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102807, '2024-04-06 11:28:40', 10, 5, 7, 3, 2, 9, 4, 1, 8, 6, 'TASK', '2024-04-06 11:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102808, '2024-04-06 11:33:40', 3, 1, 4, 10, 5, 2, 9, 6, 8, 7, 'TASK', '2024-04-06 11:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102809, '2024-04-06 11:38:40', 4, 8, 6, 2, 3, 1, 7, 9, 5, 10, 'TASK', '2024-04-06 11:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102810, '2024-04-06 11:43:40', 7, 5, 2, 10, 4, 3, 8, 9, 6, 1, 'TASK', '2024-04-06 11:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102811, '2024-04-06 11:48:40', 8, 5, 3, 9, 10, 2, 4, 7, 6, 1, 'TASK', '2024-04-06 11:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102812, '2024-04-06 11:53:40', 1, 5, 3, 6, 2, 4, 10, 9, 8, 7, 'TASK', '2024-04-06 12:34:28', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102813, '2024-04-06 11:58:40', 2, 9, 5, 6, 3, 8, 10, 7, 4, 1, 'TASK', '2024-04-06 12:34:28', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102814, '2024-04-06 12:03:40', 1, 2, 5, 4, 9, 3, 7, 8, 10, 6, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102815, '2024-04-06 12:08:40', 6, 9, 2, 8, 5, 4, 3, 10, 1, 7, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102816, '2024-04-06 12:13:40', 10, 4, 3, 2, 9, 6, 1, 5, 7, 8, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102817, '2024-04-06 12:18:40', 5, 7, 2, 1, 3, 10, 9, 8, 6, 4, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102818, '2024-04-06 12:23:40', 10, 9, 6, 1, 5, 3, 7, 8, 2, 4, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102819, '2024-04-06 12:28:40', 6, 10, 2, 5, 9, 3, 7, 1, 8, 4, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102820, '2024-04-06 12:33:40', 7, 8, 5, 1, 2, 10, 4, 6, 9, 3, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102821, '2024-04-06 12:38:40', 4, 1, 9, 10, 6, 5, 7, 8, 3, 2, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102822, '2024-04-06 12:43:40', 8, 9, 6, 1, 2, 5, 7, 4, 3, 10, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102823, '2024-04-06 12:48:40', 9, 6, 4, 3, 8, 5, 2, 1, 10, 7, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102824, '2024-04-06 12:53:40', 3, 8, 9, 5, 7, 2, 6, 1, 4, 10, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102825, '2024-04-06 12:58:40', 1, 3, 5, 10, 4, 7, 2, 9, 6, 8, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102826, '2024-04-06 13:03:40', 1, 7, 3, 4, 6, 9, 8, 5, 10, 2, 'TASK', '2024-04-06 13:05:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102827, '2024-04-06 13:08:40', 1, 6, 9, 8, 7, 10, 5, 4, 3, 2, 'TASK', '2024-04-06 13:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102828, '2024-04-06 13:13:40', 4, 2, 1, 9, 5, 8, 3, 7, 10, 6, 'TASK', '2024-04-06 13:15:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102829, '2024-04-06 13:18:40', 2, 7, 10, 5, 8, 1, 6, 9, 4, 3, 'TASK', '2024-04-06 13:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102830, '2024-04-06 13:23:40', 8, 5, 9, 7, 6, 2, 4, 3, 10, 1, 'TASK', '2024-04-06 13:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102831, '2024-04-06 13:28:40', 10, 7, 9, 8, 4, 3, 1, 5, 6, 2, 'TASK', '2024-04-06 13:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102832, '2024-04-06 13:33:40', 3, 7, 8, 10, 9, 6, 1, 5, 4, 2, 'TASK', '2024-04-06 13:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102833, '2024-04-06 13:38:40', 1, 4, 9, 5, 10, 7, 6, 3, 2, 8, 'TASK', '2024-04-06 13:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102834, '2024-04-06 13:43:40', 2, 9, 7, 6, 8, 3, 4, 10, 5, 1, 'TASK', '2024-04-06 13:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102835, '2024-04-06 13:48:40', 6, 1, 7, 10, 5, 4, 9, 8, 3, 2, 'TASK', '2024-04-06 13:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102836, '2024-04-06 13:53:40', 6, 7, 1, 3, 10, 5, 4, 8, 9, 2, 'TASK', '2024-04-06 13:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102837, '2024-04-06 13:58:40', 4, 7, 1, 9, 5, 10, 2, 6, 8, 3, 'TASK', '2024-04-06 14:00:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102838, '2024-04-06 14:03:40', 3, 6, 4, 9, 2, 1, 8, 10, 5, 7, 'TASK', '2024-04-06 14:05:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102839, '2024-04-06 14:08:40', 9, 3, 10, 4, 1, 8, 6, 7, 5, 2, 'TASK', '2024-04-06 14:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102840, '2024-04-06 14:13:40', 2, 9, 7, 6, 4, 3, 1, 10, 5, 8, 'TASK', '2024-04-06 14:15:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102841, '2024-04-06 14:18:40', 7, 5, 3, 1, 4, 6, 8, 10, 9, 2, 'TASK', '2024-04-06 14:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102842, '2024-04-06 14:23:40', 1, 3, 9, 8, 6, 10, 5, 4, 7, 2, 'TASK', '2024-04-06 14:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102843, '2024-04-06 14:28:40', 1, 8, 7, 3, 5, 6, 2, 10, 4, 9, 'TASK', '2024-04-06 14:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102844, '2024-04-06 14:33:40', 7, 6, 4, 5, 1, 9, 10, 3, 2, 8, 'TASK', '2024-04-06 14:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102845, '2024-04-06 14:38:40', 6, 8, 10, 1, 5, 2, 4, 3, 9, 7, 'TASK', '2024-04-06 14:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102846, '2024-04-06 14:43:40', 6, 7, 4, 10, 5, 3, 2, 1, 9, 8, 'TASK', '2024-04-06 14:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102847, '2024-04-06 14:48:40', 3, 4, 9, 8, 6, 1, 5, 7, 2, 10, 'TASK', '2024-04-06 14:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102848, '2024-04-06 14:53:40', 6, 8, 5, 7, 10, 3, 2, 4, 1, 9, 'TASK', '2024-04-06 14:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102849, '2024-04-06 14:58:40', 6, 7, 9, 10, 1, 5, 2, 3, 4, 8, 'TASK', '2024-04-06 14:59:22', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102850, '2024-04-06 15:03:40', 6, 3, 1, 7, 9, 8, 10, 5, 4, 2, 'TASK', '2024-04-06 15:05:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102851, '2024-04-06 15:08:40', 7, 9, 2, 5, 10, 4, 6, 1, 3, 8, 'TASK', '2024-04-06 15:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102852, '2024-04-06 15:13:40', 1, 7, 4, 2, 9, 10, 3, 6, 5, 8, 'TASK', '2024-04-06 15:15:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102853, '2024-04-06 15:18:40', 7, 10, 1, 3, 5, 2, 9, 6, 4, 8, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for azxy10kj
@@ -694,6 +745,826 @@ INSERT INTO `false_user` VALUES (315, '小奥梅', 'az28s002', '/profile/upload/
 INSERT INTO `false_user` VALUES (316, '是你的心啊', 'ae8888', '/profile/upload/user/62ff496fbf9c8.jpg', '60|80|90|122|116', '大单|小双|小单|小双|大|小|单|双', '20|28|36|52', 15, 5, 1, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
+-- Table structure for game_fiveball_kj
+-- ----------------------------
+DROP TABLE IF EXISTS `game_fiveball_kj`;
+CREATE TABLE `game_fiveball_kj`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '5球开奖历史ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否已经开奖（0未开奖 1已开奖）',
+  `bet_time` datetime NOT NULL COMMENT '封盘投注截止时间',
+  `pre_time` datetime NOT NULL COMMENT '预计开奖时间',
+  `the_time` datetime NULL DEFAULT NULL COMMENT '开奖时间',
+  `count_money` int(11) NULL DEFAULT 0 COMMENT '总下注金额',
+  `win_money` int(11) NULL DEFAULT 0 COMMENT '总中奖金额',
+  `num1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `num2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `num3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `num4` int(11) NULL DEFAULT NULL COMMENT '开奖号码4',
+  `num5` int(11) NULL DEFAULT NULL COMMENT '开奖号码5',
+  `sum` int(11) NULL DEFAULT NULL COMMENT '开奖合计号码',
+  `num1_bs` int(11) NULL DEFAULT NULL COMMENT '开奖号码1大小',
+  `num1_sd` int(11) NULL DEFAULT NULL COMMENT '开奖号码1单双',
+  `num2_bs` int(11) NULL DEFAULT NULL COMMENT '开奖号码2大小',
+  `num2_sd` int(11) NULL DEFAULT NULL COMMENT '开奖号码2单双',
+  `num3_bs` int(11) NULL DEFAULT NULL COMMENT '开奖号码3大小',
+  `num3_sd` int(11) NULL DEFAULT NULL COMMENT '开奖号码3单双',
+  `num4_bs` int(11) NULL DEFAULT NULL COMMENT '开奖号码4大小',
+  `num4_sd` int(11) NULL DEFAULT NULL COMMENT '开奖号码4单双',
+  `num5_bs` int(11) NULL DEFAULT NULL COMMENT '开奖号码5大小',
+  `num5_sd` int(11) NULL DEFAULT NULL COMMENT '开奖号码5单双',
+  `sum_bs` int(11) NULL DEFAULT NULL COMMENT '开奖合计号码大小',
+  `sum_sd` int(11) NULL DEFAULT NULL COMMENT '开奖合计号码单双',
+  `sum_lts` int(11) NULL DEFAULT NULL COMMENT '开奖合计号码和虎龙',
+  `num_f` int(11) NULL DEFAULT NULL COMMENT '开奖号码(123)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]',
+  `num_m` int(11) NULL DEFAULT NULL COMMENT '开奖号码(234)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]',
+  `num_b` int(11) NULL DEFAULT NULL COMMENT '开奖号码(345)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `Id_2`(`id`, `status`, `game_id`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE,
+  INDEX `status`(`periods`, `status`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '5球开奖表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_fiveball_kj
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for game_fiveball_open_data
+-- ----------------------------
+DROP TABLE IF EXISTS `game_fiveball_open_data`;
+CREATE TABLE `game_fiveball_open_data`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '5球开奖历史ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `time` datetime NULL DEFAULT NULL COMMENT '开奖时间',
+  `num1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `num2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `num3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `num4` int(11) NULL DEFAULT NULL COMMENT '开奖号码4',
+  `num5` int(11) NULL DEFAULT NULL COMMENT '开奖号码5',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '5球开奖历史表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_fiveball_open_data
+-- ----------------------------
+INSERT INTO `game_fiveball_open_data` VALUES (1, 13096942, 15, '168极速时时彩', '2024-04-06 14:16:45', 5, 3, 4, 3, 4, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (2, 13096943, 15, '168极速时时彩', '2024-04-06 14:18:00', 7, 3, 2, 5, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (3, 13096944, 15, '168极速时时彩', '2024-04-06 14:19:15', 5, 0, 5, 8, 4, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (4, 13096945, 15, '168极速时时彩', '2024-04-06 14:20:30', 2, 9, 9, 8, 5, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (5, 13096946, 15, '168极速时时彩', '2024-04-06 14:21:45', 9, 8, 9, 9, 7, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (6, 13096947, 15, '168极速时时彩', '2024-04-06 14:23:00', 9, 8, 2, 5, 9, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (7, 13096948, 15, '168极速时时彩', '2024-04-06 14:24:15', 5, 2, 3, 8, 5, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (8, 13096949, 15, '168极速时时彩', '2024-04-06 14:25:30', 4, 1, 1, 0, 0, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (9, 13096950, 15, '168极速时时彩', '2024-04-06 14:26:45', 1, 8, 4, 0, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (10, 13096951, 15, '168极速时时彩', '2024-04-06 14:28:00', 8, 1, 6, 7, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (11, 13096952, 15, '168极速时时彩', '2024-04-06 14:29:15', 9, 1, 9, 9, 3, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (12, 13096953, 15, '168极速时时彩', '2024-04-06 14:30:30', 2, 4, 1, 5, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (13, 13096954, 15, '168极速时时彩', '2024-04-06 14:31:45', 7, 2, 7, 6, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (14, 13096955, 15, '168极速时时彩', '2024-04-06 14:33:00', 2, 0, 6, 0, 0, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (15, 13096956, 15, '168极速时时彩', '2024-04-06 14:34:15', 9, 5, 3, 6, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (16, 13096957, 15, '168极速时时彩', '2024-04-06 14:35:30', 0, 6, 5, 1, 6, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (17, 13096958, 15, '168极速时时彩', '2024-04-06 14:36:45', 0, 4, 0, 6, 6, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (18, 13096959, 15, '168极速时时彩', '2024-04-06 14:38:00', 9, 3, 3, 0, 6, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (19, 13096960, 15, '168极速时时彩', '2024-04-06 14:39:15', 3, 3, 7, 5, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (20, 13096961, 15, '168极速时时彩', '2024-04-06 14:40:30', 6, 6, 8, 9, 4, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (21, 13096962, 15, '168极速时时彩', '2024-04-06 14:41:45', 8, 0, 5, 8, 4, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (22, 13096963, 15, '168极速时时彩', '2024-04-06 14:43:00', 6, 4, 8, 0, 7, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (23, 13096964, 15, '168极速时时彩', '2024-04-06 14:44:15', 6, 1, 4, 6, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (24, 13096965, 15, '168极速时时彩', '2024-04-06 14:45:30', 4, 2, 0, 1, 5, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (25, 13096966, 15, '168极速时时彩', '2024-04-06 14:46:45', 5, 6, 2, 1, 6, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (26, 13096967, 15, '168极速时时彩', '2024-04-06 14:48:00', 0, 3, 4, 9, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (27, 13096968, 15, '168极速时时彩', '2024-04-06 14:49:15', 4, 6, 8, 0, 7, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (28, 13096969, 15, '168极速时时彩', '2024-04-06 14:50:30', 2, 0, 7, 2, 4, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (29, 13096970, 15, '168极速时时彩', '2024-04-06 14:51:45', 3, 9, 3, 5, 7, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (30, 13096971, 15, '168极速时时彩', '2024-04-06 14:53:00', 0, 2, 9, 0, 6, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (31, 13096972, 15, '168极速时时彩', '2024-04-06 14:54:15', 2, 5, 5, 7, 6, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (32, 13096973, 15, '168极速时时彩', '2024-04-06 14:55:30', 6, 6, 2, 4, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (33, 13096974, 15, '168极速时时彩', '2024-04-06 14:56:45', 0, 1, 0, 0, 0, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (34, 13096975, 15, '168极速时时彩', '2024-04-06 14:58:00', 5, 2, 7, 9, 9, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (35, 13096976, 15, '168极速时时彩', '2024-04-06 14:59:15', 9, 0, 6, 5, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (36, 13096977, 15, '168极速时时彩', '2024-04-06 15:00:30', 0, 8, 2, 9, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (37, 13096978, 15, '168极速时时彩', '2024-04-06 15:01:45', 2, 2, 8, 8, 2, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (38, 13096979, 15, '168极速时时彩', '2024-04-06 15:03:00', 8, 9, 3, 1, 5, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (39, 13096980, 15, '168极速时时彩', '2024-04-06 15:04:15', 2, 9, 4, 9, 2, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (40, 13096981, 15, '168极速时时彩', '2024-04-06 15:05:30', 3, 5, 6, 2, 0, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (41, 13096982, 15, '168极速时时彩', '2024-04-06 15:06:45', 4, 5, 7, 4, 2, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (42, 13096983, 15, '168极速时时彩', '2024-04-06 15:08:00', 4, 7, 5, 5, 9, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (43, 13096984, 15, '168极速时时彩', '2024-04-06 15:09:15', 8, 6, 6, 4, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (44, 13096985, 15, '168极速时时彩', '2024-04-06 15:10:30', 5, 3, 8, 1, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (45, 13096986, 15, '168极速时时彩', '2024-04-06 15:11:45', 6, 3, 3, 5, 7, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (46, 13096987, 15, '168极速时时彩', '2024-04-06 15:13:00', 8, 7, 8, 7, 7, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (47, 13096988, 15, '168极速时时彩', '2024-04-06 15:14:15', 5, 5, 7, 1, 7, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (48, 13096989, 15, '168极速时时彩', '2024-04-06 15:15:30', 1, 6, 5, 5, 0, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (49, 13096990, 15, '168极速时时彩', '2024-04-06 15:16:45', 2, 3, 7, 8, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (50, 13096991, 15, '168极速时时彩', '2024-04-06 15:18:00', 8, 8, 1, 8, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (51, 13096992, 15, '168极速时时彩', '2024-04-06 15:19:15', 6, 7, 8, 7, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+
+-- ----------------------------
+-- Table structure for game_fiveball_record
+-- ----------------------------
+DROP TABLE IF EXISTS `game_fiveball_record`;
+CREATE TABLE `game_fiveball_record`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '下注表ID',
+  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '投注状态（0投注 1撤单）',
+  `record_time` datetime NOT NULL COMMENT '投注时间',
+  `check_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '确认时间',
+  `count_money` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注金额',
+  `win_money` float(11, 2) NULL DEFAULT 0.00 COMMENT '中奖金额',
+  `sum_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注和值大的金额',
+  `sum_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注和值小的金额',
+  `sum_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注和值单的金额',
+  `sum_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注和值双的金额',
+  `sum_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注和值龙的金额',
+  `sum_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注和值虎的金额',
+  `sum_sum` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注和值和的金额',
+  `num1_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球大的金额',
+  `num1_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球小的金额',
+  `num1_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球单的金额',
+  `num1_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球双的金额',
+  `num1_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球0的金额',
+  `num1_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球1的金额',
+  `num1_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球2的金额',
+  `num1_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球3的金额',
+  `num1_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球4的金额',
+  `num1_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球5的金额',
+  `num1_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球6的金额',
+  `num1_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球7的金额',
+  `num1_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球8的金额',
+  `num1_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买1号球9的金额',
+  `num2_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球大的金额',
+  `num2_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球小的金额',
+  `num2_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球单的金额',
+  `num2_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球双的金额',
+  `num2_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球0的金额',
+  `num2_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球1的金额',
+  `num2_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球2的金额',
+  `num2_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球3的金额',
+  `num2_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球4的金额',
+  `num2_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球5的金额',
+  `num2_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球6的金额',
+  `num2_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球7的金额',
+  `num2_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球8的金额',
+  `num2_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买2号球9的金额',
+  `num3_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球大的金额',
+  `num3_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球小的金额',
+  `num3_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球单的金额',
+  `num3_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球双的金额',
+  `num3_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球0的金额',
+  `num3_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球1的金额',
+  `num3_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球2的金额',
+  `num3_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球3的金额',
+  `num3_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球4的金额',
+  `num3_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球5的金额',
+  `num3_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球6的金额',
+  `num3_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球7的金额',
+  `num3_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球8的金额',
+  `num3_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买3号球9的金额',
+  `num4_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球大的金额',
+  `num4_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球小的金额',
+  `num4_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球单的金额',
+  `num4_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球双的金额',
+  `num4_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球0的金额',
+  `num4_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球1的金额',
+  `num4_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球2的金额',
+  `num4_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球3的金额',
+  `num4_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球4的金额',
+  `num4_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球5的金额',
+  `num4_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球6的金额',
+  `num4_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球7的金额',
+  `num4_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球8的金额',
+  `num4_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买4号球9的金额',
+  `num5_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球大的金额',
+  `num5_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球小的金额',
+  `num5_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球单的金额',
+  `num5_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球双的金额',
+  `num5_ball0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球0的金额',
+  `num5_ball1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球1的金额',
+  `num5_ball2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球2的金额',
+  `num5_ball3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球3的金额',
+  `num5_ball4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球4的金额',
+  `num5_ball5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球5的金额',
+  `num5_ball6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球6的金额',
+  `num5_ball7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球7的金额',
+  `num5_ball8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球8的金额',
+  `num5_ball9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买5号球9的金额',
+  `first_bao` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三豹的金额',
+  `first_dui` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三对的金额',
+  `first_sun` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三顺的金额',
+  `first_ban` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三半的金额',
+  `first_za` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买前三杂的金额',
+  `mid_bao` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买中三豹的的金额',
+  `mid_dui` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买中三对的的金额',
+  `mid_sun` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买中三顺的的金额',
+  `mid_ban` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买中三半的的金额',
+  `mid_za` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买中三杂的的金额',
+  `back_bao` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买后三豹的的金额',
+  `back_dui` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买后三对的的金额',
+  `back_sun` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买后三顺的的金额',
+  `back_ban` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买后三半的的金额',
+  `back_za` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注买后三杂的的金额',
+  `num1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `num2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `num3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `num4` int(11) NULL DEFAULT NULL COMMENT '开奖号码4',
+  `num5` int(11) NULL DEFAULT NULL COMMENT '开奖号码5',
+  `sum` int(11) NULL DEFAULT 0 COMMENT '开奖合算数字',
+  `is_delete` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否扣除(0否 1是)',
+  `is_deduct` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否扣除',
+  `house` int(4) NOT NULL DEFAULT 0 COMMENT '房间号',
+  `hz_id` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否合庄模式',
+  `hz_user` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否用户(0否 1是)',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE,
+  INDEX `user_id_2`(`user_id`, `periods`, `game_id`, `status`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '5球下注表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_fiveball_record
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for game_tenball_kj
+-- ----------------------------
+DROP TABLE IF EXISTS `game_tenball_kj`;
+CREATE TABLE `game_tenball_kj`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '10球开奖开奖表ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `num1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `num2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `num3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `num4` int(11) NULL DEFAULT NULL COMMENT '开奖号码4',
+  `num5` int(11) NULL DEFAULT NULL COMMENT '开奖号码5',
+  `num6` int(11) NULL DEFAULT NULL COMMENT '开奖号码6',
+  `num7` int(11) NULL DEFAULT NULL COMMENT '开奖号码7',
+  `num8` int(11) NULL DEFAULT NULL COMMENT '开奖号码8',
+  `num9` int(11) NULL DEFAULT NULL COMMENT '开奖号码9',
+  `num10` int(11) NULL DEFAULT NULL COMMENT '开奖号码10',
+  `bet_time` datetime NOT NULL COMMENT '封盘投注截止时间',
+  `pre_time` datetime NOT NULL COMMENT '预计开奖时间',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否已经开奖（0未开奖 1已开奖）',
+  `the_time` datetime NULL DEFAULT NULL COMMENT '开奖时间',
+  `count_money` int(11) NULL DEFAULT 0 COMMENT '总下注金额',
+  `win_money` int(11) NULL DEFAULT 0 COMMENT '总中奖金额',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE,
+  INDEX `status`(`periods`, `status`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '10球开奖开奖表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_tenball_kj
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for game_tenball_open_data
+-- ----------------------------
+DROP TABLE IF EXISTS `game_tenball_open_data`;
+CREATE TABLE `game_tenball_open_data`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '期数',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `time` datetime NULL DEFAULT NULL COMMENT '开奖时间',
+  `num1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `num2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `num3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `num4` int(11) NULL DEFAULT NULL COMMENT '开奖号码4',
+  `num5` int(11) NULL DEFAULT NULL COMMENT '开奖号码5',
+  `num6` int(11) NULL DEFAULT NULL COMMENT '开奖号码6',
+  `num7` int(11) NULL DEFAULT NULL COMMENT '开奖号码7',
+  `num8` int(11) NULL DEFAULT NULL COMMENT '开奖号码8',
+  `num9` int(11) NULL DEFAULT NULL COMMENT '开奖号码9',
+  `num10` int(11) NULL DEFAULT NULL COMMENT '开奖号码10',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '10球开奖历史表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_tenball_open_data
+-- ----------------------------
+INSERT INTO `game_tenball_open_data` VALUES (1, 21102800, 9, '澳洲幸运10', '2024-04-06 10:53:40', 6, 10, 7, 8, 9, 1, 4, 2, 3, 5, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (2, 21102801, 9, '澳洲幸运10', '2024-04-06 10:58:40', 9, 7, 6, 5, 8, 3, 2, 10, 4, 1, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (3, 21102802, 9, '澳洲幸运10', '2024-04-06 11:03:40', 7, 4, 5, 1, 6, 10, 2, 8, 3, 9, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (4, 21102803, 9, '澳洲幸运10', '2024-04-06 11:08:40', 5, 2, 6, 9, 3, 10, 1, 7, 8, 4, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (5, 21102804, 9, '澳洲幸运10', '2024-04-06 11:13:40', 6, 1, 3, 7, 2, 10, 8, 9, 4, 5, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (6, 21102805, 9, '澳洲幸运10', '2024-04-06 11:18:40', 7, 10, 2, 4, 8, 5, 3, 6, 1, 9, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (7, 21102806, 9, '澳洲幸运10', '2024-04-06 11:23:40', 4, 1, 6, 8, 5, 9, 3, 10, 7, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (8, 21102807, 9, '澳洲幸运10', '2024-04-06 11:28:40', 10, 5, 7, 3, 2, 9, 4, 1, 8, 6, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (9, 21102808, 9, '澳洲幸运10', '2024-04-06 11:33:40', 3, 1, 4, 10, 5, 2, 9, 6, 8, 7, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (10, 21102809, 9, '澳洲幸运10', '2024-04-06 11:38:40', 4, 8, 6, 2, 3, 1, 7, 9, 5, 10, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (11, 21102810, 9, '澳洲幸运10', '2024-04-06 11:43:40', 7, 5, 2, 10, 4, 3, 8, 9, 6, 1, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (12, 21102811, 9, '澳洲幸运10', '2024-04-06 11:48:40', 8, 5, 3, 9, 10, 2, 4, 7, 6, 1, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (13, 21102812, 9, '澳洲幸运10', '2024-04-06 11:53:40', 1, 5, 3, 6, 2, 4, 10, 9, 8, 7, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (14, 21102813, 9, '澳洲幸运10', '2024-04-06 11:58:40', 2, 9, 5, 6, 3, 8, 10, 7, 4, 1, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (15, 21102814, 9, '澳洲幸运10', '2024-04-06 12:03:40', 1, 2, 5, 4, 9, 3, 7, 8, 10, 6, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (16, 21102815, 9, '澳洲幸运10', '2024-04-06 12:08:40', 6, 9, 2, 8, 5, 4, 3, 10, 1, 7, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (17, 21102816, 9, '澳洲幸运10', '2024-04-06 12:13:40', 10, 4, 3, 2, 9, 6, 1, 5, 7, 8, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (18, 21102817, 9, '澳洲幸运10', '2024-04-06 12:18:40', 5, 7, 2, 1, 3, 10, 9, 8, 6, 4, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (19, 21102818, 9, '澳洲幸运10', '2024-04-06 12:23:40', 10, 9, 6, 1, 5, 3, 7, 8, 2, 4, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (20, 21102819, 9, '澳洲幸运10', '2024-04-06 12:28:40', 6, 10, 2, 5, 9, 3, 7, 1, 8, 4, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (21, 21102820, 9, '澳洲幸运10', '2024-04-06 12:33:40', 7, 8, 5, 1, 2, 10, 4, 6, 9, 3, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (22, 21102821, 9, '澳洲幸运10', '2024-04-06 12:38:40', 4, 1, 9, 10, 6, 5, 7, 8, 3, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (23, 21102822, 9, '澳洲幸运10', '2024-04-06 12:43:40', 8, 9, 6, 1, 2, 5, 7, 4, 3, 10, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (24, 21102823, 9, '澳洲幸运10', '2024-04-06 12:48:40', 9, 6, 4, 3, 8, 5, 2, 1, 10, 7, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (25, 21102824, 9, '澳洲幸运10', '2024-04-06 12:53:40', 3, 8, 9, 5, 7, 2, 6, 1, 4, 10, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (26, 21102825, 9, '澳洲幸运10', '2024-04-06 12:58:40', 1, 3, 5, 10, 4, 7, 2, 9, 6, 8, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (27, 21102826, 9, '澳洲幸运10', '2024-04-06 13:03:40', 1, 7, 3, 4, 6, 9, 8, 5, 10, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (28, 21102827, 9, '澳洲幸运10', '2024-04-06 13:08:40', 1, 6, 9, 8, 7, 10, 5, 4, 3, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (29, 21102828, 9, '澳洲幸运10', '2024-04-06 13:13:40', 4, 2, 1, 9, 5, 8, 3, 7, 10, 6, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (30, 21102829, 9, '澳洲幸运10', '2024-04-06 13:18:40', 2, 7, 10, 5, 8, 1, 6, 9, 4, 3, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (31, 21102830, 9, '澳洲幸运10', '2024-04-06 13:23:40', 8, 5, 9, 7, 6, 2, 4, 3, 10, 1, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (32, 21102831, 9, '澳洲幸运10', '2024-04-06 13:28:40', 10, 7, 9, 8, 4, 3, 1, 5, 6, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (33, 21102832, 9, '澳洲幸运10', '2024-04-06 13:33:40', 3, 7, 8, 10, 9, 6, 1, 5, 4, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (34, 21102833, 9, '澳洲幸运10', '2024-04-06 13:38:40', 1, 4, 9, 5, 10, 7, 6, 3, 2, 8, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (35, 21102834, 9, '澳洲幸运10', '2024-04-06 13:43:40', 2, 9, 7, 6, 8, 3, 4, 10, 5, 1, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (36, 21102835, 9, '澳洲幸运10', '2024-04-06 13:48:40', 6, 1, 7, 10, 5, 4, 9, 8, 3, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (37, 21102836, 9, '澳洲幸运10', '2024-04-06 13:53:40', 6, 7, 1, 3, 10, 5, 4, 8, 9, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (38, 21102837, 9, '澳洲幸运10', '2024-04-06 13:58:40', 4, 7, 1, 9, 5, 10, 2, 6, 8, 3, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (39, 21102838, 9, '澳洲幸运10', '2024-04-06 14:03:40', 3, 6, 4, 9, 2, 1, 8, 10, 5, 7, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (40, 21102839, 9, '澳洲幸运10', '2024-04-06 14:08:40', 9, 3, 10, 4, 1, 8, 6, 7, 5, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (41, 21102840, 9, '澳洲幸运10', '2024-04-06 14:13:40', 2, 9, 7, 6, 4, 3, 1, 10, 5, 8, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (42, 21102841, 9, '澳洲幸运10', '2024-04-06 14:18:40', 7, 5, 3, 1, 4, 6, 8, 10, 9, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (43, 21102842, 9, '澳洲幸运10', '2024-04-06 14:23:40', 1, 3, 9, 8, 6, 10, 5, 4, 7, 2, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (44, 21102843, 9, '澳洲幸运10', '2024-04-06 14:28:40', 1, 8, 7, 3, 5, 6, 2, 10, 4, 9, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (45, 21102844, 9, '澳洲幸运10', '2024-04-06 14:33:40', 7, 6, 4, 5, 1, 9, 10, 3, 2, 8, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (46, 21102845, 9, '澳洲幸运10', '2024-04-06 14:38:40', 6, 8, 10, 1, 5, 2, 4, 3, 9, 7, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (47, 21102846, 9, '澳洲幸运10', '2024-04-06 14:43:40', 6, 7, 4, 10, 5, 3, 2, 1, 9, 8, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (48, 21102847, 9, '澳洲幸运10', '2024-04-06 14:48:40', 3, 4, 9, 8, 6, 1, 5, 7, 2, 10, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (49, 21102848, 9, '澳洲幸运10', '2024-04-06 14:53:40', 6, 8, 5, 7, 10, 3, 2, 4, 1, 9, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (50, 21102849, 9, '澳洲幸运10', '2024-04-06 14:58:40', 6, 7, 9, 10, 1, 5, 2, 3, 4, 8, 'TASK', '2024-04-06 15:02:26', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (51, 21102850, 9, '澳洲幸运10', '2024-04-06 15:03:40', 6, 3, 1, 7, 9, 8, 10, 5, 4, 2, 'TASK', '2024-04-06 15:05:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (52, 21102851, 9, '澳洲幸运10', '2024-04-06 15:08:40', 7, 9, 2, 5, 10, 4, 6, 1, 3, 8, 'TASK', '2024-04-06 15:10:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (53, 21102852, 9, '澳洲幸运10', '2024-04-06 15:13:40', 1, 7, 4, 2, 9, 10, 3, 6, 5, 8, 'TASK', '2024-04-06 15:15:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (54, 21102853, 9, '澳洲幸运10', '2024-04-06 15:18:40', 7, 10, 1, 3, 5, 2, 9, 6, 4, 8, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
+
+-- ----------------------------
+-- Table structure for game_tenball_record
+-- ----------------------------
+DROP TABLE IF EXISTS `game_tenball_record`;
+CREATE TABLE `game_tenball_record`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '10球下注表ID',
+  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '投注状态（0投注 1撤单）',
+  `record_time` datetime NOT NULL COMMENT '投注时间',
+  `check_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `count_money` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注金额',
+  `win_money` float(11, 2) NULL DEFAULT 0.00 COMMENT '中奖金额',
+  `type1_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和大的金额',
+  `type1_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和小的金额',
+  `type1_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和单的金额',
+  `type1_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和双的金额',
+  `type1_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和3的金额',
+  `type1_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和4的金额',
+  `type1_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和5的金额',
+  `type1_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和6的金额',
+  `type1_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和7的金额',
+  `type1_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和8的金额',
+  `type1_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和9的金额',
+  `type1_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和10的金额',
+  `type1_num11` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和11的金额',
+  `type1_num12` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和12的金额',
+  `type1_num13` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和13的金额',
+  `type1_num14` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和14的金额',
+  `type1_num15` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和15的金额',
+  `type1_num16` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和16的金额',
+  `type1_num17` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和17的金额',
+  `type1_num18` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和18的金额',
+  `type1_num19` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠亚和19的金额',
+  `type2_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军大的金额',
+  `type2_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军小的金额',
+  `type2_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军单的金额',
+  `type2_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军双的金额',
+  `type2_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军龙的金额',
+  `type2_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军虎的金额',
+  `type2_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军1的金额',
+  `type2_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军2的金额',
+  `type2_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军3的金额',
+  `type2_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军4的金额',
+  `type2_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军5的金额',
+  `type2_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军6的金额',
+  `type2_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军7的金额',
+  `type2_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军8的金额',
+  `type2_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军9的金额',
+  `type2_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注冠军10的金额',
+  `type3_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军大的金额',
+  `type3_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军小的金额',
+  `type3_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军单的金额',
+  `type3_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军双的金额',
+  `type3_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军龙的金额',
+  `type3_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军虎的金额',
+  `type3_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军1的金额',
+  `type3_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军2的金额',
+  `type3_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军3的金额',
+  `type3_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军4的金额',
+  `type3_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军5的金额',
+  `type3_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军6的金额',
+  `type3_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军7的金额',
+  `type3_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军8的金额',
+  `type3_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军9的金额',
+  `type3_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注亚军10的金额',
+  `type4_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名大的金额',
+  `type4_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名小的金额',
+  `type4_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名单的金额',
+  `type4_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名双的金额',
+  `type4_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名龙的金额',
+  `type4_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名虎的金额',
+  `type4_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名1的金额',
+  `type4_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名2的金额',
+  `type4_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名3的金额',
+  `type4_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名4的金额',
+  `type4_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名5的金额',
+  `type4_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名6的金额',
+  `type4_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名7的金额',
+  `type4_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名8的金额',
+  `type4_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名9的金额',
+  `type4_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第三名10的金额',
+  `type5_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名大的金额',
+  `type5_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名小的金额',
+  `type5_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名单的金额',
+  `type5_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名双的金额',
+  `type5_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名龙的金额',
+  `type5_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名虎的金额',
+  `type5_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名1的金额',
+  `type5_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名2的金额',
+  `type5_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名3的金额',
+  `type5_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名4的金额',
+  `type5_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名5的金额',
+  `type5_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名6的金额',
+  `type5_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名7的金额',
+  `type5_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名8的金额',
+  `type5_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名9的金额',
+  `type5_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第四名10的金额',
+  `type6_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名大的金额',
+  `type6_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名小的金额',
+  `type6_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名单的金额',
+  `type6_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名双的金额',
+  `type6_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名龙的金额',
+  `type6_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名虎的金额',
+  `type6_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名1的金额',
+  `type6_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名2的金额',
+  `type6_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名3的金额',
+  `type6_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名4的金额',
+  `type6_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名5的金额',
+  `type6_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名6的金额',
+  `type6_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名7的金额',
+  `type6_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名8的金额',
+  `type6_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名9的金额',
+  `type6_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第五名10的金额',
+  `type7_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名大的金额',
+  `type7_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名小的金额',
+  `type7_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名单的金额',
+  `type7_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名双的金额',
+  `type7_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名龙的金额',
+  `type7_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名虎的金额',
+  `type7_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名1的金额',
+  `type7_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名2的金额',
+  `type7_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名3的金额',
+  `type7_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名4的金额',
+  `type7_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名5的金额',
+  `type7_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名6的金额',
+  `type7_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名7的金额',
+  `type7_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名8的金额',
+  `type7_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名9的金额',
+  `type7_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第六名10的金额',
+  `type8_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名大的金额',
+  `type8_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名小的金额',
+  `type8_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名单的金额',
+  `type8_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名双的金额',
+  `type8_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名龙的金额',
+  `type8_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名虎的金额',
+  `type8_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名1的金额',
+  `type8_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名2的金额',
+  `type8_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名3的金额',
+  `type8_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名4的金额',
+  `type8_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名5的金额',
+  `type8_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名6的金额',
+  `type8_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名7的金额',
+  `type8_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名8的金额',
+  `type8_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名9的金额',
+  `type8_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第七名10的金额',
+  `type9_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名大的金额',
+  `type9_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名小的金额',
+  `type9_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名单的金额',
+  `type9_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名双的金额',
+  `type9_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名龙的金额',
+  `type9_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名虎的金额',
+  `type9_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名1的金额',
+  `type9_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名2的金额',
+  `type9_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名3的金额',
+  `type9_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名4的金额',
+  `type9_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名5的金额',
+  `type9_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名6的金额',
+  `type9_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名7的金额',
+  `type9_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名8的金额',
+  `type9_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名9的金额',
+  `type9_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第八名10的金额',
+  `type10_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名大的金额',
+  `type10_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名小的金额',
+  `type10_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名单的金额',
+  `type10_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名双的金额',
+  `type10_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名龙的金额',
+  `type10_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名虎的金额',
+  `type10_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名1的金额',
+  `type10_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名2的金额',
+  `type10_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名3的金额',
+  `type10_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名4的金额',
+  `type10_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名5的金额',
+  `type10_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名6的金额',
+  `type10_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名7的金额',
+  `type10_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名8的金额',
+  `type10_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名9的金额',
+  `type10_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第九名10的金额',
+  `type11_big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名大的金额',
+  `type11_small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名小的金额',
+  `type11_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名单的金额',
+  `type11_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名双的金额',
+  `type11_loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名龙的金额',
+  `type11_tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名虎的金额',
+  `type11_num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名1的金额',
+  `type11_num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名2的金额',
+  `type11_num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名3的金额',
+  `type11_num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名4的金额',
+  `type11_num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名5的金额',
+  `type11_num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名6的金额',
+  `type11_num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名7的金额',
+  `type11_num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名8的金额',
+  `type11_num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名9的金额',
+  `type11_num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注第十名10的金额',
+  `big_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注大单的金额',
+  `big_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注大双的金额',
+  `small_single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注小单的金额',
+  `small_double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注小双的金额',
+  `num1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `num2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `num3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `num4` int(11) NULL DEFAULT NULL COMMENT '开奖号码4',
+  `num5` int(11) NULL DEFAULT NULL COMMENT '开奖号码5',
+  `num6` int(11) NULL DEFAULT NULL COMMENT '开奖号码6',
+  `num7` int(11) NULL DEFAULT NULL COMMENT '开奖号码7',
+  `num8` int(11) NULL DEFAULT NULL COMMENT '开奖号码8',
+  `num9` int(11) NULL DEFAULT NULL COMMENT '开奖号码9',
+  `num10` int(11) NULL DEFAULT NULL COMMENT '开奖号码10',
+  `sum_num` int(11) NULL DEFAULT 0 COMMENT '开奖合算数字',
+  `is_delete` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否扣除(0否 1是)',
+  `is_deduct` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否扣除',
+  `house` int(4) NOT NULL DEFAULT 0 COMMENT '房间号',
+  `hz_id` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否合庄模式',
+  `hz_user` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否用户(0否 1是)',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE,
+  INDEX `user_id_2`(`user_id`, `periods`, `game_id`, `status`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '10球下注表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_tenball_record
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for game_threeball_kj
+-- ----------------------------
+DROP TABLE IF EXISTS `game_threeball_kj`;
+CREATE TABLE `game_threeball_kj`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '10球开奖开奖表ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `num1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `num2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `num3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `sum_num` int(11) NULL DEFAULT NULL COMMENT '开奖合计号码',
+  `bet_time` datetime NOT NULL COMMENT '封盘投注截止时间',
+  `pre_time` datetime NOT NULL COMMENT '预计开奖时间',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否已经开奖（0未开奖 1已开奖）',
+  `the_time` datetime NULL DEFAULT NULL COMMENT '开奖时间',
+  `count_money` int(11) NULL DEFAULT 0 COMMENT '总下注金额',
+  `win_money` int(11) NULL DEFAULT 0 COMMENT '总中奖金额',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE,
+  INDEX `status`(`periods`, `status`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '3球开奖表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_threeball_kj
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for game_threeball_open_data
+-- ----------------------------
+DROP TABLE IF EXISTS `game_threeball_open_data`;
+CREATE TABLE `game_threeball_open_data`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '3球开奖历史ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `time` datetime NULL DEFAULT NULL COMMENT '开奖时间',
+  `sum_1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `sum_2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `sum_3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '3球开奖历史表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_threeball_open_data
+-- ----------------------------
+INSERT INTO `game_threeball_open_data` VALUES (1, 3124698, 2, '加拿大2.8', '2024-04-06 12:17:30', 2, 0, 3, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (2, 3124699, 2, '加拿大2.8', '2024-04-06 12:21:00', 8, 0, 3, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (3, 3124700, 2, '加拿大2.8', '2024-04-06 12:24:30', 9, 9, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (4, 3124701, 2, '加拿大2.8', '2024-04-06 12:28:00', 0, 6, 3, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (5, 3124702, 2, '加拿大2.8', '2024-04-06 12:31:30', 6, 1, 0, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (6, 3124703, 2, '加拿大2.8', '2024-04-06 12:35:00', 9, 6, 8, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (7, 3124704, 2, '加拿大2.8', '2024-04-06 12:38:30', 1, 6, 8, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (8, 3124705, 2, '加拿大2.8', '2024-04-06 12:42:00', 7, 1, 8, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (9, 3124706, 2, '加拿大2.8', '2024-04-06 12:45:30', 6, 7, 0, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (10, 3124707, 2, '加拿大2.8', '2024-04-06 12:49:00', 8, 5, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (11, 3124708, 2, '加拿大2.8', '2024-04-06 12:52:30', 3, 3, 1, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (12, 3124709, 2, '加拿大2.8', '2024-04-06 12:56:00', 9, 4, 6, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (13, 3124710, 2, '加拿大2.8', '2024-04-06 12:59:30', 6, 8, 5, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (14, 3124711, 2, '加拿大2.8', '2024-04-06 13:03:00', 9, 9, 6, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (15, 3124712, 2, '加拿大2.8', '2024-04-06 13:06:30', 9, 1, 0, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (16, 3124713, 2, '加拿大2.8', '2024-04-06 13:10:00', 3, 4, 9, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (17, 3124714, 2, '加拿大2.8', '2024-04-06 13:13:30', 5, 3, 4, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (18, 3124715, 2, '加拿大2.8', '2024-04-06 13:17:00', 7, 4, 7, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (19, 3124716, 2, '加拿大2.8', '2024-04-06 13:20:30', 8, 0, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (20, 3124717, 2, '加拿大2.8', '2024-04-06 13:24:00', 8, 8, 8, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (21, 3124718, 2, '加拿大2.8', '2024-04-06 13:27:30', 6, 2, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (22, 3124719, 2, '加拿大2.8', '2024-04-06 13:31:00', 8, 6, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (23, 3124720, 2, '加拿大2.8', '2024-04-06 13:34:30', 2, 0, 6, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (24, 3124721, 2, '加拿大2.8', '2024-04-06 13:38:00', 3, 7, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (25, 3124722, 2, '加拿大2.8', '2024-04-06 13:41:30', 4, 8, 0, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (26, 3124723, 2, '加拿大2.8', '2024-04-06 13:45:00', 0, 3, 1, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (27, 3124724, 2, '加拿大2.8', '2024-04-06 13:48:30', 3, 3, 5, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (28, 3124725, 2, '加拿大2.8', '2024-04-06 13:52:00', 8, 4, 6, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (29, 3124726, 2, '加拿大2.8', '2024-04-06 13:55:30', 7, 1, 8, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (30, 3124727, 2, '加拿大2.8', '2024-04-06 13:59:00', 2, 7, 1, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (31, 3124728, 2, '加拿大2.8', '2024-04-06 14:02:30', 9, 2, 5, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (32, 3124729, 2, '加拿大2.8', '2024-04-06 14:06:00', 7, 1, 0, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (33, 3124730, 2, '加拿大2.8', '2024-04-06 14:09:30', 7, 9, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (34, 3124731, 2, '加拿大2.8', '2024-04-06 14:13:00', 6, 7, 6, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (35, 3124732, 2, '加拿大2.8', '2024-04-06 14:16:30', 8, 5, 9, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (36, 3124733, 2, '加拿大2.8', '2024-04-06 14:20:00', 6, 6, 9, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (37, 3124734, 2, '加拿大2.8', '2024-04-06 14:23:30', 9, 1, 3, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (38, 3124735, 2, '加拿大2.8', '2024-04-06 14:27:00', 5, 5, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (39, 3124736, 2, '加拿大2.8', '2024-04-06 14:30:30', 9, 9, 9, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (40, 3124737, 2, '加拿大2.8', '2024-04-06 14:34:00', 7, 5, 1, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (41, 3124738, 2, '加拿大2.8', '2024-04-06 14:37:30', 1, 7, 3, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (42, 3124739, 2, '加拿大2.8', '2024-04-06 14:41:00', 9, 2, 4, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (43, 3124740, 2, '加拿大2.8', '2024-04-06 14:44:30', 0, 4, 4, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (44, 3124741, 2, '加拿大2.8', '2024-04-06 14:48:00', 8, 1, 2, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (45, 3124742, 2, '加拿大2.8', '2024-04-06 14:51:30', 5, 2, 9, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (46, 3124743, 2, '加拿大2.8', '2024-04-06 14:55:00', 4, 5, 0, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (47, 3124744, 2, '加拿大2.8', '2024-04-06 14:58:30', 7, 9, 1, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (48, 3124745, 2, '加拿大2.8', '2024-04-06 15:02:00', 4, 8, 4, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (49, 3124746, 2, '加拿大2.8', '2024-04-06 15:05:30', 4, 6, 0, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (50, 3124747, 2, '加拿大2.8', '2024-04-06 15:09:00', 4, 3, 7, 'TASK', '2024-04-06 15:10:52', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (51, 3124748, 2, '加拿大2.8', '2024-04-06 15:12:30', 4, 8, 7, 'TASK', '2024-04-06 15:13:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (52, 3124749, 2, '加拿大2.8', '2024-04-06 15:16:00', 6, 7, 9, 'TASK', '2024-04-06 15:17:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (53, 3124750, 2, '加拿大2.8', '2024-04-06 15:19:30', 9, 9, 3, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
+
+-- ----------------------------
+-- Table structure for game_threeball_record
+-- ----------------------------
+DROP TABLE IF EXISTS `game_threeball_record`;
+CREATE TABLE `game_threeball_record`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '下注表ID',
+  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+  `periods` bigint(20) NOT NULL COMMENT '期数',
+  `game_id` bigint(20) NOT NULL COMMENT '游戏ID',
+  `game_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '游戏名',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '投注状态（0投注 1撤单）',
+  `record_time` datetime NOT NULL COMMENT '投注时间',
+  `check_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '确认时间',
+  `count_money` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注金额',
+  `win_money` float(11, 2) NULL DEFAULT 0.00 COMMENT '中奖金额',
+  `big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注大的金额',
+  `small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注小的金额',
+  `single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注单的金额',
+  `double_amount` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注双的金额',
+  `much_Big` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注极大的金额',
+  `big_Single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注大单的金额',
+  `small_Single` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注小单的金额',
+  `big_Double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注大双的金额',
+  `small_Double` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注小双的金额',
+  `much_Small` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注极小的金额',
+  `num0` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字0的金额',
+  `num1` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字1的金额',
+  `num2` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字2的金额',
+  `num3` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字3的金额',
+  `num4` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字4的金额',
+  `num5` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字5的金额',
+  `num6` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字6的金额',
+  `num7` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字7的金额',
+  `num8` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字8的金额',
+  `num9` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字9的金额',
+  `num10` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字10的金额',
+  `num11` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字11的金额',
+  `num12` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字12的金额',
+  `num13` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字13的金额',
+  `num14` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字14的金额',
+  `num15` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字15的金额',
+  `num16` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字16的金额',
+  `num17` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字17的金额',
+  `num18` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字18的金额',
+  `num19` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字19的金额',
+  `num20` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字20的金额',
+  `num21` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字21的金额',
+  `num22` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字22的金额',
+  `num23` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字23的金额',
+  `num24` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字24的金额',
+  `num25` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字25的金额',
+  `num26` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字26的金额',
+  `num27` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注数字27的金额',
+  `red` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注红的金额',
+  `green` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注绿的金额',
+  `blue` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注蓝的金额',
+  `loong` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注龙的金额',
+  `tiger` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注虎的金额',
+  `close` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注合的金额',
+  `leopard` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注豹子的金额',
+  `pairs` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注对子的金额',
+  `shun` float(11, 2) NULL DEFAULT 0.00 COMMENT '下注顺子的金额',
+  `vip` int(4) NOT NULL COMMENT 'VIP房间',
+  `n1` int(11) NULL DEFAULT NULL COMMENT '开奖号码1',
+  `n2` int(11) NULL DEFAULT NULL COMMENT '开奖号码2',
+  `n3` int(11) NULL DEFAULT NULL COMMENT '开奖号码3',
+  `sum_num` int(11) NULL DEFAULT 0 COMMENT '开奖合算数字',
+  `is_delete` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否扣除(0否 1是)',
+  `is_deduct` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否扣除',
+  `house` int(4) NOT NULL DEFAULT 0 COMMENT '房间号',
+  `hz_id` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '是否合庄模式',
+  `hz_user` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否用户(0否 1是)',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE,
+  INDEX `user_id_2`(`user_id`, `periods`, `status`, `game_id`) USING BTREE,
+  INDEX `periods`(`periods`, `game_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '3球下注表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of game_threeball_record
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for gen_table
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_table`;
@@ -720,7 +1591,7 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gen_table
@@ -744,6 +1615,15 @@ INSERT INTO `gen_table` VALUES (30, 'userwin', '用户盈亏表', NULL, NULL, 'U
 INSERT INTO `gen_table` VALUES (31, 'sys_bet_item', '游戏投注项表', NULL, NULL, 'SysBetItem', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'betItem', '游戏投注项', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-25 19:52:44', '', '2024-03-25 19:53:28', NULL);
 INSERT INTO `gen_table` VALUES (33, 'wave', '数字红绿蓝属性表', NULL, NULL, 'Wave', 'crud', '', 'com.ruoyi.system', 'system', 'wave', '数字红绿蓝属性', 'ruoyi', '0', '/', NULL, 'admin', '2024-03-27 20:56:32', '', NULL, NULL);
 INSERT INTO `gen_table` VALUES (34, 'jssscrecord', '极速时时彩下注表', NULL, NULL, 'Jssscrecord', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'jssscrecord', '极速时时彩下注', 'ruoyi', '0', '/', '{}', 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25', NULL);
+INSERT INTO `gen_table` VALUES (35, 'game_fiveball_kj', '5球开奖表', NULL, NULL, 'GameFiveballKj', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'fiveBallKj', '5球开奖', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59', NULL);
+INSERT INTO `gen_table` VALUES (36, 'game_fiveball_open_data', '5球开奖历史表', NULL, NULL, 'GameFiveballOpenData', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'fiveBallData', '5球开奖历史', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23', NULL);
+INSERT INTO `gen_table` VALUES (37, 'game_fiveball_record', '5球下注表', NULL, NULL, 'GameFiveballRecord', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'fiveBallRecord', '5球下注', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42', NULL);
+INSERT INTO `gen_table` VALUES (38, 'game_tenball_kj', '10球开奖开奖表', NULL, NULL, 'GameTenballKj', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'tenBallKj', '10球开奖开奖', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18', NULL);
+INSERT INTO `gen_table` VALUES (39, 'game_tenball_open_data', '10球开奖历史表', NULL, NULL, 'GameTenballOpenData', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'tenBallData', '10球开奖历史', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32', NULL);
+INSERT INTO `gen_table` VALUES (40, 'game_tenball_record', '10球下注表', NULL, NULL, 'GameTenballRecord', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'tenBallRecord', '10球下注', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52', NULL);
+INSERT INTO `gen_table` VALUES (41, 'game_threeball_kj', '3球开奖表', NULL, NULL, 'GameThreeballKj', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'threeBallKj', '3球开奖', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05', NULL);
+INSERT INTO `gen_table` VALUES (42, 'game_threeball_open_data', '3球开奖历史表', NULL, NULL, 'GameThreeballOpenData', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'threeBallData', '3球开奖历史', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15', NULL);
+INSERT INTO `gen_table` VALUES (43, 'game_threeball_record', '3球下注表', NULL, NULL, 'GameThreeballRecord', 'crud', 'element-ui', 'com.ruoyi.system', 'system', 'threeBallRecord', '3球下注', 'ruoyi', '0', '/', '{}', 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05', NULL);
 
 -- ----------------------------
 -- Table structure for gen_table_column
@@ -773,7 +1653,7 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1495 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2030 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gen_table_column
@@ -1491,6 +2371,541 @@ INSERT INTO `gen_table_column` VALUES (1491, 34, 'create_time', '创建时间', 
 INSERT INTO `gen_table_column` VALUES (1492, 34, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 114, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
 INSERT INTO `gen_table_column` VALUES (1493, 34, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 115, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
 INSERT INTO `gen_table_column` VALUES (1494, 34, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 116, 'admin', '2024-03-27 22:59:12', '', '2024-03-27 23:02:25');
+INSERT INTO `gen_table_column` VALUES (1495, 35, 'id', '5球开奖历史ID', 'bigint(20) unsigned', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1496, 35, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1497, 35, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1498, 35, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1499, 35, 'status', '是否已经开奖（0未开奖 1已开奖）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1500, 35, 'bet_time', '封盘投注截止时间', 'datetime', 'Date', 'betTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1501, 35, 'pre_time', '预计开奖时间', 'datetime', 'Date', 'preTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1502, 35, 'the_time', '开奖时间', 'datetime', 'Date', 'theTime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1503, 35, 'count_money', '总下注金额', 'int(11)', 'Long', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1504, 35, 'win_money', '总中奖金额', 'int(11)', 'Long', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1505, 35, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1506, 35, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1507, 35, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1508, 35, 'num4', '开奖号码4', 'int(11)', 'Long', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1509, 35, 'num5', '开奖号码5', 'int(11)', 'Long', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1510, 35, 'sum', '开奖合计号码', 'int(11)', 'Long', 'sum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1511, 35, 'num1_bs', '开奖号码1大小', 'int(11)', 'Long', 'num1Bs', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1512, 35, 'num1_sd', '开奖号码1单双', 'int(11)', 'Long', 'num1Sd', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1513, 35, 'num2_bs', '开奖号码2大小', 'int(11)', 'Long', 'num2Bs', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1514, 35, 'num2_sd', '开奖号码2单双', 'int(11)', 'Long', 'num2Sd', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1515, 35, 'num3_bs', '开奖号码3大小', 'int(11)', 'Long', 'num3Bs', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1516, 35, 'num3_sd', '开奖号码3单双', 'int(11)', 'Long', 'num3Sd', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1517, 35, 'num4_bs', '开奖号码4大小', 'int(11)', 'Long', 'num4Bs', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1518, 35, 'num4_sd', '开奖号码4单双', 'int(11)', 'Long', 'num4Sd', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1519, 35, 'num5_bs', '开奖号码5大小', 'int(11)', 'Long', 'num5Bs', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1520, 35, 'num5_sd', '开奖号码5单双', 'int(11)', 'Long', 'num5Sd', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 26, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1521, 35, 'sum_bs', '开奖合计号码大小', 'int(11)', 'Long', 'sumBs', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1522, 35, 'sum_sd', '开奖合计号码单双', 'int(11)', 'Long', 'sumSd', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1523, 35, 'sum_lts', '开奖合计号码和虎龙', 'int(11)', 'Long', 'sumLts', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1524, 35, 'num_f', '开奖号码(123)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]', 'int(11)', 'Long', 'numF', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 30, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1525, 35, 'num_m', '开奖号码(234)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]', 'int(11)', 'Long', 'numM', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 31, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1526, 35, 'num_b', '开奖号码(345)豹对顺半杂[0:豹子 1:对 2:顺 3:半 4:杂]', 'int(11)', 'Long', 'numB', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 32, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1527, 35, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 33, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1528, 35, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 34, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1529, 35, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 35, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1530, 35, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 36, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1531, 35, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 37, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:14:59');
+INSERT INTO `gen_table_column` VALUES (1532, 36, 'id', '5球开奖历史ID', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1533, 36, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1534, 36, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1535, 36, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1536, 36, 'time', '开奖时间', 'datetime', 'Date', 'time', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1537, 36, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1538, 36, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1539, 36, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1540, 36, 'num4', '开奖号码4', 'int(11)', 'Long', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1541, 36, 'num5', '开奖号码5', 'int(11)', 'Long', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1542, 36, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1543, 36, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1544, 36, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1545, 36, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1546, 36, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:23');
+INSERT INTO `gen_table_column` VALUES (1547, 37, 'id', '下注表ID', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1548, 37, 'user_id', '用户ID', 'bigint(20)', 'Long', 'userId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1549, 37, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1550, 37, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1551, 37, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1552, 37, 'status', '投注状态（0投注 1撤单）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1553, 37, 'record_time', '投注时间', 'datetime', 'Date', 'recordTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1554, 37, 'check_time', '确认时间', 'timestamp', 'Date', 'checkTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1555, 37, 'count_money', '下注金额', 'float(11,2)', 'BigDecimal', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1556, 37, 'win_money', '中奖金额', 'float(11,2)', 'BigDecimal', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1557, 37, 'sum_big', '下注和值大的金额', 'float(11,2)', 'BigDecimal', 'sumBig', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1558, 37, 'sum_small', '下注和值小的金额', 'float(11,2)', 'BigDecimal', 'sumSmall', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1559, 37, 'sum_single', '下注和值单的金额', 'float(11,2)', 'BigDecimal', 'sumSingle', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1560, 37, 'sum_double', '下注和值双的金额', 'float(11,2)', 'BigDecimal', 'sumDouble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1561, 37, 'sum_loong', '下注和值龙的金额', 'float(11,2)', 'BigDecimal', 'sumLoong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1562, 37, 'sum_tiger', '下注和值虎的金额', 'float(11,2)', 'BigDecimal', 'sumTiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1563, 37, 'sum_sum', '下注和值和的金额', 'float(11,2)', 'BigDecimal', 'sumSum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1564, 37, 'num1_big', '下注买1号球大的金额', 'float(11,2)', 'BigDecimal', 'num1Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1565, 37, 'num1_small', '下注买1号球小的金额', 'float(11,2)', 'BigDecimal', 'num1Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1566, 37, 'num1_single', '下注买1号球单的金额', 'float(11,2)', 'BigDecimal', 'num1Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1567, 37, 'num1_double', '下注买1号球双的金额', 'float(11,2)', 'BigDecimal', 'num1Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1568, 37, 'num1_ball0', '下注买1号球0的金额', 'float(11,2)', 'BigDecimal', 'num1Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1569, 37, 'num1_ball1', '下注买1号球1的金额', 'float(11,2)', 'BigDecimal', 'num1Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1570, 37, 'num1_ball2', '下注买1号球2的金额', 'float(11,2)', 'BigDecimal', 'num1Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1571, 37, 'num1_ball3', '下注买1号球3的金额', 'float(11,2)', 'BigDecimal', 'num1Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1572, 37, 'num1_ball4', '下注买1号球4的金额', 'float(11,2)', 'BigDecimal', 'num1Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 26, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1573, 37, 'num1_ball5', '下注买1号球5的金额', 'float(11,2)', 'BigDecimal', 'num1Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1574, 37, 'num1_ball6', '下注买1号球6的金额', 'float(11,2)', 'BigDecimal', 'num1Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1575, 37, 'num1_ball7', '下注买1号球7的金额', 'float(11,2)', 'BigDecimal', 'num1Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1576, 37, 'num1_ball8', '下注买1号球8的金额', 'float(11,2)', 'BigDecimal', 'num1Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 30, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1577, 37, 'num1_ball9', '下注买1号球9的金额', 'float(11,2)', 'BigDecimal', 'num1Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 31, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1578, 37, 'num2_big', '下注买2号球大的金额', 'float(11,2)', 'BigDecimal', 'num2Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 32, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1579, 37, 'num2_small', '下注买2号球小的金额', 'float(11,2)', 'BigDecimal', 'num2Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 33, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1580, 37, 'num2_single', '下注买2号球单的金额', 'float(11,2)', 'BigDecimal', 'num2Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 34, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1581, 37, 'num2_double', '下注买2号球双的金额', 'float(11,2)', 'BigDecimal', 'num2Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 35, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1582, 37, 'num2_ball0', '下注买2号球0的金额', 'float(11,2)', 'BigDecimal', 'num2Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 36, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1583, 37, 'num2_ball1', '下注买2号球1的金额', 'float(11,2)', 'BigDecimal', 'num2Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 37, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1584, 37, 'num2_ball2', '下注买2号球2的金额', 'float(11,2)', 'BigDecimal', 'num2Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 38, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1585, 37, 'num2_ball3', '下注买2号球3的金额', 'float(11,2)', 'BigDecimal', 'num2Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 39, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1586, 37, 'num2_ball4', '下注买2号球4的金额', 'float(11,2)', 'BigDecimal', 'num2Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 40, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1587, 37, 'num2_ball5', '下注买2号球5的金额', 'float(11,2)', 'BigDecimal', 'num2Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 41, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1588, 37, 'num2_ball6', '下注买2号球6的金额', 'float(11,2)', 'BigDecimal', 'num2Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 42, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1589, 37, 'num2_ball7', '下注买2号球7的金额', 'float(11,2)', 'BigDecimal', 'num2Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 43, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1590, 37, 'num2_ball8', '下注买2号球8的金额', 'float(11,2)', 'BigDecimal', 'num2Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 44, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1591, 37, 'num2_ball9', '下注买2号球9的金额', 'float(11,2)', 'BigDecimal', 'num2Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 45, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1592, 37, 'num3_big', '下注买3号球大的金额', 'float(11,2)', 'BigDecimal', 'num3Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 46, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1593, 37, 'num3_small', '下注买3号球小的金额', 'float(11,2)', 'BigDecimal', 'num3Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 47, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1594, 37, 'num3_single', '下注买3号球单的金额', 'float(11,2)', 'BigDecimal', 'num3Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 48, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1595, 37, 'num3_double', '下注买3号球双的金额', 'float(11,2)', 'BigDecimal', 'num3Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 49, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1596, 37, 'num3_ball0', '下注买3号球0的金额', 'float(11,2)', 'BigDecimal', 'num3Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 50, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1597, 37, 'num3_ball1', '下注买3号球1的金额', 'float(11,2)', 'BigDecimal', 'num3Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 51, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1598, 37, 'num3_ball2', '下注买3号球2的金额', 'float(11,2)', 'BigDecimal', 'num3Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 52, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1599, 37, 'num3_ball3', '下注买3号球3的金额', 'float(11,2)', 'BigDecimal', 'num3Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 53, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1600, 37, 'num3_ball4', '下注买3号球4的金额', 'float(11,2)', 'BigDecimal', 'num3Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 54, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1601, 37, 'num3_ball5', '下注买3号球5的金额', 'float(11,2)', 'BigDecimal', 'num3Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 55, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1602, 37, 'num3_ball6', '下注买3号球6的金额', 'float(11,2)', 'BigDecimal', 'num3Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 56, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1603, 37, 'num3_ball7', '下注买3号球7的金额', 'float(11,2)', 'BigDecimal', 'num3Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 57, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1604, 37, 'num3_ball8', '下注买3号球8的金额', 'float(11,2)', 'BigDecimal', 'num3Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 58, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1605, 37, 'num3_ball9', '下注买3号球9的金额', 'float(11,2)', 'BigDecimal', 'num3Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 59, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1606, 37, 'num4_big', '下注买4号球大的金额', 'float(11,2)', 'BigDecimal', 'num4Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 60, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1607, 37, 'num4_small', '下注买4号球小的金额', 'float(11,2)', 'BigDecimal', 'num4Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 61, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1608, 37, 'num4_single', '下注买4号球单的金额', 'float(11,2)', 'BigDecimal', 'num4Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 62, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1609, 37, 'num4_double', '下注买4号球双的金额', 'float(11,2)', 'BigDecimal', 'num4Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 63, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1610, 37, 'num4_ball0', '下注买4号球0的金额', 'float(11,2)', 'BigDecimal', 'num4Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 64, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1611, 37, 'num4_ball1', '下注买4号球1的金额', 'float(11,2)', 'BigDecimal', 'num4Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 65, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1612, 37, 'num4_ball2', '下注买4号球2的金额', 'float(11,2)', 'BigDecimal', 'num4Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 66, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1613, 37, 'num4_ball3', '下注买4号球3的金额', 'float(11,2)', 'BigDecimal', 'num4Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 67, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1614, 37, 'num4_ball4', '下注买4号球4的金额', 'float(11,2)', 'BigDecimal', 'num4Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 68, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1615, 37, 'num4_ball5', '下注买4号球5的金额', 'float(11,2)', 'BigDecimal', 'num4Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 69, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1616, 37, 'num4_ball6', '下注买4号球6的金额', 'float(11,2)', 'BigDecimal', 'num4Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 70, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1617, 37, 'num4_ball7', '下注买4号球7的金额', 'float(11,2)', 'BigDecimal', 'num4Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 71, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1618, 37, 'num4_ball8', '下注买4号球8的金额', 'float(11,2)', 'BigDecimal', 'num4Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 72, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1619, 37, 'num4_ball9', '下注买4号球9的金额', 'float(11,2)', 'BigDecimal', 'num4Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 73, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1620, 37, 'num5_big', '下注买5号球大的金额', 'float(11,2)', 'BigDecimal', 'num5Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 74, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1621, 37, 'num5_small', '下注买5号球小的金额', 'float(11,2)', 'BigDecimal', 'num5Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 75, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1622, 37, 'num5_single', '下注买5号球单的金额', 'float(11,2)', 'BigDecimal', 'num5Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 76, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1623, 37, 'num5_double', '下注买5号球双的金额', 'float(11,2)', 'BigDecimal', 'num5Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 77, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1624, 37, 'num5_ball0', '下注买5号球0的金额', 'float(11,2)', 'BigDecimal', 'num5Ball0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 78, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1625, 37, 'num5_ball1', '下注买5号球1的金额', 'float(11,2)', 'BigDecimal', 'num5Ball1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 79, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1626, 37, 'num5_ball2', '下注买5号球2的金额', 'float(11,2)', 'BigDecimal', 'num5Ball2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 80, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1627, 37, 'num5_ball3', '下注买5号球3的金额', 'float(11,2)', 'BigDecimal', 'num5Ball3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 81, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1628, 37, 'num5_ball4', '下注买5号球4的金额', 'float(11,2)', 'BigDecimal', 'num5Ball4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 82, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1629, 37, 'num5_ball5', '下注买5号球5的金额', 'float(11,2)', 'BigDecimal', 'num5Ball5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 83, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1630, 37, 'num5_ball6', '下注买5号球6的金额', 'float(11,2)', 'BigDecimal', 'num5Ball6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 84, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1631, 37, 'num5_ball7', '下注买5号球7的金额', 'float(11,2)', 'BigDecimal', 'num5Ball7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 85, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1632, 37, 'num5_ball8', '下注买5号球8的金额', 'float(11,2)', 'BigDecimal', 'num5Ball8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 86, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1633, 37, 'num5_ball9', '下注买5号球9的金额', 'float(11,2)', 'BigDecimal', 'num5Ball9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 87, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1634, 37, 'first_bao', '下注买前三豹的金额', 'float(11,2)', 'BigDecimal', 'firstBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 88, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1635, 37, 'first_dui', '下注买前三对的金额', 'float(11,2)', 'BigDecimal', 'firstDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 89, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1636, 37, 'first_sun', '下注买前三顺的金额', 'float(11,2)', 'BigDecimal', 'firstSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 90, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1637, 37, 'first_ban', '下注买前三半的金额', 'float(11,2)', 'BigDecimal', 'firstBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 91, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1638, 37, 'first_za', '下注买前三杂的金额', 'float(11,2)', 'BigDecimal', 'firstZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 92, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1639, 37, 'mid_bao', '下注买中三豹的的金额', 'float(11,2)', 'BigDecimal', 'midBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 93, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1640, 37, 'mid_dui', '下注买中三对的的金额', 'float(11,2)', 'BigDecimal', 'midDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 94, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1641, 37, 'mid_sun', '下注买中三顺的的金额', 'float(11,2)', 'BigDecimal', 'midSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 95, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1642, 37, 'mid_ban', '下注买中三半的的金额', 'float(11,2)', 'BigDecimal', 'midBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 96, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1643, 37, 'mid_za', '下注买中三杂的的金额', 'float(11,2)', 'BigDecimal', 'midZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 97, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1644, 37, 'back_bao', '下注买后三豹的的金额', 'float(11,2)', 'BigDecimal', 'backBao', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 98, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1645, 37, 'back_dui', '下注买后三对的的金额', 'float(11,2)', 'BigDecimal', 'backDui', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 99, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1646, 37, 'back_sun', '下注买后三顺的的金额', 'float(11,2)', 'BigDecimal', 'backSun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 100, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1647, 37, 'back_ban', '下注买后三半的的金额', 'float(11,2)', 'BigDecimal', 'backBan', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 101, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1648, 37, 'back_za', '下注买后三杂的的金额', 'float(11,2)', 'BigDecimal', 'backZa', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 102, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1649, 37, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 103, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1650, 37, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 104, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1651, 37, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 105, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1652, 37, 'num4', '开奖号码4', 'int(11)', 'Long', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 106, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1653, 37, 'num5', '开奖号码5', 'int(11)', 'Long', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 107, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1654, 37, 'sum', '开奖合算数字', 'int(11)', 'Long', 'sum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 108, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1655, 37, 'is_delete', '是否扣除(0否 1是)', 'char(1)', 'String', 'isDelete', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 109, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1656, 37, 'is_deduct', '是否扣除', 'char(1)', 'String', 'isDeduct', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 110, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1657, 37, 'house', '房间号', 'int(4)', 'Integer', 'house', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 111, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1658, 37, 'hz_id', '是否合庄模式', 'char(1)', 'String', 'hzId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 112, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1659, 37, 'hz_user', '是否用户(0否 1是)', 'char(1)', 'String', 'hzUser', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 113, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1660, 37, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 114, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1661, 37, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 115, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1662, 37, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 116, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1663, 37, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 117, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1664, 37, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 118, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:15:42');
+INSERT INTO `gen_table_column` VALUES (1665, 38, 'id', '10球开奖开奖表ID', 'bigint(20) unsigned', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1666, 38, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1667, 38, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1668, 38, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1669, 38, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1670, 38, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1671, 38, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1672, 38, 'num4', '开奖号码4', 'int(11)', 'Long', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1673, 38, 'num5', '开奖号码5', 'int(11)', 'Long', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1674, 38, 'num6', '开奖号码6', 'int(11)', 'Long', 'num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1675, 38, 'num7', '开奖号码7', 'int(11)', 'Long', 'num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1676, 38, 'num8', '开奖号码8', 'int(11)', 'Long', 'num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1677, 38, 'num9', '开奖号码9', 'int(11)', 'Long', 'num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1678, 38, 'num10', '开奖号码10', 'int(11)', 'Long', 'num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1679, 38, 'bet_time', '封盘投注截止时间', 'datetime', 'Date', 'betTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1680, 38, 'pre_time', '预计开奖时间', 'datetime', 'Date', 'preTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 16, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1681, 38, 'status', '是否已经开奖（0未开奖 1已开奖）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 17, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1682, 38, 'the_time', '开奖时间', 'datetime', 'Date', 'theTime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 18, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1683, 38, 'count_money', '总下注金额', 'int(11)', 'Long', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1684, 38, 'win_money', '总中奖金额', 'int(11)', 'Long', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1685, 38, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 21, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1686, 38, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 22, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1687, 38, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 23, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1688, 38, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 24, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1689, 38, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 25, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:18');
+INSERT INTO `gen_table_column` VALUES (1690, 39, 'id', '期数', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1691, 39, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1692, 39, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1693, 39, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1694, 39, 'time', '开奖时间', 'datetime', 'Date', 'time', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1695, 39, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1696, 39, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1697, 39, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1698, 39, 'num4', '开奖号码4', 'int(11)', 'Long', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1699, 39, 'num5', '开奖号码5', 'int(11)', 'Long', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1700, 39, 'num6', '开奖号码6', 'int(11)', 'Long', 'num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1701, 39, 'num7', '开奖号码7', 'int(11)', 'Long', 'num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1702, 39, 'num8', '开奖号码8', 'int(11)', 'Long', 'num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1703, 39, 'num9', '开奖号码9', 'int(11)', 'Long', 'num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1704, 39, 'num10', '开奖号码10', 'int(11)', 'Long', 'num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1705, 39, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 16, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1706, 39, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 17, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1707, 39, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 18, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1708, 39, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 19, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1709, 39, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 20, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:32');
+INSERT INTO `gen_table_column` VALUES (1710, 40, 'id', '10球下注表ID', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1711, 40, 'user_id', '用户ID', 'bigint(20)', 'Long', 'userId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1712, 40, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1713, 40, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1714, 40, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1715, 40, 'status', '投注状态（0投注 1撤单）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1716, 40, 'record_time', '投注时间', 'datetime', 'Date', 'recordTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1717, 40, 'check_time', NULL, 'timestamp', 'Date', 'checkTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1718, 40, 'count_money', '下注金额', 'float(11,2)', 'BigDecimal', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1719, 40, 'win_money', '中奖金额', 'float(11,2)', 'BigDecimal', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1720, 40, 'type1_big', '下注冠亚和大的金额', 'float(11,2)', 'BigDecimal', 'type1Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1721, 40, 'type1_small', '下注冠亚和小的金额', 'float(11,2)', 'BigDecimal', 'type1Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1722, 40, 'type1_single', '下注冠亚和单的金额', 'float(11,2)', 'BigDecimal', 'type1Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1723, 40, 'type1_double', '下注冠亚和双的金额', 'float(11,2)', 'BigDecimal', 'type1Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1724, 40, 'type1_num3', '下注冠亚和3的金额', 'float(11,2)', 'BigDecimal', 'type1Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1725, 40, 'type1_num4', '下注冠亚和4的金额', 'float(11,2)', 'BigDecimal', 'type1Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1726, 40, 'type1_num5', '下注冠亚和5的金额', 'float(11,2)', 'BigDecimal', 'type1Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1727, 40, 'type1_num6', '下注冠亚和6的金额', 'float(11,2)', 'BigDecimal', 'type1Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1728, 40, 'type1_num7', '下注冠亚和7的金额', 'float(11,2)', 'BigDecimal', 'type1Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1729, 40, 'type1_num8', '下注冠亚和8的金额', 'float(11,2)', 'BigDecimal', 'type1Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1730, 40, 'type1_num9', '下注冠亚和9的金额', 'float(11,2)', 'BigDecimal', 'type1Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1731, 40, 'type1_num10', '下注冠亚和10的金额', 'float(11,2)', 'BigDecimal', 'type1Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1732, 40, 'type1_num11', '下注冠亚和11的金额', 'float(11,2)', 'BigDecimal', 'type1Num11', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1733, 40, 'type1_num12', '下注冠亚和12的金额', 'float(11,2)', 'BigDecimal', 'type1Num12', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1734, 40, 'type1_num13', '下注冠亚和13的金额', 'float(11,2)', 'BigDecimal', 'type1Num13', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1735, 40, 'type1_num14', '下注冠亚和14的金额', 'float(11,2)', 'BigDecimal', 'type1Num14', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 26, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1736, 40, 'type1_num15', '下注冠亚和15的金额', 'float(11,2)', 'BigDecimal', 'type1Num15', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1737, 40, 'type1_num16', '下注冠亚和16的金额', 'float(11,2)', 'BigDecimal', 'type1Num16', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1738, 40, 'type1_num17', '下注冠亚和17的金额', 'float(11,2)', 'BigDecimal', 'type1Num17', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1739, 40, 'type1_num18', '下注冠亚和18的金额', 'float(11,2)', 'BigDecimal', 'type1Num18', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 30, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1740, 40, 'type1_num19', '下注冠亚和19的金额', 'float(11,2)', 'BigDecimal', 'type1Num19', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 31, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1741, 40, 'type2_big', '下注冠军大的金额', 'float(11,2)', 'BigDecimal', 'type2Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 32, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1742, 40, 'type2_small', '下注冠军小的金额', 'float(11,2)', 'BigDecimal', 'type2Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 33, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1743, 40, 'type2_single', '下注冠军单的金额', 'float(11,2)', 'BigDecimal', 'type2Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 34, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1744, 40, 'type2_double', '下注冠军双的金额', 'float(11,2)', 'BigDecimal', 'type2Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 35, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1745, 40, 'type2_loong', '下注冠军龙的金额', 'float(11,2)', 'BigDecimal', 'type2Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 36, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1746, 40, 'type2_tiger', '下注冠军虎的金额', 'float(11,2)', 'BigDecimal', 'type2Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 37, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1747, 40, 'type2_num1', '下注冠军1的金额', 'float(11,2)', 'BigDecimal', 'type2Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 38, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1748, 40, 'type2_num2', '下注冠军2的金额', 'float(11,2)', 'BigDecimal', 'type2Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 39, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1749, 40, 'type2_num3', '下注冠军3的金额', 'float(11,2)', 'BigDecimal', 'type2Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 40, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1750, 40, 'type2_num4', '下注冠军4的金额', 'float(11,2)', 'BigDecimal', 'type2Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 41, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1751, 40, 'type2_num5', '下注冠军5的金额', 'float(11,2)', 'BigDecimal', 'type2Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 42, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1752, 40, 'type2_num6', '下注冠军6的金额', 'float(11,2)', 'BigDecimal', 'type2Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 43, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1753, 40, 'type2_num7', '下注冠军7的金额', 'float(11,2)', 'BigDecimal', 'type2Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 44, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1754, 40, 'type2_num8', '下注冠军8的金额', 'float(11,2)', 'BigDecimal', 'type2Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 45, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1755, 40, 'type2_num9', '下注冠军9的金额', 'float(11,2)', 'BigDecimal', 'type2Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 46, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1756, 40, 'type2_num10', '下注冠军10的金额', 'float(11,2)', 'BigDecimal', 'type2Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 47, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1757, 40, 'type3_big', '下注亚军大的金额', 'float(11,2)', 'BigDecimal', 'type3Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 48, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1758, 40, 'type3_small', '下注亚军小的金额', 'float(11,2)', 'BigDecimal', 'type3Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 49, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1759, 40, 'type3_single', '下注亚军单的金额', 'float(11,2)', 'BigDecimal', 'type3Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 50, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1760, 40, 'type3_double', '下注亚军双的金额', 'float(11,2)', 'BigDecimal', 'type3Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 51, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1761, 40, 'type3_loong', '下注亚军龙的金额', 'float(11,2)', 'BigDecimal', 'type3Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 52, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1762, 40, 'type3_tiger', '下注亚军虎的金额', 'float(11,2)', 'BigDecimal', 'type3Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 53, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1763, 40, 'type3_num1', '下注亚军1的金额', 'float(11,2)', 'BigDecimal', 'type3Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 54, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1764, 40, 'type3_num2', '下注亚军2的金额', 'float(11,2)', 'BigDecimal', 'type3Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 55, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1765, 40, 'type3_num3', '下注亚军3的金额', 'float(11,2)', 'BigDecimal', 'type3Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 56, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1766, 40, 'type3_num4', '下注亚军4的金额', 'float(11,2)', 'BigDecimal', 'type3Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 57, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1767, 40, 'type3_num5', '下注亚军5的金额', 'float(11,2)', 'BigDecimal', 'type3Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 58, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1768, 40, 'type3_num6', '下注亚军6的金额', 'float(11,2)', 'BigDecimal', 'type3Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 59, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1769, 40, 'type3_num7', '下注亚军7的金额', 'float(11,2)', 'BigDecimal', 'type3Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 60, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1770, 40, 'type3_num8', '下注亚军8的金额', 'float(11,2)', 'BigDecimal', 'type3Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 61, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1771, 40, 'type3_num9', '下注亚军9的金额', 'float(11,2)', 'BigDecimal', 'type3Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 62, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1772, 40, 'type3_num10', '下注亚军10的金额', 'float(11,2)', 'BigDecimal', 'type3Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 63, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1773, 40, 'type4_big', '下注第三名大的金额', 'float(11,2)', 'BigDecimal', 'type4Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 64, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1774, 40, 'type4_small', '下注第三名小的金额', 'float(11,2)', 'BigDecimal', 'type4Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 65, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1775, 40, 'type4_single', '下注第三名单的金额', 'float(11,2)', 'BigDecimal', 'type4Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 66, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1776, 40, 'type4_double', '下注第三名双的金额', 'float(11,2)', 'BigDecimal', 'type4Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 67, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1777, 40, 'type4_loong', '下注第三名龙的金额', 'float(11,2)', 'BigDecimal', 'type4Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 68, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1778, 40, 'type4_tiger', '下注第三名虎的金额', 'float(11,2)', 'BigDecimal', 'type4Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 69, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1779, 40, 'type4_num1', '下注第三名1的金额', 'float(11,2)', 'BigDecimal', 'type4Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 70, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1780, 40, 'type4_num2', '下注第三名2的金额', 'float(11,2)', 'BigDecimal', 'type4Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 71, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1781, 40, 'type4_num3', '下注第三名3的金额', 'float(11,2)', 'BigDecimal', 'type4Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 72, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1782, 40, 'type4_num4', '下注第三名4的金额', 'float(11,2)', 'BigDecimal', 'type4Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 73, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1783, 40, 'type4_num5', '下注第三名5的金额', 'float(11,2)', 'BigDecimal', 'type4Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 74, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1784, 40, 'type4_num6', '下注第三名6的金额', 'float(11,2)', 'BigDecimal', 'type4Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 75, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1785, 40, 'type4_num7', '下注第三名7的金额', 'float(11,2)', 'BigDecimal', 'type4Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 76, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1786, 40, 'type4_num8', '下注第三名8的金额', 'float(11,2)', 'BigDecimal', 'type4Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 77, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1787, 40, 'type4_num9', '下注第三名9的金额', 'float(11,2)', 'BigDecimal', 'type4Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 78, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1788, 40, 'type4_num10', '下注第三名10的金额', 'float(11,2)', 'BigDecimal', 'type4Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 79, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1789, 40, 'type5_big', '下注第四名大的金额', 'float(11,2)', 'BigDecimal', 'type5Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 80, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1790, 40, 'type5_small', '下注第四名小的金额', 'float(11,2)', 'BigDecimal', 'type5Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 81, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1791, 40, 'type5_single', '下注第四名单的金额', 'float(11,2)', 'BigDecimal', 'type5Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 82, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1792, 40, 'type5_double', '下注第四名双的金额', 'float(11,2)', 'BigDecimal', 'type5Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 83, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1793, 40, 'type5_loong', '下注第四名龙的金额', 'float(11,2)', 'BigDecimal', 'type5Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 84, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1794, 40, 'type5_tiger', '下注第四名虎的金额', 'float(11,2)', 'BigDecimal', 'type5Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 85, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1795, 40, 'type5_num1', '下注第四名1的金额', 'float(11,2)', 'BigDecimal', 'type5Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 86, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1796, 40, 'type5_num2', '下注第四名2的金额', 'float(11,2)', 'BigDecimal', 'type5Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 87, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1797, 40, 'type5_num3', '下注第四名3的金额', 'float(11,2)', 'BigDecimal', 'type5Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 88, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1798, 40, 'type5_num4', '下注第四名4的金额', 'float(11,2)', 'BigDecimal', 'type5Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 89, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1799, 40, 'type5_num5', '下注第四名5的金额', 'float(11,2)', 'BigDecimal', 'type5Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 90, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1800, 40, 'type5_num6', '下注第四名6的金额', 'float(11,2)', 'BigDecimal', 'type5Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 91, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1801, 40, 'type5_num7', '下注第四名7的金额', 'float(11,2)', 'BigDecimal', 'type5Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 92, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1802, 40, 'type5_num8', '下注第四名8的金额', 'float(11,2)', 'BigDecimal', 'type5Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 93, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1803, 40, 'type5_num9', '下注第四名9的金额', 'float(11,2)', 'BigDecimal', 'type5Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 94, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1804, 40, 'type5_num10', '下注第四名10的金额', 'float(11,2)', 'BigDecimal', 'type5Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 95, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1805, 40, 'type6_big', '下注第五名大的金额', 'float(11,2)', 'BigDecimal', 'type6Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 96, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1806, 40, 'type6_small', '下注第五名小的金额', 'float(11,2)', 'BigDecimal', 'type6Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 97, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1807, 40, 'type6_single', '下注第五名单的金额', 'float(11,2)', 'BigDecimal', 'type6Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 98, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1808, 40, 'type6_double', '下注第五名双的金额', 'float(11,2)', 'BigDecimal', 'type6Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 99, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1809, 40, 'type6_loong', '下注第五名龙的金额', 'float(11,2)', 'BigDecimal', 'type6Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 100, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1810, 40, 'type6_tiger', '下注第五名虎的金额', 'float(11,2)', 'BigDecimal', 'type6Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 101, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1811, 40, 'type6_num1', '下注第五名1的金额', 'float(11,2)', 'BigDecimal', 'type6Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 102, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1812, 40, 'type6_num2', '下注第五名2的金额', 'float(11,2)', 'BigDecimal', 'type6Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 103, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1813, 40, 'type6_num3', '下注第五名3的金额', 'float(11,2)', 'BigDecimal', 'type6Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 104, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1814, 40, 'type6_num4', '下注第五名4的金额', 'float(11,2)', 'BigDecimal', 'type6Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 105, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1815, 40, 'type6_num5', '下注第五名5的金额', 'float(11,2)', 'BigDecimal', 'type6Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 106, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1816, 40, 'type6_num6', '下注第五名6的金额', 'float(11,2)', 'BigDecimal', 'type6Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 107, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1817, 40, 'type6_num7', '下注第五名7的金额', 'float(11,2)', 'BigDecimal', 'type6Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 108, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1818, 40, 'type6_num8', '下注第五名8的金额', 'float(11,2)', 'BigDecimal', 'type6Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 109, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1819, 40, 'type6_num9', '下注第五名9的金额', 'float(11,2)', 'BigDecimal', 'type6Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 110, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1820, 40, 'type6_num10', '下注第五名10的金额', 'float(11,2)', 'BigDecimal', 'type6Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 111, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1821, 40, 'type7_big', '下注第六名大的金额', 'float(11,2)', 'BigDecimal', 'type7Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 112, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1822, 40, 'type7_small', '下注第六名小的金额', 'float(11,2)', 'BigDecimal', 'type7Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 113, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1823, 40, 'type7_single', '下注第六名单的金额', 'float(11,2)', 'BigDecimal', 'type7Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 114, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1824, 40, 'type7_double', '下注第六名双的金额', 'float(11,2)', 'BigDecimal', 'type7Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 115, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1825, 40, 'type7_loong', '下注第六名龙的金额', 'float(11,2)', 'BigDecimal', 'type7Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 116, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1826, 40, 'type7_tiger', '下注第六名虎的金额', 'float(11,2)', 'BigDecimal', 'type7Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 117, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1827, 40, 'type7_num1', '下注第六名1的金额', 'float(11,2)', 'BigDecimal', 'type7Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 118, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1828, 40, 'type7_num2', '下注第六名2的金额', 'float(11,2)', 'BigDecimal', 'type7Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 119, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1829, 40, 'type7_num3', '下注第六名3的金额', 'float(11,2)', 'BigDecimal', 'type7Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 120, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1830, 40, 'type7_num4', '下注第六名4的金额', 'float(11,2)', 'BigDecimal', 'type7Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 121, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1831, 40, 'type7_num5', '下注第六名5的金额', 'float(11,2)', 'BigDecimal', 'type7Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 122, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1832, 40, 'type7_num6', '下注第六名6的金额', 'float(11,2)', 'BigDecimal', 'type7Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 123, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1833, 40, 'type7_num7', '下注第六名7的金额', 'float(11,2)', 'BigDecimal', 'type7Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 124, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1834, 40, 'type7_num8', '下注第六名8的金额', 'float(11,2)', 'BigDecimal', 'type7Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 125, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1835, 40, 'type7_num9', '下注第六名9的金额', 'float(11,2)', 'BigDecimal', 'type7Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 126, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1836, 40, 'type7_num10', '下注第六名10的金额', 'float(11,2)', 'BigDecimal', 'type7Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 127, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1837, 40, 'type8_big', '下注第七名大的金额', 'float(11,2)', 'BigDecimal', 'type8Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 128, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1838, 40, 'type8_small', '下注第七名小的金额', 'float(11,2)', 'BigDecimal', 'type8Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 129, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1839, 40, 'type8_single', '下注第七名单的金额', 'float(11,2)', 'BigDecimal', 'type8Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 130, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1840, 40, 'type8_double', '下注第七名双的金额', 'float(11,2)', 'BigDecimal', 'type8Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 131, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1841, 40, 'type8_loong', '下注第七名龙的金额', 'float(11,2)', 'BigDecimal', 'type8Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 132, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1842, 40, 'type8_tiger', '下注第七名虎的金额', 'float(11,2)', 'BigDecimal', 'type8Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 133, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1843, 40, 'type8_num1', '下注第七名1的金额', 'float(11,2)', 'BigDecimal', 'type8Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 134, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1844, 40, 'type8_num2', '下注第七名2的金额', 'float(11,2)', 'BigDecimal', 'type8Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 135, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1845, 40, 'type8_num3', '下注第七名3的金额', 'float(11,2)', 'BigDecimal', 'type8Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 136, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1846, 40, 'type8_num4', '下注第七名4的金额', 'float(11,2)', 'BigDecimal', 'type8Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 137, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1847, 40, 'type8_num5', '下注第七名5的金额', 'float(11,2)', 'BigDecimal', 'type8Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 138, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1848, 40, 'type8_num6', '下注第七名6的金额', 'float(11,2)', 'BigDecimal', 'type8Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 139, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1849, 40, 'type8_num7', '下注第七名7的金额', 'float(11,2)', 'BigDecimal', 'type8Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 140, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1850, 40, 'type8_num8', '下注第七名8的金额', 'float(11,2)', 'BigDecimal', 'type8Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 141, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1851, 40, 'type8_num9', '下注第七名9的金额', 'float(11,2)', 'BigDecimal', 'type8Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 142, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1852, 40, 'type8_num10', '下注第七名10的金额', 'float(11,2)', 'BigDecimal', 'type8Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 143, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1853, 40, 'type9_big', '下注第八名大的金额', 'float(11,2)', 'BigDecimal', 'type9Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 144, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1854, 40, 'type9_small', '下注第八名小的金额', 'float(11,2)', 'BigDecimal', 'type9Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 145, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1855, 40, 'type9_single', '下注第八名单的金额', 'float(11,2)', 'BigDecimal', 'type9Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 146, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1856, 40, 'type9_double', '下注第八名双的金额', 'float(11,2)', 'BigDecimal', 'type9Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 147, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1857, 40, 'type9_loong', '下注第八名龙的金额', 'float(11,2)', 'BigDecimal', 'type9Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 148, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1858, 40, 'type9_tiger', '下注第八名虎的金额', 'float(11,2)', 'BigDecimal', 'type9Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 149, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1859, 40, 'type9_num1', '下注第八名1的金额', 'float(11,2)', 'BigDecimal', 'type9Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 150, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1860, 40, 'type9_num2', '下注第八名2的金额', 'float(11,2)', 'BigDecimal', 'type9Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 151, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1861, 40, 'type9_num3', '下注第八名3的金额', 'float(11,2)', 'BigDecimal', 'type9Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 152, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1862, 40, 'type9_num4', '下注第八名4的金额', 'float(11,2)', 'BigDecimal', 'type9Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 153, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1863, 40, 'type9_num5', '下注第八名5的金额', 'float(11,2)', 'BigDecimal', 'type9Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 154, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1864, 40, 'type9_num6', '下注第八名6的金额', 'float(11,2)', 'BigDecimal', 'type9Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 155, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1865, 40, 'type9_num7', '下注第八名7的金额', 'float(11,2)', 'BigDecimal', 'type9Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 156, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1866, 40, 'type9_num8', '下注第八名8的金额', 'float(11,2)', 'BigDecimal', 'type9Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 157, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1867, 40, 'type9_num9', '下注第八名9的金额', 'float(11,2)', 'BigDecimal', 'type9Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 158, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1868, 40, 'type9_num10', '下注第八名10的金额', 'float(11,2)', 'BigDecimal', 'type9Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 159, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1869, 40, 'type10_big', '下注第九名大的金额', 'float(11,2)', 'BigDecimal', 'type10Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 160, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1870, 40, 'type10_small', '下注第九名小的金额', 'float(11,2)', 'BigDecimal', 'type10Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 161, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1871, 40, 'type10_single', '下注第九名单的金额', 'float(11,2)', 'BigDecimal', 'type10Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 162, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1872, 40, 'type10_double', '下注第九名双的金额', 'float(11,2)', 'BigDecimal', 'type10Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 163, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1873, 40, 'type10_loong', '下注第九名龙的金额', 'float(11,2)', 'BigDecimal', 'type10Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 164, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1874, 40, 'type10_tiger', '下注第九名虎的金额', 'float(11,2)', 'BigDecimal', 'type10Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 165, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1875, 40, 'type10_num1', '下注第九名1的金额', 'float(11,2)', 'BigDecimal', 'type10Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 166, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1876, 40, 'type10_num2', '下注第九名2的金额', 'float(11,2)', 'BigDecimal', 'type10Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 167, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1877, 40, 'type10_num3', '下注第九名3的金额', 'float(11,2)', 'BigDecimal', 'type10Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 168, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1878, 40, 'type10_num4', '下注第九名4的金额', 'float(11,2)', 'BigDecimal', 'type10Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 169, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1879, 40, 'type10_num5', '下注第九名5的金额', 'float(11,2)', 'BigDecimal', 'type10Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 170, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1880, 40, 'type10_num6', '下注第九名6的金额', 'float(11,2)', 'BigDecimal', 'type10Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 171, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1881, 40, 'type10_num7', '下注第九名7的金额', 'float(11,2)', 'BigDecimal', 'type10Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 172, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1882, 40, 'type10_num8', '下注第九名8的金额', 'float(11,2)', 'BigDecimal', 'type10Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 173, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1883, 40, 'type10_num9', '下注第九名9的金额', 'float(11,2)', 'BigDecimal', 'type10Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 174, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1884, 40, 'type10_num10', '下注第九名10的金额', 'float(11,2)', 'BigDecimal', 'type10Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 175, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1885, 40, 'type11_big', '下注第十名大的金额', 'float(11,2)', 'BigDecimal', 'type11Big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 176, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1886, 40, 'type11_small', '下注第十名小的金额', 'float(11,2)', 'BigDecimal', 'type11Small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 177, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1887, 40, 'type11_single', '下注第十名单的金额', 'float(11,2)', 'BigDecimal', 'type11Single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 178, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1888, 40, 'type11_double', '下注第十名双的金额', 'float(11,2)', 'BigDecimal', 'type11Double', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 179, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1889, 40, 'type11_loong', '下注第十名龙的金额', 'float(11,2)', 'BigDecimal', 'type11Loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 180, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1890, 40, 'type11_tiger', '下注第十名虎的金额', 'float(11,2)', 'BigDecimal', 'type11Tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 181, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1891, 40, 'type11_num1', '下注第十名1的金额', 'float(11,2)', 'BigDecimal', 'type11Num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 182, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1892, 40, 'type11_num2', '下注第十名2的金额', 'float(11,2)', 'BigDecimal', 'type11Num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 183, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1893, 40, 'type11_num3', '下注第十名3的金额', 'float(11,2)', 'BigDecimal', 'type11Num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 184, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1894, 40, 'type11_num4', '下注第十名4的金额', 'float(11,2)', 'BigDecimal', 'type11Num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 185, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1895, 40, 'type11_num5', '下注第十名5的金额', 'float(11,2)', 'BigDecimal', 'type11Num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 186, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1896, 40, 'type11_num6', '下注第十名6的金额', 'float(11,2)', 'BigDecimal', 'type11Num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 187, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1897, 40, 'type11_num7', '下注第十名7的金额', 'float(11,2)', 'BigDecimal', 'type11Num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 188, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1898, 40, 'type11_num8', '下注第十名8的金额', 'float(11,2)', 'BigDecimal', 'type11Num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 189, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1899, 40, 'type11_num9', '下注第十名9的金额', 'float(11,2)', 'BigDecimal', 'type11Num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 190, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1900, 40, 'type11_num10', '下注第十名10的金额', 'float(11,2)', 'BigDecimal', 'type11Num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 191, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1901, 40, 'big_single', '下注大单的金额', 'float(11,2)', 'BigDecimal', 'bigSingle', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 192, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1902, 40, 'big_double', '下注大双的金额', 'float(11,2)', 'BigDecimal', 'bigDouble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 193, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1903, 40, 'small_single', '下注小单的金额', 'float(11,2)', 'BigDecimal', 'smallSingle', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 194, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1904, 40, 'small_double', '下注小双的金额', 'float(11,2)', 'BigDecimal', 'smallDouble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 195, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1905, 40, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 196, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1906, 40, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 197, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1907, 40, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 198, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1908, 40, 'num4', '开奖号码4', 'int(11)', 'Long', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 199, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1909, 40, 'num5', '开奖号码5', 'int(11)', 'Long', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 200, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1910, 40, 'num6', '开奖号码6', 'int(11)', 'Long', 'num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 201, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1911, 40, 'num7', '开奖号码7', 'int(11)', 'Long', 'num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 202, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1912, 40, 'num8', '开奖号码8', 'int(11)', 'Long', 'num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 203, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1913, 40, 'num9', '开奖号码9', 'int(11)', 'Long', 'num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 204, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1914, 40, 'num10', '开奖号码10', 'int(11)', 'Long', 'num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 205, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1915, 40, 'sum_num', '开奖合算数字', 'int(11)', 'Long', 'sumNum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 206, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1916, 40, 'is_delete', '是否扣除(0否 1是)', 'char(1)', 'String', 'isDelete', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 207, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1917, 40, 'is_deduct', '是否扣除', 'char(1)', 'String', 'isDeduct', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 208, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1918, 40, 'house', '房间号', 'int(4)', 'Integer', 'house', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 209, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1919, 40, 'hz_id', '是否合庄模式', 'char(1)', 'String', 'hzId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 210, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1920, 40, 'hz_user', '是否用户(0否 1是)', 'char(1)', 'String', 'hzUser', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 211, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1921, 40, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 212, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1922, 40, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 213, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1923, 40, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 214, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1924, 40, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 215, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1925, 40, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 216, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:16:52');
+INSERT INTO `gen_table_column` VALUES (1926, 41, 'id', '10球开奖开奖表ID', 'bigint(20) unsigned', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1927, 41, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1928, 41, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1929, 41, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1930, 41, 'num1', '开奖号码1', 'int(11)', 'Long', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1931, 41, 'num2', '开奖号码2', 'int(11)', 'Long', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1932, 41, 'num3', '开奖号码3', 'int(11)', 'Long', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1933, 41, 'sum_num', '开奖合计号码', 'int(11)', 'Long', 'sumNum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1934, 41, 'bet_time', '封盘投注截止时间', 'datetime', 'Date', 'betTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1935, 41, 'pre_time', '预计开奖时间', 'datetime', 'Date', 'preTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1936, 41, 'status', '是否已经开奖（0未开奖 1已开奖）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1937, 41, 'the_time', '开奖时间', 'datetime', 'Date', 'theTime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1938, 41, 'count_money', '总下注金额', 'int(11)', 'Long', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1939, 41, 'win_money', '总中奖金额', 'int(11)', 'Long', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1940, 41, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1941, 41, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 16, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1942, 41, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 17, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1943, 41, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 18, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1944, 41, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 19, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:05');
+INSERT INTO `gen_table_column` VALUES (1945, 42, 'id', '3球开奖历史ID', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1946, 42, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1947, 42, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1948, 42, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1949, 42, 'time', '开奖时间', 'datetime', 'Date', 'time', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1950, 42, 'sum_1', '开奖号码1', 'int(11)', 'Long', 'sum1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1951, 42, 'sum_2', '开奖号码2', 'int(11)', 'Long', 'sum2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1952, 42, 'sum_3', '开奖号码3', 'int(11)', 'Long', 'sum3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1953, 42, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1954, 42, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1955, 42, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1956, 42, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1957, 42, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:17:15');
+INSERT INTO `gen_table_column` VALUES (1958, 43, 'id', '下注表ID', 'bigint(20)', 'Long', 'id', '1', '1', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1959, 43, 'user_id', '用户ID', 'bigint(20)', 'Long', 'userId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1960, 43, 'periods', '期数', 'bigint(20)', 'Long', 'periods', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1961, 43, 'game_id', '游戏ID', 'bigint(20)', 'Long', 'gameId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1962, 43, 'game_name', '游戏名', 'varchar(25)', 'String', 'gameName', '0', '0', '0', '1', '1', '1', '1', 'LIKE', 'input', '', 5, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1963, 43, 'status', '投注状态（0投注 1撤单）', 'char(1)', 'String', 'status', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'radio', '', 6, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1964, 43, 'record_time', '投注时间', 'datetime', 'Date', 'recordTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 7, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1965, 43, 'check_time', '确认时间', 'timestamp', 'Date', 'checkTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 8, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1966, 43, 'count_money', '下注金额', 'float(11,2)', 'BigDecimal', 'countMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1967, 43, 'win_money', '中奖金额', 'float(11,2)', 'BigDecimal', 'winMoney', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1968, 43, 'big', '下注大的金额', 'float(11,2)', 'BigDecimal', 'big', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1969, 43, 'small', '下注小的金额', 'float(11,2)', 'BigDecimal', 'small', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1970, 43, 'single', '下注单的金额', 'float(11,2)', 'BigDecimal', 'single', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1971, 43, 'double_amount', '下注双的金额', 'float(11,2)', 'BigDecimal', 'doubleAmount', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1972, 43, 'much_Big', '下注极大的金额', 'float(11,2)', 'BigDecimal', 'muchBig', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1973, 43, 'big_Single', '下注大单的金额', 'float(11,2)', 'BigDecimal', 'bigSingle', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1974, 43, 'small_Single', '下注小单的金额', 'float(11,2)', 'BigDecimal', 'smallSingle', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1975, 43, 'big_Double', '下注大双的金额', 'float(11,2)', 'BigDecimal', 'bigDouble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1976, 43, 'small_Double', '下注小双的金额', 'float(11,2)', 'BigDecimal', 'smallDouble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1977, 43, 'much_Small', '下注极小的金额', 'float(11,2)', 'BigDecimal', 'muchSmall', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1978, 43, 'num0', '下注数字0的金额', 'float(11,2)', 'BigDecimal', 'num0', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1979, 43, 'num1', '下注数字1的金额', 'float(11,2)', 'BigDecimal', 'num1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1980, 43, 'num2', '下注数字2的金额', 'float(11,2)', 'BigDecimal', 'num2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1981, 43, 'num3', '下注数字3的金额', 'float(11,2)', 'BigDecimal', 'num3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1982, 43, 'num4', '下注数字4的金额', 'float(11,2)', 'BigDecimal', 'num4', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1983, 43, 'num5', '下注数字5的金额', 'float(11,2)', 'BigDecimal', 'num5', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 26, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1984, 43, 'num6', '下注数字6的金额', 'float(11,2)', 'BigDecimal', 'num6', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1985, 43, 'num7', '下注数字7的金额', 'float(11,2)', 'BigDecimal', 'num7', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1986, 43, 'num8', '下注数字8的金额', 'float(11,2)', 'BigDecimal', 'num8', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1987, 43, 'num9', '下注数字9的金额', 'float(11,2)', 'BigDecimal', 'num9', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 30, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1988, 43, 'num10', '下注数字10的金额', 'float(11,2)', 'BigDecimal', 'num10', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 31, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1989, 43, 'num11', '下注数字11的金额', 'float(11,2)', 'BigDecimal', 'num11', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 32, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1990, 43, 'num12', '下注数字12的金额', 'float(11,2)', 'BigDecimal', 'num12', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 33, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1991, 43, 'num13', '下注数字13的金额', 'float(11,2)', 'BigDecimal', 'num13', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 34, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1992, 43, 'num14', '下注数字14的金额', 'float(11,2)', 'BigDecimal', 'num14', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 35, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1993, 43, 'num15', '下注数字15的金额', 'float(11,2)', 'BigDecimal', 'num15', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 36, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1994, 43, 'num16', '下注数字16的金额', 'float(11,2)', 'BigDecimal', 'num16', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 37, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1995, 43, 'num17', '下注数字17的金额', 'float(11,2)', 'BigDecimal', 'num17', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 38, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1996, 43, 'num18', '下注数字18的金额', 'float(11,2)', 'BigDecimal', 'num18', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 39, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1997, 43, 'num19', '下注数字19的金额', 'float(11,2)', 'BigDecimal', 'num19', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 40, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1998, 43, 'num20', '下注数字20的金额', 'float(11,2)', 'BigDecimal', 'num20', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 41, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (1999, 43, 'num21', '下注数字21的金额', 'float(11,2)', 'BigDecimal', 'num21', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 42, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2000, 43, 'num22', '下注数字22的金额', 'float(11,2)', 'BigDecimal', 'num22', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 43, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2001, 43, 'num23', '下注数字23的金额', 'float(11,2)', 'BigDecimal', 'num23', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 44, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2002, 43, 'num24', '下注数字24的金额', 'float(11,2)', 'BigDecimal', 'num24', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 45, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2003, 43, 'num25', '下注数字25的金额', 'float(11,2)', 'BigDecimal', 'num25', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 46, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2004, 43, 'num26', '下注数字26的金额', 'float(11,2)', 'BigDecimal', 'num26', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 47, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2005, 43, 'num27', '下注数字27的金额', 'float(11,2)', 'BigDecimal', 'num27', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 48, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2006, 43, 'red', '下注红的金额', 'float(11,2)', 'BigDecimal', 'red', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 49, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2007, 43, 'green', '下注绿的金额', 'float(11,2)', 'BigDecimal', 'green', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 50, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2008, 43, 'blue', '下注蓝的金额', 'float(11,2)', 'BigDecimal', 'blue', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 51, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2009, 43, 'loong', '下注龙的金额', 'float(11,2)', 'BigDecimal', 'loong', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 52, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2010, 43, 'tiger', '下注虎的金额', 'float(11,2)', 'BigDecimal', 'tiger', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 53, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2011, 43, 'close', '下注合的金额', 'float(11,2)', 'BigDecimal', 'close', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 54, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2012, 43, 'leopard', '下注豹子的金额', 'float(11,2)', 'BigDecimal', 'leopard', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 55, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2013, 43, 'pairs', '下注对子的金额', 'float(11,2)', 'BigDecimal', 'pairs', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 56, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2014, 43, 'shun', '下注顺子的金额', 'float(11,2)', 'BigDecimal', 'shun', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 57, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2015, 43, 'vip', 'VIP房间', 'int(4)', 'Integer', 'vip', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 58, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2016, 43, 'n1', '开奖号码1', 'int(11)', 'Long', 'n1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 59, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2017, 43, 'n2', '开奖号码2', 'int(11)', 'Long', 'n2', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 60, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2018, 43, 'n3', '开奖号码3', 'int(11)', 'Long', 'n3', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 61, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2019, 43, 'sum_num', '开奖合算数字', 'int(11)', 'Long', 'sumNum', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 62, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2020, 43, 'is_delete', '是否扣除(0否 1是)', 'char(1)', 'String', 'isDelete', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 63, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2021, 43, 'is_deduct', '是否扣除', 'char(1)', 'String', 'isDeduct', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 64, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2022, 43, 'house', '房间号', 'int(4)', 'Integer', 'house', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 65, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2023, 43, 'hz_id', '是否合庄模式', 'char(1)', 'String', 'hzId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 66, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2024, 43, 'hz_user', '是否用户(0否 1是)', 'char(1)', 'String', 'hzUser', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 67, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2025, 43, 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'input', '', 68, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2026, 43, 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '0', '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 69, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2027, 43, 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'input', '', 70, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2028, 43, 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', '0', '1', '1', NULL, NULL, 'EQ', 'datetime', '', 71, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
+INSERT INTO `gen_table_column` VALUES (2029, 43, 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', '0', '1', '1', '1', NULL, 'EQ', 'textarea', '', 72, 'admin', '2024-04-06 11:14:30', '', '2024-04-06 11:20:05');
 
 -- ----------------------------
 -- Table structure for jnd
@@ -1528,7 +2943,7 @@ CREATE TABLE `jnd`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3124069 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3124751 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jnd
@@ -1747,6 +3162,78 @@ INSERT INTO `jnd` VALUES (3124065, '2024-04-04 22:14:00', 5, 0, 7, NULL, NULL, N
 INSERT INTO `jnd` VALUES (3124066, '2024-04-04 22:17:30', 0, 8, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-04 22:19:00', '', NULL, '');
 INSERT INTO `jnd` VALUES (3124067, '2024-04-04 22:21:00', 1, 3, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-04 22:23:00', '', NULL, '');
 INSERT INTO `jnd` VALUES (3124068, '2024-04-04 22:24:30', 6, 0, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-04 22:26:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124679, '2024-04-06 11:11:00', 4, 1, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:12:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124680, '2024-04-06 11:14:30', 9, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:15:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124681, '2024-04-06 11:18:00', 6, 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:19:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124682, '2024-04-06 11:21:30', 1, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:22:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124683, '2024-04-06 11:25:00', 5, 2, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:26:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124684, '2024-04-06 11:28:30', 7, 7, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:29:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124685, '2024-04-06 11:32:00', 3, 8, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:33:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124686, '2024-04-06 11:35:30', 2, 5, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:36:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124687, '2024-04-06 11:39:00', 6, 8, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:40:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124688, '2024-04-06 11:42:30', 0, 9, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:43:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124689, '2024-04-06 11:46:00', 2, 8, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:47:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124690, '2024-04-06 11:49:30', 1, 1, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 11:50:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124691, '2024-04-06 11:53:00', 0, 6, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:28', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124692, '2024-04-06 11:56:30', 5, 1, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:28', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124693, '2024-04-06 12:00:00', 7, 8, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:28', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124694, '2024-04-06 12:03:30', 7, 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124695, '2024-04-06 12:07:00', 9, 3, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124696, '2024-04-06 12:10:30', 5, 2, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124697, '2024-04-06 12:14:00', 5, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124698, '2024-04-06 12:17:30', 2, 0, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124699, '2024-04-06 12:21:00', 8, 0, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124700, '2024-04-06 12:24:30', 9, 9, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124701, '2024-04-06 12:28:00', 0, 6, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', '2024-04-06 12:34:29', '');
+INSERT INTO `jnd` VALUES (3124702, '2024-04-06 12:31:30', 6, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:34:29', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124703, '2024-04-06 12:35:00', 9, 6, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:36:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124704, '2024-04-06 12:38:30', 1, 6, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 12:39:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124705, '2024-04-06 12:42:00', 7, 1, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124706, '2024-04-06 12:45:30', 6, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124707, '2024-04-06 12:49:00', 8, 5, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124708, '2024-04-06 12:52:30', 3, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124709, '2024-04-06 12:56:00', 9, 4, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:02:58', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124710, '2024-04-06 12:59:30', 6, 8, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:02:58', '', '2024-04-06 13:02:58', '');
+INSERT INTO `jnd` VALUES (3124711, '2024-04-06 13:03:00', 9, 9, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:04:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124712, '2024-04-06 13:06:30', 9, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:07:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124713, '2024-04-06 13:10:00', 3, 4, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:11:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124714, '2024-04-06 13:13:30', 5, 3, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:14:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124715, '2024-04-06 13:17:00', 7, 4, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:18:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124716, '2024-04-06 13:20:30', 8, 0, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:21:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124717, '2024-04-06 13:24:00', 8, 8, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:25:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124718, '2024-04-06 13:27:30', 6, 2, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:28:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124719, '2024-04-06 13:31:00', 8, 6, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:32:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124720, '2024-04-06 13:34:30', 2, 0, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:35:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124721, '2024-04-06 13:38:00', 3, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:39:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124722, '2024-04-06 13:41:30', 4, 8, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:42:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124723, '2024-04-06 13:45:00', 0, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:46:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124724, '2024-04-06 13:48:30', 3, 3, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:49:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124725, '2024-04-06 13:52:00', 8, 4, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:53:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124726, '2024-04-06 13:55:30', 7, 1, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 13:56:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124727, '2024-04-06 13:59:00', 2, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:00:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124728, '2024-04-06 14:02:30', 9, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:03:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124729, '2024-04-06 14:06:00', 7, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:07:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124730, '2024-04-06 14:09:30', 7, 9, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:10:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124731, '2024-04-06 14:13:00', 6, 7, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:14:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124732, '2024-04-06 14:16:30', 8, 5, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:17:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124733, '2024-04-06 14:20:00', 6, 6, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:21:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124734, '2024-04-06 14:23:30', 9, 1, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:24:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124735, '2024-04-06 14:27:00', 5, 5, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:28:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124736, '2024-04-06 14:30:30', 9, 9, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:31:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124737, '2024-04-06 14:34:00', 7, 5, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:35:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124738, '2024-04-06 14:37:30', 1, 7, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:38:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124739, '2024-04-06 14:41:00', 9, 2, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:42:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124740, '2024-04-06 14:44:30', 0, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:45:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124741, '2024-04-06 14:48:00', 8, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:49:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124742, '2024-04-06 14:51:30', 5, 2, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:52:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124743, '2024-04-06 14:55:00', 4, 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 14:56:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124744, '2024-04-06 14:58:30', 7, 9, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:01:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124745, '2024-04-06 15:02:00', 4, 8, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:03:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124746, '2024-04-06 15:05:30', 4, 6, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:06:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124747, '2024-04-06 15:09:00', 4, 3, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:10:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124748, '2024-04-06 15:12:30', 4, 8, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:13:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124749, '2024-04-06 15:16:00', 6, 7, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:17:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124750, '2024-04-06 15:19:30', 9, 9, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jnd28
@@ -1881,420 +3368,61 @@ CREATE TABLE `jsssc`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3954548 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 13096993 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jsssc
 -- ----------------------------
-INSERT INTO `jsssc` VALUES (3947541, '2024-03-26 21:44:18', 4, 6, 7, 5, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947542, '2024-03-26 21:45:33', 3, 10, 5, 1, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947543, '2024-03-26 21:46:48', 8, 7, 3, 9, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947544, '2024-03-26 21:48:03', 10, 5, 3, 7, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947545, '2024-03-26 21:49:18', 6, 4, 3, 7, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947546, '2024-03-26 21:50:33', 4, 3, 10, 6, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947547, '2024-03-26 21:51:48', 6, 1, 2, 5, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947548, '2024-03-26 21:53:03', 5, 2, 9, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947549, '2024-03-26 21:54:18', 6, 7, 9, 2, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947550, '2024-03-26 21:55:33', 4, 2, 5, 10, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947551, '2024-03-26 21:56:48', 5, 6, 1, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947552, '2024-03-26 21:58:03', 7, 5, 9, 6, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947553, '2024-03-26 21:59:18', 6, 5, 8, 4, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947554, '2024-03-26 22:00:33', 3, 10, 6, 8, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947555, '2024-03-26 22:01:48', 10, 2, 8, 3, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947556, '2024-03-26 22:03:03', 2, 10, 1, 8, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947557, '2024-03-26 22:04:18', 8, 1, 3, 5, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947558, '2024-03-26 22:05:33', 1, 4, 6, 3, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947559, '2024-03-26 22:06:48', 7, 9, 8, 6, 1, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947560, '2024-03-26 22:08:03', 6, 7, 1, 10, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947561, '2024-03-26 22:09:18', 9, 7, 4, 1, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947562, '2024-03-26 22:10:33', 5, 8, 3, 7, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947563, '2024-03-26 22:11:48', 4, 1, 3, 2, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947564, '2024-03-26 22:13:03', 1, 3, 9, 10, 7, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947565, '2024-03-26 22:14:18', 7, 6, 5, 2, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947566, '2024-03-26 22:15:33', 7, 5, 3, 6, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947567, '2024-03-26 22:16:48', 3, 5, 9, 7, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947568, '2024-03-26 22:18:03', 6, 10, 5, 3, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947569, '2024-03-26 22:19:18', 9, 10, 2, 1, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947570, '2024-03-26 22:20:33', 8, 5, 2, 10, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947571, '2024-03-26 22:21:48', 5, 10, 9, 2, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947572, '2024-03-26 22:23:03', 6, 2, 3, 1, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947573, '2024-03-26 22:24:18', 8, 1, 9, 7, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947574, '2024-03-26 22:25:33', 5, 7, 4, 9, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947575, '2024-03-26 22:26:48', 9, 4, 5, 7, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947576, '2024-03-26 22:28:03', 5, 7, 2, 3, 10, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947577, '2024-03-26 22:29:18', 7, 1, 6, 8, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947578, '2024-03-26 22:30:33', 8, 1, 5, 9, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947579, '2024-03-26 22:31:48', 1, 4, 9, 7, 8, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947580, '2024-03-26 22:33:03', 4, 2, 8, 6, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947581, '2024-03-26 22:34:18', 8, 6, 9, 7, 4, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947582, '2024-03-26 22:35:33', 5, 6, 4, 3, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947583, '2024-03-26 22:36:48', 10, 4, 5, 8, 3, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947584, '2024-03-26 22:38:03', 9, 8, 6, 3, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947585, '2024-03-26 22:39:18', 1, 4, 7, 10, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947586, '2024-03-26 22:40:33', 5, 4, 2, 8, 6, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947587, '2024-03-26 22:41:48', 5, 7, 10, 1, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947588, '2024-03-26 22:43:03', 5, 1, 7, 8, 2, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947589, '2024-03-26 22:44:18', 8, 7, 5, 4, 9, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947590, '2024-03-26 22:45:33', 6, 8, 9, 2, 5, 'TASK', '2024-03-26 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947591, '2024-03-26 22:46:48', 4, 1, 9, 2, 3, 'TASK', '2024-03-26 22:47:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947592, '2024-03-26 22:48:03', 9, 4, 7, 10, 6, 'TASK', '2024-03-26 22:49:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947593, '2024-03-26 22:49:18', 5, 1, 6, 9, 10, 'TASK', '2024-03-26 22:50:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947594, '2024-03-26 22:50:33', 10, 6, 8, 2, 5, 'TASK', '2024-03-26 22:51:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947595, '2024-03-26 22:51:48', 1, 8, 2, 6, 7, 'TASK', '2024-03-26 22:52:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947596, '2024-03-26 22:53:03', 1, 8, 3, 6, 5, 'TASK', '2024-03-26 22:54:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947597, '2024-03-26 22:54:18', 5, 4, 10, 1, 8, 'TASK', '2024-03-26 22:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3947598, '2024-03-26 22:55:33', 1, 3, 9, 6, 8, 'TASK', '2024-03-26 22:56:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948647, '2024-03-27 20:46:48', 6, 8, 3, 5, 9, 'TASK', '2024-03-27 20:48:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948648, '2024-03-27 20:48:03', 1, 2, 5, 10, 4, 'TASK', '2024-03-27 20:49:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948649, '2024-03-27 20:49:18', 2, 4, 1, 10, 9, 'TASK', '2024-03-27 20:50:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948650, '2024-03-27 20:50:33', 3, 9, 10, 8, 6, 'TASK', '2024-03-27 20:51:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948651, '2024-03-27 20:51:48', 7, 4, 6, 10, 1, 'TASK', '2024-03-27 20:52:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948652, '2024-03-27 20:53:03', 10, 7, 8, 1, 4, 'TASK', '2024-03-27 20:54:03', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948653, '2024-03-27 20:54:18', 10, 5, 9, 7, 4, 'TASK', '2024-03-27 20:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948654, '2024-03-27 20:55:33', 1, 8, 3, 10, 7, 'TASK', '2024-03-27 20:56:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948655, '2024-03-27 20:56:48', 6, 3, 10, 5, 7, 'TASK', '2024-03-27 20:57:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948656, '2024-03-27 20:58:03', 4, 8, 5, 3, 9, 'TASK', '2024-03-27 20:59:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948657, '2024-03-27 20:59:18', 3, 4, 8, 10, 9, 'TASK', '2024-03-27 21:00:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948658, '2024-03-27 21:00:33', 8, 6, 3, 4, 9, 'TASK', '2024-03-27 21:01:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948659, '2024-03-27 21:01:48', 2, 9, 10, 6, 5, 'TASK', '2024-03-27 21:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948660, '2024-03-27 21:03:03', 6, 9, 3, 5, 7, 'TASK', '2024-03-27 21:04:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948661, '2024-03-27 21:04:18', 5, 9, 8, 10, 2, 'TASK', '2024-03-27 21:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948662, '2024-03-27 21:05:33', 7, 2, 9, 3, 4, 'TASK', '2024-03-27 21:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948663, '2024-03-27 21:06:48', 10, 8, 7, 4, 1, 'TASK', '2024-03-27 21:07:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948664, '2024-03-27 21:08:03', 5, 6, 2, 4, 3, 'TASK', '2024-03-27 21:09:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948665, '2024-03-27 21:09:18', 1, 5, 2, 6, 3, 'TASK', '2024-03-27 21:10:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948666, '2024-03-27 21:10:33', 3, 2, 1, 9, 8, 'TASK', '2024-03-27 21:11:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948667, '2024-03-27 21:11:48', 10, 3, 7, 5, 9, 'TASK', '2024-03-27 21:12:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948668, '2024-03-27 21:13:03', 10, 8, 7, 9, 6, 'TASK', '2024-03-27 21:14:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948669, '2024-03-27 21:14:18', 3, 5, 6, 8, 2, 'TASK', '2024-03-27 21:15:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948670, '2024-03-27 21:15:33', 5, 1, 8, 9, 7, 'TASK', '2024-03-27 21:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948671, '2024-03-27 21:16:48', 5, 2, 10, 9, 4, 'TASK', '2024-03-27 21:17:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948672, '2024-03-27 21:18:03', 8, 5, 7, 6, 10, 'TASK', '2024-03-27 21:19:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948673, '2024-03-27 21:19:18', 3, 10, 2, 4, 6, 'TASK', '2024-03-27 21:20:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948674, '2024-03-27 21:20:33', 3, 6, 10, 8, 2, 'TASK', '2024-03-27 21:21:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948675, '2024-03-27 21:21:48', 10, 4, 8, 2, 3, 'TASK', '2024-03-27 21:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948676, '2024-03-27 21:23:03', 10, 8, 7, 1, 5, 'TASK', '2024-03-27 21:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948677, '2024-03-27 21:24:18', 5, 2, 6, 1, 4, 'TASK', '2024-03-27 21:25:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948678, '2024-03-27 21:25:33', 2, 5, 10, 4, 6, 'TASK', '2024-03-27 21:26:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948679, '2024-03-27 21:26:48', 6, 1, 10, 3, 7, 'TASK', '2024-03-27 21:27:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948680, '2024-03-27 21:28:03', 2, 3, 4, 1, 5, 'TASK', '2024-03-27 21:29:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948681, '2024-03-27 21:29:18', 9, 1, 3, 7, 6, 'TASK', '2024-03-27 21:30:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948682, '2024-03-27 21:30:33', 1, 10, 9, 4, 8, 'TASK', '2024-03-27 21:31:03', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948683, '2024-03-27 21:31:48', 6, 5, 2, 9, 4, 'TASK', '2024-03-27 21:32:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948684, '2024-03-27 21:33:03', 6, 5, 7, 10, 9, 'TASK', '2024-03-27 21:34:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948685, '2024-03-27 21:34:18', 5, 1, 4, 7, 9, 'TASK', '2024-03-27 21:35:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948686, '2024-03-27 21:35:33', 7, 9, 4, 2, 6, 'TASK', '2024-03-27 21:36:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948687, '2024-03-27 21:36:48', 7, 5, 8, 10, 6, 'TASK', '2024-03-27 21:37:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948688, '2024-03-27 21:38:03', 2, 3, 7, 1, 5, 'TASK', '2024-03-27 21:39:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948689, '2024-03-27 21:39:18', 7, 4, 10, 8, 6, 'TASK', '2024-03-27 21:40:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948690, '2024-03-27 21:40:33', 4, 2, 1, 6, 9, 'TASK', '2024-03-27 21:41:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948691, '2024-03-27 21:41:48', 4, 6, 3, 5, 10, 'TASK', '2024-03-27 21:42:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948692, '2024-03-27 21:43:03', 2, 8, 6, 5, 7, 'TASK', '2024-03-27 21:44:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948693, '2024-03-27 21:44:18', 9, 5, 7, 8, 4, 'TASK', '2024-03-27 21:45:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948694, '2024-03-27 21:45:33', 5, 1, 4, 8, 3, 'TASK', '2024-03-27 21:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948695, '2024-03-27 21:46:48', 3, 2, 7, 1, 8, 'TASK', '2024-03-27 21:47:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948696, '2024-03-27 21:48:03', 7, 8, 5, 10, 6, 'TASK', '2024-03-27 21:49:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948697, '2024-03-27 21:49:18', 4, 10, 9, 1, 6, 'TASK', '2024-03-27 21:50:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948698, '2024-03-27 21:50:33', 8, 1, 6, 5, 7, 'TASK', '2024-03-27 21:51:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948699, '2024-03-27 21:51:48', 8, 2, 4, 9, 10, 'TASK', '2024-03-27 21:52:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948700, '2024-03-27 21:53:03', 2, 1, 8, 4, 6, 'TASK', '2024-03-27 21:54:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948701, '2024-03-27 21:54:18', 3, 8, 2, 5, 9, 'TASK', '2024-03-27 21:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948702, '2024-03-27 21:55:33', 1, 9, 7, 8, 4, 'TASK', '2024-03-27 21:56:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948703, '2024-03-27 21:56:48', 10, 2, 5, 3, 7, 'TASK', '2024-03-27 21:57:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948704, '2024-03-27 21:58:03', 3, 2, 9, 5, 7, 'TASK', '2024-03-27 21:59:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948705, '2024-03-27 21:59:18', 8, 10, 7, 2, 3, 'TASK', '2024-03-27 22:00:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948706, '2024-03-27 22:00:33', 5, 4, 9, 2, 3, 'TASK', '2024-03-27 22:01:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948707, '2024-03-27 22:01:48', 7, 6, 4, 3, 10, 'TASK', '2024-03-27 22:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948708, '2024-03-27 22:03:03', 6, 8, 10, 2, 3, 'TASK', '2024-03-27 22:04:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948709, '2024-03-27 22:04:18', 1, 5, 7, 4, 6, 'TASK', '2024-03-27 22:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948710, '2024-03-27 22:05:33', 8, 6, 5, 3, 9, 'TASK', '2024-03-27 22:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948711, '2024-03-27 22:06:48', 3, 1, 4, 8, 10, 'TASK', '2024-03-27 22:07:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948712, '2024-03-27 22:08:03', 7, 4, 6, 1, 10, 'TASK', '2024-03-27 22:09:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948713, '2024-03-27 22:09:18', 3, 4, 9, 5, 7, 'TASK', '2024-03-27 22:10:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948714, '2024-03-27 22:10:33', 4, 10, 3, 9, 6, 'TASK', '2024-03-27 22:11:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948715, '2024-03-27 22:11:48', 5, 2, 4, 8, 7, 'TASK', '2024-03-27 22:12:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948716, '2024-03-27 22:13:03', 9, 2, 5, 10, 4, 'TASK', '2024-03-27 22:14:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948717, '2024-03-27 22:14:18', 8, 5, 7, 1, 10, 'TASK', '2024-03-27 22:15:03', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948718, '2024-03-27 22:15:33', 7, 9, 8, 10, 1, 'TASK', '2024-03-27 22:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948719, '2024-03-27 22:16:48', 2, 6, 7, 8, 5, 'TASK', '2024-03-27 22:17:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948720, '2024-03-27 22:18:03', 2, 8, 6, 5, 1, 'TASK', '2024-03-27 22:19:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948721, '2024-03-27 22:19:18', 1, 4, 7, 9, 10, 'TASK', '2024-03-27 22:20:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948722, '2024-03-27 22:20:33', 8, 2, 7, 3, 6, 'TASK', '2024-03-27 22:21:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948723, '2024-03-27 22:21:48', 2, 4, 3, 7, 6, 'TASK', '2024-03-27 22:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948724, '2024-03-27 22:23:03', 5, 7, 10, 2, 1, 'TASK', '2024-03-27 22:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948725, '2024-03-27 22:24:18', 5, 9, 1, 6, 10, 'TASK', '2024-03-27 22:25:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948726, '2024-03-27 22:25:33', 8, 6, 1, 10, 4, 'TASK', '2024-03-27 22:26:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948727, '2024-03-27 22:26:48', 3, 10, 5, 2, 7, 'TASK', '2024-03-27 22:27:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948728, '2024-03-27 22:28:03', 10, 1, 6, 8, 4, 'TASK', '2024-03-27 22:29:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948729, '2024-03-27 22:29:18', 6, 4, 7, 1, 8, 'TASK', '2024-03-27 22:30:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948730, '2024-03-27 22:30:33', 8, 9, 3, 5, 10, 'TASK', '2024-03-27 22:31:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948731, '2024-03-27 22:31:48', 3, 1, 8, 4, 10, 'TASK', '2024-03-27 22:32:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948732, '2024-03-27 22:33:03', 10, 8, 7, 1, 2, 'TASK', '2024-03-27 22:34:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948733, '2024-03-27 22:34:18', 2, 4, 5, 9, 8, 'TASK', '2024-03-27 22:35:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948734, '2024-03-27 22:35:33', 2, 6, 5, 3, 7, 'TASK', '2024-03-27 22:36:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948735, '2024-03-27 22:36:48', 6, 3, 5, 2, 10, 'TASK', '2024-03-27 22:37:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948736, '2024-03-27 22:38:03', 3, 2, 10, 6, 4, 'TASK', '2024-03-27 22:39:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948737, '2024-03-27 22:39:18', 8, 7, 2, 10, 4, 'TASK', '2024-03-27 22:40:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948738, '2024-03-27 22:40:33', 1, 6, 10, 9, 4, 'TASK', '2024-03-27 22:41:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948739, '2024-03-27 22:41:48', 2, 3, 10, 6, 5, 'TASK', '2024-03-27 22:42:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948740, '2024-03-27 22:43:03', 1, 5, 4, 2, 9, 'TASK', '2024-03-27 22:44:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948741, '2024-03-27 22:44:18', 5, 9, 7, 10, 1, 'TASK', '2024-03-27 22:45:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948742, '2024-03-27 22:45:33', 3, 9, 7, 2, 1, 'TASK', '2024-03-27 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948743, '2024-03-27 22:46:48', 10, 7, 8, 4, 5, 'TASK', '2024-03-27 22:47:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948744, '2024-03-27 22:48:03', 9, 7, 2, 5, 6, 'TASK', '2024-03-27 22:49:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948745, '2024-03-27 22:49:18', 8, 6, 3, 10, 2, 'TASK', '2024-03-27 22:50:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948746, '2024-03-27 22:50:33', 1, 8, 6, 9, 5, 'TASK', '2024-03-27 22:51:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948747, '2024-03-27 22:51:48', 3, 8, 2, 10, 1, 'TASK', '2024-03-27 22:52:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948748, '2024-03-27 22:53:03', 1, 2, 3, 10, 6, 'TASK', '2024-03-27 22:54:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948749, '2024-03-27 22:54:18', 7, 9, 2, 10, 4, 'TASK', '2024-03-27 22:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948750, '2024-03-27 22:55:33', 1, 2, 9, 3, 7, 'TASK', '2024-03-27 22:56:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948751, '2024-03-27 22:56:48', 3, 1, 9, 7, 6, 'TASK', '2024-03-27 22:57:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948752, '2024-03-27 22:58:03', 9, 10, 6, 1, 8, 'TASK', '2024-03-27 22:59:03', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948753, '2024-03-27 22:59:18', 8, 5, 2, 6, 1, 'TASK', '2024-03-27 23:00:04', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948754, '2024-03-27 23:00:33', 9, 4, 2, 8, 7, 'TASK', '2024-03-27 23:01:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948755, '2024-03-27 23:01:48', 1, 2, 6, 3, 9, 'TASK', '2024-03-27 23:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948756, '2024-03-27 23:03:03', 6, 5, 8, 7, 4, 'TASK', '2024-03-27 23:04:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948757, '2024-03-27 23:04:18', 6, 10, 2, 1, 3, 'TASK', '2024-03-27 23:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948758, '2024-03-27 23:05:33', 4, 10, 5, 3, 1, 'TASK', '2024-03-27 23:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948759, '2024-03-27 23:06:48', 7, 3, 8, 5, 6, 'TASK', '2024-03-27 23:07:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948760, '2024-03-27 23:08:03', 10, 6, 2, 4, 5, 'TASK', '2024-03-27 23:09:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948761, '2024-03-27 23:09:18', 5, 7, 2, 9, 6, 'TASK', '2024-03-27 23:10:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948762, '2024-03-27 23:10:33', 6, 3, 5, 9, 7, 'TASK', '2024-03-27 23:11:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948763, '2024-03-27 23:11:48', 3, 8, 9, 2, 1, 'TASK', '2024-03-27 23:12:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948764, '2024-03-27 23:13:03', 7, 8, 2, 3, 6, 'TASK', '2024-03-27 23:14:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948765, '2024-03-27 23:14:18', 6, 10, 8, 1, 4, 'TASK', '2024-03-27 23:15:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948766, '2024-03-27 23:15:33', 7, 3, 5, 1, 2, 'TASK', '2024-03-27 23:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948767, '2024-03-27 23:16:48', 9, 8, 1, 4, 6, 'TASK', '2024-03-27 23:17:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948768, '2024-03-27 23:18:03', 6, 5, 7, 3, 9, 'TASK', '2024-03-27 23:19:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948769, '2024-03-27 23:19:18', 9, 4, 8, 6, 3, 'TASK', '2024-03-27 23:20:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948770, '2024-03-27 23:20:33', 7, 3, 4, 10, 9, 'TASK', '2024-03-27 23:21:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948771, '2024-03-27 23:21:48', 9, 7, 1, 6, 3, 'TASK', '2024-03-27 23:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948772, '2024-03-27 23:23:03', 2, 6, 9, 3, 4, 'TASK', '2024-03-27 23:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948773, '2024-03-27 23:24:18', 8, 6, 4, 5, 1, 'TASK', '2024-03-27 23:25:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948774, '2024-03-27 23:25:33', 8, 3, 4, 9, 7, 'TASK', '2024-03-27 23:26:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948775, '2024-03-27 23:26:48', 7, 9, 2, 6, 8, 'TASK', '2024-03-27 23:27:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948776, '2024-03-27 23:28:03', 3, 4, 1, 8, 5, 'TASK', '2024-03-27 23:29:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948777, '2024-03-27 23:29:18', 2, 6, 3, 1, 5, 'TASK', '2024-03-27 23:30:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948778, '2024-03-27 23:30:33', 3, 9, 10, 4, 6, 'TASK', '2024-03-27 23:31:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948779, '2024-03-27 23:31:48', 2, 6, 8, 10, 3, 'TASK', '2024-03-27 23:32:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948780, '2024-03-27 23:33:03', 6, 9, 10, 7, 1, 'TASK', '2024-03-27 23:34:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948781, '2024-03-27 23:34:18', 10, 8, 9, 1, 7, 'TASK', '2024-03-27 23:35:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948782, '2024-03-27 23:35:33', 7, 10, 3, 9, 2, 'TASK', '2024-03-27 23:36:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3948783, '2024-03-27 23:36:48', 7, 10, 6, 4, 5, 'TASK', '2024-03-27 23:37:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949787, '2024-03-28 20:31:48', 2, 4, 1, 8, 6, 'TASK', '2024-03-28 20:33:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949788, '2024-03-28 20:33:03', 9, 8, 6, 4, 1, 'TASK', '2024-03-28 20:34:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949789, '2024-03-28 20:34:18', 3, 6, 2, 1, 9, 'TASK', '2024-03-28 20:35:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949790, '2024-03-28 20:35:33', 10, 5, 9, 3, 7, 'TASK', '2024-03-28 20:36:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949791, '2024-03-28 20:36:48', 1, 10, 3, 7, 2, 'TASK', '2024-03-28 20:37:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949792, '2024-03-28 20:38:03', 7, 6, 8, 4, 10, 'TASK', '2024-03-28 20:39:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949793, '2024-03-28 20:39:18', 8, 3, 4, 9, 6, 'TASK', '2024-03-28 20:40:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949794, '2024-03-28 20:40:33', 5, 4, 2, 1, 9, 'TASK', '2024-03-28 20:41:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949795, '2024-03-28 20:41:48', 10, 7, 5, 1, 3, 'TASK', '2024-03-28 20:42:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949796, '2024-03-28 20:43:03', 3, 4, 1, 9, 8, 'TASK', '2024-03-28 20:44:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949797, '2024-03-28 20:44:18', 5, 4, 3, 7, 1, 'TASK', '2024-03-28 20:45:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949798, '2024-03-28 20:45:33', 9, 4, 2, 6, 1, 'TASK', '2024-03-28 20:46:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949799, '2024-03-28 20:46:48', 1, 2, 10, 8, 4, 'TASK', '2024-03-28 20:47:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949800, '2024-03-28 20:48:03', 7, 4, 5, 2, 3, 'TASK', '2024-03-28 20:49:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949801, '2024-03-28 20:49:18', 3, 9, 6, 5, 10, 'TASK', '2024-03-28 20:50:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949802, '2024-03-28 20:50:33', 8, 5, 2, 7, 1, 'TASK', '2024-03-28 20:51:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949803, '2024-03-28 20:51:48', 5, 6, 10, 1, 8, 'TASK', '2024-03-28 20:52:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949804, '2024-03-28 20:53:03', 7, 9, 6, 3, 4, 'TASK', '2024-03-28 20:54:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949805, '2024-03-28 20:54:18', 6, 10, 3, 4, 5, 'TASK', '2024-03-28 20:55:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949806, '2024-03-28 20:55:33', 4, 5, 10, 9, 3, 'TASK', '2024-03-28 20:56:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949807, '2024-03-28 20:56:48', 6, 4, 5, 7, 8, 'TASK', '2024-03-28 20:57:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949808, '2024-03-28 20:58:03', 10, 5, 4, 3, 8, 'TASK', '2024-03-28 20:59:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949809, '2024-03-28 20:59:18', 9, 1, 8, 6, 4, 'TASK', '2024-03-28 21:00:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949810, '2024-03-28 21:00:33', 5, 1, 9, 4, 6, 'TASK', '2024-03-28 21:01:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949811, '2024-03-28 21:01:48', 10, 9, 5, 4, 3, 'TASK', '2024-03-28 21:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949812, '2024-03-28 21:03:03', 10, 3, 6, 7, 8, 'TASK', '2024-03-28 21:04:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949813, '2024-03-28 21:04:18', 4, 7, 5, 3, 1, 'TASK', '2024-03-28 21:05:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949814, '2024-03-28 21:05:33', 8, 7, 4, 6, 5, 'TASK', '2024-03-28 21:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949815, '2024-03-28 21:06:48', 3, 9, 6, 7, 1, 'TASK', '2024-03-28 21:07:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949816, '2024-03-28 21:08:03', 1, 4, 9, 5, 10, 'TASK', '2024-03-28 21:09:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949817, '2024-03-28 21:09:18', 5, 8, 9, 6, 7, 'TASK', '2024-03-28 21:10:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949818, '2024-03-28 21:10:33', 5, 8, 3, 7, 4, 'TASK', '2024-03-28 21:11:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949819, '2024-03-28 21:11:48', 7, 1, 5, 4, 2, 'TASK', '2024-03-28 21:12:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949820, '2024-03-28 21:13:03', 8, 4, 5, 7, 9, 'TASK', '2024-03-28 21:14:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949821, '2024-03-28 21:14:18', 3, 6, 1, 5, 7, 'TASK', '2024-03-28 21:15:03', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949822, '2024-03-28 21:15:33', 9, 2, 3, 10, 4, 'TASK', '2024-03-28 21:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949823, '2024-03-28 21:16:48', 2, 10, 9, 4, 3, 'TASK', '2024-03-28 21:17:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949824, '2024-03-28 21:18:03', 3, 2, 7, 10, 6, 'TASK', '2024-03-28 21:19:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949825, '2024-03-28 21:19:18', 8, 10, 4, 7, 6, 'TASK', '2024-03-28 21:20:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949826, '2024-03-28 21:20:33', 2, 1, 3, 9, 8, 'TASK', '2024-03-28 21:21:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949827, '2024-03-28 21:21:48', 10, 3, 5, 9, 4, 'TASK', '2024-03-28 21:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949828, '2024-03-28 21:23:03', 1, 7, 3, 10, 4, 'TASK', '2024-03-28 21:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949829, '2024-03-28 21:24:18', 2, 7, 4, 10, 9, 'TASK', '2024-03-28 21:25:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949830, '2024-03-28 21:25:33', 6, 7, 5, 9, 2, 'TASK', '2024-03-28 21:26:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949831, '2024-03-28 21:26:48', 8, 7, 2, 5, 9, 'TASK', '2024-03-28 21:27:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949832, '2024-03-28 21:28:03', 5, 10, 7, 8, 4, 'TASK', '2024-03-28 21:29:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949833, '2024-03-28 21:29:18', 10, 8, 9, 5, 4, 'TASK', '2024-03-28 21:30:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949834, '2024-03-28 21:30:33', 9, 1, 7, 2, 4, 'TASK', '2024-03-28 21:31:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949835, '2024-03-28 21:31:48', 7, 10, 4, 5, 8, 'TASK', '2024-03-28 21:32:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949836, '2024-03-28 21:33:03', 3, 7, 1, 2, 9, 'TASK', '2024-03-28 21:34:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949837, '2024-03-28 21:34:18', 6, 1, 8, 7, 4, 'TASK', '2024-03-28 21:35:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949838, '2024-03-28 21:35:33', 8, 2, 4, 3, 1, 'TASK', '2024-03-28 21:36:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949839, '2024-03-28 21:36:48', 4, 1, 8, 7, 2, 'TASK', '2024-03-28 21:37:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949840, '2024-03-28 21:38:03', 10, 7, 5, 2, 1, 'TASK', '2024-03-28 21:39:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949841, '2024-03-28 21:39:18', 6, 10, 9, 4, 7, 'TASK', '2024-03-28 21:40:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949842, '2024-03-28 21:40:33', 2, 8, 4, 5, 9, 'TASK', '2024-03-28 21:41:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949843, '2024-03-28 21:41:48', 8, 3, 1, 9, 6, 'TASK', '2024-03-28 21:42:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949844, '2024-03-28 21:43:03', 4, 9, 1, 6, 10, 'TASK', '2024-03-28 21:44:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949845, '2024-03-28 21:44:18', 10, 2, 8, 3, 4, 'TASK', '2024-03-28 21:45:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949846, '2024-03-28 21:45:33', 9, 8, 7, 10, 3, 'TASK', '2024-03-28 21:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949847, '2024-03-28 21:46:48', 3, 7, 4, 10, 9, 'TASK', '2024-03-28 21:47:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949848, '2024-03-28 21:48:03', 5, 4, 9, 2, 1, 'TASK', '2024-03-28 21:49:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949849, '2024-03-28 21:49:18', 3, 5, 4, 10, 9, 'TASK', '2024-03-28 21:50:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949850, '2024-03-28 21:50:33', 10, 4, 3, 2, 9, 'TASK', '2024-03-28 21:51:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949851, '2024-03-28 21:51:48', 5, 4, 3, 9, 10, 'TASK', '2024-03-28 21:52:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949852, '2024-03-28 21:53:03', 7, 6, 5, 8, 3, 'TASK', '2024-03-28 21:54:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949853, '2024-03-28 21:54:18', 10, 1, 6, 3, 4, 'TASK', '2024-03-28 21:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949854, '2024-03-28 21:55:33', 7, 6, 3, 1, 10, 'TASK', '2024-03-28 21:56:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949855, '2024-03-28 21:56:48', 9, 5, 4, 7, 10, 'TASK', '2024-03-28 21:57:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949856, '2024-03-28 21:58:03', 3, 9, 8, 7, 2, 'TASK', '2024-03-28 21:59:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949857, '2024-03-28 21:59:18', 6, 7, 1, 10, 8, 'TASK', '2024-03-28 22:00:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949858, '2024-03-28 22:00:33', 4, 9, 3, 8, 10, 'TASK', '2024-03-28 22:01:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949859, '2024-03-28 22:01:48', 7, 8, 1, 10, 4, 'TASK', '2024-03-28 22:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949860, '2024-03-28 22:03:03', 9, 10, 8, 7, 4, 'TASK', '2024-03-28 22:04:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949861, '2024-03-28 22:04:18', 8, 2, 3, 7, 5, 'TASK', '2024-03-28 22:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949862, '2024-03-28 22:05:33', 9, 3, 4, 8, 2, 'TASK', '2024-03-28 22:06:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949863, '2024-03-28 22:06:48', 5, 4, 7, 8, 10, 'TASK', '2024-03-28 22:07:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949864, '2024-03-28 22:08:03', 1, 10, 3, 7, 8, 'TASK', '2024-03-28 22:09:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949865, '2024-03-28 22:09:18', 4, 7, 6, 9, 5, 'TASK', '2024-03-28 22:10:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949866, '2024-03-28 22:10:33', 4, 6, 7, 3, 8, 'TASK', '2024-03-28 22:11:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949867, '2024-03-28 22:11:48', 7, 3, 9, 2, 5, 'TASK', '2024-03-28 22:12:04', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949868, '2024-03-28 22:13:03', 4, 7, 9, 6, 10, 'TASK', '2024-03-28 22:14:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949869, '2024-03-28 22:14:18', 5, 9, 1, 7, 3, 'TASK', '2024-03-28 22:15:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949870, '2024-03-28 22:15:33', 2, 5, 3, 10, 8, 'TASK', '2024-03-28 22:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949871, '2024-03-28 22:16:48', 10, 1, 8, 3, 2, 'TASK', '2024-03-28 22:17:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949872, '2024-03-28 22:18:03', 5, 7, 9, 6, 2, 'TASK', '2024-03-28 22:19:02', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949873, '2024-03-28 22:19:18', 9, 2, 7, 8, 3, 'TASK', '2024-03-28 22:20:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949874, '2024-03-28 22:20:33', 2, 9, 4, 1, 5, 'TASK', '2024-03-28 22:21:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949875, '2024-03-28 22:21:48', 9, 10, 5, 8, 1, 'TASK', '2024-03-28 22:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3949876, '2024-03-28 22:23:03', 5, 4, 2, 6, 9, 'TASK', '2024-03-28 22:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954424, '2024-04-01 21:08:03', 10, 8, 4, 3, 2, 'TASK', '2024-04-01 21:09:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954425, '2024-04-01 21:09:18', 9, 7, 3, 5, 1, 'TASK', '2024-04-01 21:10:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954426, '2024-04-01 21:10:33', 9, 10, 2, 4, 7, 'TASK', '2024-04-01 21:11:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954427, '2024-04-01 21:11:48', 9, 7, 4, 3, 8, 'TASK', '2024-04-01 21:12:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954428, '2024-04-01 21:13:03', 1, 3, 10, 4, 2, 'TASK', '2024-04-01 21:14:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954429, '2024-04-01 21:14:18', 1, 9, 8, 10, 5, 'TASK', '2024-04-01 21:15:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954430, '2024-04-01 21:15:33', 4, 6, 1, 3, 10, 'TASK', '2024-04-01 21:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954431, '2024-04-01 21:16:48', 9, 5, 7, 3, 10, 'TASK', '2024-04-01 21:17:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954432, '2024-04-01 21:18:03', 10, 2, 6, 5, 8, 'TASK', '2024-04-01 21:19:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954433, '2024-04-01 21:19:18', 5, 4, 10, 7, 8, 'TASK', '2024-04-01 21:20:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954434, '2024-04-01 21:20:33', 8, 6, 3, 4, 9, 'TASK', '2024-04-01 21:21:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954435, '2024-04-01 21:21:48', 5, 2, 1, 9, 6, 'TASK', '2024-04-01 21:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954436, '2024-04-01 21:23:03', 1, 4, 8, 2, 3, 'TASK', '2024-04-01 21:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954437, '2024-04-01 21:24:18', 3, 6, 8, 7, 4, 'TASK', '2024-04-01 21:25:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954438, '2024-04-01 21:25:33', 5, 7, 10, 2, 4, 'TASK', '2024-04-01 21:26:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954439, '2024-04-01 21:26:48', 9, 5, 8, 2, 6, 'TASK', '2024-04-01 21:27:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954440, '2024-04-01 21:28:03', 8, 9, 3, 1, 5, 'TASK', '2024-04-01 21:29:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954441, '2024-04-01 21:29:18', 7, 1, 10, 2, 8, 'TASK', '2024-04-01 21:30:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954442, '2024-04-01 21:30:33', 3, 5, 2, 9, 6, 'TASK', '2024-04-01 21:31:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954443, '2024-04-01 21:31:48', 10, 4, 6, 3, 9, 'TASK', '2024-04-01 21:32:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954444, '2024-04-01 21:33:03', 8, 9, 4, 1, 5, 'TASK', '2024-04-01 21:34:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954445, '2024-04-01 21:34:18', 8, 1, 3, 5, 2, 'TASK', '2024-04-01 21:35:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954446, '2024-04-01 21:35:33', 2, 6, 1, 9, 3, 'TASK', '2024-04-01 21:36:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954447, '2024-04-01 21:36:48', 5, 9, 4, 1, 8, 'TASK', '2024-04-01 21:37:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954448, '2024-04-01 21:38:03', 9, 6, 2, 7, 8, 'TASK', '2024-04-01 21:39:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954449, '2024-04-01 21:39:18', 2, 3, 10, 5, 4, 'TASK', '2024-04-01 21:40:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954450, '2024-04-01 21:40:33', 2, 6, 8, 4, 7, 'TASK', '2024-04-01 21:41:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954451, '2024-04-01 21:41:48', 8, 1, 6, 2, 5, 'TASK', '2024-04-01 21:42:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954452, '2024-04-01 21:43:03', 8, 7, 3, 2, 1, 'TASK', '2024-04-01 21:44:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954453, '2024-04-01 21:44:18', 10, 5, 2, 6, 8, 'TASK', '2024-04-01 21:45:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954454, '2024-04-01 21:45:33', 2, 10, 9, 3, 8, 'TASK', '2024-04-01 21:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954455, '2024-04-01 21:46:48', 2, 5, 7, 4, 1, 'TASK', '2024-04-01 21:47:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954456, '2024-04-01 21:48:03', 4, 8, 1, 2, 3, 'TASK', '2024-04-01 21:49:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954457, '2024-04-01 21:49:18', 8, 2, 9, 4, 5, 'TASK', '2024-04-01 21:51:18', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954458, '2024-04-01 21:50:33', 3, 4, 5, 9, 10, 'TASK', '2024-04-01 21:51:25', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954459, '2024-04-01 21:51:48', 7, 10, 6, 9, 4, 'TASK', '2024-04-01 21:52:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954460, '2024-04-01 21:53:03', 10, 3, 4, 5, 8, 'TASK', '2024-04-01 21:54:03', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954461, '2024-04-01 21:54:18', 10, 9, 4, 5, 8, 'TASK', '2024-04-01 21:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954462, '2024-04-01 21:55:33', 6, 7, 2, 3, 9, 'TASK', '2024-04-01 21:57:03', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954463, '2024-04-01 21:56:48', 9, 7, 1, 2, 10, 'TASK', '2024-04-01 21:57:10', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954464, '2024-04-01 21:58:03', 1, 10, 2, 6, 3, 'TASK', '2024-04-01 21:58:10', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954465, '2024-04-01 21:59:18', 3, 1, 9, 8, 2, 'TASK', '2024-04-01 22:00:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954466, '2024-04-01 22:00:33', 3, 8, 7, 5, 1, 'TASK', '2024-04-01 22:01:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954467, '2024-04-01 22:01:48', 5, 4, 1, 8, 3, 'TASK', '2024-04-01 22:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954468, '2024-04-01 22:03:03', 8, 10, 4, 5, 6, 'TASK', '2024-04-01 22:04:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954469, '2024-04-01 22:04:18', 7, 3, 9, 2, 1, 'TASK', '2024-04-01 22:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954470, '2024-04-01 22:05:33', 4, 2, 3, 5, 8, 'TASK', '2024-04-01 22:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954471, '2024-04-01 22:06:48', 3, 5, 10, 8, 2, 'TASK', '2024-04-01 22:07:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954472, '2024-04-01 22:08:03', 5, 4, 10, 8, 2, 'TASK', '2024-04-01 22:09:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954473, '2024-04-01 22:09:18', 6, 3, 10, 5, 7, 'TASK', '2024-04-01 22:10:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954474, '2024-04-01 22:10:33', 6, 10, 9, 7, 4, 'TASK', '2024-04-01 22:11:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954475, '2024-04-01 22:11:48', 10, 7, 1, 6, 8, 'TASK', '2024-04-01 22:12:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954476, '2024-04-01 22:13:03', 1, 6, 2, 8, 3, 'TASK', '2024-04-01 22:14:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954477, '2024-04-01 22:14:18', 4, 6, 8, 1, 9, 'TASK', '2024-04-01 22:15:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954478, '2024-04-01 22:15:33', 3, 8, 7, 4, 1, 'TASK', '2024-04-01 22:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954479, '2024-04-01 22:16:48', 2, 4, 10, 6, 5, 'TASK', '2024-04-01 22:17:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954480, '2024-04-01 22:18:03', 2, 6, 8, 5, 10, 'TASK', '2024-04-01 22:19:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954481, '2024-04-01 22:19:18', 6, 1, 9, 7, 8, 'TASK', '2024-04-01 22:20:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954482, '2024-04-01 22:20:33', 6, 8, 3, 1, 9, 'TASK', '2024-04-01 22:21:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954483, '2024-04-01 22:21:48', 3, 10, 9, 7, 8, 'TASK', '2024-04-01 22:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954484, '2024-04-01 22:23:03', 10, 7, 3, 9, 1, 'TASK', '2024-04-01 22:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954485, '2024-04-01 22:24:18', 6, 9, 4, 2, 8, 'TASK', '2024-04-01 22:25:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954486, '2024-04-01 22:25:33', 5, 10, 9, 2, 8, 'TASK', '2024-04-01 22:26:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954487, '2024-04-01 22:26:48', 10, 9, 7, 4, 6, 'TASK', '2024-04-01 22:27:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954488, '2024-04-01 22:28:03', 4, 5, 3, 7, 8, 'TASK', '2024-04-01 22:29:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954489, '2024-04-01 22:29:18', 7, 3, 10, 9, 6, 'TASK', '2024-04-01 22:30:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954490, '2024-04-01 22:30:33', 1, 4, 9, 6, 3, 'TASK', '2024-04-01 22:31:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954491, '2024-04-01 22:31:48', 3, 8, 2, 10, 1, 'TASK', '2024-04-01 22:32:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954492, '2024-04-01 22:33:03', 9, 10, 7, 4, 2, 'TASK', '2024-04-01 22:34:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954493, '2024-04-01 22:34:18', 6, 10, 3, 1, 5, 'TASK', '2024-04-01 22:35:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954494, '2024-04-01 22:35:33', 3, 5, 10, 2, 1, 'TASK', '2024-04-01 22:36:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954495, '2024-04-01 22:36:48', 4, 5, 9, 8, 1, 'TASK', '2024-04-01 22:37:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954496, '2024-04-01 22:38:03', 4, 1, 10, 6, 2, 'TASK', '2024-04-01 22:39:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954497, '2024-04-01 22:39:18', 4, 7, 1, 6, 5, 'TASK', '2024-04-01 22:40:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954498, '2024-04-01 22:40:33', 4, 6, 2, 3, 9, 'TASK', '2024-04-01 22:41:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954499, '2024-04-01 22:41:48', 7, 9, 6, 3, 4, 'TASK', '2024-04-01 22:42:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954500, '2024-04-01 22:43:03', 4, 9, 5, 2, 7, 'TASK', '2024-04-01 22:44:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954501, '2024-04-01 22:44:18', 5, 4, 2, 9, 7, 'TASK', '2024-04-01 22:45:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954502, '2024-04-01 22:45:33', 8, 3, 1, 6, 9, 'TASK', '2024-04-01 22:46:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954503, '2024-04-01 22:46:48', 5, 9, 8, 2, 3, 'TASK', '2024-04-01 22:47:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954504, '2024-04-01 22:48:03', 4, 6, 5, 3, 8, 'TASK', '2024-04-01 22:49:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954505, '2024-04-01 22:49:18', 10, 1, 3, 5, 9, 'TASK', '2024-04-01 22:50:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954506, '2024-04-01 22:50:33', 2, 7, 10, 9, 8, 'TASK', '2024-04-01 22:51:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954507, '2024-04-01 22:51:48', 1, 5, 4, 7, 2, 'TASK', '2024-04-01 22:52:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954508, '2024-04-01 22:53:03', 4, 1, 5, 2, 3, 'TASK', '2024-04-01 22:54:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954509, '2024-04-01 22:54:18', 7, 5, 10, 3, 2, 'TASK', '2024-04-01 22:55:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954510, '2024-04-01 22:55:33', 10, 3, 2, 4, 1, 'TASK', '2024-04-01 22:56:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954511, '2024-04-01 22:56:48', 1, 3, 9, 4, 10, 'TASK', '2024-04-01 22:57:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954512, '2024-04-01 22:58:03', 2, 3, 9, 5, 1, 'TASK', '2024-04-01 22:59:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954513, '2024-04-01 22:59:18', 3, 2, 7, 6, 1, 'TASK', '2024-04-01 23:00:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954514, '2024-04-01 23:00:33', 4, 6, 1, 3, 2, 'TASK', '2024-04-01 23:01:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954515, '2024-04-01 23:01:48', 2, 8, 6, 4, 9, 'TASK', '2024-04-01 23:02:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954516, '2024-04-01 23:03:03', 10, 4, 7, 6, 8, 'TASK', '2024-04-01 23:04:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954517, '2024-04-01 23:04:18', 2, 4, 5, 7, 8, 'TASK', '2024-04-01 23:05:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954518, '2024-04-01 23:05:33', 7, 8, 4, 3, 6, 'TASK', '2024-04-01 23:06:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954519, '2024-04-01 23:06:48', 7, 9, 5, 8, 10, 'TASK', '2024-04-01 23:07:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954520, '2024-04-01 23:08:03', 9, 3, 8, 7, 2, 'TASK', '2024-04-01 23:09:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954521, '2024-04-01 23:09:18', 6, 5, 10, 2, 4, 'TASK', '2024-04-01 23:10:01', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954522, '2024-04-01 23:10:33', 8, 3, 10, 1, 5, 'TASK', '2024-04-01 23:11:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954523, '2024-04-01 23:11:48', 6, 1, 7, 3, 10, 'TASK', '2024-04-01 23:12:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954524, '2024-04-01 23:13:03', 2, 7, 4, 5, 6, 'TASK', '2024-04-01 23:14:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954525, '2024-04-01 23:14:18', 5, 6, 2, 4, 10, 'TASK', '2024-04-01 23:15:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954526, '2024-04-01 23:15:33', 2, 6, 3, 4, 7, 'TASK', '2024-04-01 23:16:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954527, '2024-04-01 23:16:48', 2, 9, 10, 3, 6, 'TASK', '2024-04-01 23:17:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954528, '2024-04-01 23:18:03', 5, 8, 2, 7, 3, 'TASK', '2024-04-01 23:20:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954529, '2024-04-01 23:19:18', 10, 2, 3, 5, 4, 'TASK', '2024-04-01 23:21:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954530, '2024-04-01 23:20:33', 9, 10, 6, 5, 7, 'TASK', '2024-04-01 23:22:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954531, '2024-04-01 23:21:48', 3, 4, 5, 2, 8, 'TASK', '2024-04-01 23:23:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954532, '2024-04-01 23:23:03', 10, 1, 9, 6, 8, 'TASK', '2024-04-01 23:24:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954533, '2024-04-01 23:24:18', 7, 10, 1, 6, 3, 'TASK', '2024-04-01 23:25:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954534, '2024-04-01 23:25:33', 2, 7, 10, 3, 9, 'TASK', '2024-04-01 23:26:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954535, '2024-04-01 23:26:48', 1, 6, 7, 3, 4, 'TASK', '2024-04-01 23:27:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954536, '2024-04-01 23:28:03', 6, 4, 9, 3, 1, 'TASK', '2024-04-01 23:29:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954537, '2024-04-01 23:29:18', 8, 3, 7, 1, 9, 'TASK', '2024-04-01 23:30:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954538, '2024-04-01 23:30:33', 8, 10, 5, 4, 1, 'TASK', '2024-04-01 23:31:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954539, '2024-04-01 23:31:48', 8, 7, 9, 6, 1, 'TASK', '2024-04-01 23:32:15', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954540, '2024-04-01 23:33:03', 4, 7, 5, 3, 9, 'TASK', '2024-04-01 23:34:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954541, '2024-04-01 23:34:18', 3, 9, 6, 10, 1, 'TASK', '2024-04-01 23:35:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954542, '2024-04-01 23:35:33', 8, 5, 7, 2, 6, 'TASK', '2024-04-01 23:36:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954543, '2024-04-01 23:36:48', 7, 3, 5, 1, 6, 'TASK', '2024-04-01 23:37:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954544, '2024-04-01 23:38:03', 10, 5, 1, 4, 9, 'TASK', '2024-04-01 23:39:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954545, '2024-04-01 23:39:18', 10, 8, 6, 5, 4, 'TASK', '2024-04-01 23:40:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954546, '2024-04-01 23:40:33', 1, 7, 6, 5, 8, 'TASK', '2024-04-01 23:41:00', '', NULL, '');
-INSERT INTO `jsssc` VALUES (3954547, '2024-04-01 23:41:48', 10, 4, 3, 5, 8, 'TASK', '2024-04-01 23:42:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096943, '2024-04-06 14:18:00', 7, 3, 2, 5, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096944, '2024-04-06 14:19:15', 5, 0, 5, 8, 4, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096945, '2024-04-06 14:20:30', 2, 9, 9, 8, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096946, '2024-04-06 14:21:45', 9, 8, 9, 9, 7, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096947, '2024-04-06 14:23:00', 9, 8, 2, 5, 9, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096948, '2024-04-06 14:24:15', 5, 2, 3, 8, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096949, '2024-04-06 14:25:30', 4, 1, 1, 0, 0, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096950, '2024-04-06 14:26:45', 1, 8, 4, 0, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096951, '2024-04-06 14:28:00', 8, 1, 6, 7, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096952, '2024-04-06 14:29:15', 9, 1, 9, 9, 3, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096953, '2024-04-06 14:30:30', 2, 4, 1, 5, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096954, '2024-04-06 14:31:45', 7, 2, 7, 6, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096955, '2024-04-06 14:33:00', 2, 0, 6, 0, 0, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096956, '2024-04-06 14:34:15', 9, 5, 3, 6, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096957, '2024-04-06 14:35:30', 0, 6, 5, 1, 6, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096958, '2024-04-06 14:36:45', 0, 4, 0, 6, 6, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096959, '2024-04-06 14:38:00', 9, 3, 3, 0, 6, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096960, '2024-04-06 14:39:15', 3, 3, 7, 5, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096961, '2024-04-06 14:40:30', 6, 6, 8, 9, 4, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096962, '2024-04-06 14:41:45', 8, 0, 5, 8, 4, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096963, '2024-04-06 14:43:00', 6, 4, 8, 0, 7, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096964, '2024-04-06 14:44:15', 6, 1, 4, 6, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096965, '2024-04-06 14:45:30', 4, 2, 0, 1, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096966, '2024-04-06 14:46:45', 5, 6, 2, 1, 6, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096967, '2024-04-06 14:48:00', 0, 3, 4, 9, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096968, '2024-04-06 14:49:15', 4, 6, 8, 0, 7, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096969, '2024-04-06 14:50:30', 2, 0, 7, 2, 4, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096970, '2024-04-06 14:51:45', 3, 9, 3, 5, 7, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096971, '2024-04-06 14:53:00', 0, 2, 9, 0, 6, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096972, '2024-04-06 14:54:15', 2, 5, 5, 7, 6, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096973, '2024-04-06 14:55:30', 6, 6, 2, 4, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096974, '2024-04-06 14:56:45', 0, 1, 0, 0, 0, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096975, '2024-04-06 14:58:00', 5, 2, 7, 9, 9, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096976, '2024-04-06 14:59:15', 9, 0, 6, 5, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096977, '2024-04-06 15:00:30', 0, 8, 2, 9, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096978, '2024-04-06 15:01:45', 2, 2, 8, 8, 2, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096979, '2024-04-06 15:03:00', 8, 9, 3, 1, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096980, '2024-04-06 15:04:15', 2, 9, 4, 9, 2, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096981, '2024-04-06 15:05:30', 3, 5, 6, 2, 0, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096982, '2024-04-06 15:06:45', 4, 5, 7, 4, 2, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096983, '2024-04-06 15:08:00', 4, 7, 5, 5, 9, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096984, '2024-04-06 15:09:15', 8, 6, 6, 4, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096985, '2024-04-06 15:10:30', 5, 3, 8, 1, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096986, '2024-04-06 15:11:45', 6, 3, 3, 5, 7, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096987, '2024-04-06 15:13:00', 8, 7, 8, 7, 7, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096988, '2024-04-06 15:14:15', 5, 5, 7, 1, 7, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096989, '2024-04-06 15:15:30', 1, 6, 5, 5, 0, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096990, '2024-04-06 15:16:45', 2, 3, 7, 8, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096991, '2024-04-06 15:18:00', 8, 8, 1, 8, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13096992, '2024-04-06 15:19:15', 6, 7, 8, 7, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jsssckj
@@ -2343,13 +3471,6 @@ CREATE TABLE `jsssckj`  (
 -- ----------------------------
 -- Records of jsssckj
 -- ----------------------------
-INSERT INTO `jsssckj` VALUES (3954540, '1', '2024-04-01 23:32:23', '2024-04-01 23:32:58', '2024-04-01 23:33:03', 0, 0, 4, 7, 5, 3, 9, 28, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 3, 4, 4, '', '2024-04-01 23:39:04', '', NULL, '');
-INSERT INTO `jsssckj` VALUES (3954541, '1', '2024-04-01 23:33:38', '2024-04-01 23:34:13', '2024-04-01 23:34:18', 0, 0, 3, 9, 6, 10, 1, 29, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 2, 4, 3, 4, '', '2024-04-01 23:39:04', '', NULL, '');
-INSERT INTO `jsssckj` VALUES (3954542, '1', '2024-04-01 23:34:53', '2024-04-01 23:35:28', '2024-04-01 23:35:33', 0, 0, 8, 5, 7, 2, 6, 28, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 2, 3, 4, 3, '', '2024-04-01 23:39:04', '', NULL, '');
-INSERT INTO `jsssckj` VALUES (3954543, '1', '2024-04-01 23:36:08', '2024-04-01 23:36:43', '2024-04-01 23:36:48', 0, 0, 7, 3, 5, 1, 6, 22, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 2, 4, 4, 3, '', '2024-04-01 23:39:04', '', NULL, '');
-INSERT INTO `jsssckj` VALUES (3954544, '1', '2024-04-01 23:37:23', '2024-04-01 23:37:58', '2024-04-01 23:38:03', 0, 0, 10, 5, 1, 4, 9, 29, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 2, 4, 3, 4, '', '2024-04-01 23:39:04', '', NULL, '');
-INSERT INTO `jsssckj` VALUES (3954545, '0', '2024-04-01 23:38:43', '2024-04-01 23:39:18', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-01 23:39:04', '', NULL, '');
-INSERT INTO `jsssckj` VALUES (3954546, '0', '2024-04-01 23:39:58', '2024-04-01 23:40:33', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-01 23:39:04', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jssscrecord
@@ -3387,7 +4508,7 @@ INSERT INTO `sys_game` VALUES (11, '/profile/upload/2024/03/09/xyft_202403092020
 INSERT INTO `sys_game` VALUES (12, '/profile/upload/2024/03/09/jssc_20240309202124A011.jpg', '10', 'jssc', '168极速赛车', '168极速赛车', 0xE38090E69E81E9809FE8B59BE8BDA6392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jssc', 'jsscrecord', 'jssc10', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 0, 35, 0, 20, NULL, 12, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:21:54', '');
 INSERT INTO `sys_game` VALUES (13, '/profile/upload/2024/03/09/jsft_20240309202548A012.jpg', '10', 'jsft', '168极速飞艇', '168极速飞艇', 0xE38090E69E81E9809FE9A39EE88987E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jsfei', 'jsfeirecord', 'jsfei10', 0.00, NULL, NULL, 5.00, 5.00, 50000.00, 0, 5, 0, 20, NULL, 13, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:26:22', '');
 INSERT INTO `sys_game` VALUES (14, '/profile/upload/2024/03/09/jssc2_20240309202640A013.jpg', '10', 'jssc2', '168极速赛车高赔率', '168极速赛车高赔率', 0xE38090E69E81E9809FE8B59BE8BDA6392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, NULL, NULL, NULL, 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 0, 35, 0, 20, NULL, 14, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:27:07', '');
-INSERT INTO `sys_game` VALUES (15, '/profile/upload/2024/03/09/jsssc_20240309202724A014.jpg', '5', 'jsscmet', '168极速时时彩', '168极速时时彩', 0xE38090E69E81E9809FE697B6E697B6E5BDA9E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D302D39E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jsssc', 'jssscrecord', 'jsssckj', 0.00, NULL, NULL, 5.00, 5.00, 100000.00, 10, 35, 75, 30, NULL, 15, '0', 'N', 0, '', '2024-03-06 22:34:06', '', '2024-03-20 22:20:37', '');
+INSERT INTO `sys_game` VALUES (15, '/profile/upload/2024/03/09/jsssc_20240309202724A014.jpg', '5', 'jsssc', '168极速时时彩', '168极速时时彩', 0xE38090E69E81E9809FE697B6E697B6E5BDA9E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D302D39E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jsssc', 'jssscrecord', 'jsssckj', 0.00, NULL, NULL, 5.00, 5.00, 100000.00, 10, 35, 75, 30, NULL, 15, '0', 'N', 0, '', '2024-03-06 22:34:06', '', '2024-03-20 22:20:37', '');
 INSERT INTO `sys_game` VALUES (16, '/profile/upload/2024/03/09/xyft2_20240309202820A015.jpg', '10', 'xyft2', '幸运飞艇高赔率', '幸运飞艇高赔率', 0xE38090E5B9B8E8BF90E9A39EE88987392E39E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC893130E8BDA6E58FB7EFBC9A392E39E5808DEFBC88E590ABE69CACE98791EFBC89E9BE992FE8998EEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC89E586A0E4BA9AE5928CE5A4A72FE58F8CEFBC9A322E31E5808DEFBC88E590ABE69CACE98791EFBC89E5B08F2FE58D95EFBC9A312E37E5808DEFBC88E590ABE69CACE98791EFBC89332F342F31382F3139EFBC9AE590ABE69CAC3431E5808D352F362F31362F3137EFBC9AE590ABE69CAC3230E5808D372F382F31342F3135EFBC9AE590ABE69CAC3133E5808D392F31302F31322F3133EFBC9AE590ABE69CAC39E5808D3131EFBC9AE590ABE69CAC37E5808D317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E2062722FE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091, 'Fei', 'feirecord', 'fei10', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 0, 110, 0, 20, NULL, 16, '1', 'Y', 0, '', '2024-03-06 22:34:06', '', '2024-03-09 20:28:48', '');
 
 -- ----------------------------
@@ -3419,10 +4540,10 @@ INSERT INTO `sys_job` VALUES (2, '系统默认（有参）', 'DEFAULT', 'ryTask.
 INSERT INTO `sys_job` VALUES (3, '系统默认（多参）', 'DEFAULT', 'ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)', '0/20 * * * * ?', '3', '1', '1', 'admin', '2024-03-05 21:03:11', '', NULL, '');
 INSERT INTO `sys_job` VALUES (4, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-26 22:44:43', '');
 INSERT INTO `sys_job` VALUES (5, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:51:09', 'admin', '2024-03-26 22:44:45', '');
-INSERT INTO `sys_job` VALUES (6, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsscmet\')', '0 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-04 20:25:39', '');
+INSERT INTO `sys_job` VALUES (6, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsssc\')', '0 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-06 15:18:54', '');
 INSERT INTO `sys_job` VALUES (7, '澳洲幸运10定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'azxy10\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-04 20:06:02', '');
 INSERT INTO `sys_job` VALUES (8, '加拿大2.8定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jnd28\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:51:09', 'admin', '2024-04-04 20:06:00', '');
-INSERT INTO `sys_job` VALUES (9, '急速时时彩定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jsscmet\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-19 21:28:02', '');
+INSERT INTO `sys_job` VALUES (9, '急速时时彩定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jsssc\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-06 15:19:05', '');
 
 -- ----------------------------
 -- Table structure for sys_job_log
@@ -3438,7 +4559,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2309 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 506 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -3461,7 +4582,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status`) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 136 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -3502,6 +4623,7 @@ INSERT INTO `sys_logininfor` VALUES (132, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (133, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-01 21:10:03');
 INSERT INTO `sys_logininfor` VALUES (134, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-01 21:18:35');
 INSERT INTO `sys_logininfor` VALUES (135, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-04 19:30:47');
+INSERT INTO `sys_logininfor` VALUES (136, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-06 11:12:43');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -3693,7 +4815,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type`) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status`) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 477 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -3855,7 +4977,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-04-04 19:30:47', 411.73, 120.00, 'admin', '2024-03-05 21:03:10', '', '2024-04-04 19:30:47', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-04-06 11:12:44', 411.73, 120.00, 'admin', '2024-03-05 21:03:10', '', '2024-04-06 11:12:43', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'sharkadmin', '平台管理员', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '127.0.0.1', '2024-03-26 22:45:35', 0.00, 0.00, 'admin', '2024-03-05 21:03:10', 'admin', '2024-03-26 22:45:34', '测试员');
 
 -- ----------------------------

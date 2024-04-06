@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.GameThreeballOpenDataMapper">
+    
+    <resultMap type="GameThreeballOpenData" id="GameThreeballOpenDataResult">
+        <result property="id"    column="id"    />
+        <result property="periods"    column="periods"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="time"    column="time"    />
+        <result property="sum1"    column="sum_1"    />
+        <result property="sum2"    column="sum_2"    />
+        <result property="sum3"    column="sum_3"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectGameThreeballOpenDataVo">
+        select id, periods, game_id, game_name, time, sum_1, sum_2, sum_3, create_by, create_time, update_by, update_time, remark from game_threeball_open_data
+    </sql>
+
+    <select id="selectGameThreeballOpenDataList" parameterType="GameThreeballOpenData" resultMap="GameThreeballOpenDataResult">
+        <include refid="selectGameThreeballOpenDataVo"/>
+        <where>  
+            <if test="periods != null "> and periods = #{periods}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="time != null "> and time = #{time}</if>
+            <if test="sum1 != null "> and sum_1 = #{sum1}</if>
+            <if test="sum2 != null "> and sum_2 = #{sum2}</if>
+            <if test="sum3 != null "> and sum_3 = #{sum3}</if>
+        </where>
+    </select>
+    
+    <select id="selectGameThreeballOpenDataById" parameterType="Long" resultMap="GameThreeballOpenDataResult">
+        <include refid="selectGameThreeballOpenDataVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGameThreeballOpenData" parameterType="GameThreeballOpenData" useGeneratedKeys="true" keyProperty="id">
+        insert into game_threeball_open_data(
+            <if test="periods != null">periods,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="time != null">time,</if>
+            <if test="sum1 != null">sum_1,</if>
+            <if test="sum2 != null">sum_2,</if>
+            <if test="sum3 != null">sum_3,</if>
+            <if test="createBy != null">create_by,</if>
+        create_time
+        )values(
+            <if test="periods != null">#{periods},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="time != null">#{time},</if>
+            <if test="sum1 != null">#{sum1},</if>
+            <if test="sum2 != null">#{sum2},</if>
+            <if test="sum3 != null">#{sum3},</if>
+            <if test="createBy != null">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateGameThreeballOpenData" parameterType="GameThreeballOpenData">
+        update game_threeball_open_data
+        <set>
+            <if test="time != null">time = #{time},</if>
+            <if test="sum1 != null">sum_1 = #{sum1},</if>
+            <if test="sum2 != null">sum_2 = #{sum2},</if>
+            <if test="sum3 != null">sum_3 = #{sum3},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGameThreeballOpenDataById" parameterType="Long">
+        delete from game_threeball_open_data where id = #{id}
+    </delete>
+
+    <delete id="deleteGameThreeballOpenDataByIds" parameterType="String">
+        delete from game_threeball_open_data where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectLastRecord" parameterType="Long" resultMap="GameThreeballOpenDataResult">
+        <include refid="selectGameThreeballOpenDataVo"/>
+        where 1 = 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        order by id desc
+        limit 1
+    </select>
+
+    <select id="selectGameThreeballOpenDataListByParam" resultMap="GameThreeballOpenDataResult">
+        <include refid="selectGameThreeballOpenDataVo"/>
+        where 1 = 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="idDescFlg != null and idDescFlg != '' ">
+            order by id desc
+        </if>
+        <if test="limitNumber != null">
+            limit #{limitNumber}
+        </if>
+    </select>
+
+    <select id="selectGameThreeballOpenDataByPeriods" parameterType="Long" resultMap="GameThreeballOpenDataResult">
+        <include refid="selectGameThreeballOpenDataVo"/>
+        where 1 = 1
+        <if test="periods != null "> and periods = #{periods}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        order by id desc
+        limit 1
+    </select>
+</mapper>

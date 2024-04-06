@@ -2,12 +2,14 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.system.mapper.JndrecordMapper">
+<mapper namespace="com.ruoyi.system.mapper.GameThreeballRecordMapper">
     
-    <resultMap type="Jndrecord" id="JndrecordResult">
+    <resultMap type="GameThreeballRecord" id="GameThreeballRecordResult">
         <result property="id"    column="id"    />
         <result property="userId"    column="user_id"    />
         <result property="periods"    column="periods"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
         <result property="status"    column="status"    />
         <result property="recordTime"    column="record_time"    />
         <result property="checkTime"    column="check_time"    />
@@ -83,15 +85,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="winMoney"    column="win_money"    />
     </resultMap>
 
-    <sql id="selectJndrecordVo">
-        select id, user_id, periods, status, record_time, check_time, count_money, win_money, big, small, single, double_amount, much_Big, big_Single, small_Single, big_Double, small_Double, much_Small, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12, num13, num14, num15, num16, num17, num18, num19, num20, num21, num22, num23, num24, num25, num26, num27, red, green, blue, loong, tiger, close, leopard, pairs, shun, vip, n1, n2, n3, sum_num, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from jndrecord
+    <sql id="selectGameThreeballRecordVo">
+        select id, user_id, periods, game_id, game_name, status, record_time, check_time, count_money, win_money, big, small, single, double_amount, much_Big, big_Single, small_Single, big_Double, small_Double, much_Small, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12, num13, num14, num15, num16, num17, num18, num19, num20, num21, num22, num23, num24, num25, num26, num27, red, green, blue, loong, tiger, close, leopard, pairs, shun, vip, n1, n2, n3, sum_num, is_delete, is_deduct, house, hz_id, hz_user, create_by, create_time, update_by, update_time, remark from game_threeball_record
     </sql>
 
-    <select id="selectJndrecordList" parameterType="Jndrecord" resultMap="JndrecordResult">
-        <include refid="selectJndrecordVo"/>
+    <select id="selectGameThreeballRecordList" parameterType="GameThreeballRecord" resultMap="GameThreeballRecordResult">
+        <include refid="selectGameThreeballRecordVo"/>
         <where>  
             <if test="userId != null "> and user_id = #{userId}</if>
             <if test="periods != null "> and periods = #{periods}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
             <if test="recordTime != null "> and record_time = #{recordTime}</if>
             <if test="checkTime != null "> and check_time = #{checkTime}</if>
@@ -157,15 +161,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
     
-    <select id="selectJndrecordById" parameterType="Long" resultMap="JndrecordResult">
-        <include refid="selectJndrecordVo"/>
+    <select id="selectGameThreeballRecordById" parameterType="Long" resultMap="GameThreeballRecordResult">
+        <include refid="selectGameThreeballRecordVo"/>
         where id = #{id}
     </select>
         
-    <insert id="insertJndrecord" parameterType="Jndrecord" useGeneratedKeys="true" keyProperty="id">
-        insert into jndrecord(
+    <insert id="insertGameThreeballRecord" parameterType="GameThreeballRecord" useGeneratedKeys="true" keyProperty="id">
+        insert into game_threeball_record(
             <if test="userId != null">user_id,</if>
             <if test="periods != null">periods,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
             <if test="status != null">status,</if>
             <if test="countMoney != null">count_money,</if>
             <if test="winMoney != null">win_money,</if>
@@ -233,6 +239,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         )values(
             <if test="userId != null">#{userId},</if>
             <if test="periods != null">#{periods},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
             <if test="status != null">#{status},</if>
             <if test="countMoney != null">#{countMoney},</if>
             <if test="winMoney != null">#{winMoney},</if>
@@ -300,8 +308,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         )
     </insert>
 
-    <update id="updateJndrecord" parameterType="Jndrecord">
-        update jndrecord
+    <update id="updateGameThreeballRecord" parameterType="GameThreeballRecord">
+        update game_threeball_record
         <set>
             <if test="status != null">status = #{status},</if>
             <if test="countMoney != null">count_money = #{countMoney},</if>
@@ -369,35 +377,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <update id="updateJndrecordTotalAmountByPeriodId" parameterType="Jndrecord">
-        update jndrecord
+    <delete id="deleteGameThreeballRecordById" parameterType="Long">
+        delete from game_threeball_record where id = #{id}
+    </delete>
+
+    <delete id="deleteGameThreeballRecordByIds" parameterType="String">
+        delete from game_threeball_record where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateGameThreeballRecordTotalAmountByPeriodId" parameterType="GameThreeballRecord">
+        update game_threeball_record
         <set>
             <if test="countMoney != null">count_money = #{countMoney},</if>
             <if test="winMoney != null">win_money = #{winMoney},</if>
             update_time = sysdate()
         </set>
         where periods = #{periods}
+        <if test="gameId != null "> and game_id = #{gameId}</if>
     </update>
-
-    <delete id="deleteJndrecordById" parameterType="Long">
-        delete from jndrecord where id = #{id}
-    </delete>
-
-    <delete id="deleteJndrecordByIds" parameterType="String">
-        delete from jndrecord where id in 
-        <foreach item="id" collection="array" open="(" separator="," close=")">
-            #{id}
-        </foreach>
-    </delete>
-
 
     <select id="selectSumRecordByPeriodId" parameterType="Long" resultMap="RecordSumResult">
         SELECT
-            COUNT(user_id) as user_count
-             ,SUM(count_money) as CountMoney
-             ,SUM(win_money) as WinMoney
-        from jndrecord
+        COUNT(user_id) as user_count
+        ,SUM(count_money) as CountMoney
+        ,SUM(win_money) as WinMoney
+        from game_threeball_record
         where periods = #{periodId}
-            limit 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        limit 1
     </select>
 </mapper>

@@ -70,12 +70,18 @@ public class RyTask
             if(StringUtils.equals("azxy10",gameCode)){
                 // 澳洲幸运10
                 gameTaskService.saveAzxy10InfoFromOfficial(openDataList,gameOpenDataDtoMap);
+
+                gameTaskService.saveTenBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }else if(StringUtils.equals("jnd28",gameCode)){
                 // 加拿大2.8
                 gameTaskService.saveJndInfoFromOfficial(openDataList,gameOpenDataDtoMap);
-            }else if(StringUtils.equals("jsscmet",gameCode)){
+
+                gameTaskService.saveThreeBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
+            }else if(StringUtils.equals("jsssc",gameCode)){
                 // 急速时时彩
                 gameTaskService.saveJssscInfoFromOfficial(openDataList,gameOpenDataDtoMap);
+
+                gameTaskService.saveFiveBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }
         }
     }
