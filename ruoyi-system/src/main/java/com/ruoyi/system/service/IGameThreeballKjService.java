@@ -1,7 +1,8 @@
 package com.ruoyi.system.service;
 
-import java.util.List;
 import com.ruoyi.system.domain.GameThreeballKj;
+
+import java.util.List;
 
 /**
  * 3球开奖Service接口
@@ -64,4 +65,6 @@ public interface IGameThreeballKjService
     public List<GameThreeballKj> selectGameThreeballKjListWithStatusZeroAndLimit(Long gameId, Long periods, String status, String idAscFlg, String idDescFlg, Integer limitNumber);
 
     public int updateGameThreeballKjTotalAmountByPeriodId(GameThreeballKj gameThreeballKj);
+
+    public GameThreeballKj selectGameThreeballKjByPeriods(Long gameId, Long periods);
 }

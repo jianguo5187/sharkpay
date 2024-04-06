@@ -108,4 +108,9 @@ public class GameFiveballKjServiceImpl implements IGameFiveballKjService
     public int updateGameFiveballKjTotalAmountByPeriodId(GameFiveballKj gameFiveballKj) {
         return gameFiveballKjMapper.updateGameFiveballKjTotalAmountByPeriodId(gameFiveballKj);
     }
+
+    @Override
+    public GameFiveballKj selectGameFiveballKjByPeriods(Long gameId, Long periods) {
+        return gameFiveballKjMapper.selectGameFiveballKjByPeriods(gameId,periods);
+    }
 }

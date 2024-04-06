@@ -1,5 +1,6 @@
 package com.ruoyi.system.service.impl;
 
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.Azxy10kj;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.BetkjReqVO;
@@ -38,7 +39,15 @@ public class BetkjServiceImpl implements IBetkjService
     @Override
     public List<BetkjRespVo> selectBetkjList(SysGame gameInfo , BetkjReqVO betkjReqVO) {
 //        SysGame gameInfo = sysGameMapper.selectSysGameByGameId(betkjReqVO.getGameId());
+        String kjTable = "";
+        if(StringUtils.equals(gameInfo.getGameType(),"3")){
+            kjTable = "game_threeball_kj";
+        }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
+            kjTable = "game_fiveball_kj";
+        }else{
+            kjTable = "game_tenball_kj";
+        }
 
-        return betkjMapper.selectBetkjList(gameInfo.getGameKj(), gameInfo.getGameType(), betkjReqVO.getPeriods(), betkjReqVO.getStatus());
+        return betkjMapper.selectBetkjList(gameInfo.getGameId(), kjTable, gameInfo.getGameType(), betkjReqVO.getPeriods(), betkjReqVO.getStatus());
     }
 }

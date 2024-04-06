@@ -2,7 +2,10 @@ package com.ruoyi.quartz.service.impl;
 
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.quartz.domain.GameOpenDataDto;
+import com.ruoyi.quartz.service.IFiveBallLotteryService;
 import com.ruoyi.quartz.service.IGameTaskService;
+import com.ruoyi.quartz.service.ITenBallLotteryService;
+import com.ruoyi.quartz.service.IThreeBallLotteryService;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +49,15 @@ public class GameTaskServiceImpl implements IGameTaskService {
 
     @Autowired
     private IGameTenballOpenDataService gameTenballOpenDataService;
+
+    @Autowired
+    private IThreeBallLotteryService threeBallLotteryService;
+
+    @Autowired
+    private IFiveBallLotteryService fiveBallLotteryService;
+
+    @Autowired
+    private ITenBallLotteryService tenBallLotteryService;
 
     @Override
     public void saveThreeBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
@@ -285,6 +297,21 @@ public class GameTaskServiceImpl implements IGameTaskService {
                 }
             }
         }
+    }
+
+    @Override
+    public void lotteryThreeBallBalance(String gameCode) {
+        threeBallLotteryService.lotteryThreeBall(gameCode);
+    }
+
+    @Override
+    public void lotteryFiveBallBalance(String gameCode) {
+        fiveBallLotteryService.lotteryFiveBall(gameCode);
+    }
+
+    @Override
+    public void lotteryTenBallBalance(String gameCode) {
+        tenBallLotteryService.lotteryTenBall(gameCode);
     }
 
     @Override

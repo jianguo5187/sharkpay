@@ -11,7 +11,7 @@
  Target Server Version : 50726 (5.7.26)
  File Encoding         : 65001
 
- Date: 06/04/2024 15:21:19
+ Date: 06/04/2024 21:29:39
 */
 
 SET NAMES utf8mb4;
@@ -66,7 +66,7 @@ CREATE TABLE `azxy10`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21102854 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21102927 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of azxy10
@@ -286,6 +286,79 @@ INSERT INTO `azxy10` VALUES (21102850, '2024-04-06 15:03:40', 6, 3, 1, 7, 9, 8, 
 INSERT INTO `azxy10` VALUES (21102851, '2024-04-06 15:08:40', 7, 9, 2, 5, 10, 4, 6, 1, 3, 8, 'TASK', '2024-04-06 15:10:00', '', NULL, '');
 INSERT INTO `azxy10` VALUES (21102852, '2024-04-06 15:13:40', 1, 7, 4, 2, 9, 10, 3, 6, 5, 8, 'TASK', '2024-04-06 15:15:00', '', NULL, '');
 INSERT INTO `azxy10` VALUES (21102853, '2024-04-06 15:18:40', 7, 10, 1, 3, 5, 2, 9, 6, 4, 8, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102854, '2024-04-06 15:23:40', 9, 3, 5, 6, 2, 8, 10, 1, 4, 7, 'TASK', '2024-04-06 15:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102855, '2024-04-06 15:28:40', 4, 1, 8, 5, 2, 6, 7, 9, 3, 10, 'TASK', '2024-04-06 15:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102856, '2024-04-06 15:33:40', 2, 1, 6, 7, 4, 8, 3, 5, 10, 9, 'TASK', '2024-04-06 15:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102857, '2024-04-06 15:38:40', 7, 4, 9, 8, 6, 10, 2, 5, 3, 1, 'TASK', '2024-04-06 15:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102858, '2024-04-06 15:43:40', 8, 4, 3, 6, 10, 1, 9, 2, 5, 7, 'TASK', '2024-04-06 15:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102859, '2024-04-06 15:48:40', 10, 7, 6, 3, 1, 9, 8, 5, 4, 2, 'TASK', '2024-04-06 15:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102860, '2024-04-06 15:53:40', 1, 7, 5, 3, 4, 8, 2, 10, 9, 6, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102861, '2024-04-06 15:58:40', 9, 3, 7, 1, 2, 6, 10, 8, 4, 5, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102862, '2024-04-06 16:03:40', 4, 10, 3, 2, 7, 6, 5, 9, 8, 1, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102863, '2024-04-06 16:08:40', 7, 6, 3, 10, 8, 1, 2, 9, 4, 5, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102864, '2024-04-06 16:13:40', 5, 9, 2, 8, 6, 10, 7, 3, 1, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102865, '2024-04-06 16:18:40', 8, 5, 3, 9, 6, 4, 2, 10, 7, 1, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102866, '2024-04-06 16:23:40', 7, 3, 2, 6, 5, 10, 4, 1, 8, 9, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102867, '2024-04-06 16:28:40', 2, 1, 3, 7, 6, 10, 5, 4, 8, 9, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102868, '2024-04-06 16:33:40', 8, 5, 10, 9, 4, 1, 6, 7, 2, 3, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102869, '2024-04-06 16:38:40', 8, 5, 7, 6, 9, 4, 1, 2, 10, 3, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102870, '2024-04-06 16:43:40', 6, 8, 1, 10, 5, 7, 4, 2, 3, 9, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102871, '2024-04-06 16:48:40', 6, 7, 4, 5, 8, 1, 10, 3, 9, 2, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102872, '2024-04-06 16:53:40', 7, 8, 9, 5, 3, 2, 1, 6, 10, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102873, '2024-04-06 16:58:40', 3, 5, 9, 10, 1, 8, 7, 2, 6, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102874, '2024-04-06 17:03:40', 4, 6, 9, 1, 2, 8, 7, 3, 10, 5, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102875, '2024-04-06 17:08:40', 9, 5, 3, 7, 8, 1, 4, 2, 6, 10, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102876, '2024-04-06 17:13:40', 10, 7, 2, 4, 9, 3, 6, 1, 8, 5, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102877, '2024-04-06 17:18:40', 9, 7, 5, 2, 6, 8, 3, 10, 4, 1, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102878, '2024-04-06 17:23:40', 4, 6, 7, 5, 8, 9, 1, 3, 10, 2, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102879, '2024-04-06 17:28:40', 1, 5, 9, 3, 10, 6, 7, 4, 8, 2, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102880, '2024-04-06 17:33:40', 4, 6, 10, 7, 5, 1, 9, 2, 3, 8, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102881, '2024-04-06 17:38:40', 10, 9, 3, 6, 5, 1, 2, 8, 7, 4, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102882, '2024-04-06 17:43:40', 4, 10, 9, 6, 1, 7, 8, 5, 2, 3, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102883, '2024-04-06 17:48:40', 5, 7, 9, 6, 1, 10, 3, 8, 2, 4, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102884, '2024-04-06 17:53:40', 10, 5, 3, 7, 8, 4, 6, 9, 1, 2, 'TASK', '2024-04-06 17:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102885, '2024-04-06 17:58:40', 3, 4, 8, 6, 2, 9, 7, 1, 10, 5, 'TASK', '2024-04-06 18:00:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102886, '2024-04-06 18:03:40', 4, 1, 6, 3, 7, 9, 5, 2, 8, 10, 'TASK', '2024-04-06 18:05:01', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102887, '2024-04-06 18:08:40', 4, 1, 10, 2, 7, 9, 5, 8, 3, 6, 'TASK', '2024-04-06 18:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102888, '2024-04-06 18:13:40', 10, 5, 1, 8, 7, 9, 2, 3, 6, 4, 'TASK', '2024-04-06 18:15:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102889, '2024-04-06 18:18:40', 6, 8, 2, 3, 7, 9, 5, 1, 4, 10, 'TASK', '2024-04-06 18:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102890, '2024-04-06 18:23:40', 6, 5, 9, 7, 2, 1, 4, 10, 8, 3, 'TASK', '2024-04-06 18:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102891, '2024-04-06 18:28:40', 10, 6, 5, 4, 9, 7, 2, 1, 8, 3, 'TASK', '2024-04-06 18:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102892, '2024-04-06 18:33:40', 5, 9, 6, 8, 1, 10, 2, 3, 7, 4, 'TASK', '2024-04-06 18:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102893, '2024-04-06 18:38:40', 10, 3, 7, 2, 4, 8, 1, 9, 6, 5, 'TASK', '2024-04-06 19:26:50', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102894, '2024-04-06 18:43:40', 10, 7, 1, 9, 3, 8, 2, 6, 5, 4, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102895, '2024-04-06 18:48:40', 8, 4, 7, 2, 1, 3, 9, 5, 10, 6, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102896, '2024-04-06 18:53:40', 8, 2, 3, 7, 10, 6, 4, 1, 5, 9, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102897, '2024-04-06 18:58:40', 3, 9, 7, 5, 8, 10, 1, 6, 4, 2, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102898, '2024-04-06 19:03:40', 4, 9, 3, 2, 6, 5, 7, 1, 8, 10, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102899, '2024-04-06 19:08:40', 8, 2, 5, 4, 6, 7, 10, 1, 9, 3, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102900, '2024-04-06 19:13:40', 5, 8, 10, 4, 2, 3, 9, 7, 6, 1, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102901, '2024-04-06 19:18:40', 10, 8, 3, 4, 7, 6, 9, 1, 5, 2, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102902, '2024-04-06 19:23:40', 4, 9, 7, 6, 10, 3, 5, 8, 2, 1, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102903, '2024-04-06 19:28:40', 3, 9, 4, 5, 10, 8, 6, 2, 1, 7, 'TASK', '2024-04-06 19:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102904, '2024-04-06 19:33:40', 3, 1, 5, 9, 10, 7, 8, 4, 6, 2, 'TASK', '2024-04-06 19:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102905, '2024-04-06 19:38:40', 5, 7, 1, 3, 8, 6, 10, 9, 4, 2, 'TASK', '2024-04-06 19:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102906, '2024-04-06 19:43:40', 2, 1, 10, 9, 8, 5, 4, 3, 6, 7, 'TASK', '2024-04-06 19:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102907, '2024-04-06 19:48:40', 8, 7, 1, 5, 10, 3, 6, 9, 2, 4, 'TASK', '2024-04-06 19:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102908, '2024-04-06 19:53:40', 6, 7, 1, 10, 5, 2, 9, 3, 4, 8, 'TASK', '2024-04-06 19:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102909, '2024-04-06 19:58:40', 5, 1, 10, 3, 9, 4, 7, 8, 6, 2, 'TASK', '2024-04-06 20:00:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102910, '2024-04-06 20:03:40', 8, 3, 10, 2, 7, 4, 1, 6, 5, 9, 'TASK', '2024-04-06 20:05:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102911, '2024-04-06 20:08:40', 4, 3, 6, 10, 8, 7, 9, 5, 2, 1, 'TASK', '2024-04-06 20:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102912, '2024-04-06 20:13:40', 5, 7, 3, 4, 10, 6, 8, 1, 2, 9, 'TASK', '2024-04-06 20:15:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102913, '2024-04-06 20:18:40', 8, 6, 4, 1, 7, 5, 2, 3, 9, 10, 'TASK', '2024-04-06 20:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102914, '2024-04-06 20:23:40', 3, 2, 8, 1, 10, 4, 9, 6, 5, 7, 'TASK', '2024-04-06 20:25:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102915, '2024-04-06 20:28:40', 4, 5, 6, 7, 9, 8, 1, 3, 10, 2, 'TASK', '2024-04-06 20:30:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102916, '2024-04-06 20:33:40', 9, 5, 8, 7, 10, 1, 3, 4, 6, 2, 'TASK', '2024-04-06 20:35:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102917, '2024-04-06 20:38:40', 2, 6, 4, 5, 1, 10, 3, 9, 8, 7, 'TASK', '2024-04-06 20:40:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102918, '2024-04-06 20:43:40', 7, 3, 2, 10, 4, 6, 8, 9, 5, 1, 'TASK', '2024-04-06 20:45:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102919, '2024-04-06 20:48:40', 1, 5, 4, 3, 6, 9, 10, 7, 2, 8, 'TASK', '2024-04-06 20:50:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102920, '2024-04-06 20:53:40', 6, 4, 7, 3, 5, 10, 9, 2, 1, 8, 'TASK', '2024-04-06 20:55:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102921, '2024-04-06 20:58:40', 3, 7, 5, 4, 1, 2, 9, 10, 6, 8, 'TASK', '2024-04-06 21:00:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102922, '2024-04-06 21:03:40', 3, 5, 6, 1, 9, 10, 8, 2, 4, 7, 'TASK', '2024-04-06 21:05:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102923, '2024-04-06 21:08:40', 10, 8, 6, 4, 9, 2, 5, 7, 3, 1, 'TASK', '2024-04-06 21:10:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102924, '2024-04-06 21:13:40', 4, 1, 5, 7, 3, 9, 6, 10, 2, 8, 'TASK', '2024-04-06 21:14:14', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102925, '2024-04-06 21:18:40', 10, 9, 1, 3, 8, 5, 2, 7, 4, 6, 'TASK', '2024-04-06 21:20:00', '', NULL, '');
+INSERT INTO `azxy10` VALUES (21102926, '2024-04-06 21:23:40', 3, 6, 4, 1, 7, 2, 5, 9, 10, 8, 'TASK', '2024-04-06 21:25:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for azxy10kj
@@ -316,7 +389,7 @@ CREATE TABLE `azxy10kj`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `status`(`status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21101516 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21102929 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '澳洲幸运10开奖表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of azxy10kj
@@ -347,8 +420,15 @@ INSERT INTO `azxy10kj` VALUES (21101510, 4, 9, 10, 6, 3, 1, 8, 7, 5, 2, '2024-04
 INSERT INTO `azxy10kj` VALUES (21101511, 2, 3, 7, 9, 4, 1, 5, 10, 8, 6, '2024-04-01 23:27:50', '2024-04-01 23:29:00', '1', '2024-04-01 23:28:40', 0, 0, 'CreateAzxy10Data', '2024-04-01 23:27:55', '', '2024-04-01 23:30:02', '');
 INSERT INTO `azxy10kj` VALUES (21101512, 3, 1, 4, 8, 9, 7, 6, 10, 5, 2, '2024-04-01 23:32:50', '2024-04-01 23:34:00', '1', '2024-04-01 23:33:40', 0, 0, 'CreateAzxy10Data', '2024-04-01 23:27:55', '', '2024-04-01 23:35:02', '');
 INSERT INTO `azxy10kj` VALUES (21101513, 2, 8, 7, 5, 10, 6, 1, 9, 4, 3, '2024-04-01 23:37:50', '2024-04-01 23:39:00', '1', '2024-04-01 23:38:40', 0, 0, 'CreateAzxy10Data', '2024-04-01 23:30:02', '', '2024-04-01 23:40:02', '');
-INSERT INTO `azxy10kj` VALUES (21101514, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-01 23:42:50', '2024-04-01 23:44:00', '0', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-01 23:35:02', '', NULL, '');
-INSERT INTO `azxy10kj` VALUES (21101515, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-01 23:47:50', '2024-04-01 23:49:00', '0', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-01 23:40:02', '', NULL, '');
+INSERT INTO `azxy10kj` VALUES (21101514, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-01 23:42:50', '2024-04-01 23:44:00', '2', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-01 23:35:02', 'lotteryAzxy10Balance', '2024-04-06 20:47:16', '');
+INSERT INTO `azxy10kj` VALUES (21101515, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-01 23:47:50', '2024-04-01 23:49:00', '2', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-01 23:40:02', 'lotteryAzxy10Balance', '2024-04-06 20:47:16', '');
+INSERT INTO `azxy10kj` VALUES (21102919, 1, 5, 4, 3, 6, 9, 10, 7, 2, 8, '2024-04-06 20:47:50', '2024-04-06 20:49:00', '1', '2024-04-06 20:48:40', 0, 0, 'CreateAzxy10Data', '2024-04-06 20:47:16', '', '2024-04-06 20:50:06', '');
+INSERT INTO `azxy10kj` VALUES (21102920, 6, 4, 7, 3, 5, 10, 9, 2, 1, 8, '2024-04-06 20:52:50', '2024-04-06 20:54:00', '1', '2024-04-06 20:53:40', 0, 0, 'CreateAzxy10Data', '2024-04-06 20:47:16', '', '2024-04-06 20:55:02', '');
+INSERT INTO `azxy10kj` VALUES (21102921, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-06 20:57:50', '2024-04-06 20:59:00', '2', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-06 20:50:06', 'lotteryAzxy10Balance', '2024-04-06 21:20:02', '');
+INSERT INTO `azxy10kj` VALUES (21102922, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-06 21:02:50', '2024-04-06 21:04:00', '2', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-06 20:55:02', 'lotteryAzxy10Balance', '2024-04-06 21:20:02', '');
+INSERT INTO `azxy10kj` VALUES (21102926, 3, 6, 4, 1, 7, 2, 5, 9, 10, 8, '2024-04-06 21:22:50', '2024-04-06 21:24:00', '1', '2024-04-06 21:23:40', 0, 0, 'CreateAzxy10Data', '2024-04-06 21:20:02', '', '2024-04-06 21:25:02', '');
+INSERT INTO `azxy10kj` VALUES (21102927, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-06 21:27:50', '2024-04-06 21:29:00', '0', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-06 21:20:02', '', NULL, '');
+INSERT INTO `azxy10kj` VALUES (21102928, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-06 21:32:50', '2024-04-06 21:34:00', '0', NULL, 0, 0, 'CreateAzxy10Data', '2024-04-06 21:25:02', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for azxy10record
@@ -790,11 +870,34 @@ CREATE TABLE `game_fiveball_kj`  (
   INDEX `Id_2`(`id`, `status`, `game_id`) USING BTREE,
   INDEX `periods`(`periods`, `game_id`) USING BTREE,
   INDEX `status`(`periods`, `status`, `game_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '5球开奖表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '5球开奖表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of game_fiveball_kj
 -- ----------------------------
+INSERT INTO `game_fiveball_kj` VALUES (23, 13097271, 15, '168极速时时彩', '1', '2024-04-06 21:07:35', '2024-04-06 21:08:10', '2024-04-06 21:08:00', 0, 0, 3, 0, 7, 0, 6, 16, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 4, 4, 3, 'CreateFiveBallData', '2024-04-06 21:07:43', '', '2024-04-06 21:09:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (24, 13097272, 15, '168极速时时彩', '1', '2024-04-06 21:08:50', '2024-04-06 21:09:25', '2024-04-06 21:09:15', 0, 0, 0, 2, 1, 4, 2, 9, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 2, 3, 3, 'CreateFiveBallData', '2024-04-06 21:07:43', '', '2024-04-06 21:10:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (25, 13097270, 15, '168极速时时彩', '1', '2024-04-06 21:06:05', '2024-04-06 21:06:40', '2024-04-06 21:06:45', 0, 0, 4, 7, 4, 6, 5, 26, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 4, 3, 2, '', '2024-04-06 21:07:43', '', NULL, '');
+INSERT INTO `game_fiveball_kj` VALUES (26, 13097269, 15, '168极速时时彩', '1', '2024-04-06 21:04:50', '2024-04-06 21:05:25', '2024-04-06 21:05:30', 0, 0, 0, 3, 1, 4, 0, 8, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 3, 3, 3, '', '2024-04-06 21:07:43', '', NULL, '');
+INSERT INTO `game_fiveball_kj` VALUES (27, 13097268, 15, '168极速时时彩', '1', '2024-04-06 21:03:35', '2024-04-06 21:04:10', '2024-04-06 21:04:15', 0, 0, 2, 4, 3, 3, 7, 19, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1, '', '2024-04-06 21:07:43', '', NULL, '');
+INSERT INTO `game_fiveball_kj` VALUES (28, 13097267, 15, '168极速时时彩', '1', '2024-04-06 21:02:20', '2024-04-06 21:02:55', '2024-04-06 21:03:00', 0, 0, 0, 5, 5, 0, 5, 15, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 4, '', '2024-04-06 21:07:43', '', NULL, '');
+INSERT INTO `game_fiveball_kj` VALUES (29, 13097266, 15, '168极速时时彩', '1', '2024-04-06 21:01:05', '2024-04-06 21:01:40', '2024-04-06 21:01:45', 0, 0, 8, 9, 2, 1, 8, 28, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 3, 3, 3, '', '2024-04-06 21:07:43', '', NULL, '');
+INSERT INTO `game_fiveball_kj` VALUES (30, 13097273, 15, '168极速时时彩', '1', '2024-04-06 21:10:05', '2024-04-06 21:10:40', '2024-04-06 21:10:30', 0, 0, 8, 9, 9, 3, 1, 30, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 2, 1, 1, 4, 'CreateFiveBallData', '2024-04-06 21:09:02', '', '2024-04-06 21:12:10', '');
+INSERT INTO `game_fiveball_kj` VALUES (31, 13097274, 15, '168极速时时彩', '1', '2024-04-06 21:11:20', '2024-04-06 21:11:55', '2024-04-06 21:11:45', 0, 0, 6, 7, 2, 4, 7, 26, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 3, 4, 4, 'CreateFiveBallData', '2024-04-06 21:10:02', '', '2024-04-06 21:14:11', '');
+INSERT INTO `game_fiveball_kj` VALUES (32, 13097275, 15, '168极速时时彩', '2', '2024-04-06 21:12:35', '2024-04-06 21:13:10', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateFiveBallData', '2024-04-06 21:12:10', 'lotteryGameFiveballOpenDataBalance', '2024-04-06 21:15:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (33, 13097276, 15, '168极速时时彩', '2', '2024-04-06 21:13:50', '2024-04-06 21:14:25', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateFiveBallData', '2024-04-06 21:14:13', 'lotteryGameFiveballOpenDataBalance', '2024-04-06 21:17:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (34, 13097278, 15, '168极速时时彩', '1', '2024-04-06 21:16:20', '2024-04-06 21:16:55', '2024-04-06 21:16:45', 0, 0, 6, 1, 5, 8, 2, 22, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 2, 3, 4, 4, 'CreateFiveBallData', '2024-04-06 21:17:02', '', '2024-04-06 21:18:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (35, 13097279, 15, '168极速时时彩', '1', '2024-04-06 21:17:35', '2024-04-06 21:18:10', '2024-04-06 21:18:00', 0, 0, 4, 3, 4, 9, 1, 21, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 3, 3, 4, 'CreateFiveBallData', '2024-04-06 21:17:02', '', '2024-04-06 21:19:04', '');
+INSERT INTO `game_fiveball_kj` VALUES (36, 13097280, 15, '168极速时时彩', '1', '2024-04-06 21:18:50', '2024-04-06 21:19:25', '2024-04-06 21:19:15', 0, 0, 3, 4, 6, 1, 9, 23, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 3, 4, 4, 'CreateFiveBallData', '2024-04-06 21:18:02', '', '2024-04-06 21:20:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (37, 13097281, 15, '168极速时时彩', '1', '2024-04-06 21:20:05', '2024-04-06 21:20:40', '2024-04-06 21:20:30', 0, 0, 8, 3, 0, 7, 1, 19, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 4, 4, 3, 'CreateFiveBallData', '2024-04-06 21:19:04', '', '2024-04-06 21:21:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (38, 13097282, 15, '168极速时时彩', '1', '2024-04-06 21:21:20', '2024-04-06 21:21:55', '2024-04-06 21:21:45', 0, 0, 9, 5, 5, 6, 4, 29, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 2, 1, 1, 2, 'CreateFiveBallData', '2024-04-06 21:20:02', '', '2024-04-06 21:22:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (39, 13097283, 15, '168极速时时彩', '1', '2024-04-06 21:22:35', '2024-04-06 21:23:10', '2024-04-06 21:23:00', 0, 0, 2, 5, 4, 0, 5, 16, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 3, 3, 3, 'CreateFiveBallData', '2024-04-06 21:21:02', '', '2024-04-06 21:24:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (40, 13097284, 15, '168极速时时彩', '1', '2024-04-06 21:23:50', '2024-04-06 21:24:25', '2024-04-06 21:24:15', 0, 0, 9, 1, 3, 4, 1, 18, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 3, 3, 'CreateFiveBallData', '2024-04-06 21:22:02', '', '2024-04-06 21:25:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (41, 13097285, 15, '168极速时时彩', '1', '2024-04-06 21:25:05', '2024-04-06 21:25:40', '2024-04-06 21:25:30', 0, 0, 7, 7, 7, 4, 8, 33, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 3, 'CreateFiveBallData', '2024-04-06 21:24:02', '', '2024-04-06 21:26:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (42, 13097286, 15, '168极速时时彩', '1', '2024-04-06 21:26:20', '2024-04-06 21:26:55', '2024-04-06 21:26:45', 0, 0, 4, 6, 8, 8, 3, 29, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, 4, 1, 1, 'CreateFiveBallData', '2024-04-06 21:25:02', '', '2024-04-06 21:27:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (43, 13097287, 15, '168极速时时彩', '1', '2024-04-06 21:27:35', '2024-04-06 21:28:10', '2024-04-06 21:28:00', 0, 0, 5, 6, 7, 4, 9, 31, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 2, 3, 4, 'CreateFiveBallData', '2024-04-06 21:26:02', '', '2024-04-06 21:29:02', '');
+INSERT INTO `game_fiveball_kj` VALUES (44, 13097288, 15, '168极速时时彩', '0', '2024-04-06 21:28:50', '2024-04-06 21:29:25', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateFiveBallData', '2024-04-06 21:27:02', '', NULL, '');
+INSERT INTO `game_fiveball_kj` VALUES (45, 13097289, 15, '168极速时时彩', '0', '2024-04-06 21:30:05', '2024-04-06 21:30:40', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateFiveBallData', '2024-04-06 21:29:02', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for game_fiveball_open_data
@@ -818,7 +921,7 @@ CREATE TABLE `game_fiveball_open_data`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `periods`(`periods`, `game_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '5球开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '5球开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of game_fiveball_open_data
@@ -874,6 +977,40 @@ INSERT INTO `game_fiveball_open_data` VALUES (48, 13096989, 15, '168极速时时
 INSERT INTO `game_fiveball_open_data` VALUES (49, 13096990, 15, '168极速时时彩', '2024-04-06 15:16:45', 2, 3, 7, 8, 8, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
 INSERT INTO `game_fiveball_open_data` VALUES (50, 13096991, 15, '168极速时时彩', '2024-04-06 15:18:00', 8, 8, 1, 8, 1, 'TASK', '2024-04-06 15:18:57', '', NULL, '');
 INSERT INTO `game_fiveball_open_data` VALUES (51, 13096992, 15, '168极速时时彩', '2024-04-06 15:19:15', 6, 7, 8, 7, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (52, 13097254, 15, '168极速时时彩', '2024-04-06 20:46:45', 0, 0, 0, 9, 3, 'TASK', '2024-04-06 20:47:11', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (53, 13097255, 15, '168极速时时彩', '2024-04-06 20:48:00', 9, 1, 4, 6, 3, 'TASK', '2024-04-06 20:49:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (54, 13097256, 15, '168极速时时彩', '2024-04-06 20:49:15', 0, 2, 1, 7, 1, 'TASK', '2024-04-06 20:50:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (55, 13097257, 15, '168极速时时彩', '2024-04-06 20:50:30', 1, 0, 0, 1, 7, 'TASK', '2024-04-06 20:52:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (56, 13097258, 15, '168极速时时彩', '2024-04-06 20:51:45', 4, 0, 1, 3, 7, 'TASK', '2024-04-06 20:52:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (57, 13097259, 15, '168极速时时彩', '2024-04-06 20:53:00', 4, 6, 6, 3, 3, 'TASK', '2024-04-06 20:54:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (58, 13097260, 15, '168极速时时彩', '2024-04-06 20:54:15', 1, 9, 4, 2, 5, 'TASK', '2024-04-06 20:55:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (59, 13097261, 15, '168极速时时彩', '2024-04-06 20:55:30', 8, 4, 5, 2, 7, 'TASK', '2024-04-06 20:56:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (60, 13097262, 15, '168极速时时彩', '2024-04-06 20:56:45', 8, 2, 3, 9, 1, 'TASK', '2024-04-06 20:57:11', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (61, 13097263, 15, '168极速时时彩', '2024-04-06 20:58:00', 2, 4, 2, 6, 6, 'TASK', '2024-04-06 20:59:02', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (62, 13097264, 15, '168极速时时彩', '2024-04-06 20:59:15', 8, 6, 0, 2, 6, 'TASK', '2024-04-06 21:00:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (63, 13097265, 15, '168极速时时彩', '2024-04-06 21:00:30', 1, 1, 0, 7, 7, 'TASK', '2024-04-06 21:01:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (64, 13097266, 15, '168极速时时彩', '2024-04-06 21:01:45', 8, 9, 2, 1, 8, 'TASK', '2024-04-06 21:02:18', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (65, 13097267, 15, '168极速时时彩', '2024-04-06 21:03:00', 0, 5, 5, 0, 5, 'TASK', '2024-04-06 21:04:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (66, 13097268, 15, '168极速时时彩', '2024-04-06 21:04:15', 2, 4, 3, 3, 7, 'TASK', '2024-04-06 21:05:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (67, 13097269, 15, '168极速时时彩', '2024-04-06 21:05:30', 0, 3, 1, 4, 0, 'TASK', '2024-04-06 21:06:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (68, 13097270, 15, '168极速时时彩', '2024-04-06 21:06:45', 4, 7, 4, 6, 5, 'TASK', '2024-04-06 21:07:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (69, 13097271, 15, '168极速时时彩', '2024-04-06 21:08:00', 3, 0, 7, 0, 6, 'TASK', '2024-04-06 21:09:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (70, 13097272, 15, '168极速时时彩', '2024-04-06 21:09:15', 0, 2, 1, 4, 2, 'TASK', '2024-04-06 21:10:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (71, 13097273, 15, '168极速时时彩', '2024-04-06 21:10:30', 8, 9, 9, 3, 1, 'TASK', '2024-04-06 21:11:21', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (72, 13097274, 15, '168极速时时彩', '2024-04-06 21:11:45', 6, 7, 2, 4, 7, 'TASK', '2024-04-06 21:12:12', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (73, 13097275, 15, '168极速时时彩', '2024-04-06 21:13:00', 1, 9, 0, 7, 7, 'TASK', '2024-04-06 21:14:14', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (74, 13097276, 15, '168极速时时彩', '2024-04-06 21:14:15', 5, 5, 4, 2, 1, 'TASK', '2024-04-06 21:15:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (75, 13097277, 15, '168极速时时彩', '2024-04-06 21:15:30', 3, 5, 5, 6, 1, 'TASK', '2024-04-06 21:17:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (76, 13097278, 15, '168极速时时彩', '2024-04-06 21:16:45', 6, 1, 5, 8, 2, 'TASK', '2024-04-06 21:18:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (77, 13097279, 15, '168极速时时彩', '2024-04-06 21:18:00', 4, 3, 4, 9, 1, 'TASK', '2024-04-06 21:19:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (78, 13097280, 15, '168极速时时彩', '2024-04-06 21:19:15', 3, 4, 6, 1, 9, 'TASK', '2024-04-06 21:20:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (79, 13097281, 15, '168极速时时彩', '2024-04-06 21:20:30', 8, 3, 0, 7, 1, 'TASK', '2024-04-06 21:21:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (80, 13097282, 15, '168极速时时彩', '2024-04-06 21:21:45', 9, 5, 5, 6, 4, 'TASK', '2024-04-06 21:22:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (81, 13097283, 15, '168极速时时彩', '2024-04-06 21:23:00', 2, 5, 4, 0, 5, 'TASK', '2024-04-06 21:24:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (82, 13097284, 15, '168极速时时彩', '2024-04-06 21:24:15', 9, 1, 3, 4, 1, 'TASK', '2024-04-06 21:25:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (83, 13097285, 15, '168极速时时彩', '2024-04-06 21:25:30', 7, 7, 7, 4, 8, 'TASK', '2024-04-06 21:26:01', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (84, 13097286, 15, '168极速时时彩', '2024-04-06 21:26:45', 4, 6, 8, 8, 3, 'TASK', '2024-04-06 21:27:00', '', NULL, '');
+INSERT INTO `game_fiveball_open_data` VALUES (85, 13097287, 15, '168极速时时彩', '2024-04-06 21:28:00', 5, 6, 7, 4, 9, 'TASK', '2024-04-06 21:29:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for game_fiveball_record
@@ -1041,11 +1178,26 @@ CREATE TABLE `game_tenball_kj`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `periods`(`periods`, `game_id`) USING BTREE,
   INDEX `status`(`periods`, `status`, `game_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '10球开奖开奖表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '10球开奖开奖表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of game_tenball_kj
 -- ----------------------------
+INSERT INTO `game_tenball_kj` VALUES (1, 21102919, 9, '澳洲幸运10', 1, 5, 4, 3, 6, 9, 10, 7, 2, 8, '2024-04-06 20:47:50', '2024-04-06 20:49:00', '1', '2024-04-06 20:48:40', 0, 0, 'CreateTenballData', '2024-04-06 20:47:16', '', '2024-04-06 20:50:06', '');
+INSERT INTO `game_tenball_kj` VALUES (2, 21102920, 9, '澳洲幸运10', 6, 4, 7, 3, 5, 10, 9, 2, 1, 8, '2024-04-06 20:52:50', '2024-04-06 20:54:00', '1', '2024-04-06 20:53:40', 0, 0, 'CreateTenballData', '2024-04-06 20:47:16', '', '2024-04-06 20:55:02', '');
+INSERT INTO `game_tenball_kj` VALUES (3, 21102918, 9, '澳洲幸运10', 7, 3, 2, 10, 4, 6, 8, 9, 5, 1, '2024-04-06 20:42:25', '2024-04-06 20:43:35', '1', '2024-04-06 20:43:40', 0, 0, '', '2024-04-06 20:47:16', '', NULL, '');
+INSERT INTO `game_tenball_kj` VALUES (4, 21102917, 9, '澳洲幸运10', 2, 6, 4, 5, 1, 10, 3, 9, 8, 7, '2024-04-06 20:37:25', '2024-04-06 20:38:35', '1', '2024-04-06 20:38:40', 0, 0, '', '2024-04-06 20:47:16', '', NULL, '');
+INSERT INTO `game_tenball_kj` VALUES (5, 21102916, 9, '澳洲幸运10', 9, 5, 8, 7, 10, 1, 3, 4, 6, 2, '2024-04-06 20:32:25', '2024-04-06 20:33:35', '1', '2024-04-06 20:33:40', 0, 0, '', '2024-04-06 20:47:16', '', NULL, '');
+INSERT INTO `game_tenball_kj` VALUES (6, 21102915, 9, '澳洲幸运10', 4, 5, 6, 7, 9, 8, 1, 3, 10, 2, '2024-04-06 20:27:25', '2024-04-06 20:28:35', '1', '2024-04-06 20:28:40', 0, 0, '', '2024-04-06 20:47:16', '', NULL, '');
+INSERT INTO `game_tenball_kj` VALUES (7, 21102914, 9, '澳洲幸运10', 3, 2, 8, 1, 10, 4, 9, 6, 5, 7, '2024-04-06 20:22:25', '2024-04-06 20:23:35', '1', '2024-04-06 20:23:40', 0, 0, '', '2024-04-06 20:47:16', '', NULL, '');
+INSERT INTO `game_tenball_kj` VALUES (8, 21102921, 9, '澳洲幸运10', 3, 7, 5, 4, 1, 2, 9, 10, 6, 8, '2024-04-06 20:57:50', '2024-04-06 20:59:00', '1', '2024-04-06 20:58:40', 0, 0, 'CreateTenballData', '2024-04-06 20:50:06', '', '2024-04-06 21:00:02', '');
+INSERT INTO `game_tenball_kj` VALUES (9, 21102922, 9, '澳洲幸运10', 3, 5, 6, 1, 9, 10, 8, 2, 4, 7, '2024-04-06 21:02:50', '2024-04-06 21:04:00', '1', '2024-04-06 21:03:40', 0, 0, 'CreateTenballData', '2024-04-06 20:55:02', '', '2024-04-06 21:05:02', '');
+INSERT INTO `game_tenball_kj` VALUES (10, 21102923, 9, '澳洲幸运10', 10, 8, 6, 4, 9, 2, 5, 7, 3, 1, '2024-04-06 21:07:50', '2024-04-06 21:09:00', '1', '2024-04-06 21:08:40', 0, 0, 'CreateTenballData', '2024-04-06 21:00:02', '', '2024-04-06 21:10:02', '');
+INSERT INTO `game_tenball_kj` VALUES (11, 21102924, 9, '澳洲幸运10', 4, 1, 5, 7, 3, 9, 6, 10, 2, 8, '2024-04-06 21:12:50', '2024-04-06 21:14:00', '1', '2024-04-06 21:13:40', 0, 0, 'CreateTenballData', '2024-04-06 21:05:02', '', '2024-04-06 21:15:02', '');
+INSERT INTO `game_tenball_kj` VALUES (12, 21102925, 9, '澳洲幸运10', 10, 9, 1, 3, 8, 5, 2, 7, 4, 6, '2024-04-06 21:17:50', '2024-04-06 21:19:00', '1', '2024-04-06 21:18:40', 0, 0, 'CreateTenballData', '2024-04-06 21:10:02', '', '2024-04-06 21:20:02', '');
+INSERT INTO `game_tenball_kj` VALUES (13, 21102926, 9, '澳洲幸运10', 3, 6, 4, 1, 7, 2, 5, 9, 10, 8, '2024-04-06 21:22:50', '2024-04-06 21:24:00', '1', '2024-04-06 21:23:40', 0, 0, 'CreateTenballData', '2024-04-06 21:15:02', '', '2024-04-06 21:25:02', '');
+INSERT INTO `game_tenball_kj` VALUES (14, 21102927, 9, '澳洲幸运10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-06 21:27:50', '2024-04-06 21:29:00', '0', NULL, 0, 0, 'CreateTenballData', '2024-04-06 21:20:02', '', NULL, '');
+INSERT INTO `game_tenball_kj` VALUES (15, 21102928, 9, '澳洲幸运10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-06 21:32:50', '2024-04-06 21:34:00', '0', NULL, 0, 0, 'CreateTenballData', '2024-04-06 21:25:02', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for game_tenball_open_data
@@ -1074,7 +1226,7 @@ CREATE TABLE `game_tenball_open_data`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `periods`(`periods`, `game_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '10球开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 128 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '10球开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of game_tenball_open_data
@@ -1133,6 +1285,79 @@ INSERT INTO `game_tenball_open_data` VALUES (51, 21102850, 9, '澳洲幸运10', 
 INSERT INTO `game_tenball_open_data` VALUES (52, 21102851, 9, '澳洲幸运10', '2024-04-06 15:08:40', 7, 9, 2, 5, 10, 4, 6, 1, 3, 8, 'TASK', '2024-04-06 15:10:00', '', NULL, '');
 INSERT INTO `game_tenball_open_data` VALUES (53, 21102852, 9, '澳洲幸运10', '2024-04-06 15:13:40', 1, 7, 4, 2, 9, 10, 3, 6, 5, 8, 'TASK', '2024-04-06 15:15:00', '', NULL, '');
 INSERT INTO `game_tenball_open_data` VALUES (54, 21102853, 9, '澳洲幸运10', '2024-04-06 15:18:40', 7, 10, 1, 3, 5, 2, 9, 6, 4, 8, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (55, 21102854, 9, '澳洲幸运10', '2024-04-06 15:23:40', 9, 3, 5, 6, 2, 8, 10, 1, 4, 7, 'TASK', '2024-04-06 15:25:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (56, 21102855, 9, '澳洲幸运10', '2024-04-06 15:28:40', 4, 1, 8, 5, 2, 6, 7, 9, 3, 10, 'TASK', '2024-04-06 15:30:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (57, 21102856, 9, '澳洲幸运10', '2024-04-06 15:33:40', 2, 1, 6, 7, 4, 8, 3, 5, 10, 9, 'TASK', '2024-04-06 15:35:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (58, 21102857, 9, '澳洲幸运10', '2024-04-06 15:38:40', 7, 4, 9, 8, 6, 10, 2, 5, 3, 1, 'TASK', '2024-04-06 15:40:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (59, 21102858, 9, '澳洲幸运10', '2024-04-06 15:43:40', 8, 4, 3, 6, 10, 1, 9, 2, 5, 7, 'TASK', '2024-04-06 15:45:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (60, 21102859, 9, '澳洲幸运10', '2024-04-06 15:48:40', 10, 7, 6, 3, 1, 9, 8, 5, 4, 2, 'TASK', '2024-04-06 15:50:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (61, 21102860, 9, '澳洲幸运10', '2024-04-06 15:53:40', 1, 7, 5, 3, 4, 8, 2, 10, 9, 6, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (62, 21102861, 9, '澳洲幸运10', '2024-04-06 15:58:40', 9, 3, 7, 1, 2, 6, 10, 8, 4, 5, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (63, 21102862, 9, '澳洲幸运10', '2024-04-06 16:03:40', 4, 10, 3, 2, 7, 6, 5, 9, 8, 1, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (64, 21102863, 9, '澳洲幸运10', '2024-04-06 16:08:40', 7, 6, 3, 10, 8, 1, 2, 9, 4, 5, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (65, 21102864, 9, '澳洲幸运10', '2024-04-06 16:13:40', 5, 9, 2, 8, 6, 10, 7, 3, 1, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (66, 21102865, 9, '澳洲幸运10', '2024-04-06 16:18:40', 8, 5, 3, 9, 6, 4, 2, 10, 7, 1, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (67, 21102866, 9, '澳洲幸运10', '2024-04-06 16:23:40', 7, 3, 2, 6, 5, 10, 4, 1, 8, 9, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (68, 21102867, 9, '澳洲幸运10', '2024-04-06 16:28:40', 2, 1, 3, 7, 6, 10, 5, 4, 8, 9, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (69, 21102868, 9, '澳洲幸运10', '2024-04-06 16:33:40', 8, 5, 10, 9, 4, 1, 6, 7, 2, 3, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (70, 21102869, 9, '澳洲幸运10', '2024-04-06 16:38:40', 8, 5, 7, 6, 9, 4, 1, 2, 10, 3, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (71, 21102870, 9, '澳洲幸运10', '2024-04-06 16:43:40', 6, 8, 1, 10, 5, 7, 4, 2, 3, 9, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (72, 21102871, 9, '澳洲幸运10', '2024-04-06 16:48:40', 6, 7, 4, 5, 8, 1, 10, 3, 9, 2, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (73, 21102872, 9, '澳洲幸运10', '2024-04-06 16:53:40', 7, 8, 9, 5, 3, 2, 1, 6, 10, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (74, 21102873, 9, '澳洲幸运10', '2024-04-06 16:58:40', 3, 5, 9, 10, 1, 8, 7, 2, 6, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (75, 21102874, 9, '澳洲幸运10', '2024-04-06 17:03:40', 4, 6, 9, 1, 2, 8, 7, 3, 10, 5, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (76, 21102875, 9, '澳洲幸运10', '2024-04-06 17:08:40', 9, 5, 3, 7, 8, 1, 4, 2, 6, 10, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (77, 21102876, 9, '澳洲幸运10', '2024-04-06 17:13:40', 10, 7, 2, 4, 9, 3, 6, 1, 8, 5, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (78, 21102877, 9, '澳洲幸运10', '2024-04-06 17:18:40', 9, 7, 5, 2, 6, 8, 3, 10, 4, 1, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (79, 21102878, 9, '澳洲幸运10', '2024-04-06 17:23:40', 4, 6, 7, 5, 8, 9, 1, 3, 10, 2, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (80, 21102879, 9, '澳洲幸运10', '2024-04-06 17:28:40', 1, 5, 9, 3, 10, 6, 7, 4, 8, 2, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (81, 21102880, 9, '澳洲幸运10', '2024-04-06 17:33:40', 4, 6, 10, 7, 5, 1, 9, 2, 3, 8, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (82, 21102881, 9, '澳洲幸运10', '2024-04-06 17:38:40', 10, 9, 3, 6, 5, 1, 2, 8, 7, 4, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (83, 21102882, 9, '澳洲幸运10', '2024-04-06 17:43:40', 4, 10, 9, 6, 1, 7, 8, 5, 2, 3, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (84, 21102883, 9, '澳洲幸运10', '2024-04-06 17:48:40', 5, 7, 9, 6, 1, 10, 3, 8, 2, 4, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (85, 21102884, 9, '澳洲幸运10', '2024-04-06 17:53:40', 10, 5, 3, 7, 8, 4, 6, 9, 1, 2, 'TASK', '2024-04-06 17:55:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (86, 21102885, 9, '澳洲幸运10', '2024-04-06 17:58:40', 3, 4, 8, 6, 2, 9, 7, 1, 10, 5, 'TASK', '2024-04-06 18:00:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (87, 21102886, 9, '澳洲幸运10', '2024-04-06 18:03:40', 4, 1, 6, 3, 7, 9, 5, 2, 8, 10, 'TASK', '2024-04-06 18:05:01', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (88, 21102887, 9, '澳洲幸运10', '2024-04-06 18:08:40', 4, 1, 10, 2, 7, 9, 5, 8, 3, 6, 'TASK', '2024-04-06 18:10:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (89, 21102888, 9, '澳洲幸运10', '2024-04-06 18:13:40', 10, 5, 1, 8, 7, 9, 2, 3, 6, 4, 'TASK', '2024-04-06 18:15:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (90, 21102889, 9, '澳洲幸运10', '2024-04-06 18:18:40', 6, 8, 2, 3, 7, 9, 5, 1, 4, 10, 'TASK', '2024-04-06 18:20:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (91, 21102890, 9, '澳洲幸运10', '2024-04-06 18:23:40', 6, 5, 9, 7, 2, 1, 4, 10, 8, 3, 'TASK', '2024-04-06 18:25:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (92, 21102891, 9, '澳洲幸运10', '2024-04-06 18:28:40', 10, 6, 5, 4, 9, 7, 2, 1, 8, 3, 'TASK', '2024-04-06 18:30:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (93, 21102892, 9, '澳洲幸运10', '2024-04-06 18:33:40', 5, 9, 6, 8, 1, 10, 2, 3, 7, 4, 'TASK', '2024-04-06 18:35:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (94, 21102893, 9, '澳洲幸运10', '2024-04-06 18:38:40', 10, 3, 7, 2, 4, 8, 1, 9, 6, 5, 'TASK', '2024-04-06 19:26:50', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (95, 21102894, 9, '澳洲幸运10', '2024-04-06 18:43:40', 10, 7, 1, 9, 3, 8, 2, 6, 5, 4, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (96, 21102895, 9, '澳洲幸运10', '2024-04-06 18:48:40', 8, 4, 7, 2, 1, 3, 9, 5, 10, 6, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (97, 21102896, 9, '澳洲幸运10', '2024-04-06 18:53:40', 8, 2, 3, 7, 10, 6, 4, 1, 5, 9, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (98, 21102897, 9, '澳洲幸运10', '2024-04-06 18:58:40', 3, 9, 7, 5, 8, 10, 1, 6, 4, 2, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (99, 21102898, 9, '澳洲幸运10', '2024-04-06 19:03:40', 4, 9, 3, 2, 6, 5, 7, 1, 8, 10, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (100, 21102899, 9, '澳洲幸运10', '2024-04-06 19:08:40', 8, 2, 5, 4, 6, 7, 10, 1, 9, 3, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (101, 21102900, 9, '澳洲幸运10', '2024-04-06 19:13:40', 5, 8, 10, 4, 2, 3, 9, 7, 6, 1, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (102, 21102901, 9, '澳洲幸运10', '2024-04-06 19:18:40', 10, 8, 3, 4, 7, 6, 9, 1, 5, 2, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (103, 21102902, 9, '澳洲幸运10', '2024-04-06 19:23:40', 4, 9, 7, 6, 10, 3, 5, 8, 2, 1, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (104, 21102903, 9, '澳洲幸运10', '2024-04-06 19:28:40', 3, 9, 4, 5, 10, 8, 6, 2, 1, 7, 'TASK', '2024-04-06 19:30:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (105, 21102904, 9, '澳洲幸运10', '2024-04-06 19:33:40', 3, 1, 5, 9, 10, 7, 8, 4, 6, 2, 'TASK', '2024-04-06 19:35:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (106, 21102905, 9, '澳洲幸运10', '2024-04-06 19:38:40', 5, 7, 1, 3, 8, 6, 10, 9, 4, 2, 'TASK', '2024-04-06 19:40:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (107, 21102906, 9, '澳洲幸运10', '2024-04-06 19:43:40', 2, 1, 10, 9, 8, 5, 4, 3, 6, 7, 'TASK', '2024-04-06 19:45:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (108, 21102907, 9, '澳洲幸运10', '2024-04-06 19:48:40', 8, 7, 1, 5, 10, 3, 6, 9, 2, 4, 'TASK', '2024-04-06 19:50:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (109, 21102908, 9, '澳洲幸运10', '2024-04-06 19:53:40', 6, 7, 1, 10, 5, 2, 9, 3, 4, 8, 'TASK', '2024-04-06 19:55:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (110, 21102909, 9, '澳洲幸运10', '2024-04-06 19:58:40', 5, 1, 10, 3, 9, 4, 7, 8, 6, 2, 'TASK', '2024-04-06 20:00:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (111, 21102910, 9, '澳洲幸运10', '2024-04-06 20:03:40', 8, 3, 10, 2, 7, 4, 1, 6, 5, 9, 'TASK', '2024-04-06 20:05:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (112, 21102911, 9, '澳洲幸运10', '2024-04-06 20:08:40', 4, 3, 6, 10, 8, 7, 9, 5, 2, 1, 'TASK', '2024-04-06 20:10:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (113, 21102912, 9, '澳洲幸运10', '2024-04-06 20:13:40', 5, 7, 3, 4, 10, 6, 8, 1, 2, 9, 'TASK', '2024-04-06 20:15:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (114, 21102913, 9, '澳洲幸运10', '2024-04-06 20:18:40', 8, 6, 4, 1, 7, 5, 2, 3, 9, 10, 'TASK', '2024-04-06 20:20:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (115, 21102914, 9, '澳洲幸运10', '2024-04-06 20:23:40', 3, 2, 8, 1, 10, 4, 9, 6, 5, 7, 'TASK', '2024-04-06 20:25:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (116, 21102915, 9, '澳洲幸运10', '2024-04-06 20:28:40', 4, 5, 6, 7, 9, 8, 1, 3, 10, 2, 'TASK', '2024-04-06 20:30:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (117, 21102916, 9, '澳洲幸运10', '2024-04-06 20:33:40', 9, 5, 8, 7, 10, 1, 3, 4, 6, 2, 'TASK', '2024-04-06 20:35:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (118, 21102917, 9, '澳洲幸运10', '2024-04-06 20:38:40', 2, 6, 4, 5, 1, 10, 3, 9, 8, 7, 'TASK', '2024-04-06 20:40:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (119, 21102918, 9, '澳洲幸运10', '2024-04-06 20:43:40', 7, 3, 2, 10, 4, 6, 8, 9, 5, 1, 'TASK', '2024-04-06 20:45:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (120, 21102919, 9, '澳洲幸运10', '2024-04-06 20:48:40', 1, 5, 4, 3, 6, 9, 10, 7, 2, 8, 'TASK', '2024-04-06 20:50:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (121, 21102920, 9, '澳洲幸运10', '2024-04-06 20:53:40', 6, 4, 7, 3, 5, 10, 9, 2, 1, 8, 'TASK', '2024-04-06 20:55:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (122, 21102921, 9, '澳洲幸运10', '2024-04-06 20:58:40', 3, 7, 5, 4, 1, 2, 9, 10, 6, 8, 'TASK', '2024-04-06 21:00:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (123, 21102922, 9, '澳洲幸运10', '2024-04-06 21:03:40', 3, 5, 6, 1, 9, 10, 8, 2, 4, 7, 'TASK', '2024-04-06 21:05:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (124, 21102923, 9, '澳洲幸运10', '2024-04-06 21:08:40', 10, 8, 6, 4, 9, 2, 5, 7, 3, 1, 'TASK', '2024-04-06 21:10:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (125, 21102924, 9, '澳洲幸运10', '2024-04-06 21:13:40', 4, 1, 5, 7, 3, 9, 6, 10, 2, 8, 'TASK', '2024-04-06 21:14:14', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (126, 21102925, 9, '澳洲幸运10', '2024-04-06 21:18:40', 10, 9, 1, 3, 8, 5, 2, 7, 4, 6, 'TASK', '2024-04-06 21:20:00', '', NULL, '');
+INSERT INTO `game_tenball_open_data` VALUES (127, 21102926, 9, '澳洲幸运10', '2024-04-06 21:23:40', 3, 6, 4, 1, 7, 2, 5, 9, 10, 8, 'TASK', '2024-04-06 21:25:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for game_tenball_record
@@ -1392,11 +1617,20 @@ CREATE TABLE `game_threeball_kj`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `periods`(`periods`, `game_id`) USING BTREE,
   INDEX `status`(`periods`, `status`, `game_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '3球开奖表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '3球开奖表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of game_threeball_kj
 -- ----------------------------
+INSERT INTO `game_threeball_kj` VALUES (24, 3124830, 2, '加拿大2.8', 6, 5, 4, 11, '2024-04-06 21:17:15', '2024-04-06 21:18:10', '1', '2024-04-06 21:18:00', 0, 0, 'CreateThreeData', '2024-04-06 21:18:12', '', '2024-04-06 21:19:04', '');
+INSERT INTO `game_threeball_kj` VALUES (25, 3124831, 2, '加拿大2.8', 1, 0, 6, 1, '2024-04-06 21:20:45', '2024-04-06 21:21:40', '1', '2024-04-06 21:21:30', 0, 0, 'CreateThreeData', '2024-04-06 21:18:12', '', '2024-04-06 21:22:02', '');
+INSERT INTO `game_threeball_kj` VALUES (26, 3124829, 2, '加拿大2.8', 2, 0, 1, 2, '2024-04-06 21:13:30', '2024-04-06 21:14:25', '1', '2024-04-06 21:14:30', 0, 0, '', '2024-04-06 21:18:15', '', NULL, '');
+INSERT INTO `game_threeball_kj` VALUES (27, 3124828, 2, '加拿大2.8', 6, 0, 6, 6, '2024-04-06 21:10:00', '2024-04-06 21:10:55', '1', '2024-04-06 21:11:00', 0, 0, '', '2024-04-06 21:18:15', '', NULL, '');
+INSERT INTO `game_threeball_kj` VALUES (28, 3124827, 2, '加拿大2.8', 7, 4, 7, 11, '2024-04-06 21:06:30', '2024-04-06 21:07:25', '1', '2024-04-06 21:07:30', 0, 0, '', '2024-04-06 21:18:15', '', NULL, '');
+INSERT INTO `game_threeball_kj` VALUES (29, 3124826, 2, '加拿大2.8', 8, 6, 5, 14, '2024-04-06 21:03:00', '2024-04-06 21:03:55', '1', '2024-04-06 21:04:00', 0, 0, '', '2024-04-06 21:18:15', '', NULL, '');
+INSERT INTO `game_threeball_kj` VALUES (30, 3124825, 2, '加拿大2.8', 3, 4, 6, 7, '2024-04-06 20:59:30', '2024-04-06 21:00:25', '1', '2024-04-06 21:00:30', 0, 0, '', '2024-04-06 21:18:15', '', NULL, '');
+INSERT INTO `game_threeball_kj` VALUES (31, 3124832, 2, '加拿大2.8', NULL, NULL, NULL, NULL, '2024-04-06 21:24:15', '2024-04-06 21:25:10', '2', NULL, 0, 0, 'CreateThreeData', '2024-04-06 21:19:04', 'lotteryThreeBalance', '2024-04-06 21:29:02', '');
+INSERT INTO `game_threeball_kj` VALUES (32, 3124833, 2, '加拿大2.8', NULL, NULL, NULL, NULL, '2024-04-06 21:27:45', '2024-04-06 21:28:40', '0', NULL, 0, 0, 'CreateThreeData', '2024-04-06 21:22:02', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for game_threeball_open_data
@@ -1418,7 +1652,7 @@ CREATE TABLE `game_threeball_open_data`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `periods`(`periods`, `game_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '3球开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 138 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '3球开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of game_threeball_open_data
@@ -1476,6 +1710,90 @@ INSERT INTO `game_threeball_open_data` VALUES (50, 3124747, 2, '加拿大2.8', '
 INSERT INTO `game_threeball_open_data` VALUES (51, 3124748, 2, '加拿大2.8', '2024-04-06 15:12:30', 4, 8, 7, 'TASK', '2024-04-06 15:13:00', '', NULL, '');
 INSERT INTO `game_threeball_open_data` VALUES (52, 3124749, 2, '加拿大2.8', '2024-04-06 15:16:00', 6, 7, 9, 'TASK', '2024-04-06 15:17:00', '', NULL, '');
 INSERT INTO `game_threeball_open_data` VALUES (53, 3124750, 2, '加拿大2.8', '2024-04-06 15:19:30', 9, 9, 3, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (54, 3124751, 2, '加拿大2.8', '2024-04-06 15:23:00', 5, 8, 9, 'TASK', '2024-04-06 15:24:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (55, 3124752, 2, '加拿大2.8', '2024-04-06 15:26:30', 3, 2, 3, 'TASK', '2024-04-06 15:27:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (56, 3124753, 2, '加拿大2.8', '2024-04-06 15:30:00', 4, 7, 2, 'TASK', '2024-04-06 15:31:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (57, 3124754, 2, '加拿大2.8', '2024-04-06 15:33:30', 6, 7, 6, 'TASK', '2024-04-06 15:34:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (58, 3124755, 2, '加拿大2.8', '2024-04-06 15:37:00', 7, 4, 2, 'TASK', '2024-04-06 15:38:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (59, 3124756, 2, '加拿大2.8', '2024-04-06 15:40:30', 7, 3, 9, 'TASK', '2024-04-06 15:41:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (60, 3124757, 2, '加拿大2.8', '2024-04-06 15:44:00', 0, 2, 0, 'TASK', '2024-04-06 15:45:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (61, 3124758, 2, '加拿大2.8', '2024-04-06 15:47:30', 1, 7, 0, 'TASK', '2024-04-06 15:48:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (62, 3124759, 2, '加拿大2.8', '2024-04-06 15:51:00', 7, 3, 5, 'TASK', '2024-04-06 15:52:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (63, 3124760, 2, '加拿大2.8', '2024-04-06 15:54:30', 8, 1, 2, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (64, 3124761, 2, '加拿大2.8', '2024-04-06 15:58:00', 0, 5, 9, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (65, 3124762, 2, '加拿大2.8', '2024-04-06 16:01:30', 0, 0, 8, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (66, 3124763, 2, '加拿大2.8', '2024-04-06 16:05:00', 9, 1, 0, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (67, 3124764, 2, '加拿大2.8', '2024-04-06 16:08:30', 6, 8, 6, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (68, 3124765, 2, '加拿大2.8', '2024-04-06 16:12:00', 4, 0, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (69, 3124766, 2, '加拿大2.8', '2024-04-06 16:15:30', 9, 4, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (70, 3124767, 2, '加拿大2.8', '2024-04-06 16:19:00', 2, 1, 6, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (71, 3124768, 2, '加拿大2.8', '2024-04-06 16:22:30', 4, 5, 1, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (72, 3124769, 2, '加拿大2.8', '2024-04-06 16:26:00', 5, 9, 7, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (73, 3124770, 2, '加拿大2.8', '2024-04-06 16:29:30', 2, 3, 8, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (74, 3124771, 2, '加拿大2.8', '2024-04-06 16:33:00', 3, 2, 8, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (75, 3124772, 2, '加拿大2.8', '2024-04-06 16:36:30', 2, 7, 4, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (76, 3124773, 2, '加拿大2.8', '2024-04-06 16:40:00', 0, 5, 0, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (77, 3124774, 2, '加拿大2.8', '2024-04-06 16:43:30', 5, 9, 8, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (78, 3124775, 2, '加拿大2.8', '2024-04-06 16:47:00', 8, 7, 1, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (79, 3124776, 2, '加拿大2.8', '2024-04-06 16:50:30', 3, 8, 2, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (80, 3124777, 2, '加拿大2.8', '2024-04-06 16:54:00', 1, 4, 2, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (81, 3124778, 2, '加拿大2.8', '2024-04-06 16:57:30', 8, 5, 5, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (82, 3124779, 2, '加拿大2.8', '2024-04-06 17:01:00', 9, 7, 4, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (83, 3124780, 2, '加拿大2.8', '2024-04-06 17:04:30', 9, 8, 2, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (84, 3124781, 2, '加拿大2.8', '2024-04-06 17:08:00', 9, 8, 3, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (85, 3124782, 2, '加拿大2.8', '2024-04-06 17:11:30', 6, 2, 5, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (86, 3124783, 2, '加拿大2.8', '2024-04-06 17:15:00', 4, 5, 0, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (87, 3124784, 2, '加拿大2.8', '2024-04-06 17:18:30', 2, 2, 6, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (88, 3124785, 2, '加拿大2.8', '2024-04-06 17:22:00', 1, 1, 5, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (89, 3124786, 2, '加拿大2.8', '2024-04-06 17:25:30', 5, 2, 3, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (90, 3124787, 2, '加拿大2.8', '2024-04-06 17:29:00', 8, 3, 7, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (91, 3124788, 2, '加拿大2.8', '2024-04-06 17:32:30', 3, 7, 6, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (92, 3124789, 2, '加拿大2.8', '2024-04-06 17:36:00', 7, 0, 1, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (93, 3124790, 2, '加拿大2.8', '2024-04-06 17:39:30', 7, 7, 1, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (94, 3124791, 2, '加拿大2.8', '2024-04-06 17:43:00', 0, 9, 5, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (95, 3124792, 2, '加拿大2.8', '2024-04-06 17:46:30', 7, 8, 6, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (96, 3124793, 2, '加拿大2.8', '2024-04-06 17:50:00', 9, 7, 9, 'TASK', '2024-04-06 17:52:33', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (97, 3124793, 2, '加拿大2.8', '2024-04-06 17:50:00', 9, 7, 9, 'TASK', '2024-04-06 17:52:33', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (98, 3124794, 2, '加拿大2.8', '2024-04-06 17:53:30', 3, 0, 1, 'TASK', '2024-04-06 17:54:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (99, 3124795, 2, '加拿大2.8', '2024-04-06 17:57:00', 4, 9, 1, 'TASK', '2024-04-06 17:58:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (100, 3124796, 2, '加拿大2.8', '2024-04-06 18:00:30', 5, 6, 8, 'TASK', '2024-04-06 18:01:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (101, 3124797, 2, '加拿大2.8', '2024-04-06 18:04:00', 2, 9, 2, 'TASK', '2024-04-06 18:05:01', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (102, 3124798, 2, '加拿大2.8', '2024-04-06 18:07:30', 0, 5, 4, 'TASK', '2024-04-06 18:08:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (103, 3124799, 2, '加拿大2.8', '2024-04-06 18:11:00', 5, 9, 5, 'TASK', '2024-04-06 18:12:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (104, 3124800, 2, '加拿大2.8', '2024-04-06 18:14:30', 0, 9, 0, 'TASK', '2024-04-06 18:15:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (105, 3124801, 2, '加拿大2.8', '2024-04-06 18:18:00', 3, 6, 3, 'TASK', '2024-04-06 18:19:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (106, 3124802, 2, '加拿大2.8', '2024-04-06 18:21:30', 5, 9, 9, 'TASK', '2024-04-06 18:22:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (107, 3124803, 2, '加拿大2.8', '2024-04-06 18:25:00', 1, 9, 3, 'TASK', '2024-04-06 18:26:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (108, 3124804, 2, '加拿大2.8', '2024-04-06 18:28:30', 1, 2, 1, 'TASK', '2024-04-06 18:29:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (109, 3124805, 2, '加拿大2.8', '2024-04-06 18:32:00', 7, 9, 2, 'TASK', '2024-04-06 18:33:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (110, 3124806, 2, '加拿大2.8', '2024-04-06 18:35:30', 8, 7, 9, 'TASK', '2024-04-06 18:36:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (111, 3124807, 2, '加拿大2.8', '2024-04-06 18:39:00', 0, 0, 1, 'TASK', '2024-04-06 19:26:50', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (112, 3124808, 2, '加拿大2.8', '2024-04-06 18:42:30', 3, 6, 6, 'TASK', '2024-04-06 19:26:50', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (113, 3124809, 2, '加拿大2.8', '2024-04-06 18:46:00', 5, 4, 5, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (114, 3124810, 2, '加拿大2.8', '2024-04-06 18:49:30', 5, 1, 1, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (115, 3124811, 2, '加拿大2.8', '2024-04-06 18:53:00', 0, 5, 4, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (116, 3124812, 2, '加拿大2.8', '2024-04-06 18:56:30', 5, 9, 3, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (117, 3124813, 2, '加拿大2.8', '2024-04-06 19:00:00', 8, 3, 6, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (118, 3124814, 2, '加拿大2.8', '2024-04-06 20:22:00', 4, 8, 6, 'TASK', '2024-04-06 20:23:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (119, 3124815, 2, '加拿大2.8', '2024-04-06 20:25:30', 1, 1, 6, 'TASK', '2024-04-06 20:26:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (120, 3124816, 2, '加拿大2.8', '2024-04-06 20:29:00', 6, 3, 1, 'TASK', '2024-04-06 20:30:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (121, 3124817, 2, '加拿大2.8', '2024-04-06 20:32:30', 8, 9, 3, 'TASK', '2024-04-06 20:33:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (122, 3124818, 2, '加拿大2.8', '2024-04-06 20:36:00', 2, 3, 6, 'TASK', '2024-04-06 20:37:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (123, 3124819, 2, '加拿大2.8', '2024-04-06 20:39:30', 1, 9, 6, 'TASK', '2024-04-06 20:40:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (124, 3124820, 2, '加拿大2.8', '2024-04-06 20:43:00', 7, 3, 6, 'TASK', '2024-04-06 20:44:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (125, 3124821, 2, '加拿大2.8', '2024-04-06 20:46:30', 6, 6, 8, 'TASK', '2024-04-06 20:47:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (126, 3124822, 2, '加拿大2.8', '2024-04-06 20:50:00', 1, 0, 5, 'TASK', '2024-04-06 20:52:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (127, 3124823, 2, '加拿大2.8', '2024-04-06 20:53:30', 6, 4, 6, 'TASK', '2024-04-06 20:54:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (128, 3124824, 2, '加拿大2.8', '2024-04-06 20:57:00', 6, 6, 8, 'TASK', '2024-04-06 20:58:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (129, 3124825, 2, '加拿大2.8', '2024-04-06 21:00:30', 3, 4, 6, 'TASK', '2024-04-06 21:01:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (130, 3124826, 2, '加拿大2.8', '2024-04-06 21:04:00', 8, 6, 5, 'TASK', '2024-04-06 21:05:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (131, 3124827, 2, '加拿大2.8', '2024-04-06 21:07:30', 7, 4, 7, 'TASK', '2024-04-06 21:09:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (132, 3124828, 2, '加拿大2.8', '2024-04-06 21:11:00', 6, 0, 6, 'TASK', '2024-04-06 21:12:12', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (133, 3124829, 2, '加拿大2.8', '2024-04-06 21:14:30', 2, 0, 1, 'TASK', '2024-04-06 21:15:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (134, 3124830, 2, '加拿大2.8', '2024-04-06 21:18:00', 6, 5, 4, 'TASK', '2024-04-06 21:19:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (135, 3124831, 2, '加拿大2.8', '2024-04-06 21:21:30', 1, 0, 6, 'TASK', '2024-04-06 21:22:00', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (136, 3124832, 2, '加拿大2.8', '2024-04-06 21:25:00', 5, 0, 7, 'TASK', '2024-04-06 21:26:01', '', NULL, '');
+INSERT INTO `game_threeball_open_data` VALUES (137, 3124833, 2, '加拿大2.8', '2024-04-06 21:28:30', 5, 2, 8, 'TASK', '2024-04-06 21:29:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for game_threeball_record
@@ -2943,7 +3261,7 @@ CREATE TABLE `jnd`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3124751 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3124834 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jnd
@@ -3234,6 +3552,89 @@ INSERT INTO `jnd` VALUES (3124747, '2024-04-06 15:09:00', 4, 3, 7, NULL, NULL, N
 INSERT INTO `jnd` VALUES (3124748, '2024-04-06 15:12:30', 4, 8, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:13:00', '', NULL, '');
 INSERT INTO `jnd` VALUES (3124749, '2024-04-06 15:16:00', 6, 7, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:17:00', '', NULL, '');
 INSERT INTO `jnd` VALUES (3124750, '2024-04-06 15:19:30', 9, 9, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:20:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124751, '2024-04-06 15:23:00', 5, 8, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:24:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124752, '2024-04-06 15:26:30', 3, 2, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:27:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124753, '2024-04-06 15:30:00', 4, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:31:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124754, '2024-04-06 15:33:30', 6, 7, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:34:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124755, '2024-04-06 15:37:00', 7, 4, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:38:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124756, '2024-04-06 15:40:30', 7, 3, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:41:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124757, '2024-04-06 15:44:00', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:45:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124758, '2024-04-06 15:47:30', 1, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:48:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124759, '2024-04-06 15:51:00', 7, 3, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 15:52:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124760, '2024-04-06 15:54:30', 8, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124761, '2024-04-06 15:58:00', 0, 5, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124762, '2024-04-06 16:01:30', 0, 0, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124763, '2024-04-06 16:05:00', 9, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124764, '2024-04-06 16:08:30', 6, 8, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124765, '2024-04-06 16:12:00', 4, 0, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124766, '2024-04-06 16:15:30', 9, 4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124767, '2024-04-06 16:19:00', 2, 1, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124768, '2024-04-06 16:22:30', 4, 5, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124769, '2024-04-06 16:26:00', 5, 9, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124770, '2024-04-06 16:29:30', 2, 3, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124771, '2024-04-06 16:33:00', 3, 2, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124772, '2024-04-06 16:36:30', 2, 7, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124773, '2024-04-06 16:40:00', 0, 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124774, '2024-04-06 16:43:30', 5, 9, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124775, '2024-04-06 16:47:00', 8, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124776, '2024-04-06 16:50:30', 3, 8, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:31', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124777, '2024-04-06 16:54:00', 1, 4, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124778, '2024-04-06 16:57:30', 8, 5, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124779, '2024-04-06 17:01:00', 9, 7, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124780, '2024-04-06 17:04:30', 9, 8, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124781, '2024-04-06 17:08:00', 9, 8, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124782, '2024-04-06 17:11:30', 6, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124783, '2024-04-06 17:15:00', 4, 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124784, '2024-04-06 17:18:30', 2, 2, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124785, '2024-04-06 17:22:00', 1, 1, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124786, '2024-04-06 17:25:30', 5, 2, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124787, '2024-04-06 17:29:00', 8, 3, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124788, '2024-04-06 17:32:30', 3, 7, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124789, '2024-04-06 17:36:00', 7, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124790, '2024-04-06 17:39:30', 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124791, '2024-04-06 17:43:00', 0, 9, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124792, '2024-04-06 17:46:30', 7, 8, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:32', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124793, '2024-04-06 17:50:00', 9, 7, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:52:33', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124794, '2024-04-06 17:53:30', 3, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:54:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124795, '2024-04-06 17:57:00', 4, 9, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 17:58:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124796, '2024-04-06 18:00:30', 5, 6, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:01:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124797, '2024-04-06 18:04:00', 2, 9, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:05:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124798, '2024-04-06 18:07:30', 0, 5, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:08:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124799, '2024-04-06 18:11:00', 5, 9, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:12:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124800, '2024-04-06 18:14:30', 0, 9, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:15:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124801, '2024-04-06 18:18:00', 3, 6, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:19:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124802, '2024-04-06 18:21:30', 5, 9, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:22:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124803, '2024-04-06 18:25:00', 1, 9, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:26:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124804, '2024-04-06 18:28:30', 1, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:29:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124805, '2024-04-06 18:32:00', 7, 9, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:33:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124806, '2024-04-06 18:35:30', 8, 7, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 18:36:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124807, '2024-04-06 18:39:00', 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 19:26:50', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124808, '2024-04-06 18:42:30', 3, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 19:26:50', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124809, '2024-04-06 18:46:00', 5, 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124810, '2024-04-06 18:49:30', 5, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124811, '2024-04-06 18:53:00', 0, 5, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124812, '2024-04-06 18:56:30', 5, 9, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124813, '2024-04-06 19:00:00', 8, 3, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 19:26:51', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124814, '2024-04-06 20:22:00', 4, 8, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:23:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124815, '2024-04-06 20:25:30', 1, 1, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:26:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124816, '2024-04-06 20:29:00', 6, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:30:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124817, '2024-04-06 20:32:30', 8, 9, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:33:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124818, '2024-04-06 20:36:00', 2, 3, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:37:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124819, '2024-04-06 20:39:30', 1, 9, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:40:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124820, '2024-04-06 20:43:00', 7, 3, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:44:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124821, '2024-04-06 20:46:30', 6, 6, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:47:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124822, '2024-04-06 20:50:00', 1, 0, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:52:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124823, '2024-04-06 20:53:30', 6, 4, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:54:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124824, '2024-04-06 20:57:00', 6, 6, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 20:58:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124825, '2024-04-06 21:00:30', 3, 4, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:01:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124826, '2024-04-06 21:04:00', 8, 6, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:05:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124827, '2024-04-06 21:07:30', 7, 4, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:09:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124828, '2024-04-06 21:11:00', 6, 0, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:12:12', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124829, '2024-04-06 21:14:30', 2, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:15:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124830, '2024-04-06 21:18:00', 6, 5, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:19:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124831, '2024-04-06 21:21:30', 1, 0, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:22:00', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124832, '2024-04-06 21:25:00', 5, 0, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:26:01', '', NULL, '');
+INSERT INTO `jnd` VALUES (3124833, '2024-04-06 21:28:30', 5, 2, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TASK', '2024-04-06 21:29:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jnd28
@@ -3257,13 +3658,17 @@ CREATE TABLE `jnd28`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3122913 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3124836 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '加拿大开奖表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jnd28
 -- ----------------------------
-INSERT INTO `jnd28` VALUES (3122911, NULL, NULL, NULL, NULL, '2024-04-01 23:37:15', '2024-04-01 23:38:10', '0', NULL, 0, 0, 'CreateJndData', '2024-04-01 23:37:30', 'lotteryJndBalance', '2024-04-01 23:42:02', '');
-INSERT INTO `jnd28` VALUES (3122912, NULL, NULL, NULL, NULL, '2024-04-01 23:40:45', '2024-04-01 23:41:40', '0', NULL, 0, 0, 'CreateJndData', '2024-04-01 23:37:30', '', NULL, '');
+INSERT INTO `jnd28` VALUES (3124824, NULL, NULL, NULL, NULL, '2024-04-06 20:56:15', '2024-04-06 20:57:10', '2', NULL, 0, 0, 'CreateJndData', '2024-04-06 20:55:08', 'lotteryJndBalance', '2024-04-06 21:20:02', '');
+INSERT INTO `jnd28` VALUES (3124825, NULL, NULL, NULL, NULL, '2024-04-06 20:59:45', '2024-04-06 21:00:40', '2', NULL, 0, 0, 'CreateJndData', '2024-04-06 20:55:08', 'lotteryJndBalance', '2024-04-06 21:20:02', '');
+INSERT INTO `jnd28` VALUES (3124831, NULL, NULL, NULL, NULL, '2024-04-06 21:20:45', '2024-04-06 21:21:40', '2', NULL, 0, 0, 'CreateJndData', '2024-04-06 21:20:02', 'lotteryJndBalance', '2024-04-06 21:26:02', '');
+INSERT INTO `jnd28` VALUES (3124832, NULL, NULL, NULL, NULL, '2024-04-06 21:24:15', '2024-04-06 21:25:10', '2', NULL, 0, 0, 'CreateJndData', '2024-04-06 21:20:02', 'lotteryJndBalance', '2024-04-06 21:29:02', '');
+INSERT INTO `jnd28` VALUES (3124834, NULL, NULL, NULL, NULL, '2024-04-06 21:31:15', '2024-04-06 21:32:10', '0', NULL, 0, 0, 'CreateJndData', '2024-04-06 21:29:02', '', NULL, '');
+INSERT INTO `jnd28` VALUES (3124835, NULL, NULL, NULL, NULL, '2024-04-06 21:34:45', '2024-04-06 21:35:40', '0', NULL, 0, 0, 'CreateJndData', '2024-04-06 21:29:02', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jndrecord
@@ -3368,7 +3773,7 @@ CREATE TABLE `jsssc`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13096993 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖历史表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 13097288 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖历史表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jsssc
@@ -3423,6 +3828,40 @@ INSERT INTO `jsssc` VALUES (13096989, '2024-04-06 15:15:30', 1, 6, 5, 5, 0, 'TAS
 INSERT INTO `jsssc` VALUES (13096990, '2024-04-06 15:16:45', 2, 3, 7, 8, 8, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
 INSERT INTO `jsssc` VALUES (13096991, '2024-04-06 15:18:00', 8, 8, 1, 8, 1, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
 INSERT INTO `jsssc` VALUES (13096992, '2024-04-06 15:19:15', 6, 7, 8, 7, 5, 'TASK', '2024-04-06 15:20:27', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097254, '2024-04-06 20:46:45', 0, 0, 0, 9, 3, 'TASK', '2024-04-06 20:47:11', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097255, '2024-04-06 20:48:00', 9, 1, 4, 6, 3, 'TASK', '2024-04-06 20:49:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097256, '2024-04-06 20:49:15', 0, 2, 1, 7, 1, 'TASK', '2024-04-06 20:50:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097257, '2024-04-06 20:50:30', 1, 0, 0, 1, 7, 'TASK', '2024-04-06 20:52:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097258, '2024-04-06 20:51:45', 4, 0, 1, 3, 7, 'TASK', '2024-04-06 20:52:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097259, '2024-04-06 20:53:00', 4, 6, 6, 3, 3, 'TASK', '2024-04-06 20:54:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097260, '2024-04-06 20:54:15', 1, 9, 4, 2, 5, 'TASK', '2024-04-06 20:55:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097261, '2024-04-06 20:55:30', 8, 4, 5, 2, 7, 'TASK', '2024-04-06 20:56:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097262, '2024-04-06 20:56:45', 8, 2, 3, 9, 1, 'TASK', '2024-04-06 20:57:11', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097263, '2024-04-06 20:58:00', 2, 4, 2, 6, 6, 'TASK', '2024-04-06 20:59:02', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097264, '2024-04-06 20:59:15', 8, 6, 0, 2, 6, 'TASK', '2024-04-06 21:00:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097265, '2024-04-06 21:00:30', 1, 1, 0, 7, 7, 'TASK', '2024-04-06 21:01:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097266, '2024-04-06 21:01:45', 8, 9, 2, 1, 8, 'TASK', '2024-04-06 21:02:18', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097267, '2024-04-06 21:03:00', 0, 5, 5, 0, 5, 'TASK', '2024-04-06 21:04:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097268, '2024-04-06 21:04:15', 2, 4, 3, 3, 7, 'TASK', '2024-04-06 21:05:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097269, '2024-04-06 21:05:30', 0, 3, 1, 4, 0, 'TASK', '2024-04-06 21:06:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097270, '2024-04-06 21:06:45', 4, 7, 4, 6, 5, 'TASK', '2024-04-06 21:07:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097271, '2024-04-06 21:08:00', 3, 0, 7, 0, 6, 'TASK', '2024-04-06 21:09:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097272, '2024-04-06 21:09:15', 0, 2, 1, 4, 2, 'TASK', '2024-04-06 21:10:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097273, '2024-04-06 21:10:30', 8, 9, 9, 3, 1, 'TASK', '2024-04-06 21:11:21', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097274, '2024-04-06 21:11:45', 6, 7, 2, 4, 7, 'TASK', '2024-04-06 21:12:12', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097275, '2024-04-06 21:13:00', 1, 9, 0, 7, 7, 'TASK', '2024-04-06 21:14:14', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097276, '2024-04-06 21:14:15', 5, 5, 4, 2, 1, 'TASK', '2024-04-06 21:15:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097277, '2024-04-06 21:15:30', 3, 5, 5, 6, 1, 'TASK', '2024-04-06 21:17:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097278, '2024-04-06 21:16:45', 6, 1, 5, 8, 2, 'TASK', '2024-04-06 21:18:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097279, '2024-04-06 21:18:00', 4, 3, 4, 9, 1, 'TASK', '2024-04-06 21:19:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097280, '2024-04-06 21:19:15', 3, 4, 6, 1, 9, 'TASK', '2024-04-06 21:20:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097281, '2024-04-06 21:20:30', 8, 3, 0, 7, 1, 'TASK', '2024-04-06 21:21:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097282, '2024-04-06 21:21:45', 9, 5, 5, 6, 4, 'TASK', '2024-04-06 21:22:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097283, '2024-04-06 21:23:00', 2, 5, 4, 0, 5, 'TASK', '2024-04-06 21:24:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097284, '2024-04-06 21:24:15', 9, 1, 3, 4, 1, 'TASK', '2024-04-06 21:25:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097285, '2024-04-06 21:25:30', 7, 7, 7, 4, 8, 'TASK', '2024-04-06 21:26:01', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097286, '2024-04-06 21:26:45', 4, 6, 8, 8, 3, 'TASK', '2024-04-06 21:27:00', '', NULL, '');
+INSERT INTO `jsssc` VALUES (13097287, '2024-04-06 21:28:00', 5, 6, 7, 4, 9, 'TASK', '2024-04-06 21:29:00', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jsssckj
@@ -3466,11 +3905,34 @@ CREATE TABLE `jsssckj`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE,
   INDEX `Id_2`(`id`, `status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3954547 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 13097290 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '极速时时彩开奖表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jsssckj
 -- ----------------------------
+INSERT INTO `jsssckj` VALUES (13096989, '1', '2024-04-06 15:14:50', '2024-04-06 15:15:25', '2024-04-06 15:15:30', 0, 0, 1, 6, 5, 5, 0, 17, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 2, 3, 1, 1, '', '2024-04-06 20:47:19', '', NULL, '');
+INSERT INTO `jsssckj` VALUES (13096990, '1', '2024-04-06 15:16:05', '2024-04-06 15:16:40', '2024-04-06 15:16:45', 0, 0, 2, 3, 7, 8, 8, 28, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, '', '2024-04-06 20:47:19', '', NULL, '');
+INSERT INTO `jsssckj` VALUES (13096991, '1', '2024-04-06 15:17:20', '2024-04-06 15:17:55', '2024-04-06 15:18:00', 0, 0, 8, 8, 1, 8, 1, 26, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 2, 1, 4, 4, '', '2024-04-06 20:47:19', '', NULL, '');
+INSERT INTO `jsssckj` VALUES (13096992, '1', '2024-04-06 15:18:35', '2024-04-06 15:19:10', '2024-04-06 15:19:15', 0, 0, 6, 7, 8, 7, 5, 33, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 2, 2, 3, 3, '', '2024-04-06 20:47:19', '', NULL, '');
+INSERT INTO `jsssckj` VALUES (13097254, '1', '2024-04-06 20:46:05', '2024-04-06 20:46:40', '2024-04-06 20:46:45', 0, 0, 0, 0, 0, 9, 3, 12, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 4, '', '2024-04-06 20:47:19', '', NULL, '');
+INSERT INTO `jsssckj` VALUES (13097255, '1', '2024-04-06 20:47:35', '2024-04-06 20:48:10', '2024-04-06 20:48:00', 0, 0, 9, 1, 4, 6, 3, 23, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 2, 4, 4, 3, 'CreateJssscData', '2024-04-06 20:47:19', '', '2024-04-06 20:49:02', '');
+INSERT INTO `jsssckj` VALUES (13097256, '1', '2024-04-06 20:48:50', '2024-04-06 20:49:25', '2024-04-06 20:49:15', 0, 0, 0, 2, 1, 7, 1, 11, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 2, 3, 4, 'CreateJssscData', '2024-04-06 20:47:19', '', '2024-04-06 20:50:02', '');
+INSERT INTO `jsssckj` VALUES (13097257, '2', '2024-04-06 20:50:05', '2024-04-06 20:50:40', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-06 20:49:28', 'lotteryJssscBalance', '2024-04-06 20:52:02', '');
+INSERT INTO `jsssckj` VALUES (13097258, '2', '2024-04-06 20:51:20', '2024-04-06 20:51:55', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-06 20:50:06', 'lotteryJssscBalance', '2024-04-06 20:54:02', '');
+INSERT INTO `jsssckj` VALUES (13097260, '1', '2024-04-06 20:53:50', '2024-04-06 20:54:25', '2024-04-06 20:54:15', 0, 0, 1, 9, 4, 2, 5, 21, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 4, 4, 3, 'CreateJssscData', '2024-04-06 20:54:02', '', '2024-04-06 20:55:02', '');
+INSERT INTO `jsssckj` VALUES (13097261, '1', '2024-04-06 20:55:05', '2024-04-06 20:55:40', '2024-04-06 20:55:30', 0, 0, 8, 4, 5, 2, 7, 26, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 2, 3, 3, 4, 'CreateJssscData', '2024-04-06 20:54:02', '', '2024-04-06 20:56:02', '');
+INSERT INTO `jsssckj` VALUES (13097262, '1', '2024-04-06 20:56:20', '2024-04-06 20:56:55', '2024-04-06 20:56:45', 0, 0, 8, 2, 3, 9, 1, 23, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3, 3, 4, 'CreateJssscData', '2024-04-06 20:55:02', '', '2024-04-06 20:58:02', '');
+INSERT INTO `jsssckj` VALUES (13097263, '2', '2024-04-06 20:57:35', '2024-04-06 20:58:10', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-06 20:57:09', 'lotteryJssscBalance', '2024-04-06 21:20:02', '');
+INSERT INTO `jsssckj` VALUES (13097264, '2', '2024-04-06 20:58:50', '2024-04-06 20:59:25', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-06 20:58:02', 'lotteryJssscBalance', '2024-04-06 21:20:02', '');
+INSERT INTO `jsssckj` VALUES (13097281, '1', '2024-04-06 21:20:05', '2024-04-06 21:20:40', '2024-04-06 21:20:30', 0, 0, 8, 3, 0, 7, 1, 19, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 4, 4, 3, 'CreateJssscData', '2024-04-06 21:20:02', '', '2024-04-06 21:21:02', '');
+INSERT INTO `jsssckj` VALUES (13097282, '1', '2024-04-06 21:21:20', '2024-04-06 21:21:55', '2024-04-06 21:21:45', 0, 0, 9, 5, 5, 6, 4, 29, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 2, 1, 1, 2, 'CreateJssscData', '2024-04-06 21:20:02', '', '2024-04-06 21:22:02', '');
+INSERT INTO `jsssckj` VALUES (13097283, '1', '2024-04-06 21:22:35', '2024-04-06 21:23:10', '2024-04-06 21:23:00', 0, 0, 2, 5, 4, 0, 5, 16, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 3, 3, 3, 'CreateJssscData', '2024-04-06 21:21:02', '', '2024-04-06 21:24:02', '');
+INSERT INTO `jsssckj` VALUES (13097284, '1', '2024-04-06 21:23:50', '2024-04-06 21:24:25', '2024-04-06 21:24:15', 0, 0, 9, 1, 3, 4, 1, 18, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 3, 3, 'CreateJssscData', '2024-04-06 21:22:02', '', '2024-04-06 21:25:02', '');
+INSERT INTO `jsssckj` VALUES (13097285, '1', '2024-04-06 21:25:05', '2024-04-06 21:25:40', '2024-04-06 21:25:30', 0, 0, 7, 7, 7, 4, 8, 33, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 3, 'CreateJssscData', '2024-04-06 21:24:02', '', '2024-04-06 21:26:02', '');
+INSERT INTO `jsssckj` VALUES (13097286, '1', '2024-04-06 21:26:20', '2024-04-06 21:26:55', '2024-04-06 21:26:45', 0, 0, 4, 6, 8, 8, 3, 29, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, 4, 1, 1, 'CreateJssscData', '2024-04-06 21:25:02', '', '2024-04-06 21:27:02', '');
+INSERT INTO `jsssckj` VALUES (13097287, '1', '2024-04-06 21:27:35', '2024-04-06 21:28:10', '2024-04-06 21:28:00', 0, 0, 5, 6, 7, 4, 9, 31, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 2, 3, 4, 'CreateJssscData', '2024-04-06 21:26:02', '', '2024-04-06 21:29:02', '');
+INSERT INTO `jsssckj` VALUES (13097288, '0', '2024-04-06 21:28:50', '2024-04-06 21:29:25', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-06 21:27:02', '', NULL, '');
+INSERT INTO `jsssckj` VALUES (13097289, '0', '2024-04-06 21:30:05', '2024-04-06 21:30:40', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CreateJssscData', '2024-04-06 21:29:02', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for jssscrecord
@@ -4540,10 +5002,10 @@ INSERT INTO `sys_job` VALUES (2, '系统默认（有参）', 'DEFAULT', 'ryTask.
 INSERT INTO `sys_job` VALUES (3, '系统默认（多参）', 'DEFAULT', 'ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)', '0/20 * * * * ?', '3', '1', '1', 'admin', '2024-03-05 21:03:11', '', NULL, '');
 INSERT INTO `sys_job` VALUES (4, '澳洲幸运10定时获取开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'azxy10\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:39:03', 'admin', '2024-03-26 22:44:43', '');
 INSERT INTO `sys_job` VALUES (5, '加拿大2.8定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jnd28\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:51:09', 'admin', '2024-03-26 22:44:45', '');
-INSERT INTO `sys_job` VALUES (6, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsssc\')', '0 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-06 15:18:54', '');
-INSERT INTO `sys_job` VALUES (7, '澳洲幸运10定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'azxy10\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-04 20:06:02', '');
-INSERT INTO `sys_job` VALUES (8, '加拿大2.8定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jnd28\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:51:09', 'admin', '2024-04-04 20:06:00', '');
-INSERT INTO `sys_job` VALUES (9, '急速时时彩定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jsssc\')', '2 0/1 * * * ?', '1', '0', '1', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-06 15:19:05', '');
+INSERT INTO `sys_job` VALUES (6, '急速时时彩定时开奖数据', 'SYSTEM', 'ryTask.getGameExpectData(\'jsssc\')', '0 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-06 20:47:11', '');
+INSERT INTO `sys_job` VALUES (7, '澳洲幸运10定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'azxy10\')', '2 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-06 20:47:16', '');
+INSERT INTO `sys_job` VALUES (8, '加拿大2.8定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jnd28\')', '2 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:51:09', 'admin', '2024-04-06 21:18:25', '');
+INSERT INTO `sys_job` VALUES (9, '急速时时彩定时开奖结算', 'SYSTEM', 'ryTask.autoLotteryBalance(\'jsssc\')', '2 0/1 * * * ?', '1', '0', '0', 'admin', '2024-03-18 18:39:03', 'admin', '2024-04-06 20:47:19', '');
 
 -- ----------------------------
 -- Table structure for sys_job_log
@@ -4559,7 +5021,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 506 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1434 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -4582,7 +5044,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status`) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 138 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -4624,6 +5086,7 @@ INSERT INTO `sys_logininfor` VALUES (133, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (134, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-01 21:18:35');
 INSERT INTO `sys_logininfor` VALUES (135, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-04 19:30:47');
 INSERT INTO `sys_logininfor` VALUES (136, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-06 11:12:43');
+INSERT INTO `sys_logininfor` VALUES (137, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-04-06 20:46:58');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -4815,7 +5278,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type`) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status`) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -4977,7 +5440,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-04-06 11:12:44', 411.73, 120.00, 'admin', '2024-03-05 21:03:10', '', '2024-04-06 11:12:43', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-04-06 20:46:59', 411.73, 120.00, 'admin', '2024-03-05 21:03:10', '', '2024-04-06 20:46:58', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'sharkadmin', '平台管理员', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '127.0.0.1', '2024-03-26 22:45:35', 0.00, 0.00, 'admin', '2024-03-05 21:03:10', 'admin', '2024-03-26 22:45:34', '测试员');
 
 -- ----------------------------

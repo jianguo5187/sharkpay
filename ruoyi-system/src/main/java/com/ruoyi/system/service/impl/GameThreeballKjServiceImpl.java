@@ -108,4 +108,9 @@ public class GameThreeballKjServiceImpl implements IGameThreeballKjService
     public int updateGameThreeballKjTotalAmountByPeriodId(GameThreeballKj gameThreeballKj) {
         return gameThreeballKjMapper.updateGameThreeballKjTotalAmountByPeriodId(gameThreeballKj);
     }
+
+    @Override
+    public GameThreeballKj selectGameThreeballKjByPeriods(Long gameId, Long periods) {
+        return gameThreeballKjMapper.selectGameThreeballKjByPeriods(gameId, periods);
+    }
 }

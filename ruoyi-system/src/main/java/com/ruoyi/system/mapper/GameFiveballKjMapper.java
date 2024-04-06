@@ -66,4 +66,6 @@ public interface GameFiveballKjMapper
     public List<GameFiveballKj> selectGameFiveballKjListWithStatusZeroAndLimit(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 
     public int updateGameFiveballKjTotalAmountByPeriodId(GameFiveballKj gameFiveballKj);
+
+    public GameFiveballKj selectGameFiveballKjByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods);
 }

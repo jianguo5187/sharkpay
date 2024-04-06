@@ -64,4 +64,6 @@ public interface IGameTenballKjService
     public List<GameTenballKj> selectGameTenballKjListWithStatusZeroAndLimit(Long gameId, Long periods, String status, String idAscFlg, String idDescFlg, Integer limitNumber);
 
     public int updateGameTenballKjTotalAmountByPeriodId(GameTenballKj gameTenballKj);
+
+    public GameTenballKj selectGameTenballKjByPeriods(Long gameId, Long periods);
 }

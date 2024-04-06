@@ -110,7 +110,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </if>
     </select>
 
-    <select id="selectGameThreeballOpenDataByPeriods" parameterType="Long" resultMap="GameThreeballOpenDataResult">
+    <select id="selectGameThreeballOpenDataByPeriods" resultMap="GameThreeballOpenDataResult">
         <include refid="selectGameThreeballOpenDataVo"/>
         where 1 = 1
         <if test="periods != null "> and periods = #{periods}</if>

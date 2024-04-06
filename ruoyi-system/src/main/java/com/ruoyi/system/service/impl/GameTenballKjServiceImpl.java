@@ -108,4 +108,9 @@ public class GameTenballKjServiceImpl implements IGameTenballKjService
     public int updateGameTenballKjTotalAmountByPeriodId(GameTenballKj gameTenballKj) {
         return gameTenballKjMapper.updateGameTenballKjTotalAmountByPeriodId(gameTenballKj);
     }
+
+    @Override
+    public GameTenballKj selectGameTenballKjByPeriods(Long gameId, Long periods) {
+        return gameTenballKjMapper.selectGameTenballKjByPeriods(gameId,periods);
+    }
 }

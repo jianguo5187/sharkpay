@@ -93,12 +93,18 @@ public class RyTask
         if(StringUtils.equals("azxy10",gameCode)){
             // 澳洲幸运10
             gameTaskService.lotteryAzxy10Balance(gameCode);
+
+            gameTaskService.lotteryTenBallBalance(gameCode);
         }else if(StringUtils.equals("jnd28",gameCode)){
             // 加拿大2.8
             gameTaskService.lotteryJndBalance(gameCode);
-        }else if(StringUtils.equals("jsscmet",gameCode)){
+
+            gameTaskService.lotteryThreeBallBalance(gameCode);
+        }else if(StringUtils.equals("jsssc",gameCode)){
             // 急速时时彩
             gameTaskService.lotteryJssscBalance(gameCode);
+
+            gameTaskService.lotteryFiveBallBalance(gameCode);
         }
     }
 }

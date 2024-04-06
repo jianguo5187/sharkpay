@@ -159,4 +159,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </set>
         where id = #{id}
     </update>
+
+    <select id="selectGameThreeballKjByPeriods" resultMap="GameThreeballKjResult">
+        <include refid="selectGameThreeballKjVo"/>
+        where 1 = 1
+        <if test="periods != null "> and periods = #{periods}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        order by id desc
+        limit 1
+    </select>
 </mapper>

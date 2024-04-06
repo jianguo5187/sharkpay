@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectBetkjList" resultMap="BetkjResult">
         select
-              id as periods
+              periods as periods
             , status as status
             , case when status = '1' then bet_time else pre_time end as bet_open_time
             , case when status = '1'
@@ -30,7 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         from ${betkjTableName}
         where 1 = 1
         <if test="status != null  and status != ''"> and status = #{status}</if>
-        <if test="periods != null "> and id = #{periods}</if>
-        order by id desc
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="periods != null "> and periods = #{periods}</if>
+        order by periods desc
     </select>
 </mapper>

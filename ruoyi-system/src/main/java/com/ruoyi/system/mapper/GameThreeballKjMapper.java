@@ -1,10 +1,9 @@
 package com.ruoyi.system.mapper;
 
-import java.util.List;
-
-import com.ruoyi.system.domain.GameThreeballKj;
 import com.ruoyi.system.domain.GameThreeballKj;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 3球开奖Mapper接口
@@ -67,4 +66,6 @@ public interface GameThreeballKjMapper
     public List<GameThreeballKj> selectGameThreeballKjListWithStatusZeroAndLimit(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("status") String status, @Param("idAscFlg") String idAscFlg, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 
     public int updateGameThreeballKjTotalAmountByPeriodId(GameThreeballKj gameThreeballKj);
+
+    public GameThreeballKj selectGameThreeballKjByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods);
 }

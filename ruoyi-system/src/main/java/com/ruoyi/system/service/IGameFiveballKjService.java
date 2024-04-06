@@ -1,7 +1,8 @@
 package com.ruoyi.system.service;
 
-import java.util.List;
 import com.ruoyi.system.domain.GameFiveballKj;
+
+import java.util.List;
 
 /**
  * 5球开奖Service接口
@@ -64,4 +65,6 @@ public interface IGameFiveballKjService
     public List<GameFiveballKj> selectGameFiveballKjListWithStatusZeroAndLimit(Long gameId, Long periods, String status, String idAscFlg, String idDescFlg, Integer limitNumber);
 
     public int updateGameFiveballKjTotalAmountByPeriodId(GameFiveballKj gameFiveballKj);
+
+    public GameFiveballKj selectGameFiveballKjByPeriods(Long gameId, Long periods);
 }
