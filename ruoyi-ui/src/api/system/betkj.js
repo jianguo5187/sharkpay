@@ -17,3 +17,21 @@ export function getBetkj(id) {
   })
 }
 
+// 手动修复开奖数据
+export function repair(data) {
+  return request({
+    url: '/system/betkj/betRepair',
+    method: 'post',
+    data: data
+  })
+}
+
+// 手动开奖
+export function handleLottery(data) {
+  return request({
+    url: '/system/betkj/handleLottery',
+    method: 'post',
+    data: data
+  })
+}
+

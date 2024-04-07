@@ -1,4 +1,4 @@
-package com.ruoyi.quartz.domain;
+package com.ruoyi.system.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

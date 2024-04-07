@@ -1,9 +1,9 @@
-package com.ruoyi.quartz.service.impl;
+package com.ruoyi.system.service.impl;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
-import com.ruoyi.quartz.service.ITenBallLotteryService;
+import com.ruoyi.system.service.ITenBallLotteryService;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import com.ruoyi.system.service.*;
@@ -84,25 +84,26 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 GameTenballKj.setUpdateBy("lotteryTenballBalance");
                 gameTenballKjService.updateGameTenballKj(GameTenballKj);
             }
-            CreateTenballData(gameInfo);
+            createTenballData(gameInfo);
         }
 
         if(existGameTenballKj != null){
             SingleTenballUpdate(gameInfo);
-            CreateTenballData(gameInfo);
+            createTenballData(gameInfo);
         }else{
             CreateTenballAll(gameInfo);
         }
     }
 
-    public void CreateTenballData(SysGame gameInfo){
+    @Override
+    public void createTenballData(SysGame gameInfo){
         List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectGameTenballKjListWithStatusZeroAndLimit(gameInfo.getGameId(), null,"0",null,"1",null);
         if(gameTenballKjList.size() == 2){
             return;
         }
         GameTenballOpenData gameTenballOpenDataInfo = gameTenballOpenDataService.selectLastRecord(gameInfo.getGameId());
         if(gameTenballOpenDataInfo == null){
-            throw new ServiceException("CreateTenballData return false2");
+            throw new ServiceException("createTenballData return false2");
         }
         GameTenballKj firstGameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(gameInfo.getGameId(),gameTenballOpenDataInfo.getPeriods() + 1);
 
@@ -110,7 +111,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         newGameTenballKj.setGameId(gameInfo.getGameId());
         newGameTenballKj.setGameName(gameInfo.getGameName());
         newGameTenballKj.setStatus("0");
-        newGameTenballKj.setCreateBy("CreateTenballData");
+        newGameTenballKj.setCreateBy("createTenballData");
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String timeStr = formatter.format(gameTenballOpenDataInfo.getTime());
@@ -151,7 +152,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         }else if(gameTenballKjList.size() == 1 && firstGameTenballKj != null){
             GameTenballKj secondGameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(gameInfo.getGameId(),gameTenballOpenDataInfo.getPeriods() + 2);
             if(secondGameTenballKj != null){
-                throw new ServiceException("CreateTenballData return false3 ID: " + (gameTenballOpenDataInfo.getPeriods() + 2));
+                throw new ServiceException("createTenballData return false3 ID: " + (gameTenballOpenDataInfo.getPeriods() + 2));
             }
             newGameTenballKj.setPeriods(gameTenballOpenDataInfo.getPeriods() + 2);
 
@@ -164,10 +165,10 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             calendar.add(Calendar.SECOND, gameInfo.getEndTime()*-1);
             newGameTenballKj.setBetTime(calendar.getTime());
         }else{
-            throw new ServiceException("CreateTenballData return false4");
+            throw new ServiceException("createTenballData return false4");
         }
         gameTenballKjService.insertGameTenballKj(newGameTenballKj);
-        CreateTenballData(gameInfo);
+        createTenballData(gameInfo);
     }
 
     public void CreateTenballAll(SysGame gameInfo){
@@ -205,7 +206,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             gameTenballKjService.insertGameTenballKj(newGameTenballKj);
         }
 
-        CreateTenballData(gameInfo);
+        createTenballData(gameInfo);
     }
 
     public void SingleTenballUpdate(SysGame gameInfo){
@@ -238,7 +239,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         int updateInt = gameTenballKjService.updateGameTenballKj(gameTenballKj);
         if(updateInt > 0){
             lotteryTenball(gameInfo, gameTenballKj.getPeriods());
-            CreateTenballData(gameInfo);
+            createTenballData(gameInfo);
 
             // 补漏
             List<GameTenballKj> notOpenGameTenballKjList = gameTenballKjService.selectGameTenballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameTenballKj.getPeriods(),"0",null,"1",1);

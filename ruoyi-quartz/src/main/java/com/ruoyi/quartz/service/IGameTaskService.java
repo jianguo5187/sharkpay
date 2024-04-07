@@ -1,6 +1,6 @@
 package com.ruoyi.quartz.service;
 
-import com.ruoyi.quartz.domain.GameOpenDataDto;
+import com.ruoyi.system.domain.vo.GameOpenDataDto;
 
 import java.util.List;
 import java.util.Map;

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysPaymentMapper">
+    
+    <resultMap type="SysPayment" id="SysPaymentResult">
+        <result property="id"    column="id"    />
+        <result property="paymentAccount"    column="payment_account"    />
+        <result property="paymentName"    column="payment_name"    />
+        <result property="paymentType"    column="payment_type"    />
+        <result property="paymentPic"    column="payment_pic"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysPaymentVo">
+        select id, payment_account, payment_name, payment_type, payment_pic, status, create_by, create_time, update_by, update_time, remark from sys_payment
+    </sql>
+
+    <select id="selectSysPaymentList" parameterType="SysPayment" resultMap="SysPaymentResult">
+        <include refid="selectSysPaymentVo"/>
+        <where>  
+            <if test="paymentAccount != null  and paymentAccount != ''"> and payment_account = #{paymentAccount}</if>
+            <if test="paymentName != null  and paymentName != ''"> and payment_name like concat('%', #{paymentName}, '%')</if>
+            <if test="paymentType != null  and paymentType != ''"> and payment_type = #{paymentType}</if>
+            <if test="paymentPic != null  and paymentPic != ''"> and payment_pic = #{paymentPic}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysPaymentById" parameterType="Long" resultMap="SysPaymentResult">
+        <include refid="selectSysPaymentVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSysPayment" parameterType="SysPayment" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_payment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="paymentAccount != null">payment_account,</if>
+            <if test="paymentName != null">payment_name,</if>
+            <if test="paymentType != null">payment_type,</if>
+            <if test="paymentPic != null">payment_pic,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="paymentAccount != null">#{paymentAccount},</if>
+            <if test="paymentName != null">#{paymentName},</if>
+            <if test="paymentType != null">#{paymentType},</if>
+            <if test="paymentPic != null">#{paymentPic},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysPayment" parameterType="SysPayment">
+        update sys_payment
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="paymentAccount != null">payment_account = #{paymentAccount},</if>
+            <if test="paymentName != null">payment_name = #{paymentName},</if>
+            <if test="paymentType != null">payment_type = #{paymentType},</if>
+            <if test="paymentPic != null">payment_pic = #{paymentPic},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysPaymentById" parameterType="Long">
+        delete from sys_payment where id = #{id}
+    </delete>
+
+    <delete id="deleteSysPaymentByIds" parameterType="String">
+        delete from sys_payment where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

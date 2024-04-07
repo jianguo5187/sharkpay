@@ -4,7 +4,7 @@ import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
-import com.ruoyi.quartz.domain.GameOpenDataDto;
+import com.ruoyi.system.domain.vo.GameOpenDataDto;
 import com.ruoyi.quartz.service.IGameTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

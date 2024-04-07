@@ -1,9 +1,9 @@
-package com.ruoyi.quartz.service.impl;
+package com.ruoyi.system.service.impl;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
-import com.ruoyi.quartz.service.IFiveBallLotteryService;
+import com.ruoyi.system.service.IFiveBallLotteryService;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import com.ruoyi.system.service.*;
@@ -85,25 +85,26 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 gameFiveballKj.setUpdateBy("lotteryGameFiveballOpenDataBalance");
                 gameFiveballKjService.updateGameFiveballKj(gameFiveballKj);
             }
-            CreateFiveBallData(gameInfo);
+            createFiveBallData(gameInfo);
         }
 
         if(existGameFiveballKj != null){
             SingleFiveBallUpdate(gameInfo);
-            CreateFiveBallData(gameInfo);
+            createFiveBallData(gameInfo);
         }else{
             CreateFiveBallAll(gameInfo);
         }
     }
 
-    private void CreateFiveBallData(SysGame gameInfo){
+    @Override
+    public void createFiveBallData(SysGame gameInfo){
         List<GameFiveballKj> GameFiveballKjList = gameFiveballKjService.selectGameFiveballKjListWithStatusZeroAndLimit(gameInfo.getGameId(), null,"0",null,"1",null);
         if(GameFiveballKjList.size() == 2){
             return;
         }
         GameFiveballOpenData gameFiveballOpenDataInfo = gameFiveballOpenDataService.selectLastRecord(gameInfo.getGameId());
         if(gameFiveballOpenDataInfo == null){
-            throw new ServiceException("CreateFiveBallData return false2");
+            throw new ServiceException("createFiveBallData return false2");
         }
         GameFiveballKj firstGameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(gameInfo.getGameId(),gameFiveballOpenDataInfo.getPeriods() + 1);
 
@@ -111,7 +112,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         newGameFiveballKj.setGameId(gameInfo.getGameId());
         newGameFiveballKj.setGameName(gameInfo.getGameName());
         newGameFiveballKj.setStatus("0");
-        newGameFiveballKj.setCreateBy("CreateFiveBallData");
+        newGameFiveballKj.setCreateBy("createFiveBallData");
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(gameFiveballOpenDataInfo.getTime());
@@ -130,7 +131,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         }else if(GameFiveballKjList.size() == 1 && firstGameFiveballKj != null){
             GameFiveballKj secondGameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(gameInfo.getGameId(), gameFiveballOpenDataInfo.getPeriods() + 2);
             if(secondGameFiveballKj != null){
-                throw new ServiceException("CreateFiveBallData return false3 ID: " + (gameFiveballOpenDataInfo.getPeriods() + 2));
+                throw new ServiceException("createFiveBallData return false3 ID: " + (gameFiveballOpenDataInfo.getPeriods() + 2));
             }
             newGameFiveballKj.setPeriods(gameFiveballOpenDataInfo.getPeriods() + 2);
 
@@ -143,10 +144,10 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
             calendar.add(Calendar.SECOND, gameInfo.getEndTime()*-1);
             newGameFiveballKj.setBetTime(calendar.getTime());
         }else{
-            throw new ServiceException("CreateFiveBallData return false4");
+            throw new ServiceException("createFiveBallData return false4");
         }
         gameFiveballKjService.insertGameFiveballKj(newGameFiveballKj);
-        CreateFiveBallData(gameInfo);
+        createFiveBallData(gameInfo);
     }
 
     private void CreateFiveBallAll(SysGame gameInfo){
@@ -198,7 +199,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
             gameFiveballKjService.insertGameFiveballKj(newGameFiveballKj);
         }
 
-        CreateFiveBallData(gameInfo);
+        createFiveBallData(gameInfo);
     }
 
     private void SingleFiveBallUpdate(SysGame gameInfo){
@@ -243,7 +244,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         int updateInt = gameFiveballKjService.updateGameFiveballKj(gameFiveballKj);
         if(updateInt > 0){
             lotteryGameFiveballOpenData(gameInfo, gameFiveballKj.getPeriods());
-            CreateFiveBallData(gameInfo);
+            createFiveBallData(gameInfo);
 
             // 补漏
             List<GameFiveballKj> notOpenGameFiveballKjList = gameFiveballKjService.selectGameFiveballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameFiveballKj.getPeriods(),"0",null,"1",1);

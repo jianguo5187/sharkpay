@@ -1,9 +1,9 @@
-package com.ruoyi.quartz.service.impl;
+package com.ruoyi.system.service.impl;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
-import com.ruoyi.quartz.service.IThreeBallLotteryService;
+import com.ruoyi.system.service.IThreeBallLotteryService;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import com.ruoyi.system.service.*;
@@ -88,25 +88,26 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 gameThreeballKj.setUpdateBy("lotteryThreeBalance");
                 gameThreeballKjService.updateGameThreeballKj(gameThreeballKj);
             }
-            CreateThreeData(gameInfo);
+            createThreeData(gameInfo);
         }
 
         if(existGameThreeballKj != null){
             SingleThreeUpdate(gameInfo);
-            CreateThreeData(gameInfo);
+            createThreeData(gameInfo);
         }else{
             CreateThreeAll(gameInfo);
         }
     }
 
-    public void CreateThreeData(SysGame gameInfo){
+    @Override
+    public void createThreeData(SysGame gameInfo){
         List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectGameThreeballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),null,"0",null,"1",null);
         if(gameThreeballKjList.size() == 2){
             return;
         }
         GameThreeballOpenData gameThreeballOpenData = gameThreeballOpenDataService.selectLastRecord(gameInfo.getGameId());
         if(gameThreeballOpenData == null){
-            throw new ServiceException("CreateThreeData return false2");
+            throw new ServiceException("createThreeData return false2");
         }
         GameThreeballKj firstGameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(gameInfo.getGameId(),gameThreeballOpenData.getPeriods() + 1);
 
@@ -114,7 +115,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         newGameThreeballKj.setGameId(gameInfo.getGameId());
         newGameThreeballKj.setGameName(gameInfo.getGameName());
         newGameThreeballKj.setStatus("0");
-        newGameThreeballKj.setCreateBy("CreateThreeData");
+        newGameThreeballKj.setCreateBy("createThreeData");
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(gameThreeballOpenData.getTime());
@@ -133,7 +134,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         }else if(gameThreeballKjList.size() == 1 && firstGameThreeballKj != null){
             GameThreeballKj secondGameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(gameInfo.getGameId(), gameThreeballOpenData.getPeriods() + 2);
             if(secondGameThreeballKj != null){
-                throw new ServiceException("CreateThreeData return false3 ID: " + (gameThreeballOpenData.getPeriods() + 2));
+                throw new ServiceException("createThreeData return false3 ID: " + (gameThreeballOpenData.getPeriods() + 2));
             }
             newGameThreeballKj.setPeriods(gameThreeballOpenData.getPeriods() + 2);
 
@@ -146,10 +147,10 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             calendar.add(Calendar.SECOND, gameInfo.getEndTime()*-1);
             newGameThreeballKj.setBetTime(calendar.getTime());
         }else{
-            throw new ServiceException("CreateThreeData return false4");
+            throw new ServiceException("createThreeData return false4");
         }
         gameThreeballKjService.insertGameThreeballKj(newGameThreeballKj);
-        CreateThreeData(gameInfo);
+        createThreeData(gameInfo);
     }
 
     public void CreateThreeAll(SysGame gameInfo){
@@ -163,7 +164,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             newGameThreeballKj.setNum1(gameThreeballOpenData.getSum1());
             newGameThreeballKj.setNum2(gameThreeballOpenData.getSum2());
             newGameThreeballKj.setNum3(gameThreeballOpenData.getSum3());
-            newGameThreeballKj.setSumNum(gameThreeballOpenData.getSum1() + gameThreeballOpenData.getSum2());
+            newGameThreeballKj.setSumNum(gameThreeballOpenData.getSum1() + gameThreeballOpenData.getSum2() + gameThreeballOpenData.getSum3());
 
             newGameThreeballKj.setStatus("1");
             // 开奖时间
@@ -182,7 +183,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             gameThreeballKjService.insertGameThreeballKj(newGameThreeballKj);
         }
 
-        CreateThreeData(gameInfo);
+        createThreeData(gameInfo);
     }
 
     public void SingleThreeUpdate(SysGame gameInfo){
@@ -202,14 +203,14 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         gameThreeballKj.setNum1(gameThreeballOpenData.getSum1());
         gameThreeballKj.setNum2(gameThreeballOpenData.getSum2());
         gameThreeballKj.setNum3(gameThreeballOpenData.getSum3());
-        gameThreeballKj.setSumNum(gameThreeballOpenData.getSum1() + gameThreeballOpenData.getSum2());
+        gameThreeballKj.setSumNum(gameThreeballOpenData.getSum1() + gameThreeballOpenData.getSum2() + gameThreeballOpenData.getSum3());
         gameThreeballKj.setStatus("1"); //开奖
         gameThreeballKj.setTheTime(gameThreeballOpenData.getTime());
 
         int updateInt = gameThreeballKjService.updateGameThreeballKj(gameThreeballKj);
         if(updateInt > 0){
             lotteryThree(gameInfo, gameThreeballKj.getPeriods());
-            CreateThreeData(gameInfo);
+            createThreeData(gameInfo);
 
             // 补漏
             List<GameThreeballKj> notOpenGameThreeballKjList = gameThreeballKjService.selectGameThreeballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameThreeballKj.getPeriods(),"0",null,"1",1);

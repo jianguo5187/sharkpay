@@ -88,13 +88,12 @@ public class Jnd28LotteryServiceImpl implements Jnd28LotteryService {
                 jnd28Service.updateJnd28(jnd28);
             }
             CreateJndData(gameInfo);
-        }else {
-            if(existJnd28 != null){
-                SingleJndUpdate(gameInfo);
-                CreateJndData(gameInfo);
-            }else{
-                CreateJndAll(gameInfo);
-            }
+        }
+        if(existJnd28 != null){
+            SingleJndUpdate(gameInfo);
+            CreateJndData(gameInfo);
+        }else{
+            CreateJndAll(gameInfo);
         }
 
     }
