@@ -86,6 +86,15 @@ public interface SysUserMapper
     public int resetUserPwd(@Param("userName") String userName, @Param("password") String password);
 
     /**
+     * 重置用户支付密码
+     *
+     * @param userId 用户ID
+     * @param payPassword 支付密码
+     * @return 结果
+     */
+    public int resetUserPayPwd(@Param("userId")Long userId, @Param("payPassword") String payPassword);
+
+    /**
      * 通过用户ID删除用户
      * 
      * @param userId 用户ID
@@ -124,6 +133,22 @@ public interface SysUserMapper
      * @return 结果
      */
     public SysUser checkEmailUnique(String email);
+
+    /**
+     * 校验身份证号码是否唯一
+     *
+     * @param idcardNo 身份证号码
+     * @return 结果
+     */
+    public SysUser checkIdcardUnique(String idcardNo);
+
+    /**
+     * 根据邀请码查询用户
+     *
+     * @param inviteCode 邀请码
+     * @return 结果
+     */
+    public SysUser selectUserByInviteCode(String inviteCode);
 
     public int updateUserAmount(SysUser user);
 }

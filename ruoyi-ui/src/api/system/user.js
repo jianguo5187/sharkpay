@@ -56,6 +56,18 @@ export function resetUserPwd(userId, password) {
     data: data
   })
 }
+// 用户支付密码重置
+export function resetUserPayPwd(userId, payPassword) {
+  const data = {
+    userId,
+    payPassword
+  }
+  return request({
+    url: '/system/user/resetPayPwd',
+    method: 'put',
+    data: data
+  })
+}
 
 // 用户状态修改
 export function changeUserStatus(userId, status) {

@@ -198,6 +198,16 @@ public class SysUserController extends BaseController
     }
 
     /**
+     * 重置支付密码
+     */
+    @PutMapping("/resetPayPwd")
+    public AjaxResult resetPayPwd(@RequestBody SysUser user)
+    {
+        String newPayPassword = SecurityUtils.encryptPassword(user.getPayPassword());
+        return toAjax(userService.resetUserPayPwd(user.getUserId(),newPayPassword));
+    }
+
+    /**
      * 状态修改
      */
     @PreAuthorize("@ss.hasPermi('system:user:edit')")

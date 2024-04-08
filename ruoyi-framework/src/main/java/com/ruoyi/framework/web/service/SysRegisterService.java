@@ -1,5 +1,7 @@
 package com.ruoyi.framework.web.service;
 
+import com.ruoyi.common.utils.ShiroUtils;
+import com.ruoyi.common.utils.file.ImageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.ruoyi.common.constant.CacheConstants;
@@ -40,9 +42,15 @@ public class SysRegisterService
      */
     public String register(RegisterBody registerBody)
     {
-        String msg = "", username = registerBody.getUsername(), password = registerBody.getPassword();
+        String msg = "", username = registerBody.getUsername(), password = registerBody.getPassword(), payPassword = registerBody.getPayPassword();
         SysUser sysUser = new SysUser();
         sysUser.setUserName(username);
+        sysUser.setNickName(registerBody.getNickName());
+        sysUser.setEmail(registerBody.getEmail());
+        sysUser.setPhonenumber(registerBody.getPhonenumber());
+        sysUser.setRealName(registerBody.getRealName());
+        sysUser.setIdcardNo(registerBody.getIdcardNo());
+        sysUser.setInviteCode(registerBody.getInviteCode());
 
         // 验证码开关
         boolean captchaEnabled = configService.selectCaptchaEnabled();
@@ -59,6 +67,34 @@ public class SysRegisterService
         {
             msg = "用户密码不能为空";
         }
+        else if (StringUtils.isEmpty(sysUser.getPhonenumber()))
+        {
+            msg = "手机号码不能为空";
+        }
+        else if (StringUtils.isEmpty(payPassword))
+        {
+            msg = "支付密码不能为空";
+        }
+        else if (StringUtils.isEmpty(sysUser.getRealName()))
+        {
+            msg = "真实姓名不能为空";
+        }
+        else if (StringUtils.isEmpty(sysUser.getIdcardNo()))
+        {
+            msg = "身份证号码不能为空";
+        }
+//        else if (StringUtils.isEmpty(registerBody.getIdcardBackImg()))
+//        {
+//            msg = "身份证正面图片不能为空";
+//        }
+//        else if (StringUtils.isEmpty(registerBody.getIdcardBackImg()))
+//        {
+//            msg = "身份证反面图片不能为空";
+//        }
+        else if (StringUtils.isEmpty(sysUser.getInviteCode()))
+        {
+            msg = "邀请码不能为空";
+        }
         else if (username.length() < UserConstants.USERNAME_MIN_LENGTH
                 || username.length() > UserConstants.USERNAME_MAX_LENGTH)
         {
@@ -71,20 +107,66 @@ public class SysRegisterService
         }
         else if (!userService.checkUserNameUnique(sysUser))
         {
-            msg = "保存用户'" + username + "'失败，注册账号已存在";
+            msg = "注册用户'" + username + "'失败，注册账号已存在";
+        }
+        else if (!userService.checkPhoneUnique(sysUser))
+        {
+            msg = "注册用户'" + username + "'失败，手机号码已存在";
+        }
+        else if (StringUtils.isNotEmpty(sysUser.getEmail()) && !userService.checkEmailUnique(sysUser))
+        {
+            msg = "注册用户'" + username + "'失败，邮箱账号已存在";
         }
         else
         {
-            sysUser.setNickName(username);
-            sysUser.setPassword(SecurityUtils.encryptPassword(password));
-            boolean regFlag = userService.registerUser(sysUser);
-            if (!regFlag)
-            {
-                msg = "注册失败,请联系系统管理人员";
-            }
-            else
-            {
-                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.REGISTER, MessageUtils.message("user.register.success")));
+            SysUser parentUser = userService.selectUserByInviteCode(sysUser);
+
+            if(StringUtils.isNull(parentUser) ) {
+                msg = "注册用户'" + username + "'失败，邀请码不存在";
+            }else{
+                if(StringUtils.isNotEmpty(registerBody.getAvatar())){
+                    String avatarImgFileName = ImageUtils.savaBase64ImageFile(registerBody.getAvatar());
+                    if(StringUtils.isNotEmpty(avatarImgFileName)){
+                        sysUser.setAvatar(avatarImgFileName);
+                    }
+                }
+
+                if(StringUtils.isNotEmpty(registerBody.getIdcardFrontImg())){
+                    String idcardFrontImgFileName = ImageUtils.savaBase64ImageFile(registerBody.getIdcardFrontImg());
+                    if(StringUtils.isNotEmpty(idcardFrontImgFileName)){
+                        sysUser.setIdcardFrontImg(idcardFrontImgFileName);
+                    }else{
+                        return "注册用户'" + username + "'失败，身份证正面图片添加失败";
+                    }
+                }
+                if(StringUtils.isNotEmpty(registerBody.getIdcardBackImg())) {
+                    String idcardBackImgFileName = ImageUtils.savaBase64ImageFile(registerBody.getIdcardBackImg());
+                    if (StringUtils.isNotEmpty(idcardBackImgFileName)) {
+                        sysUser.setIdcardBackImg(idcardBackImgFileName);
+                    } else {
+                        return "注册用户'" + username + "'失败，身份证反面图片添加失败";
+                    }
+                }
+
+//                sysUser.setNickName(username);
+                sysUser.setPassword(SecurityUtils.encryptPassword(password));
+                sysUser.setPayPassword(SecurityUtils.encryptPassword(payPassword));
+                sysUser.setWalletAddress(ShiroUtils.randomPayAddress());
+                sysUser.setInviteCode(ShiroUtils.randomSalt());
+                sysUser.setParentUserId(parentUser.getUserId());
+                sysUser.setUserType("02"); //APP用户
+                sysUser.setRoleIds(new Long[]{3l}); //普通用户
+                sysUser.setDeptId(103l); //用户
+
+                boolean regFlag = userService.registerUser(sysUser);
+                if (!regFlag)
+                {
+                    msg = "注册失败,请联系系统管理人员";
+                }
+                else
+                {
+                    AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.REGISTER, MessageUtils.message("user.register.success")));
+                }
             }
         }
         return msg;

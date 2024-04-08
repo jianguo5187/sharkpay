@@ -91,6 +91,22 @@ public interface ISysUserService
     public boolean checkEmailUnique(SysUser user);
 
     /**
+     * 校验身份证号码是否唯一
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public boolean checkIdcardUnique(SysUser user);
+
+    /**
+     * 根据邀请码查询用户
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public SysUser selectUserByInviteCode(SysUser user);
+
+    /**
      * 校验用户是否允许操作
      * 
      * @param user 用户信息
@@ -177,6 +193,15 @@ public interface ISysUserService
      * @return 结果
      */
     public int resetUserPwd(String userName, String password);
+
+    /**
+     * 重置用户支付密码
+     *
+     * @param userId 用户ID
+     * @param payPassword 支付密码
+     * @return 结果
+     */
+    public int resetUserPayPwd(Long userId, String payPassword);
 
     /**
      * 通过用户ID删除用户

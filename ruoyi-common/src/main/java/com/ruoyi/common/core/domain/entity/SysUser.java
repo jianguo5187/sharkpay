@@ -37,6 +37,9 @@ public class SysUser extends BaseEntity
     @Excel(name = "用户名称")
     private String nickName;
 
+    /** 用户类型（00系统用户,01平台管理员,02APP用户） */
+    private String userType;
+
     /** 用户邮箱 */
     @Excel(name = "用户邮箱")
     private String email;
@@ -75,6 +78,30 @@ public class SysUser extends BaseEntity
 
     /** 积分 */
     private Float score;
+
+    /** 支付密码 */
+    private String payPassword;
+
+    /** 真实姓名 */
+    private String realName;
+
+    /** 身份证号码 */
+    private String idcardNo;
+
+    /** 身份证正面图片路径 */
+    private String idcardFrontImg;
+
+    /** 身份证反面图片路径 */
+    private String idcardBackImg;
+
+    /** 钱包地址 */
+    private String walletAddress;
+
+    /** 邀请码 */
+    private String inviteCode;
+
+    /** 上级用户ID */
+    private Long parentUserId;
 
     /** 部门对象 */
     @Excels({
@@ -145,6 +172,14 @@ public class SysUser extends BaseEntity
     public void setNickName(String nickName)
     {
         this.nickName = nickName;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     @Xss(message = "用户账号不能包含脚本字符")
@@ -267,6 +302,70 @@ public class SysUser extends BaseEntity
 
     public void setScore(Float score) {
         this.score = score;
+    }
+
+    public String getPayPassword() {
+        return payPassword;
+    }
+
+    public void setPayPassword(String payPassword) {
+        this.payPassword = payPassword;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getIdcardNo() {
+        return idcardNo;
+    }
+
+    public void setIdcardNo(String idcardNo) {
+        this.idcardNo = idcardNo;
+    }
+
+    public String getIdcardFrontImg() {
+        return idcardFrontImg;
+    }
+
+    public void setIdcardFrontImg(String idcardFrontImg) {
+        this.idcardFrontImg = idcardFrontImg;
+    }
+
+    public String getIdcardBackImg() {
+        return idcardBackImg;
+    }
+
+    public void setIdcardBackImg(String idcardBackImg) {
+        this.idcardBackImg = idcardBackImg;
+    }
+
+    public String getWalletAddress() {
+        return walletAddress;
+    }
+
+    public void setWalletAddress(String walletAddress) {
+        this.walletAddress = walletAddress;
+    }
+
+    public String getInviteCode() {
+        return inviteCode;
+    }
+
+    public void setInviteCode(String inviteCode) {
+        this.inviteCode = inviteCode;
+    }
+
+    public Long getParentUserId() {
+        return parentUserId;
+    }
+
+    public void setParentUserId(Long parentUserId) {
+        this.parentUserId = parentUserId;
     }
 
     public SysDept getDept()

@@ -213,6 +213,37 @@ public class SysUserServiceImpl implements ISysUserService
     }
 
     /**
+     * 校验身份证号码是否唯一
+     *
+     * @param user 用户信息
+     * @return
+     */
+    @Override
+    public boolean checkIdcardUnique(SysUser user)
+    {
+        Long userId = StringUtils.isNull(user.getUserId()) ? -1L : user.getUserId();
+        SysUser info = userMapper.checkIdcardUnique(user.getIdcardNo());
+        if (StringUtils.isNotNull(info) && info.getUserId().longValue() != userId.longValue())
+        {
+            return UserConstants.NOT_UNIQUE;
+        }
+        return UserConstants.UNIQUE;
+    }
+
+
+    /**
+     * 根据邀请码查询用户
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public SysUser selectUserByInviteCode(SysUser user)
+    {
+        SysUser info = userMapper.selectUserByInviteCode(user.getInviteCode());
+        return info;
+    }
+
+    /**
      * 校验用户是否允许操作
      * 
      * @param user 用户信息
@@ -274,7 +305,13 @@ public class SysUserServiceImpl implements ISysUserService
     @Override
     public boolean registerUser(SysUser user)
     {
-        return userMapper.insertUser(user) > 0;
+        // 新增用户信息
+        int rows = userMapper.insertUser(user);
+        // 新增用户岗位关联
+        insertUserPost(user);
+        // 新增用户与角色管理
+        insertUserRole(user);
+        return rows > 0;
     }
 
     /**
@@ -373,6 +410,18 @@ public class SysUserServiceImpl implements ISysUserService
     public int resetUserPwd(String userName, String password)
     {
         return userMapper.resetUserPwd(userName, password);
+    }
+
+    /**
+     * 重置用户支付密码
+     *
+     * @param userId 用户ID
+     * @param payPassword 支付密码
+     * @return 结果
+     */
+    public int resetUserPayPwd(Long userId, String payPassword)
+    {
+        return userMapper.resetUserPayPwd(userId, payPassword);
     }
 
     /**
