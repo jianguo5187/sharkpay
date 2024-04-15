@@ -57,11 +57,11 @@ public class SysGame extends BaseEntity
 
     /** 佣金 */
     @Excel(name = "佣金")
-    private BigDecimal gameCommission;
+    private Float gameCommission;
 
     /** 2级佣金 */
     @Excel(name = "2级佣金")
-    private BigDecimal gameCommissionTwo;
+    private Float gameCommissionTwo;
 
     /** 回水彩种 */
     @Excel(name = "回水彩种")
@@ -69,15 +69,15 @@ public class SysGame extends BaseEntity
 
     /** 回水 */
     @Excel(name = "回水")
-    private BigDecimal gameCashback;
+    private Float gameCashback;
 
     /** 最小投注金额 */
     @Excel(name = "最小投注金额")
-    private BigDecimal minBetAmount;
+    private Float minBetAmount;
 
     /** 最大投注金额 */
     @Excel(name = "最大投注金额")
-    private BigDecimal maxBetAmount;
+    private Float maxBetAmount;
 
     /** 预计开奖延后时间 */
     @Excel(name = "预计开奖延后时间")
@@ -203,21 +203,21 @@ public class SysGame extends BaseEntity
     {
         return gameKj;
     }
-    public void setGameCommission(BigDecimal gameCommission) 
+    public void setGameCommission(Float gameCommission)
     {
         this.gameCommission = gameCommission;
     }
 
-    public BigDecimal getGameCommission() 
+    public Float getGameCommission()
     {
         return gameCommission;
     }
-    public void setGameCommissionTwo(BigDecimal gameCommissionTwo) 
+    public void setGameCommissionTwo(Float gameCommissionTwo)
     {
         this.gameCommissionTwo = gameCommissionTwo;
     }
 
-    public BigDecimal getGameCommissionTwo() 
+    public Float getGameCommissionTwo()
     {
         return gameCommissionTwo;
     }
@@ -230,30 +230,30 @@ public class SysGame extends BaseEntity
     {
         return gameCate;
     }
-    public void setGameCashback(BigDecimal gameCashback) 
+    public void setGameCashback(Float gameCashback)
     {
         this.gameCashback = gameCashback;
     }
 
-    public BigDecimal getGameCashback() 
+    public Float getGameCashback()
     {
         return gameCashback;
     }
-    public void setMinBetAmount(BigDecimal minBetAmount) 
+    public void setMinBetAmount(Float minBetAmount)
     {
         this.minBetAmount = minBetAmount;
     }
 
-    public BigDecimal getMinBetAmount() 
+    public Float getMinBetAmount()
     {
         return minBetAmount;
     }
-    public void setMaxBetAmount(BigDecimal maxBetAmount) 
+    public void setMaxBetAmount(Float maxBetAmount)
     {
         this.maxBetAmount = maxBetAmount;
     }
 
-    public BigDecimal getMaxBetAmount() 
+    public Float getMaxBetAmount()
     {
         return maxBetAmount;
     }

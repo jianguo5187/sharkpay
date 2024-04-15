@@ -13,6 +13,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="winMoney"    column="win_money"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.GameListRespVO" id="GameListResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="recordTime"    column="record_time"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="betMoney"    column="bet_money"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
     <select id="selectBetkjList" resultMap="BetkjResult">
         select
               periods as periods
@@ -33,5 +44,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="gameId != null "> and game_id = #{gameId}</if>
         <if test="periods != null "> and periods = #{periods}</if>
         order by periods desc
+    </select>
+
+    <select id="gameRecordList" resultMap="GameListResult">
+        select
+             gameRecode.game_id AS game_id
+            ,gameRecode.game_name AS game_name
+            ,gameRecode.periods AS periods
+            ,date_format(gameRecode.record_time,'%Y-%m-%d') AS record_time
+            ,brecode.count_money AS count_money
+            ,gameRecode.win_money AS win_money
+            ,brecode.bet_money AS bet_money
+            ,gameRecode.status AS status
+        from ${betRecordTableName} gameRecode
+        inner join(
+            select
+                  br.user_id as user_id
+                 ,br.periods as periods
+                 ,br.game_id as game_id
+                 ,count(*) as count_money
+                 ,sum(br.money) as bet_money
+            from bet_record br
+            where br.is_delete = 0
+            and br.user_id = #{userId}
+            and br.game_id = #{gameId}
+            group by br.user_id,br.periods,br.game_id
+        )brecode on brecode.user_id = gameRecode.user_id
+        and brecode.game_id = gameRecode.game_id
+        and brecode.periods = gameRecode.periods
+        where gameRecode.is_delete = 0
+        and gameRecode.user_id = #{userId}
+        and gameRecode.game_id = #{gameId}
+        <if test="filterDay != null and filterDay != ''">
+            and DATE_FORMAT(gameRecode.record_time, '%Y-%m-%d') = #{filterDay}
+        </if>
     </select>
 </mapper>
