@@ -113,4 +113,9 @@ public class GameTenballKjServiceImpl implements IGameTenballKjService
     public GameTenballKj selectGameTenballKjByPeriods(Long gameId, Long periods) {
         return gameTenballKjMapper.selectGameTenballKjByPeriods(gameId,periods);
     }
+
+    @Override
+    public List<GameTenballKj> selectTenBallsGameResult(Long gameId, Integer pageNumber, Integer pageRowCount) {
+        return gameTenballKjMapper.selectTenBallsGameResult(gameId,pageNumber,pageRowCount);
+    }
 }

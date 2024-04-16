@@ -61,4 +61,6 @@ public interface UserwinMapper
     public int deleteUserwinByIds(Long[] ids);
 
     public Userwin selectTodayUserwin(@Param("gameId")Long gameId, @Param("userId")Long userId);
+
+    public int clearUserwin(@Param("gameId") Long gameId, @Param("userId") Long userId);
 }

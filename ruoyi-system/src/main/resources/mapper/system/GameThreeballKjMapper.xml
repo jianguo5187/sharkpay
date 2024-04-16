@@ -168,4 +168,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by id desc
         limit 1
     </select>
+
+    <select id="selectThreeBallsGameResult" resultMap="GameThreeballKjResult">
+        <include refid="selectGameThreeballKjVo"/>
+        where 1 = 1
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="pageNumber != null">
+            limit #{pageNumber} , #{pageRowCount}
+        </if>
+    </select>
 </mapper>

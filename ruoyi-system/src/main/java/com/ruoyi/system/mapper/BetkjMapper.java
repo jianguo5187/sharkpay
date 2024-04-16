@@ -1,6 +1,7 @@
 package com.ruoyi.system.mapper;
 
 import com.ruoyi.system.domain.vo.BetkjRespVo;
+import com.ruoyi.system.domain.vo.GameDetailRespVO;
 import com.ruoyi.system.domain.vo.GameListRespVO;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,4 +24,8 @@ public interface BetkjMapper
     public List<BetkjRespVo> selectBetkjList(@Param("gameId") Long gameId, @Param("betkjTableName") String betkjTableName, @Param("gameType") String gameType, @Param("periods") Long periods, @Param("status") String status);
 
     public List<GameListRespVO> gameRecordList(@Param("gameId") Long gameId, @Param("betRecordTableName") String betRecordTableName,@Param("userId") Long userId, @Param("filterDay") String filterDay);
+
+    public List<GameDetailRespVO> gameRecordDetail(@Param("gameId") Long gameId, @Param("betRecordTableName") String betRecordTableName, @Param("gameType") String gameType, @Param("userId") Long userId, @Param("periods") Long periods);
+
+    public int clearGameRecode(@Param("gameId") Long gameId, @Param("betRecordTableName") String betRecordTableName, @Param("userId") Long userId);
 }

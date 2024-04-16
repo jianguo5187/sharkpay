@@ -24,6 +24,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="status"    column="status"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.GameDetailRespVO" id="GameDetailResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="status"    column="status"    />
+        <result property="openCode"    column="open_code"    />
+        <result property="openFlg"    column="open_flg"    />
+        <result property="recordTime"    column="record_time"    />
+    </resultMap>
+
     <select id="selectBetkjList" resultMap="BetkjResult">
         select
               periods as periods
@@ -79,4 +90,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             and DATE_FORMAT(gameRecode.record_time, '%Y-%m-%d') = #{filterDay}
         </if>
     </select>
+
+    <select id="gameRecordDetail" resultMap="GameDetailResult">
+        select
+              game_id as game_id
+            , game_name AS game_name
+            , periods as periods
+            , win_money as win_money
+            , status as status
+            , case when status = '1'
+                then
+                <if test='gameType == "3"'>CONCAT(num1,'+',num2,'+',num3,'=',sum_num)</if>
+                <if test='gameType == "5"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'=',sum)</if>
+                <if test='gameType == "10"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'+',num6,'+',num7,'+',num8,'+',num9,'+',num10)</if>
+                else ''
+            end as open_code
+            ,case when status = 1 and win_money > 0 then '1' else '0' end AS open_flg
+        from ${betRecordTableName}
+        where game_id = #{gameId}
+        <if test="userId != null"> and user_id = #{userId}</if>
+        <if test="periods != null "> and periods = #{periods}</if>
+    </select>
+
+    <update id="clearGameRecode">
+        update ${betRecordTableName}
+        set is_delete = 1
+        where game_id = #{gameId}
+        <if test="userId != null"> and user_id = #{userId}</if>
+    </update>
 </mapper>

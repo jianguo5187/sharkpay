@@ -8,7 +8,9 @@ import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.ChangePwdReqVO;
+import com.ruoyi.system.domain.vo.GameDetailReqVO;
 import com.ruoyi.system.domain.vo.GameListReqVO;
+import com.ruoyi.system.domain.vo.GameResultListReqVO;
 import com.ruoyi.system.service.ISysAppService;
 import com.ruoyi.system.service.ISysGameService;
 import com.ruoyi.system.service.ISysUserService;
@@ -107,4 +109,30 @@ public class SysAppController extends BaseController {
         return ajax;
     }
 
+    @PostMapping("/gameRecordDetail")
+    public AjaxResult gameRecordDetail(@RequestBody GameDetailReqVO vo)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("data", sysAppService.gameRecordDetail(sessionUser.getUserId(),vo));
+        return ajax;
+    }
+
+    @PostMapping("/clearGameInfo")
+    public AjaxResult clearGameInfo()
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        AjaxResult ajax = AjaxResult.success();
+        sysAppService.clearGameRecode(sessionUser.getUserId());
+        return ajax;
+    }
+
+    @PostMapping("/gameResultList")
+    public AjaxResult gameResultList(@RequestBody GameResultListReqVO vo)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("gameResultList", sysAppService.gameResultList(sessionUser.getUserId(),vo));
+        return ajax;
+    }
 }

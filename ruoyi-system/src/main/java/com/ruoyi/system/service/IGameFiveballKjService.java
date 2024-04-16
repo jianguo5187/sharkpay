@@ -67,4 +67,6 @@ public interface IGameFiveballKjService
     public int updateGameFiveballKjTotalAmountByPeriodId(GameFiveballKj gameFiveballKj);
 
     public GameFiveballKj selectGameFiveballKjByPeriods(Long gameId, Long periods);
+
+    public List<GameFiveballKj> selectFiveBallsGameResult(Long gameId,Integer pageNumber,Integer pageRowCount);
 }

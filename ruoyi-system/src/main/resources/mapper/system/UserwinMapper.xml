@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="gameId"    column="game_id"    />
         <result property="gameName"    column="game_name"    />
         <result property="winMoney"    column="win_money"    />
+        <result property="isDelete"    column="is_delete"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -19,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectUserwinVo">
-        select id, win_time, user_id, game_id, game_name, win_money, create_by, create_time, update_by, update_time, remark from userwin
+        select id, win_time, user_id, game_id, game_name, win_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
     </sql>
 
     <select id="selectUserwinList" parameterType="Userwin" resultMap="UserwinResult">
@@ -30,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null "> and game_id = #{gameId}</if>
             <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
             <if test="winMoney != null "> and win_money = #{winMoney}</if>
+            <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
         </where>
     </select>
     
@@ -54,6 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null">game_id,</if>
             <if test="gameName != null">game_name,</if>
             <if test="winMoney != null">win_money,</if>
+            <if test="isDelete != null and isDelete != ''">is_delete,</if>
             <if test="createBy != null">create_by,</if>
         win_time,
         create_time
@@ -62,6 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null">#{gameId},</if>
             <if test="gameName != null">#{gameName},</if>
             <if test="winMoney != null">#{winMoney},</if>
+            <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
             <if test="createBy != null">#{createBy},</if>
         CURDATE(),
         sysdate()
@@ -72,6 +76,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update userwin
         <set>
             <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>
@@ -88,4 +93,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <update id="clearUserwin">
+        update userwin
+        set is_delete = 1,update_time = sysdate()
+        where 1 = 1
+        <if test="userId != null"> and user_id = #{userId}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+    </update>
 </mapper>

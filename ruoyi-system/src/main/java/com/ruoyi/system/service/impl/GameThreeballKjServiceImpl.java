@@ -113,4 +113,9 @@ public class GameThreeballKjServiceImpl implements IGameThreeballKjService
     public GameThreeballKj selectGameThreeballKjByPeriods(Long gameId, Long periods) {
         return gameThreeballKjMapper.selectGameThreeballKjByPeriods(gameId, periods);
     }
+
+    @Override
+    public List<GameThreeballKj> selectThreeBallsGameResult(Long gameId, Integer pageNumber, Integer pageRowCount) {
+        return gameThreeballKjMapper.selectThreeBallsGameResult(gameId,pageNumber,pageRowCount);
+    }
 }

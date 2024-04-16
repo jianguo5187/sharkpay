@@ -68,4 +68,7 @@ public interface GameThreeballKjMapper
     public int updateGameThreeballKjTotalAmountByPeriodId(GameThreeballKj gameThreeballKj);
 
     public GameThreeballKj selectGameThreeballKjByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods);
+
+    public List<GameThreeballKj> selectThreeBallsGameResult(@Param("gameId") Long gameId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+
 }

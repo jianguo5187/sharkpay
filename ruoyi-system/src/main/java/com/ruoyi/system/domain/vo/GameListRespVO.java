@@ -1,5 +1,7 @@
 package com.ruoyi.system.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class GameListRespVO {
@@ -14,6 +16,7 @@ public class GameListRespVO {
     private Long periods;
 
     /** 投注时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date recordTime;
 
     /** 注数 */

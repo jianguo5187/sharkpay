@@ -41,6 +41,10 @@ public class Userwin extends BaseEntity
     @Excel(name = "今日盈亏金额")
     private Float winMoney;
 
+    /** 是否删除(0否 1是) */
+    @Excel(name = "是否删除(0否 1是)")
+    private String isDelete;
+
     public void setId(Long id)
     {
         this.id = id;
@@ -96,6 +100,15 @@ public class Userwin extends BaseEntity
         return winMoney;
     }
 
+    public void setIsDelete(String isDelete)
+    {
+        this.isDelete = isDelete;
+    }
+
+    public String getIsDelete()
+    {
+        return isDelete;
+    }
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)

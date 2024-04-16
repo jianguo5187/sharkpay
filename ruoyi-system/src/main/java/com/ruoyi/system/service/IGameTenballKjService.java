@@ -66,4 +66,6 @@ public interface IGameTenballKjService
     public int updateGameTenballKjTotalAmountByPeriodId(GameTenballKj gameTenballKj);
 
     public GameTenballKj selectGameTenballKjByPeriods(Long gameId, Long periods);
+
+    public List<GameTenballKj> selectTenBallsGameResult(Long gameId,Integer pageNumber,Integer pageRowCount);
 }
