@@ -2,6 +2,8 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.BetRecord;
+import com.ruoyi.system.domain.vo.BetRecordListRespVO;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 投注单Mapper接口
@@ -61,4 +63,6 @@ public interface BetRecordMapper
 
 
     public int updateLotteryResult(BetRecord betRecord);
+
+    public List<BetRecordListRespVO> selectBetRecordListByPeriods(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 }

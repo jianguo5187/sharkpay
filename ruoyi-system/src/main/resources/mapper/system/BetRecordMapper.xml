@@ -34,6 +34,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.BetRecordListRespVO" id="BetRecordListResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="type"    column="play_group"    />
+        <result property="playType"    column="play_type"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="pic"       column="pic"       />
+        <result property="stime"       column="stime"       />
+        <result property="number"    column="number"    />
+        <result property="money"    column="money"    />
+        <result property="userId"       column="user_id"      />
+    </resultMap>
+
     <sql id="selectBetRecordVo">
         select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, option, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, create_by, create_time, update_by, update_time, remark from bet_record
     </sql>
@@ -172,4 +186,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{betId}
         </foreach>
     </delete>
+
+    <select id="selectBetRecordListByPeriods" resultMap="BetRecordListResult">
+        select
+        br.game_id as game_id
+        ,br.game_name as game_name
+        ,br.periods as periods
+        ,br.play_group as play_group
+        ,br.play_type as play_type
+        ,case when br.is_robot = '1' then br.robot_nick_name else u.nick_name end as nick_name
+        ,case when br.is_robot = '1' then br.robot_pic else u.avatar end as pic
+        ,br.record_time as stime
+        ,br.play_detail as  number
+        ,br.money as money
+        ,br.user_id as user_id
+        from  bet_record br
+        left join sys_user u on u.user_id = br.user_id
+        where is_delete = 0
+        and br.game_id = #{gameId}
+        <if test="periods != null "> and br.periods = #{periods}</if>
+        order by bet_id desc
+        <if test="pageNumber != null">
+            limit #{pageNumber} , #{pageRowCount}
+        </if>
+    </select>
 </mapper>
