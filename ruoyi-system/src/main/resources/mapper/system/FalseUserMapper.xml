@@ -133,4 +133,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <select id="selectFalseUserListByGameId" parameterType="Long" resultMap="FalseUserResult">
+        <include refid="selectFalseUserVo"/>
+        where f.game_id = #{gameId}
+    </select>
 </mapper>

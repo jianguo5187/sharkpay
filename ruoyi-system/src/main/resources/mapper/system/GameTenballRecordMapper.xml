@@ -887,6 +887,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateGameTenballRecord" parameterType="GameTenballRecord">
         update game_tenball_record
         <set>
+            <if test="recordTime != null">record_time = #{recordTime},</if>
             <if test="status != null">status = #{status},</if>
             <if test="recordTime != null">record_time = #{recordTime},</if>
             <if test="checkTime != null">check_time = #{checkTime},</if>
@@ -1126,7 +1127,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,SUM(count_money) as CountMoney
             ,SUM(win_money) as WinMoney
         from game_tenball_record
-        where periods = #{periodId}
+        where periods = #{periods}
         <if test="gameId != null "> and game_id = #{gameId}</if>
         limit 1
     </select>

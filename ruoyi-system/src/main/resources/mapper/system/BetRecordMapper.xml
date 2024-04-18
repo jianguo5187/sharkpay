@@ -49,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectBetRecordVo">
-        select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, option, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, create_by, create_time, update_by, update_time, remark from bet_record
+        select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, `option`, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, create_by, create_time, update_by, update_time, remark from bet_record
     </sql>
 
     <select id="selectBetRecordList" parameterType="BetRecord" resultMap="BetRecordResult">
@@ -64,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="playType != null  and playType != ''"> and play_type = #{playType}</if>
             <if test="playDetail != null  and playDetail != ''"> and play_detail = #{playDetail}</if>
             <if test="playGroup != null "> and play_group = #{playGroup}</if>
-            <if test="option != null "> and option = #{option}</if>
+            <if test="option != null "> and `option` = #{option}</if>
             <if test="money != null "> and money = #{money}</if>
             <if test="balance != null "> and balance = #{balance}</if>
             <if test="accountResult != null "> and account_result = #{accountResult}</if>
@@ -93,7 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="playType != null and playType != ''">play_type,</if>
             <if test="playDetail != null and playDetail != ''">play_detail,</if>
             <if test="playGroup != null">play_group,</if>
-            <if test="option != null">option,</if>
+            <if test="option != null">`option`,</if>
             <if test="money != null">money,</if>
             <if test="balance != null">balance,</if>
             <if test="accountResult != null">account_result,</if>
@@ -142,7 +142,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="playType != null and playType != ''">play_type = #{playType},</if>
             <if test="playDetail != null and playDetail != ''">play_detail = #{playDetail},</if>
             <if test="playGroup != null">play_group = #{playGroup},</if>
-            <if test="option != null">option = #{option},</if>
+            <if test="option != null">`option` = #{option},</if>
             <if test="money != null">money = #{money},</if>
             <if test="balance != null">balance = #{balance},</if>
             <if test="accountResult != null">account_result = #{accountResult},</if>
@@ -210,4 +210,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             limit #{pageNumber} , #{pageRowCount}
         </if>
     </select>
+
+    <update id="cancelBetRecordByPeriods">
+        update bet_record
+        set update_time = sysdate(),is_delete = '1'
+        where game_id = #{gameId}
+        and periods = #{periods}
+        and user_id = #{userId}
+    </update>
 </mapper>

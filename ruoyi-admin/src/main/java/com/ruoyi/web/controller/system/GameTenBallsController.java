@@ -4,10 +4,7 @@ import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.SecurityUtils;
-import com.ruoyi.system.domain.vo.TenBallsBetRecordListReqVO;
-import com.ruoyi.system.domain.vo.TenBallsOddsReqVO;
-import com.ruoyi.system.domain.vo.ThreeBallsVirtuallyGameRecordReqVO;
-import com.ruoyi.system.domain.vo.VirtuallyGameRecordReqVO;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.IGameTenBallsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -98,8 +95,10 @@ public class GameTenBallsController  extends BaseController {
      * 10球投注
      */
     @PostMapping("/addTenBallsBetRecord")
-    public AjaxResult addTenBallsBetRecord(@RequestBody TenBallsOddsReqVO vo){
+    public AjaxResult addTenBallsBetRecord(@RequestBody TenBallsAddBetRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        gameTenBallsService.addTenBallsBetRecord(sessionUser.getUserId(),vo);
         return ajax;
     }
 
@@ -116,8 +115,10 @@ public class GameTenBallsController  extends BaseController {
      * 10球撤销投注
      */
     @PostMapping("/delTenBallsBetRecord")
-    public AjaxResult delTenBallsBetRecord(@RequestBody TenBallsOddsReqVO vo){
+    public AjaxResult delTenBallsBetRecord(@RequestBody DelBetRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        gameTenBallsService.delTenBallsBetRecord(sessionUser.getUserId(),vo);
         return ajax;
     }
 }

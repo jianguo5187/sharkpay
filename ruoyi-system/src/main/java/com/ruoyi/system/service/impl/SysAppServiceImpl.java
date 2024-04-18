@@ -152,9 +152,15 @@ public class SysAppServiceImpl implements ISysAppService {
 
         List<GameResultListRespVO> respVO = new ArrayList<>();
         SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+        if(StringUtils.isNull(vo.getPageNumber())){
+            vo.setPageNumber(1);
+        }
+        if(StringUtils.isNull(vo.getPageRowCount())){
+            vo.setPageRowCount(20);
+        }
 
         if(StringUtils.equals(gameInfo.getGameType(),"3")){
-            List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectThreeBallsGameResult(gameInfo.getGameId(),vo.getPageNumber(), vo.getPageRowCount());
+            List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectThreeBallsGameResult(gameInfo.getGameId(),(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
             Wave wave = waveService.selectWaveByGameId(gameInfo.getGameId());
 
             for(GameThreeballKj gameThreeballKj : gameThreeballKjList){
@@ -199,7 +205,7 @@ public class SysAppServiceImpl implements ISysAppService {
                 respVO.add(gameResul);
             }
         }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
-            List<GameFiveballKj> gameFiveballKjList = gameFiveballKjService.selectFiveBallsGameResult(gameInfo.getGameId(),vo.getPageNumber(), vo.getPageRowCount());
+            List<GameFiveballKj> gameFiveballKjList = gameFiveballKjService.selectFiveBallsGameResult(gameInfo.getGameId(),(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
 
             List<String> sdList = new ArrayList<>();
             sdList.add("单");
@@ -235,7 +241,7 @@ public class SysAppServiceImpl implements ISysAppService {
                 respVO.add(gameResul);
             }
         }else{
-            List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectTenBallsGameResult(gameInfo.getGameId(),vo.getPageNumber(), vo.getPageRowCount());
+            List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectTenBallsGameResult(gameInfo.getGameId(),(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
             for(GameTenballKj gameTenballKj : gameTenballKjList){
 
                 Integer num1 =  gameTenballKj.getNum1();

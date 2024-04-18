@@ -58,4 +58,6 @@ public interface FalseUserMapper
      * @return 结果
      */
     public int deleteFalseUserByIds(Long[] ids);
+
+    public List<FalseUser> selectFalseUserListByGameId(Long gameId);
 }
