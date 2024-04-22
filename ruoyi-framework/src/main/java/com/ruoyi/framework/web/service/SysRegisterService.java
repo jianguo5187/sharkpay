@@ -53,11 +53,11 @@ public class SysRegisterService
         sysUser.setInviteCode(registerBody.getInviteCode());
 
         // 验证码开关
-        boolean captchaEnabled = configService.selectCaptchaEnabled();
-        if (captchaEnabled)
-        {
-            validateCaptcha(username, registerBody.getCode(), registerBody.getUuid());
-        }
+//        boolean captchaEnabled = configService.selectCaptchaEnabled();
+//        if (captchaEnabled)
+//        {
+//            validateCaptcha(username, registerBody.getCode(), registerBody.getUuid());
+//        }
 
         if (StringUtils.isEmpty(username))
         {
@@ -91,10 +91,10 @@ public class SysRegisterService
 //        {
 //            msg = "身份证反面图片不能为空";
 //        }
-        else if (StringUtils.isEmpty(sysUser.getInviteCode()))
-        {
-            msg = "邀请码不能为空";
-        }
+//        else if (StringUtils.isEmpty(sysUser.getInviteCode()))
+//        {
+//            msg = "邀请码不能为空";
+//        }
         else if (username.length() < UserConstants.USERNAME_MIN_LENGTH
                 || username.length() > UserConstants.USERNAME_MAX_LENGTH)
         {
@@ -119,11 +119,14 @@ public class SysRegisterService
         }
         else
         {
+            Long parentUserId = 2l;
             SysUser parentUser = userService.selectUserByInviteCode(sysUser);
-
-            if(StringUtils.isNull(parentUser) ) {
+            if(StringUtils.isNotEmpty(sysUser.getInviteCode()) && StringUtils.isNull(parentUser)){
                 msg = "注册用户'" + username + "'失败，邀请码不存在";
             }else{
+                if(StringUtils.isNotEmpty(sysUser.getInviteCode())){
+                    parentUserId = parentUser.getUserId();
+                }
                 if(StringUtils.isNotEmpty(registerBody.getAvatar())){
                     String avatarImgFileName = ImageUtils.savaBase64ImageFile(registerBody.getAvatar());
                     if(StringUtils.isNotEmpty(avatarImgFileName)){
@@ -153,7 +156,7 @@ public class SysRegisterService
                 sysUser.setPayPassword(SecurityUtils.encryptPassword(payPassword));
                 sysUser.setWalletAddress(ShiroUtils.randomPayAddress());
                 sysUser.setInviteCode(ShiroUtils.randomSalt());
-                sysUser.setParentUserId(parentUser.getUserId());
+                sysUser.setParentUserId(parentUserId);
                 sysUser.setUserType("02"); //APP用户
                 sysUser.setRoleIds(new Long[]{3l}); //普通用户
                 sysUser.setDeptId(103l); //用户

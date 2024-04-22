@@ -106,8 +106,10 @@ public class GameTenBallsController  extends BaseController {
      * 10球复数投注
      */
     @PostMapping("/addTenBallsMultiBetRecord")
-    public AjaxResult addTenBallsMultiBetRecord(@RequestBody TenBallsOddsReqVO vo){
+    public AjaxResult addTenBallsMultiBetRecord(@RequestBody TenBallsAddMultiBetRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        gameTenBallsService.addTenBallsMultiBetRecord(sessionUser.getUserId(),vo);
         return ajax;
     }
 

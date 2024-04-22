@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.GameOptionMapper">
+    
+    <resultMap type="GameOption" id="GameOptionResult">
+        <result property="id"    column="id"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="key"    column="key"    />
+        <result property="title"    column="title"    />
+        <result property="playGroup"    column="play_group"    />
+        <result property="playGroupTitle"    column="play_group_title"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectGameOptionVo">
+        select id, game_id, key, title, play_group, play_group_title, create_by, create_time, update_by, update_time, remark from game_option
+    </sql>
+
+    <select id="selectGameOptionList" parameterType="GameOption" resultMap="GameOptionResult">
+        <include refid="selectGameOptionVo"/>
+        <where>  
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="key != null  and key != ''"> and key = #{key}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="playGroup != null "> and play_group = #{playGroup}</if>
+            <if test="playGroupTitle != null  and playGroupTitle != ''"> and play_group_title = #{playGroupTitle}</if>
+        </where>
+    </select>
+    
+    <select id="selectGameOptionById" parameterType="Long" resultMap="GameOptionResult">
+        <include refid="selectGameOptionVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGameOption" parameterType="GameOption" useGeneratedKeys="true" keyProperty="id">
+        insert into game_option
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gameId != null">game_id,</if>
+            <if test="key != null">key,</if>
+            <if test="title != null">title,</if>
+            <if test="playGroup != null">play_group,</if>
+            <if test="playGroupTitle != null">play_group_title,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gameId != null">#{gameId},</if>
+            <if test="key != null">#{key},</if>
+            <if test="title != null">#{title},</if>
+            <if test="playGroup != null">#{playGroup},</if>
+            <if test="playGroupTitle != null">#{playGroupTitle},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGameOption" parameterType="GameOption">
+        update game_option
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="gameId != null">game_id = #{gameId},</if>
+            <if test="key != null">key = #{key},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="playGroup != null">play_group = #{playGroup},</if>
+            <if test="playGroupTitle != null">play_group_title = #{playGroupTitle},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGameOptionById" parameterType="Long">
+        delete from game_option where id = #{id}
+    </delete>
+
+    <delete id="deleteGameOptionByIds" parameterType="String">
+        delete from game_option where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
