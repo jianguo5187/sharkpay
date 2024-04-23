@@ -135,4 +135,17 @@ public class SysAppController extends BaseController {
         ajax.put("gameResultList", sysAppService.gameResultList(sessionUser.getUserId(),vo));
         return ajax;
     }
+
+    /**
+     * 首页轮播图
+     *
+     * @return 用户信息
+     */
+    @GetMapping("replaceList")
+    public AjaxResult replaceList()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("replaceList", sysAppService.replaceList());
+        return ajax;
+    }
 }

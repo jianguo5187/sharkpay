@@ -140,4 +140,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <select id="selectUserChangeList" resultMap="UsermoneyResult">
+        <include refid="selectUsermoneyVo"/>
+        where user_id = #{userId}
+        and `type` in('1','2','3')
+        <if test="pageNumber != null">
+            limit #{pageNumber} , #{pageRowCount}
+        </if>
+    </select>
+
+    <select id="selectTodayPostalList" resultMap="UsermoneyResult">
+        <include refid="selectUsermoneyVo"/>
+        where user_id = #{userId}
+        and `type` in('5')
+        and cash_time = CURDATE()
+    </select>
+
+    <select id="selectUserPostalList" resultMap="UsermoneyResult">
+        <include refid="selectUsermoneyVo"/>
+        where user_id = #{userId}
+        and `type` in('4','5','6')
+        <if test="pageNumber != null">
+            limit #{pageNumber} , #{pageRowCount}
+        </if>
+    </select>
 </mapper>

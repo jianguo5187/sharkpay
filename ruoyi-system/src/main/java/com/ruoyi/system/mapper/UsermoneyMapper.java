@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Usermoney;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 用户资金流水Mapper接口
@@ -58,4 +59,9 @@ public interface UsermoneyMapper
      * @return 结果
      */
     public int deleteUsermoneyByIds(Long[] ids);
+
+    public List<Usermoney> selectUserChangeList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+
+    public List<Usermoney> selectTodayPostalList(@Param("userId") Long userId);
+    public List<Usermoney> selectUserPostalList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 }

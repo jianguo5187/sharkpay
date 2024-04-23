@@ -52,6 +52,9 @@ public class SysAppServiceImpl implements ISysAppService {
     @Autowired
     private IWaveService waveService;
 
+    @Autowired
+    private ISysReplaceService sysReplaceService;
+
     @Override
     public List<GameListRespVO> gameRecordList(Long userId, GameListReqVO vo) {
 
@@ -320,7 +323,6 @@ public class SysAppServiceImpl implements ISysAppService {
         return respVO;
     }
 
-
     public Integer changeWaveInfoByNum(Integer num, Wave wave){
         Integer changeResult = 0;
         switch (num){
@@ -410,5 +412,12 @@ public class SysAppServiceImpl implements ISysAppService {
                 break;
         }
         return changeResult;
+    }
+
+    @Override
+    public List<SysReplace> replaceList() {
+        SysReplace searchReplace = new SysReplace();
+        searchReplace.setStatus("0");
+        return sysReplaceService.selectSysReplaceList(searchReplace);
     }
 }
