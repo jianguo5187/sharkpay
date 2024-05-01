@@ -2,6 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.system.domain.vo.LoginUserInfoRespVO;
 
 /**
  * 用户 业务层
@@ -231,4 +232,8 @@ public interface ISysUserService
 
 
     public int updateUserAmount(SysUser user);
+
+    public List<SysUser> selectChildUserList(Long parentUserId);
+
+    public LoginUserInfoRespVO selectAppLoginUserInfo(Long userId);
 }

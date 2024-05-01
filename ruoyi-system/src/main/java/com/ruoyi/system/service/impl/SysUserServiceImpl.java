@@ -1,11 +1,18 @@
 package com.ruoyi.system.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Validator;
+
+import com.ruoyi.system.domain.vo.LoginUserInfoRespVO;
+import com.ruoyi.system.mapper.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +29,6 @@ import com.ruoyi.common.utils.spring.SpringUtils;
 import com.ruoyi.system.domain.SysPost;
 import com.ruoyi.system.domain.SysUserPost;
 import com.ruoyi.system.domain.SysUserRole;
-import com.ruoyi.system.mapper.SysPostMapper;
-import com.ruoyi.system.mapper.SysRoleMapper;
-import com.ruoyi.system.mapper.SysUserMapper;
-import com.ruoyi.system.mapper.SysUserPostMapper;
-import com.ruoyi.system.mapper.SysUserRoleMapper;
 import com.ruoyi.system.service.ISysConfigService;
 import com.ruoyi.system.service.ISysUserService;
 
@@ -60,6 +62,9 @@ public class SysUserServiceImpl implements ISysUserService
 
     @Autowired
     protected Validator validator;
+
+    @Autowired
+    private UserwinMapper userwinMapper;
 
     /**
      * 根据条件分页查询用户列表
@@ -594,5 +599,31 @@ public class SysUserServiceImpl implements ISysUserService
     @Override
     public int updateUserAmount(SysUser user) {
         return userMapper.updateUserAmount(user);
+    }
+
+    @Override
+    public List<SysUser> selectChildUserList(Long parentUserId) {
+        return userMapper.selectChildUserList(parentUserId);
+    }
+
+    @Override
+    public LoginUserInfoRespVO selectAppLoginUserInfo(Long userId) {
+        SysUser user = selectUserById(userId);
+        LoginUserInfoRespVO userInfo = new LoginUserInfoRespVO();
+        BeanUtils.copyProperties(user,userInfo);
+
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sd.format(new Date());
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE,-1);
+        String yesday = sd.format(cal.getTime());
+
+        Float todayWinMoney = userwinMapper.userRankEveryday(userId,today);
+        Float yesdayWinMoney = userwinMapper.userRankEveryday(userId,yesday);
+
+        userInfo.setTodayWinMoney(todayWinMoney==null?0f:todayWinMoney);
+        userInfo.setYesdayWinMoney(yesdayWinMoney==null?0f:yesdayWinMoney);
+
+        return userInfo;
     }
 }

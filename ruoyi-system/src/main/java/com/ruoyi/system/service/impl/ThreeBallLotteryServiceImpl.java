@@ -265,6 +265,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             Float money = 0f;
             Float bigSamllMoney = 0f;
             Float otherMoney = 0f;
+            Float combinationMoney = 0f;
 
             Map<String, Object> gameThreeballRecordMap = EntityMapTransUtils.entityToMap1(gameThreeballRecord);
 
@@ -283,18 +284,22 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             // 大
             if(gameThreeballKj.getSumNum() > 13 && gameThreeballRecord.getBig() > 0){
                 money += gameThreeballRecord.getBig() * getOddFromMapByOddKey(betItemMap,"big");
+                bigSamllMoney += gameThreeballRecord.getBig();
             }
             // 小
             if(gameThreeballKj.getSumNum() < 14 && gameThreeballRecord.getSmall() > 0){
                 money += gameThreeballRecord.getSmall() * getOddFromMapByOddKey(betItemMap,"small");
+                bigSamllMoney += gameThreeballRecord.getSmall();
             }
             // 单
             if(gameThreeballKj.getSumNum()%2 == 1 && gameThreeballRecord.getSingle() > 0){
                 money += gameThreeballRecord.getSingle() * getOddFromMapByOddKey(betItemMap,"single");
+                bigSamllMoney += gameThreeballRecord.getSingle();
             }
             // 双
             if(gameThreeballKj.getSumNum()%2 == 0 && gameThreeballRecord.getDoubleAmount() > 0){
                 money += gameThreeballRecord.getDoubleAmount() * getOddFromMapByOddKey(betItemMap,"doubleFlg");
+                bigSamllMoney += gameThreeballRecord.getDoubleAmount();
             }
             // 极大
             if(gameThreeballKj.getSumNum() > 21 && gameThreeballRecord.getMuchBig() > 0){
@@ -304,18 +309,22 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             // 大单
             if(bigSingleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getBigSingle() > 0){
                 money += gameThreeballRecord.getBigSingle() * getOddFromMapByOddKey(betItemMap,"bigsingle");
+                combinationMoney += gameThreeballRecord.getBigSingle();
             }
             // 大双
             if(bigDoubleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getBigDouble() > 0){
                 money += gameThreeballRecord.getBigDouble() * getOddFromMapByOddKey(betItemMap,"bigdouble");
+                combinationMoney += gameThreeballRecord.getBigDouble();
             }
             // 小单
             if(smallSingleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getSmallSingle() > 0){
                 money += gameThreeballRecord.getSmallSingle() * getOddFromMapByOddKey(betItemMap,"smallsingle");
+                combinationMoney += gameThreeballRecord.getSmallSingle();
             }
             // 小双
             if(smallDoubleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getSmallDouble() > 0){
                 money += gameThreeballRecord.getSmallDouble() * getOddFromMapByOddKey(betItemMap,"smalldouble");
+                combinationMoney += gameThreeballRecord.getSmallDouble();
             }
             // 极小
             if(gameThreeballKj.getSumNum() < 6 && gameThreeballRecord.getMuchSmall() > 0){
@@ -381,12 +390,18 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 userwin.setGameName(gameInfo.getGameName());
                 userwin.setUserId(gameThreeballRecord.getUserId());
                 userwin.setWinMoney(money - gameThreeballRecord.getCountMoney());
+                userwin.setBigSmallMoney(bigSamllMoney);
+                userwin.setOtherMoney(otherMoney);
+                userwin.setCombinationMoney(combinationMoney);
                 userwin.setCreateBy("lotteryThree");
 
                 userwinService.insertUserwin(userwin);
             }else{
 
                 userwin.setWinMoney(userwin.getWinMoney() + (money - gameThreeballRecord.getCountMoney()));
+                userwin.setBigSmallMoney(userwin.getBigSmallMoney() + bigSamllMoney);
+                userwin.setOtherMoney(userwin.getOtherMoney() + otherMoney);
+                userwin.setCombinationMoney(userwin.getCombinationMoney() + combinationMoney);
                 userwin.setCreateBy("lotteryThree");
                 userwinService.updateUserwin(userwin);
             }

@@ -15,6 +15,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -39,6 +41,9 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
 
     @Autowired
     private ISysDictDataService dictDataService;
+
+    @Autowired
+    private ISysGameService sysGameService;
 
     @Autowired
     private BetRecordMapper betRecordMapper;
@@ -146,9 +151,15 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         if(gameTenballKj.getPreTime().compareTo(date) < 0){
             return respVO;
         }
-        int d = random(1,4);//生成一个0~1的随机数
-        //产生虚假数据的概率，现为5分之一
-        if(d <= 1) {
+
+        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+        Random random = new Random();
+        BigDecimal result = new BigDecimal(gameInfo.getRobotRate()).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
+        double virtuallyRandow = result.doubleValue();
+        double randomValue = random.nextDouble();
+        //产生虚假数据的概率
+        if(randomValue < virtuallyRandow) {
+
             List<FalseUser> falseUserList = falseUserMapper.selectFalseUserListByGameId(vo.getGameId());
             if(falseUserList != null && falseUserList.size() > 0){
                 FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);

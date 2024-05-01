@@ -151,4 +151,6 @@ public interface SysUserMapper
     public SysUser selectUserByInviteCode(String inviteCode);
 
     public int updateUserAmount(SysUser user);
+
+    public List<SysUser> selectChildUserList(Long parentUserId);
 }

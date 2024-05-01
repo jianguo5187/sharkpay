@@ -497,12 +497,16 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 userwin.setGameName(gameInfo.getGameName());
                 userwin.setUserId(gameTenballRecord.getUserId());
                 userwin.setWinMoney(money - gameTenballRecord.getCountMoney());
+                userwin.setBigSmallMoney(bigSamllMoney);
+                userwin.setOtherMoney(otherMoney);
                 userwin.setCreateBy("lotteryTenball");
 
                 userwinService.insertUserwin(userwin);
             }else{
 
                 userwin.setWinMoney(userwin.getWinMoney() + (money - gameTenballRecord.getCountMoney()));
+                userwin.setBigSmallMoney(userwin.getBigSmallMoney() + bigSamllMoney);
+                userwin.setOtherMoney(userwin.getOtherMoney() + otherMoney);
                 userwin.setCreateBy("lotteryTenball");
                 userwinService.updateUserwin(userwin);
             }

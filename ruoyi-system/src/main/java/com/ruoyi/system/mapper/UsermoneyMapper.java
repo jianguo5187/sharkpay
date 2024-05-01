@@ -64,4 +64,8 @@ public interface UsermoneyMapper
 
     public List<Usermoney> selectTodayPostalList(@Param("userId") Long userId);
     public List<Usermoney> selectUserPostalList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+
+    public int clearUsermoneyInfo(Long userId);
+
+    public List<Usermoney> selectValidUsermoneyList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 }

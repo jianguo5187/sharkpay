@@ -165,4 +165,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             limit #{pageNumber} , #{pageRowCount}
         </if>
     </select>
+
+    <update id="clearUsermoneyInfo" parameterType="Long">
+        update usermoney
+        SET  is_delete = '1'
+        WHERE
+            user_id = #{userId}
+        and is_delete = '0'
+    </update>
+
+    <select id="selectValidUsermoneyList" resultMap="UsermoneyResult">
+        <include refid="selectUsermoneyVo"/>
+        where user_id = #{userId}
+        <if test="pageNumber != null">
+            limit #{pageNumber} , #{pageRowCount}
+        </if>
+    </select>
 </mapper>

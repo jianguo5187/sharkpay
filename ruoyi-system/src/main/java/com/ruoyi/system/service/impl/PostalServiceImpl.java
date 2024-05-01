@@ -90,6 +90,6 @@ public class PostalServiceImpl implements IPostalService {
         if(StringUtils.isNull(vo.getPageRowCount())){
             vo.setPageRowCount(20);
         }
-        return usermoneyMapper.selectUserChangeList(userId,(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+        return usermoneyMapper.selectUserPostalList(userId,(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
     }
 }

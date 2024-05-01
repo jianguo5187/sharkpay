@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 用户盈亏对象 userwin
- * 
+ *
  * @author ruoyi
  * @date 2024-03-24
  */
@@ -41,6 +41,22 @@ public class Userwin extends BaseEntity
     @Excel(name = "今日盈亏金额")
     private Float winMoney;
 
+    /** 大小单双盈亏金额 */
+    @Excel(name = "大小单双盈亏金额")
+    private Float bigSmallMoney;
+
+    /** 其他盈亏金额 */
+    @Excel(name = "其他盈亏金额")
+    private Float otherMoney;
+
+    /** 混合盈亏金额 */
+    @Excel(name = "混合盈亏金额")
+    private Float combinationMoney;
+
+    /** 扣除金额 */
+    @Excel(name = "扣除金额")
+    private Float deductMoney;
+
     /** 是否删除(0否 1是) */
     @Excel(name = "是否删除(0否 1是)")
     private String isDelete;
@@ -54,50 +70,84 @@ public class Userwin extends BaseEntity
     {
         return id;
     }
-    public void setWinTime(Date winTime) 
+    public void setWinTime(Date winTime)
     {
         this.winTime = winTime;
     }
 
-    public Date getWinTime() 
+    public Date getWinTime()
     {
         return winTime;
     }
-    public void setUserId(Long userId) 
+    public void setUserId(Long userId)
     {
         this.userId = userId;
     }
 
-    public Long getUserId() 
+    public Long getUserId()
     {
         return userId;
     }
-    public void setGameId(Long gameId) 
+    public void setGameId(Long gameId)
     {
         this.gameId = gameId;
     }
 
-    public Long getGameId() 
+    public Long getGameId()
     {
         return gameId;
     }
-    public void setGameName(String gameName) 
+    public void setGameName(String gameName)
     {
         this.gameName = gameName;
     }
 
-    public String getGameName() 
+    public String getGameName()
     {
         return gameName;
     }
-    public void setWinMoney(Float winMoney) 
+    public void setWinMoney(Float winMoney)
     {
         this.winMoney = winMoney;
     }
 
-    public Float getWinMoney() 
+    public Float getWinMoney()
     {
         return winMoney;
+    }
+
+    public Float getBigSmallMoney() {
+        return bigSmallMoney;
+    }
+
+    public void setBigSmallMoney(Float bigSmallMoney) {
+        this.bigSmallMoney = bigSmallMoney;
+    }
+
+    public Float getOtherMoney() {
+        return otherMoney;
+    }
+
+    public void setOtherMoney(Float otherMoney) {
+        this.otherMoney = otherMoney;
+    }
+
+    public void setCombinationMoney(Float combinationMoney)
+    {
+        this.combinationMoney = combinationMoney;
+    }
+
+    public Float getCombinationMoney()
+    {
+        return combinationMoney;
+    }
+
+    public Float getDeductMoney() {
+        return deductMoney;
+    }
+
+    public void setDeductMoney(Float deductMoney) {
+        this.deductMoney = deductMoney;
     }
 
     public void setIsDelete(String isDelete)
@@ -118,6 +168,10 @@ public class Userwin extends BaseEntity
             .append("gameId", getGameId())
             .append("gameName", getGameName())
             .append("winMoney", getWinMoney())
+            .append("bigSmallMoney", getBigSmallMoney())
+            .append("otherMoney", getOtherMoney())
+            .append("combinationMoney", getCombinationMoney())
+            .append("deductMoney", getDeductMoney())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

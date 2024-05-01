@@ -462,12 +462,16 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 userwin.setGameName(gameInfo.getGameName());
                 userwin.setUserId(GameFiveballRecord.getUserId());
                 userwin.setWinMoney(money - GameFiveballRecord.getCountMoney());
+                userwin.setBigSmallMoney(bigSamllMoney);
+                userwin.setOtherMoney(otherMoney);
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
 
                 userwinService.insertUserwin(userwin);
             }else{
 
                 userwin.setWinMoney(userwin.getWinMoney() + (money - GameFiveballRecord.getCountMoney()));
+                userwin.setBigSmallMoney(userwin.getBigSmallMoney() + bigSamllMoney);
+                userwin.setOtherMoney(userwin.getOtherMoney() + otherMoney);
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
                 userwinService.updateUserwin(userwin);
             }

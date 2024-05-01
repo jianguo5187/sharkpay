@@ -69,17 +69,17 @@ public class RyTask
         if(openDataList != null && openDataList.size() >0){
             if(StringUtils.equals("azxy10",gameCode)){
                 // 澳洲幸运10
-                gameTaskService.saveAzxy10InfoFromOfficial(openDataList,gameOpenDataDtoMap);
+//                gameTaskService.saveAzxy10InfoFromOfficial(openDataList,gameOpenDataDtoMap);
 
                 gameTaskService.saveTenBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }else if(StringUtils.equals("jnd28",gameCode)){
                 // 加拿大2.8
-                gameTaskService.saveJndInfoFromOfficial(openDataList,gameOpenDataDtoMap);
+//                gameTaskService.saveJndInfoFromOfficial(openDataList,gameOpenDataDtoMap);
 
                 gameTaskService.saveThreeBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }else if(StringUtils.equals("jsssc",gameCode)){
                 // 急速时时彩
-                gameTaskService.saveJssscInfoFromOfficial(openDataList,gameOpenDataDtoMap);
+//                gameTaskService.saveJssscInfoFromOfficial(openDataList,gameOpenDataDtoMap);
 
                 gameTaskService.saveFiveBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }
@@ -92,17 +92,17 @@ public class RyTask
         System.out.println("游戏code: " + gameCode);
         if(StringUtils.equals("azxy10",gameCode)){
             // 澳洲幸运10
-            gameTaskService.lotteryAzxy10Balance(gameCode);
+//            gameTaskService.lotteryAzxy10Balance(gameCode);
 
             gameTaskService.lotteryTenBallBalance(gameCode);
         }else if(StringUtils.equals("jnd28",gameCode)){
             // 加拿大2.8
-            gameTaskService.lotteryJndBalance(gameCode);
+//            gameTaskService.lotteryJndBalance(gameCode);
 
             gameTaskService.lotteryThreeBallBalance(gameCode);
         }else if(StringUtils.equals("jsssc",gameCode)){
             // 急速时时彩
-            gameTaskService.lotteryJssscBalance(gameCode);
+//            gameTaskService.lotteryJssscBalance(gameCode);
 
             gameTaskService.lotteryFiveBallBalance(gameCode);
         }

@@ -11,6 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="gameId"    column="game_id"    />
         <result property="gameName"    column="game_name"    />
         <result property="winMoney"    column="win_money"    />
+        <result property="bigSmallMoney"    column="big_small_money"    />
+        <result property="otherMoney"    column="other_money"    />
+        <result property="combinationMoney"    column="combination_money"    />
+        <result property="deductMoney"    column="deduct_money"    />
         <result property="isDelete"    column="is_delete"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
@@ -19,8 +23,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.YkDetailRespVO" id="YkDetailListResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="winMoney"    column="win_money"    />
+    </resultMap>
+
     <sql id="selectUserwinVo">
-        select id, win_time, user_id, game_id, game_name, win_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
+        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
     </sql>
 
     <select id="selectUserwinList" parameterType="Userwin" resultMap="UserwinResult">
@@ -31,6 +41,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null "> and game_id = #{gameId}</if>
             <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
             <if test="winMoney != null "> and win_money = #{winMoney}</if>
+            <if test="bigSmallMoney != null "> and big_small_money = #{bigSmallMoney}</if>
+            <if test="otherMoney != null "> and other_money = #{otherMoney}</if>
+            <if test="combinationMoney != null "> and combination_money = #{combinationMoney}</if>
+            <if test="deductMoney != null "> and deduct_money = #{deductMoney}</if>
             <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
         </where>
     </select>
@@ -56,6 +70,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null">game_id,</if>
             <if test="gameName != null">game_name,</if>
             <if test="winMoney != null">win_money,</if>
+            <if test="bigSmallMoney != null">big_small_money,</if>
+            <if test="otherMoney != null">other_money,</if>
+            <if test="combinationMoney != null">combination_money,</if>
+            <if test="deductMoney != null">deduct_money,</if>
             <if test="isDelete != null and isDelete != ''">is_delete,</if>
             <if test="createBy != null">create_by,</if>
         win_time,
@@ -65,6 +83,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null">#{gameId},</if>
             <if test="gameName != null">#{gameName},</if>
             <if test="winMoney != null">#{winMoney},</if>
+            <if test="bigSmallMoney != null">#{bigSmallMoney},</if>
+            <if test="otherMoney != null">#{otherMoney},</if>
+            <if test="combinationMoney != null">#{combinationMoney},</if>
+            <if test="deductMoney != null">#{deductMoney},</if>
             <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
             <if test="createBy != null">#{createBy},</if>
         CURDATE(),
@@ -76,6 +98,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update userwin
         <set>
             <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="bigSmallMoney != null">big_small_money = #{bigSmallMoney},</if>
+            <if test="otherMoney != null">other_money = #{otherMoney},</if>
+            <if test="combinationMoney != null">combination_money = #{combinationMoney},</if>
+            <if test="deductMoney != null">deduct_money = #{deductMoney},</if>
             <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
@@ -101,4 +127,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="userId != null"> and user_id = #{userId}</if>
         <if test="gameId != null "> and game_id = #{gameId}</if>
     </update>
+
+    <select id="userRankEveryday" resultType="java.lang.Float">
+        SELECT
+            SUM(win_money) AS win_money
+        FROM
+            userwin
+        WHERE
+            is_delete = '0'
+          AND
+            user_id = #{userId}
+          AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+    </select>
+
+    <select id="selectUserGameWinList" resultMap="YkDetailListResult">
+        SELECT
+             game_id AS game_id
+            ,SUM(win_money) AS win_money
+        FROM userwin
+        WHERE
+            is_delete = '0'
+        AND
+            user_id = #{userId}
+        AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+        GROUP BY game_id
+    </select>
+
+    <select id="selectUserWinListByDay" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        WHERE
+            is_delete = '0'
+        AND
+            user_id = #{userId}
+        AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+    </select>
 </mapper>

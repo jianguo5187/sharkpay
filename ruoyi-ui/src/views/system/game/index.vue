@@ -185,15 +185,15 @@
         <el-form-item label="描述">
           <editor v-model="form.gameDescribe" :min-height="192"/>
         </el-form-item>
-        <el-form-item label="盈亏名" prop="profitLossName">
-          <el-input v-model="form.profitLossName" placeholder="请输入盈亏名" />
-        </el-form-item>
-        <el-form-item label="记录表" prop="gameRecord">
-          <el-input v-model="form.gameRecord" placeholder="请输入记录表" />
-        </el-form-item>
-        <el-form-item label="开奖表" prop="gameKj">
-          <el-input v-model="form.gameKj" placeholder="请输入开奖表" />
-        </el-form-item>
+<!--        <el-form-item label="盈亏名" prop="profitLossName">-->
+<!--          <el-input v-model="form.profitLossName" placeholder="请输入盈亏名" />-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="记录表" prop="gameRecord">-->
+<!--          <el-input v-model="form.gameRecord" placeholder="请输入记录表" />-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="开奖表" prop="gameKj">-->
+<!--          <el-input v-model="form.gameKj" placeholder="请输入开奖表" />-->
+<!--        </el-form-item>-->
         <el-form-item label="佣金" prop="gameCommission">
           <el-input-number v-model="form.gameCommission" :min="0" placeholder="请输入佣金"/>
         </el-form-item>
@@ -213,7 +213,7 @@
           <el-input-number v-model="form.lotteryInterval" :min="0" placeholder="请输入开奖间隔秒数"/>
         </el-form-item>
         <el-form-item label="机器人比例" prop="robotRate">
-          <el-input-number v-model="form.robotRate" :min="0" placeholder="请输入机器人比例"/>
+          <el-input-number v-model="form.robotRate" :min="0" placeholder="请输入机器人比例"/> 0~100
         </el-form-item>
         <el-form-item label="游戏状态" prop="status">
           <el-radio-group v-model="form.status">

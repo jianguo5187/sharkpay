@@ -7,13 +7,11 @@ import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
-import com.ruoyi.system.domain.vo.ChangePwdReqVO;
-import com.ruoyi.system.domain.vo.GameDetailReqVO;
-import com.ruoyi.system.domain.vo.GameListReqVO;
-import com.ruoyi.system.domain.vo.GameResultListReqVO;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.ISysAppService;
 import com.ruoyi.system.service.ISysGameService;
 import com.ruoyi.system.service.ISysUserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,9 +73,8 @@ public class SysAppController extends BaseController {
     public AjaxResult getInfo()
     {
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        SysUser user = userService.selectUserById(sessionUser.getUserId());
         AjaxResult ajax = AjaxResult.success();
-        ajax.put("user", user);
+        ajax.put("user", userService.selectAppLoginUserInfo(sessionUser.getUserId()));
         return ajax;
     }
 

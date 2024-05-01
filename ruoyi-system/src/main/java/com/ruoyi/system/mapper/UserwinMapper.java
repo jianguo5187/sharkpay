@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.YkDetailRespVO;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -63,4 +64,10 @@ public interface UserwinMapper
     public Userwin selectTodayUserwin(@Param("gameId")Long gameId, @Param("userId")Long userId);
 
     public int clearUserwin(@Param("gameId") Long gameId, @Param("userId") Long userId);
+
+    public Float userRankEveryday(@Param("userId") Long userId,@Param("winTime") String winTime);
+
+    public List<YkDetailRespVO> selectUserGameWinList(@Param("userId") Long userId,@Param("winTime") String winTime);
+
+    public List<Userwin> selectUserWinListByDay(@Param("userId") Long userId,@Param("gameId") Long gameId,@Param("winTime") String winTime);
 }
