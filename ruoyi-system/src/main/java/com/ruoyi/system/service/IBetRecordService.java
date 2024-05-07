@@ -2,6 +2,8 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.BetRecord;
+import com.ruoyi.system.domain.vo.BetRealTimeReqVO;
+import com.ruoyi.system.domain.vo.BetRealTimeRespVO;
 
 /**
  * 投注单Service接口
@@ -61,4 +63,8 @@ public interface IBetRecordService
 
 
     public int updateLotteryResult(BetRecord betRecord);
+
+    public List<BetRealTimeRespVO> selectBetRealTimeList(BetRealTimeReqVO vo);
+
+    public void adminCancelBetRecord(Long userId, Long betId);
 }

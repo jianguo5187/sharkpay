@@ -679,7 +679,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         user.setAmount(user.getAmount() + gameTenballRecord.getCountMoney());
         userService.updateUserAmount(user);
 
-        betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId);
+        betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId, "1");
     }
 
     public void checkBetTenBallLimitAmount(GameTenballRecord gameTenballRecord, String number, Float money, Integer betType){

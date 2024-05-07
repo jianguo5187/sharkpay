@@ -59,6 +59,14 @@ export default {
       type: "warning",
     })
   },
+  // 确认窗体
+  confirmWithTilte(content,title) {
+    return MessageBox.confirm(content, title, {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: "warning",
+    })
+  },
   // 提交内容
   prompt(content) {
     return MessageBox.prompt(content, "系统提示", {

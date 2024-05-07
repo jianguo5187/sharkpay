@@ -649,7 +649,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
         user.setAmount(user.getAmount() + gameThreeballRecord.getCountMoney());
         userService.updateUserAmount(user);
 
-        betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId);
+        betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId, "1");
     }
     private Float getLimitAmountByKey(Map<String , SysDictData> limitAmountMap, String key){
         Float limitAmount = 0f;

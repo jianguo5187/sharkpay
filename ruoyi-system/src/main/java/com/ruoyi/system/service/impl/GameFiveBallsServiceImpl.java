@@ -609,7 +609,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         user.setAmount(user.getAmount() + gameFiveballRecord.getCountMoney());
         userService.updateUserAmount(user);
 
-        betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId);
+        betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId, "1");
     }
 
     public void checkBetFiveBallLimitAmount(GameFiveballRecord gameFiveballRecord, String number, Float money, Integer betType, Map<String,String> allFiledMap){

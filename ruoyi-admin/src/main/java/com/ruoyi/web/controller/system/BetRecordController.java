@@ -2,6 +2,11 @@ package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.utils.SecurityUtils;
+import com.ruoyi.system.domain.vo.BetRealTimeReqVO;
+import com.ruoyi.system.domain.vo.BetRealTimeRespVO;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,5 +105,28 @@ public class BetRecordController extends BaseController
     public AjaxResult remove(@PathVariable Long[] betIds)
     {
         return toAjax(betRecordService.deleteBetRecordByBetIds(betIds));
+    }
+
+    /**
+     * 查询实时投注列表
+     */
+    @GetMapping("/listBetRealTime")
+    public TableDataInfo listBetRealTime(BetRealTimeReqVO vo)
+    {
+        startPage();
+        List<BetRealTimeRespVO> list = betRecordService.selectBetRealTimeList(vo);
+        return getDataTable(list);
+    }
+
+    /**
+     * 管理员撤单投注单
+     */
+    @DeleteMapping("/adminCancel/{betId}")
+    public AjaxResult adminCancelBetRecord(@PathVariable Long betId)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        betRecordService.adminCancelBetRecord(sessionUser.getUserId(),betId);
+        return ajax;
     }
 }

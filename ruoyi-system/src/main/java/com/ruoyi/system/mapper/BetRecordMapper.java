@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.BetRecord;
+import com.ruoyi.system.domain.vo.BetRealTimeRespVO;
 import com.ruoyi.system.domain.vo.BetRecordListRespVO;
 import org.apache.ibatis.annotations.Param;
 
@@ -66,5 +67,7 @@ public interface BetRecordMapper
 
     public List<BetRecordListRespVO> selectBetRecordListByPeriods(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
-    public int cancelBetRecordByPeriods(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("userId") Long userId);
+    public int cancelBetRecordByPeriods(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("userId") Long userId, @Param("isDelete") String isDelete);
+
+    public List<BetRealTimeRespVO> selectBetRealTimeList(@Param("gameId") Long gameId,@Param("userId") Long userId,@Param("settledFlg") String settledFlg);
 }

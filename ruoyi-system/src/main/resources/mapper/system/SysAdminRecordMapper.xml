@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysAdminRecordMapper">
+    
+    <resultMap type="SysAdminRecord" id="SysAdminRecordResult">
+        <result property="id"    column="id"    />
+        <result property="type"    column="type"    />
+        <result property="isAgree"    column="is_agree"    />
+        <result property="originId"    column="origin_id"    />
+        <result property="adminUserId"    column="admin_user_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysAdminRecordVo">
+        select id, type, is_agree, origin_id, admin_user_id, create_by, create_time, update_by, update_time, remark from sys_admin_record
+    </sql>
+
+    <select id="selectSysAdminRecordList" parameterType="SysAdminRecord" resultMap="SysAdminRecordResult">
+        <include refid="selectSysAdminRecordVo"/>
+        <where>  
+            <if test="type != null "> and type = #{type}</if>
+            <if test="isAgree != null  and isAgree != ''"> and is_agree = #{isAgree}</if>
+            <if test="originId != null "> and origin_id = #{originId}</if>
+            <if test="adminUserId != null "> and admin_user_id = #{adminUserId}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysAdminRecordById" parameterType="Long" resultMap="SysAdminRecordResult">
+        <include refid="selectSysAdminRecordVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSysAdminRecord" parameterType="SysAdminRecord" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_admin_record(
+            <if test="type != null">type,</if>
+            <if test="isAgree != null">is_agree,</if>
+            <if test="originId != null">origin_id,</if>
+            <if test="adminUserId != null">admin_user_id,</if>
+            <if test="createBy != null">create_by,</if>
+        create_time
+        )values(
+            <if test="type != null">#{type},</if>
+            <if test="isAgree != null">#{isAgree},</if>
+            <if test="originId != null">#{originId},</if>
+            <if test="adminUserId != null">#{adminUserId},</if>
+            <if test="createBy != null">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateSysAdminRecord" parameterType="SysAdminRecord">
+        update sys_admin_record
+        <set>
+            <if test="type != null">type = #{type},</if>
+            <if test="isAgree != null">is_agree = #{isAgree},</if>
+            <if test="originId != null">origin_id = #{originId},</if>
+            <if test="adminUserId != null">admin_user_id = #{adminUserId},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysAdminRecordById" parameterType="Long">
+        delete from sys_admin_record where id = #{id}
+    </delete>
+
+    <delete id="deleteSysAdminRecordByIds" parameterType="String">
+        delete from sys_admin_record where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
