@@ -1,7 +1,15 @@
 package com.ruoyi.system.service.impl;
 
 import java.util.List;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.system.domain.SysAdminRecord;
+import com.ruoyi.system.domain.vo.PostalListReqVO;
+import com.ruoyi.system.domain.vo.PostalListRespVO;
+import com.ruoyi.system.service.IAdminwinService;
+import com.ruoyi.system.service.ISysAdminRecordService;
+import com.ruoyi.system.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.UsermoneyMapper;
@@ -19,6 +27,15 @@ public class UsermoneyServiceImpl implements IUsermoneyService
 {
     @Autowired
     private UsermoneyMapper usermoneyMapper;
+
+    @Autowired
+    private ISysUserService userService;
+
+    @Autowired
+    private ISysAdminRecordService sysAdminRecordService;
+
+    @Autowired
+    private IAdminwinService adminwinService;
 
     /**
      * 查询用户资金流水
@@ -92,5 +109,52 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     public int deleteUsermoneyById(Long id)
     {
         return usermoneyMapper.deleteUsermoneyById(id);
+    }
+
+    @Override
+    public List<PostalListRespVO> selectPostalList(PostalListReqVO vo) {
+        return usermoneyMapper.selectPostalList(vo.getUserId(), vo.getFilterDate(), vo.getPostalStatus());
+    }
+
+    @Override
+    public int agreePostalApply(Usermoney usermoney, Long userId) {
+        Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
+
+        dbUsermoney.setType("5");
+        dbUsermoney.setRemark("提现成功");
+
+        int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
+
+        SysAdminRecord sysAdminRecord = new SysAdminRecord();
+        sysAdminRecord.setType(2);
+        sysAdminRecord.setIsAgree("0");
+        sysAdminRecord.setOriginId(usermoney.getId());
+        sysAdminRecord.setAdminUserId(userId);
+        int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+
+        return upCnt1>0&&insertCnt1>0?1:0;
+    }
+
+    @Override
+    public int refusePostalApply(Usermoney usermoney, Long userId) {
+        Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
+
+        SysUser user = userService.selectUserById(dbUsermoney.getUserId());
+        dbUsermoney.setType("6");
+        dbUsermoney.setRemark("提现失败");
+        int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
+
+        Float userMoney = user.getAmount() + dbUsermoney.getCashMoney();
+        user.setAmount(userMoney);
+        userService.updateUserAmount(user);
+
+        SysAdminRecord sysAdminRecord = new SysAdminRecord();
+        sysAdminRecord.setType(2);
+        sysAdminRecord.setIsAgree("1");
+        sysAdminRecord.setOriginId(usermoney.getId());
+        sysAdminRecord.setAdminUserId(userId);
+        int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+
+        return upCnt1>0&&insertCnt1>0?1:0;
     }
 }

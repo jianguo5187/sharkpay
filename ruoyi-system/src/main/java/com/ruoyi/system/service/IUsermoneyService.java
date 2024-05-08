@@ -2,6 +2,8 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Usermoney;
+import com.ruoyi.system.domain.vo.PostalListReqVO;
+import com.ruoyi.system.domain.vo.PostalListRespVO;
 
 /**
  * 用户资金流水Service接口
@@ -58,4 +60,10 @@ public interface IUsermoneyService
      * @return 结果
      */
     public int deleteUsermoneyById(Long id);
+
+    public List<PostalListRespVO> selectPostalList(PostalListReqVO vo);
+
+    public int agreePostalApply(Usermoney usermoney, Long userId);
+
+    public int refusePostalApply(Usermoney usermoney, Long userId);
 }

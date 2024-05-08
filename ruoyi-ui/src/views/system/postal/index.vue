@@ -1,24 +1,31 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="108px">
-      <el-form-item label="游戏" prop="gameId">
-        <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="handleQuery">
-          <el-option
-            clearable
-            v-for="item in gameListOptions"
-            :key="item.gameId"
-            :label="item.gameName"
-            :value="item.gameId"
-          ></el-option>
-        </el-select>
-      </el-form-item>
+    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
       <el-form-item label="用户ID" prop="userId">
         <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
         </el-input>
       </el-form-item>
-      <el-form-item label="仅看未结算" prop="settledFlg">
-        <el-switch v-model="queryParams.settledFlg"></el-switch>
+      <el-form-item label="充值申请时间" prop="filterDate">
+        <el-date-picker v-model="queryParams.filterDate" format="yyyy-MM-dd" value-format="yyyy-MM-dd"
+                        :style="{width: '100%'}" placeholder="请选择充值申请时间" clearable></el-date-picker>
       </el-form-item>
+
+      <el-form-item label="充值方式" prop="postalStatus">
+        <el-select
+          v-model="queryParams.postalStatus"
+          placeholder="充值方式"
+          clearable
+          style="width: 240px"
+        >
+          <el-option
+            v-for="dict in dict.type.sys_postal_status"
+            :key="dict.value"
+            :label="dict.label"
+            :value="dict.value"
+          />
+        </el-select>
+      </el-form-item>
+
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -29,34 +36,38 @@
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="betRealTimeList">
+    <el-table v-loading="loading" :data="postalList">
+      <el-table-column label="订单编号" align="center" prop="id" />
       <el-table-column label="用户名" align="center" prop="userId">
         <template slot-scope="scope">
           <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
         </template>
       </el-table-column>
-<!--      <el-table-column label="真实姓名" align="center" prop="realName" />-->
-      <el-table-column label="下注时间" align="center" prop="recordTime" />
-      <el-table-column label="游戏名" align="center" prop="gameName" />
-      <el-table-column label="期号" align="center" prop="periods" />
-      <el-table-column label="玩法" align="center" prop="playType" />
-      <el-table-column label="投注号码" align="center" prop="playDetail" />
-      <el-table-column label="下注金额" align="center" prop="money" />
-      <el-table-column label="余额" align="center" prop="balance" />
-      <el-table-column label="开奖结果" align="center" prop="gameResult" />
-      <el-table-column label="盈亏" align="center" prop="accountResult" />
+<!--      <el-table-column label="备注" align="center" prop="remark" />-->
+      <el-table-column label="充值金额" align="center" prop="cashMoney" />
+      <el-table-column label="余额" align="center" prop="userBalance" />
+      <el-table-column label="申请时间" align="center" prop="cashTime" />
+      <el-table-column label="方式" align="center" prop="userAccount" />
+      <el-table-column label="备注" align="center" prop="remark" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.isDelete == 1">用户撤单</span>
-          <span v-else-if="scope.row.isDelete == 2">管理撤单</span>
+          <span v-if="scope.row.type == '5'">提现成功</span>
+          <span v-if="scope.row.type == '6'">提现失败</span>
           <el-button
             size="mini"
-            type="text"
+            type="success"
             icon="el-icon-edit"
-            v-else-if="scope.row.isDelete == 0 && scope.row.gameResult ==''"
+            v-if="scope.row.type == '4'"
+            @click="handleAgree(scope.row)"
+          >同意</el-button>
+          <el-button
+            type="danger"
+            plain
+            icon="el-icon-delete"
+            size="mini"
+            v-if="scope.row.type == '4'"
             @click="handleCancel(scope.row)"
-          >撤单</el-button>
-          <span v-else>已结算</span>
+          >拒绝</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -72,11 +83,12 @@
 </template>
 
 <script>
-import {adminCancelBetRecord, listBetRealTime} from "@/api/system/bet";
+import {agreeApply, refuseApply, listPostal} from "@/api/system/postal";
 import {getValidGame} from "@/api/system/game";
 
 export default {
-  name: "BetRealTime",
+  name: "postal",
+  dicts: ['sys_postal_status'],
   data() {
     return {
       // 遮罩层
@@ -92,7 +104,7 @@ export default {
       // 总条数
       total: 0,
       // 投注机器人表格数据
-      betRealTimeList: [],
+      postalList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -103,9 +115,8 @@ export default {
         pageNum: 1,
         pageSize: 20,
         userId: null,
-        gameId: null,
-        settledFlgStr: null,
-        settledFlg: false,
+        postalStatus: null,
+        filterDate: null,
       },
       // 表单参数
       form: {},
@@ -129,8 +140,8 @@ export default {
       }else{
         this.queryParams.settledFlgStr = null;
       }
-      listBetRealTime(this.queryParams).then(response => {
-        this.betRealTimeList = response.rows;
+      listPostal(this.queryParams).then(response => {
+        this.postalList = response.rows;
         this.total = response.total;
         this.loading = false;
       });
@@ -151,14 +162,22 @@ export default {
       this.resetForm("queryForm");
       this.handleQuery();
     },
-    /** 撤单按钮操作 */
-    handleCancel(row) {
-      const ids = row.betId;
-      this.$modal.confirmWithTilte('确认删除用户本期投注?','撤单后不可恢复').then(function() {
-        return adminCancelBetRecord(ids);
+    /** 同意按钮操作 */
+    handleAgree(row) {
+      this.$modal.confirmWithTilte('是否确定同意申请?','同意后不可恢复').then(function() {
+        return agreeApply({id:row.id});
       }).then(() => {
         this.getList();
-        this.$modal.msgSuccess("撤单成功");
+        this.$modal.msgSuccess("同意成功");
+      }).catch(() => {});
+    },
+    /** 拒绝按钮操作 */
+    handleCancel(row) {
+      this.$modal.confirmWithTilte('是否确定拒绝申请?','拒绝后不可恢复').then(function() {
+        return refuseApply({id:row.id});
+      }).then(() => {
+        this.getList();
+        this.$modal.msgSuccess("拒绝成功");
       }).catch(() => {});
     },
   }

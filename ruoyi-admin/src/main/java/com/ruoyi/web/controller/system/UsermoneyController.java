@@ -2,6 +2,12 @@ package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.utils.SecurityUtils;
+import com.ruoyi.system.domain.vo.GameListReqVO;
+import com.ruoyi.system.domain.vo.PostalListReqVO;
+import com.ruoyi.system.domain.vo.PostalListRespVO;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,5 +106,36 @@ public class UsermoneyController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(usermoneyService.deleteUsermoneyByIds(ids));
+    }
+
+    /**
+     * 查询用户资金流水列表
+     */
+    @GetMapping("/listPostal")
+    public TableDataInfo listPostal(PostalListReqVO vo)
+    {
+        startPage();
+        List<PostalListRespVO> list = usermoneyService.selectPostalList(vo);
+        return getDataTable(list);
+    }
+
+    /**
+     * 同意提现申请
+     */
+    @PostMapping("/agreePostalApply")
+    public AjaxResult agreePostalApply(@RequestBody Usermoney usermoney)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.agreePostalApply(usermoney,sessionUser.getUserId()));
+    }
+
+    /**
+     * 拒绝提现申请
+     */
+    @PostMapping("/refusePostalApply")
+    public AjaxResult refusePostalApply(@RequestBody Usermoney usermoney)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.refusePostalApply(usermoney,sessionUser.getUserId()));
     }
 }
