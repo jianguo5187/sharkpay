@@ -42,6 +42,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.RechargeListRespVO" id="RechargeListResult">
+        <result property="id"    column="id"    />
+        <result property="userId"       column="user_id"      />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="cashTime"    column="cash_time"    />
+        <result property="cashMoney"    column="cash_money"    />
+        <result property="type"    column="type"    />
+        <result property="userBalance"    column="user_balance"    />
+        <result property="userAccount"    column="user_account"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
     <sql id="selectUsermoneyVo">
         select id, user_id, cash_content, cash_time, cash_money, type, user_balance, union_pay_id, user_name, user_pay, user_account, cash_describe, game_id, game_name, house, is_delete, hz_id, create_by, create_time, update_by, update_time, remark from usermoney
     </sql>
@@ -218,6 +231,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </if>
         <if test="postalStatus != null "> and um.type = #{postalStatus}</if>
         <if test="postalStatus == null "> and um.type in('4','5','6')</if>
+        order by um.cash_time desc,um.id desc
+    </select>
+
+    <select id="selectRechargeList" resultMap="RechargeListResult">
+        select
+             u.user_id as user_id
+            ,u.nick_name as nick_name
+            ,u.real_name as real_name
+            ,um.id as id
+            ,um.cash_time as cash_time
+            ,um.cash_money as cash_money
+            ,um.type as type
+            ,um.user_balance as user_balance
+            ,um.user_account as user_account
+            ,um.remark as remark
+        from  usermoney um
+        left join sys_user u on u.user_id = um.user_id
+        where 1 = 1
+        <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="filterDate != null and filterDate != ''">
+            and DATE_FORMAT(um.cash_time, '%Y-%m-%d') = #{filterDate}
+        </if>
+        <if test="rechargeStatus != null "> and um.type = #{rechargeStatus}</if>
+        <if test="rechargeStatus == null "> and um.type in('1','2','3')</if>
         order by um.cash_time desc,um.id desc
     </select>
 </mapper>

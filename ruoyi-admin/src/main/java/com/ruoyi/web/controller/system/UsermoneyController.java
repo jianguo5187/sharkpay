@@ -5,9 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.SecurityUtils;
-import com.ruoyi.system.domain.vo.GameListReqVO;
-import com.ruoyi.system.domain.vo.PostalListReqVO;
-import com.ruoyi.system.domain.vo.PostalListRespVO;
+import com.ruoyi.system.domain.vo.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -137,5 +135,36 @@ public class UsermoneyController extends BaseController
     {
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         return toAjax(usermoneyService.refusePostalApply(usermoney,sessionUser.getUserId()));
+    }
+
+    /**
+     * 充值列表
+     */
+    @GetMapping("/listRecharge")
+    public TableDataInfo listRecharge(RechargeListReqVO vo)
+    {
+        startPage();
+        List<RechargeListRespVO> list = usermoneyService.selectRechargeList(vo);
+        return getDataTable(list);
+    }
+
+    /**
+     * 同意充值申请
+     */
+    @PostMapping("/agreeRechargeApply")
+    public AjaxResult agreeRechargeApply(@RequestBody Usermoney usermoney)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.agreeRechargeApply(usermoney,sessionUser.getUserId()));
+    }
+
+    /**
+     * 拒绝充值申请
+     */
+    @PostMapping("/refuseRechargeApply")
+    public AjaxResult refuseRechargeApply(@RequestBody Usermoney usermoney)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.refuseRechargeApply(usermoney,sessionUser.getUserId()));
     }
 }

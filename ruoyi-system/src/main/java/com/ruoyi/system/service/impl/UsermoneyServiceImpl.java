@@ -7,6 +7,8 @@ import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.system.domain.SysAdminRecord;
 import com.ruoyi.system.domain.vo.PostalListReqVO;
 import com.ruoyi.system.domain.vo.PostalListRespVO;
+import com.ruoyi.system.domain.vo.RechargeListReqVO;
+import com.ruoyi.system.domain.vo.RechargeListRespVO;
 import com.ruoyi.system.service.IAdminwinService;
 import com.ruoyi.system.service.ISysAdminRecordService;
 import com.ruoyi.system.service.ISysUserService;
@@ -126,7 +128,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
-        sysAdminRecord.setType(2);
+        sysAdminRecord.setType(2);//下分
         sysAdminRecord.setIsAgree("0");
         sysAdminRecord.setOriginId(usermoney.getId());
         sysAdminRecord.setAdminUserId(userId);
@@ -149,7 +151,56 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         userService.updateUserAmount(user);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
-        sysAdminRecord.setType(2);
+        sysAdminRecord.setType(2);//下分
+        sysAdminRecord.setIsAgree("1");
+        sysAdminRecord.setOriginId(usermoney.getId());
+        sysAdminRecord.setAdminUserId(userId);
+        int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+
+        return upCnt1>0&&insertCnt1>0?1:0;
+    }
+
+    @Override
+    public List<RechargeListRespVO> selectRechargeList(RechargeListReqVO vo) {
+        return usermoneyMapper.selectRechargeList(vo.getUserId(), vo.getFilterDate(), vo.getRechargeStatus());
+    }
+
+    @Override
+    public int agreeRechargeApply(Usermoney usermoney, Long userId) {
+        Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
+        SysUser user = userService.selectUserById(dbUsermoney.getUserId());
+
+        Float userMoney = user.getAmount() + dbUsermoney.getCashMoney();
+
+        dbUsermoney.setType("2");
+        dbUsermoney.setRemark("充值成功");
+        dbUsermoney.setUserBalance(userMoney);
+        int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
+
+        user.setAmount(userMoney);
+        userService.updateUserAmount(user);
+
+        SysAdminRecord sysAdminRecord = new SysAdminRecord();
+        sysAdminRecord.setType(1);//上分
+        sysAdminRecord.setIsAgree("0");
+        sysAdminRecord.setOriginId(usermoney.getId());
+        sysAdminRecord.setAdminUserId(userId);
+        int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+
+        return upCnt1>0&&insertCnt1>0?1:0;
+    }
+
+    @Override
+    public int refuseRechargeApply(Usermoney usermoney, Long userId) {
+        Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
+
+        SysUser user = userService.selectUserById(dbUsermoney.getUserId());
+        dbUsermoney.setType("3");
+        dbUsermoney.setRemark("充值失败");
+        int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
+
+        SysAdminRecord sysAdminRecord = new SysAdminRecord();
+        sysAdminRecord.setType(1);//上分
         sysAdminRecord.setIsAgree("1");
         sysAdminRecord.setOriginId(usermoney.getId());
         sysAdminRecord.setAdminUserId(userId);

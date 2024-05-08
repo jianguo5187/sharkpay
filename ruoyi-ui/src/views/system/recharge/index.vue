@@ -5,20 +5,20 @@
         <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
         </el-input>
       </el-form-item>
-      <el-form-item label="提现申请时间" prop="filterDate">
+      <el-form-item label="充值申请时间" prop="filterDate">
         <el-date-picker v-model="queryParams.filterDate" format="yyyy-MM-dd" value-format="yyyy-MM-dd"
-                        :style="{width: '100%'}" placeholder="请选择提现申请时间" clearable></el-date-picker>
+                        :style="{width: '100%'}" placeholder="请选择充值申请时间" clearable></el-date-picker>
       </el-form-item>
 
-      <el-form-item label="提现方式" prop="postalStatus">
+      <el-form-item label="充值方式" prop="rechargeStatus">
         <el-select
-          v-model="queryParams.postalStatus"
-          placeholder="提现方式"
+          v-model="queryParams.rechargeStatus"
+          placeholder="充值方式"
           clearable
           style="width: 240px"
         >
           <el-option
-            v-for="dict in dict.type.sys_postal_status"
+            v-for="dict in dict.type.sys_recharge_status"
             :key="dict.value"
             :label="dict.label"
             :value="dict.value"
@@ -36,7 +36,7 @@
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="postalList">
+    <el-table v-loading="loading" :data="rechargeList">
       <el-table-column label="订单编号" align="center" prop="id" />
       <el-table-column label="用户名" align="center" prop="userId">
         <template slot-scope="scope">
@@ -51,13 +51,13 @@
       <el-table-column label="备注" align="center" prop="remark" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.type == '5'">提现成功</span>
-          <span v-if="scope.row.type == '6'">提现失败</span>
+          <span v-if="scope.row.type == '2'">申请成功</span>
+          <span v-if="scope.row.type == '3'">申请失败</span>
           <el-button
             size="mini"
             type="success"
             icon="el-icon-edit"
-            v-if="scope.row.type == '4'"
+            v-if="scope.row.type == '1'"
             @click="handleAgree(scope.row)"
           >同意</el-button>
           <el-button
@@ -65,7 +65,7 @@
             plain
             icon="el-icon-delete"
             size="mini"
-            v-if="scope.row.type == '4'"
+            v-if="scope.row.type == '1'"
             @click="handleCancel(scope.row)"
           >拒绝</el-button>
         </template>
@@ -83,12 +83,12 @@
 </template>
 
 <script>
-import {agreeApply, refuseApply, listPostal} from "@/api/system/postal";
+import {agreeApply, refuseApply, listRecharge} from "@/api/system/recharge";
 import {getValidGame} from "@/api/system/game";
 
 export default {
-  name: "postal",
-  dicts: ['sys_postal_status'],
+  name: "recharge",
+  dicts: ['sys_recharge_status'],
   data() {
     return {
       // 遮罩层
@@ -104,7 +104,7 @@ export default {
       // 总条数
       total: 0,
       // 投注机器人表格数据
-      postalList: [],
+      rechargeList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -115,7 +115,7 @@ export default {
         pageNum: 1,
         pageSize: 20,
         userId: null,
-        postalStatus: null,
+        rechargeStatus: null,
         filterDate: null,
       },
       // 表单参数
@@ -140,8 +140,8 @@ export default {
       }else{
         this.queryParams.settledFlgStr = null;
       }
-      listPostal(this.queryParams).then(response => {
-        this.postalList = response.rows;
+      listRecharge(this.queryParams).then(response => {
+        this.rechargeList = response.rows;
         this.total = response.total;
         this.loading = false;
       });

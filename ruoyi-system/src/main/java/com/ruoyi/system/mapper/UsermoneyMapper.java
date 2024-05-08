@@ -3,6 +3,7 @@ package com.ruoyi.system.mapper;
 import java.util.List;
 import com.ruoyi.system.domain.Usermoney;
 import com.ruoyi.system.domain.vo.PostalListRespVO;
+import com.ruoyi.system.domain.vo.RechargeListRespVO;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -71,4 +72,6 @@ public interface UsermoneyMapper
     public List<Usermoney> selectValidUsermoneyList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
     public List<PostalListRespVO> selectPostalList(@Param("userId") Long userId,@Param("filterDate") String filterDate,@Param("postalStatus") String postalStatus);
+
+    public List<RechargeListRespVO> selectRechargeList(@Param("userId") Long userId, @Param("filterDate") String filterDate, @Param("rechargeStatus") String rechargeStatus);
 }

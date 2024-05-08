@@ -4,6 +4,8 @@ import java.util.List;
 import com.ruoyi.system.domain.Usermoney;
 import com.ruoyi.system.domain.vo.PostalListReqVO;
 import com.ruoyi.system.domain.vo.PostalListRespVO;
+import com.ruoyi.system.domain.vo.RechargeListReqVO;
+import com.ruoyi.system.domain.vo.RechargeListRespVO;
 
 /**
  * 用户资金流水Service接口
@@ -66,4 +68,10 @@ public interface IUsermoneyService
     public int agreePostalApply(Usermoney usermoney, Long userId);
 
     public int refusePostalApply(Usermoney usermoney, Long userId);
+
+    public List<RechargeListRespVO> selectRechargeList(RechargeListReqVO vo);
+
+    public int agreeRechargeApply(Usermoney usermoney, Long userId);
+
+    public int refuseRechargeApply(Usermoney usermoney, Long userId);
 }
