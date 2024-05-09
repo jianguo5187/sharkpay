@@ -3,6 +3,7 @@ package com.ruoyi.system.service.impl;
 import java.util.List;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.system.domain.SysAdminRecord;
 import com.ruoyi.system.domain.vo.PostalListReqVO;
@@ -207,5 +208,54 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return upCnt1>0&&insertCnt1>0?1:0;
+    }
+
+    @Override
+    public int adminRecharge(Usermoney usermoney, Long userId) {
+
+        SysUser user = userService.selectUserById(usermoney.getUserId());
+        Float userMoney = user.getAmount() + usermoney.getCashMoney();
+        user.setAmount(userMoney);
+        userService.updateUserAmount(user);
+
+        usermoney.setType("2");
+        usermoney.setUserBalance(userMoney);
+        usermoney.setRemark("管理员加款");
+        int insertCnt = usermoneyMapper.insertUsermoney(usermoney);
+
+        SysAdminRecord sysAdminRecord = new SysAdminRecord();
+        sysAdminRecord.setType(3);//手动上分
+        sysAdminRecord.setIsAgree("0");
+        sysAdminRecord.setOriginId(usermoney.getId());
+        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+
+        return insertCnt;
+    }
+
+    @Override
+    public int adminPostal(Usermoney usermoney, Long userId) {
+        SysUser user = userService.selectUserById(usermoney.getUserId());
+        if(user.getAmount().compareTo(usermoney.getCashMoney()) < 0){
+            throw new ServiceException("用户余额不足");
+        }
+
+        Float userMoney = user.getAmount() - usermoney.getCashMoney();
+        user.setAmount(userMoney);
+        userService.updateUserAmount(user);
+
+        usermoney.setType("5");
+        usermoney.setUserBalance(userMoney);
+        usermoney.setRemark("管理员扣款");
+        int insertCnt = usermoneyMapper.insertUsermoney(usermoney);
+
+        SysAdminRecord sysAdminRecord = new SysAdminRecord();
+        sysAdminRecord.setType(4);//手动下分
+        sysAdminRecord.setIsAgree("0");
+        sysAdminRecord.setOriginId(usermoney.getId());
+        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+
+        return insertCnt;
     }
 }

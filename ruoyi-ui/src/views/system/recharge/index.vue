@@ -36,7 +36,7 @@
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="rechargeList">
+    <el-table v-loading="loading" :data="rechargeList" show-summary :summary-method="getSummaries">
       <el-table-column label="订单编号" align="center" prop="id" />
       <el-table-column label="用户名" align="center" prop="userId">
         <template slot-scope="scope">
@@ -179,6 +179,36 @@ export default {
         this.getList();
         this.$modal.msgSuccess("拒绝成功");
       }).catch(() => {});
+    },
+    // 合计 指定某一列添加合计
+    getSummaries(param) {
+      console.log(param, "heji11111");
+      const { columns, data } = param;
+      const sums = [];
+      columns.forEach((column, index) => {
+        if (index === 0) {
+          sums[index] = "合计";
+          return;
+        } else if (column.property == "cashMoney") {
+          //如果是经费（正常的加减法）
+          const values = data.map((item) => Number(item[column.property]));
+          console.log(values);
+          if (!values.every((value) => isNaN(value))) {
+            sums[index] = values.reduce((prev, curr) => {
+              const value = Number(curr);
+              var sum = 0;
+              if (!isNaN(value)) {
+                sum = Number(Number(prev) + Number(curr)).toFixed(2);
+                return sum;
+              } else {
+                return prev;
+              }
+            }, 0);
+            sums[index] += " ";
+          }
+        }
+      });
+      return sums;
     },
   }
 };

@@ -74,4 +74,8 @@ public interface IUsermoneyService
     public int agreeRechargeApply(Usermoney usermoney, Long userId);
 
     public int refuseRechargeApply(Usermoney usermoney, Long userId);
+
+    public int adminRecharge(Usermoney usermoney, Long userId);
+
+    public int adminPostal(Usermoney usermoney, Long userId);
 }

@@ -26,3 +26,12 @@ export function refuseApply(data) {
     data: data
   })
 }
+
+// 管理员下分
+export function adminPostal(data) {
+  return request({
+    url: '/system/usermoney/adminPostal',
+    method: 'post',
+    data: data
+  })
+}

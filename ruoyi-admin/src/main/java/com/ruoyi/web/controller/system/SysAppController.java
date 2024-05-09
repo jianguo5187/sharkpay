@@ -15,6 +15,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
+import java.util.stream.Collectors;
+
 /**
  * APP使用接口
  *
@@ -143,6 +146,26 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
         ajax.put("replaceList", sysAppService.replaceList());
+        return ajax;
+    }
+
+    /**
+     * 获取下属全部用户信息
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getAllUserList")
+    public AjaxResult getAllUserList()
+    {
+
+        SysUser user = SecurityUtils.getLoginUser().getUser();
+        SysUser searchUser = new SysUser();
+        searchUser.setDeptId(user.getDeptId());
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("rows", userService.selectUserList(searchUser).stream()
+                .sorted(Comparator.comparing(SysUser::getUserId))
+                .filter(r -> r.getUserId().compareTo(user.getUserId()) != 0)
+                .collect(Collectors.toList()));
         return ajax;
     }
 }

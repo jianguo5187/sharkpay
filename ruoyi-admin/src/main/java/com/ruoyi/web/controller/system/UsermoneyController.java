@@ -167,4 +167,24 @@ public class UsermoneyController extends BaseController
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         return toAjax(usermoneyService.refuseRechargeApply(usermoney,sessionUser.getUserId()));
     }
+
+    /**
+     * 管理员上分
+     */
+    @PostMapping("/adminRecharge")
+    public AjaxResult adminRecharge(@RequestBody Usermoney usermoney)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.adminRecharge(usermoney,sessionUser.getUserId()));
+    }
+
+    /**
+     * 管理员下分
+     */
+    @PostMapping("/adminPostal")
+    public AjaxResult adminPostal(@RequestBody Usermoney usermoney)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.adminPostal(usermoney,sessionUser.getUserId()));
+    }
 }

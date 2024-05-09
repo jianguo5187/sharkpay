@@ -26,3 +26,12 @@ export function refuseApply(data) {
     data: data
   })
 }
+
+// 管理员上分
+export function adminRecharge(data) {
+  return request({
+    url: '/system/usermoney/adminRecharge',
+    method: 'post',
+    data: data
+  })
+}

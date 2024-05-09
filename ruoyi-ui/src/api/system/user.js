@@ -145,3 +145,11 @@ export function deptTreeSelect() {
     method: 'get'
   })
 }
+
+// 用户列表
+export function selectAllUser() {
+  return request({
+    url: '/system/app/getAllUserList',
+    method: 'get',
+  })
+}
