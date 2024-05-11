@@ -1,9 +1,14 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
-      <el-form-item label="用户ID" prop="userId">
-        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
-        </el-input>
+      <el-form-item label="用户" prop="userId">
+        <treeselect
+          v-model="queryParams.userId"
+          :options="userListOptions"
+          :normalizer="normalizer"
+          :show-count="true"
+          placeholder="请选择用户"
+          style="width: 320px;"/>
       </el-form-item>
       <el-form-item label="充值申请时间" prop="filterDate">
         <el-date-picker v-model="queryParams.filterDate" format="yyyy-MM-dd" value-format="yyyy-MM-dd"
@@ -85,14 +90,22 @@
 <script>
 import {agreeApply, refuseApply, listRecharge} from "@/api/system/recharge";
 import {getValidGame} from "@/api/system/game";
+import Treeselect from "@riophae/vue-treeselect";
+import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+import {selectAllUser} from "@/api/system/user";
 
 export default {
   name: "recharge",
+  components: {Treeselect},
   dicts: ['sys_recharge_status'],
   data() {
     return {
       // 遮罩层
       loading: true,
+      // 登录用户ID
+      loginUserId: this.$store.state.user.id,
+      // 登录用户Name
+      loginUserName: this.$store.state.user.name,
       // 选中数组
       ids: [],
       // 非单个禁用
@@ -109,7 +122,7 @@ export default {
       title: "",
       // 是否显示弹出层
       open: false,
-      gameListOptions:[],
+      userListOptions:[],
       // 查询参数
       queryParams: {
         pageNum: 1,
@@ -126,7 +139,7 @@ export default {
     };
   },
   created() {
-    this.getGameList();
+    this.getUserList();
   },
   mounted() {
     setInterval(this.getList, 15000); //每15s刷新列表
@@ -146,11 +159,25 @@ export default {
         this.loading = false;
       });
     },
-    getGameList(){
-      getValidGame().then(response => {
-        this.gameListOptions = response.gameList;
+    getUserList(){
+      selectAllUser().then(response => {
+        this.userListOptions = [];
+        const menu = { userId: this.loginUserId, nickName: this.loginUserName, children: [] };
+        menu.children = this.handleTree(response.rows, "userId", "parentUserId");
+        this.userListOptions.push(menu);
         this.getList();
       });
+    },
+    /** 转换菜单数据结构 */
+    normalizer(node) {
+      if (node.children && !node.children.length) {
+        delete node.children;
+      }
+      return {
+        id: node.userId,
+        label: node.nickName,
+        children: node.children
+      };
     },
     /** 搜索按钮操作 */
     handleQuery() {

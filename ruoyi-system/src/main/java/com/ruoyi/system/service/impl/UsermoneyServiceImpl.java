@@ -6,10 +6,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.system.domain.SysAdminRecord;
-import com.ruoyi.system.domain.vo.PostalListReqVO;
-import com.ruoyi.system.domain.vo.PostalListRespVO;
-import com.ruoyi.system.domain.vo.RechargeListReqVO;
-import com.ruoyi.system.domain.vo.RechargeListRespVO;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.IAdminwinService;
 import com.ruoyi.system.service.ISysAdminRecordService;
 import com.ruoyi.system.service.ISysUserService;
@@ -257,5 +254,15 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return insertCnt;
+    }
+
+    @Override
+    public List<UserMoneyUpTotalListRespVO> selectUserMoneyUpTotalList(Usermoney usermoney) {
+        return usermoneyMapper.selectUserMoneyUpTotalList(usermoney);
+    }
+
+    @Override
+    public List<UserMoneyDownTotalListRespVO> selectUserMoneyDownTotalList(Usermoney usermoney) {
+        return usermoneyMapper.selectUserMoneyDownTotalList(usermoney);
     }
 }

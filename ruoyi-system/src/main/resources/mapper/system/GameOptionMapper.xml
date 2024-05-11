@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectGameOptionVo">
-        select id, game_id, key, title, play_group, play_group_title, create_by, create_time, update_by, update_time, remark from game_option
+        select id, game_id, `key`, title, play_group, play_group_title, create_by, create_time, update_by, update_time, remark from game_option
     </sql>
 
     <select id="selectGameOptionList" parameterType="GameOption" resultMap="GameOptionResult">
@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into game_option
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="gameId != null">game_id,</if>
-            <if test="key != null">key,</if>
+            <if test="key != null">`key`,</if>
             <if test="title != null">title,</if>
             <if test="playGroup != null">play_group,</if>
             <if test="playGroupTitle != null">play_group_title,</if>
@@ -70,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update game_option
         <trim prefix="SET" suffixOverrides=",">
             <if test="gameId != null">game_id = #{gameId},</if>
-            <if test="key != null">key = #{key},</if>
+            <if test="key != null">`key` = #{key},</if>
             <if test="title != null">title = #{title},</if>
             <if test="playGroup != null">play_group = #{playGroup},</if>
             <if test="playGroupTitle != null">play_group_title = #{playGroupTitle},</if>

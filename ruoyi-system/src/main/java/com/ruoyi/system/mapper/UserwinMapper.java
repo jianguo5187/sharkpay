@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
 import com.ruoyi.system.domain.vo.YkDetailRespVO;
 import org.apache.ibatis.annotations.Param;
 
@@ -70,4 +71,6 @@ public interface UserwinMapper
     public List<YkDetailRespVO> selectUserGameWinList(@Param("userId") Long userId,@Param("winTime") String winTime);
 
     public List<Userwin> selectUserWinListByDay(@Param("userId") Long userId,@Param("gameId") Long gameId,@Param("winTime") String winTime);
+
+    public List<UserGameWinRankListRespVO> selectUserGameWinRankList(Userwin userwin);
 }

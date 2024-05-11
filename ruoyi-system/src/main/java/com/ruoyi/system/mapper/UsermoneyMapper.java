@@ -4,6 +4,8 @@ import java.util.List;
 import com.ruoyi.system.domain.Usermoney;
 import com.ruoyi.system.domain.vo.PostalListRespVO;
 import com.ruoyi.system.domain.vo.RechargeListRespVO;
+import com.ruoyi.system.domain.vo.UserMoneyDownTotalListRespVO;
+import com.ruoyi.system.domain.vo.UserMoneyUpTotalListRespVO;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -74,4 +76,8 @@ public interface UsermoneyMapper
     public List<PostalListRespVO> selectPostalList(@Param("userId") Long userId,@Param("filterDate") String filterDate,@Param("postalStatus") String postalStatus);
 
     public List<RechargeListRespVO> selectRechargeList(@Param("userId") Long userId, @Param("filterDate") String filterDate, @Param("rechargeStatus") String rechargeStatus);
+
+    public List<UserMoneyUpTotalListRespVO> selectUserMoneyUpTotalList(Usermoney usermoney);
+
+    public List<UserMoneyDownTotalListRespVO> selectUserMoneyDownTotalList(Usermoney usermoney);
 }

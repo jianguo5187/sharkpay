@@ -2,6 +2,8 @@ package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,5 +102,15 @@ public class UserwinController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(userwinService.deleteUserwinByIds(ids));
+    }
+
+
+
+    @GetMapping("/listUserTotalRank")
+    public TableDataInfo listUserTotalRank(Userwin userwin)
+    {
+        startPage();
+        List<UserTotalRankListRespVO> list = userwinService.selectUserTotalRankList(userwin);
+        return getDataTable(list);
     }
 }

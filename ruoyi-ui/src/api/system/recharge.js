@@ -35,3 +35,11 @@ export function adminRecharge(data) {
     data: data
   })
 }
+
+export function listUserMoneyUpTotal(query) {
+  return request({
+    url: '/system/usermoney/listUserMoneyUpTotal',
+    method: 'get',
+    params: query
+  })
+}

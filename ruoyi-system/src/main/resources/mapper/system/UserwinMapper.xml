@@ -15,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="otherMoney"    column="other_money"    />
         <result property="combinationMoney"    column="combination_money"    />
         <result property="deductMoney"    column="deduct_money"    />
+        <result property="cashBackMoney"    column="cash_back_money"    />
         <result property="isDelete"    column="is_delete"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
@@ -29,8 +30,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="winMoney"    column="win_money"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.UserGameWinRankListRespVO" id="UserGameWinRankListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameMarkId"    column="game_mark_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="userAmount"    column="user_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="bigSmallMoney"    column="big_small_money"    />
+        <result property="otherMoney"    column="other_money"    />
+        <result property="combinationMoney"    column="combination_money"    />
+        <result property="deductMoney"    column="deduct_money"    />
+        <result property="cashBackMoney"    column="cash_back_money"    />
+    </resultMap>
+
     <sql id="selectUserwinVo">
-        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
+        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, cash_back_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
     </sql>
 
     <select id="selectUserwinList" parameterType="Userwin" resultMap="UserwinResult">
@@ -45,6 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="otherMoney != null "> and other_money = #{otherMoney}</if>
             <if test="combinationMoney != null "> and combination_money = #{combinationMoney}</if>
             <if test="deductMoney != null "> and deduct_money = #{deductMoney}</if>
+            <if test="cashBackMoney != null "> and cash_back_money = #{cashBackMoney}</if>
             <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
         </where>
     </select>
@@ -74,6 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="otherMoney != null">other_money,</if>
             <if test="combinationMoney != null">combination_money,</if>
             <if test="deductMoney != null">deduct_money,</if>
+            <if test="cashBackMoney != null">cash_back_money,</if>
             <if test="isDelete != null and isDelete != ''">is_delete,</if>
             <if test="createBy != null">create_by,</if>
         win_time,
@@ -87,6 +107,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="otherMoney != null">#{otherMoney},</if>
             <if test="combinationMoney != null">#{combinationMoney},</if>
             <if test="deductMoney != null">#{deductMoney},</if>
+            <if test="cashBackMoney != null">#{cashBackMoney},</if>
             <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
             <if test="createBy != null">#{createBy},</if>
         CURDATE(),
@@ -102,6 +123,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="otherMoney != null">other_money = #{otherMoney},</if>
             <if test="combinationMoney != null">combination_money = #{combinationMoney},</if>
             <if test="deductMoney != null">deduct_money = #{deductMoney},</if>
+            <if test="cashBackMoney != null">cash_back_money = #{cashBackMoney},</if>
             <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
@@ -164,5 +186,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         AND
             DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
         <if test="gameId != null "> and game_id = #{gameId}</if>
+    </select>
+
+    <select id="selectUserGameWinRankList" parameterType="Userwin" resultMap="UserGameWinRankListResult">
+        SELECT
+             uw.user_id as user_id
+            ,max(u.nick_name) as nick_name
+            ,max(u.real_name) as real_name
+            ,max(u.amount) as user_money
+            ,uw.win_time as win_time
+            ,uw.game_id as game_id
+            ,max(uw.game_name) as game_name
+            ,max(g.game_mark_id) as game_mark_id
+            ,SUM(uw.win_money) AS win_money
+            ,SUM(uw.big_small_money) AS big_small_money
+            ,SUM(uw.other_money) AS other_money
+            ,SUM(uw.combination_money) AS combination_money
+            ,SUM(uw.deduct_money) AS deduct_money
+            ,SUM(uw.cash_back_money) AS cash_back_money
+        FROM userwin uw
+        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_game g on g.game_id = uw.game_id
+        WHERE
+            1 = 1
+            <if test="userId != null "> and uw.user_id = #{userId}</if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+        GROUP BY uw.user_id,uw.win_time,uw.game_id
     </select>
 </mapper>

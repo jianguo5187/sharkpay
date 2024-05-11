@@ -57,9 +57,16 @@ public class Userwin extends BaseEntity
     @Excel(name = "扣除金额")
     private Float deductMoney;
 
+    /** 反水金额 */
+    @Excel(name = "反水金额")
+    private Float cashBackMoney;
+
     /** 是否删除(0否 1是) */
     @Excel(name = "是否删除(0否 1是)")
     private String isDelete;
+
+    /** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限） */
+    private String dataScope;
 
     public void setId(Long id)
     {
@@ -150,6 +157,14 @@ public class Userwin extends BaseEntity
         this.deductMoney = deductMoney;
     }
 
+    public Float getCashBackMoney() {
+        return cashBackMoney;
+    }
+
+    public void setCashBackMoney(Float cashBackMoney) {
+        this.cashBackMoney = cashBackMoney;
+    }
+
     public void setIsDelete(String isDelete)
     {
         this.isDelete = isDelete;
@@ -159,6 +174,15 @@ public class Userwin extends BaseEntity
     {
         return isDelete;
     }
+
+    public String getDataScope() {
+        return dataScope;
+    }
+
+    public void setDataScope(String dataScope) {
+        this.dataScope = dataScope;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -172,6 +196,7 @@ public class Userwin extends BaseEntity
             .append("otherMoney", getOtherMoney())
             .append("combinationMoney", getCombinationMoney())
             .append("deductMoney", getDeductMoney())
+            .append("cashBackMoney", getCashBackMoney())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

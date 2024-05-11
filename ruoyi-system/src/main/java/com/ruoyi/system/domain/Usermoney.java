@@ -86,6 +86,9 @@ public class Usermoney extends BaseEntity
     @Excel(name = "是否合庄模式")
     private String hzId;
 
+    /** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限） */
+    private String dataScope;
+
     public void setId(Long id)
     {
         this.id = id;
@@ -238,6 +241,14 @@ public class Usermoney extends BaseEntity
     public String getHzId() 
     {
         return hzId;
+    }
+
+    public String getDataScope() {
+        return dataScope;
+    }
+
+    public void setDataScope(String dataScope) {
+        this.dataScope = dataScope;
     }
 
     @Override

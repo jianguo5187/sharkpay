@@ -55,6 +55,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.UserMoneyUpTotalListRespVO" id="UserMoneyUpTotalListResult">
+        <result property="userId"       column="user_id"      />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="cashMoney"    column="cash_money"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.UserMoneyDownTotalListRespVO" id="UserMoneyDownTotalListResult">
+        <result property="userId"       column="user_id"      />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="cashMoney"    column="cash_money"    />
+    </resultMap>
+
     <sql id="selectUsermoneyVo">
         select id, user_id, cash_content, cash_time, cash_money, type, user_balance, union_pay_id, user_name, user_pay, user_account, cash_describe, game_id, game_name, house, is_delete, hz_id, create_by, create_time, update_by, update_time, remark from usermoney
     </sql>
@@ -223,7 +237,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,um.user_account as user_account
             ,um.remark as remark
         from  usermoney um
-        left join sys_user u on u.user_id = um.user_id
+        inner join sys_user u on u.user_id = um.user_id
         where 1 = 1
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="filterDate != null and filterDate != ''">
@@ -247,7 +261,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,um.user_account as user_account
             ,um.remark as remark
         from  usermoney um
-        left join sys_user u on u.user_id = um.user_id
+        inner join sys_user u on u.user_id = um.user_id
         where 1 = 1
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="filterDate != null and filterDate != ''">
@@ -256,5 +270,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="rechargeStatus != null "> and um.type = #{rechargeStatus}</if>
         <if test="rechargeStatus == null "> and um.type in('1','2','3')</if>
         order by um.cash_time desc,um.id desc
+    </select>
+
+    <select id="selectUserMoneyUpTotalList" parameterType="Usermoney" resultMap="UserMoneyUpTotalListResult">
+        select
+             u.user_id as user_id
+            ,max(u.nick_name) as nick_name
+            ,max(u.real_name) as real_name
+            ,sum(um.cash_money) as cash_money
+        from  usermoney um
+        inner join sys_user u on u.user_id = um.user_id
+        where um.type = '2'
+        <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        group by u.user_id
+    </select>
+
+    <select id="selectUserMoneyDownTotalList" parameterType="Usermoney" resultMap="UserMoneyDownTotalListResult">
+        select
+             u.user_id as user_id
+            ,max(u.nick_name) as nick_name
+            ,max(u.real_name) as real_name
+            ,sum(um.cash_money) as cash_money
+        from  usermoney um
+        inner join sys_user u on u.user_id = um.user_id
+        where um.type = '5'
+        <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        group by u.user_id
     </select>
 </mapper>

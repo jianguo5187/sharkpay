@@ -35,3 +35,11 @@ export function adminPostal(data) {
     data: data
   })
 }
+
+export function listUserMoneyDownTotal(query) {
+  return request({
+    url: '/system/usermoney/listUserMoneyDownTotal',
+    method: 'get',
+    params: query
+  })
+}

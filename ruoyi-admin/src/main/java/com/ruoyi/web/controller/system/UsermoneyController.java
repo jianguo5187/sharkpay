@@ -187,4 +187,20 @@ public class UsermoneyController extends BaseController
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         return toAjax(usermoneyService.adminPostal(usermoney,sessionUser.getUserId()));
     }
+
+    @GetMapping("/listUserMoneyUpTotal")
+    public TableDataInfo listUserMoneyUpTotal(Usermoney usermoney)
+    {
+        startPage();
+        List<UserMoneyUpTotalListRespVO> list = usermoneyService.selectUserMoneyUpTotalList(usermoney);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/listUserMoneyDownTotal")
+    public TableDataInfo listUserMoneyDownTotal(Usermoney usermoney)
+    {
+        startPage();
+        List<UserMoneyDownTotalListRespVO> list = usermoneyService.selectUserMoneyDownTotalList(usermoney);
+        return getDataTable(list);
+    }
 }

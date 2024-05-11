@@ -1,10 +1,6 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
-<!--      <el-form-item label="用户ID" prop="userId">-->
-<!--        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">-->
-<!--        </el-input>-->
-<!--      </el-form-item>-->
       <el-form-item label="用户" prop="userId">
         <treeselect
           v-model="queryParams.userId"
@@ -14,25 +10,18 @@
           placeholder="请选择用户"
           style="width: 320px;"/>
       </el-form-item>
-      <el-form-item label="提现申请时间" prop="filterDate">
-        <el-date-picker v-model="queryParams.filterDate" format="yyyy-MM-dd" value-format="yyyy-MM-dd"
-                        :style="{width: '100%'}" placeholder="请选择提现申请时间" clearable></el-date-picker>
-      </el-form-item>
 
-      <el-form-item label="提现方式" prop="postalStatus">
-        <el-select
-          v-model="queryParams.postalStatus"
-          placeholder="提现方式"
-          clearable
+
+      <el-form-item label="筛选时间">
+        <el-date-picker
+          v-model="dateRange"
           style="width: 240px"
-        >
-          <el-option
-            v-for="dict in dict.type.sys_postal_status"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
+          value-format="yyyy-MM-dd"
+          type="daterange"
+          range-separator="-"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+        ></el-date-picker>
       </el-form-item>
 
       <el-form-item>
@@ -42,41 +31,42 @@
     </el-form>
 
     <el-row :gutter="10" class="mb8">
+      <el-col :span="1.5">
+        <el-button
+          type="primary"
+          plain
+          size="mini"
+          @click="handleTodayQuery"
+        >今日盈利</el-button>
+      </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="postalList" show-summary :summary-method="getSummaries">
-      <el-table-column label="订单编号" align="center" prop="id" />
+    <el-table v-loading="loading" :data="userTotalRankList" show-summary :summary-method="getSummaries">
       <el-table-column label="用户名" align="center" prop="userId">
         <template slot-scope="scope">
           <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
         </template>
       </el-table-column>
-<!--      <el-table-column label="备注" align="center" prop="remark" />-->
-      <el-table-column label="提现金额" align="center" prop="cashMoney" />
-      <el-table-column label="余额" align="center" prop="userBalance" />
-      <el-table-column label="申请时间" align="center" prop="cashTime" />
-      <el-table-column label="方式" align="center" prop="userAccount" />
-      <el-table-column label="备注" align="center" prop="remark" />
+      <el-table-column label="余额" align="center" prop="userAmount" />
+      <el-table-column
+        v-for="column in gameWinMoneyColumns"
+        :key="column.gameMarkId"
+        :prop="column.gameMarkId"
+        :label="column.gameName"
+        align="center" >
+      </el-table-column>
+      <el-table-column label="盈亏" align="center" prop="totalWinMoney" />
+      <el-table-column label="反水" align="center" prop="totalCashBackMoney" />
+      <el-table-column label="流水" align="center" prop="totalBetMoney" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.type == '5'">提现成功</span>
-          <span v-if="scope.row.type == '6'">提现失败</span>
           <el-button
             size="mini"
             type="success"
             icon="el-icon-edit"
-            v-if="scope.row.type == '4'"
-            @click="handleAgree(scope.row)"
-          >同意</el-button>
-          <el-button
-            type="danger"
-            plain
-            icon="el-icon-delete"
-            size="mini"
-            v-if="scope.row.type == '4'"
-            @click="handleCancel(scope.row)"
-          >拒绝</el-button>
+            @click="handleDetailList(scope.row)"
+          >详细</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -92,13 +82,14 @@
 </template>
 
 <script>
-import {agreeApply, refuseApply, listPostal} from "@/api/system/postal";
+import {listUserTotalRank} from "@/api/system/userWin";
 import {selectAllUser} from "@/api/system/user";
+import {getValidGame} from "@/api/system/game";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 export default {
-  name: "postal",
+  name: "userTotalRank",
   components: {Treeselect},
   dicts: ['sys_postal_status'],
   data() {
@@ -120,19 +111,21 @@ export default {
       // 总条数
       total: 0,
       // 投注机器人表格数据
-      postalList: [],
+      userTotalRankList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
       open: false,
       userListOptions:[],
+      // 游戏收益列表
+      gameWinMoneyColumns: [],
+      // 日期范围
+      dateRange: [],
       // 查询参数
       queryParams: {
         pageNum: 1,
         pageSize: 20,
         userId: null,
-        postalStatus: null,
-        filterDate: null,
       },
       // 表单参数
       form: {},
@@ -143,21 +136,22 @@ export default {
   },
   created() {
     this.getUserList();
+    this.getGameList();
   },
   mounted() {
     setInterval(this.getList, 15000); //每15s刷新列表
   },
   methods: {
+    getGameList(){
+      getValidGame().then(response => {
+        this.gameWinMoneyColumns = response.gameList;
+      });
+    },
     /** 查询投注机器人列表 */
     getList() {
       this.loading = true;
-      if(this.queryParams.settledFlg){
-        this.queryParams.settledFlgStr = "0";
-      }else{
-        this.queryParams.settledFlgStr = null;
-      }
-      listPostal(this.queryParams).then(response => {
-        this.postalList = response.rows;
+      listUserTotalRank(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+        this.userTotalRankList = response.rows;
         this.total = response.total;
         this.loading = false;
       });
@@ -187,39 +181,33 @@ export default {
       this.queryParams.pageNum = 1;
       this.getList();
     },
+    handleTodayQuery() {
+      this.queryParams.pageNum = 1;
+      this.getTodayTime();
+      this.getList();
+    },
+    getTodayTime() {
+      let isDate = new Date()
+      let sTime = `${isDate.getFullYear()}-${isDate.getMonth() + 1}-${isDate.getDate()}`
+      let eTime = `${isDate.getFullYear()}-${isDate.getMonth() + 1}-${isDate.getDate()}`
+      sTime = `${sTime}`
+      eTime = `${eTime}`
+      this.dateRange= [sTime, eTime] // 显示的默认时间
+    },
     /** 重置按钮操作 */
     resetQuery() {
       this.resetForm("queryForm");
       this.handleQuery();
     },
-    /** 同意按钮操作 */
-    handleAgree(row) {
-      this.$modal.confirmWithTilte('是否确定同意申请?','同意后不可恢复').then(function() {
-        return agreeApply({id:row.id});
-      }).then(() => {
-        this.getList();
-        this.$modal.msgSuccess("同意成功");
-      }).catch(() => {});
-    },
-    /** 拒绝按钮操作 */
-    handleCancel(row) {
-      this.$modal.confirmWithTilte('是否确定拒绝申请?','拒绝后不可恢复').then(function() {
-        return refuseApply({id:row.id});
-      }).then(() => {
-        this.getList();
-        this.$modal.msgSuccess("拒绝成功");
-      }).catch(() => {});
-    },
     // 合计 指定某一列添加合计
     getSummaries(param) {
-      console.log(param, "heji11111");
       const { columns, data } = param;
       const sums = [];
       columns.forEach((column, index) => {
         if (index === 0) {
           sums[index] = "合计";
           return;
-        } else if (column.property == "cashMoney") {
+        } else {
           //如果是经费（正常的加减法）
           const values = data.map((item) => Number(item[column.property]));
           console.log(values);
@@ -239,6 +227,9 @@ export default {
         }
       });
       return sums;
+    },
+    handleDetailList(row){
+
     },
   }
 };

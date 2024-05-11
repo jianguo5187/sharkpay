@@ -204,6 +204,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                 for(int i=0;i<cishu;i++){
 
                     num = numArg[random(1,numArg.length)-1];
+                    playType = playList.get(random(1,playList.size())-1);
 
                     BetRecord betrecord = new BetRecord();
                     betrecord.setUserId(0l);

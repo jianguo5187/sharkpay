@@ -2,6 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
 
 /**
  * 用户盈亏Service接口
@@ -60,4 +61,6 @@ public interface IUserwinService
     public int deleteUserwinById(Long id);
 
     public Userwin selectTodayUserwin(Long gameId,Long userId);
+
+    public List<UserTotalRankListRespVO> selectUserTotalRankList(Userwin userwin);
 }

@@ -2,10 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Usermoney;
-import com.ruoyi.system.domain.vo.PostalListReqVO;
-import com.ruoyi.system.domain.vo.PostalListRespVO;
-import com.ruoyi.system.domain.vo.RechargeListReqVO;
-import com.ruoyi.system.domain.vo.RechargeListRespVO;
+import com.ruoyi.system.domain.vo.*;
 
 /**
  * 用户资金流水Service接口
@@ -78,4 +75,8 @@ public interface IUsermoneyService
     public int adminRecharge(Usermoney usermoney, Long userId);
 
     public int adminPostal(Usermoney usermoney, Long userId);
+
+    public List<UserMoneyUpTotalListRespVO> selectUserMoneyUpTotalList(Usermoney usermoney);
+
+    public List<UserMoneyDownTotalListRespVO> selectUserMoneyDownTotalList(Usermoney usermoney);
 }
