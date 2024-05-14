@@ -1131,4 +1131,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="gameId != null "> and game_id = #{gameId}</if>
         limit 1
     </select>
+
+    <select id="selectUserDateList" resultMap="GameTenballRecordResult">
+        <include refid="selectGameTenballRecordVo"/>
+        where
+        status = '1'
+        <if test="userId != null "> and user_id = #{userId}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="filterDay != null and filterDay != ''">
+            and DATE_FORMAT(record_time, '%Y-%m-%d') = #{filterDay}
+        </if>
+    </select>
 </mapper>

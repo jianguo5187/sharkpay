@@ -73,4 +73,8 @@ public interface UserwinMapper
     public List<Userwin> selectUserWinListByDay(@Param("userId") Long userId,@Param("gameId") Long gameId,@Param("winTime") String winTime);
 
     public List<UserGameWinRankListRespVO> selectUserGameWinRankList(Userwin userwin);
+
+    public int selectUserGameWinDateCount(@Param("userId") Long userId, @Param("gameId") Long gameId, @Param("winTime") String winTime, @Param("betRecordTableName") String betRecordTableName);
+
+    public int updateUserDeductMoney(@Param("userId") Long userId, @Param("gameId") Long gameId, @Param("winTime") String winTime,@Param("plusFlg") String plusFlg,@Param("countMoney") Float countMoney);
 }

@@ -38,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="gameId"    column="game_id"    />
         <result property="gameMarkId"    column="game_mark_id"    />
         <result property="gameName"    column="game_name"    />
+        <result property="gameRecord"    column="game_record"    />
         <result property="userAmount"    column="user_money"    />
         <result property="winMoney"    column="win_money"    />
         <result property="bigSmallMoney"    column="big_small_money"    />
@@ -198,6 +199,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,uw.game_id as game_id
             ,max(uw.game_name) as game_name
             ,max(g.game_mark_id) as game_mark_id
+            ,max(g.game_record) as game_record
             ,SUM(uw.win_money) AS win_money
             ,SUM(uw.big_small_money) AS big_small_money
             ,SUM(uw.other_money) AS other_money
@@ -217,5 +219,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
             </if>
         GROUP BY uw.user_id,uw.win_time,uw.game_id
+        ORDER BY uw.win_time,uw.game_id
     </select>
+
+    <select id="selectUserGameWinDateCount" resultType="Integer">
+        select count(1)
+        from ${betRecordTableName}
+        where user_id=#{userId}
+        and game_id = #{gameId}
+        and DATE_FORMAT(record_time, '%Y%m%d') = #{winTime}
+    </select>
+
+    <update id="updateUserDeductMoney">
+        update userwin
+        set deduct_money = case when #{plusFlg} = '0' then deduct_money + #{countMoney} else deduct_money - #{countMoney} end
+        where user_id = #{userId}
+        and game_id = #{gameId}
+        and DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+    </update>
 </mapper>

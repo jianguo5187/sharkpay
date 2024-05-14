@@ -65,4 +65,6 @@ public interface GameTenballRecordMapper
     public int updateGameTenballRecordTotalAmountByPeriodId(GameTenballRecord gameTenballRecord);
 
     public RecordSumRespVo selectSumRecordByPeriodId(@Param("gameId") Long gameId, @Param("periods") Long periods);
+
+    public List<GameTenballRecord> selectUserDateList(@Param("gameId") Long gameId, @Param("userId") Long userId, @Param("filterDay") String filterDay);
 }

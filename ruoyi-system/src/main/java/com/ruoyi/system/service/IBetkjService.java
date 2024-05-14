@@ -36,4 +36,8 @@ public interface IBetkjService
 
     // 定时保存10球的官方开奖结果
     public void saveTenBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long , GameOpenDataDto> gameOpenDataDtoMap);
+
+    public List<BetUserWinRespVo> selectUserGameWinBetList(SysGame gameInfo, BetUserWinReqVO betUserWinReqVO);
+
+    public void betUserDeduct(BetUserDeductReqVO vo);
 }

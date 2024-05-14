@@ -2,6 +2,7 @@ package com.ruoyi.system.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.SysGameMapper;
@@ -54,6 +55,16 @@ public class SysGameServiceImpl implements ISysGameService
     public int insertSysGame(SysGame sysGame)
     {
         sysGame.setCreateTime(DateUtils.getNowDate());
+        if(StringUtils.equals(sysGame.getGameType(),"3")){
+            sysGame.setGameRecord("game_threeball_record");
+            sysGame.setGameKj("game_threeball_kj");
+        }else if(StringUtils.equals(sysGame.getGameType(),"5")){
+            sysGame.setGameRecord("game_fiveball_record");
+            sysGame.setGameKj("game_fiveball_kj");
+        }else{
+            sysGame.setGameRecord("game_tenball_record");
+            sysGame.setGameKj("game_tenball_kj");
+        }
         return sysGameMapper.insertSysGame(sysGame);
     }
 
@@ -67,6 +78,16 @@ public class SysGameServiceImpl implements ISysGameService
     public int updateSysGame(SysGame sysGame)
     {
         sysGame.setUpdateTime(DateUtils.getNowDate());
+        if(StringUtils.equals(sysGame.getGameType(),"3")){
+            sysGame.setGameRecord("game_threeball_record");
+            sysGame.setGameKj("game_threeball_kj");
+        }else if(StringUtils.equals(sysGame.getGameType(),"5")){
+            sysGame.setGameRecord("game_fiveball_record");
+            sysGame.setGameKj("game_fiveball_kj");
+        }else{
+            sysGame.setGameRecord("game_tenball_record");
+            sysGame.setGameKj("game_tenball_kj");
+        }
         return sysGameMapper.updateSysGame(sysGame);
     }
 

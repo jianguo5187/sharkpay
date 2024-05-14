@@ -28,4 +28,8 @@ public interface BetkjMapper
     public List<GameDetailRespVO> gameRecordDetail(@Param("gameId") Long gameId, @Param("betRecordTableName") String betRecordTableName, @Param("gameType") String gameType, @Param("userId") Long userId, @Param("periods") Long periods);
 
     public int clearGameRecode(@Param("gameId") Long gameId, @Param("betRecordTableName") String betRecordTableName, @Param("userId") Long userId);
+
+    public Float selectGameRecordCountMoneyById(@Param("betRecordTableName") String betRecordTableName, @Param("id") Long id);
+
+    public int updateGameRecordDeductType(@Param("betRecordTableName") String betRecordTableName, @Param("id") Long id,@Param("isDeduct") String isDeduct);
 }

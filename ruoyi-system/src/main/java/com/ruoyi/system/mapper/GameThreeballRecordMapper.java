@@ -66,4 +66,6 @@ public interface GameThreeballRecordMapper
     public int updateGameThreeballRecordTotalAmountByPeriodId(GameThreeballRecord gameThreeballRecord);
 
     public RecordSumRespVo selectSumRecordByPeriodId(@Param("gameId") Long gameId, @Param("periods") Long periods);
+
+    public List<GameThreeballRecord> selectUserDateList(@Param("gameId") Long gameId, @Param("userId") Long userId, @Param("filterDay") String filterDay);
 }

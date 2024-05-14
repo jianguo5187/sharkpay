@@ -35,3 +35,18 @@ export function handleLottery(data) {
   })
 }
 
+export function listUserWinGameBet(query) {
+  return request({
+    url: '/system/betkj/listUserWinGameBet',
+    method: 'get',
+    params: query
+  })
+}
+
+export function userDeduct(data) {
+  return request({
+    url: '/system/betkj/betUserDeduct',
+    method: 'post',
+    data: data
+  })
+}

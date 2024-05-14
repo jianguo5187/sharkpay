@@ -118,4 +118,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where game_id = #{gameId}
         <if test="userId != null"> and user_id = #{userId}</if>
     </update>
+
+    <select id="selectGameRecordCountMoneyById" resultType="Float">
+        select
+            count_money AS count_money
+        from ${betRecordTableName}
+        where id = #{id}
+    </select>
+
+    <update id="updateGameRecordDeductType">
+        update ${betRecordTableName}
+        set is_deduct = #{isDeduct}
+        where id = #{id}
+    </update>
 </mapper>

@@ -2,6 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
 import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
 
 /**
@@ -63,4 +64,6 @@ public interface IUserwinService
     public Userwin selectTodayUserwin(Long gameId,Long userId);
 
     public List<UserTotalRankListRespVO> selectUserTotalRankList(Userwin userwin);
+
+    public List<UserGameWinRankListRespVO> selectUserGameRankList(Userwin userwin);
 }

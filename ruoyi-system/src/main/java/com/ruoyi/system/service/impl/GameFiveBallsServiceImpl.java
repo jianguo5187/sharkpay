@@ -287,21 +287,21 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             allFiledMap.put((i+1)+"单","num"+i+"Single");
             allFiledMap.put((i+1)+"双","num"+i+"Double");
         }
-        allFiledMap.put("7豹","fBao");
-        allFiledMap.put("7对","fDui");
-        allFiledMap.put("7顺","fSun");
-        allFiledMap.put("7半","fBan");
-        allFiledMap.put("7杂","fZa");
-        allFiledMap.put("8豹","mBao");
-        allFiledMap.put("8对","mDui");
-        allFiledMap.put("8顺","mSun");
-        allFiledMap.put("8半","mBan");
-        allFiledMap.put("8杂","mZa");
-        allFiledMap.put("9豹","bBao");
-        allFiledMap.put("9对","bDui");
-        allFiledMap.put("9顺","bSun");
-        allFiledMap.put("9半","bBan");
-        allFiledMap.put("9杂","bZa");
+        allFiledMap.put("7豹","firstBao");
+        allFiledMap.put("7对","firstDui");
+        allFiledMap.put("7顺","firstSun");
+        allFiledMap.put("7半","firstBan");
+        allFiledMap.put("7杂","firstZa");
+        allFiledMap.put("8豹","midBao");
+        allFiledMap.put("8对","midDui");
+        allFiledMap.put("8顺","midSun");
+        allFiledMap.put("8半","midBan");
+        allFiledMap.put("8杂","midZa");
+        allFiledMap.put("9豹","backBao");
+        allFiledMap.put("9对","backDui");
+        allFiledMap.put("9顺","backSun");
+        allFiledMap.put("9半","backBan");
+        allFiledMap.put("9杂","backZa");
 
         checkBetFiveBallLimitAmount(gameFiveballRecord, vo.getNumber(), vo.getMoney(), vo.getType(), allFiledMap);
 

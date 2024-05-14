@@ -291,51 +291,51 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         List<Integer> bigDoubleList = Arrays.asList(12, 14, 16, 18);
         List<Integer> smallDoubleList = Arrays.asList(4, 6, 8, 10);
 
-        for(GameFiveballRecord GameFiveballRecord : GameFiveballRecordList){
+        for(GameFiveballRecord gameFiveballRecord : GameFiveballRecordList){
             Float money = 0f;
             Float bigSamllMoney = 0f;
             Float otherMoney = 0f;
 
-            Map<String, Object> GameFiveballRecordMap = EntityMapTransUtils.entityToMap1(GameFiveballRecord);
+            Map<String, Object> GameFiveballRecordMap = EntityMapTransUtils.entityToMap1(gameFiveballRecord);
             // 和值
             // 大1 小0 [小,大]
             // 大的金额计算
-            if(gameFiveballKj.getSumBs() == 1 && GameFiveballRecord.getSumBig() >0){
-                money += GameFiveballRecord.getSumBig() * getOddFromMapByOddKey(betItemMap,"sumBig");
-                bigSamllMoney += GameFiveballRecord.getSumBig() * getOddFromMapByOddKey(betItemMap,"sumBig");
+            if(gameFiveballKj.getSumBs() == 1 && gameFiveballRecord.getSumBig() >0){
+                money += gameFiveballRecord.getSumBig() * getOddFromMapByOddKey(betItemMap,"sumBig");
+                bigSamllMoney += gameFiveballRecord.getSumBig() * getOddFromMapByOddKey(betItemMap,"sumBig");
             }
             // 小的金额计算
-            if(gameFiveballKj.getSumBs() == 0 && GameFiveballRecord.getSumSmall() >0){
-                money += GameFiveballRecord.getSumSmall() * getOddFromMapByOddKey(betItemMap,"sumSmall");
-                bigSamllMoney += GameFiveballRecord.getSumSmall() * getOddFromMapByOddKey(betItemMap,"sumSmall");
+            if(gameFiveballKj.getSumBs() == 0 && gameFiveballRecord.getSumSmall() >0){
+                money += gameFiveballRecord.getSumSmall() * getOddFromMapByOddKey(betItemMap,"sumSmall");
+                bigSamllMoney += gameFiveballRecord.getSumSmall() * getOddFromMapByOddKey(betItemMap,"sumSmall");
             }
 
             // 双1 单0 [单,双]
             // 单的金额计算
-            if(gameFiveballKj.getSumSd() == 0 && GameFiveballRecord.getSumSingle() >0){
-                money += GameFiveballRecord.getSumSingle() * getOddFromMapByOddKey(betItemMap,"sumSingle");
-                bigSamllMoney += GameFiveballRecord.getSumSingle() * getOddFromMapByOddKey(betItemMap,"sumSingle");
+            if(gameFiveballKj.getSumSd() == 0 && gameFiveballRecord.getSumSingle() >0){
+                money += gameFiveballRecord.getSumSingle() * getOddFromMapByOddKey(betItemMap,"sumSingle");
+                bigSamllMoney += gameFiveballRecord.getSumSingle() * getOddFromMapByOddKey(betItemMap,"sumSingle");
             }
             // 双的金额计算
-            if(gameFiveballKj.getSumSd() == 1 && GameFiveballRecord.getSumDouble() >0){
-                money += GameFiveballRecord.getSumDouble() * getOddFromMapByOddKey(betItemMap,"sumDouble");
-                bigSamllMoney += GameFiveballRecord.getSumDouble() * getOddFromMapByOddKey(betItemMap,"sumDouble");
+            if(gameFiveballKj.getSumSd() == 1 && gameFiveballRecord.getSumDouble() >0){
+                money += gameFiveballRecord.getSumDouble() * getOddFromMapByOddKey(betItemMap,"sumDouble");
+                bigSamllMoney += gameFiveballRecord.getSumDouble() * getOddFromMapByOddKey(betItemMap,"sumDouble");
             }
 
             // 龙2 虎1 和0 [和,虎,龙]
             // 龙的金额计算
-            if(gameFiveballKj.getSumLts() == 2 && GameFiveballRecord.getSumLoong() >0){
-                money += GameFiveballRecord.getSumLoong() * getOddFromMapByOddKey(betItemMap,"sumLoong");
+            if(gameFiveballKj.getSumLts() == 2 && gameFiveballRecord.getSumLoong() >0){
+                money += gameFiveballRecord.getSumLoong() * getOddFromMapByOddKey(betItemMap,"sumLoong");
             }
 
             // 虎的金额计算
-            if(gameFiveballKj.getSumLts() == 1 && GameFiveballRecord.getSumTiger() >0){
-                money += GameFiveballRecord.getSumTiger() * getOddFromMapByOddKey(betItemMap,"sumTiger");
+            if(gameFiveballKj.getSumLts() == 1 && gameFiveballRecord.getSumTiger() >0){
+                money += gameFiveballRecord.getSumTiger() * getOddFromMapByOddKey(betItemMap,"sumTiger");
             }
 
             // 和的金额计算
-            if(gameFiveballKj.getSumLts() == 0 && GameFiveballRecord.getSumSum() >0){
-                money += GameFiveballRecord.getSumSum() * getOddFromMapByOddKey(betItemMap,"sumSum");
+            if(gameFiveballKj.getSumLts() == 0 && gameFiveballRecord.getSumSum() >0){
+                money += gameFiveballRecord.getSumSum() * getOddFromMapByOddKey(betItemMap,"sumSum");
             }
 
             // 球1~5
@@ -394,74 +394,74 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
 
             // 前三
             // 杂六4 半顺3 顺2 对1 豹0 [豹,对,顺,半顺,杂六]
-            if(gameFiveballKj.getNumF() == 0 && GameFiveballRecord.getFirstBan() >0){
-                money += GameFiveballRecord.getFirstBan() * getOddFromMapByOddKey(betItemMap,"fBao");
+            if(gameFiveballKj.getNumF() == 0 && gameFiveballRecord.getFirstBao() >0){
+                money += gameFiveballRecord.getFirstBao() * getOddFromMapByOddKey(betItemMap,"fBao");
             }
-            if(gameFiveballKj.getNumF() == 1 && GameFiveballRecord.getFirstDui() >0){
-                money += GameFiveballRecord.getFirstDui() * getOddFromMapByOddKey(betItemMap,"fDui");
+            if(gameFiveballKj.getNumF() == 1 && gameFiveballRecord.getFirstDui() >0){
+                money += gameFiveballRecord.getFirstDui() * getOddFromMapByOddKey(betItemMap,"fDui");
             }
-            if(gameFiveballKj.getNumF() == 2 && GameFiveballRecord.getFirstSun() >0){
-                money += GameFiveballRecord.getFirstSun() * getOddFromMapByOddKey(betItemMap,"fSun");
+            if(gameFiveballKj.getNumF() == 2 && gameFiveballRecord.getFirstSun() >0){
+                money += gameFiveballRecord.getFirstSun() * getOddFromMapByOddKey(betItemMap,"fSun");
             }
-            if(gameFiveballKj.getNumF() == 3 && GameFiveballRecord.getFirstBan() >0){
-                money += GameFiveballRecord.getFirstBan() * getOddFromMapByOddKey(betItemMap,"fBan");
+            if(gameFiveballKj.getNumF() == 3 && gameFiveballRecord.getFirstBan() >0){
+                money += gameFiveballRecord.getFirstBan() * getOddFromMapByOddKey(betItemMap,"fBan");
             }
-            if(gameFiveballKj.getNumF() == 4 && GameFiveballRecord.getFirstZa() >0){
-                money += GameFiveballRecord.getFirstZa() * getOddFromMapByOddKey(betItemMap,"fZa");
+            if(gameFiveballKj.getNumF() == 4 && gameFiveballRecord.getFirstZa() >0){
+                money += gameFiveballRecord.getFirstZa() * getOddFromMapByOddKey(betItemMap,"fZa");
             }
 
             // 中三
             // 杂六4 半顺3 顺2 对1 豹0 [豹,对,顺,半顺,杂六]
-            if(gameFiveballKj.getNumM() == 0 && GameFiveballRecord.getMidBan() >0){
-                money += GameFiveballRecord.getMidBan() * getOddFromMapByOddKey(betItemMap,"mBao");
+            if(gameFiveballKj.getNumM() == 0 && gameFiveballRecord.getMidBao() >0){
+                money += gameFiveballRecord.getMidBao() * getOddFromMapByOddKey(betItemMap,"mBao");
             }
-            if(gameFiveballKj.getNumM() == 1 && GameFiveballRecord.getMidDui() >0){
-                money += GameFiveballRecord.getMidDui() * getOddFromMapByOddKey(betItemMap,"mDui");
+            if(gameFiveballKj.getNumM() == 1 && gameFiveballRecord.getMidDui() >0){
+                money += gameFiveballRecord.getMidDui() * getOddFromMapByOddKey(betItemMap,"mDui");
             }
-            if(gameFiveballKj.getNumM() == 2 && GameFiveballRecord.getMidSun() >0){
-                money += GameFiveballRecord.getMidSun() * getOddFromMapByOddKey(betItemMap,"mSun");
+            if(gameFiveballKj.getNumM() == 2 && gameFiveballRecord.getMidSun() >0){
+                money += gameFiveballRecord.getMidSun() * getOddFromMapByOddKey(betItemMap,"mSun");
             }
-            if(gameFiveballKj.getNumM() == 3 && GameFiveballRecord.getMidBan() >0){
-                money += GameFiveballRecord.getMidBan() * getOddFromMapByOddKey(betItemMap,"mBan");
+            if(gameFiveballKj.getNumM() == 3 && gameFiveballRecord.getMidBan() >0){
+                money += gameFiveballRecord.getMidBan() * getOddFromMapByOddKey(betItemMap,"mBan");
             }
-            if(gameFiveballKj.getNumM() == 4 && GameFiveballRecord.getMidZa() >0){
-                money += GameFiveballRecord.getMidZa() * getOddFromMapByOddKey(betItemMap,"mZa");
+            if(gameFiveballKj.getNumM() == 4 && gameFiveballRecord.getMidZa() >0){
+                money += gameFiveballRecord.getMidZa() * getOddFromMapByOddKey(betItemMap,"mZa");
             }
 
             // 后三
             // 杂六4 半顺3 顺2 对1 豹0 [豹,对,顺,半顺,杂六]
-            if(gameFiveballKj.getNumB() == 0 && GameFiveballRecord.getBackBan() >0){
-                money += GameFiveballRecord.getBackBan() * getOddFromMapByOddKey(betItemMap,"bBao");
+            if(gameFiveballKj.getNumB() == 0 && gameFiveballRecord.getBackBao() >0){
+                money += gameFiveballRecord.getBackBao() * getOddFromMapByOddKey(betItemMap,"bBao");
             }
-            if(gameFiveballKj.getNumB() == 1 && GameFiveballRecord.getBackDui() >0){
-                money += GameFiveballRecord.getBackDui() * getOddFromMapByOddKey(betItemMap,"bDui");
+            if(gameFiveballKj.getNumB() == 1 && gameFiveballRecord.getBackDui() >0){
+                money += gameFiveballRecord.getBackDui() * getOddFromMapByOddKey(betItemMap,"bDui");
             }
-            if(gameFiveballKj.getNumB() == 2 && GameFiveballRecord.getBackSun() >0){
-                money += GameFiveballRecord.getBackSun() * getOddFromMapByOddKey(betItemMap,"bSun");
+            if(gameFiveballKj.getNumB() == 2 && gameFiveballRecord.getBackSun() >0){
+                money += gameFiveballRecord.getBackSun() * getOddFromMapByOddKey(betItemMap,"bSun");
             }
-            if(gameFiveballKj.getNumB() == 3 && GameFiveballRecord.getBackBan() >0){
-                money += GameFiveballRecord.getBackBan() * getOddFromMapByOddKey(betItemMap,"bBan");
+            if(gameFiveballKj.getNumB() == 3 && gameFiveballRecord.getBackBan() >0){
+                money += gameFiveballRecord.getBackBan() * getOddFromMapByOddKey(betItemMap,"bBan");
             }
-            if(gameFiveballKj.getNumB() == 4 && GameFiveballRecord.getBackZa() >0){
-                money += GameFiveballRecord.getBackZa() * getOddFromMapByOddKey(betItemMap,"ba");
+            if(gameFiveballKj.getNumB() == 4 && gameFiveballRecord.getBackZa() >0){
+                money += gameFiveballRecord.getBackZa() * getOddFromMapByOddKey(betItemMap,"ba");
             }
 
             otherMoney = money - bigSamllMoney;
 
-            SysUser user = sysUserService.selectUserById(GameFiveballRecord.getUserId());
-            user.setScore(user.getScore() + GameFiveballRecord.getCountMoney());
+            SysUser user = sysUserService.selectUserById(gameFiveballRecord.getUserId());
+            user.setScore(user.getScore() + gameFiveballRecord.getCountMoney());
             if(money > 0){
                 user.setAmount(user.getAmount() + money);
             }
             sysUserService.updateUserAmount(user);
 
-            Userwin userwin = userwinService.selectTodayUserwin(gameInfo.getGameId(),GameFiveballRecord.getUserId());
+            Userwin userwin = userwinService.selectTodayUserwin(gameInfo.getGameId(),gameFiveballRecord.getUserId());
             if(userwin == null){
                 userwin = new Userwin();
                 userwin.setGameId(gameInfo.getGameId());
                 userwin.setGameName(gameInfo.getGameName());
-                userwin.setUserId(GameFiveballRecord.getUserId());
-                userwin.setWinMoney(money - GameFiveballRecord.getCountMoney());
+                userwin.setUserId(gameFiveballRecord.getUserId());
+                userwin.setWinMoney(money - gameFiveballRecord.getCountMoney());
                 userwin.setBigSmallMoney(bigSamllMoney);
                 userwin.setOtherMoney(otherMoney);
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
@@ -469,28 +469,28 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 userwinService.insertUserwin(userwin);
             }else{
 
-                userwin.setWinMoney(userwin.getWinMoney() + (money - GameFiveballRecord.getCountMoney()));
+                userwin.setWinMoney(userwin.getWinMoney() + (money - gameFiveballRecord.getCountMoney()));
                 userwin.setBigSmallMoney(userwin.getBigSmallMoney() + bigSamllMoney);
                 userwin.setOtherMoney(userwin.getOtherMoney() + otherMoney);
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
                 userwinService.updateUserwin(userwin);
             }
 
-            GameFiveballRecord.setWinMoney(money);
-            GameFiveballRecord.setStatus("1");
-            GameFiveballRecord.setNum1(gameFiveballKj.getNum1());
-            GameFiveballRecord.setNum2(gameFiveballKj.getNum2());
-            GameFiveballRecord.setNum3(gameFiveballKj.getNum3());
-            GameFiveballRecord.setNum4(gameFiveballKj.getNum4());
-            GameFiveballRecord.setNum5(gameFiveballKj.getNum5());
-            GameFiveballRecord.setSum(gameFiveballKj.getSum());
-            GameFiveballRecord.setUpdateBy("lotteryGameFiveballOpenData");
+            gameFiveballRecord.setWinMoney(money);
+            gameFiveballRecord.setStatus("1");
+            gameFiveballRecord.setNum1(gameFiveballKj.getNum1());
+            gameFiveballRecord.setNum2(gameFiveballKj.getNum2());
+            gameFiveballRecord.setNum3(gameFiveballKj.getNum3());
+            gameFiveballRecord.setNum4(gameFiveballKj.getNum4());
+            gameFiveballRecord.setNum5(gameFiveballKj.getNum5());
+            gameFiveballRecord.setSum(gameFiveballKj.getSum());
+            gameFiveballRecord.setUpdateBy("lotteryGameFiveballOpenData");
 
-            gameFiveballRecordService.updateGameFiveballRecord(GameFiveballRecord);
+            gameFiveballRecordService.updateGameFiveballRecord(gameFiveballRecord);
 
             if(money > 0){
                 Usermoney usermoney = new Usermoney();
-                usermoney.setUserId(GameFiveballRecord.getUserId());
+                usermoney.setUserId(gameFiveballRecord.getUserId());
                 usermoney.setCashContent("【澳洲幸运10】中奖-" + periodId);
                 usermoney.setCashMoney(money);
                 usermoney.setUserBalance(user.getAmount());
@@ -500,11 +500,11 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 usermoneyService.insertUsermoney(usermoney);
             }
 
-            adminWinMoney += GameFiveballRecord.getCountMoney() - money;
-            Float accountResult = money - GameFiveballRecord.getCountMoney();
+            adminWinMoney += gameFiveballRecord.getCountMoney() - money;
+            Float accountResult = money - gameFiveballRecord.getCountMoney();
 
             BetRecord betRecord = new BetRecord();
-            betRecord.setUserId(GameFiveballRecord.getUserId());
+            betRecord.setUserId(gameFiveballRecord.getUserId());
             betRecord.setGameId(gameInfo.getGameId());
             betRecord.setPeriods(periodId);
             betRecord.setSettleFlg("0");

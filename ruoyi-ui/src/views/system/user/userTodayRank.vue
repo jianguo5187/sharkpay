@@ -78,15 +78,85 @@
       :limit.sync="queryParams.pageSize"
       @pagination="getList"
     />
+
+    <el-dialog :title="title" :visible.sync="open" width="1400px" append-to-body>
+      <el-table v-loading="loading" :data="userGameRankList">
+        <el-table-column label="日期" align="center" prop="winTime" />
+        <el-table-column label="游戏名" align="center" prop="gameName" />
+        <el-table-column label="投注期数" align="center" prop="recordCount" />
+        <el-table-column label="盈亏" align="center" prop="winMoney" />
+        <el-table-column label="流水" align="center" prop="totalBetMoney" />
+        <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+          <template slot-scope="scope">
+            <el-button
+              size="mini"
+              type="success"
+              icon="el-icon-edit"
+              @click="handleDateDetailList(scope.row)"
+            >详细</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <pagination
+        v-show="userGameWintotal>0"
+        :total="userGameWintotal"
+        :page.sync="dialogUserGameWinQueryParams.pageNum"
+        :limit.sync="dialogUserGameWinQueryParams.pageSize"
+        @pagination="handleDetailList"
+      />
+    </el-dialog>
+
+    <el-dialog :title="dateUserWinTitle" :visible.sync="dateUserWinOpen" width="1200px" append-to-body>
+      <el-table v-loading="loading" :data="dateUserGameRankList">
+        <el-table-column label="日期" align="center" prop="betOpenTime" />
+        <el-table-column label="游戏名" align="center" prop="gameName" />
+        <el-table-column label="期数" align="center" prop="periods" />
+        <el-table-column label="开奖号码" align="center" prop="openResult" />
+        <el-table-column label="投注号码" align="center" prop="betResult">
+          <template slot-scope="scope">
+            <div v-html="scope.row.betResult"></div>
+          </template>
+        </el-table-column>
+        <el-table-column label="投注金额" align="center" prop="countMoney" />
+        <el-table-column label="中奖金额" align="center" prop="winMoney" />
+        <el-table-column label="盈亏" align="center" prop="resultMoney" />
+        <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+          <template slot-scope="scope">
+            <el-button
+              size="mini"
+              type="danger"
+              v-if="scope.row.isDeduct == 0"
+              @click="handleUserDeduct(scope.row,'1')"
+            >扣除</el-button>
+            <el-button
+              size="mini"
+              type="warning"
+              v-else
+              @click="handleUserDeduct(scope.row,'0')"
+            >取消</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <pagination
+        v-show="dateUserGameWintotal>0"
+        :total="dateUserGameWintotal"
+        :page.sync="dateUserGameWinQueryParams.pageNum"
+        :limit.sync="dateUserGameWinQueryParams.pageSize"
+        @pagination="handleDetailList"
+      />
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import {listUserTotalRank} from "@/api/system/userWin";
+import {listUserGameRank, listUserTotalRank} from "@/api/system/userWin";
 import {selectAllUser} from "@/api/system/user";
 import {getValidGame} from "@/api/system/game";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+import {listUserWinGameBet, userDeduct} from "@/api/system/betkj";
 
 export default {
   name: "userTotalRank",
@@ -110,12 +180,16 @@ export default {
       showSearch: true,
       // 总条数
       total: 0,
-      // 投注机器人表格数据
+      // 用户盈利表格数据
       userTotalRankList: [],
+      userGameRankList: [],
+      dateUserGameRankList: [],
       // 弹出层标题
       title: "",
+      dateUserWinTitle: "",
       // 是否显示弹出层
       open: false,
+      dateUserWinOpen: false,
       userListOptions:[],
       // 游戏收益列表
       gameWinMoneyColumns: [],
@@ -126,6 +200,22 @@ export default {
         pageNum: 1,
         pageSize: 20,
         userId: null,
+      },
+      // 总条数
+      userGameWintotal: 0,
+      dialogUserGameWinQueryParams: {
+        pageNum: 1,
+        pageSize: 20,
+        userId: null,
+      },
+      // 总条数
+      dateUserGameWintotal: 0,
+      dateUserGameWinQueryParams: {
+        pageNum: 1,
+        pageSize: 20,
+        userId: null,
+        gameId: null,
+        recordTime: null,
       },
       // 表单参数
       form: {},
@@ -138,9 +228,9 @@ export default {
     this.getUserList();
     this.getGameList();
   },
-  mounted() {
-    setInterval(this.getList, 15000); //每15s刷新列表
-  },
+  // mounted() {
+  //   setInterval(this.getList, 15000); //每15s刷新列表
+  // },
   methods: {
     getGameList(){
       getValidGame().then(response => {
@@ -210,7 +300,7 @@ export default {
         } else {
           //如果是经费（正常的加减法）
           const values = data.map((item) => Number(item[column.property]));
-          console.log(values);
+          // console.log(values);
           if (!values.every((value) => isNaN(value))) {
             sums[index] = values.reduce((prev, curr) => {
               const value = Number(curr);
@@ -229,7 +319,48 @@ export default {
       return sums;
     },
     handleDetailList(row){
-
+      this.open = true;
+      this.title = "彩种详情";
+      this.dialogUserGameWinQueryParams.userId = row.userId;
+      this.dialogUserGameWinQueryParams.pageNum = 1;
+      listUserGameRank(this.addDateRange(this.dialogUserGameWinQueryParams, this.dateRange)).then(response => {
+        this.userGameRankList = response.rows;
+        this.userGameWintotal = response.total;
+      });
+    },
+    handleDateDetailList(row){
+      this.dateUserWinOpen = true;
+      this.dateUserWinTitle = "彩种详情";
+      this.dateUserGameWinQueryParams.userId = row.userId;
+      this.dateUserGameWinQueryParams.gameId = row.gameId;
+      this.dateUserGameWinQueryParams.recordTime = row.winTime;
+      this.dateUserGameWinQueryParams.pageNum = 1;
+      this.dateUserGameRankList = null;
+      this.getDateDetailList();
+    },
+    getDateDetailList(){
+      listUserWinGameBet(this.dateUserGameWinQueryParams).then(response => {
+        this.dateUserGameRankList = response.rows;
+        this.dateUserGameWintotal = response.total;
+      });
+    },
+    handleUserDeduct(row,type){
+      var content = '确认扣除用户当期流水?';
+      if (type == 0) {
+        content = '确认解除用户当期流水?';
+      }
+      console.log('handleUserDeduct');
+      this.$modal.confirm(content).then(function() {
+        return userDeduct({betRecordId:row.betRecordId,
+                              gameId:row.gameId,
+                              userId:row.userId,
+                              recordTime:row.betOpenTime,
+                              isDeduct:type}
+        );
+      }).then(() => {
+        this.$modal.msgSuccess("操作成功");
+        this.getDateDetailList();
+      }).catch(() => {});
     },
   }
 };

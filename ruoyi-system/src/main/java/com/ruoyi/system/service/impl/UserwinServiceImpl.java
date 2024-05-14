@@ -1,9 +1,7 @@
 package com.ruoyi.system.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.ruoyi.common.utils.DateUtils;
@@ -11,6 +9,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.vo.UserGameTotalRankListRespVO;
 import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
 import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
+import com.ruoyi.system.service.ISysGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.UserwinMapper;
@@ -28,6 +27,8 @@ public class UserwinServiceImpl implements IUserwinService
 {
     @Autowired
     private UserwinMapper userwinMapper;
+    @Autowired
+    private ISysGameService sysGameService;
 
     /**
      * 查询用户盈亏
@@ -195,5 +196,17 @@ public class UserwinServiceImpl implements IUserwinService
         }
 
         return respVO;
+    }
+
+    @Override
+    public List<UserGameWinRankListRespVO> selectUserGameRankList(Userwin userwin) {
+        SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
+
+        return userwinMapper.selectUserGameWinRankList(userwin).stream().map(f->{
+            f.setTotalBetMoney(f.getBigSmallMoney() + f.getOtherMoney() - f.getDeductMoney());
+            String winTime = sd.format(f.getWinTime());
+            f.setRecordCount(userwinMapper.selectUserGameWinDateCount(f.getUserId(), f.getGameId(), winTime, f.getGameRecord()));
+            return f;
+        }).collect(Collectors.toList());
     }
 }

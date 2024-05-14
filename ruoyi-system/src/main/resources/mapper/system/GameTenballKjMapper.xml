@@ -201,7 +201,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectTenBallsGameResult" resultMap="GameTenballKjResult">
         <include refid="selectGameTenballKjVo"/>
-        where 1 = 1
+        where status = '1'
         <if test="gameId != null "> and game_id = #{gameId}</if>
         <if test="pageNumber != null">
             limit #{pageNumber} , #{pageRowCount}

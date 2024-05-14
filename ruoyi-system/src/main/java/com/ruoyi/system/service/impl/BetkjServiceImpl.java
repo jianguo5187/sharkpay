@@ -3,16 +3,19 @@ package com.ruoyi.system.service.impl;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.exception.ServiceException;
+import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
-import com.ruoyi.system.mapper.BetkjMapper;
+import com.ruoyi.system.mapper.*;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -58,6 +61,22 @@ public class BetkjServiceImpl implements IBetkjService
 
     @Autowired
     private ITenBallLotteryService tenBallLotteryService;
+
+    @Autowired
+    private IWaveService waveService;
+
+    @Autowired
+    private GameThreeballRecordMapper gameThreeballRecordMapper;
+
+    @Autowired
+    private GameFiveballRecordMapper gameFiveballRecordMapper;
+
+    @Autowired
+    private GameTenballRecordMapper gameTenballRecordMapper;
+
+    @Autowired
+    private UserwinMapper userwinMapper;
+
 
     // 获取官方开奖结果的URL
     @Value("${autoGame.url}")
@@ -808,5 +827,757 @@ public class BetkjServiceImpl implements IBetkjService
             }
         }
         return count == 1;
+    }
+
+    @Override
+    public List<BetUserWinRespVo> selectUserGameWinBetList(SysGame gameInfo, BetUserWinReqVO betUserWinReqVO) {
+        List<BetUserWinRespVo> res = new ArrayList<>();
+        if(StringUtils.equals(gameInfo.getGameType(),"3")){
+            res = recordThreeBall(gameInfo,betUserWinReqVO);
+        }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
+            res = recordFiveBall(gameInfo,betUserWinReqVO);
+        }else{
+            res = recordTenBall(gameInfo,betUserWinReqVO);
+        }
+        return res;
+    }
+
+    public List<BetUserWinRespVo> recordThreeBall(SysGame gameInfo, BetUserWinReqVO betUserWinReqVO){
+        List<BetUserWinRespVo> resList = new ArrayList<>();
+
+        List<Integer> bigSingleList = Arrays.asList(15, 17, 19, 21, 23, 25, 27);
+        List<Integer> smallSingleList = Arrays.asList(1, 3, 5, 7, 9, 11, 13);
+        List<Integer> bigDoubleList = Arrays.asList(14, 16, 18, 20, 22, 24, 26);
+        List<Integer> smallDoubleList = Arrays.asList(0, 2, 4, 6, 8, 10, 12);
+
+        List<GameThreeballRecord> threeballDateRecordList = gameThreeballRecordMapper.selectUserDateList(betUserWinReqVO.getGameId(), betUserWinReqVO.getUserId(), betUserWinReqVO.getRecordTime());
+
+        Wave wave = waveService.selectWaveByGameId(gameInfo.getGameId());
+        Map<String, Object> waveMap = EntityMapTransUtils.entityToMap1(wave);
+        for(GameThreeballRecord threeballRecord : threeballDateRecordList){
+            BetUserWinRespVo vo = new BetUserWinRespVo();
+
+            vo.setBetRecordId(threeballRecord.getId());
+            vo.setUserId(threeballRecord.getUserId());
+            vo.setGameId(threeballRecord.getGameId());
+            vo.setGameName(threeballRecord.getGameName());
+            vo.setPeriods(threeballRecord.getPeriods());
+            vo.setBetOpenTime(threeballRecord.getRecordTime());
+            vo.setCountMoney(threeballRecord.getCountMoney());
+            vo.setWinMoney(threeballRecord.getWinMoney());
+            vo.setIsDeduct(threeballRecord.getIsDeduct());
+
+            BigDecimal bd1 = new BigDecimal(Float.toString(threeballRecord.getWinMoney()));
+            BigDecimal bd2 = new BigDecimal(Float.toString(threeballRecord.getCountMoney()));
+            BigDecimal sum = bd1.subtract(bd2);
+            BigDecimal result = sum.setScale(2, BigDecimal.ROUND_HALF_UP);
+            Float resultMoney = result.floatValue();
+            vo.setResultMoney(resultMoney);
+
+            String openResult = threeballRecord.getN1() + "+" + threeballRecord.getN2() + "+" + threeballRecord.getN3() + "=" + threeballRecord.getSumNum();
+            vo.setOpenResult(openResult);
+
+            String betResult = "";
+
+            Integer sumNum = threeballRecord.getSumNum();
+            Map<String, Object> gameThreeballRecordMap = EntityMapTransUtils.entityToMap1(threeballRecord);
+
+            // 和值 数字
+            for(int i=0; i<=27; i++){
+                Object amountObject = gameThreeballRecordMap.get("num" + i);
+                Float amount = amountObject!=null?(Float) amountObject:0f;
+                if(amount > 0){
+                    if(sumNum == i){
+                        betResult += "<span style='color:red'>" + i + "-" + amount.toString() + "</span></br>";
+                    }else{
+                        betResult += i + "-" + amount.toString() + "</br>";
+                    }
+                }
+            }
+
+            // 大
+            if(threeballRecord.getBig() > 0){
+                if(sumNum > 13){
+                    betResult += "<span style='color:red'>大" + "-" + threeballRecord.getBig().toString() + "</span></br>";
+                }else{
+                    betResult += "大-" + threeballRecord.getBig().toString() + "</br>";
+                }
+            }
+            // 小
+            if(threeballRecord.getSmall() > 0){
+                if(sumNum < 14){
+                    betResult += "<span style='color:red'>小" + "-" + threeballRecord.getSmall().toString() + "</span></br>";
+                }else{
+                    betResult += "小-" + threeballRecord.getSmall().toString() + "</br>";
+                }
+            }
+            // 单
+            if(threeballRecord.getSingle() > 0){
+                if(sumNum%2 == 1){
+                    betResult += "<span style='color:red'>单" + "-" + threeballRecord.getSingle().toString() + "</span></br>";
+                }else{
+                    betResult += "单-" + threeballRecord.getSingle().toString() + "</br>";
+                }
+            }
+            // 双
+            if(threeballRecord.getDoubleAmount() > 0){
+                if(sumNum%2 == 0){
+                    betResult += "<span style='color:red'>双" + "-" + threeballRecord.getDoubleAmount().toString() + "</span></br>";
+                }else{
+                    betResult += "双-" + threeballRecord.getDoubleAmount().toString() + "</br>";
+                }
+            }
+            // 极大
+            if(threeballRecord.getMuchBig() > 0){
+                if(sumNum > 21){
+                    betResult += "<span style='color:red'>极大" + "-" + threeballRecord.getMuchBig().toString() + "</span></br>";
+                }else{
+                    betResult += "极大-" + threeballRecord.getMuchBig().toString() + "</br>";
+                }
+            }
+            // 极小
+            if(threeballRecord.getMuchSmall() > 0){
+                if(sumNum < 6){
+                    betResult += "<span style='color:red'>极小" + "-" + threeballRecord.getMuchSmall().toString() + "</span></br>";
+                }else{
+                    betResult += "极小-" + threeballRecord.getMuchSmall().toString() + "</br>";
+                }
+            }
+
+            // 大单
+            if(threeballRecord.getBigSingle() > 0){
+                if(bigSingleList.contains(sumNum)){
+                    betResult += "<span style='color:red'>大单" + "-" + threeballRecord.getBigSingle().toString() + "</span></br>";
+                }else{
+                    betResult += "大单-" + threeballRecord.getBigSingle().toString() + "</br>";
+                }
+            }
+            // 大双
+            if(threeballRecord.getBigDouble() > 0){
+                if(bigDoubleList.contains(sumNum)){
+                    betResult += "<span style='color:red'>大双" + "-" + threeballRecord.getBigDouble().toString() + "</span></br>";
+                }else{
+                    betResult += "大双-" + threeballRecord.getBigDouble().toString() + "</br>";
+                }
+            }
+            // 小单
+            if(threeballRecord.getSmallSingle() > 0){
+                if(smallSingleList.contains(sumNum)){
+                    betResult += "<span style='color:red'>小单" + "-" + threeballRecord.getSmallSingle().toString() + "</span></br>";
+                }else{
+                    betResult += "小单-" + threeballRecord.getSmallSingle().toString() + "</br>";
+                }
+            }
+            // 小双
+            if(threeballRecord.getSmallDouble() > 0){
+                if(smallDoubleList.contains(sumNum)){
+                    betResult += "<span style='color:red'>小双" + "-" + threeballRecord.getSmallDouble().toString() + "</span></br>";
+                }else{
+                    betResult += "小双-" + threeballRecord.getSmallDouble().toString() + "</br>";
+                }
+            }
+            // 龙
+            if(threeballRecord.getLoong() > 0){
+                if(threeballRecord.getN3() < threeballRecord.getN1()){
+                    betResult += "<span style='color:red'>龙" + "-" + threeballRecord.getLoong().toString() + "</span></br>";
+                }else{
+                    betResult += "龙-" + threeballRecord.getLoong().toString() + "</br>";
+                }
+            }
+            // 虎
+            if(threeballRecord.getTiger() > 0){
+                if(threeballRecord.getN3() < threeballRecord.getN1()){
+                    betResult += "<span style='color:red'>虎" + "-" + threeballRecord.getTiger().toString() + "</span></br>";
+                }else{
+                    betResult += "虎-" + threeballRecord.getTiger().toString() + "</br>";
+                }
+            }
+            // 合
+            if(threeballRecord.getClose() > 0){
+                if(threeballRecord.getN3() < threeballRecord.getN1()){
+                    betResult += "<span style='color:red'>合" + "-" + threeballRecord.getClose().toString() + "</span></br>";
+                }else{
+                    betResult += "合-" + threeballRecord.getClose().toString() + "</br>";
+                }
+            }
+
+            Integer dsbResult = getBaoShunDui(threeballRecord.getN1(),threeballRecord.getN2(),threeballRecord.getN3());
+            // 豹
+            if(threeballRecord.getLeopard() > 0){
+                if(dsbResult == 1){
+                    betResult += "<span style='color:red'>豹子" + "-" + threeballRecord.getLeopard().toString() + "</span></br>";
+                }else{
+                    betResult += "豹子-" + threeballRecord.getLeopard().toString() + "</br>";
+                }
+            }
+            // 顺
+            if(threeballRecord.getShun() > 0){
+                if(dsbResult == 2){
+                    betResult += "<span style='color:red'>顺子" + "-" + threeballRecord.getShun().toString() + "</span></br>";
+                }else{
+                    betResult += "顺子-" + threeballRecord.getShun().toString() + "</br>";
+                }
+            }
+            // 对
+            if(threeballRecord.getPairs() > 0){
+                if(dsbResult == 3){
+                    betResult += "<span style='color:red'>对子" + "-" + threeballRecord.getPairs().toString() + "</span></br>";
+                }else{
+                    betResult += "对子-" + threeballRecord.getPairs().toString() + "</br>";
+                }
+            }
+
+            // 红绿蓝
+            if(waveMap != null){
+                Object waveNumObject = waveMap.get("num" + threeballRecord.getSumNum());
+                Integer numWave = waveNumObject!=null?(Integer) waveNumObject:0;
+
+                // 绿
+                if(threeballRecord.getGreen() > 0){
+                    if(numWave == 1){
+                        betResult += "<span style='color:red'>绿波" + "-" + threeballRecord.getGreen().toString() + "</span></br>";
+                    }else{
+                        betResult += "绿波-" + threeballRecord.getGreen().toString() + "</br>";
+                    }
+                }
+                // 红
+                if(threeballRecord.getRed() > 0){
+                    if(numWave == 2){
+                        betResult += "<span style='color:red'>红波" + "-" + threeballRecord.getRed().toString() + "</span></br>";
+                    }else{
+                        betResult += "红波-" + threeballRecord.getRed().toString() + "</br>";
+                    }
+                }
+                // 蓝
+                if(threeballRecord.getBlue() > 0){
+                    if(numWave == 3){
+                        betResult += "<span style='color:red'>蓝波" + "-" + threeballRecord.getBlue().toString() + "</span></br>";
+                    }else{
+                        betResult += "蓝波-" + threeballRecord.getBlue().toString() + "</br>";
+                    }
+                }
+            }
+
+            vo.setBetResult(betResult);
+
+            resList.add(vo);
+        }
+        return resList;
+    }
+
+    public List<BetUserWinRespVo> recordFiveBall(SysGame gameInfo, BetUserWinReqVO betUserWinReqVO){
+        List<BetUserWinRespVo> resList = new ArrayList<>();
+        List<GameFiveballRecord> fiveballDateRecordList = gameFiveballRecordMapper.selectUserDateList(betUserWinReqVO.getGameId(), betUserWinReqVO.getUserId(), betUserWinReqVO.getRecordTime());
+        for(GameFiveballRecord fiveballRecord : fiveballDateRecordList){
+            BetUserWinRespVo vo = new BetUserWinRespVo();
+
+            vo.setBetRecordId(fiveballRecord.getId());
+            vo.setUserId(fiveballRecord.getUserId());
+            vo.setGameId(fiveballRecord.getGameId());
+            vo.setGameName(fiveballRecord.getGameName());
+            vo.setPeriods(fiveballRecord.getPeriods());
+            vo.setBetOpenTime(fiveballRecord.getRecordTime());
+            vo.setCountMoney(fiveballRecord.getCountMoney());
+            vo.setWinMoney(fiveballRecord.getWinMoney());
+            vo.setIsDeduct(fiveballRecord.getIsDeduct());
+
+            BigDecimal bd1 = new BigDecimal(Float.toString(fiveballRecord.getWinMoney()));
+            BigDecimal bd2 = new BigDecimal(Float.toString(fiveballRecord.getCountMoney()));
+            BigDecimal sum = bd1.subtract(bd2);
+            BigDecimal result = sum.setScale(2, BigDecimal.ROUND_HALF_UP);
+            Float resultMoney = result.floatValue();
+            vo.setResultMoney(resultMoney);
+
+            String openResult = fiveballRecord.getNum1() + "+" + fiveballRecord.getNum2() + "+" + fiveballRecord.getNum3() + "+" + fiveballRecord.getNum4() + "+" + fiveballRecord.getNum5() + "=" + fiveballRecord.getSum();
+            vo.setOpenResult(openResult);
+
+            Integer sumNum = fiveballRecord.getSum();
+            String betResult = "";
+            Map<String, Object> gameFiveballRecordMap = EntityMapTransUtils.entityToMap1(fiveballRecord);
+
+            // 球1~5
+            for(int i=1;i<=5;i++){
+
+                Object numberObject = gameFiveballRecordMap.get("num"+ i);
+                Integer numBall = numberObject!=null?(Integer) numberObject:-1;
+
+                // 号码0~9
+                for(int j=0;j<=9;j++){
+                    Object amountObject = gameFiveballRecordMap.get("num"+ i +"Ball" + j);
+                    Float amount = amountObject!=null?(Float) amountObject:0f;
+                    if(amount > 0){
+                        if(numBall == j){
+                            betResult += "<span style='color:red'>球" + i + "-" + j + "-" + amount + "</span></br>";
+                        }else{
+                            betResult += "球" + i + "-" + j + "-" + amount + "</br>";
+                        }
+                    }
+                }
+
+                // 大小
+                // 大1 小0 [小,大]
+                // 大的金额计算
+                Object bigAmountObject = gameFiveballRecordMap.get("num" + i + "Big");
+                Float bigAmount = bigAmountObject!=null?(Float) bigAmountObject:0f;
+                if(bigAmount > 0){
+                    if(getBigSmallNumResult(numBall) == 1){
+                        betResult += "<span style='color:red'>球" + i + "-大-" + bigAmount + "</span></br>";
+                    }else{
+                        betResult += "球" + i + "-大-" + bigAmount + "</br>";
+                    }
+                }
+
+                // 小的金额计算
+                Object smallAmountObject = gameFiveballRecordMap.get("num" + i + "Small");
+                Float smallAmount = smallAmountObject!=null?(Float) smallAmountObject:0f;
+                if(smallAmount > 0){
+                    if(getBigSmallNumResult(numBall) == 0){
+                        betResult += "<span style='color:red'>球" + i + "-小-" + smallAmount + "</span></br>";
+                    }else{
+                        betResult += "球" + i + "-小-" + smallAmount + "</br>";
+                    }
+                }
+
+                // 单双
+                // 双1 单0 [单,双]
+                // 单的金额计算
+                Object singleAmountObject = gameFiveballRecordMap.get("num" + i + "Single");
+                Float singleAmount = singleAmountObject!=null?(Float) singleAmountObject:0f;
+                if(singleAmount > 0){
+                    if(getSingleDoubleNumResult(numBall) == 0){
+                        betResult += "<span style='color:red'>球" + i + "-单-" + singleAmount + "</span></br>";
+                    }else{
+                        betResult += "球" + i + "-单-" + singleAmount + "</br>";
+                    }
+                }
+
+                // 双的金额计算
+                Object doubleAmountObject = gameFiveballRecordMap.get("num" + i + "Double");
+                Float doubleAmount = doubleAmountObject!=null?(Float) doubleAmountObject:0f;
+                if(doubleAmount > 0){
+                    if(getSingleDoubleNumResult(numBall) == 1){
+                        betResult += "<span style='color:red'>球" + i + "-单-" + doubleAmount + "</span></br>";
+                    }else{
+                        betResult += "球" + i + "-单-" + doubleAmount + "</br>";
+                    }
+                }
+            }
+
+            // 和值
+            // 大1 小0 [小,大]
+            // 大的金额计算
+            if(fiveballRecord.getSumBig() > 0){
+                if(getSumBigSmallNumResult(sumNum) == 1){
+                    betResult += "<span style='color:red'>和值:大" + "-" + fiveballRecord.getSumBig().toString() + "</span></br>";
+                }else{
+                    betResult += "和值:大-" + fiveballRecord.getSumBig().toString() + "</br>";
+                }
+            }
+            // 小的金额计算
+            if(fiveballRecord.getSumSmall() > 0){
+                if(getSumBigSmallNumResult(sumNum) == 0){
+                    betResult += "<span style='color:red'>和值:小" + "-" + fiveballRecord.getSumSmall().toString() + "</span></br>";
+                }else{
+                    betResult += "和值:小-" + fiveballRecord.getSumSmall().toString() + "</br>";
+                }
+            }
+
+            // 双1 单0 [单,双]
+            // 单的金额计算
+            if(fiveballRecord.getSumSingle() > 0){
+                if(getSingleDoubleNumResult(sumNum) == 1){
+                    betResult += "<span style='color:red'>和值:单" + "-" + fiveballRecord.getSumSingle().toString() + "</span></br>";
+                }else{
+                    betResult += "和值:单-" + fiveballRecord.getSumSingle().toString() + "</br>";
+                }
+            }
+            // 双的金额计算
+            if(fiveballRecord.getSumDouble() > 0){
+                if(getSingleDoubleNumResult(sumNum) == 0){
+                    betResult += "<span style='color:red'>和值:单" + "-" + fiveballRecord.getSumDouble().toString() + "</span></br>";
+                }else{
+                    betResult += "和值:单-" + fiveballRecord.getSumDouble().toString() + "</br>";
+                }
+            }
+
+            // 龙2 虎1 和0 [和,虎,龙]
+            // 龙的金额计算
+            if(fiveballRecord.getSumLoong() > 0){
+                if(getLoongTigerCloseNumResult(fiveballRecord.getNum1(),fiveballRecord.getNum5()) == 2){
+                    betResult += "<span style='color:red'>和值:龙" + "-" + fiveballRecord.getSumLoong().toString() + "</span></br>";
+                }else{
+                    betResult += "和值:龙-" + fiveballRecord.getSumLoong().toString() + "</br>";
+                }
+            }
+            // 虎的金额计算
+            if(fiveballRecord.getSumTiger() > 0){
+                if(getLoongTigerCloseNumResult(fiveballRecord.getNum1(),fiveballRecord.getNum5()) == 1){
+                    betResult += "<span style='color:red'>和值:虎" + "-" + fiveballRecord.getSumTiger().toString() + "</span></br>";
+                }else{
+                    betResult += "和值:虎-" + fiveballRecord.getSumTiger().toString() + "</br>";
+                }
+            }
+            // 和的金额计算
+            if(fiveballRecord.getSumSum() > 0){
+                if(getLoongTigerCloseNumResult(fiveballRecord.getNum1(),fiveballRecord.getNum5()) == 0){
+                    betResult += "<span style='color:red'>和值:合" + "-" + fiveballRecord.getSumSum().toString() + "</span></br>";
+                }else{
+                    betResult += "和值:合-" + fiveballRecord.getSumSum().toString() + "</br>";
+                }
+            }
+
+
+            // 前三
+            // 杂六4 半顺3 顺2 对1 豹0 [豹,对,顺,半顺,杂六]
+            Integer firstDsbResult = getBaoShunDui(fiveballRecord.getNum1(),fiveballRecord.getNum2(),fiveballRecord.getNum3());
+            if(fiveballRecord.getFirstBao() > 0){
+                if(firstDsbResult == 0){
+                    betResult += "<span style='color:red'>前三:豹" + "-" + fiveballRecord.getFirstBao().toString() + "</span></br>";
+                }else{
+                    betResult += "前三:豹-" + fiveballRecord.getFirstBao().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getFirstDui() > 0){
+                if(firstDsbResult == 1){
+                    betResult += "<span style='color:red'>前三:对" + "-" + fiveballRecord.getFirstDui().toString() + "</span></br>";
+                }else{
+                    betResult += "前三:对-" + fiveballRecord.getFirstDui().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getFirstSun() > 0){
+                if(firstDsbResult == 2){
+                    betResult += "<span style='color:red'>前三:顺" + "-" + fiveballRecord.getFirstSun().toString() + "</span></br>";
+                }else{
+                    betResult += "前三:顺-" + fiveballRecord.getFirstSun().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getFirstBan() > 0){
+                if(firstDsbResult == 3){
+                    betResult += "<span style='color:red'>前三:半顺" + "-" + fiveballRecord.getFirstBan().toString() + "</span></br>";
+                }else{
+                    betResult += "前三:半顺-" + fiveballRecord.getFirstBan().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getFirstZa() > 0){
+                if(firstDsbResult == 4){
+                    betResult += "<span style='color:red'>前三:杂六" + "-" + fiveballRecord.getFirstZa().toString() + "</span></br>";
+                }else{
+                    betResult += "前三:杂六-" + fiveballRecord.getFirstZa().toString() + "</br>";
+                }
+            }
+
+            // 中三
+            // 杂六4 半顺3 顺2 对1 豹0 [豹,对,顺,半顺,杂六]
+            Integer midDsbResult = getBaoShunDui(fiveballRecord.getNum2(),fiveballRecord.getNum3(),fiveballRecord.getNum4());
+            if(fiveballRecord.getMidBan() > 0){
+                if(midDsbResult == 0){
+                    betResult += "<span style='color:red'>中三:豹" + "-" + fiveballRecord.getMidBan().toString() + "</span></br>";
+                }else{
+                    betResult += "中三:豹-" + fiveballRecord.getMidBan().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getMidDui() > 0){
+                if(midDsbResult == 1){
+                    betResult += "<span style='color:red'>中三:对" + "-" + fiveballRecord.getMidDui().toString() + "</span></br>";
+                }else{
+                    betResult += "中三:对-" + fiveballRecord.getMidDui().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getMidSun() > 0){
+                if(midDsbResult == 2){
+                    betResult += "<span style='color:red'>中三:顺" + "-" + fiveballRecord.getMidSun().toString() + "</span></br>";
+                }else{
+                    betResult += "中三:顺-" + fiveballRecord.getMidSun().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getMidBan() > 0){
+                if(midDsbResult == 3){
+                    betResult += "<span style='color:red'>中三:半顺" + "-" + fiveballRecord.getMidBan().toString() + "</span></br>";
+                }else{
+                    betResult += "中三:半顺-" + fiveballRecord.getMidBan().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getMidZa() > 0){
+                if(midDsbResult == 4){
+                    betResult += "<span style='color:red'>中三:杂六" + "-" + fiveballRecord.getMidZa().toString() + "</span></br>";
+                }else{
+                    betResult += "中三:杂六-" + fiveballRecord.getMidZa().toString() + "</br>";
+                }
+            }
+
+            // 后三
+            // 杂六4 半顺3 顺2 对1 豹0 [豹,对,顺,半顺,杂六]
+            Integer backDsbResult = getBaoShunDui(fiveballRecord.getNum3(),fiveballRecord.getNum4(),fiveballRecord.getNum5());
+            if(fiveballRecord.getBackBao() > 0){
+                if(backDsbResult == 0){
+                    betResult += "<span style='color:red'>后三:豹" + "-" + fiveballRecord.getBackBao().toString() + "</span></br>";
+                }else{
+                    betResult += "后三:豹-" + fiveballRecord.getBackBao().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getBackDui() > 0){
+                if(backDsbResult == 1){
+                    betResult += "<span style='color:red'>后三:对" + "-" + fiveballRecord.getBackDui().toString() + "</span></br>";
+                }else{
+                    betResult += "后三:对-" + fiveballRecord.getBackDui().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getBackSun() > 0){
+                if(backDsbResult == 2){
+                    betResult += "<span style='color:red'>后三:顺" + "-" + fiveballRecord.getBackSun().toString() + "</span></br>";
+                }else{
+                    betResult += "后三:顺-" + fiveballRecord.getBackSun().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getBackBan() > 0){
+                if(backDsbResult == 3){
+                    betResult += "<span style='color:red'>后三:半顺" + "-" + fiveballRecord.getBackBan().toString() + "</span></br>";
+                }else{
+                    betResult += "后三:半顺-" + fiveballRecord.getBackBan().toString() + "</br>";
+                }
+            }
+            if(fiveballRecord.getBackZa() > 0){
+                if(backDsbResult == 4){
+                    betResult += "<span style='color:red'>后三:杂六" + "-" + fiveballRecord.getBackZa().toString() + "</span></br>";
+                }else{
+                    betResult += "后三:杂六-" + fiveballRecord.getBackZa().toString() + "</br>";
+                }
+            }
+
+            vo.setBetResult(betResult);
+
+            resList.add(vo);
+        }
+        return resList;
+    }
+
+    public List<BetUserWinRespVo> recordTenBall(SysGame gameInfo, BetUserWinReqVO betUserWinReqVO){
+        List<BetUserWinRespVo> resList = new ArrayList<>();
+
+        List<Integer> bigSingleList = Arrays.asList(13, 15, 17, 19);
+        List<Integer> smallSingleList = Arrays.asList(3, 5, 7, 9, 11);
+        List<Integer> bigDoubleList = Arrays.asList(12, 14, 16, 18);
+        List<Integer> smallDoubleList = Arrays.asList(4, 6, 8, 10);
+        List<GameTenballRecord> tenballDateRecordList = gameTenballRecordMapper.selectUserDateList(betUserWinReqVO.getGameId(), betUserWinReqVO.getUserId(), betUserWinReqVO.getRecordTime());
+        for(GameTenballRecord tenballRecord : tenballDateRecordList){
+            BetUserWinRespVo vo = new BetUserWinRespVo();
+
+            vo.setBetRecordId(tenballRecord.getId());
+            vo.setUserId(tenballRecord.getUserId());
+            vo.setGameId(tenballRecord.getGameId());
+            vo.setGameName(tenballRecord.getGameName());
+            vo.setPeriods(tenballRecord.getPeriods());
+            vo.setBetOpenTime(tenballRecord.getRecordTime());
+            vo.setCountMoney(tenballRecord.getCountMoney());
+            vo.setWinMoney(tenballRecord.getWinMoney());
+            vo.setIsDeduct(tenballRecord.getIsDeduct());
+
+            BigDecimal bd1 = new BigDecimal(Float.toString(tenballRecord.getWinMoney()));
+            BigDecimal bd2 = new BigDecimal(Float.toString(tenballRecord.getCountMoney()));
+            BigDecimal sum = bd1.subtract(bd2);
+            BigDecimal result = sum.setScale(2, BigDecimal.ROUND_HALF_UP);
+            Float resultMoney = result.floatValue();
+            vo.setResultMoney(resultMoney);
+
+            String openResult = tenballRecord.getNum1() + "+" + tenballRecord.getNum2() + "+" + tenballRecord.getNum3()
+                    + "+" + tenballRecord.getNum4() + "+" + tenballRecord.getNum5() + "+" + tenballRecord.getNum6()
+                    + "+" + tenballRecord.getNum7() + "+" + tenballRecord.getNum8() + "+" + tenballRecord.getNum9()
+                    + "+" + tenballRecord.getNum10();
+            vo.setOpenResult(openResult);
+
+            String betResult = "";
+
+            Integer sumNum = tenballRecord.getSumNum();
+            Map<String, Object> gameTenballRecordMap = EntityMapTransUtils.entityToMap1(tenballRecord);
+
+            // 冠亚和的大小单双的金额计算
+            if(tenballRecord.getType1Big() >0){
+                if(sumNum > 11){
+                    betResult += "<span style='color:red'>大" + "-" + tenballRecord.getType1Big().toString() + "</span></br>";
+                }else{
+                    betResult += "大-" + tenballRecord.getType1Big().toString() + "</br>";
+                }
+            }
+            // 冠亚和的小的金额计算
+            if(tenballRecord.getType1Small() >0){
+                if(sumNum < 12){
+                    betResult += "<span style='color:red'>小" + "-" + tenballRecord.getType1Small().toString() + "</span></br>";
+                }else{
+                    betResult += "小-" + tenballRecord.getType1Small().toString() + "</br>";
+                }
+            }
+            // 冠亚和的单的金额计算
+            if(tenballRecord.getType1Single() >0){
+                if(sumNum%2 == 1){
+                    betResult += "<span style='color:red'>单" + "-" + tenballRecord.getType1Single().toString() + "</span></br>";
+                }else{
+                    betResult += "单-" + tenballRecord.getType1Single().toString() + "</br>";
+                }
+            }
+            // 冠亚和的双的金额计算
+            if(tenballRecord.getType1Double() >0){
+                if(sumNum%2 == 0){
+                    betResult += "<span style='color:red'>双" + "-" + tenballRecord.getType1Double().toString() + "</span></br>";
+                }else{
+                    betResult += "双-" + tenballRecord.getType1Double().toString() + "</br>";
+                }
+            }
+
+            // 冠亚和的大单·大双·小单·小双的金额计算
+            if(tenballRecord.getBigSingle() > 0){
+                if(sumNum > 11 && sumNum%2 == 1){
+                    betResult += "<span style='color:red'>大单" + "-" + tenballRecord.getBigSingle().toString() + "</span></br>";
+                }else{
+                    betResult += "大单-" + tenballRecord.getBigSingle().toString() + "</br>";
+                }
+            }
+            if(tenballRecord.getBigDouble() > 0){
+                if(sumNum > 11 && sumNum%2 == 0){
+                    betResult += "<span style='color:red'>大双" + "-" + tenballRecord.getBigDouble().toString() + "</span></br>";
+                }else{
+                    betResult += "大双-" + tenballRecord.getBigDouble().toString() + "</br>";
+                }
+            }
+            if(tenballRecord.getSmallSingle() > 0){
+                if(sumNum < 12 && sumNum%2 == 1){
+                    betResult += "<span style='color:red'>小单" + "-" + tenballRecord.getSmallSingle().toString() + "</span></br>";
+                }else{
+                    betResult += "小单-" + tenballRecord.getSmallSingle().toString() + "</br>";
+                }
+            }
+            if(tenballRecord.getSmallDouble() > 0){
+                if(sumNum < 12 && sumNum%2 == 0){
+                    betResult += "<span style='color:red'>小双" + "-" + tenballRecord.getSmallSingle().toString() + "</span></br>";
+                }else{
+                    betResult += "小双-" + tenballRecord.getSmallSingle().toString() + "</br>";
+                }
+            }
+
+            //冠亚和3~19的金额计算
+            for(int j=3;j<=19;j++){
+                Object amountObject = gameTenballRecordMap.get("type1Num" + j);
+                Float amount = amountObject!=null?(Float) amountObject:0f;
+                if(amount > 0){
+                    if(sumNum == j){
+                        betResult += "<span style='color:red'>" + j + "-" + amount + "</span></br>";
+                    }else{
+                        betResult += j + "-" + amount + "</br>";
+                    }
+                }
+            }
+
+
+            //冠军~第十名的金额计算
+            for(int k=2;k<=11;k++){
+
+                // 开奖num1~10
+                for(int x=1;x<=10;x++){
+                    Object kjNumObject = gameTenballRecordMap.get("num" + x);
+                    Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+
+                    Object amountObject = gameTenballRecordMap.get("type" + k +"Num" + x);
+                    Float amount = amountObject!=null?(Float) amountObject:0f;
+                    if(amount > 0){
+                        if(kjNum == (k-1)){
+                            betResult += "<span style='color:red'>" + (k-1) + "-" + x + "-" + amount + "</span></br>";
+                        }else{
+                            betResult += (k-1) + "-" + x + "-"  + amount + "</br>";
+                        }
+                    }
+                }
+
+                Object kjNumObject = gameTenballRecordMap.get("num" + (k-1));
+                Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+
+                Object kj2NumObject = gameTenballRecordMap.get("num" + (11-(k-1)));
+                Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
+
+                // 单的金额计算
+                Object singleAmountObject = gameTenballRecordMap.get("type" + k + "Single");
+                Float singleAmount = singleAmountObject!=null?(Float) singleAmountObject:0f;
+                if(singleAmount > 0){
+                    if(kjNum%2 == 1){
+                        betResult += "<span style='color:red'>" + (k-1) + "-单-" + singleAmount + "</span></br>";
+                    }else{
+                        betResult += (k-1) + "-单-" +  singleAmount + "</br>";
+                    }
+                }
+
+                // 双的金额计算
+                Object doubleAmountObject = gameTenballRecordMap.get("type" + k + "Double");
+                Float doubleAmount = doubleAmountObject!=null?(Float) doubleAmountObject:0f;
+                if(doubleAmount > 0){
+                    if(kjNum%2 == 0){
+                        betResult += "<span style='color:red'>" + (k-1) + "-双-" + doubleAmount + "</span></br>";
+                    }else{
+                        betResult += (k-1) + "-双-" +  doubleAmount + "</br>";
+                    }
+                }
+
+                // 大的金额计算
+                Object bigAmountObject = gameTenballRecordMap.get("type" + k + "Big");
+                Float bigAmount = bigAmountObject!=null?(Float) bigAmountObject:0f;
+                if(bigAmount > 0){
+                    if(kjNum%2 > 5){
+                        betResult += "<span style='color:red'>" + (k-1) + "-大-" + bigAmount + "</span></br>";
+                    }else{
+                        betResult += (k-1) + "-大-" +  bigAmount + "</br>";
+                    }
+                }
+
+                // 小的金额计算
+                Object smallAmountObject = gameTenballRecordMap.get("type" + k + "Small");
+                Float smallAmount = smallAmountObject!=null?(Float) smallAmountObject:0f;
+                if(smallAmount > 0){
+                    if(kjNum%2 < 6){
+                        betResult += "<span style='color:red'>" + (k-1) + "-小-" + smallAmount + "</span></br>";
+                    }else{
+                        betResult += (k-1) + "-小-" +  smallAmount + "</br>";
+                    }
+                }
+
+                // 龙的金额计算
+                Object loongAmountObject = gameTenballRecordMap.get("type" + k + "Loong");
+                Float loongAmount = loongAmountObject!=null?(Float) loongAmountObject:0f;
+                if(loongAmount > 0){
+                    if(kj2Num < kjNum){
+                        betResult += "<span style='color:red'>" + (k-1) + "-龙-" + loongAmount + "</span></br>";
+                    }else{
+                        betResult += (k-1) + "-龙-" +  loongAmount + "</br>";
+                    }
+                }
+
+                // 虎的金额计算
+                Object tigerAmountObject = gameTenballRecordMap.get("type" + k + "Tiger");
+                Float tigerAmount = tigerAmountObject!=null?(Float) tigerAmountObject:0f;
+                if(tigerAmount > 0){
+                    if(kj2Num > kjNum){
+                        betResult += "<span style='color:red'>" + (k-1) + "-虎-" + tigerAmount + "</span></br>";
+                    }else{
+                        betResult += (k-1) + "-虎-" +  tigerAmount + "</br>";
+                    }
+                }
+            }
+
+            vo.setBetResult(betResult);
+
+            resList.add(vo);
+        }
+        return resList;
+    }
+
+    @Override
+    public void betUserDeduct(BetUserDeductReqVO vo) {
+
+        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+
+        Float countMoney = betkjMapper.selectGameRecordCountMoneyById(gameInfo.getGameRecord(), vo.getBetRecordId());
+
+        betkjMapper.updateGameRecordDeductType(gameInfo.getGameRecord(), vo.getBetRecordId(), vo.getIsDeduct());
+
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String winTime = sd.format(vo.getRecordTime());
+
+        userwinMapper.updateUserDeductMoney(vo.getUserId(), vo.getGameId(), winTime, vo.getIsDeduct(), countMoney);
     }
 }

@@ -336,7 +336,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             }
             // 虎
             if(gameThreeballKj.getNum1() < gameThreeballKj.getNum3() && gameThreeballRecord.getTiger() > 0){
-                money += gameThreeballRecord.getLoong() * getOddFromMapByOddKey(betItemMap,"tiger");
+                money += gameThreeballRecord.getTiger() * getOddFromMapByOddKey(betItemMap,"tiger");
             }
             // 合
             if(gameThreeballKj.getNum1() == gameThreeballKj.getNum3() && gameThreeballRecord.getClose() > 0){

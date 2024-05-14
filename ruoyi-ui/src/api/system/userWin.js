@@ -7,3 +7,10 @@ export function listUserTotalRank(query) {
     params: query
   })
 }
+export function listUserGameRank(query) {
+  return request({
+    url: '/system/userwin/listUserGameRank',
+    method: 'get',
+    params: query
+  })
+}

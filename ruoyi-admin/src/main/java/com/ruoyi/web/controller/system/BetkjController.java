@@ -7,10 +7,7 @@ import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.core.page.TableDataInfo;
 import com.ruoyi.system.domain.Azxy10kj;
 import com.ruoyi.system.domain.SysGame;
-import com.ruoyi.system.domain.vo.BetRepairReqVO;
-import com.ruoyi.system.domain.vo.BetkjReqVO;
-import com.ruoyi.system.domain.vo.BetkjRespVo;
-import com.ruoyi.system.domain.vo.HandleLotteryReqVO;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.IBetkjService;
 import com.ruoyi.system.service.ISysGameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +72,29 @@ public class BetkjController extends BaseController
 
         betkjService.handleLottery(vo);
         AjaxResult ajax = AjaxResult.success("手动开奖成功");
+        return ajax;
+    }
+
+    @GetMapping("/listUserWinGameBet")
+    public TableDataInfo listUserWinGameBet(BetUserWinReqVO vo)
+    {
+        SysGame gameInfo = gameService.selectSysGameByGameId(vo.getGameId());
+        startPage();
+        List<BetUserWinRespVo> list = betkjService.selectUserGameWinBetList(gameInfo,vo);
+        return getDataTable(list);
+    }
+
+    /**
+     * 手动开奖数据接口
+     */
+    @PostMapping("/betUserDeduct")
+    public AjaxResult betUserDeduct(@RequestBody BetUserDeductReqVO vo)
+    {
+        LoginUser loginUser = getLoginUser();
+        SysUser user = loginUser.getUser();
+
+        betkjService.betUserDeduct(vo);
+        AjaxResult ajax = AjaxResult.success("处理成功");
         return ajax;
     }
 }

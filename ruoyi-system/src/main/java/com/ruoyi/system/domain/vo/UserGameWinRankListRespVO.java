@@ -8,7 +8,7 @@ import java.util.Date;
 public class UserGameWinRankListRespVO {
 
     /** 盈亏时间(YMD) */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date winTime;
 
     /** 用户ID */
@@ -30,7 +30,10 @@ public class UserGameWinRankListRespVO {
     /** 游戏名 */
     private String gameName;
 
-    /** 盈亏金额 */
+    /** 记录表 */
+    private String gameRecord;
+
+    /** 用户余额 */
     private Float userAmount;
 
     /** 盈亏金额 */
@@ -50,6 +53,12 @@ public class UserGameWinRankListRespVO {
 
     /** 反水金额 */
     private Float cashBackMoney;
+
+    /** 流水金额 */
+    private Float totalBetMoney;
+
+    /** 下注数 */
+    private Integer recordCount;
 
     public Date getWinTime() {
         return winTime;
@@ -115,6 +124,14 @@ public class UserGameWinRankListRespVO {
         this.gameName = gameName;
     }
 
+    public String getGameRecord() {
+        return gameRecord;
+    }
+
+    public void setGameRecord(String gameRecord) {
+        this.gameRecord = gameRecord;
+    }
+
     public Float getWinMoney() {
         return winMoney;
     }
@@ -161,5 +178,21 @@ public class UserGameWinRankListRespVO {
 
     public void setCashBackMoney(Float cashBackMoney) {
         this.cashBackMoney = cashBackMoney;
+    }
+
+    public Float getTotalBetMoney() {
+        return totalBetMoney;
+    }
+
+    public void setTotalBetMoney(Float totalBetMoney) {
+        this.totalBetMoney = totalBetMoney;
+    }
+
+    public Integer getRecordCount() {
+        return recordCount;
+    }
+
+    public void setRecordCount(Integer recordCount) {
+        this.recordCount = recordCount;
     }
 }
