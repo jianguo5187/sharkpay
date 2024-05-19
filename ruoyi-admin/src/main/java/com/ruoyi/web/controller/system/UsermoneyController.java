@@ -203,4 +203,12 @@ public class UsermoneyController extends BaseController
         List<UserMoneyDownTotalListRespVO> list = usermoneyService.selectUserMoneyDownTotalList(usermoney);
         return getDataTable(list);
     }
+
+    @GetMapping("/listCommissionList")
+    public TableDataInfo listCommissionList(Usermoney usermoney)
+    {
+        startPage();
+        List<CommissionListRespVO> list =usermoneyService.selectCommissionList(usermoney);
+        return getDataTable(list);
+    }
 }

@@ -2,10 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Usermoney;
-import com.ruoyi.system.domain.vo.PostalListRespVO;
-import com.ruoyi.system.domain.vo.RechargeListRespVO;
-import com.ruoyi.system.domain.vo.UserMoneyDownTotalListRespVO;
-import com.ruoyi.system.domain.vo.UserMoneyUpTotalListRespVO;
+import com.ruoyi.system.domain.vo.*;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -80,4 +77,6 @@ public interface UsermoneyMapper
     public List<UserMoneyUpTotalListRespVO> selectUserMoneyUpTotalList(Usermoney usermoney);
 
     public List<UserMoneyDownTotalListRespVO> selectUserMoneyDownTotalList(Usermoney usermoney);
+
+    public List<CommissionListRespVO> selectCommissionList(Usermoney usermoney);
 }

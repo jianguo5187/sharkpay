@@ -69,6 +69,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="cashMoney"    column="cash_money"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.CommissionListRespVO" id="CommissionListResult">
+        <result property="userId"       column="user_id"      />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="cashTime"    column="cash_time"    />
+        <result property="cashMoney"    column="cash_money"    />
+    </resultMap>
+
     <sql id="selectUsermoneyVo">
         select id, user_id, cash_content, cash_time, cash_money, type, user_balance, union_pay_id, user_name, user_pay, user_account, cash_describe, game_id, game_name, house, is_delete, hz_id, create_by, create_time, update_by, update_time, remark from usermoney
     </sql>
@@ -308,5 +316,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             and date_format(um.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
         </if>
         group by u.user_id
+    </select>
+
+    <select id="selectCommissionList" parameterType="Usermoney" resultMap="CommissionListResult">
+        select
+             u.user_id as user_id
+            ,max(u.nick_name) as nick_name
+            ,max(u.real_name) as real_name
+            ,um.cash_time as cash_time
+            ,sum(um.cash_money) as cash_money
+        from  usermoney um
+        inner join sys_user u on u.user_id = um.user_id
+        where um.type = '11'
+        <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        group by u.user_id,um.cash_time
     </select>
 </mapper>

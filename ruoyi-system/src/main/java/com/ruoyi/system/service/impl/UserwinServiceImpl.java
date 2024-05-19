@@ -1,20 +1,29 @@
 package com.ruoyi.system.service.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.stream.Collectors;
-
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.vo.UserGameTotalRankListRespVO;
+import com.ruoyi.system.domain.SysAdminRecord;
+import com.ruoyi.system.domain.SysGame;
+import com.ruoyi.system.domain.Usermoney;
+import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
+import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
 import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
 import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
-import com.ruoyi.system.service.ISysGameService;
+import com.ruoyi.system.mapper.UserwinMapper;
+import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.mapper.UserwinMapper;
-import com.ruoyi.system.domain.Userwin;
-import com.ruoyi.system.service.IUserwinService;
+
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * 用户盈亏Service业务层处理
@@ -27,8 +36,18 @@ public class UserwinServiceImpl implements IUserwinService
 {
     @Autowired
     private UserwinMapper userwinMapper;
+
+    @Autowired
+    private ISysUserService userService;
+
     @Autowired
     private ISysGameService sysGameService;
+
+    @Autowired
+    private IUsermoneyService usermoneyService;
+
+    @Autowired
+    private ISysAdminRecordService sysAdminRecordService;
 
     /**
      * 查询用户盈亏
@@ -208,5 +227,167 @@ public class UserwinServiceImpl implements IUserwinService
             f.setRecordCount(userwinMapper.selectUserGameWinDateCount(f.getUserId(), f.getGameId(), winTime, f.getGameRecord()));
             return f;
         }).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CashBackDetailListRespVO> selectCashBackDetailList(Userwin userwin) {
+        return userwinMapper.selectCashBackDetailList(userwin).stream().map(f->{
+            if(f.getCashBackMoney().compareTo(0f) > 0){
+                f.setCashBackStatus("1");
+            }else{
+                f.setCashBackStatus("0");
+            }
+            return f;
+        }).collect(Collectors.toList());
+    }
+
+    @Override
+    public void cashBackYestoday(Long userId) {
+        List<Userwin> yestodayNoCashBackList = userwinMapper.selectYestodayNoCashBackList();
+        cashBack(yestodayNoCashBackList,userId);
+    }
+
+    public void cashBack(List<Userwin> userWinList, Long adminUserId){
+
+        SysGame sysGameSearch = new SysGame();
+        sysGameSearch.setStatus("0"); //有效
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGameSearch);
+
+        Map<Long , SysGame> gameMap = gameList.stream()
+                .collect(Collectors.toMap(
+                        SysGame::getGameId,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        for(Userwin userwin : userWinList){
+
+            SysUser user = userService.selectUserById(userwin.getUserId());
+            SysGame gameInfo = gameMap.get(userwin.getGameId());
+
+            Float gameCashback = gameInfo.getGameCashback();
+            Float amont = userwin.getBigSmallMoney() + userwin.getOtherMoney() - userwin.getDeductMoney();
+            Float resutAmont = amont * gameCashback / 100;
+            Float money = BigDecimal.valueOf(resutAmont).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
+
+            Float userMoney = user.getAmount() + money;
+            user.setAmount(userMoney);
+            userService.updateUserAmount(user);
+
+            Usermoney usermoney = new Usermoney();
+            usermoney.setUserId(userwin.getUserId());
+            usermoney.setCashContent(userwin.getGameName() + "投注返水");
+            usermoney.setCashMoney(money);
+            usermoney.setUserBalance(userMoney);
+            usermoney.setType("16");
+            usermoney.setGameId(userwin.getGameId());
+            usermoney.setGameName(userwin.getGameName());
+            usermoneyService.insertUsermoney(usermoney);
+
+            userwinMapper.updateCashBackMoneyById(userwin.getId(),money);
+
+            SysAdminRecord sysAdminRecord = new SysAdminRecord();
+            sysAdminRecord.setType(5);//返水发放
+            sysAdminRecord.setIsAgree("0");
+            sysAdminRecord.setOriginId(usermoney.getId());
+            sysAdminRecord.setAdminUserId(adminUserId);
+            sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+        }
+    }
+
+    @Override
+    public void cashBackUser(Long userId, Userwin userwin) {
+
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String winTime = sd.format(userwin.getWinTime());
+        List<Userwin> userWinList = userwinMapper.selectUserWinListByDay(userwin.getUserId(),userwin.getGameId(),winTime);
+        cashBack(userWinList,userId);
+    }
+
+    @Override
+    public List<CashBackDetailListRespVO> selectCashBackList(Userwin userwin) {
+        return userwinMapper.selectCashBackList(userwin);
+    }
+
+    @Override
+    public List<CommissionDetailListRespVO> selectCommissionDetailList(Userwin userwin) {
+        return userwinMapper.selectCommissionDetailList(userwin).stream().map(f->{
+            if(f.getCommissionMoney().compareTo(0f) > 0){
+                f.setCommissionStatus("1");
+            }else{
+                f.setCommissionStatus("0");
+            }
+            return f;
+        }).collect(Collectors.toList());
+    }
+
+    @Override
+    public void commissionYestoday(Long userId) {
+        List<Userwin> yestodayNoCommissionList = userwinMapper.selectYestodayNoCommissionList();
+        commission(yestodayNoCommissionList,userId);
+    }
+
+    public void commission(List<Userwin> userWinList, Long adminUserId){
+
+        SysGame sysGameSearch = new SysGame();
+        sysGameSearch.setStatus("0"); //有效
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGameSearch);
+
+        Map<Long , SysGame> gameMap = gameList.stream()
+                .collect(Collectors.toMap(
+                        SysGame::getGameId,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        for(Userwin userwin : userWinList){
+
+            SysUser user = userService.selectUserById(userwin.getUserId());
+            if(user.getParentUserId() == null || user.getParentUserId() == 0){
+                continue;
+            }
+            SysGame gameInfo = gameMap.get(userwin.getGameId());
+
+            SysUser parentUser = userService.selectUserById(user.getParentUserId());
+
+
+            Float gameCommission = gameInfo.getGameCommission();
+            Float amont = userwin.getBigSmallMoney() + userwin.getOtherMoney() - userwin.getDeductMoney();
+            Float resutAmont = amont * gameCommission / 100;
+            Float money = BigDecimal.valueOf(resutAmont).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
+
+            Float userMoney = parentUser.getAmount() + money;
+            parentUser.setAmount(userMoney);
+            userService.updateUserAmount(parentUser);
+
+            Usermoney usermoney = new Usermoney();
+            usermoney.setUserId(parentUser.getUserId());
+            usermoney.setCashContent(userwin.getGameName() + "投注返佣前金额：" + amont.toString());
+            usermoney.setCashMoney(money);
+            usermoney.setUserBalance(userMoney);
+            usermoney.setType("11");
+            usermoney.setGameId(userwin.getGameId());
+            usermoney.setGameName(userwin.getGameName());
+            usermoney.setRemark("下线佣金");
+            usermoneyService.insertUsermoney(usermoney);
+
+            userwinMapper.updateCommissionById(userwin.getId(),money);
+
+            SysAdminRecord sysAdminRecord = new SysAdminRecord();
+            sysAdminRecord.setType(6);//佣金发放
+            sysAdminRecord.setIsAgree("0");
+            sysAdminRecord.setOriginId(usermoney.getId());
+            sysAdminRecord.setAdminUserId(adminUserId);
+            sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+        }
+    }
+
+    @Override
+    public void commissionUser(Long userId, Userwin userwin) {
+
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String winTime = sd.format(userwin.getWinTime());
+        List<Userwin> userWinList = userwinMapper.selectUserWinListByDay(userwin.getUserId(),userwin.getGameId(),winTime);
+        commission(userWinList,userId);
     }
 }

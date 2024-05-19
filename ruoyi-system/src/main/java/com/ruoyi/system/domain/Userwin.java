@@ -61,12 +61,23 @@ public class Userwin extends BaseEntity
     @Excel(name = "反水金额")
     private Float cashBackMoney;
 
+    /** 佣金金额 */
+    @Excel(name = "佣金金额")
+    private Float commissionMoney;
+
     /** 是否删除(0否 1是) */
     @Excel(name = "是否删除(0否 1是)")
     private String isDelete;
 
     /** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限） */
     private String dataScope;
+
+    /** 反水状态(0否 1是) */
+    private String cashBackStatus;
+
+
+    /** 返佣状态(0否 1是) */
+    private String commissionStatus;
 
     public void setId(Long id)
     {
@@ -165,6 +176,14 @@ public class Userwin extends BaseEntity
         this.cashBackMoney = cashBackMoney;
     }
 
+    public Float getCommissionMoney() {
+        return commissionMoney;
+    }
+
+    public void setCommissionMoney(Float commissionMoney) {
+        this.commissionMoney = commissionMoney;
+    }
+
     public void setIsDelete(String isDelete)
     {
         this.isDelete = isDelete;
@@ -183,6 +202,22 @@ public class Userwin extends BaseEntity
         this.dataScope = dataScope;
     }
 
+    public String getCashBackStatus() {
+        return cashBackStatus;
+    }
+
+    public void setCashBackStatus(String cashBackStatus) {
+        this.cashBackStatus = cashBackStatus;
+    }
+
+    public String getCommissionStatus() {
+        return commissionStatus;
+    }
+
+    public void setCommissionStatus(String commissionStatus) {
+        this.commissionStatus = commissionStatus;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -197,6 +232,7 @@ public class Userwin extends BaseEntity
             .append("combinationMoney", getCombinationMoney())
             .append("deductMoney", getDeductMoney())
             .append("cashBackMoney", getCashBackMoney())
+            .append("commissionMoney", getCommissionMoney())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

@@ -14,3 +14,58 @@ export function listUserGameRank(query) {
     params: query
   })
 }
+
+export function listCashBackDetail(query) {
+  return request({
+    url: '/system/userwin/cashBackDetailList',
+    method: 'get',
+    params: query
+  })
+}
+
+export function cashBackYestoday(data) {
+  return request({
+    url: '/system/userwin/cashBackYestoday',
+    method: 'post',
+    data: data
+  })
+}
+
+export function cashBackUser(data) {
+  return request({
+    url: '/system/userwin/cashBackUser',
+    method: 'post',
+    data: data
+  })
+}
+export function listCashBackList(query) {
+  return request({
+    url: '/system/userwin/cashBackList',
+    method: 'get',
+    params: query
+  })
+}
+
+export function listCommissionDetail(query) {
+  return request({
+    url: '/system/userwin/commissionDetailList',
+    method: 'get',
+    params: query
+  })
+}
+
+export function commissionYestoday(data) {
+  return request({
+    url: '/system/userwin/commissionYestoday',
+    method: 'post',
+    data: data
+  })
+}
+
+export function commissionUser(data) {
+  return request({
+    url: '/system/userwin/commissionUser',
+    method: 'post',
+    data: data
+  })
+}

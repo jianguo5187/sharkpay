@@ -79,4 +79,6 @@ public interface IUsermoneyService
     public List<UserMoneyUpTotalListRespVO> selectUserMoneyUpTotalList(Usermoney usermoney);
 
     public List<UserMoneyDownTotalListRespVO> selectUserMoneyDownTotalList(Usermoney usermoney);
+
+    public List<CommissionListRespVO> selectCommissionList(Usermoney usermoney);
 }

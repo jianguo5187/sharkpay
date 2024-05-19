@@ -2,6 +2,8 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
+import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
 import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
 import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
 
@@ -66,4 +68,18 @@ public interface IUserwinService
     public List<UserTotalRankListRespVO> selectUserTotalRankList(Userwin userwin);
 
     public List<UserGameWinRankListRespVO> selectUserGameRankList(Userwin userwin);
+
+    public List<CashBackDetailListRespVO> selectCashBackDetailList(Userwin userwin);
+
+    public void cashBackYestoday(Long userId);
+
+    public void cashBackUser(Long userId,Userwin userwin);
+
+    public List<CashBackDetailListRespVO> selectCashBackList(Userwin userwin);
+
+    public List<CommissionDetailListRespVO> selectCommissionDetailList(Userwin userwin);
+
+    public void commissionYestoday(Long userId);
+
+    public void commissionUser(Long userId,Userwin userwin);
 }

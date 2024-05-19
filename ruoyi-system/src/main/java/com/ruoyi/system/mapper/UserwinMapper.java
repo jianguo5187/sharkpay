@@ -2,6 +2,8 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
+import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
 import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
 import com.ruoyi.system.domain.vo.YkDetailRespVO;
 import org.apache.ibatis.annotations.Param;
@@ -77,4 +79,18 @@ public interface UserwinMapper
     public int selectUserGameWinDateCount(@Param("userId") Long userId, @Param("gameId") Long gameId, @Param("winTime") String winTime, @Param("betRecordTableName") String betRecordTableName);
 
     public int updateUserDeductMoney(@Param("userId") Long userId, @Param("gameId") Long gameId, @Param("winTime") String winTime,@Param("plusFlg") String plusFlg,@Param("countMoney") Float countMoney);
+
+    public List<CashBackDetailListRespVO> selectCashBackDetailList(Userwin userwin);
+
+    public List<Userwin> selectYestodayNoCashBackList();
+
+    public int updateCashBackMoneyById(@Param("id") Long id,@Param("cashBackMoney")Float cashBackMoney);
+
+    public List<CashBackDetailListRespVO> selectCashBackList(Userwin userwin);
+
+    public List<CommissionDetailListRespVO> selectCommissionDetailList(Userwin userwin);
+
+    public List<Userwin> selectYestodayNoCommissionList();
+
+    public int updateCommissionById(@Param("id") Long id,@Param("commissionMoney")Float commissionMoney);
 }

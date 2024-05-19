@@ -3,6 +3,10 @@ package com.ruoyi.web.controller.system;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.core.domain.model.LoginUser;
+import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
+import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
 import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
 import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -119,5 +123,69 @@ public class UserwinController extends BaseController
         startPage();
         List<UserGameWinRankListRespVO> list = userwinService.selectUserGameRankList(userwin);
         return getDataTable(list);
+    }
+
+    @GetMapping("/cashBackDetailList")
+    public TableDataInfo cashBackDetailList(Userwin userwin)
+    {
+        startPage();
+        List<CashBackDetailListRespVO> list = userwinService.selectCashBackDetailList(userwin);
+        return getDataTable(list);
+    }
+
+    @PostMapping("/cashBackYestoday")
+    public AjaxResult cashBackYestoday(Userwin userwin)
+    {
+        LoginUser loginUser = getLoginUser();
+        SysUser user = loginUser.getUser();
+        userwinService.cashBackYestoday(user.getUserId());
+        AjaxResult ajax = AjaxResult.success("处理成功");
+        return ajax;
+    }
+
+    @PostMapping("/cashBackUser")
+    public AjaxResult cashBackUser(@RequestBody Userwin userwin)
+    {
+        LoginUser loginUser = getLoginUser();
+        SysUser user = loginUser.getUser();
+        userwinService.cashBackUser(user.getUserId(),userwin);
+        AjaxResult ajax = AjaxResult.success("处理成功");
+        return ajax;
+    }
+
+    @GetMapping("/cashBackList")
+    public TableDataInfo cashBackList(Userwin userwin)
+    {
+        startPage();
+        List<CashBackDetailListRespVO> list = userwinService.selectCashBackList(userwin);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/commissionDetailList")
+    public TableDataInfo commissionDetailList(Userwin userwin)
+    {
+        startPage();
+        List<CommissionDetailListRespVO> list = userwinService.selectCommissionDetailList(userwin);
+        return getDataTable(list);
+    }
+
+    @PostMapping("/commissionYestoday")
+    public AjaxResult commissionYestoday(Userwin userwin)
+    {
+        LoginUser loginUser = getLoginUser();
+        SysUser user = loginUser.getUser();
+        userwinService.commissionYestoday(user.getUserId());
+        AjaxResult ajax = AjaxResult.success("处理成功");
+        return ajax;
+    }
+
+    @PostMapping("/commissionUser")
+    public AjaxResult commissionUser(@RequestBody Userwin userwin)
+    {
+        LoginUser loginUser = getLoginUser();
+        SysUser user = loginUser.getUser();
+        userwinService.commissionUser(user.getUserId(),userwin);
+        AjaxResult ajax = AjaxResult.success("处理成功");
+        return ajax;
     }
 }

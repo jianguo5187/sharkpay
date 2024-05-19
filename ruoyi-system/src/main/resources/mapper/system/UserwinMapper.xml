@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="combinationMoney"    column="combination_money"    />
         <result property="deductMoney"    column="deduct_money"    />
         <result property="cashBackMoney"    column="cash_back_money"    />
+        <result property="commissionMoney"    column="commission_money"    />
         <result property="isDelete"    column="is_delete"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
@@ -48,8 +49,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="cashBackMoney"    column="cash_back_money"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.CashBackDetailListRespVO" id="CashBackDetailListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="totalBetMoney"    column="total_bet_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="preCashBackMoney"    column="pre_cash_back_money"    />
+        <result property="cashBackMoney"    column="cash_back_money"    />
+        <result property="cashBackRate"    column="cash_back_rate"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CommissionDetailListRespVO" id="CommissionDetailListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="parentUserId"    column="parent_user_id"    />
+        <result property="parentNickName"    column="parent_nick_name"    />
+        <result property="parentRealName"    column="parent_real_name"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="commissionMoney"    column="commission_money"    />
+        <result property="preCommissionMoney"    column="pre_commission_money"    />
+        <result property="commissionRate"    column="commission_rate"    />
+    </resultMap>
+
     <sql id="selectUserwinVo">
-        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, cash_back_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
+        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, cash_back_money, commission_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
     </sql>
 
     <select id="selectUserwinList" parameterType="Userwin" resultMap="UserwinResult">
@@ -65,6 +95,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="combinationMoney != null "> and combination_money = #{combinationMoney}</if>
             <if test="deductMoney != null "> and deduct_money = #{deductMoney}</if>
             <if test="cashBackMoney != null "> and cash_back_money = #{cashBackMoney}</if>
+            <if test="commissionMoney != null "> and commission_money = #{commissionMoney}</if>
             <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
         </where>
     </select>
@@ -95,6 +126,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="combinationMoney != null">combination_money,</if>
             <if test="deductMoney != null">deduct_money,</if>
             <if test="cashBackMoney != null">cash_back_money,</if>
+            <if test="commissionMoney != null">commission_money,</if>
             <if test="isDelete != null and isDelete != ''">is_delete,</if>
             <if test="createBy != null">create_by,</if>
         win_time,
@@ -109,6 +141,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="combinationMoney != null">#{combinationMoney},</if>
             <if test="deductMoney != null">#{deductMoney},</if>
             <if test="cashBackMoney != null">#{cashBackMoney},</if>
+            <if test="commissionMoney != null">#{commissionMoney},</if>
             <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
             <if test="createBy != null">#{createBy},</if>
         CURDATE(),
@@ -125,6 +158,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="combinationMoney != null">combination_money = #{combinationMoney},</if>
             <if test="deductMoney != null">deduct_money = #{deductMoney},</if>
             <if test="cashBackMoney != null">cash_back_money = #{cashBackMoney},</if>
+            <if test="commissionMoney != null">commission_money = #{commissionMoney},</if>
             <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
@@ -236,5 +270,114 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where user_id = #{userId}
         and game_id = #{gameId}
         and DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+    </update>
+
+    <select id="selectCashBackDetailList" parameterType="Userwin" resultMap="CashBackDetailListResult">
+        SELECT
+             uw.user_id as user_id
+            ,max(u.nick_name) as nick_name
+            ,max(u.real_name) as real_name
+            ,uw.win_time as win_time
+            ,uw.game_id as game_id
+            ,max(uw.game_name) as game_name
+            ,SUM(uw.big_small_money + uw.other_money) AS total_bet_money
+            ,SUM(uw.win_money) AS win_money
+            ,SUM(ROUND((uw.big_small_money + uw.other_money)*g.game_cashback / 100, 2)) AS pre_cash_back_money
+            ,SUM(uw.cash_back_money) AS cash_back_money
+            ,MAX(g.game_cashback) AS cash_back_rate
+        FROM userwin uw
+        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_game g on g.game_id = uw.game_id
+        WHERE
+        1 = 1
+        <if test="userId != null "> and uw.user_id = #{userId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        <if test="cashBackStatus != null "> and case when uw.cash_back_money > 0 then '1' else '0' end  = #{cashBackStatus}</if>
+        GROUP BY uw.user_id,uw.win_time,uw.game_id
+        ORDER BY uw.win_time desc,uw.game_id
+    </select>
+
+    <select id="selectYestodayNoCashBackList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where cash_back_money = 0
+        and date_format(win_time,'%Y%m%d') = DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+    </select>
+
+    <update id="updateCashBackMoneyById">
+        update userwin
+        set cash_back_money = #{cashBackMoney},update_time = sysdate()
+        where id = #{id}
+    </update>
+
+    <select id="selectCashBackList" parameterType="Userwin" resultMap="CashBackDetailListResult">
+        SELECT
+         uw.user_id as user_id
+        ,max(u.nick_name) as nick_name
+        ,max(u.real_name) as real_name
+        ,uw.win_time as win_time
+        ,SUM(uw.cash_back_money) AS cash_back_money
+        FROM userwin uw
+        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_game g on g.game_id = uw.game_id
+        WHERE
+        cash_back_money > 0
+        <if test="userId != null "> and uw.user_id = #{userId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        GROUP BY uw.user_id,uw.win_time
+        ORDER BY uw.win_time desc,uw.user_id
+    </select>
+
+    <select id="selectCommissionDetailList" parameterType="Userwin" resultMap="CommissionDetailListResult">
+        SELECT
+             uw.user_id as user_id
+            ,max(u.nick_name) as nick_name
+            ,max(u.real_name) as real_name
+            ,pu.user_id as parent_user_id
+            ,max(pu.nick_name) as parent_nick_name
+            ,max(pu.real_name) as parent_real_name
+            ,uw.win_time as win_time
+            ,uw.game_id as game_id
+            ,max(uw.game_name) as game_name
+            ,SUM(uw.commission_money) AS commission_money
+            ,SUM(ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)*g.game_commission / 100, 2)) AS pre_commission_money
+            ,MAX(g.game_commission) AS commission_rate
+        FROM userwin uw
+        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_game g on g.game_id = uw.game_id
+        inner join sys_user pu on pu.user_id = u.parent_user_id
+        WHERE
+        1 = 1
+        <if test="userId != null "> and uw.user_id = #{userId}</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        <if test="commissionStatus != null "> and case when uw.commission_money > 0 then '1' else '0' end  = #{commissionStatus}</if>
+        GROUP BY uw.user_id,pu.user_id,uw.win_time,uw.game_id
+        ORDER BY uw.win_time desc,uw.game_id
+    </select>
+
+    <select id="selectYestodayNoCommissionList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where commission_money = 0
+        and date_format(win_time,'%Y%m%d') = DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+    </select>
+
+    <update id="updateCommissionById">
+        update userwin
+        set commission_money = #{commissionMoney},update_time = sysdate()
+        where id = #{id}
     </update>
 </mapper>

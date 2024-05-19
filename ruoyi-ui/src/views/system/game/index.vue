@@ -108,10 +108,10 @@
 <!--      <el-table-column label="盈亏名" align="center" prop="profitLossName" />-->
 <!--      <el-table-column label="记录表" align="center" prop="gameRecord" />-->
 <!--      <el-table-column label="开奖表" align="center" prop="gameKj" />-->
-      <el-table-column label="佣金" align="center" prop="gameCommission" />
+      <el-table-column label="佣金比例" align="center" prop="gameCommission" />
 <!--      <el-table-column label="2级佣金" align="center" prop="gameCommissionTwo" />-->
 <!--      <el-table-column label="回水彩种" align="center" prop="gameCate" />-->
-      <el-table-column label="回水" align="center" prop="gameCashback" />
+      <el-table-column label="反水比例" align="center" prop="gameCashback" />
       <el-table-column label="最小投注金额" align="center" prop="minBetAmount" />
       <el-table-column label="最大投注金额" align="center" prop="maxBetAmount" />
 <!--      <el-table-column label="封盘秒数" align="center" prop="endTime" />-->
@@ -194,11 +194,11 @@
 <!--        <el-form-item label="开奖表" prop="gameKj">-->
 <!--          <el-input v-model="form.gameKj" placeholder="请输入开奖表" />-->
 <!--        </el-form-item>-->
-        <el-form-item label="佣金" prop="gameCommission">
-          <el-input-number v-model="form.gameCommission" :min="0" placeholder="请输入佣金"/>
+        <el-form-item label="佣金比例" prop="gameCommission">
+          <el-input-number v-model="form.gameCommission" :min="0" placeholder="请输入佣金比例"/> 0~100
         </el-form-item>
-        <el-form-item label="回水" prop="gameCashback">
-          <el-input-number v-model="form.gameCashback" :min="0" placeholder="请输入回水"/>
+        <el-form-item label="反水比例" prop="gameCashback">
+          <el-input-number v-model="form.gameCashback" :min="0" placeholder="请输入反水比例"/> 0~100
         </el-form-item>
         <el-form-item label="最小投注金额" prop="minBetAmount">
           <el-input-number v-model="form.minBetAmount" :min="0" placeholder="请输入最小投注金额" :precision="2"/>
