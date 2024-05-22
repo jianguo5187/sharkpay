@@ -153,3 +153,11 @@ export function selectAllUser() {
     method: 'get',
   })
 }
+// 查询用户列表
+export function listAgentUser(query) {
+  return request({
+    url: '/system/user/agentUserList',
+    method: 'get',
+    params: query
+  })
+}

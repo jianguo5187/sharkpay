@@ -1,6 +1,8 @@
 package com.ruoyi.system.mapper;
 
 import java.util.List;
+
+import com.ruoyi.system.domain.vo.AgentUserListRespVo;
 import org.apache.ibatis.annotations.Param;
 import com.ruoyi.common.core.domain.entity.SysUser;
 
@@ -153,4 +155,6 @@ public interface SysUserMapper
     public int updateUserAmount(SysUser user);
 
     public List<SysUser> selectChildUserList(Long parentUserId);
+
+    public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
 }

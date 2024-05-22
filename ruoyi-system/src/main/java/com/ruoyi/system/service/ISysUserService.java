@@ -2,6 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.system.domain.vo.AgentUserListRespVo;
 import com.ruoyi.system.domain.vo.LoginUserInfoRespVO;
 
 /**
@@ -236,4 +237,8 @@ public interface ISysUserService
     public List<SysUser> selectChildUserList(Long parentUserId);
 
     public LoginUserInfoRespVO selectAppLoginUserInfo(Long userId);
+
+    public SysUser setUserGameWin(SysUser user);
+
+    public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
 }

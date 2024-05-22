@@ -30,10 +30,10 @@
       <!--用户数据-->
       <el-col :span="24" :xs="24">
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-          <el-form-item label="登录账号" prop="userName">
+          <el-form-item label="用户昵称" prop="nickName">
             <el-input
-              v-model="queryParams.userName"
-              placeholder="请输入登录账号"
+              v-model="queryParams.nickName"
+              placeholder="请输入用户昵称"
               clearable
               style="width: 240px"
               @keyup.enter.native="handleQuery"
@@ -133,22 +133,33 @@
           <!--              v-hasPermi="['system:user:export']"-->
           <!--            >导出</el-button>-->
           <!--          </el-col>-->
-          <right-toolbar :showSearch.sync="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
+          <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
         </el-row>
 
         <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
           <!--          <el-table-column label="用户编号" align="center" key="userId" prop="userId" v-if="columns[0].visible" />-->
-          <el-table-column label="登录账号" align="center" key="userName" prop="userName" v-if="columns[1].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="用户昵称" align="center" key="nickName" prop="nickName" v-if="columns[2].visible" :show-overflow-tooltip="true" />
-          <el-table-column label="用户类型" align="center" prop="userType">
-            <template slot-scope="scope">
-              <dict-tag :options="dict.type.user_type" :value="scope.row.userType"/>
-            </template>
-          </el-table-column>
+          <el-table-column label="登录账号" align="center" key="userName" prop="userName" :show-overflow-tooltip="true" />
+          <el-table-column label="用户昵称" align="center" key="nickName" prop="nickName" :show-overflow-tooltip="true" />
+<!--          <el-table-column label="用户类型" align="center" prop="userType">-->
+<!--            <template slot-scope="scope">-->
+<!--              <dict-tag :options="dict.type.user_type" :value="scope.row.userType"/>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
           <!--          <el-table-column label="所属商户" align="center" key="deptName" prop="dept.deptName" v-if="columns[3].visible" :show-overflow-tooltip="true" />-->
-          <el-table-column label="手机号码" align="center" key="phonenumber" prop="phonenumber" v-if="columns[4].visible" width="120" />
-          <el-table-column label="状态" align="center" key="status" v-if="columns[5].visible">
+<!--          <el-table-column label="手机号码" align="center" key="phonenumber" prop="phonenumber" width="120" />-->
+          <el-table-column
+            v-for="column in gameWinMoneyColumns"
+            :key="column.gameMarkId"
+            :prop="column.gameMarkId"
+            :label="column.gameName"
+            align="center" >
+          </el-table-column>
+          <el-table-column label="余额" align="center" key="amount" prop="amount"/>
+          <el-table-column label="盈亏金额" align="center" key="totalWinMoney" prop="totalWinMoney"/>
+          <el-table-column label="流水金额" align="center" key="totalBetMoney" prop="totalBetMoney"/>
+          <el-table-column label="上级用户" align="center" key="parentNickName" prop="parentNickName"/>
+          <el-table-column label="状态" align="center" key="status" >
             <template slot-scope="scope">
               <el-switch
                 v-model="scope.row.status"
@@ -229,8 +240,8 @@
               <el-input v-model="form.nickName" placeholder="请输入用户昵称" maxlength="30" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="归属商户" prop="deptId">
+          <el-col :span="12" v-show="false">
+            <el-form-item label="归属商户" prop="deptId" >
               <treeselect v-model="form.deptId" :options="deptOptions" :show-count="true" placeholder="请选择归属商户" :readOnly="true" disabled/>
             </el-form-item>
           </el-col>
@@ -309,6 +320,17 @@
         </el-row>
         <el-row>
           <el-col :span="12">
+            <el-form-item label="状态">
+              <el-radio-group v-model="form.status">
+                <el-radio
+                  v-for="dict in dict.type.sys_normal_disable"
+                  :key="dict.value"
+                  :label="dict.value"
+                >{{dict.label}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12" v-show="false">
             <el-form-item label="用户性别">
               <el-select v-model="form.sex" placeholder="请选择性别">
                 <el-option
@@ -320,19 +342,8 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="状态">
-              <el-radio-group v-model="form.status">
-                <el-radio
-                  v-for="dict in dict.type.sys_normal_disable"
-                  :key="dict.value"
-                  :label="dict.value"
-                >{{dict.label}}</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
         </el-row>
-        <el-row>
+        <el-row v-show="false">
           <!--          <el-col :span="12">-->
           <!--            <el-form-item label="岗位">-->
           <!--              <el-select v-model="form.postIds" multiple placeholder="请选择岗位">-->
@@ -411,6 +422,7 @@ import { listUser, getUser, delUser, addUser, updateUser, resetUserPwd, resetUse
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+import {getValidGame} from "@/api/system/game";
 
 export default {
   name: "User",
@@ -473,7 +485,7 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        userName: undefined,
+        nickName: undefined,
         phonenumber: undefined,
         status: undefined,
         deptId: undefined
@@ -488,6 +500,8 @@ export default {
         { key: 5, label: `状态`, visible: true },
         { key: 6, label: `创建时间`, visible: true }
       ],
+      // 游戏收益列表
+      gameWinMoneyColumns: [],
       // 表单校验
       rules: {
         userName: [
@@ -525,6 +539,7 @@ export default {
     }
   },
   created() {
+    this.getGameList();
     this.getList();
     this.getDeptTree();
     this.getConfigKey("sys.user.initPassword").then(response => {
@@ -532,6 +547,11 @@ export default {
     });
   },
   methods: {
+    getGameList(){
+      getValidGame().then(response => {
+        this.gameWinMoneyColumns = response.gameList;
+      });
+    },
     /** 查询用户列表 */
     getList() {
       this.loading = true;

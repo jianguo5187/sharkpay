@@ -3,6 +3,8 @@ package com.ruoyi.web.controller.system;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.system.domain.vo.AgentUserListRespVo;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -61,7 +63,9 @@ public class SysUserController extends BaseController
     public TableDataInfo list(SysUser user)
     {
         startPage();
-        List<SysUser> list = userService.selectUserList(user);
+        List<SysUser> list = userService.selectUserList(user).stream().map(f->{
+            return userService.setUserGameWin(f);
+        }).collect(Collectors.toList());
         return getDataTable(list);
     }
 
@@ -257,5 +261,16 @@ public class SysUserController extends BaseController
     public AjaxResult deptTree(SysDept dept)
     {
         return success(deptService.selectDeptTreeList(dept));
+    }
+
+    /**
+     * 获取代理用户列表
+     */
+    @GetMapping("/agentUserList")
+    public TableDataInfo agentUserList(SysUser user)
+    {
+        startPage();
+        List<AgentUserListRespVo> list = userService.selectAgentUserList(user);
+        return getDataTable(list);
     }
 }

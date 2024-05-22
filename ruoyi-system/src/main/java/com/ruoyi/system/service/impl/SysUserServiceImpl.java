@@ -8,8 +8,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Validator;
 
+import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.vo.AgentUserListRespVo;
 import com.ruoyi.system.domain.vo.LoginUserInfoRespVO;
+import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
 import com.ruoyi.system.mapper.*;
+import com.ruoyi.system.service.IUserwinService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -41,6 +45,9 @@ import com.ruoyi.system.service.ISysUserService;
 public class SysUserServiceImpl implements ISysUserService
 {
     private static final Logger log = LoggerFactory.getLogger(SysUserServiceImpl.class);
+
+    @Autowired
+    private IUserwinService userwinService;
 
     @Autowired
     private SysUserMapper userMapper;
@@ -625,5 +632,59 @@ public class SysUserServiceImpl implements ISysUserService
         userInfo.setYesdayWinMoney(yesdayWinMoney==null?0f:yesdayWinMoney);
 
         return userInfo;
+    }
+
+    @Override
+    public SysUser setUserGameWin(SysUser user) {
+
+        user.setTotalWinMoney(0f);
+        user.setTotalBetMoney(0f);
+        user.setJnd20(0f);
+        user.setJnd28(0f);
+        user.setJnd32(0f);
+        user.setJspc28(0f);
+        user.setBt28(0f);
+        user.setMssc(0f);
+        user.setAzxy52(0f);
+        user.setAzxy5(0f);
+        user.setAzxy10(0f);
+        user.setAzxy102(0f);
+        user.setXyft(0f);
+        user.setJssc(0f);
+        user.setJsft(0f);
+        user.setJssc(0f);
+        user.setJssc2(0f);
+        user.setXyft2(0f);
+
+        Userwin searchUserWin = new Userwin();
+        searchUserWin.setUserId(user.getUserId());
+        List<UserTotalRankListRespVO> userTotalRankList = userwinService.selectUserTotalRankList(searchUserWin);
+        for(UserTotalRankListRespVO userGameWinRankListRespVO: userTotalRankList){
+
+            user.setTotalWinMoney(user.getTotalWinMoney() +  userGameWinRankListRespVO.getTotalWinMoney());
+            user.setTotalBetMoney(user.getTotalBetMoney() +  userGameWinRankListRespVO.getTotalBetMoney());
+            user.setJnd20(user.getJnd20() +  userGameWinRankListRespVO.getJnd20());
+            user.setJnd28(user.getJnd28() +  userGameWinRankListRespVO.getJnd28());
+            user.setJnd32(user.getJnd32() +  userGameWinRankListRespVO.getJnd32());
+            user.setJspc28(user.getJspc28() +  userGameWinRankListRespVO.getJspc28());
+            user.setBt28(user.getBt28() +  userGameWinRankListRespVO.getBt28());
+            user.setMssc(user.getMssc() +  userGameWinRankListRespVO.getMssc());
+            user.setAzxy52(user.getAzxy52() +  userGameWinRankListRespVO.getAzxy52());
+            user.setAzxy5(user.getAzxy5() +  userGameWinRankListRespVO.getAzxy5());
+            user.setAzxy10(user.getAzxy10() +  userGameWinRankListRespVO.getAzxy10());
+            user.setAzxy102(user.getAzxy102() +  userGameWinRankListRespVO.getAzxy102());
+            user.setXyft(user.getXyft() +  userGameWinRankListRespVO.getXyft());
+            user.setJssc(user.getJssc() +  userGameWinRankListRespVO.getJssc());
+            user.setJsft(user.getJsft() +  userGameWinRankListRespVO.getJsft());
+            user.setJssc(user.getJssc() +  userGameWinRankListRespVO.getJssc());
+            user.setJssc2(user.getJssc2() +  userGameWinRankListRespVO.getJssc2());
+            user.setXyft2(user.getXyft2() +  userGameWinRankListRespVO.getXyft2());
+        }
+        return user;
+    }
+
+    @Override
+    public List<AgentUserListRespVo> selectAgentUserList(SysUser user) {
+        return userMapper.selectAgentUserList(user);
     }
 }
