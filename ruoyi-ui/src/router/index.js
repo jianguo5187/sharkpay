@@ -87,6 +87,34 @@ export const constantRoutes = [
         meta: { title: '个人中心', icon: 'user' }
       }
     ]
+  },
+  {
+    path: '/topRecharge',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/system/recharge/index'),
+        name: 'topRecharge',
+        meta: { title: '上分', icon: 'user' }
+      }
+    ]
+  },
+  {
+    path: '/topPostal',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/system/postal/index'),
+        name: 'topPostal',
+        meta: { title: '下分', icon: 'user' }
+      }
+    ]
   }
 ]
 
@@ -161,7 +189,7 @@ export const dynamicRoutes = [
         meta: { title: '修改生成配置', activeMenu: '/tool/gen' }
       }
     ]
-  }
+  },
 ]
 
 // 防止连续点击多次路由报错

@@ -211,4 +211,26 @@ public class UsermoneyController extends BaseController
         List<CommissionListRespVO> list =usermoneyService.selectCommissionList(usermoney);
         return getDataTable(list);
     }
+
+    /**
+     * 获取未承认的充值（上分）件数
+     */
+    @GetMapping("/getNoApproveRechargeCnt")
+    public AjaxResult getNoApproveRechargeCnt()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("upCount",usermoneyService.getNoApproveRechargeCnt());
+        return ajax;
+    }
+
+    /**
+     * 获取未承认的提现（下分）件数
+     */
+    @GetMapping("/getNoApprovePostalCnt")
+    public AjaxResult getNoApprovePostalCnt()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("downCount",usermoneyService.getNoApprovePostalCnt());
+        return ajax;
+    }
 }

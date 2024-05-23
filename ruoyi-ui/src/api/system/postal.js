@@ -43,3 +43,11 @@ export function listUserMoneyDownTotal(query) {
     params: query
   })
 }
+
+export function noApprovePostalCnt(query) {
+  return request({
+    url: '/system/usermoney/getNoApprovePostalCnt',
+    method: 'get',
+    params: query
+  })
+}

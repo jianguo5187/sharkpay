@@ -81,4 +81,8 @@ public interface IUsermoneyService
     public List<UserMoneyDownTotalListRespVO> selectUserMoneyDownTotalList(Usermoney usermoney);
 
     public List<CommissionListRespVO> selectCommissionList(Usermoney usermoney);
+
+    public int getNoApproveRechargeCnt();
+
+    public int getNoApprovePostalCnt();
 }

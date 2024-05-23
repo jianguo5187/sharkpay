@@ -43,3 +43,11 @@ export function listUserMoneyUpTotal(query) {
     params: query
   })
 }
+
+export function noApproveRechargeCnt(query) {
+  return request({
+    url: '/system/usermoney/getNoApproveRechargeCnt',
+    method: 'get',
+    params: query
+  })
+}

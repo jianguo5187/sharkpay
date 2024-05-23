@@ -6,9 +6,14 @@
     <top-nav id="topmenu-container" class="topmenu-container" v-if="topNav"/>
 
     <div class="right-menu">
+      <el-tooltip content="下分" effect="dark" placement="bottom">
+        <top-postal id="top-postal" class="right-menu-item hover-effect" />
+      </el-tooltip>
+      <el-tooltip content="上分" effect="dark" placement="bottom">
+        <top-recharge id="top-recharge" class="right-menu-item hover-effect" />
+      </el-tooltip>
 <!--      <template v-if="device!=='mobile'">-->
 <!--        <search id="header-search" class="right-menu-item" />-->
-
 <!--        <el-tooltip content="源码地址" effect="dark" placement="bottom">-->
 <!--          <ruo-yi-git id="ruoyi-git" class="right-menu-item hover-effect" />-->
 <!--        </el-tooltip>-->
@@ -56,6 +61,8 @@ import SizeSelect from '@/components/SizeSelect'
 import Search from '@/components/HeaderSearch'
 import RuoYiGit from '@/components/RuoYi/Git'
 import RuoYiDoc from '@/components/RuoYi/Doc'
+import TopPostal from '@/components/Postal'
+import TopRecharge from '@/components/Recharge'
 
 export default {
   components: {
@@ -66,7 +73,9 @@ export default {
     SizeSelect,
     Search,
     RuoYiGit,
-    RuoYiDoc
+    RuoYiDoc,
+    TopPostal,
+    TopRecharge
   },
   computed: {
     ...mapGetters([

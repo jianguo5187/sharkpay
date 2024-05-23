@@ -270,4 +270,18 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     public List<CommissionListRespVO> selectCommissionList(Usermoney usermoney) {
         return usermoneyMapper.selectCommissionList(usermoney);
     }
+
+    @Override
+    public int getNoApproveRechargeCnt() {
+        Usermoney searchUsermoney = new Usermoney();
+        searchUsermoney.setType("1");
+        return usermoneyMapper.selectUsermoneyList(searchUsermoney).size();
+    }
+
+    @Override
+    public int getNoApprovePostalCnt() {
+        Usermoney searchUsermoney = new Usermoney();
+        searchUsermoney.setType("4");
+        return usermoneyMapper.selectUsermoneyList(searchUsermoney).size();
+    }
 }
