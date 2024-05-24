@@ -30,7 +30,7 @@ public class Usermoney extends BaseEntity
     private String cashContent;
 
     /** 资金流水时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Excel(name = "资金流水时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date cashTime;
 

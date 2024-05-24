@@ -16,4 +16,6 @@ public interface ISysAppService {
     public List<GameResultListRespVO> gameResultList(Long userId, GameResultListReqVO vo);
 
     public List<SysReplace> replaceList();
+
+    public HomePageDataRespVO getHomePageDate();
 }

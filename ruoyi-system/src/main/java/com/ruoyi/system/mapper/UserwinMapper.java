@@ -93,4 +93,6 @@ public interface UserwinMapper
     public List<Userwin> selectYestodayNoCommissionList();
 
     public int updateCommissionById(@Param("id") Long id,@Param("commissionMoney")Float commissionMoney);
+
+    public Float selectBetWinToalAmount();
 }

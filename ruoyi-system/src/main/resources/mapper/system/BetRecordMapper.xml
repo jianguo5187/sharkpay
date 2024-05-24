@@ -66,6 +66,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="isDelete"    column="is_delete"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.WeeKGameBetRespVO" id="WeekGameBetListResult">
+        <result property="betDay"    column="bet_day"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="betMoney"    column="bet_money"    />
+    </resultMap>
+
     <sql id="selectBetRecordVo">
         select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, `option`, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, create_by, create_time, update_by, update_time, remark from bet_record
     </sql>
@@ -262,5 +268,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="gameId != null "> and br.game_id = #{gameId}</if>
         <if test="settledFlg != null "> and br.is_delete = 0 and br.settle_flg = 0</if>
         order by br.bet_id desc
+    </select>
+
+    <select id="selectBetToalAmount" resultType="Float">
+        select
+            sum(money)
+        from bet_record
+        where is_delete = '0'
+          and is_robot = '0'
+    </select>
+
+    <select id="selectWeekGameBetList" resultMap="WeekGameBetListResult">
+        SELECT
+            date_format(bet.record_time, '%m-%d' ) AS bet_day,
+            sum(bet.money ) AS bet_money,
+            max(bet.game_name)  as game_name
+        FROM
+            bet_record bet
+        WHERE
+              date_format( bet.record_time, '%y%m%d' ) >= date_format( CURDATE() - INTERVAL 6 DAY, '%y%m%d' )
+          AND bet.is_delete = '0'
+          AND bet.is_robot = '0'
+        GROUP BY
+            date_format( bet.record_time, '%m-%d' ),bet.game_id
     </select>
 </mapper>

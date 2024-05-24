@@ -3,30 +3,18 @@ package com.ruoyi.system.service.impl;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
-import com.ruoyi.system.mapper.BetRecordMapper;
-import com.ruoyi.system.mapper.BetkjMapper;
-import com.ruoyi.system.mapper.UserwinMapper;
+import com.ruoyi.system.mapper.*;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class SysAppServiceImpl implements ISysAppService {
-
-
-    @Autowired
-    private IGameThreeballRecordService gameThreeballRecordService;
-
-    @Autowired
-    private IGameFiveballRecordService gameFiveballRecordService;
-
-    @Autowired
-    private IGameTenballRecordService gameTenballRecordService;
 
     @Autowired
     private IGameThreeballKjService gameThreeballKjService;
@@ -39,6 +27,9 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Autowired
     private ISysGameService sysGameService;
+
+    @Autowired
+    private IUserwinService userwinService;
 
     @Autowired
     private BetkjMapper betkjMapper;
@@ -54,6 +45,12 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Autowired
     private ISysReplaceService sysReplaceService;
+
+    @Autowired
+    private SysUserMapper userMapper;
+
+    @Autowired
+    private UsermoneyMapper usermoneyMapper;
 
     @Override
     public List<GameListRespVO> gameRecordList(Long userId, GameListReqVO vo) {
@@ -419,5 +416,122 @@ public class SysAppServiceImpl implements ISysAppService {
         SysReplace searchReplace = new SysReplace();
         searchReplace.setStatus("0");
         return sysReplaceService.selectSysReplaceList(searchReplace);
+    }
+
+    @Override
+    public HomePageDataRespVO getHomePageDate() {
+        HomePageDataRespVO respVO = new HomePageDataRespVO();
+        respVO.setUserCnt(userMapper.selectEffectiveUsersCount());
+        respVO.setBetTotalAmount(betRecordMapper.selectBetToalAmount());
+        respVO.setBetWinTotalAmount(userwinMapper.selectBetWinToalAmount());
+
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sd.format(new Date());
+        Userwin searchUserwin = new Userwin();
+        searchUserwin.setFilterDay(today);
+
+        Float todayWinMoney = 0f;
+        List<UserTotalRankListRespVO> totalUserWinList = userwinService.selectUserTotalRankList(searchUserwin);
+        for(UserTotalRankListRespVO userTotalRankListRespVO : totalUserWinList){
+            todayWinMoney = todayWinMoney + userTotalRankListRespVO.getTotalWinMoney();
+        }
+        respVO.setTodayWinMoney(todayWinMoney);
+
+        List<String> echartWeekTitle = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE,-7);
+        for(int i=1;i<=7;i++){
+            cal.add(Calendar.DATE,1);
+            echartWeekTitle.add(sdf.format(cal.getTime()));
+        }
+        respVO.setUpDownMoneyEchartTitle(echartWeekTitle);
+        respVO.setGameBetEchartTitle(echartWeekTitle);
+
+        //上分（充值）列表
+        List<WeekUpDownMoneyRespVO> weekUpMoneyList = usermoneyMapper.selectWeekUpDownMoneyList("2");
+        Map<String , WeekUpDownMoneyRespVO> weekUpMoneyMap = weekUpMoneyList.stream()
+                .collect(Collectors.toMap(
+                        WeekUpDownMoneyRespVO::getCashDay,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        //下分（提现）列表
+        List<WeekUpDownMoneyRespVO> weekDownMoneyList = usermoneyMapper.selectWeekUpDownMoneyList("5");
+        Map<String , WeekUpDownMoneyRespVO> weekDownMoneyMap = weekDownMoneyList.stream()
+                .collect(Collectors.toMap(
+                        WeekUpDownMoneyRespVO::getCashDay,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        List<Float> weekUpMoneyData = new ArrayList<>();
+        List<Float> weekDownMoneyData = new ArrayList<>();
+
+        for(String weekDay : echartWeekTitle){
+            if(weekUpMoneyMap.containsKey(weekDay)){
+                weekUpMoneyData.add(weekUpMoneyMap.get(weekDay).getCashMoney());
+            }else{
+                weekUpMoneyData.add(0f);
+            }
+
+            if(weekDownMoneyMap.containsKey(weekDay)){
+                weekDownMoneyData.add(weekDownMoneyMap.get(weekDay).getCashMoney());
+            }else{
+                weekDownMoneyData.add(0f);
+            }
+        }
+        respVO.setUpMoneyEchartSeriesData(weekUpMoneyData);
+        respVO.setDownMoneyEchartSeriesData(weekDownMoneyData);
+
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+        List<String> gameBetEchartLegend = new ArrayList<>();
+        for(SysGame gameInfo : gameList){
+            gameBetEchartLegend.add(gameInfo.getGameName());
+        }
+        respVO.setGameBetEchartLegend(gameBetEchartLegend);
+
+        List<WeeKGameBetRespVO> weeKGameBetList = betRecordMapper.selectWeekGameBetList();
+        Map<String , WeeKGameBetRespVO> weeKGameBetMap = weeKGameBetList.stream()
+                .collect(Collectors.toMap(
+                        WeeKGameBetRespVO::getMapKey,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        List<EChartsSeriesDataDto> gameBetEchartSeriesList = new ArrayList<>();
+        for(String gameName : gameBetEchartLegend){
+            EChartsSeriesDataDto gameBetEchartSeries = new EChartsSeriesDataDto();
+            List<Float> weeKGameBetData = new ArrayList<>();
+            for(String weekDay : echartWeekTitle){
+                if(weeKGameBetMap.containsKey(weekDay + "_" + gameName)){
+                    weeKGameBetData.add(weeKGameBetMap.get(weekDay + "_" + gameName).getBetMoney());
+                }else{
+                    weeKGameBetData.add(0f);
+                }
+            }
+            gameBetEchartSeries.setData(weeKGameBetData);
+            gameBetEchartSeries.setName(gameName);
+            gameBetEchartSeries.setType("line");
+            gameBetEchartSeriesList.add(gameBetEchartSeries);
+        }
+        respVO.setGameBetEchartSeries(gameBetEchartSeriesList);
+//        EChartsSeriesDataDto weekUpMoneySeriesData = new EChartsSeriesDataDto();
+//        weekUpMoneySeriesData.setData(weekUpMoneyData);
+//        weekUpMoneySeriesData.setName("上分");
+//        weekUpMoneySeriesData.setType("line");
+//        EChartsSeriesDataDto weekDownMoneySeriesData = new EChartsSeriesDataDto();
+//        weekDownMoneySeriesData.setData(weekDownMoneyData);
+//        weekDownMoneySeriesData.setName("下分");
+//        weekDownMoneySeriesData.setType("line");
+//
+//        List<EChartsSeriesDataDto> upDownMoneyEchartSeriesList = new ArrayList<>();
+//        upDownMoneyEchartSeriesList.add(weekUpMoneySeriesData);
+//        upDownMoneyEchartSeriesList.add(weekDownMoneySeriesData);
+//        respVO.setUpDownMoneyEchartSeries(upDownMoneyEchartSeriesList);
+        return respVO;
     }
 }

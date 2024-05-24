@@ -252,6 +252,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                 and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
             </if>
+            <if test="filterDay != null and filterDay != ''"><!-- 时间检索 -->
+                and DATE_FORMAT(uw.win_time, '%Y-%m-%d') = #{filterDay}
+            </if>
         GROUP BY uw.user_id,uw.win_time,uw.game_id
         ORDER BY uw.win_time,uw.game_id
     </select>
@@ -380,4 +383,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         set commission_money = #{commissionMoney},update_time = sysdate()
         where id = #{id}
     </update>
+
+    <select id="selectBetWinToalAmount" resultType="Float">
+        select sum(win_money)
+        from userwin
+    </select>
 </mapper>

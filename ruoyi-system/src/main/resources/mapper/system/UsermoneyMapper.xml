@@ -77,6 +77,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="cashMoney"    column="cash_money"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.WeekUpDownMoneyRespVO" id="WeekUpDownMoneyListResult">
+        <result property="cashDay"    column="cash_day"    />
+        <result property="cashMoney"    column="cash_money"    />
+    </resultMap>
+
     <sql id="selectUsermoneyVo">
         select id, user_id, cash_content, cash_time, cash_money, type, user_balance, union_pay_id, user_name, user_pay, user_account, cash_describe, game_id, game_name, house, is_delete, hz_id, create_by, create_time, update_by, update_time, remark from usermoney
     </sql>
@@ -336,5 +341,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             and date_format(um.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
         </if>
         group by u.user_id,um.cash_time
+    </select>
+
+    <select id="selectWeekUpDownMoneyList" parameterType="String" resultMap="WeekUpDownMoneyListResult">
+        SELECT
+            date_format( um.cash_time, '%m-%d' ) AS cash_day
+            ,sum( cash_money ) AS cash_money
+        FROM
+            usermoney um
+        WHERE
+            date_format( um.cash_time, '%y%m%d' ) >= date_format( CURDATE() - INTERVAL 6 DAY, '%y%m%d' )
+        AND um.type = #{type}
+        GROUP BY um.cash_time
     </select>
 </mapper>

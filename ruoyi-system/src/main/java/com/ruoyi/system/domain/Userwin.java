@@ -75,9 +75,11 @@ public class Userwin extends BaseEntity
     /** 反水状态(0否 1是) */
     private String cashBackStatus;
 
-
     /** 返佣状态(0否 1是) */
     private String commissionStatus;
+
+    /** 盈亏时间筛选(yyyy-MM-dd) */
+    private String filterDay;
 
     public void setId(Long id)
     {
@@ -216,6 +218,14 @@ public class Userwin extends BaseEntity
 
     public void setCommissionStatus(String commissionStatus) {
         this.commissionStatus = commissionStatus;
+    }
+
+    public String getFilterDay() {
+        return filterDay;
+    }
+
+    public void setFilterDay(String filterDay) {
+        this.filterDay = filterDay;
     }
 
     @Override

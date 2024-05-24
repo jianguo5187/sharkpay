@@ -168,4 +168,17 @@ public class SysAppController extends BaseController {
                 .collect(Collectors.toList()));
         return ajax;
     }
+
+    /**
+     * 获取首页数据
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getHomePageData")
+    public AjaxResult getHomePageData()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("homePageData",sysAppService.getHomePageDate());
+        return ajax;
+    }
 }

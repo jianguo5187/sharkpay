@@ -157,4 +157,6 @@ public interface SysUserMapper
     public List<SysUser> selectChildUserList(Long parentUserId);
 
     public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
+
+    public Integer selectEffectiveUsersCount();
 }
