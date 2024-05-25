@@ -16,3 +16,11 @@ export function forceLogout(tokenId) {
     method: 'delete'
   })
 }
+
+export function onlineUserCount(query) {
+  return request({
+    url: '/monitor/online/onlineUserCount',
+    method: 'get',
+    params: query
+  })
+}

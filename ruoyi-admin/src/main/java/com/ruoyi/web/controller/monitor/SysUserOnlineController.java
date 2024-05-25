@@ -87,4 +87,37 @@ public class SysUserOnlineController extends BaseController
 //        redisCache.deleteObject(CacheConstants.LOGIN_TOKEN_KEY + tokenId);
         return success();
     }
+
+    @GetMapping("/onlineUserCount")
+    public AjaxResult onlineUserCount(String ipaddr, String userName)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        Collection<String> keys = redisCache.keys(CacheConstants.LOGIN_TOKEN_KEY + "*");
+        List<SysUserOnline> userOnlineList = new ArrayList<SysUserOnline>();
+        for (String key : keys)
+        {
+            LoginUser user = redisCache.getCacheObject(key);
+            if (StringUtils.isNotEmpty(ipaddr) && StringUtils.isNotEmpty(userName))
+            {
+                userOnlineList.add(userOnlineService.selectOnlineByInfo(ipaddr, userName, user));
+            }
+            else if (StringUtils.isNotEmpty(ipaddr))
+            {
+                userOnlineList.add(userOnlineService.selectOnlineByIpaddr(ipaddr, user));
+            }
+            else if (StringUtils.isNotEmpty(userName) && StringUtils.isNotNull(user.getUser()))
+            {
+                userOnlineList.add(userOnlineService.selectOnlineByUserName(userName, user));
+            }
+            else
+            {
+                userOnlineList.add(userOnlineService.loginUserToUserOnline(user));
+            }
+        }
+        Collections.reverse(userOnlineList);
+        userOnlineList.removeAll(Collections.singleton(null));
+
+        ajax.put("onlineUserCount",userOnlineList.size());
+        return ajax;
+    }
 }

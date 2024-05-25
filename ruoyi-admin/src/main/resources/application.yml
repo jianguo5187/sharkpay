@@ -101,7 +101,7 @@ token:
   # 令牌有效期（默认480分钟）
   expireTime: 480
   # 是否允许账户多终端同时登录（true允许 false不允许）
-  singleLogin: true
+  singleLogin: false
 
 # MyBatis配置
 mybatis:

@@ -115,6 +115,20 @@ export const constantRoutes = [
         meta: { title: '下分', icon: 'user' }
       }
     ]
+  },
+  {
+    path: '/onlineUser',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/monitor/online/index'),
+        name: 'topPostal',
+        meta: { title: '在线人数列表', icon: 'user' }
+      }
+    ]
   }
 ]
 
