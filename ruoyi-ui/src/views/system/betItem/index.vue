@@ -67,7 +67,7 @@
     <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="180px">
         <el-form-item label="游戏" prop="gameId">
-          <el-select v-model="form.gameId" placeholder="请选择游戏"  @change="fromGameChange">
+          <el-select v-model="form.gameId" placeholder="请选择游戏"  disabled="false">
             <el-option
               clearable
               v-for="item in gameListOptions"
@@ -79,7 +79,7 @@
         </el-form-item>
 
         <el-form-item label="游戏投注类型" prop="betItemType">
-          <el-select v-model="form.betItemType" placeholder="请选择游戏投注类型">
+          <el-select v-model="form.betItemType" placeholder="请选择游戏投注类型" disabled="false">
             <el-option
               clearable
               v-for="item in formBetTypeListOptions"
@@ -90,8 +90,8 @@
           </el-select>
         </el-form-item>
 
-        <el-form-item label="投注项Code" prop="betItemCode" v-if="1 == loginUserId">
-          <el-input v-model="form.betItemCode" placeholder="请输入投注项Code" />
+        <el-form-item label="投注项Code" prop="betItemCode" >
+          <el-input v-model="form.betItemCode" placeholder="请输入投注项Code" :disabled="1 != loginUserId"/>
         </el-form-item>
         <el-form-item label="投注项名" prop="betItemName">
           <el-input v-model="form.betItemName" placeholder="请输入投注项名" />
@@ -128,12 +128,12 @@
           <image-upload v-model="gameForm.gameImg"  :limit="1"/>
         </el-form-item>
         <el-form-item label="游戏类别" prop="gameType">
-          <el-select v-model="gameForm.gameType" placeholder="请选择游戏类别">
+          <el-select v-model="gameForm.gameType" placeholder="请选择游戏类别" :disabled="1 != loginUserId">
             <el-option
               v-for="dict in dict.type.sys_game_type"
               :key="dict.value"
               :label="dict.label"
-              :value="parseInt(dict.value)"
+              :value="dict.value"
             ></el-option>
           </el-select>
         </el-form-item>
@@ -146,15 +146,15 @@
         <el-form-item label="描述">
           <editor v-model="gameForm.gameDescribe" :min-height="192"/>
         </el-form-item>
-        <el-form-item label="盈亏名" prop="profitLossName">
-          <el-input v-model="gameForm.profitLossName" placeholder="请输入盈亏名" />
-        </el-form-item>
-        <el-form-item label="记录表" prop="gameRecord">
-          <el-input v-model="gameForm.gameRecord" placeholder="请输入记录表" />
-        </el-form-item>
-        <el-form-item label="开奖表" prop="gameKj">
-          <el-input v-model="gameForm.gameKj" placeholder="请输入开奖表" />
-        </el-form-item>
+<!--        <el-form-item label="盈亏名" prop="profitLossName">-->
+<!--          <el-input v-model="gameForm.profitLossName" placeholder="请输入盈亏名" />-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="记录表" prop="gameRecord">-->
+<!--          <el-input v-model="gameForm.gameRecord" placeholder="请输入记录表" />-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="开奖表" prop="gameKj">-->
+<!--          <el-input v-model="gameForm.gameKj" placeholder="请输入开奖表" />-->
+<!--        </el-form-item>-->
         <el-form-item label="佣金" prop="gameCommission">
           <el-input-number v-model="gameForm.gameCommission" :min="0" placeholder="请输入佣金"/>
         </el-form-item>
@@ -210,7 +210,7 @@ import {getValidBetType} from "@/api/system/betType";
 
 export default {
   name: "BetItem",
-  dicts: ['sys_bet_item_status','sys_game_status','sys_yes_no'],
+  dicts: ['sys_bet_item_status','sys_game_status','sys_yes_no','sys_game_type'],
   data() {
     return {
       // 登录用户ID
@@ -319,16 +319,16 @@ export default {
         // 编辑·新规
         this.formBetTypeListOptions = response.betTypeList;
         console.log(1);
-        if(response.betTypeList.length > 0 && this.form.betItemType == null){
-          this.form.betItemType = response.betTypeList[0].betTypeId
-        }else if(this.form.betItemType != null){
-          this.formBetTypeListOptions.forEach(item=>{
-            if(item.betTypeId == this.form.betItemType){
-              this.form.betItemType = item.betTypeId;
-              return;
-            }
-          });
-        }
+        // if(response.betTypeList.length > 0 && this.form.betItemType == null){
+        //   this.form.betItemType = response.betTypeList[0].betTypeId
+        // }else if(this.form.betItemType != null){
+        //   this.formBetTypeListOptions.forEach(item=>{
+        //     if(item.betTypeId == this.form.betItemType){
+        //       this.form.betItemType = item.betTypeId;
+        //       return;
+        //     }
+        //   });
+        // }
       });
     },
     // 取消按钮

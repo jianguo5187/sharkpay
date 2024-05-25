@@ -167,12 +167,12 @@
           <image-upload v-model="form.gameImg"  :limit="1"/>
         </el-form-item>
         <el-form-item label="游戏类别" prop="gameType">
-          <el-select v-model="form.gameType" placeholder="请选择游戏类别">
+          <el-select v-model="form.gameType" placeholder="请选择游戏类别" :disabled="1 != loginUserId">
             <el-option
               v-for="dict in dict.type.sys_game_type"
               :key="dict.value"
               :label="dict.label"
-              :value="parseInt(dict.value)"
+              :value="dict.value"
             ></el-option>
           </el-select>
         </el-form-item>
