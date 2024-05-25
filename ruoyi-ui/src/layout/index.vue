@@ -13,13 +13,13 @@
       </right-panel>
 
       <!-- 右侧悬浮按钮 -->
-      <div class="position:relative">
-        <button @click="handleClick" class="floating-btn">
-          <i class="el-icon-service"></i>
-        </button>
-        <div class="floating-num" id="allNoReadMsgCount" style="display:none">0</div>
-      </div>
-      <Chat :style="openChat?'':'display:none'"/>
+<!--      <div class="position:relative">-->
+<!--        <button @click="handleClick" class="floating-btn">-->
+<!--          <i class="el-icon-service"></i>-->
+<!--        </button>-->
+<!--        <div class="floating-num" id="allNoReadMsgCount" style="display:none">0</div>-->
+<!--      </div>-->
+<!--      <Chat :style="openChat?'':'display:none'"/>-->
     </div>
   </div>
 </template>

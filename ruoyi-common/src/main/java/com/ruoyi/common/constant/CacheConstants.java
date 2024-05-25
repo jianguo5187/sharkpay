@@ -41,4 +41,9 @@ public class CacheConstants
      * 登录账户密码错误次数 redis key
      */
     public static final String PWD_ERR_CNT_KEY = "pwd_err_cnt:";
+
+    /**
+     * 登录用户id redis key 用于实现灵活控制多设备登录
+     */
+    public static final String LOGIN_USER_ID_KEY = "login_user_ids:";
 }

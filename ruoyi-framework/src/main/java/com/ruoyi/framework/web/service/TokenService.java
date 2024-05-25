@@ -45,6 +45,10 @@ public class TokenService
     @Value("${token.expireTime}")
     private int expireTime;
 
+    // 是否允许多设备登录
+    @Value("${token.singleLogin}")
+    private boolean singleLogin;
+
     protected static final long MILLIS_SECOND = 1000;
 
     protected static final long MILLIS_MINUTE = 60 * MILLIS_SECOND;
@@ -96,12 +100,25 @@ public class TokenService
     /**
      * 删除用户身份信息
      */
-    public void delLoginUser(String token)
+//    public void delLoginUser(String token)
+//    {
+//        if (StringUtils.isNotEmpty(token))
+//        {
+//            String userKey = getTokenKey(token);
+//            redisCache.deleteObject(userKey);
+//        }
+//    }
+    public void delLoginUser(String token,Long userId)
     {
         if (StringUtils.isNotEmpty(token))
         {
             String userKey = getTokenKey(token);
             redisCache.deleteObject(userKey);
+        }
+        if (StringUtils.isNotNull(userId))
+        {
+            String userIdKey = getUserKey(userId);
+            redisCache.deleteObject(userIdKey);
         }
     }
 
@@ -146,11 +163,32 @@ public class TokenService
      */
     public void refreshToken(LoginUser loginUser)
     {
+//        loginUser.setLoginTime(System.currentTimeMillis());
+//        loginUser.setExpireTime(loginUser.getLoginTime() + expireTime * MILLIS_MINUTE);
+//        // 根据uuid将loginUser缓存
+//        String userKey = getTokenKey(loginUser.getToken());
+//        redisCache.setCacheObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
+
+        //如果不允许多设备登录，则获取之前的token以及userId 判断存在，则删除
+        if(!singleLogin){//多设备登录限制相关代码
+            String userIdKey = getUserKey(loginUser.getUserId());
+            String userKey = redisCache.getCacheObject(userIdKey);
+            if(StringUtils.isNotEmpty(userKey)){
+                redisCache.deleteObject(userIdKey);
+                redisCache.deleteObject(userKey);
+            }
+        }
+
         loginUser.setLoginTime(System.currentTimeMillis());
         loginUser.setExpireTime(loginUser.getLoginTime() + expireTime * MILLIS_MINUTE);
         // 根据uuid将loginUser缓存
         String userKey = getTokenKey(loginUser.getToken());
         redisCache.setCacheObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
+
+        if(!singleLogin){//多设备登录限制相关代码
+            String userIdKey = getUserKey(loginUser.getUserId());
+            redisCache.setCacheObject(userIdKey, userKey, expireTime, TimeUnit.MINUTES);
+        }
     }
 
     /**
@@ -227,5 +265,25 @@ public class TokenService
     private String getTokenKey(String uuid)
     {
         return CacheConstants.LOGIN_TOKEN_KEY + uuid;
+    }
+
+    private String getUserKey(Long userId)
+    {
+        return CacheConstants.LOGIN_USER_ID_KEY + userId;
+    }
+
+    /**
+     * 强制退出
+     * @param tokenId   token(uuid)
+     */
+    public void forceLogout(String tokenId){
+        String userKey = getTokenKey(tokenId);
+        if(!singleLogin){//多设备登录相关控制代码
+            LoginUser loginUser = redisCache.getCacheObject(userKey);
+            Long userId = loginUser.getUserId();
+            String userIdKey = getUserKey(userId);
+            redisCache.deleteObject(userIdKey);
+        }
+        redisCache.deleteObject(userKey);
     }
 }
