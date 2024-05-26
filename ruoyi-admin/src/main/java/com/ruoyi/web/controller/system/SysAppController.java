@@ -9,6 +9,7 @@ import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.ISysAppService;
+import com.ruoyi.system.service.ISysConfigService;
 import com.ruoyi.system.service.ISysGameService;
 import com.ruoyi.system.service.ISysUserService;
 import org.springframework.beans.BeanUtils;
@@ -38,6 +39,9 @@ public class SysAppController extends BaseController {
 
     @Autowired
     private ISysAppService sysAppService;
+
+    @Autowired
+    private ISysConfigService configService;
 
     /**
      * 修改密码接口
@@ -78,6 +82,11 @@ public class SysAppController extends BaseController {
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         AjaxResult ajax = AjaxResult.success();
         ajax.put("user", userService.selectAppLoginUserInfo(sessionUser.getUserId()));
+        ajax.put("imUrl",configService.selectConfigByKey("sys.im.h5.Site") );
+        ajax.put("homeNotice",configService.selectConfigByKey("sys.app.home.notice") );
+        ajax.put("minChangeMoney",configService.selectConfigByKey("sys.change.min") );
+        ajax.put("minPostalMoney",configService.selectConfigByKey("sys.postal.min") );
+        ajax.put("maxPostalCnt",configService.selectConfigByKey("sys.postal.maxCnt") );
         return ajax;
     }
 
@@ -179,6 +188,19 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
         ajax.put("homePageData",sysAppService.getHomePageDate());
+        return ajax;
+    }
+
+    /**
+     * 获取IM聊天网站URL
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getImChatUrl")
+    public AjaxResult getImChatUrl()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("imUrl",configService.selectConfigByKey("sys.im.site") );
         return ajax;
     }
 }

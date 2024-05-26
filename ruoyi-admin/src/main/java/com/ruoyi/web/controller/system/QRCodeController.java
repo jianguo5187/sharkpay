@@ -31,6 +31,7 @@ public class QRCodeController extends BaseController {
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         AjaxResult ajax = AjaxResult.success();
         ajax.put("data",qrCodeService.getShareQRCodeBase64(sessionUser.getUserId()));
+        ajax.put("urlData",qrCodeService.getShareQRCodeValue(sessionUser.getUserId()));
         return ajax;
     }
 }

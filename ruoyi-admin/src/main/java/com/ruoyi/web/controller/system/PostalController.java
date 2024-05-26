@@ -7,10 +7,7 @@ import com.ruoyi.system.domain.vo.ChangeListReqVO;
 import com.ruoyi.system.domain.vo.PostalReqVO;
 import com.ruoyi.system.service.IPostalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 快速提现
@@ -45,6 +42,18 @@ public class PostalController extends BaseController {
         LoginUser loginUser = getLoginUser();
         AjaxResult ajax = AjaxResult.success();
         ajax.put("postalList", postalService.postalList(loginUser.getUserId(), vo));
+        return ajax;
+    }
+
+    /**
+     * 提现记录
+     */
+    @GetMapping("/todayPostalCnt")
+    public AjaxResult todayPostalCnt(){
+
+        LoginUser loginUser = getLoginUser();
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("todayPostalCnt", postalService.todayPostalCnt(loginUser.getUserId()));
         return ajax;
     }
 }

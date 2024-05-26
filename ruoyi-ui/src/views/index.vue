@@ -65,9 +65,9 @@ export default {
       selectHomePageData().then(response => {
         console.log("initHome");
         this.userTotal = response.homePageData.userCnt;
-        this.betTotalAmount = response.homePageData.betTotalAmount;
-        this.betWinTotalAmount = response.homePageData.betWinTotalAmount;
-        this.todayWinMoney = response.homePageData.todayWinMoney;
+        this.betTotalAmount = response.homePageData.betTotalAmount==null?0:response.homePageData.betTotalAmount;
+        this.betWinTotalAmount = response.homePageData.betWinTotalAmount==null?0:response.homePageData.betWinTotalAmount;
+        this.todayWinMoney = response.homePageData.todayWinMoney==null?0:response.homePageData.todayWinMoney;
         this.upDownMoneyEchartTitle = response.homePageData.upDownMoneyEchartTitle;
         this.upMoneyEchartSeriesData = response.homePageData.upMoneyEchartSeriesData;
         this.downMoneyEchartSeriesData = response.homePageData.downMoneyEchartSeriesData;

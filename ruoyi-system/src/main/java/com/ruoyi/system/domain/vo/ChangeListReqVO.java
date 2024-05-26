@@ -2,11 +2,33 @@ package com.ruoyi.system.domain.vo;
 
 public class ChangeListReqVO {
 
+    /** 充值过滤时间From */
+    private String filterDateFrom;
+
+    /** 充值过滤时间To */
+    private String filterDateTo;
+
     /** 页数 */
     private Integer pageNumber;
 
     /** 每页件数 */
     private Integer pageRowCount;
+
+    public String getFilterDateFrom() {
+        return filterDateFrom;
+    }
+
+    public void setFilterDateFrom(String filterDateFrom) {
+        this.filterDateFrom = filterDateFrom;
+    }
+
+    public String getFilterDateTo() {
+        return filterDateTo;
+    }
+
+    public void setFilterDateTo(String filterDateTo) {
+        this.filterDateTo = filterDateTo;
+    }
 
     public Integer getPageNumber() {
         return pageNumber;

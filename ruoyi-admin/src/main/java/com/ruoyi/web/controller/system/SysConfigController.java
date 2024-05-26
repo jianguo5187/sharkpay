@@ -130,4 +130,73 @@ public class SysConfigController extends BaseController
         configService.resetConfigCache();
         return success();
     }
+
+    /**
+     * 网站参数设置列表
+     */
+    @GetMapping("/listWebConofig")
+    public TableDataInfo listWebConofig(SysConfig config)
+    {
+        startPage();
+        List<SysConfig> list = configService.selectWebConfigList(config);
+        return getDataTable(list);
+    }
+
+    /**
+     * 根据参数编号获取网站参数设置详细信息
+     */
+    @GetMapping(value = "/webConfig/{configId}")
+    public AjaxResult getWebConfigInfo(@PathVariable Long configId)
+    {
+        return success(configService.selectConfigById(configId));
+    }
+
+
+    /**
+     * 新增参数配置
+     */
+    @PostMapping(value = "/addWebConfig")
+    public AjaxResult addWebConfig(@Validated @RequestBody SysConfig config)
+    {
+        if (!configService.checkConfigKeyUnique(config))
+        {
+            return error("新增参数'" + config.getConfigName() + "'失败，参数键名已存在");
+        }
+        config.setCreateBy(getUsername());
+        return toAjax(configService.insertConfig(config));
+    }
+
+    /**
+     * 修改参数配置
+     */
+    @PostMapping(value = "/updateWebConfig")
+    public AjaxResult updateWebConfig(@Validated @RequestBody SysConfig config)
+    {
+        if (!configService.checkConfigKeyUnique(config))
+        {
+            return error("修改参数'" + config.getConfigName() + "'失败，参数键名已存在");
+        }
+        config.setUpdateBy(getUsername());
+        return toAjax(configService.updateConfig(config));
+    }
+
+    /**
+     * 删除参数配置
+     */
+    @DeleteMapping("/delWebConfig/{configIds}")
+    public AjaxResult delWebConfig(@PathVariable Long[] configIds)
+    {
+        configService.deleteConfigByIds(configIds);
+        return success();
+    }
+
+    /**
+     * 刷新参数缓存
+     */
+    @DeleteMapping("/refreshWebConfigCache")
+    public AjaxResult refreshWebConfigCache()
+    {
+        configService.resetConfigCache();
+        return success();
+    }
 }

@@ -73,4 +73,6 @@ public interface SysConfigMapper
      * @return 结果
      */
     public int deleteConfigByIds(Long[] configIds);
+
+    public List<SysConfig> selectWebConfigList(SysConfig config);
 }

@@ -11,5 +11,7 @@ public interface IPostalService {
 
     public Usermoney postal (Long userId, PostalReqVO vo);
 
-    List<Usermoney> postalList(Long userId, ChangeListReqVO vo);
+    public List<Usermoney> postalList(Long userId, ChangeListReqVO vo);
+
+    public Integer todayPostalCnt(Long userId);
 }

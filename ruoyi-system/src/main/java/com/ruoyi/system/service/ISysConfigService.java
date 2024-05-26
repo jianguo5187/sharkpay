@@ -86,4 +86,6 @@ public interface ISysConfigService
      * @return 结果
      */
     public boolean checkConfigKeyUnique(SysConfig config);
+
+    public List<SysConfig> selectWebConfigList(SysConfig config);
 }

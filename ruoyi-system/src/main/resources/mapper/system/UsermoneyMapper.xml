@@ -200,6 +200,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectUsermoneyVo"/>
         where user_id = #{userId}
         and `type` in('1','2','3')
+        <if test="filterDateFrom != null and filterDateFrom != ''">
+            and DATE_FORMAT(cash_time, '%Y-%m-%d') &gt;= #{filterDateFrom}
+        </if>
+        <if test="filterDateTo != null and filterDateTo != ''">
+            and DATE_FORMAT(cash_time, '%Y-%m-%d') &lt;= #{filterDateTo}
+        </if>
         <if test="pageNumber != null">
             limit #{pageNumber} , #{pageRowCount}
         </if>
@@ -216,6 +222,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectUsermoneyVo"/>
         where user_id = #{userId}
         and `type` in('4','5','6')
+        <if test="filterDateFrom != null and filterDateFrom != ''">
+            and DATE_FORMAT(cash_time, '%Y-%m-%d') &gt;= #{filterDateFrom}
+        </if>
+        <if test="filterDateTo != null and filterDateTo != ''">
+            and DATE_FORMAT(cash_time, '%Y-%m-%d') &lt;= #{filterDateTo}
+        </if>
         <if test="pageNumber != null">
             limit #{pageNumber} , #{pageRowCount}
         </if>

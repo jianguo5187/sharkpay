@@ -1,5 +1,7 @@
 package com.ruoyi.system.domain.vo;
 
+import com.ruoyi.common.annotation.Excel;
+
 public class LoginUserInfoRespVO {
 
     /** 用户ID */
@@ -49,6 +51,9 @@ public class LoginUserInfoRespVO {
 
     /** 昨日盈亏 */
     private Float yesdayWinMoney;
+
+    /** 最后登录IP */
+    private String loginIp;
 
     public Long getUserId() {
         return userId;
@@ -176,5 +181,13 @@ public class LoginUserInfoRespVO {
 
     public void setYesdayWinMoney(Float yesdayWinMoney) {
         this.yesdayWinMoney = yesdayWinMoney;
+    }
+
+    public String getLoginIp() {
+        return loginIp;
+    }
+
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp;
     }
 }

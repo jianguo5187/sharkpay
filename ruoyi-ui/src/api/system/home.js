@@ -8,3 +8,11 @@ export function selectHomePageData(query) {
     params: query
   })
 }
+
+export function selectImChatUrl(query) {
+  return request({
+    url: '/system/app/getImChatUrl',
+    method: 'get',
+    params: query
+  })
+}

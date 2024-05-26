@@ -13,6 +13,8 @@ import com.ruoyi.system.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -90,6 +92,14 @@ public class PostalServiceImpl implements IPostalService {
         if(StringUtils.isNull(vo.getPageRowCount())){
             vo.setPageRowCount(20);
         }
-        return usermoneyMapper.selectUserPostalList(userId,(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+        return usermoneyMapper.selectUserPostalList(userId, vo.getFilterDateFrom(), vo.getFilterDateTo(),(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+    }
+
+    @Override
+    public Integer todayPostalCnt(Long userId) {
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sd.format(new Date());
+        List<Usermoney> todayPostalList = usermoneyMapper.selectUserPostalList(userId,today,today,null,null);
+        return todayPostalList.size();
     }
 }

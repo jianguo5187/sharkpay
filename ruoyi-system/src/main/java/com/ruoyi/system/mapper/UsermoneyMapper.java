@@ -61,10 +61,10 @@ public interface UsermoneyMapper
      */
     public int deleteUsermoneyByIds(Long[] ids);
 
-    public List<Usermoney> selectUserChangeList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+    public List<Usermoney> selectUserChangeList(@Param("userId") Long userId,@Param("filterDateFrom") String filterDateFrom,@Param("filterDateTo") String filterDateTo, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
     public List<Usermoney> selectTodayPostalList(@Param("userId") Long userId);
-    public List<Usermoney> selectUserPostalList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+    public List<Usermoney> selectUserPostalList(@Param("userId") Long userId,@Param("filterDateFrom") String filterDateFrom,@Param("filterDateTo") String filterDateTo, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
     public int clearUsermoneyInfo(Long userId);
 

@@ -71,6 +71,6 @@ public class ChangeServiceImpl implements IChangeService {
         if(StringUtils.isNull(vo.getPageRowCount())){
             vo.setPageRowCount(20);
         }
-        return usermoneyMapper.selectUserChangeList(userId,(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+        return usermoneyMapper.selectUserChangeList(userId, vo.getFilterDateFrom(), vo.getFilterDateTo(), (vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
     }
 }

@@ -6,6 +6,9 @@
     <top-nav id="topmenu-container" class="topmenu-container" v-if="topNav"/>
 
     <div class="right-menu">
+      <el-tooltip content="客服" effect="dark" placement="bottom">
+        <im-chat id="im-chat" class="right-menu-item hover-effect" />
+      </el-tooltip>
       <el-tooltip content="在线人数" effect="dark" placement="bottom">
         <online-user id="online-user" class="right-menu-item hover-effect" />
       </el-tooltip>
@@ -67,6 +70,7 @@ import RuoYiDoc from '@/components/RuoYi/Doc'
 import TopPostal from '@/components/Postal'
 import TopRecharge from '@/components/Recharge'
 import OnlineUser from '@/components/OnlineUser'
+import ImChat from '@/components/ImChat'
 
 export default {
   components: {
@@ -80,7 +84,8 @@ export default {
     RuoYiDoc,
     TopPostal,
     TopRecharge,
-    OnlineUser
+    OnlineUser,
+    ImChat
   },
   computed: {
     ...mapGetters([

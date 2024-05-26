@@ -25,4 +25,12 @@ public class qRCodeService implements IQRCodeService {
         String shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content);;
         return shareQRCodeBase64;
     }
+
+    @Override
+    public String getShareQRCodeValue(Long userId) {
+        SysUser user = userService.selectUserById(userId);
+
+        String content = configService.selectConfigByKey("sys.promote.site") + user.getInviteCode();
+        return content;
+    }
 }

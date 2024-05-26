@@ -229,4 +229,9 @@ public class SysConfigServiceImpl implements ISysConfigService
     {
         return CacheConstants.SYS_CONFIG_KEY + configKey;
     }
+
+    @Override
+    public List<SysConfig> selectWebConfigList(SysConfig config) {
+        return configMapper.selectWebConfigList(config);
+    }
 }

@@ -58,3 +58,54 @@ export function refreshCache() {
     method: 'delete'
   })
 }
+
+// 网站参数设置列表
+export function listWebConofig(query) {
+  return request({
+    url: '/system/config/listWebConofig',
+    method: 'get',
+    params: query
+  })
+}
+
+// 查询网站参数设置详细
+export function getWebConfig(configId) {
+  return request({
+    url: '/system/config/webConfig/' + configId,
+    method: 'get'
+  })
+}
+
+// 新增参数配置
+export function addWebConfig(data) {
+  return request({
+    url: '/system/config/addWebConfig',
+    method: 'post',
+    data: data
+  })
+}
+
+// 修改参数配置
+export function updateWebConfig(data) {
+  return request({
+    url: '/system/config/updateWebConfig',
+    method: 'post',
+    data: data
+  })
+}
+
+// 删除参数配置
+export function delWebConfig(configId) {
+  return request({
+    url: '/system/config/delWebConfig/' + configId,
+    method: 'delete'
+  })
+}
+
+// 刷新参数缓存
+export function refreshWebConfigCache() {
+  return request({
+    url: '/system/config/refreshWebConfigCache',
+    method: 'delete'
+  })
+}
