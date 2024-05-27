@@ -209,18 +209,20 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
         int updateInt = gameThreeballKjService.updateGameThreeballKj(gameThreeballKj);
         if(updateInt > 0){
-            lotteryThree(gameInfo, gameThreeballKj.getPeriods());
+            lotteryGameThreeballOpenData(gameInfo, gameThreeballKj.getPeriods());
             createThreeData(gameInfo);
 
             // 补漏
             List<GameThreeballKj> notOpenGameThreeballKjList = gameThreeballKjService.selectGameThreeballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameThreeballKj.getPeriods(),"0",null,"1",1);
             if(notOpenGameThreeballKjList != null && notOpenGameThreeballKjList.size() >0){
-                lotteryThree(gameInfo, notOpenGameThreeballKjList.get(0).getPeriods());
+                lotteryGameThreeballOpenData(gameInfo, notOpenGameThreeballKjList.get(0).getPeriods());
             }
         }
     }
 
-    public void lotteryThree(SysGame gameInfo, Long periodId){
+
+    @Override
+    public void lotteryGameThreeballOpenData(SysGame gameInfo, Long periodId){
         GameThreeballRecord searchGameThreeballRecord = new GameThreeballRecord();
         searchGameThreeballRecord.setGameId(gameInfo.getGameId());
         searchGameThreeballRecord.setStatus("0");

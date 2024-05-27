@@ -6,4 +6,6 @@ public interface IFiveBallLotteryService {
     public void lotteryFiveBall(String gameCode);
 
     public void createFiveBallData(SysGame gameInfo);
+
+    public void lotteryGameFiveballOpenData(SysGame gameInfo, Long periodId);
 }

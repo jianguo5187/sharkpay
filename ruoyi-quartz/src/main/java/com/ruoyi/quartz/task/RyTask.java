@@ -6,6 +6,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.domain.vo.GameOpenDataDto;
 import com.ruoyi.quartz.service.IGameTaskService;
+import com.ruoyi.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,9 @@ public class RyTask
     @Autowired
     private IGameTaskService gameTaskService;
 
+    @Autowired
+    private ISysConfigService configService;
+
     public void ryMultipleParams(String s, Boolean b, Long l, Double d, Integer i)
     {
         System.out.println(StringUtils.format("执行多参方法： 字符串类型{}，布尔类型{}，长整型{}，浮点型{}，整形{}", s, b, l, d, i));
@@ -49,7 +53,7 @@ public class RyTask
     // 根据游戏code,定时获取官方开奖数据
     public void getGameExpectData(String gameCode){
         System.out.println("游戏code: " + gameCode);
-        String url = gameUrl + gameCode + "&limit=50";
+        String url = configService.selectConfigByKey("sys.opengame.url") + gameCode + "&limit=50";
         String result = HttpUtils.sendGet(url);
         JSONObject resultJson = JSONObject.parseObject(result);
         if(resultJson == null){

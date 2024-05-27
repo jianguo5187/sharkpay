@@ -254,8 +254,10 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         }
     }
 
-    private void lotteryGameFiveballOpenData(SysGame gameInfo, Long periodId){
+    @Override
+    public void lotteryGameFiveballOpenData(SysGame gameInfo, Long periodId){
         GameFiveballRecord searchGameFiveballRecord = new GameFiveballRecord();
+        searchGameFiveballRecord.setGameId(gameInfo.getGameId());
         searchGameFiveballRecord.setStatus("0");
         searchGameFiveballRecord.setPeriods(periodId);
         List<GameFiveballRecord> GameFiveballRecordList = gameFiveballRecordService.selectGameFiveballRecordList(searchGameFiveballRecord);

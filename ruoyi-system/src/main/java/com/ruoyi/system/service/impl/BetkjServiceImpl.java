@@ -66,6 +66,9 @@ public class BetkjServiceImpl implements IBetkjService
     private IWaveService waveService;
 
     @Autowired
+    private ISysConfigService configService;
+
+    @Autowired
     private GameThreeballRecordMapper gameThreeballRecordMapper;
 
     @Autowired
@@ -105,7 +108,7 @@ public class BetkjServiceImpl implements IBetkjService
     @Override
     public void BetRepair(BetRepairReqVO vo) {
         SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
-        String url = gameUrl + gameInfo.getGameMarkId() + "&limit=120";
+        String url = configService.selectConfigByKey("sys.opengame.url") + gameInfo.getGameMarkId() + "&limit=120";
         String result = HttpUtils.sendGet(url);
         JSONObject resultJson = JSONObject.parseObject(result);
         if(resultJson == null){
@@ -161,7 +164,7 @@ public class BetkjServiceImpl implements IBetkjService
                 gameThreeballKjService.updateGameThreeballKj(gameThreeballKj);
             }
 
-            threeBallLotteryService.lotteryThreeBall(gameInfo.getGameMarkId());
+            threeBallLotteryService.lotteryGameThreeballOpenData(gameInfo, vo.getPeriods());
         }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
             GameFiveballKj gameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(gameInfo.getGameId(),vo.getPeriods());
             if(gameFiveballKj == null){
@@ -204,7 +207,7 @@ public class BetkjServiceImpl implements IBetkjService
 
                 gameFiveballKjService.updateGameFiveballKj(gameFiveballKj);
             }
-            fiveBallLotteryService.lotteryFiveBall(gameInfo.getGameMarkId());
+            fiveBallLotteryService.lotteryGameFiveballOpenData(gameInfo, vo.getPeriods());
         }else{
             GameTenballKj gameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(gameInfo.getGameId(),vo.getPeriods());
             if(gameTenballKj == null){
@@ -235,7 +238,7 @@ public class BetkjServiceImpl implements IBetkjService
 
                 gameTenballKjService.updateGameTenballKj(gameTenballKj);
             }
-            tenBallLotteryService.lotteryTenBall(gameInfo.getGameMarkId());
+            tenBallLotteryService.lotteryGameTenballOpenData(gameInfo, vo.getPeriods());
         }
     }
 

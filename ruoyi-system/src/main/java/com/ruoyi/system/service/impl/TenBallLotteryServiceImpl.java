@@ -238,18 +238,19 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 
         int updateInt = gameTenballKjService.updateGameTenballKj(gameTenballKj);
         if(updateInt > 0){
-            lotteryTenball(gameInfo, gameTenballKj.getPeriods());
+            lotteryGameTenballOpenData(gameInfo, gameTenballKj.getPeriods());
             createTenballData(gameInfo);
 
             // 补漏
             List<GameTenballKj> notOpenGameTenballKjList = gameTenballKjService.selectGameTenballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameTenballKj.getPeriods(),"0",null,"1",1);
             if(notOpenGameTenballKjList != null && notOpenGameTenballKjList.size() >0){
-                lotteryTenball(gameInfo, notOpenGameTenballKjList.get(0).getPeriods());
+                lotteryGameTenballOpenData(gameInfo, notOpenGameTenballKjList.get(0).getPeriods());
             }
         }
     }
 
-    public void lotteryTenball(SysGame gameInfo, Long periodId){
+    @Override
+    public void lotteryGameTenballOpenData(SysGame gameInfo, Long periodId){
         GameTenballRecord searchGameTenballRecord = new GameTenballRecord();
         searchGameTenballRecord.setGameId(gameInfo.getGameId());
         searchGameTenballRecord.setStatus("0");
