@@ -31,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="walletAddress"   column="wallet_address"  />
 		<result property="parentUserId"    column="parent_user_id"   />
 		<result property="parentNickName"    column="parent_nick_name"   />
+		<result property="openId"    column="open_id"   />
 
         <result property="createBy"     column="create_by"    />
         <result property="createTime"   column="create_time"  />
@@ -72,7 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<sql id="selectUserVo">
-        select u.user_id, u.dept_id, u.user_name, u.nick_name, u.user_type, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id, u.create_by, u.create_time, u.remark,
+        select u.user_id, u.dept_id, u.user_name, u.nick_name, u.user_type, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id, u.open_id, u.create_by, u.create_time, u.remark,
         d.dept_id, d.parent_id, d.ancestors, d.dept_name, d.order_num, d.leader, d.status as dept_status,
         r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status
         from sys_user u
@@ -82,7 +83,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </sql>
     
     <select id="selectUserList" parameterType="SysUser" resultMap="SysUserResult">
-		select u.user_id, u.dept_id, u.nick_name, u.user_type, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id, u.create_by, u.create_time, u.remark, d.dept_name, d.leader
+		select u.user_id, u.dept_id, u.nick_name, u.user_type, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id, u.open_id, u.create_by, u.create_time, u.remark, d.dept_name, d.leader
 		,p.nick_name as parent_nick_name
 		from sys_user u
 		left join sys_dept d on u.dept_id = d.dept_id
@@ -203,6 +204,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="idcardBackImg != null and idcardBackImg != ''">idcard_back_img,</if>
 			<if test="walletAddress != null and walletAddress != ''">wallet_address,</if>
 			<if test="parentUserId != null">parent_user_id,</if>
+			<if test="openId != null and openId != ''">open_id,</if>
  			<if test="status != null and status != ''">status,</if>
  			<if test="createBy != null and createBy != ''">create_by,</if>
  			<if test="remark != null and remark != ''">remark,</if>
@@ -228,6 +230,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="idcardBackImg != null and idcardBackImg != ''">#{idcardBackImg},</if>
 			<if test="walletAddress != null and walletAddress != ''">#{walletAddress},</if>
 			<if test="parentUserId != null">#{parentUserId},</if>
+			<if test="openId != null and openId != ''">#{openId},</if>
  			<if test="status != null and status != ''">#{status},</if>
  			<if test="createBy != null and createBy != ''">#{createBy},</if>
  			<if test="remark != null and remark != ''">#{remark},</if>
@@ -354,5 +357,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from sys_user u
 		where u.del_flag = '0'
 		AND u.user_id > 1
+	</select>
+
+	<select id="selectUserByOpenId" parameterType="String" resultMap="SysUserResult">
+		<include refid="selectUserVo"/>
+		where u.open_id = #{openId}
 	</select>
 </mapper> 

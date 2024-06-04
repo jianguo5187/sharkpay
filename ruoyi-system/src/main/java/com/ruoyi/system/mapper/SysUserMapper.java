@@ -159,4 +159,6 @@ public interface SysUserMapper
     public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
 
     public Integer selectEffectiveUsersCount();
+
+    public SysUser selectUserByOpenId(String openId);
 }

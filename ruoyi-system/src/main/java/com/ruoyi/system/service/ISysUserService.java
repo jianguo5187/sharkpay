@@ -241,4 +241,6 @@ public interface ISysUserService
     public SysUser setUserGameWin(SysUser user);
 
     public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
+
+    public SysUser getUserByOpenId(String openId);
 }

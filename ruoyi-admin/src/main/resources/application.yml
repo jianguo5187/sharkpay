@@ -7,8 +7,8 @@ ruoyi:
   # 版权年份
   copyrightYear: 2023
   # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
-  profile: D:/sharkpay/uploadPath
-#  profile: /home/www/uploadPath
+#  profile: D:/sharkpay/uploadPath
+  profile: /home/www/uploadPath
   # 获取ip地址开关
   addressEnabled: true
   # 验证码类型 math 数字计算 char 字符验证
@@ -16,6 +16,14 @@ ruoyi:
 
 autoGame:
   url: http://api.sqlscs.cn/home/api/getCodeData?code=
+
+# 微信小程序配置
+wx:
+  minApp:
+    appId: wxd53bb8f141c95042
+    appSecret: 36c38221c7eeb701a65cb655b02ce7ea
+    oauth2Url: https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code
+    userinfoUrl: https://api.weixin.qq.com/sns/userinfo?access_token={0}&openid={1}&lang=zh_CN
 
 # 开发环境配置
 server:

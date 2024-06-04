@@ -1,11 +1,23 @@
 package com.ruoyi.framework.web.service;
 
 import javax.annotation.Resource;
+
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSONUtil;
+import com.ruoyi.common.utils.*;
+import com.ruoyi.common.utils.file.ImageUtils;
+import com.ruoyi.common.utils.uuid.UUID;
+import com.ruoyi.framework.pojo.dos.WxMiniAppLoginResponseDO;
+import com.ruoyi.framework.pojo.dos.WxMiniAppLoginUserInfoResponseDO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import com.ruoyi.common.constant.CacheConstants;
 import com.ruoyi.common.constant.Constants;
@@ -19,15 +31,15 @@ import com.ruoyi.common.exception.user.CaptchaException;
 import com.ruoyi.common.exception.user.CaptchaExpireException;
 import com.ruoyi.common.exception.user.UserNotExistsException;
 import com.ruoyi.common.exception.user.UserPasswordNotMatchException;
-import com.ruoyi.common.utils.DateUtils;
-import com.ruoyi.common.utils.MessageUtils;
-import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.framework.manager.AsyncManager;
 import com.ruoyi.framework.manager.factory.AsyncFactory;
 import com.ruoyi.framework.security.context.AuthenticationContextHolder;
 import com.ruoyi.system.service.ISysConfigService;
 import com.ruoyi.system.service.ISysUserService;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * 登录校验方法
@@ -51,6 +63,28 @@ public class SysLoginService
 
     @Autowired
     private ISysConfigService configService;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private SysPermissionService permissionService;
+
+    //微信小程序appId
+    @Value("${wx.minApp.appId}")
+    private String appId;
+
+    //微信小程序密钥
+    @Value("${wx.minApp.appSecret}")
+    private String appSecret;
+
+    //微信登录通过code换取网页授权access_token的URL
+    @Value("${wx.minApp.oauth2Url}")
+    private String oauth2Url;
+
+    //微信登录拉取用户信息的URL
+    @Value("${wx.minApp.userinfoUrl}")
+    private String userinfoUrl;
 
     /**
      * 登录验证
@@ -177,5 +211,81 @@ public class SysLoginService
         sysUser.setLoginIp(IpUtils.getIpAddr());
         sysUser.setLoginDate(DateUtils.getNowDate());
         userService.updateUserProfile(sysUser);
+    }
+    /**
+     * 小程序一键登录
+     * @return token
+     */
+    public String miniProgramLogin(String code){
+        //微信小程序获取openId请求地址
+//        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code";
+        String replaceUrl = oauth2Url.replace("{0}", appId).replace("{1}", appSecret).replace("{2}", code);
+        String res = HttpUtil.get(replaceUrl);
+        WxMiniAppLoginResponseDO response = JSONUtil.toBean(res, WxMiniAppLoginResponseDO.class);
+        if (StringUtils.isEmpty(response.getErrcode())){
+
+            //检查数据库种是否有个openId对应的用户，若有，则直接返回token，若没有，则创建用户后再生成token并返回
+            SysUser user = userService.getUserByOpenId(response.getOpenid());
+            String userName = "";
+            if (user == null){
+                LocalDateTime now = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+                String formattedString = now.format(formatter);
+
+                SysUser regUser = new SysUser();
+                userName = "微信用户_" + formattedString;
+
+                String accessToken = response.getAccessToken();
+                String openId = response.getOpenid();
+
+//                String usserInfoUrl = "https://api.weixin.qq.com/sns/userinfo?access_token={0}&openid={1}&lang=zh_CN";
+                String usserInfoReplaceUrl = userinfoUrl.replace("{0}", accessToken).replace("{1}", openId);
+                String usserInfoRes = HttpUtil.get(usserInfoReplaceUrl);
+                WxMiniAppLoginUserInfoResponseDO usserInfoResponse = JSONUtil.toBean(usserInfoRes, WxMiniAppLoginUserInfoResponseDO.class);
+
+                if (StringUtils.isNotEmpty(usserInfoResponse.getErrcode())){
+                    throw new ServiceException(StringUtils.format("获取微信用户信息失败，错误编码{}，错误信息：{}",usserInfoResponse.getErrcode(),usserInfoResponse.getErrmsg()));
+                }
+                String nickName = usserInfoResponse.getNickname();
+
+                if(StringUtils.isNotEmpty(usserInfoResponse.getHeadimgurl())){
+                    String avatarImgFileName = ImageUtils.saveUrlImageFile(usserInfoResponse.getHeadimgurl());
+                    if(StringUtils.isNotEmpty(avatarImgFileName)){
+                        regUser.setAvatar(avatarImgFileName);
+                    }
+                }
+
+                regUser.setOpenId(response.getOpenid());
+                regUser.setUserName(userName);
+                regUser.setNickName(nickName);
+                regUser.setPassword(SecurityUtils.encryptPassword(configService.selectConfigByKey("sys.user.initPassword")));  //todo 待建立常量类
+
+                regUser.setPayPassword(SecurityUtils.encryptPassword(configService.selectConfigByKey("sys.user.initPassword")));
+                regUser.setWalletAddress(ShiroUtils.randomPayAddress());
+                regUser.setInviteCode(ShiroUtils.randomSalt());
+                regUser.setParentUserId(2l);
+                regUser.setUserType("02"); //APP用户
+                regUser.setRoleIds(new Long[]{3l}); //普通用户
+                regUser.setDeptId(103l); //用户
+
+                user = regUser;
+                userService.registerUser(user);
+            }else{
+                userName = user.getUserName();
+            }
+            UserDetails userDetail = createLoginUser(user);
+            LoginUser loginUser = BeanUtil.copyProperties(userDetail, LoginUser.class);
+            //记录登录日志
+            recordLoginInfo(loginUser.getUserId());
+            // 生成token
+            return tokenService.createToken(loginUser);
+        }else {
+            throw new ServiceException(StringUtils.format("获取微信授权信息失败，错误编码{}，错误信息：{}",response.getErrcode(),response.getErrmsg()));
+        }
+    }
+
+    public UserDetails createLoginUser(SysUser user)
+    {
+        return new LoginUser(user.getUserId(), user.getDeptId(), user, permissionService.getMenuPermission(user));
     }
 }

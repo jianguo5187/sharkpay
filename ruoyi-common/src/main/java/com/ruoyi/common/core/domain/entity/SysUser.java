@@ -103,6 +103,9 @@ public class SysUser extends BaseEntity
     /** 上级用户ID */
     private Long parentUserId;
 
+    /** 外部OpenId */
+    private String openId;
+
     /** 部门对象 */
     @Excels({
         @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
@@ -425,6 +428,14 @@ public class SysUser extends BaseEntity
 
     public void setParentUserId(Long parentUserId) {
         this.parentUserId = parentUserId;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
     public SysDept getDept()

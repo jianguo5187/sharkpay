@@ -687,4 +687,9 @@ public class SysUserServiceImpl implements ISysUserService
     public List<AgentUserListRespVo> selectAgentUserList(SysUser user) {
         return userMapper.selectAgentUserList(user);
     }
+
+    @Override
+    public SysUser getUserByOpenId(String openId) {
+        return userMapper.selectUserByOpenId(openId);
+    }
 }

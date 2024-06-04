@@ -56,6 +56,34 @@ public class ImageUtils
         return fileName;
     }
 
+    public static MultipartFile changeUrlToFile(String imageUrl){
+        try{
+            byte[] imageBytes = getImage(imageUrl);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            baos.write(imageBytes);
+            byte[] fileContent = baos.toByteArray();
+            return new ByteArrayMultipartFile(fileContent, "image.jpg", "image/jpeg", "image");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String saveUrlImageFile(String imageUrl){
+        String fileName = "";
+        MultipartFile imageFile = changeUrlToFile(imageUrl);
+        if(StringUtils.isNull(imageFile)){
+            return fileName;
+        }
+        try {
+            // 上传文件路径
+            String filePath = RuoYiConfig.getUploadPath();
+            // 上传并返回新文件名称
+            fileName = FileUploadUtils.upload(filePath, imageFile);
+        }catch (Exception e){
+        }
+        return fileName;
+    }
+
     public static byte[] getImage(String imagePath)
     {
         InputStream is = getFile(imagePath);
