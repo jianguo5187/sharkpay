@@ -67,22 +67,22 @@ public class SysRegisterService
         {
             msg = "用户密码不能为空";
         }
-        else if (StringUtils.isEmpty(sysUser.getPhonenumber()))
-        {
-            msg = "手机号码不能为空";
-        }
-        else if (StringUtils.isEmpty(payPassword))
-        {
-            msg = "支付密码不能为空";
-        }
-        else if (StringUtils.isEmpty(sysUser.getRealName()))
-        {
-            msg = "真实姓名不能为空";
-        }
-        else if (StringUtils.isEmpty(sysUser.getIdcardNo()))
-        {
-            msg = "身份证号码不能为空";
-        }
+//        else if (StringUtils.isEmpty(sysUser.getPhonenumber()))
+//        {
+//            msg = "手机号码不能为空";
+//        }
+//        else if (StringUtils.isEmpty(payPassword))
+//        {
+//            msg = "支付密码不能为空";
+//        }
+//        else if (StringUtils.isEmpty(sysUser.getRealName()))
+//        {
+//            msg = "真实姓名不能为空";
+//        }
+//        else if (StringUtils.isEmpty(sysUser.getIdcardNo()))
+//        {
+//            msg = "身份证号码不能为空";
+//        }
 //        else if (StringUtils.isEmpty(registerBody.getIdcardBackImg()))
 //        {
 //            msg = "身份证正面图片不能为空";
@@ -109,14 +109,14 @@ public class SysRegisterService
         {
             msg = "注册用户'" + username + "'失败，注册账号已存在";
         }
-        else if (!userService.checkPhoneUnique(sysUser))
-        {
-            msg = "注册用户'" + username + "'失败，手机号码已存在";
-        }
-        else if (StringUtils.isNotEmpty(sysUser.getEmail()) && !userService.checkEmailUnique(sysUser))
-        {
-            msg = "注册用户'" + username + "'失败，邮箱账号已存在";
-        }
+//        else if (!userService.checkPhoneUnique(sysUser))
+//        {
+//            msg = "注册用户'" + username + "'失败，手机号码已存在";
+//        }
+//        else if (StringUtils.isNotEmpty(sysUser.getEmail()) && !userService.checkEmailUnique(sysUser))
+//        {
+//            msg = "注册用户'" + username + "'失败，邮箱账号已存在";
+//        }
         else
         {
             Long parentUserId = 2l;
