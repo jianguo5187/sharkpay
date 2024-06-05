@@ -153,7 +153,11 @@ public class SysRegisterService
 
 //                sysUser.setNickName(username);
                 sysUser.setPassword(SecurityUtils.encryptPassword(password));
-                sysUser.setPayPassword(SecurityUtils.encryptPassword(payPassword));
+                if(StringUtils.isNotEmpty(payPassword)){
+                    sysUser.setPayPassword(SecurityUtils.encryptPassword(payPassword));
+                }else{
+                    sysUser.setPayPassword(SecurityUtils.encryptPassword(configService.selectConfigByKey("sys.user.initPassword")));
+                }
                 sysUser.setWalletAddress(ShiroUtils.randomPayAddress());
                 sysUser.setInviteCode(ShiroUtils.randomSalt());
                 sysUser.setParentUserId(parentUserId);
