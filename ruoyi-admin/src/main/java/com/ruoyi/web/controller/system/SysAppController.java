@@ -8,10 +8,7 @@ import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.*;
-import com.ruoyi.system.service.ISysAppService;
-import com.ruoyi.system.service.ISysConfigService;
-import com.ruoyi.system.service.ISysGameService;
-import com.ruoyi.system.service.ISysUserService;
+import com.ruoyi.system.service.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +39,12 @@ public class SysAppController extends BaseController {
 
     @Autowired
     private ISysConfigService configService;
+
+    @Autowired
+    private IQRCodeService qrCodeService;
+
+    @Autowired
+    private ISysEntryDomainService sysEntryDomainService;
 
     /**
      * 修改密码接口
@@ -201,6 +204,31 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
         ajax.put("imUrl",configService.selectConfigByKey("sys.im.site") );
+        return ajax;
+    }
+
+    /**
+     * 获取LOGO图片地址
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getLogoImg")
+    public AjaxResult getLogoImg()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        ajax.put("logoImg",configService.selectConfigByKey("sys.logo.img") );
+        ajax.put("urlData",qrCodeService.getShareQRCodeValue(sessionUser.getUserId()));
+        ajax.put("shareUrlList",qrCodeService.getEnalbeSysEntryDomainList(sessionUser.getUserId()));
+
+        return ajax;
+    }
+
+    @PostMapping("/updateLogoImg")
+    public AjaxResult updateLogoImg(@RequestBody UpdateLogoImgReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        sysAppService.updateLogoImg(vo);
         return ajax;
     }
 }

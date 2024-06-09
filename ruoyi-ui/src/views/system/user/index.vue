@@ -39,15 +39,15 @@
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <el-form-item label="手机号码" prop="phonenumber">
-            <el-input
-              v-model="queryParams.phonenumber"
-              placeholder="请输入手机号码"
-              clearable
-              style="width: 240px"
-              @keyup.enter.native="handleQuery"
-            />
-          </el-form-item>
+<!--          <el-form-item label="手机号码" prop="phonenumber">-->
+<!--            <el-input-->
+<!--              v-model="queryParams.phonenumber"-->
+<!--              placeholder="请输入手机号码"-->
+<!--              clearable-->
+<!--              style="width: 240px"-->
+<!--              @keyup.enter.native="handleQuery"-->
+<!--            />-->
+<!--          </el-form-item>-->
           <el-form-item label="状态" prop="status">
             <el-select
               v-model="queryParams.status"
@@ -112,6 +112,16 @@
               @click="handleDelete"
               v-hasPermi="['system:user:remove']"
             >删除</el-button>
+          </el-col>
+
+          <el-col :span="1.5">
+            <el-button
+              type="info"
+              plain
+              icon="el-icon-picture"
+              size="mini"
+              @click="handleUploadLogo"
+            >上传logo图片</el-button>
           </el-col>
           <!--          <el-col :span="1.5">-->
           <!--            <el-button-->
@@ -247,11 +257,11 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="12">
-            <el-form-item label="手机号码" prop="phonenumber">
-              <el-input v-model="form.phonenumber" placeholder="请输入手机号码" maxlength="11" />
-            </el-form-item>
-          </el-col>
+<!--          <el-col :span="12">-->
+<!--            <el-form-item label="手机号码" prop="phonenumber">-->
+<!--              <el-input v-model="form.phonenumber" placeholder="请输入手机号码" maxlength="11" />-->
+<!--            </el-form-item>-->
+<!--          </el-col>-->
           <el-col :span="12">
             <el-form-item label="邮箱" prop="email">
               <el-input v-model="form.email" placeholder="请输入邮箱" maxlength="50" />
@@ -409,16 +419,45 @@
           <el-link type="primary" :underline="false" style="font-size:12px;vertical-align: baseline;" @click="importTemplate">下载模板</el-link>
         </div>
       </el-upload>
+
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitFileForm">确 定</el-button>
         <el-button @click="upload.open = false">取 消</el-button>
+      </div>
+    </el-dialog>
+
+    <!-- 修改logo对话框 -->
+    <el-dialog :title="logo.title" :visible.sync="logo.open" width="600px" append-to-body>
+      <el-form ref="logoForm" :model="logo.form" :rules="logo.rules" label-width="120px">
+        <el-row>
+          <el-col :span="24">
+            <el-form-item label="logo图片" prop="logoImg">
+              <imageUpload v-model="logo.form.logoImg" :imgUrl="logo.form.logoImg" :limit="1"></imageUpload>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="submitLogoForm">确 定</el-button>
+        <el-button @click="logo.open = false">取 消</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { listUser, getUser, delUser, addUser, updateUser, resetUserPwd, resetUserPayPwd, changeUserStatus, deptTreeSelect } from "@/api/system/user";
+import {
+  listUser,
+  getUser,
+  delUser,
+  addUser,
+  updateUser,
+  resetUserPwd,
+  resetUserPayPwd,
+  changeUserStatus,
+  deptTreeSelect,
+  getLogoImg, updateLogoImg
+} from "@/api/system/user";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
@@ -480,6 +519,22 @@ export default {
         headers: { Authorization: "Bearer " + getToken() },
         // 上传的地址
         url: process.env.VUE_APP_BASE_API + "/system/user/importData"
+      },
+
+      // 上传logo参数
+      logo: {
+        // 是否显示弹出层
+        open: false,
+        // 弹出层标题
+        title: "",
+        // 表单参数
+        form: {},
+        // 表单校验
+        rules: {
+          logoImg: [
+            { required: true, message: "logo图片不能为空", trigger: "blur" }
+          ],
+        }
       },
       // 查询参数
       queryParams: {
@@ -775,6 +830,30 @@ export default {
     // 提交上传文件
     submitFileForm() {
       this.$refs.upload.submit();
+    },
+
+    /** 上传logo按钮操作 */
+    handleUploadLogo() {
+      this.reset();
+      this.logo.form = {
+        logoImg: undefined
+      }
+      getLogoImg().then(response => {
+        this.logo.form.logoImg = response.logoImg;
+        this.logo.open = true;
+        this.logo.title = "上传logo图片";
+      });
+    },
+
+    submitLogoForm(){
+      this.$refs["logoForm"].validate(valid => {
+        if (valid) {
+          updateLogoImg(this.logo.form).then(response => {
+            this.$modal.msgSuccess("上传成功");
+            this.logo.open = false;
+          });
+        }
+      });
     }
   }
 };

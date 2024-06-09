@@ -37,6 +37,9 @@ import DictTag from '@/components/DictTag'
 import VueMeta from 'vue-meta'
 // 字典数据组件
 import DictData from '@/components/DictData'
+// vue2.x
+import VueQr from 'vue-qr'
+
 
 // 全局方法挂载
 Vue.prototype.getDicts = getDicts
@@ -57,6 +60,8 @@ Vue.component('Editor', Editor)
 Vue.component('FileUpload', FileUpload)
 Vue.component('ImageUpload', ImageUpload)
 Vue.component('ImagePreview', ImagePreview)
+//注册组件
+Vue.component('VueQr', VueQr)
 
 Vue.use(directive)
 Vue.use(plugins)

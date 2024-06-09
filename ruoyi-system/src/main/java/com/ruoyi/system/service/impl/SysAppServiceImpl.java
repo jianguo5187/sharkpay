@@ -1,5 +1,6 @@
 package com.ruoyi.system.service.impl;
 
+import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
@@ -47,10 +48,16 @@ public class SysAppServiceImpl implements ISysAppService {
     private ISysReplaceService sysReplaceService;
 
     @Autowired
+    private ISysConfigService configService;
+
+    @Autowired
     private SysUserMapper userMapper;
 
     @Autowired
     private UsermoneyMapper usermoneyMapper;
+
+    @Autowired
+    private SysConfigMapper configMapper;
 
     @Override
     public List<GameListRespVO> gameRecordList(Long userId, GameListReqVO vo) {
@@ -533,5 +540,23 @@ public class SysAppServiceImpl implements ISysAppService {
 //        upDownMoneyEchartSeriesList.add(weekDownMoneySeriesData);
 //        respVO.setUpDownMoneyEchartSeries(upDownMoneyEchartSeriesList);
         return respVO;
+    }
+
+    @Override
+    public void updateLogoImg(UpdateLogoImgReqVO vo) {
+        SysConfig dbConfig = new SysConfig();
+        dbConfig.setConfigKey("sys.logo.img");
+        SysConfig retConfig = configMapper.selectConfig(dbConfig);
+        if(retConfig == null){
+            retConfig = new SysConfig();
+            retConfig.setConfigName("LOGO图片地址");
+            retConfig.setConfigKey("sys.logo.img");
+            retConfig.setConfigValue(vo.getLogoImg());
+            retConfig.setConfigType("Y");
+            configService.insertConfig(retConfig);
+        }else{
+            retConfig.setConfigValue(vo.getLogoImg());
+            configService.updateConfig(retConfig);
+        }
     }
 }

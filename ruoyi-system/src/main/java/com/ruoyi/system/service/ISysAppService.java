@@ -18,4 +18,6 @@ public interface ISysAppService {
     public List<SysReplace> replaceList();
 
     public HomePageDataRespVO getHomePageDate();
+
+    public void updateLogoImg(UpdateLogoImgReqVO vo);
 }

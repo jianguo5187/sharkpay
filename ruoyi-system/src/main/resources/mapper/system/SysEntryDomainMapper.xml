@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysEntryDomainMapper">
+    
+    <resultMap type="SysEntryDomain" id="SysEntryDomainResult">
+        <result property="entryDomainId"    column="entry_domain_id"    />
+        <result property="entryDomainUrl"    column="entry_domain_url"    />
+        <result property="status"    column="status"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysEntryDomainVo">
+        select entry_domain_id, entry_domain_url, status, del_flag, create_by, create_time, update_by, update_time, remark from sys_entry_domain
+    </sql>
+
+    <select id="selectSysEntryDomainList" parameterType="SysEntryDomain" resultMap="SysEntryDomainResult">
+        <include refid="selectSysEntryDomainVo"/>
+        where
+        del_flag = '0'
+        <if test="status != null  and status != ''"> and status = #{status}</if>
+    </select>
+    
+    <select id="selectSysEntryDomainByEntryDomainId" parameterType="Long" resultMap="SysEntryDomainResult">
+        <include refid="selectSysEntryDomainVo"/>
+        where entry_domain_id = #{entryDomainId}
+        and del_flag = '0'
+    </select>
+        
+    <insert id="insertSysEntryDomain" parameterType="SysEntryDomain" useGeneratedKeys="true" keyProperty="entryDomainId">
+        insert into sys_entry_domain
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="entryDomainUrl != null">entry_domain_url,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="entryDomainUrl != null">#{entryDomainUrl},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysEntryDomain" parameterType="SysEntryDomain">
+        update sys_entry_domain
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="entryDomainUrl != null">entry_domain_url = #{entryDomainUrl},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where entry_domain_id = #{entryDomainId}
+    </update>
+
+    <update id="deleteSysEntryDomainByEntryDomainId" parameterType="Long">
+        update sys_entry_domain
+        set del_flag = '1'
+        where entry_domain_id = #{entryDomainId}
+    </update>
+
+    <update id="deleteSysEntryDomainByEntryDomainIds" parameterType="Long">
+        update sys_entry_domain
+        set del_flag = '1'
+        where entry_domain_id in
+        <foreach item="entryDomainId" collection="array" open="(" separator="," close=")">
+            #{entryDomainId}
+        </foreach>
+    </update>
+</mapper>

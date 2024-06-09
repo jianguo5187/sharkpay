@@ -161,3 +161,21 @@ export function listAgentUser(query) {
     params: query
   })
 }
+
+// 获取LOGO图片地址
+export function getLogoImg(query) {
+  return request({
+    url: '/system/app/getLogoImg',
+    method: 'get',
+    params: query
+  })
+}
+
+// 用户头像上传
+export function updateLogoImg(data) {
+  return request({
+    url: '/system/app/updateLogoImg',
+    method: 'post',
+    data: data
+  })
+}
