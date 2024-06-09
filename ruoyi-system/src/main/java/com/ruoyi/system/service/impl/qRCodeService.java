@@ -1,8 +1,11 @@
 package com.ruoyi.system.service.impl;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.QRCodeUtil;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.SysEntryDomain;
+import com.ruoyi.system.domain.vo.ShareQRCodeBase64ReqVO;
 import com.ruoyi.system.domain.vo.ShareQRCodeRespVO;
 import com.ruoyi.system.service.IQRCodeService;
 import com.ruoyi.system.service.ISysConfigService;
@@ -27,13 +30,26 @@ public class qRCodeService implements IQRCodeService {
     private ISysEntryDomainService entryDomainService;
 
     @Override
-    public String getShareQRCodeBase64(Long userId) {
+    public String getShareQRCodeBase64(Long userId, ShareQRCodeBase64ReqVO reqVO) {
         SysUser user = userService.selectUserById(userId);
 
-        String content = configService.selectConfigByKey("sys.promote.site") + user.getInviteCode();
-        String shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content);
-//        String shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content,"https://thirdwx.qlogo.cn/mmopen/vi_32/bejsoChBQ9aDviaGZPOwia8tcVvFcYjDOBV4X5Kpfeg009Orm5mHVJicPkHpHHNtXVt6icwjdGQrLZTb4j97HWOLXIgicMNczI1HH8FdeqnJadVY/132");
+        SysEntryDomain searchEntryDomain = new SysEntryDomain();
+        searchEntryDomain.setStatus("0");
+        List<SysEntryDomain> entryDomainList = entryDomainService.selectSysEntryDomainList(searchEntryDomain);
+        if(entryDomainList == null || entryDomainList.size() == 0){
+            throw new ServiceException("未配置有效入口域名");
+        }
 
+        String content = entryDomainList.get(0).getEntryDomainUrl() + "inviteCode=" + user.getInviteCode();
+//        configService.selectConfigByKey("sys.promote.site") + user.getInviteCode();
+
+        String shareQRCodeBase64 = "";
+        if(StringUtils.isNotEmpty(reqVO.getDomainUrl())){
+            String logoImg = configService.selectConfigByKey("sys.logo.img");
+            shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content,reqVO.getDomainUrl() + logoImg);
+        }else{
+            shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content);
+        }
 
         return shareQRCodeBase64;
     }
