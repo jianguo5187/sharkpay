@@ -69,3 +69,10 @@ export function commissionUser(data) {
     data: data
   })
 }
+export function listTotalReport(query) {
+  return request({
+    url: '/system/userwin/listTotalReport',
+    method: 'get',
+    params: query
+  })
+}

@@ -2,10 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
-import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
-import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
-import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
-import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
+import com.ruoyi.system.domain.vo.*;
 
 /**
  * 用户盈亏Service接口
@@ -82,4 +79,6 @@ public interface IUserwinService
     public void commissionYestoday(Long userId);
 
     public void commissionUser(Long userId,Userwin userwin);
+
+    public List<TotalReportRespVO> selectTotalReportLis();
 }

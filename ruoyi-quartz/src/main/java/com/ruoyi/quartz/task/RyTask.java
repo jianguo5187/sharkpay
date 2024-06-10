@@ -6,6 +6,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.domain.vo.GameOpenDataDto;
 import com.ruoyi.quartz.service.IGameTaskService;
+import com.ruoyi.system.service.ISysCalendarService;
 import com.ruoyi.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,6 +35,9 @@ public class RyTask
 
     @Autowired
     private ISysConfigService configService;
+
+    @Autowired
+    private ISysCalendarService calendarService;
 
     public void ryMultipleParams(String s, Boolean b, Long l, Double d, Integer i)
     {
@@ -73,18 +77,12 @@ public class RyTask
         if(openDataList != null && openDataList.size() >0){
             if(StringUtils.equals("azxy10",gameCode)){
                 // 澳洲幸运10
-//                gameTaskService.saveAzxy10InfoFromOfficial(openDataList,gameOpenDataDtoMap);
-
                 gameTaskService.saveTenBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }else if(StringUtils.equals("jnd28",gameCode)){
                 // 加拿大2.8
-//                gameTaskService.saveJndInfoFromOfficial(openDataList,gameOpenDataDtoMap);
-
                 gameTaskService.saveThreeBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }else if(StringUtils.equals("jsssc",gameCode)){
                 // 急速时时彩
-//                gameTaskService.saveJssscInfoFromOfficial(openDataList,gameOpenDataDtoMap);
-
                 gameTaskService.saveFiveBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
             }
         }
@@ -96,19 +94,22 @@ public class RyTask
         System.out.println("游戏code: " + gameCode);
         if(StringUtils.equals("azxy10",gameCode)){
             // 澳洲幸运10
-//            gameTaskService.lotteryAzxy10Balance(gameCode);
-
             gameTaskService.lotteryTenBallBalance(gameCode);
         }else if(StringUtils.equals("jnd28",gameCode)){
             // 加拿大2.8
-//            gameTaskService.lotteryJndBalance(gameCode);
-
             gameTaskService.lotteryThreeBallBalance(gameCode);
         }else if(StringUtils.equals("jsssc",gameCode)){
             // 急速时时彩
-//            gameTaskService.lotteryJssscBalance(gameCode);
-
             gameTaskService.lotteryFiveBallBalance(gameCode);
         }
+    }
+
+    public void insertTodayCalendar()
+    {
+        calendarService.insertTodayCalendar();
+    }
+
+    public void insertRobotBet(){
+        gameTaskService.insertRobotBet();
     }
 }

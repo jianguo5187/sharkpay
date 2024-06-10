@@ -15,7 +15,7 @@ public interface IGameThreeBallsService {
 
     public List<BetRecordListRespVO> betRecordList(Long userId, ThreeBallsBetRecordListReqVO vo);
 
-    public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo);
+    public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg);
 
     public void addThreeBallsBetRecord(Long userId,ThreeBallsAddBetRecordReqVO vo);
 

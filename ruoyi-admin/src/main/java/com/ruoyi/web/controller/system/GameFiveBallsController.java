@@ -64,7 +64,7 @@ public class GameFiveBallsController  extends BaseController {
     public AjaxResult virtuallyGameRecord(@RequestBody VirtuallyGameRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        ajax.put("virtuallyRecordList",gameFiveBallsService.virtuallyGameRecord(sessionUser.getUserId(),vo));
+        ajax.put("virtuallyRecordList",gameFiveBallsService.virtuallyGameRecord(sessionUser.getUserId(),vo,false));
         return ajax;
     }
 

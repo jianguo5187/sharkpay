@@ -69,6 +69,14 @@ public class Userwin extends BaseEntity
     @Excel(name = "是否删除(0否 1是)")
     private String isDelete;
 
+    /** 是否反水(0否 1是) */
+    @Excel(name = "是否反水(0否 1是)")
+    private String isCashBack;
+
+    /** 是否佣金结算(0否 1是) */
+    @Excel(name = "是否佣金结算(0否 1是)")
+    private String isCommission;
+
     /** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限） */
     private String dataScope;
 
@@ -196,6 +204,25 @@ public class Userwin extends BaseEntity
         return isDelete;
     }
 
+    public void setIsCashBack(String isCashBack)
+    {
+        this.isCashBack = isCashBack;
+    }
+
+    public String getIsCashBack()
+    {
+        return isCashBack;
+    }
+    public void setIsCommission(String isCommission)
+    {
+        this.isCommission = isCommission;
+    }
+
+    public String getIsCommission()
+    {
+        return isCommission;
+    }
+
     public String getDataScope() {
         return dataScope;
     }
@@ -243,6 +270,9 @@ public class Userwin extends BaseEntity
             .append("deductMoney", getDeductMoney())
             .append("cashBackMoney", getCashBackMoney())
             .append("commissionMoney", getCommissionMoney())
+            .append("isDelete", getIsDelete())
+            .append("isCashBack", getIsCashBack())
+            .append("isCommission", getIsCommission())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

@@ -2,10 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.Userwin;
-import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
-import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
-import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
-import com.ruoyi.system.domain.vo.YkDetailRespVO;
+import com.ruoyi.system.domain.vo.*;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -95,4 +92,6 @@ public interface UserwinMapper
     public int updateCommissionById(@Param("id") Long id,@Param("commissionMoney")Float commissionMoney);
 
     public Float selectBetWinToalAmount();
+
+    public List<TotalReportRespVO> selectTotalReportLis();
 }

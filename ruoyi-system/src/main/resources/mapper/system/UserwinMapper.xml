@@ -18,6 +18,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="cashBackMoney"    column="cash_back_money"    />
         <result property="commissionMoney"    column="commission_money"    />
         <result property="isDelete"    column="is_delete"    />
+        <result property="isCashBack"    column="is_cash_back"    />
+        <result property="isCommission"    column="is_commission"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -78,8 +80,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="commissionRate"    column="commission_rate"    />
     </resultMap>
 
+
+    <resultMap type="com.ruoyi.system.domain.vo.TotalReportRespVO" id="TotalReportListResult">
+        <result property="calendarDate"    column="calendar_date"    />
+        <result property="createUserCnt"    column="create_user_cnt"    />
+        <result property="betCnt"    column="bet_cnt"    />
+        <result property="signMoneyTotal"    column="sign_money_total"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="upMoneyTotal"    column="up_money_total"    />
+        <result property="downMoneyTotal"    column="down_money_total"    />
+        <result property="cashBackMoneyTotal"    column="cash_back_money_total"    />
+        <result property="noCashBackMoneyTotal"    column="no_cash_back_money_total"    />
+        <result property="commissionMoneyTotal"    column="commission_money_total"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoneyTotal"    column="win_money_total"    />
+    </resultMap>
+
     <sql id="selectUserwinVo">
-        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, cash_back_money, commission_money, is_delete, create_by, create_time, update_by, update_time, remark from userwin
+        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, cash_back_money, commission_money, is_delete, is_cash_back, is_commission, create_by, create_time, update_by, update_time, remark from userwin
     </sql>
 
     <select id="selectUserwinList" parameterType="Userwin" resultMap="UserwinResult">
@@ -97,6 +115,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cashBackMoney != null "> and cash_back_money = #{cashBackMoney}</if>
             <if test="commissionMoney != null "> and commission_money = #{commissionMoney}</if>
             <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
+            <if test="isCashBack != null  and isCashBack != ''"> and is_cash_back = #{isCashBack}</if>
+            <if test="isCommission != null  and isCommission != ''"> and is_commission = #{isCommission}</if>
         </where>
     </select>
     
@@ -128,6 +148,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cashBackMoney != null">cash_back_money,</if>
             <if test="commissionMoney != null">commission_money,</if>
             <if test="isDelete != null and isDelete != ''">is_delete,</if>
+            <if test="isCashBack != null and isCashBack != ''">is_cash_back,</if>
+            <if test="isCommission != null and isCommission != ''">is_commission,</if>
             <if test="createBy != null">create_by,</if>
         win_time,
         create_time
@@ -143,6 +165,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cashBackMoney != null">#{cashBackMoney},</if>
             <if test="commissionMoney != null">#{commissionMoney},</if>
             <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
+            <if test="isCashBack != null and isCashBack != ''">#{isCashBack},</if>
+            <if test="isCommission != null and isCommission != ''">#{isCommission},</if>
             <if test="createBy != null">#{createBy},</if>
         CURDATE(),
         sysdate()
@@ -160,6 +184,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cashBackMoney != null">cash_back_money = #{cashBackMoney},</if>
             <if test="commissionMoney != null">commission_money = #{commissionMoney},</if>
             <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
+            <if test="isCashBack != null and isCashBack != ''">is_cash_back = #{isCashBack},</if>
+            <if test="isCommission != null and isCommission != ''">is_commission = #{isCommission},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>
@@ -285,8 +311,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,max(uw.game_name) as game_name
             ,SUM(uw.big_small_money + uw.other_money) AS total_bet_money
             ,SUM(uw.win_money) AS win_money
-            ,SUM(ROUND((uw.big_small_money + uw.other_money)*g.game_cashback / 100, 2)) AS pre_cash_back_money
-            ,SUM(uw.cash_back_money) AS cash_back_money
+            ,SUM(CASE WHEN uw.is_cash_back = '1' then 0 else ROUND((uw.big_small_money + uw.other_money)*g.game_cashback / 100, 2) end) AS pre_cash_back_money
+            ,SUM(CASE WHEN uw.is_cash_back = '1' then uw.cash_back_money else 0 end) AS cash_back_money
             ,MAX(g.game_cashback) AS cash_back_rate
         FROM userwin uw
         inner join sys_user u on u.user_id = uw.user_id
@@ -300,20 +326,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
             and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
         </if>
-        <if test="cashBackStatus != null "> and case when uw.cash_back_money > 0 then '1' else '0' end  = #{cashBackStatus}</if>
+        <if test="cashBackStatus != null "> and uw.is_cash_back > 0 = #{cashBackStatus}</if>
         GROUP BY uw.user_id,uw.win_time,uw.game_id
         ORDER BY uw.win_time desc,uw.game_id
     </select>
 
     <select id="selectYestodayNoCashBackList" resultMap="UserwinResult">
         <include refid="selectUserwinVo"/>
-        where cash_back_money = 0
+        where uw.is_cash_back = '0'
         and date_format(win_time,'%Y%m%d') = DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
     </select>
 
     <update id="updateCashBackMoneyById">
         update userwin
-        set cash_back_money = #{cashBackMoney},update_time = sysdate()
+        set cash_back_money = #{cashBackMoney},is_cash_back = '1',update_time = sysdate()
         where id = #{id}
     </update>
 
@@ -328,7 +354,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join sys_user u on u.user_id = uw.user_id
         inner join sys_game g on g.game_id = uw.game_id
         WHERE
-        cash_back_money > 0
+        uw.is_cash_back = '1'
         <if test="userId != null "> and uw.user_id = #{userId}</if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
             and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
@@ -351,8 +377,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,uw.win_time as win_time
             ,uw.game_id as game_id
             ,max(uw.game_name) as game_name
-            ,SUM(uw.commission_money) AS commission_money
-            ,SUM(ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)*g.game_commission / 100, 2)) AS pre_commission_money
+            ,SUM(case when uw.is_commission = '1' then uw.commission_money else 0 end) AS commission_money
+            ,SUM(case when uw.is_commission = '1' then 0 else ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)*g.game_commission / 100, 2) end) AS pre_commission_money
             ,MAX(g.game_commission) AS commission_rate
         FROM userwin uw
         inner join sys_user u on u.user_id = uw.user_id
@@ -367,25 +393,138 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
             and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
         </if>
-        <if test="commissionStatus != null "> and case when uw.commission_money > 0 then '1' else '0' end  = #{commissionStatus}</if>
+        <if test="commissionStatus != null "> and uw.is_commission = #{commissionStatus}</if>
         GROUP BY uw.user_id,pu.user_id,uw.win_time,uw.game_id
         ORDER BY uw.win_time desc,uw.game_id
     </select>
 
     <select id="selectYestodayNoCommissionList" resultMap="UserwinResult">
         <include refid="selectUserwinVo"/>
-        where commission_money = 0
+        where is_commission = '0'
         and date_format(win_time,'%Y%m%d') = DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
     </select>
 
     <update id="updateCommissionById">
         update userwin
-        set commission_money = #{commissionMoney},update_time = sysdate()
+        set commission_money = #{commissionMoney},is_commission = '1',update_time = sysdate()
         where id = #{id}
     </update>
 
     <select id="selectBetWinToalAmount" resultType="Float">
         select sum(win_money)
         from userwin
+    </select>
+
+    <select id="selectTotalReportLis" resultMap="TotalReportListResult">
+        SELECT
+             DATE_FORMAT(c.calendar_date,'%Y-%m-%d') AS calendar_date
+            ,IFNULL(u_temp.create_user_cnt,0) as create_user_cnt
+            ,IFNULL(bet_count_temp.bet_cnt,0) as bet_cnt
+            ,IFNULL(bet_count_temp.bet_money_total,0) as bet_money_total
+            ,IFNULL(up_temp.up_money_total,0) as up_money_total
+            ,0 as sign_money_total
+            ,IFNULL(down_temp.down_money_total,0) as down_money_total
+            ,IFNULL(cb_temp.cash_back_money_total,0) as cash_back_money_total
+            ,IFNULL(no_cb_temp.no_cash_back_money_total,0) as no_cash_back_money_total
+            ,IFNULL(commission_temp.commission_money_total,0) as commission_money_total
+            ,IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
+            ,IFNULL(win_temp.win_money_total,0) as win_money_total
+        FROM sys_calendar c
+        LEFT JOIN
+             (
+                 SELECT
+                      DATE_FORMAT(u.create_time,'%Y-%m-%d') as calendar_date
+                     ,count(*) as create_user_cnt
+                 FROM sys_user u
+                 group by DATE_FORMAT(u.create_time,'%Y-%m-%d')
+             ) u_temp on u_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN
+             (
+                 SELECT
+                     bet_temp.record_time as calendar_date
+                    ,COUNT(*) AS bet_cnt
+                    ,SUM(bet_temp.bet_money) AS bet_money_total
+                 FROM(
+                         SELECT
+                              DATE_FORMAT(r.record_time,'%Y-%m-%d') as record_time
+                             ,r.user_id as user_id
+                             ,SUM(r.money) as bet_money
+                         FROM `bet_record` r
+                         WHERE r.is_delete = '0'
+                           AND r.is_robot = '0'
+                         GROUP BY r.user_id,DATE_FORMAT(r.record_time,'%Y-%m-%d')
+                     ) bet_temp
+                 GROUP BY bet_temp.record_time
+             )bet_count_temp ON bet_count_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(up.cash_time,'%Y-%m-%d') as calendar_date
+                ,sum(up.cash_money) as up_money_total
+            FROM usermoney up
+            WHERE up.type = '2'
+              AND up.is_delete = '0'
+            GROUP BY DATE_FORMAT(up.cash_time,'%Y-%m-%d')
+        )up_temp ON up_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(down.cash_time,'%Y-%m-%d') as calendar_date
+                ,sum(down.cash_money) as down_money_total
+            FROM usermoney down
+            WHERE down.type = '6'
+              AND down.is_delete = '0'
+            GROUP BY DATE_FORMAT(down.cash_time,'%Y-%m-%d')
+        )down_temp ON down_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(cb.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(cb.cash_back_money) as cash_back_money_total
+            FROM userwin cb
+            WHERE cb.is_cash_back = '1'
+            GROUP BY DATE_FORMAT(cb.win_time,'%Y-%m-%d')
+        )cb_temp ON cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(no_cb.cash_back_money) as no_cash_back_money_total
+            FROM userwin no_cb
+            WHERE no_cb.is_cash_back = '0'
+            GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d')
+        )no_cb_temp ON no_cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(commission.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(commission.commission_money) as commission_money_total
+            FROM userwin commission
+                     inner join sys_user u on u.user_id = commission.user_id
+                     inner join sys_user pu on pu.user_id = u.parent_user_id
+            WHERE commission.is_commission = '1'
+            GROUP BY DATE_FORMAT(commission.win_time,'%Y-%m-%d')
+        )commission_temp ON commission_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d') as calendar_date
+                ,sum(bet_win.cash_money) as bet_win_money_total
+            FROM usermoney bet_win
+            WHERE bet_win.type = '8'
+              AND bet_win.is_delete = '0'
+            GROUP BY DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d')
+        )bet_win_temp ON bet_win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(win.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(win.win_money) as win_money_total
+            FROM userwin win
+            GROUP BY DATE_FORMAT(win.win_time,'%Y-%m-%d')
+        )win_temp ON win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        ORDER BY c.calendar_id DESC
     </select>
 </mapper>

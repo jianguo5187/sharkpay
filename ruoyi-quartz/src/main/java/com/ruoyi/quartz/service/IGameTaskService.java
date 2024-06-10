@@ -24,6 +24,8 @@ public interface IGameTaskService {
 
     // 定时10球开奖结算
     public void lotteryTenBallBalance(String gameCode);
+
+    public void insertRobotBet();
 //
 //    // 定时保存澳洲幸运10官方开奖结果
 //    public void saveAzxy10InfoFromOfficial(List<GameOpenDataDto> openDataList, Map<Long , GameOpenDataDto> gameOpenDataDtoMap);

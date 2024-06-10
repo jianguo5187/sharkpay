@@ -143,7 +143,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
     }
 
     @Override
-    public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo) {
+    public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg) {
         List<VirtuallyGameRecordRespVO> respVO = new ArrayList<>();
         Date date = new Date();
         GameTenballKj gameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods());

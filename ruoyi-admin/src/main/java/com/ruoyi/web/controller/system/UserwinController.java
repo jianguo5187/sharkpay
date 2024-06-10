@@ -5,10 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
-import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
-import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
-import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
+import com.ruoyi.system.domain.vo.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -187,5 +184,14 @@ public class UserwinController extends BaseController
         userwinService.commissionUser(user.getUserId(),userwin);
         AjaxResult ajax = AjaxResult.success("处理成功");
         return ajax;
+    }
+
+
+    @GetMapping("/listTotalReport")
+    public TableDataInfo listTotalReport(Userwin userwin)
+    {
+        startPage();
+        List<TotalReportRespVO> list = userwinService.selectTotalReportLis();
+        return getDataTable(list);
     }
 }

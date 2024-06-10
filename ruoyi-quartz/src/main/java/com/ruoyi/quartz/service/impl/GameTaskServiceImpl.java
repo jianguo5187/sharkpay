@@ -1,37 +1,23 @@
 package com.ruoyi.quartz.service.impl;
 
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.quartz.service.IGameTaskService;
 import com.ruoyi.system.domain.Azxy10;
 import com.ruoyi.system.domain.Jnd;
 import com.ruoyi.system.domain.Jsssc;
-import com.ruoyi.system.domain.vo.GameOpenDataDto;
+import com.ruoyi.system.domain.SysGame;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.*;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Service
 public class GameTaskServiceImpl implements IGameTaskService {
-
-    @Autowired
-    private IAzxy10Service azxy10Service;
-
-    @Autowired
-    private IJndService jndService;
-
-    @Autowired
-    private IJssscService jssscService;
-
-    @Autowired
-    private Azxy10LotteryServiceImpl azxy10LotteryService;
-
-    @Autowired
-    private Jnd28LotteryServiceImpl jnd28LotteryService;
-
-    @Autowired
-    private JssscLotteryServiceImpl jssscLotteryService;
 
     @Autowired
     private IThreeBallLotteryService threeBallLotteryService;
@@ -44,6 +30,18 @@ public class GameTaskServiceImpl implements IGameTaskService {
 
     @Autowired
     private IBetkjService betkjService;
+
+    @Autowired
+    private ISysGameService sysGameService;
+
+    @Autowired
+    private IGameThreeBallsService gameThreeBallsService;
+
+    @Autowired
+    private IGameFiveBallsService gameFiveBallsService;
+
+    @Autowired
+    private IGameTenBallsService gameTenBallsService;
 
     @Override
     public void saveThreeBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
@@ -293,4 +291,49 @@ public class GameTaskServiceImpl implements IGameTaskService {
 //    public void lotteryJssscBalance(String gameCode) {
 //        jssscLotteryService.lotteryJsssc(gameCode);
 //    }
+
+    @Override
+    public void insertRobotBet(){
+
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+        for(SysGame gameInfo : gameList){
+            Random random = new Random();
+            // 30%概率增加下注概率
+            if (random.nextDouble() <= 0.1) {
+                if(StringUtils.equals(gameInfo.getGameType(),"3")){
+                    // 3球
+                    ThreeBallsOddsReqVO threeBallsOddsReqVO = new ThreeBallsOddsReqVO();
+                    threeBallsOddsReqVO.setGameId(gameInfo.getGameId());
+                    ThreeBallsTimeDateRespVO threeBallsTimeDateRespVO = gameThreeBallsService.timeDate(threeBallsOddsReqVO);
+                    VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+                    virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+                    virtuallyGameRecordReqVO.setPeriods(threeBallsTimeDateRespVO.getPeriods());
+                    gameThreeBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
+
+                }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
+                    // 5球
+
+                    FiveBallsOddsReqVO fiveBallsOddsReqVO = new FiveBallsOddsReqVO();
+                    fiveBallsOddsReqVO.setGameId(gameInfo.getGameId());
+                    FiveBallsTimeDateRespVO fiveBallsTimeDateRespVO = gameFiveBallsService.timeDate(fiveBallsOddsReqVO);
+                    VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+                    virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+                    virtuallyGameRecordReqVO.setPeriods(fiveBallsTimeDateRespVO.getPeriods());
+                    gameFiveBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
+                }else{
+                    // 10球
+
+                    TenBallsOddsReqVO tenBallsOddsReqVO = new TenBallsOddsReqVO();
+                    tenBallsOddsReqVO.setGameId(gameInfo.getGameId());
+                    TenBallsTimeDateRespVO tenBallsTimeDateRespVO = gameTenBallsService.timeDate(tenBallsOddsReqVO);
+                    VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+                    virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+                    virtuallyGameRecordReqVO.setPeriods(tenBallsTimeDateRespVO.getPeriods());
+                    gameTenBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
+                }
+            }
+        }
+    }
 }

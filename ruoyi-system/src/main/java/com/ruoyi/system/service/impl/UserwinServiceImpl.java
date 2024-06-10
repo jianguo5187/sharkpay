@@ -7,10 +7,7 @@ import com.ruoyi.system.domain.SysAdminRecord;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.Usermoney;
 import com.ruoyi.system.domain.Userwin;
-import com.ruoyi.system.domain.vo.CashBackDetailListRespVO;
-import com.ruoyi.system.domain.vo.CommissionDetailListRespVO;
-import com.ruoyi.system.domain.vo.UserGameWinRankListRespVO;
-import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.mapper.UserwinMapper;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -389,5 +386,10 @@ public class UserwinServiceImpl implements IUserwinService
         String winTime = sd.format(userwin.getWinTime());
         List<Userwin> userWinList = userwinMapper.selectUserWinListByDay(userwin.getUserId(),userwin.getGameId(),winTime);
         commission(userWinList,userId);
+    }
+
+    @Override
+    public List<TotalReportRespVO> selectTotalReportLis() {
+        return userwinMapper.selectTotalReportLis();
     }
 }
