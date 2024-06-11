@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -229,6 +230,22 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
         sysAppService.updateLogoImg(vo);
+        return ajax;
+    }
+
+    @PostMapping("/virtuallyRecordList")
+    public AjaxResult virtuallyRecordList(@RequestBody VirtuallyRecordListReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        List<VirtuallyGameRecordRespVO> virtuallyRecordList = sysAppService.getVirtuallyRecordList(vo);
+        Long lastBetRecordId = 0l;
+        for(VirtuallyGameRecordRespVO respVO :virtuallyRecordList){
+            if(respVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = respVO.getBetId();
+            }
+        }
+        ajax.put("virtuallyRecordList",virtuallyRecordList);
+        ajax.put("lastBetRecordId",lastBetRecordId);
         return ajax;
     }
 }

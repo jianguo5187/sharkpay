@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="gameImg"    column="game_img"    />
         <result property="gameType"    column="game_type"    />
         <result property="gameMarkId"    column="game_mark_id"    />
+        <result property="gameOpenCode"    column="game_open_code"    />
         <result property="gameName"    column="game_name"    />
         <result property="gameAliasName"    column="game_alias_name"    />
         <result property="gameDescribe"    column="game_describe"    />
@@ -38,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectSysGameVo">
-        select game_id, game_img, game_type, game_mark_id, game_name, game_alias_name, game_describe, profit_loss_name, game_record, game_kj, game_commission, game_commission_two, game_cate, game_cashback, min_bet_amount, max_bet_amount, lead_time, end_time, lottery_interval, robot_rate, room_rule, sort, status, is_hidden, house_open, create_by, create_time, update_by, update_time, remark from sys_game
+        select game_id, game_img, game_type, game_mark_id, game_open_code, game_name, game_alias_name, game_describe, profit_loss_name, game_record, game_kj, game_commission, game_commission_two, game_cate, game_cashback, min_bet_amount, max_bet_amount, lead_time, end_time, lottery_interval, robot_rate, room_rule, sort, status, is_hidden, house_open, create_by, create_time, update_by, update_time, remark from sys_game
     </sql>
 
     <select id="selectSysGameList" parameterType="SysGame" resultMap="SysGameResult">
@@ -46,6 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="gameType != null "> and game_type = #{gameType}</if>
             <if test="gameMarkId != null  and gameMarkId != ''"> and game_mark_id = #{gameMarkId}</if>
+            <if test="gameOpenCode != null  and gameOpenCode != ''"> and game_open_code = #{gameOpenCode}</if>
             <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
             <if test="gameAliasName != null  and gameAliasName != ''"> and game_alias_name like concat('%', #{gameAliasName}, '%')</if>
             <if test="gameDescribe != null  and gameDescribe != ''"> and game_describe = #{gameDescribe}</if>
@@ -84,6 +86,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameImg != null">game_img,</if>
             <if test="gameType != null">game_type,</if>
             <if test="gameMarkId != null">game_mark_id,</if>
+            <if test="gameOpenCode != null">game_open_code,</if>
             <if test="gameName != null">game_name,</if>
             <if test="gameAliasName != null">game_alias_name,</if>
             <if test="gameDescribe != null">game_describe,</if>
@@ -115,6 +118,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameImg != null">#{gameImg},</if>
             <if test="gameType != null">#{gameType},</if>
             <if test="gameMarkId != null">#{gameMarkId},</if>
+            <if test="gameOpenCode != null">#{gameOpenCode},</if>
             <if test="gameName != null">#{gameName},</if>
             <if test="gameAliasName != null">#{gameAliasName},</if>
             <if test="gameDescribe != null">#{gameDescribe},</if>
@@ -150,6 +154,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameImg != null">game_img = #{gameImg},</if>
             <if test="gameType != null">game_type = #{gameType},</if>
             <if test="gameMarkId != null">game_mark_id = #{gameMarkId},</if>
+            <if test="gameOpenCode != null">game_open_code = #{gameOpenCode},</if>
             <if test="gameName != null">game_name = #{gameName},</if>
             <if test="gameAliasName != null">game_alias_name = #{gameAliasName},</if>
             <if test="gameDescribe != null">game_describe = #{gameDescribe},</if>

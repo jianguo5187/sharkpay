@@ -20,4 +20,6 @@ public interface ISysAppService {
     public HomePageDataRespVO getHomePageDate();
 
     public void updateLogoImg(UpdateLogoImgReqVO vo);
+
+    public List<VirtuallyGameRecordRespVO> getVirtuallyRecordList(VirtuallyRecordListReqVO vo);
 }

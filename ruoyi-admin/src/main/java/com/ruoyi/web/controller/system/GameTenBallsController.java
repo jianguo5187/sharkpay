@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * APP使用接口
  *
@@ -73,7 +75,15 @@ public class GameTenBallsController  extends BaseController {
     public AjaxResult betRecordList(@RequestBody TenBallsBetRecordListReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        ajax.put("betRecordList",gameTenBallsService.betRecordList(sessionUser.getUserId(),vo));
+        List<BetRecordListRespVO> betRecordLis = gameTenBallsService.betRecordList(sessionUser.getUserId(),vo);
+        Long lastBetRecordId = 0l;
+        for(BetRecordListRespVO respVO : betRecordLis){
+            if(respVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = respVO.getBetId();
+            }
+        }
+        ajax.put("betRecordList",betRecordLis);
+        ajax.put("lastBetRecordId",lastBetRecordId);
         return ajax;
     }
 
@@ -87,7 +97,15 @@ public class GameTenBallsController  extends BaseController {
             return error("期数不能为空");
         }
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        ajax.put("betRecordList",gameTenBallsService.betRecordList(sessionUser.getUserId(),vo));
+        List<BetRecordListRespVO> betRecordLis = gameTenBallsService.betRecordList(sessionUser.getUserId(),vo);
+        Long lastBetRecordId = 0l;
+        for(BetRecordListRespVO respVO : betRecordLis){
+            if(respVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = respVO.getBetId();
+            }
+        }
+        ajax.put("betRecordList",betRecordLis);
+        ajax.put("lastBetRecordId",lastBetRecordId);
         return ajax;
     }
 

@@ -65,9 +65,6 @@ public class SysLoginService
     private ISysConfigService configService;
 
     @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
     private SysPermissionService permissionService;
 
     //微信小程序appId
@@ -216,7 +213,7 @@ public class SysLoginService
      * 小程序一键登录
      * @return token
      */
-    public String miniProgramLogin(String code){
+    public String miniProgramLogin(String code,String inviteCode){
         //微信小程序获取openId请求地址
 //        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code";
         String replaceUrl = oauth2Url.replace("{0}", appId).replace("{1}", appSecret).replace("{2}", code);
@@ -264,6 +261,14 @@ public class SysLoginService
                 regUser.setWalletAddress(ShiroUtils.randomPayAddress());
                 regUser.setInviteCode(ShiroUtils.randomSalt());
                 regUser.setParentUserId(2l);
+                if(StringUtils.isNotEmpty(inviteCode)) {
+                    SysUser searchParentUser = new SysUser();
+                    searchParentUser.setInviteCode(inviteCode);
+                    SysUser parentUser = userService.selectUserByInviteCode(searchParentUser);
+                    if (StringUtils.isNotEmpty(parentUser.getInviteCode()) && StringUtils.isNull(parentUser)) {
+                        regUser.setParentUserId(parentUser.getUserId());
+                    }
+                }
                 regUser.setUserType("02"); //APP用户
                 regUser.setRoleIds(new Long[]{3l}); //普通用户
                 regUser.setDeptId(103l); //用户

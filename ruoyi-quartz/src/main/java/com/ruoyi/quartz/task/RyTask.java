@@ -4,10 +4,12 @@ import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
+import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.GameOpenDataDto;
 import com.ruoyi.quartz.service.IGameTaskService;
 import com.ruoyi.system.service.ISysCalendarService;
 import com.ruoyi.system.service.ISysConfigService;
+import com.ruoyi.system.service.ISysGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -26,10 +28,6 @@ import java.util.stream.Collectors;
 public class RyTask
 {
 
-    // 获取官方开奖结果的URL
-    @Value("${autoGame.url}")
-    private String gameUrl;
-
     @Autowired
     private IGameTaskService gameTaskService;
 
@@ -38,6 +36,9 @@ public class RyTask
 
     @Autowired
     private ISysCalendarService calendarService;
+
+    @Autowired
+    private ISysGameService sysGameService;
 
     public void ryMultipleParams(String s, Boolean b, Long l, Double d, Integer i)
     {
@@ -55,52 +56,69 @@ public class RyTask
     }
 
     // 根据游戏code,定时获取官方开奖数据
-    public void getGameExpectData(String gameCode){
-        System.out.println("游戏code: " + gameCode);
-        String url = configService.selectConfigByKey("sys.opengame.url") + gameCode + "&limit=50";
-        String result = HttpUtils.sendGet(url);
-        JSONObject resultJson = JSONObject.parseObject(result);
-        if(resultJson == null){
-            System.out.println("获取不到开奖网站数据");
-            return ;
-        }
-        String data = resultJson.getString("data");
-        System.out.println(data);
-        List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
-        Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
-                .collect(Collectors.toMap(
-                        GameOpenDataDto::getExpect,
-                        Function.identity(),
-                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
-                ));
+    public void getGameExpectData(String gameType){
+        System.out.println("游戏类型: " + gameType);
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        sysGame.setGameType(gameType);
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
 
-        if(openDataList != null && openDataList.size() >0){
-            if(StringUtils.equals("azxy10",gameCode)){
-                // 澳洲幸运10
-                gameTaskService.saveTenBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
-            }else if(StringUtils.equals("jnd28",gameCode)){
-                // 加拿大2.8
-                gameTaskService.saveThreeBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
-            }else if(StringUtils.equals("jsssc",gameCode)){
-                // 急速时时彩
-                gameTaskService.saveFiveBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
+        for(SysGame gameInfo : gameList){
+            String url = configService.selectConfigByKey("sys.opengame.url") + gameInfo.getGameOpenCode() + "&limit=50";
+            String result = HttpUtils.sendGet(url);
+            JSONObject resultJson = JSONObject.parseObject(result);
+            if(resultJson == null){
+                System.out.println("获取不到开奖网站数据");
+                return ;
+            }
+            String data = resultJson.getString("data");
+            if(StringUtils.isEmpty(data)){
+                continue;
+            }
+            System.out.println(data);
+            List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
+            Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
+                    .collect(Collectors.toMap(
+                            GameOpenDataDto::getExpect,
+                            Function.identity(),
+                            (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                    ));
+
+            if(openDataList != null && openDataList.size() >0){
+                if(StringUtils.equals("10",gameType)){
+                    // 10球
+                    gameTaskService.saveTenBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                }else if(StringUtils.equals("3",gameType)){
+                    // 3球
+                    gameTaskService.saveThreeBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                }else if(StringUtils.equals("5",gameType)){
+                    // 5球
+                    gameTaskService.saveFiveBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                }
             }
         }
     }
 
     // 根据游戏code,定时开奖结算
-    public void autoLotteryBalance(String gameCode){
+    public void autoLotteryBalance(String gameType){
 
-        System.out.println("游戏code: " + gameCode);
-        if(StringUtils.equals("azxy10",gameCode)){
-            // 澳洲幸运10
-            gameTaskService.lotteryTenBallBalance(gameCode);
-        }else if(StringUtils.equals("jnd28",gameCode)){
-            // 加拿大2.8
-            gameTaskService.lotteryThreeBallBalance(gameCode);
-        }else if(StringUtils.equals("jsssc",gameCode)){
-            // 急速时时彩
-            gameTaskService.lotteryFiveBallBalance(gameCode);
+        System.out.println("游戏类型: " + gameType);
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        sysGame.setGameType(gameType);
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+
+        for(SysGame gameInfo : gameList){
+            if(StringUtils.equals("10",gameType)){
+                // 澳洲幸运10
+                gameTaskService.lotteryTenBallBalance(gameInfo.getGameMarkId());
+            }else if(StringUtils.equals("3",gameType)){
+                // 加拿大2.8
+                gameTaskService.lotteryThreeBallBalance(gameInfo.getGameMarkId());
+            }else if(StringUtils.equals("5",gameType)){
+                // 急速时时彩
+                gameTaskService.lotteryFiveBallBalance(gameInfo.getGameMarkId());
+            }
         }
     }
 

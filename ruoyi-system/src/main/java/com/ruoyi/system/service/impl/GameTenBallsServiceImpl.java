@@ -216,6 +216,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
 
                     if(insertIndex > 0){
                         VirtuallyGameRecordRespVO virtuallyGameRecord = new VirtuallyGameRecordRespVO();
+                        virtuallyGameRecord.setBetId(betrecord.getBetId());
                         virtuallyGameRecord.setHouse("31");
                         virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
                         virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());

@@ -559,4 +559,9 @@ public class SysAppServiceImpl implements ISysAppService {
             configService.updateConfig(retConfig);
         }
     }
+
+    @Override
+    public List<VirtuallyGameRecordRespVO> getVirtuallyRecordList(VirtuallyRecordListReqVO vo) {
+        return betRecordMapper.getVirtuallyRecordList(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId());
+    }
 }

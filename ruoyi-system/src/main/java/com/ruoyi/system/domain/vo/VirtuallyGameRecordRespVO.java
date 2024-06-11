@@ -6,6 +6,9 @@ import java.util.Date;
 
 public class VirtuallyGameRecordRespVO {
 
+    /** 投注单ID */
+    private Long betId;
+
     /** 游戏ID */
     private Long gameId;
 
@@ -39,6 +42,14 @@ public class VirtuallyGameRecordRespVO {
 
     /** 游戏类型(房间号) */
     private String house;
+
+    public Long getBetId() {
+        return betId;
+    }
+
+    public void setBetId(Long betId) {
+        this.betId = betId;
+    }
 
     public Long getGameId() {
         return gameId;

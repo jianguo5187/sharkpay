@@ -35,6 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <resultMap type="com.ruoyi.system.domain.vo.BetRecordListRespVO" id="BetRecordListResult">
+        <result property="betId"    column="bet_id"    />
         <result property="gameId"    column="game_id"    />
         <result property="gameName"    column="game_name"    />
         <result property="periods"    column="periods"    />
@@ -71,6 +72,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="gameName"    column="game_name"    />
         <result property="betMoney"    column="bet_money"    />
     </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.VirtuallyGameRecordRespVO" id="VirtuallyGameRecordListResult">
+        <result property="betId"    column="bet_id"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="type"    column="type"    />
+        <result property="playType"    column="play_type"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="pic"       column="pic"       />
+        <result property="stime"       column="stime"       />
+        <result property="number"    column="number"    />
+        <result property="money"    column="money"    />
+        <result property="house"    column="house"    />
+    </resultMap>
+
+    <select id="getVirtuallyRecordList" resultMap="VirtuallyGameRecordListResult">
+        SELECT
+             bet.bet_id AS bet_id
+            ,bet.game_id AS game_id
+            ,bet.game_name AS game_name
+            ,bet.periods AS periods
+            ,bet.play_group AS type
+            ,bet.play_type AS play_type
+            ,bet.robot_nick_name AS nick_name
+            ,bet.robot_pic AS pic
+            ,bet.record_time AS stime
+            ,bet.play_detail AS number
+            ,bet.money AS money
+--         ,bet.game_id AS house
+        FROM
+            bet_record bet
+        WHERE
+              bet.is_delete = '0'
+          AND bet.is_robot = '1'
+        <if test="gameId != null "> and bet.game_id = #{gameId}</if>
+        <if test="periods != null "> and bet.periods = #{periods}</if>
+        <if test="lastBetRecordId != null "> and bet.bet_id > #{lastBetRecordId}</if>
+    </select>
 
     <sql id="selectBetRecordVo">
         select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, `option`, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, create_by, create_time, update_by, update_time, remark from bet_record
@@ -213,7 +253,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectBetRecordListByPeriods" resultMap="BetRecordListResult">
         select
-        br.game_id as game_id
+         br.bet_id as bet_id
+        ,br.game_id as game_id
         ,br.game_name as game_name
         ,br.periods as periods
         ,br.play_group as play_group

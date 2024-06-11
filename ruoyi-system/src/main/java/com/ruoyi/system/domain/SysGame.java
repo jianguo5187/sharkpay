@@ -31,6 +31,10 @@ public class SysGame extends BaseEntity
     @Excel(name = "游戏标识ID")
     private String gameMarkId;
 
+    /** 游戏开奖code */
+    @Excel(name = "游戏开奖code")
+    private String gameOpenCode;
+
     /** 游戏名 */
     @Excel(name = "游戏名")
     private String gameName;
@@ -149,7 +153,16 @@ public class SysGame extends BaseEntity
     {
         return gameMarkId;
     }
-    public void setGameName(String gameName) 
+
+    public String getGameOpenCode() {
+        return gameOpenCode;
+    }
+
+    public void setGameOpenCode(String gameOpenCode) {
+        this.gameOpenCode = gameOpenCode;
+    }
+
+    public void setGameName(String gameName)
     {
         this.gameName = gameName;
     }
