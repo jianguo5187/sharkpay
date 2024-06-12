@@ -139,12 +139,14 @@ export default {
       charOption = {
         title: {
           text: '投注统计',
+          top:-5,
         },
         tooltip: {
-          trigger: 'axis'
+          trigger: 'axis',
         },
         legend: {
-          data: this.gameBetEchartLegend
+          data: this.gameBetEchartLegend,
+          top:"4%",
         },
         xAxis: {
           type: 'category',

@@ -31,17 +31,7 @@ public class qRCodeService implements IQRCodeService {
 
     @Override
     public String getShareQRCodeBase64(Long userId, ShareQRCodeBase64ReqVO reqVO) {
-        SysUser user = userService.selectUserById(userId);
-
-        SysEntryDomain searchEntryDomain = new SysEntryDomain();
-        searchEntryDomain.setStatus("0");
-        List<SysEntryDomain> entryDomainList = entryDomainService.selectSysEntryDomainList(searchEntryDomain);
-        if(entryDomainList == null || entryDomainList.size() == 0){
-            throw new ServiceException("未配置有效入口域名");
-        }
-
-        String content = entryDomainList.get(0).getEntryDomainUrl() + "inviteCode=" + user.getInviteCode();
-//        configService.selectConfigByKey("sys.promote.site") + user.getInviteCode();
+        String content = getShareQRCodeValue(userId);
 
         String shareQRCodeBase64 = "";
         if(StringUtils.isNotEmpty(reqVO.getDomainUrl())){
@@ -58,7 +48,14 @@ public class qRCodeService implements IQRCodeService {
     public String getShareQRCodeValue(Long userId) {
         SysUser user = userService.selectUserById(userId);
 
-        String content = configService.selectConfigByKey("sys.promote.site") + user.getInviteCode();
+        SysEntryDomain searchEntryDomain = new SysEntryDomain();
+        searchEntryDomain.setStatus("0");
+        List<SysEntryDomain> entryDomainList = entryDomainService.selectSysEntryDomainList(searchEntryDomain);
+        if(entryDomainList == null || entryDomainList.size() == 0){
+            throw new ServiceException("未配置有效入口域名");
+        }
+
+        String content = entryDomainList.get(0).getEntryDomainUrl() + "inviteCode=" + user.getInviteCode();
         return content;
     }
 
