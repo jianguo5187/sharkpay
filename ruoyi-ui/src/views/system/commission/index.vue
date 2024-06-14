@@ -59,6 +59,7 @@
           <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
         </template>
       </el-table-column>
+      <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName"/>
       <el-table-column label="日期" align="center" prop="winTime" />
       <el-table-column label="游戏名" align="center" prop="gameName" />
       <el-table-column label="上级用户名" align="center" prop="parentUserId">
@@ -66,6 +67,7 @@
           <span>{{ scope.row.parentNickName }}(<span style="color: blue">{{ scope.row.parentUserId }}</span>)</span>
         </template>
       </el-table-column>
+      <el-table-column label="上级用户备注名" align="center" key="parentRemarkName" prop="parentRemarkName"/>
       <el-table-column label="佣金金额" align="center" prop="commissionMoney" >
         <template slot-scope="scope">
           <span v-if="scope.row.commissionMoney > 0">{{ scope.row.commissionMoney }}</span>

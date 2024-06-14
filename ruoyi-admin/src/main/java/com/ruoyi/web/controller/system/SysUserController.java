@@ -273,4 +273,13 @@ public class SysUserController extends BaseController
         List<AgentUserListRespVo> list = userService.selectAgentUserList(user);
         return getDataTable(list);
     }
+
+    /**
+     * 修改用户备注名
+     */
+    @PutMapping("/updateUserRemarkName")
+    public AjaxResult updateUserRemarkName(@RequestBody SysUser user)
+    {
+        return toAjax(userService.updateUserRemarkName(user.getUserId(),user.getRemarkName()));
+    }
 }

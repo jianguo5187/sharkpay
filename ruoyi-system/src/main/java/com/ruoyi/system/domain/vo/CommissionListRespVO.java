@@ -15,6 +15,9 @@ public class CommissionListRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 返佣时间(YMD) */
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date cashTime;
@@ -44,6 +47,14 @@ public class CommissionListRespVO {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public Date getCashTime() {

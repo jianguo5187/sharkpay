@@ -39,6 +39,7 @@
           <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
         </template>
       </el-table-column>
+      <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName"/>
       <!--      <el-table-column label="备注" align="center" prop="remark" />-->
       <el-table-column label="总下分金额" align="center" prop="cashMoney" />
     </el-table>

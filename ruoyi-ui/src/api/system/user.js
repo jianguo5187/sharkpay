@@ -179,3 +179,16 @@ export function updateLogoImg(data) {
     data: data
   })
 }
+
+// 用户备注名修改
+export function resetUserRemarkName(userId, remarkName) {
+  const data = {
+    userId,
+    remarkName
+  }
+  return request({
+    url: '/system/user/updateUserRemarkName',
+    method: 'put',
+    data: data
+  })
+}

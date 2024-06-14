@@ -11,6 +11,9 @@ public class UserMoneyUpTotalListRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 流水金额 */
     private Float cashMoney;
 
@@ -36,6 +39,14 @@ public class UserMoneyUpTotalListRespVO {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public Float getCashMoney() {

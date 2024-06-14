@@ -15,6 +15,9 @@ public class CashBackDetailListRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 盈亏时间(YMD) */
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date winTime;
@@ -72,6 +75,14 @@ public class CashBackDetailListRespVO {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public Long getGameId() {

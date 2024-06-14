@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -61,9 +63,18 @@ public class RyTask
         SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
         sysGame.setGameType(gameType);
+
+        SimpleDateFormat sd = new SimpleDateFormat("MMdd");
+        String nowTime = sd.format(new Date());
+
         List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
 
         for(SysGame gameInfo : gameList){
+            //游戏停盘维护判断
+            if(Integer.valueOf(gameInfo.getValidOpenStartTime()).compareTo(Integer.valueOf(nowTime)) > 0
+                    || Integer.valueOf(gameInfo.getValidOpenEndTime()).compareTo(Integer.valueOf(nowTime)) < 0){
+                continue;
+            }
             String url = configService.selectConfigByKey("sys.opengame.url") + gameInfo.getGameOpenCode() + "&limit=50";
             String result = HttpUtils.sendGet(url);
             JSONObject resultJson = JSONObject.parseObject(result);
@@ -108,7 +119,15 @@ public class RyTask
         sysGame.setGameType(gameType);
         List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
 
+        SimpleDateFormat sd = new SimpleDateFormat("MMdd");
+        String nowTime = sd.format(new Date());
+
         for(SysGame gameInfo : gameList){
+            //游戏停盘维护判断
+            if(Integer.valueOf(gameInfo.getValidOpenStartTime()).compareTo(Integer.valueOf(nowTime)) > 0
+                    || Integer.valueOf(gameInfo.getValidOpenEndTime()).compareTo(Integer.valueOf(nowTime)) < 0){
+                continue;
+            }
             if(StringUtils.equals("10",gameType)){
                 // 澳洲幸运10
                 gameTaskService.lotteryTenBallBalance(gameInfo.getGameMarkId());

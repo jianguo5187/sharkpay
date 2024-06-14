@@ -442,7 +442,7 @@ public class SysAppServiceImpl implements ISysAppService {
         for(UserTotalRankListRespVO userTotalRankListRespVO : totalUserWinList){
             todayWinMoney = todayWinMoney + userTotalRankListRespVO.getTotalWinMoney();
         }
-        respVO.setTodayWinMoney(todayWinMoney);
+        respVO.setTodayWinMoney(todayWinMoney * -1);
 
         List<String> echartWeekTitle = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");

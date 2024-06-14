@@ -34,6 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"       column="user_id"      />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="cashTime"    column="cash_time"    />
         <result property="cashMoney"    column="cash_money"    />
         <result property="type"    column="type"    />
@@ -47,6 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"       column="user_id"      />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="cashTime"    column="cash_time"    />
         <result property="cashMoney"    column="cash_money"    />
         <result property="type"    column="type"    />
@@ -59,6 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"       column="user_id"      />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="cashMoney"    column="cash_money"    />
     </resultMap>
 
@@ -66,6 +69,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"       column="user_id"      />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="cashMoney"    column="cash_money"    />
     </resultMap>
 
@@ -73,6 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"       column="user_id"      />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="cashTime"    column="cash_time"    />
         <result property="cashMoney"    column="cash_money"    />
     </resultMap>
@@ -254,6 +259,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              u.user_id as user_id
             ,u.nick_name as nick_name
             ,u.real_name as real_name
+            ,u.remark_name as remark_name
             ,um.id as id
             ,um.cash_time as cash_time
             ,um.cash_money as cash_money
@@ -278,6 +284,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              u.user_id as user_id
             ,u.nick_name as nick_name
             ,u.real_name as real_name
+            ,u.remark_name as remark_name
             ,um.id as id
             ,um.cash_time as cash_time
             ,um.cash_money as cash_money
@@ -302,6 +309,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              u.user_id as user_id
             ,max(u.nick_name) as nick_name
             ,max(u.real_name) as real_name
+            ,max(u.remark_name) as remark_name
             ,sum(um.cash_money) as cash_money
         from  usermoney um
         inner join sys_user u on u.user_id = um.user_id
@@ -321,6 +329,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              u.user_id as user_id
             ,max(u.nick_name) as nick_name
             ,max(u.real_name) as real_name
+            ,max(u.remark_name) as remark_name
             ,sum(um.cash_money) as cash_money
         from  usermoney um
         inner join sys_user u on u.user_id = um.user_id
@@ -340,6 +349,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              u.user_id as user_id
             ,max(u.nick_name) as nick_name
             ,max(u.real_name) as real_name
+            ,max(u.remark_name) as remark_name
             ,um.cash_time as cash_time
             ,sum(um.cash_money) as cash_money
         from  usermoney um

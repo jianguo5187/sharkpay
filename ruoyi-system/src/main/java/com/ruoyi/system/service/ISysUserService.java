@@ -243,4 +243,13 @@ public interface ISysUserService
     public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
 
     public SysUser getUserByOpenId(String openId);
+
+    /**
+     * 重置用户支付密码
+     *
+     * @param userId 用户ID
+     * @param payPassword 支付密码
+     * @return 结果
+     */
+    public int updateUserRemarkName(Long userId, String remarkName);
 }

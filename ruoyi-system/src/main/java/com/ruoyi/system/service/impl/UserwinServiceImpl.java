@@ -163,6 +163,7 @@ public class UserwinServiceImpl implements IUserwinService
             vo.setUserId(userGameWinRankListRespVO.getUserId());
             vo.setNickName(userGameWinRankListRespVO.getNickName());
             vo.setRealName(userGameWinRankListRespVO.getRealName());
+            vo.setRemarkName(userGameWinRankListRespVO.getRemarkName());
             vo.setUserAmount(userGameWinRankListRespVO.getUserAmount());
             vo.setTotalWinMoney(vo.getTotalWinMoney() +  userGameWinRankListRespVO.getWinMoney());
             vo.setTotalCashBackMoney(vo.getTotalCashBackMoney() +  userGameWinRankListRespVO.getCashBackMoney());

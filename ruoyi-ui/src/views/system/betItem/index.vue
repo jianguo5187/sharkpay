@@ -173,6 +173,12 @@
         <el-form-item label="机器人比例" prop="robotRate">
           <el-input-number v-model="gameForm.robotRate" :min="0" placeholder="请输入机器人比例"/>
         </el-form-item>
+        <el-form-item label="游戏有效开奖开始时间" prop="validOpenStartTime">
+          <el-input v-model="gameForm.validOpenStartTime" placeholder="请输入游戏有效开奖开始时间" /> (例如8点->0800)
+        </el-form-item>
+        <el-form-item label="游戏有效开奖结束时间" prop="validOpenEndTime">
+          <el-input v-model="gameForm.validOpenEndTime" placeholder="请输入游戏有效开奖结束时间" /> (例如23点59分->2359)
+        </el-form-item>
         <el-form-item label="游戏状态" prop="status">
           <el-radio-group v-model="gameForm.status">
             <el-radio
@@ -273,6 +279,12 @@ export default {
       gameForm: {},
       // 游戏表单校验
       gameRules: {
+        validOpenStartTime: [
+          { required: true, message: "游戏有效开奖开始时间不能为空", trigger: "blur" }
+        ],
+        validOpenEndTime: [
+          { required: true, message: "游戏游戏有效开奖结束时间不能为空", trigger: "blur" }
+        ],
       }
     };
   },
@@ -388,6 +400,8 @@ export default {
         status: "0",
         isHidden: "N",
         houseOpen: null,
+        validOpenStartTime: "0000",
+        validOpenEndTime: "2359",
         createBy: null,
         createTime: null,
         updateBy: null,

@@ -117,6 +117,14 @@ public class SysGame extends BaseEntity
     /** 房间模式 */
     private Long houseOpen;
 
+    /** 游戏有效开奖开始时间 */
+    @Excel(name = "游戏有效开奖开始时间")
+    private String validOpenStartTime;
+
+    /** 游戏有效开奖结束时间 */
+    @Excel(name = "游戏有效开奖结束时间")
+    private String validOpenEndTime;
+
     public void setGameId(Long gameId) 
     {
         this.gameId = gameId;
@@ -350,6 +358,24 @@ public class SysGame extends BaseEntity
     {
         return houseOpen;
     }
+    public void setValidOpenStartTime(String validOpenStartTime)
+    {
+        this.validOpenStartTime = validOpenStartTime;
+    }
+
+    public String getValidOpenStartTime()
+    {
+        return validOpenStartTime;
+    }
+    public void setValidOpenEndTime(String validOpenEndTime)
+    {
+        this.validOpenEndTime = validOpenEndTime;
+    }
+
+    public String getValidOpenEndTime()
+    {
+        return validOpenEndTime;
+    }
 
     @Override
     public String toString() {
@@ -377,6 +403,8 @@ public class SysGame extends BaseEntity
             .append("status", getStatus())
             .append("isHidden", getIsHidden())
             .append("houseOpen", getHouseOpen())
+            .append("validOpenStartTime", getValidOpenStartTime())
+            .append("validOpenEndTime", getValidOpenEndTime())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

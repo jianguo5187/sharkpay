@@ -141,6 +141,7 @@
           <!--          <el-table-column label="用户编号" align="center" key="userId" prop="userId" v-if="columns[0].visible" />-->
           <el-table-column label="登录账号" align="center" key="userName" prop="userName" :show-overflow-tooltip="true" />
           <el-table-column label="用户昵称" align="center" key="nickName" prop="nickName" :show-overflow-tooltip="true" />
+          <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName" :show-overflow-tooltip="true" />
 <!--          <el-table-column label="用户类型" align="center" prop="userType">-->
 <!--            <template slot-scope="scope">-->
 <!--              <dict-tag :options="dict.type.user_type" :value="scope.row.userType"/>-->
@@ -159,16 +160,16 @@
           <el-table-column label="盈亏金额" align="center" key="totalWinMoney" prop="totalWinMoney"/>
           <el-table-column label="流水金额" align="center" key="totalBetMoney" prop="totalBetMoney"/>
           <el-table-column label="上级用户" align="center" key="parentNickName" prop="parentNickName"/>
-          <el-table-column label="状态" align="center" key="status" >
-            <template slot-scope="scope">
-              <el-switch
-                v-model="scope.row.status"
-                active-value="0"
-                inactive-value="1"
-                @change="handleStatusChange(scope.row)"
-              ></el-switch>
-            </template>
-          </el-table-column>
+<!--          <el-table-column label="状态" align="center" key="status" >-->
+<!--            <template slot-scope="scope">-->
+<!--              <el-switch-->
+<!--                v-model="scope.row.status"-->
+<!--                active-value="0"-->
+<!--                inactive-value="1"-->
+<!--                @change="handleStatusChange(scope.row)"-->
+<!--              ></el-switch>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
           <!--          <el-table-column label="创建时间" align="center" prop="createTime" v-if="columns[6].visible" width="160">-->
           <!--            <template slot-scope="scope">-->
           <!--              <span>{{ parseTime(scope.row.createTime) }}</span>-->
@@ -205,9 +206,15 @@
               <el-button
                 size="mini"
                 type="text"
-                icon="el-icon-key"
-                @click="handleResetPayPwd(scope.row)"
-              >重置支付密码</el-button>
+                icon="el-icon-s-check"
+                @click="handleUpdateRemarkName(scope.row)"
+              >修改用户备注名</el-button>
+<!--              <el-button-->
+<!--                size="mini"-->
+<!--                type="text"-->
+<!--                icon="el-icon-key"-->
+<!--                @click="handleResetPayPwd(scope.row)"-->
+<!--              >重置支付密码</el-button>-->
               <!--              <el-dropdown size="mini" @command="(command) => handleCommand(command, scope.row)" v-hasPermi="['system:user:resetPwd', 'system:user:edit']">-->
               <!--                <el-button size="mini" type="text" icon="el-icon-d-arrow-right">更多</el-button>-->
               <!--                <el-dropdown-menu slot="dropdown">-->
@@ -428,7 +435,7 @@ import {
   resetUserPwd,
   resetUserPayPwd,
   changeUserStatus,
-  deptTreeSelect
+  deptTreeSelect, resetUserRemarkName
 } from "@/api/system/user";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
@@ -717,6 +724,21 @@ export default {
       }).then(({ value }) => {
         resetUserPayPwd(row.userId, value).then(response => {
           this.$modal.msgSuccess("修改成功，新密码是：" + value);
+        });
+      }).catch(() => {});
+    },
+    /** 修改用户备注名按钮操作 */
+    handleUpdateRemarkName(row) {
+      this.$prompt('请输入"' + row.userName + '"的备注名', "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        closeOnClickModal: false,
+        // inputPattern: /^.{1,6}$/,
+        // inputErrorMessage: "用户密码长度必须介于 1 和 6 之间"
+      }).then(({ value }) => {
+        resetUserRemarkName(row.userId, value).then(response => {
+          this.getList();
+          this.$modal.msgSuccess("修改成功");
         });
       }).catch(() => {});
     },

@@ -161,4 +161,6 @@ public interface SysUserMapper
     public Integer selectEffectiveUsersCount();
 
     public SysUser selectUserByOpenId(String openId);
+
+    public int updateUserRemarkName(@Param("userId")Long userId, @Param("remarkName") String remarkName);
 }

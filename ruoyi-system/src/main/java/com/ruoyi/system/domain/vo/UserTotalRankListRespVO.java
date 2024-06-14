@@ -13,6 +13,9 @@ public class UserTotalRankListRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 账户剩余金额 */
     private Float userAmount;
 
@@ -97,6 +100,14 @@ public class UserTotalRankListRespVO {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public Float getUserAmount() {

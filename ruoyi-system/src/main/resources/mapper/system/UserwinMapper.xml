@@ -37,6 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"    column="user_id"    />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="winTime"    column="win_time"    />
         <result property="gameId"    column="game_id"    />
         <result property="gameMarkId"    column="game_mark_id"    />
@@ -55,6 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"    column="user_id"    />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="winTime"    column="win_time"    />
         <result property="gameId"    column="game_id"    />
         <result property="gameName"    column="game_name"    />
@@ -69,9 +71,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"    column="user_id"    />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="parentUserId"    column="parent_user_id"    />
         <result property="parentNickName"    column="parent_nick_name"    />
         <result property="parentRealName"    column="parent_real_name"    />
+        <result property="parentRemarkName"     column="parent_remark_name"    />
         <result property="winTime"    column="win_time"    />
         <result property="gameId"    column="game_id"    />
         <result property="gameName"    column="game_name"    />
@@ -254,6 +258,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              uw.user_id as user_id
             ,max(u.nick_name) as nick_name
             ,max(u.real_name) as real_name
+            ,max(u.remark_name) as remark_name
             ,max(u.amount) as user_money
             ,uw.win_time as win_time
             ,uw.game_id as game_id
@@ -306,6 +311,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              uw.user_id as user_id
             ,max(u.nick_name) as nick_name
             ,max(u.real_name) as real_name
+            ,max(u.remark_name) as remark_name
             ,uw.win_time as win_time
             ,uw.game_id as game_id
             ,max(uw.game_name) as game_name
@@ -348,6 +354,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          uw.user_id as user_id
         ,max(u.nick_name) as nick_name
         ,max(u.real_name) as real_name
+        ,max(u.remark_name) as remark_name
         ,uw.win_time as win_time
         ,SUM(uw.cash_back_money) AS cash_back_money
         FROM userwin uw
@@ -371,9 +378,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              uw.user_id as user_id
             ,max(u.nick_name) as nick_name
             ,max(u.real_name) as real_name
+            ,max(u.remark_name) as remark_name
             ,pu.user_id as parent_user_id
             ,max(pu.nick_name) as parent_nick_name
             ,max(pu.real_name) as parent_real_name
+            ,max(pu.remark_name) as parent_remark_name
             ,uw.win_time as win_time
             ,uw.game_id as game_id
             ,max(uw.game_name) as game_name
@@ -411,7 +420,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
 
     <select id="selectBetWinToalAmount" resultType="Float">
-        select sum(win_money)
+        select IFNULL(sum(win_money)*-1,0)
         from userwin
     </select>
 
@@ -520,7 +529,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         LEFT JOIN(
             SELECT
                  DATE_FORMAT(win.win_time,'%Y-%m-%d') as calendar_date
-                ,sum(win.win_money) as win_money_total
+                ,sum(win.win_money)*-1 as win_money_total
             FROM userwin win
             GROUP BY DATE_FORMAT(win.win_time,'%Y-%m-%d')
         )win_temp ON win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')

@@ -40,6 +40,7 @@
           <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
         </template>
       </el-table-column>
+      <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName"/>
       <el-table-column label="日期" align="center" prop="winTime" />
       <el-table-column label="返点金额" align="center" prop="cashBackMoney" />
     </el-table>

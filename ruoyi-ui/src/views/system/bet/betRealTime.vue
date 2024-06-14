@@ -35,6 +35,7 @@
           <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
         </template>
       </el-table-column>
+      <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName"/>
 <!--      <el-table-column label="真实姓名" align="center" prop="realName" />-->
       <el-table-column label="下注时间" align="center" prop="recordTime" />
       <el-table-column label="游戏名" align="center" prop="gameName" />

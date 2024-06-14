@@ -692,4 +692,9 @@ public class SysUserServiceImpl implements ISysUserService
     public SysUser getUserByOpenId(String openId) {
         return userMapper.selectUserByOpenId(openId);
     }
+
+    @Override
+    public int updateUserRemarkName(Long userId, String remarkName) {
+        return userMapper.updateUserRemarkName(userId,remarkName);
+    }
 }

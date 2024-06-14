@@ -18,6 +18,9 @@ public class PostalListRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 资金流水时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date cashTime;
@@ -67,6 +70,14 @@ public class PostalListRespVO {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public Date getCashTime() {

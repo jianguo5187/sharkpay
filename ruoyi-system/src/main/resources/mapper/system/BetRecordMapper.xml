@@ -54,6 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userId"       column="user_id"      />
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
         <result property="recordTime"    column="record_time"    />
         <result property="gameId"    column="game_id"    />
         <result property="gameName"    column="game_name"    />
@@ -290,6 +291,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              u.user_id as user_id
             ,u.nick_name as nick_name
             ,u.real_name as real_name
+            ,u.remark_name as remark_name
             ,br.bet_id as bet_id
             ,br.record_time as record_time
             ,br.game_id as game_id

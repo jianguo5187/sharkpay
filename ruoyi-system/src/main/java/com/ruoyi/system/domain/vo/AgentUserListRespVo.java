@@ -11,6 +11,9 @@ public class AgentUserListRespVo {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 上级用户ID */
     private Long parentUserId;
 
@@ -19,6 +22,9 @@ public class AgentUserListRespVo {
 
     /** 上级真实姓名 */
     private String parentRealName;
+
+    /** 上级备注名 */
+    private String parentRemarkName;
 
     /** 总佣金金额 */
     private Float totalCommissionMoney;
@@ -50,6 +56,14 @@ public class AgentUserListRespVo {
         this.realName = realName;
     }
 
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
+    }
+
     public Long getParentUserId() {
         return parentUserId;
     }
@@ -72,6 +86,14 @@ public class AgentUserListRespVo {
 
     public void setParentRealName(String parentRealName) {
         this.parentRealName = parentRealName;
+    }
+
+    public String getParentRemarkName() {
+        return parentRemarkName;
+    }
+
+    public void setParentRemarkName(String parentRemarkName) {
+        this.parentRemarkName = parentRemarkName;
     }
 
     public Float getTotalCommissionMoney() {

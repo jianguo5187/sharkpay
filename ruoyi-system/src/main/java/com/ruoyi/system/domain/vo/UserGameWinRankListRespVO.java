@@ -21,6 +21,9 @@ public class UserGameWinRankListRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 游戏ID */
     private Long gameId;
 
@@ -90,6 +93,14 @@ public class UserGameWinRankListRespVO {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public Float getUserAmount() {

@@ -15,6 +15,9 @@ public class CommissionDetailListRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 上级用户ID */
     private Long parentUserId;
 
@@ -23,6 +26,9 @@ public class CommissionDetailListRespVO {
 
     /** 上级真实姓名 */
     private String parentRealName;
+
+    /** 上级用户备注名 */
+    private String parentRemarkName;
 
     /** 盈亏时间(YMD) */
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -69,6 +75,14 @@ public class CommissionDetailListRespVO {
         this.realName = realName;
     }
 
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
+    }
+
     public Long getParentUserId() {
         return parentUserId;
     }
@@ -91,6 +105,14 @@ public class CommissionDetailListRespVO {
 
     public void setParentRealName(String parentRealName) {
         this.parentRealName = parentRealName;
+    }
+
+    public String getParentRemarkName() {
+        return parentRemarkName;
+    }
+
+    public void setParentRemarkName(String parentRemarkName) {
+        this.parentRemarkName = parentRemarkName;
     }
 
     public Date getWinTime() {

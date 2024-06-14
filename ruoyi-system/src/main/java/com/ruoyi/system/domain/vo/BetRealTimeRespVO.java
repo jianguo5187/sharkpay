@@ -18,6 +18,9 @@ public class BetRealTimeRespVO {
     /** 真实姓名 */
     private String realName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 投注时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date recordTime;
@@ -82,6 +85,14 @@ public class BetRealTimeRespVO {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public Date getRecordTime() {

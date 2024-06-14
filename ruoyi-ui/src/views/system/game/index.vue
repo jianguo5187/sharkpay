@@ -159,7 +159,7 @@
 
     <!-- 添加或修改游戏对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="120px">
+      <el-form ref="form" :model="form" :rules="rules" label-width="160px">
         <el-form-item label="游戏标识ID" prop="gameMarkId">
           <el-input v-model="form.gameMarkId" placeholder="请输入游戏标识ID" :disabled="1 != loginUserId"/>
         </el-form-item>
@@ -214,6 +214,12 @@
         </el-form-item>
         <el-form-item label="机器人比例" prop="robotRate">
           <el-input-number v-model="form.robotRate" :min="0" placeholder="请输入机器人比例"/> 0~100
+        </el-form-item>
+        <el-form-item label="游戏有效开奖开始时间" prop="validOpenStartTime">
+          <el-input v-model="form.validOpenStartTime" placeholder="请输入游戏有效开奖开始时间" /> (例如8点->0800)
+        </el-form-item>
+        <el-form-item label="游戏有效开奖结束时间" prop="validOpenEndTime">
+          <el-input v-model="form.validOpenEndTime" placeholder="请输入游戏有效开奖结束时间" /> (例如23点59分->2359)
         </el-form-item>
         <el-form-item label="游戏状态" prop="status">
           <el-radio-group v-model="form.status">
@@ -301,6 +307,12 @@ export default {
       form: {},
       // 表单校验
       rules: {
+        validOpenStartTime: [
+          { required: true, message: "游戏有效开奖开始时间不能为空", trigger: "blur" }
+        ],
+        validOpenEndTime: [
+          { required: true, message: "游戏游戏有效开奖结束时间不能为空", trigger: "blur" }
+        ],
       }
     };
   },
@@ -349,6 +361,8 @@ export default {
         status: "0",
         isHidden: "N",
         houseOpen: null,
+        validOpenStartTime: "0000",
+        validOpenEndTime: "2359",
         createBy: null,
         createTime: null,
         updateBy: null,

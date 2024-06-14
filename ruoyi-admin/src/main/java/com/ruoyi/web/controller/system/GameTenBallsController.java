@@ -4,14 +4,18 @@ import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.SecurityUtils;
+import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.IGameTenBallsService;
+import com.ruoyi.system.service.ISysGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,6 +29,9 @@ public class GameTenBallsController  extends BaseController {
 
     @Autowired
     private IGameTenBallsService gameTenBallsService;
+
+    @Autowired
+    private ISysGameService sysGameService;
 
     /**
      * 获取10球赔率表
@@ -53,7 +60,19 @@ public class GameTenBallsController  extends BaseController {
     @PostMapping("/timeDate")
     public AjaxResult timeDate(@RequestBody TenBallsOddsReqVO vo){
         AjaxResult ajax = AjaxResult.success();
-        ajax.put("data",gameTenBallsService.timeDate(vo));
+
+        SimpleDateFormat sd = new SimpleDateFormat("MMdd");
+        String nowTime = sd.format(new Date());
+        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+
+        //游戏停盘维护判断
+        if(Integer.valueOf(gameInfo.getValidOpenStartTime()).compareTo(Integer.valueOf(nowTime)) > 0
+                || Integer.valueOf(gameInfo.getValidOpenEndTime()).compareTo(Integer.valueOf(nowTime)) < 0){
+            ajax.put("gameShutdownFlg","1");
+        }else {
+            ajax.put("gameShutdownFlg", "0");
+            ajax.put("data", gameTenBallsService.timeDate(vo));
+        }
         return ajax;
     }
 
