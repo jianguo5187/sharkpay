@@ -1,6 +1,5 @@
 package com.ruoyi.system.service.impl;
 
-import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
@@ -563,5 +562,15 @@ public class SysAppServiceImpl implements ISysAppService {
     @Override
     public List<VirtuallyGameRecordRespVO> getVirtuallyRecordList(VirtuallyRecordListReqVO vo) {
         return betRecordMapper.getVirtuallyRecordList(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId());
+    }
+
+    @Override
+    public List<CashbackReportRespVO> getCashbackReportList(Long userId, CashbackComissionReportReqVO vo) {
+        return userwinMapper.selectCashbackReportLis(userId, vo.getFilterDay());
+    }
+
+    @Override
+    public List<CommissionReportRespVO> getCommissionReportList(Long userId, CashbackComissionReportReqVO vo) {
+        return userwinMapper.selectCommissionReportLis(userId, vo.getFilterDay());
     }
 }

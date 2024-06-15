@@ -5,15 +5,17 @@ import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.utils.SecurityUtils;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.*;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -246,6 +248,38 @@ public class SysAppController extends BaseController {
         }
         ajax.put("virtuallyRecordList",virtuallyRecordList);
         ajax.put("lastBetRecordId",lastBetRecordId);
+        return ajax;
+    }
+
+    @PostMapping("/cashbackComissionRecord")
+    public AjaxResult cashbackComissionRecord(@RequestBody CashbackComissionReportReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        if(StringUtils.isEmpty(vo.getFilterDay())){
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+            vo.setFilterDay(sd.format(new Date()));
+        }
+
+        List<CashbackReportRespVO> cashbackReportList = sysAppService.getCashbackReportList(sessionUser.getUserId(),vo);
+        Float totalCashBack = 0f;
+        Float totalNoCashBack = 0f;
+        for(CashbackReportRespVO cashbackReportRespVO :cashbackReportList){
+            totalCashBack += cashbackReportRespVO.getCashBackMoneyTotal();
+            totalNoCashBack += cashbackReportRespVO.getNoCashBackMoneyTotal();
+        }
+        List<CommissionReportRespVO> commissionReportList = sysAppService.getCommissionReportList(sessionUser.getUserId(),vo);
+        Float totalCommission = 0f;
+        for(CommissionReportRespVO commissionReportRespVO :commissionReportList){
+            totalCommission += commissionReportRespVO.getCommissionMoneyTotal();
+        }
+
+        ajax.put("cashbackReportList",cashbackReportList);
+        ajax.put("commissionReportList",commissionReportList);
+        ajax.put("totalCashBack",totalCashBack);
+        ajax.put("totalNoCashBack",totalNoCashBack);
+        ajax.put("totalCommission",totalCommission);
+
         return ajax;
     }
 }

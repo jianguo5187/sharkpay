@@ -84,7 +84,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="commissionRate"    column="commission_rate"    />
     </resultMap>
 
-
     <resultMap type="com.ruoyi.system.domain.vo.TotalReportRespVO" id="TotalReportListResult">
         <result property="calendarDate"    column="calendar_date"    />
         <result property="createUserCnt"    column="create_user_cnt"    />
@@ -98,6 +97,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="commissionMoneyTotal"    column="commission_money_total"    />
         <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
         <result property="winMoneyTotal"    column="win_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CashbackReportRespVO" id="CashbackReportListResult">
+        <result property="calendarDate"    column="calendar_date"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="cashBackMoneyTotal"    column="cash_back_money_total"    />
+        <result property="noCashBackMoneyTotal"    column="no_cash_back_money_total"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CommissionReportRespVO" id="CommissionReportListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="commissionMoneyTotal"    column="commission_money_total"    />
     </resultMap>
 
     <sql id="selectUserwinVo">
@@ -499,8 +515,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         LEFT JOIN(
             SELECT
                  DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
-                ,sum(no_cb.cash_back_money) as no_cash_back_money_total
+                ,sum(ROUND((no_cb.big_small_money + no_cb.other_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
             FROM userwin no_cb
+            inner join sys_game g on g.game_id = no_cb.game_id
             WHERE no_cb.is_cash_back = '0'
             GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d')
         )no_cb_temp ON no_cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
@@ -535,5 +552,91 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         )win_temp ON win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
         ORDER BY c.calendar_id DESC
+    </select>
+
+    <select id="selectCashbackReportLis" resultMap="CashbackReportListResult">
+        SELECT
+              MAIN.calendar_date
+             ,MAIN.game_id
+             ,MAIN.game_name
+             ,IFNULL(bet_count_temp.bet_money_total,0) as bet_money_total
+             ,IFNULL(cb_temp.cash_back_money_total,0) as cash_back_money_total
+             ,IFNULL(no_cb_temp.no_cash_back_money_total,0) as no_cash_back_money_total
+        FROM
+            (
+                SELECT
+                    DATE_FORMAT(c.calendar_date,'%Y-%m-%d') AS calendar_date
+                     ,g.game_id as game_id
+                     ,g.game_name as game_name
+                FROM sys_calendar c,
+                     sys_game g
+                WHERE g.status = '0'
+                 AND DATE_FORMAT(c.calendar_date,'%Y-%m-%d') = #{filterDate}
+            )MAIN
+
+            LEFT JOIN(
+                SELECT
+                    DATE_FORMAT(r.record_time,'%Y-%m-%d') as calendar_date
+                     ,r.user_id as user_id
+                     ,SUM(r.money) as bet_money_total
+                     ,r.game_id
+                FROM `bet_record` r
+                WHERE r.is_delete = '0'
+                  AND r.is_robot = '0'
+                  AND r.user_id = #{userId}
+                GROUP BY r.user_id,DATE_FORMAT(r.record_time,'%Y-%m-%d'),r.game_id
+            )bet_count_temp ON bet_count_temp.calendar_date = MAIN.calendar_date
+            AND bet_count_temp.game_id = MAIN.game_id
+
+            LEFT JOIN(
+                SELECT
+                    DATE_FORMAT(cb.win_time,'%Y-%m-%d') as calendar_date
+                     ,sum(cb.cash_back_money) as cash_back_money_total
+                     ,cb.game_id
+                FROM userwin cb
+                WHERE cb.is_cash_back = '1'
+                  AND cb.user_id = #{userId}
+                GROUP BY DATE_FORMAT(cb.win_time,'%Y-%m-%d'),cb.game_id
+            )cb_temp ON cb_temp.calendar_date = MAIN.calendar_date
+            AND cb_temp.game_id = MAIN.game_id
+
+            LEFT JOIN(
+                SELECT
+                    DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
+                     ,no_cb.game_id
+                     ,sum(ROUND((no_cb.big_small_money + no_cb.other_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+                FROM userwin no_cb
+                         inner join sys_game g on g.game_id = no_cb.game_id
+                WHERE no_cb.is_cash_back = '0'
+                  AND no_cb.user_id = #{userId}
+                GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d'),no_cb.game_id
+            )no_cb_temp ON no_cb_temp.calendar_date = MAIN.calendar_date
+            AND no_cb_temp.game_id = MAIN.game_id
+        order by MAIN.game_id
+    </select>
+
+    <select id="selectCommissionReportLis" resultMap="CommissionReportListResult">
+        SELECT
+              commission.user_id AS user_id
+             ,MAX(u.nick_name) AS nick_name
+             ,MAX(u.remark_name) AS remark_name
+             ,sum(commission.commission_money) as commission_money_total
+             ,max(bet_count_temp.bet_money_total) as bet_money_total
+        FROM userwin commission
+        INNER JOIN sys_user u on u.user_id = commission.user_id
+        LEFT JOIN(
+            SELECT
+                  r.user_id as user_id
+                 ,SUM(r.money) as bet_money_total
+            FROM `bet_record` r
+            WHERE r.is_delete = '0'
+              AND r.is_robot = '0'
+              AND DATE_FORMAT(r.record_time,'%Y-%m-%d') = #{filterDate}
+            GROUP BY r.user_id
+        )bet_count_temp ON bet_count_temp.user_id = commission.user_id
+        WHERE commission.is_commission = '1'
+          AND DATE_FORMAT(commission.win_time,'%Y-%m-%d') = #{filterDate}
+          AND u.parent_user_id = #{userId}
+        GROUP BY commission.user_id
     </select>
 </mapper>

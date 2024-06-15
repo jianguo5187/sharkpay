@@ -22,4 +22,8 @@ public interface ISysAppService {
     public void updateLogoImg(UpdateLogoImgReqVO vo);
 
     public List<VirtuallyGameRecordRespVO> getVirtuallyRecordList(VirtuallyRecordListReqVO vo);
+
+    public List<CashbackReportRespVO> getCashbackReportList(Long userId,CashbackComissionReportReqVO vo);
+
+    public List<CommissionReportRespVO> getCommissionReportList(Long userId, CashbackComissionReportReqVO vo);
 }
