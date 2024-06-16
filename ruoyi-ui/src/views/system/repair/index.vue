@@ -73,9 +73,9 @@ export default {
         gameId: [
           { required: true, message: "游戏不能为空", trigger: "blur" },
         ],
-        periods: [
-          { required: true, message: "期数不能为空", trigger: "blur" },
-        ],
+        // periods: [
+        //   { required: true, message: "期数不能为空", trigger: "blur" },
+        // ],
       }
     };
   },

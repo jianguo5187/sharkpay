@@ -33,6 +33,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="parentUserId"    column="parent_user_id"   />
 		<result property="parentNickName"    column="parent_nick_name"   />
 		<result property="openId"    column="open_id"   />
+		<result property="threeBallCommission"    column="three_ball_commission"    />
+		<result property="fiveBallCommission"    column="five_ball_commission"    />
+		<result property="tenBallCommission"    column="ten_ball_commission"    />
+		<result property="threeBallCashback"    column="three_ball_cashback"    />
+		<result property="fiveBallCashback"    column="five_ball_cashback"    />
+		<result property="tenBallCashback"    column="ten_ball_cashback"    />
 
         <result property="createBy"     column="create_by"    />
         <result property="createTime"   column="create_time"  />
@@ -76,7 +82,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<sql id="selectUserVo">
-        select u.user_id, u.dept_id, u.user_name, u.nick_name, u.remark_name, u.user_type, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id, u.open_id, u.create_by, u.create_time, u.remark,
+        select u.user_id, u.dept_id, u.user_name, u.nick_name, u.remark_name, u.user_type, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id
+               , u.open_id, u.three_ball_commission, u.five_ball_commission, u.ten_ball_commission, u.three_ball_cashback, u.five_ball_cashback, u.ten_ball_cashback, u.create_by, u.create_time, u.remark,
         d.dept_id, d.parent_id, d.ancestors, d.dept_name, d.order_num, d.leader, d.status as dept_status,
         r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status
         from sys_user u
@@ -86,7 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </sql>
     
     <select id="selectUserList" parameterType="SysUser" resultMap="SysUserResult">
-		select u.user_id, u.dept_id, u.nick_name, u.remark_name, u.user_type, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id, u.open_id, u.create_by, u.create_time, u.remark, d.dept_name, d.leader
+		select u.user_id, u.dept_id, u.nick_name, u.remark_name, u.user_type, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.amount, u.score, u.invite_code,u.pay_password,u.real_name,u.idcard_no,u.idcard_front_img,u.idcard_back_img,u.wallet_address,u.parent_user_id, u.open_id, u.three_ball_commission, u.five_ball_commission, u.ten_ball_commission, u.three_ball_cashback, u.five_ball_cashback, u.ten_ball_cashback, u.create_by, u.create_time, u.remark, d.dept_name, d.leader
 		,p.nick_name as parent_nick_name
 		from sys_user u
 		left join sys_dept d on u.dept_id = d.dept_id
@@ -212,6 +219,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="walletAddress != null and walletAddress != ''">wallet_address,</if>
 			<if test="parentUserId != null">parent_user_id,</if>
 			<if test="openId != null and openId != ''">open_id,</if>
+			<if test="threeBallCommission != null">three_ball_commission,</if>
+			<if test="fiveBallCommission != null">five_ball_commission,</if>
+			<if test="tenBallCommission != null">ten_ball_commission,</if>
+			<if test="threeBallCashback != null">three_ball_cashback,</if>
+			<if test="fiveBallCashback != null">five_ball_cashback,</if>
+			<if test="tenBallCashback != null">ten_ball_cashback,</if>
  			<if test="status != null and status != ''">status,</if>
  			<if test="createBy != null and createBy != ''">create_by,</if>
  			<if test="remark != null and remark != ''">remark,</if>
@@ -239,6 +252,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="walletAddress != null and walletAddress != ''">#{walletAddress},</if>
 			<if test="parentUserId != null">#{parentUserId},</if>
 			<if test="openId != null and openId != ''">#{openId},</if>
+			<if test="threeBallCommission != null">#{threeBallCommission},</if>
+			<if test="fiveBallCommission != null">#{fiveBallCommission},</if>
+			<if test="tenBallCommission != null">#{tenBallCommission},</if>
+			<if test="threeBallCashback != null">#{threeBallCashback},</if>
+			<if test="fiveBallCashback != null">#{fiveBallCashback},</if>
+			<if test="tenBallCashback != null">#{tenBallCashback},</if>
  			<if test="status != null and status != ''">#{status},</if>
  			<if test="createBy != null and createBy != ''">#{createBy},</if>
  			<if test="remark != null and remark != ''">#{remark},</if>
@@ -273,6 +292,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="idcardBackImg != null and idcardBackImg != ''">idcard_back_img = #{idcardBackImg},</if>
 			<if test="walletAddress != null and walletAddress != ''">wallet_address = #{walletAddress},</if>
 			<if test="parentUserId != null">parent_user_id = #{parentUserId},</if>
+			<if test="threeBallCommission != null">three_ball_commission = #{threeBallCommission},</if>
+			<if test="fiveBallCommission != null">five_ball_commission = #{fiveBallCommission},</if>
+			<if test="tenBallCommission != null">ten_ball_commission = #{tenBallCommission},</if>
+			<if test="threeBallCashback != null">three_ball_cashback = #{threeBallCashback},</if>
+			<if test="fiveBallCashback != null">five_ball_cashback = #{fiveBallCashback},</if>
+			<if test="tenBallCashback != null">ten_ball_cashback = #{tenBallCashback},</if>
  			<if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
  			<if test="remark != null">remark = #{remark},</if>
  			update_time = sysdate()

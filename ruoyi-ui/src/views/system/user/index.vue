@@ -326,6 +326,44 @@
           </el-col>
         </el-row>
         <el-row>
+          <el-col :span="24">
+            <el-form-item label="3球佣金比率" prop="threeBallCommission">
+              <el-input-number v-model="form.threeBallCommission" :min="0" :max="100" placeholder="请输入3球佣金比率"/> 0~100【0->不反佣  、 100->按照游戏返佣】
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="5球佣金比率" prop="fiveBallCommission">
+              <el-input-number v-model="form.fiveBallCommission" :min="0" :max="100" placeholder="请输入5球佣金比率"/> 0~100
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="10球佣金比率" prop="tenBallCommission">
+              <el-input-number v-model="form.tenBallCommission" :min="0" :max="100" placeholder="请输入10球佣金比率"/> 0~100
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <el-form-item label="3球反水比率" prop="threeBallCashback">
+              <el-input-number v-model="form.threeBallCashback" :min="0" :max="100" placeholder="请输入3球反水比率"/> 0~100【0->不反水  、 100->按照游戏返水】
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="5球反水比率" prop="fiveBallCashback">
+              <el-input-number v-model="form.fiveBallCashback" :min="0" :max="100" placeholder="请输入5球反水比率"/> 0~100
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="10球反水比率" prop="tenBallCashback">
+              <el-input-number v-model="form.tenBallCashback" :min="0" :max="100" placeholder="请输入10球反水比率"/> 0~100
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
           <el-col :span="12">
             <el-form-item label="状态">
               <el-radio-group v-model="form.status">
@@ -633,6 +671,12 @@ export default {
         idcardBackImg: undefined,
         status: "0",
         userType: undefined,
+        threeBallCommission: "100",
+        fiveBallCommission: "100",
+        tenBallCommission: "100",
+        threeBallCashback: "100",
+        fiveBallCashback: "100",
+        tenBallCashback: "100",
         remark: undefined,
         postIds: [],
         roleIds: []

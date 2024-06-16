@@ -263,7 +263,34 @@ public class UserwinServiceImpl implements IUserwinService
             SysUser user = userService.selectUserById(userwin.getUserId());
             SysGame gameInfo = gameMap.get(userwin.getGameId());
 
-            Float gameCashback = gameInfo.getGameCashback();
+            Float gameCashback = 0f;
+
+            if(StringUtils.equals(gameInfo.getGameType(),"3")){
+                if(user.getThreeBallCashback().compareTo(0f) == 0){
+                    gameCashback = 0f; //不返水
+                }else if(user.getThreeBallCashback().compareTo(100f) == 0){
+                    gameCashback = gameInfo.getGameCashback(); //使用游戏定义的返水比率
+                }else{
+                    gameCashback = user.getThreeBallCashback(); //使用用户定义的反水比率
+                }
+            }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
+                if(user.getFiveBallCashback().compareTo(0f) == 0){
+                    gameCashback = 0f; //不返水
+                }else if(user.getFiveBallCashback().compareTo(100f) == 0){
+                    gameCashback = gameInfo.getGameCashback(); //使用游戏定义的返水比率
+                }else{
+                    gameCashback = user.getFiveBallCashback(); //使用用户定义的反水比率
+                }
+            }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
+                if(user.getTenBallCashback().compareTo(0f) == 0){
+                    gameCashback = 0f; //不返水
+                }else if(user.getTenBallCashback().compareTo(100f) == 0){
+                    gameCashback = gameInfo.getGameCashback(); //使用游戏定义的返水比率
+                }else{
+                    gameCashback = user.getTenBallCashback(); //使用用户定义的反水比率
+                }
+            }
+
             Float amont = userwin.getBigSmallMoney() + userwin.getOtherMoney() - userwin.getDeductMoney();
             Float resutAmont = amont * gameCashback / 100;
             Float money = BigDecimal.valueOf(resutAmont).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
@@ -349,7 +376,33 @@ public class UserwinServiceImpl implements IUserwinService
             SysUser parentUser = userService.selectUserById(user.getParentUserId());
 
 
-            Float gameCommission = gameInfo.getGameCommission();
+            Float gameCommission = 0f;
+            if(StringUtils.equals(gameInfo.getGameType(),"3")){
+                if(user.getThreeBallCommission().compareTo(0f) == 0){
+                    gameCommission = 0f; //不返水
+                }else if(user.getThreeBallCommission().compareTo(100f) == 0){
+                    gameCommission = gameInfo.getGameCommission(); //使用游戏定义的佣金比率
+                }else{
+                    gameCommission = user.getThreeBallCommission(); //使用用户定义的佣金比率
+                }
+            }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
+                if(user.getFiveBallCommission().compareTo(0f) == 0){
+                    gameCommission = 0f; //不返水
+                }else if(user.getFiveBallCommission().compareTo(100f) == 0){
+                    gameCommission = gameInfo.getGameCommission(); //使用游戏定义的佣金比率
+                }else{
+                    gameCommission = user.getFiveBallCommission(); //使用用户定义的佣金比率
+                }
+            }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
+                if(user.getTenBallCommission().compareTo(0f) == 0){
+                    gameCommission = 0f; //不返水
+                }else if(user.getTenBallCommission().compareTo(100f) == 0){
+                    gameCommission = gameInfo.getGameCommission(); //使用游戏定义的佣金比率
+                }else{
+                    gameCommission = user.getTenBallCommission(); //使用用户定义的佣金比率
+                }
+            }
+
             Float amont = userwin.getBigSmallMoney() + userwin.getOtherMoney() - userwin.getDeductMoney();
             Float resutAmont = amont * gameCommission / 100;
             Float money = BigDecimal.valueOf(resutAmont).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();

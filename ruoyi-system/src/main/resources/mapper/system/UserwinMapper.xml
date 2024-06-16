@@ -333,9 +333,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,max(uw.game_name) as game_name
             ,SUM(uw.big_small_money + uw.other_money) AS total_bet_money
             ,SUM(uw.win_money) AS win_money
-            ,SUM(CASE WHEN uw.is_cash_back = '1' then 0 else ROUND((uw.big_small_money + uw.other_money)*g.game_cashback / 100, 2) end) AS pre_cash_back_money
+            ,SUM(
+                CASE
+                    WHEN uw.is_cash_back = '1' then 0
+                else
+                    ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)
+                    * CASE
+                        WHEN g.game_type = '3' and u.three_ball_cashback = 0 then 0
+                        WHEN g.game_type = '5' and u.five_ball_cashback = 0 then 0
+                        WHEN g.game_type = '10' and u.ten_ball_cashback = 0 then 0
+                        WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
+                        WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
+                        WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
+                        ELSE g.game_cashback
+                    END
+                 / 100, 2) end
+                ) AS pre_cash_back_money
             ,SUM(CASE WHEN uw.is_cash_back = '1' then uw.cash_back_money else 0 end) AS cash_back_money
-            ,MAX(g.game_cashback) AS cash_back_rate
+            ,MAX(
+                CASE
+                    WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
+                    WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
+                    WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
+                    ELSE g.game_cashback END
+                )AS cash_back_rate
         FROM userwin uw
         inner join sys_user u on u.user_id = uw.user_id
         inner join sys_game g on g.game_id = uw.game_id
@@ -403,8 +424,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,uw.game_id as game_id
             ,max(uw.game_name) as game_name
             ,SUM(case when uw.is_commission = '1' then uw.commission_money else 0 end) AS commission_money
-            ,SUM(case when uw.is_commission = '1' then 0 else ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)*g.game_commission / 100, 2) end) AS pre_commission_money
-            ,MAX(g.game_commission) AS commission_rate
+            ,SUM(
+                CASE
+                    WHEN uw.is_cash_back = '1' then 0
+                else
+                    ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)
+                    * CASE
+                        WHEN g.game_type = '3' and u.three_ball_commission = 0 then 0
+                        WHEN g.game_type = '5' and u.five_ball_commission = 0 then 0
+                        WHEN g.game_type = '10' and u.ten_ball_commission = 0 then 0
+                        WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
+                        WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
+                        WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
+                        ELSE g.game_commission
+                    END
+                / 100, 2) end
+            ) AS pre_commission_money
+            ,MAX(
+                CASE
+                WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
+                WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
+                WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
+                ELSE g.game_commission END
+            )AS commission_rate
         FROM userwin uw
         inner join sys_user u on u.user_id = uw.user_id
         inner join sys_game g on g.game_id = uw.game_id
@@ -515,7 +557,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         LEFT JOIN(
             SELECT
                  DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
-                ,sum(ROUND((no_cb.big_small_money + no_cb.other_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+                ,sum(ROUND((no_cb.big_small_money + no_cb.other_money - no_cb.deduct_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
             FROM userwin no_cb
             inner join sys_game g on g.game_id = no_cb.game_id
             WHERE no_cb.is_cash_back = '0'
@@ -604,9 +646,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 SELECT
                     DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
                      ,no_cb.game_id
-                     ,sum(ROUND((no_cb.big_small_money + no_cb.other_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+                     ,sum(ROUND((no_cb.big_small_money + no_cb.other_money - no_cb.deduct_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
                 FROM userwin no_cb
-                         inner join sys_game g on g.game_id = no_cb.game_id
+                inner join sys_game g on g.game_id = no_cb.game_id
                 WHERE no_cb.is_cash_back = '0'
                   AND no_cb.user_id = #{userId}
                 GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d'),no_cb.game_id

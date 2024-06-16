@@ -110,6 +110,30 @@ public class SysUser extends BaseEntity
     /** 外部OpenId */
     private String openId;
 
+    /** 3球佣金比率 */
+    @Excel(name = "3球佣金比率")
+    private Float threeBallCommission;
+
+    /** 5球佣金比率 */
+    @Excel(name = "5球佣金比率")
+    private Float fiveBallCommission;
+
+    /** 10球佣金比率 */
+    @Excel(name = "10球佣金比率")
+    private Float tenBallCommission;
+
+    /** 3球反水比率 */
+    @Excel(name = "3球反水比率")
+    private Float threeBallCashback;
+
+    /** 5球反水比率 */
+    @Excel(name = "5球反水比率")
+    private Float fiveBallCashback;
+
+    /** 10球反水比率 */
+    @Excel(name = "10球反水比率")
+    private Float tenBallCashback;
+
     /** 部门对象 */
     @Excels({
         @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
@@ -450,6 +474,54 @@ public class SysUser extends BaseEntity
         this.openId = openId;
     }
 
+    public Float getThreeBallCommission() {
+        return threeBallCommission;
+    }
+
+    public void setThreeBallCommission(Float threeBallCommission) {
+        this.threeBallCommission = threeBallCommission;
+    }
+
+    public Float getFiveBallCommission() {
+        return fiveBallCommission;
+    }
+
+    public void setFiveBallCommission(Float fiveBallCommission) {
+        this.fiveBallCommission = fiveBallCommission;
+    }
+
+    public Float getTenBallCommission() {
+        return tenBallCommission;
+    }
+
+    public void setTenBallCommission(Float tenBallCommission) {
+        this.tenBallCommission = tenBallCommission;
+    }
+
+    public Float getThreeBallCashback() {
+        return threeBallCashback;
+    }
+
+    public void setThreeBallCashback(Float threeBallCashback) {
+        this.threeBallCashback = threeBallCashback;
+    }
+
+    public Float getFiveBallCashback() {
+        return fiveBallCashback;
+    }
+
+    public void setFiveBallCashback(Float fiveBallCashback) {
+        this.fiveBallCashback = fiveBallCashback;
+    }
+
+    public Float getTenBallCashback() {
+        return tenBallCashback;
+    }
+
+    public void setTenBallCashback(Float tenBallCashback) {
+        this.tenBallCashback = tenBallCashback;
+    }
+
     public SysDept getDept()
     {
         return dept;
@@ -668,6 +740,12 @@ public class SysUser extends BaseEntity
             .append("delFlag", getDelFlag())
             .append("loginIp", getLoginIp())
             .append("loginDate", getLoginDate())
+            .append("threeBallCommission", getThreeBallCommission())
+            .append("fiveBallCommission", getFiveBallCommission())
+            .append("tenBallCommission", getTenBallCommission())
+            .append("threeBallCashback", getThreeBallCashback())
+            .append("fiveBallCashback", getFiveBallCashback())
+            .append("tenBallCashback", getTenBallCashback())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())
