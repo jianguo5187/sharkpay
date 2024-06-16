@@ -23,17 +23,17 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="是否隐藏" prop="isHidden">
-        <el-select v-model="queryParams.isHidden" placeholder="请选择是否隐藏" clearable
-                   @change="handleQuery">
-          <el-option
-            v-for="dict in dict.type.sys_yes_no"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
-      </el-form-item>
+<!--      <el-form-item label="是否隐藏" prop="isHidden">-->
+<!--        <el-select v-model="queryParams.isHidden" placeholder="请选择是否隐藏" clearable-->
+<!--                   @change="handleQuery">-->
+<!--          <el-option-->
+<!--            v-for="dict in dict.type.sys_yes_no"-->
+<!--            :key="dict.value"-->
+<!--            :label="dict.label"-->
+<!--            :value="dict.value"-->
+<!--          />-->
+<!--        </el-select>-->
+<!--      </el-form-item>-->
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -121,11 +121,11 @@
           <dict-tag :options="dict.type.sys_game_status" :value="scope.row.status"/>
         </template>
       </el-table-column>
-      <el-table-column label="是否隐藏" align="center" prop="isHidden">
-        <template slot-scope="scope">
-          <dict-tag :options="dict.type.sys_yes_no" :value="scope.row.isHidden"/>
-        </template>
-      </el-table-column>
+<!--      <el-table-column label="是否隐藏" align="center" prop="isHidden">-->
+<!--        <template slot-scope="scope">-->
+<!--          <dict-tag :options="dict.type.sys_yes_no" :value="scope.row.isHidden"/>-->
+<!--        </template>-->
+<!--      </el-table-column>-->
 <!--      <el-table-column label="排序" align="center" prop="sort" />-->
 <!--      <el-table-column label="备注" align="center" prop="remark" />-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
@@ -230,15 +230,15 @@
             >{{dict.label}}</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="是否隐藏" prop="isHidden">
-          <el-radio-group v-model="form.isHidden">
-            <el-radio
-              v-for="dict in dict.type.sys_yes_no"
-              :key="dict.value"
-              :label="dict.value"
-            >{{dict.label}}</el-radio>
-          </el-radio-group>
-        </el-form-item>
+<!--        <el-form-item label="是否隐藏" prop="isHidden">-->
+<!--          <el-radio-group v-model="form.isHidden">-->
+<!--            <el-radio-->
+<!--              v-for="dict in dict.type.sys_yes_no"-->
+<!--              :key="dict.value"-->
+<!--              :label="dict.value"-->
+<!--            >{{dict.label}}</el-radio>-->
+<!--          </el-radio-group>-->
+<!--        </el-form-item>-->
         <el-form-item label="排序" prop="sort">
           <el-input-number v-model="form.sort" controls-position="right" :min="0" />
         </el-form-item>

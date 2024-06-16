@@ -188,15 +188,15 @@
             >{{dict.label}}</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="是否隐藏" prop="isHidden">
-          <el-radio-group v-model="gameForm.isHidden">
-            <el-radio
-              v-for="dict in dict.type.sys_yes_no"
-              :key="dict.value"
-              :label="dict.value"
-            >{{dict.label}}</el-radio>
-          </el-radio-group>
-        </el-form-item>
+<!--        <el-form-item label="是否隐藏" prop="isHidden">-->
+<!--          <el-radio-group v-model="gameForm.isHidden">-->
+<!--            <el-radio-->
+<!--              v-for="dict in dict.type.sys_yes_no"-->
+<!--              :key="dict.value"-->
+<!--              :label="dict.value"-->
+<!--            >{{dict.label}}</el-radio>-->
+<!--          </el-radio-group>-->
+<!--        </el-form-item>-->
         <el-form-item label="排序" prop="sort">
           <el-input-number v-model="gameForm.sort" controls-position="right" :min="0" />
         </el-form-item>
