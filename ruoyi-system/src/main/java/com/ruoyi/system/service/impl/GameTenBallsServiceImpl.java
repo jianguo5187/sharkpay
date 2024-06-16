@@ -161,6 +161,9 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         if(randomValue < virtuallyRandow) {
 
             List<FalseUser> falseUserList = falseUserMapper.selectFalseUserListByGameId(vo.getGameId());
+            if(falseUserList == null || falseUserList.size() == 0){
+                falseUserList = falseUserMapper.selectFalseUserListByGameId(9l);
+            }
             if(falseUserList != null && falseUserList.size() > 0){
                 FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);
 

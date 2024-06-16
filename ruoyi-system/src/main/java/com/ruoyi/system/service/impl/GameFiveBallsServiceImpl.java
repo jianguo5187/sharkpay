@@ -163,6 +163,9 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         if(taskFlg || randomValue < virtuallyRandow) {
 
             List<FalseUser> falseUserList = falseUserMapper.selectFalseUserListByGameId(vo.getGameId());
+            if(falseUserList == null || falseUserList.size() == 0){
+                falseUserList = falseUserMapper.selectFalseUserListByGameId(15l);
+            }
             if(falseUserList != null && falseUserList.size() > 0){
                 FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);
 
