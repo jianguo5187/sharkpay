@@ -212,6 +212,10 @@ public class SysUser extends BaseEntity
     /** 幸运飞艇高赔率 */
     private float xyft2;
 
+
+    /** 被合并用户ID */
+    private Long mergeUserId;
+
     public SysUser()
     {
 
@@ -722,6 +726,14 @@ public class SysUser extends BaseEntity
 
     public void setXyft2(float xyft2) {
         this.xyft2 = xyft2;
+    }
+
+    public Long getMergeUserId() {
+        return mergeUserId;
+    }
+
+    public void setMergeUserId(Long mergeUserId) {
+        this.mergeUserId = mergeUserId;
     }
 
     @Override

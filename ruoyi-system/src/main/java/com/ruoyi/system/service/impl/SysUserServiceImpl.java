@@ -697,4 +697,28 @@ public class SysUserServiceImpl implements ISysUserService
     public int updateUserRemarkName(Long userId, String remarkName) {
         return userMapper.updateUserRemarkName(userId,remarkName);
     }
+
+    @Override
+    public int mergeUser(SysUser user) {
+        SysUser mainUser = selectUserById(user.getUserId());
+        SysUser mergeUser = selectUserById(user.getMergeUserId());
+
+        // 余额合并
+        mainUser.setAmount(mainUser.getAmount() + mergeUser.getAmount());
+        // 积分合并
+        mainUser.setScore(mainUser.getScore() + mergeUser.getScore());
+        // 主账号OpenId为空且合并账号OpenId不为空时，把合并账号的OpenId合并过来
+        if(StringUtils.isEmpty(mainUser.getOpenId()) && StringUtils.isNotEmpty(mergeUser.getOpenId())){
+            mainUser.setOpenId(mergeUser.getOpenId());
+        }
+
+        // 合并下级
+        userMapper.mergeChildUser(user.getUserId(), user.getMergeUserId());
+
+        //删除被合并账号
+        userMapper.deleteUserById(user.getMergeUserId());
+
+        // 更新主账号
+        return userMapper.updateUser(mainUser);
+    }
 }

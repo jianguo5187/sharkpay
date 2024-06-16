@@ -268,7 +268,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,um.user_account as user_account
             ,um.remark as remark
         from  usermoney um
-        inner join sys_user u on u.user_id = um.user_id
+        inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where 1 = 1
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="filterDate != null and filterDate != ''">
@@ -293,7 +293,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,um.user_account as user_account
             ,um.remark as remark
         from  usermoney um
-        inner join sys_user u on u.user_id = um.user_id
+        inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where 1 = 1
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="filterDate != null and filterDate != ''">
@@ -312,7 +312,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,max(u.remark_name) as remark_name
             ,sum(um.cash_money) as cash_money
         from  usermoney um
-        inner join sys_user u on u.user_id = um.user_id
+        inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where um.type = '2'
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
@@ -332,7 +332,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,max(u.remark_name) as remark_name
             ,sum(um.cash_money) as cash_money
         from  usermoney um
-        inner join sys_user u on u.user_id = um.user_id
+        inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where um.type = '5'
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
@@ -353,7 +353,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,um.cash_time as cash_time
             ,sum(um.cash_money) as cash_money
         from  usermoney um
-        inner join sys_user u on u.user_id = um.user_id
+        inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where um.type = '11'
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->

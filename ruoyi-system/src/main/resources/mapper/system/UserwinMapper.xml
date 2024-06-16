@@ -288,7 +288,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,SUM(uw.deduct_money) AS deduct_money
             ,SUM(uw.cash_back_money) AS cash_back_money
         FROM userwin uw
-        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
         inner join sys_game g on g.game_id = uw.game_id
         WHERE
             1 = 1
@@ -358,7 +358,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                     ELSE g.game_cashback END
                 )AS cash_back_rate
         FROM userwin uw
-        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
         inner join sys_game g on g.game_id = uw.game_id
         WHERE
         1 = 1
@@ -395,7 +395,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ,uw.win_time as win_time
         ,SUM(uw.cash_back_money) AS cash_back_money
         FROM userwin uw
-        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
         inner join sys_game g on g.game_id = uw.game_id
         WHERE
         uw.is_cash_back = '1'
@@ -448,9 +448,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 ELSE g.game_commission END
             )AS commission_rate
         FROM userwin uw
-        inner join sys_user u on u.user_id = uw.user_id
+        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
         inner join sys_game g on g.game_id = uw.game_id
-        inner join sys_user pu on pu.user_id = u.parent_user_id
+        inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
         WHERE
         1 = 1
         <if test="userId != null "> and uw.user_id = #{userId}</if>
@@ -569,8 +569,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  DATE_FORMAT(commission.win_time,'%Y-%m-%d') as calendar_date
                 ,sum(commission.commission_money) as commission_money_total
             FROM userwin commission
-                     inner join sys_user u on u.user_id = commission.user_id
-                     inner join sys_user pu on pu.user_id = u.parent_user_id
+                     inner join sys_user u on u.user_id = commission.user_id and u.del_flag = '0'
+                     inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
             WHERE commission.is_commission = '1'
             GROUP BY DATE_FORMAT(commission.win_time,'%Y-%m-%d')
         )commission_temp ON commission_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
@@ -665,7 +665,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              ,sum(commission.commission_money) as commission_money_total
              ,max(bet_count_temp.bet_money_total) as bet_money_total
         FROM userwin commission
-        INNER JOIN sys_user u on u.user_id = commission.user_id
+        INNER JOIN sys_user u on u.user_id = commission.user_id and u.del_flag = '0'
         LEFT JOIN(
             SELECT
                   r.user_id as user_id

@@ -102,17 +102,17 @@
               v-hasPermi="['system:user:edit']"
             >修改</el-button>
           </el-col>
-          <el-col :span="1.5">
-            <el-button
-              type="danger"
-              plain
-              icon="el-icon-delete"
-              size="mini"
-              :disabled="multiple"
-              @click="handleDelete"
-              v-hasPermi="['system:user:remove']"
-            >删除</el-button>
-          </el-col>
+<!--          <el-col :span="1.5">-->
+<!--            <el-button-->
+<!--              type="danger"-->
+<!--              plain-->
+<!--              icon="el-icon-delete"-->
+<!--              size="mini"-->
+<!--              :disabled="multiple"-->
+<!--              @click="handleDelete"-->
+<!--              v-hasPermi="['system:user:remove']"-->
+<!--            >删除</el-button>-->
+<!--          </el-col>-->
           <!--          <el-col :span="1.5">-->
           <!--            <el-button-->
           <!--              type="info"-->
@@ -209,6 +209,12 @@
                 icon="el-icon-s-check"
                 @click="handleUpdateRemarkName(scope.row)"
               >修改用户备注名</el-button>
+              <el-button
+                size="mini"
+                type="text"
+                icon="el-icon-money"
+                @click="handleMergeUser(scope.row)"
+              >账号合并</el-button>
 <!--              <el-button-->
 <!--                size="mini"-->
 <!--                type="text"-->
@@ -430,6 +436,48 @@
       </div>
     </el-dialog>
 
+    <!-- 合并账户对话框 -->
+    <el-dialog :title="merge.title" :visible.sync="merge.open" width="800px" append-to-body>
+      <el-row>
+        <el-col :span="24">
+          <span style="color: red;">注意，账号合并后。被合并账号的余额以及下级用户合并到主用户中，被合并用户消失，无法使用</span>
+        </el-col>
+      </el-row>
+      <el-form ref="mergeForm" :model="merge.form" :rules="merge.rules" label-width="120px" >
+        <el-row>
+          <el-col :span="24">
+            <el-form-item label="主用户" prop="userId">
+              <treeselect
+                readonly="true"
+                v-model="merge.form.userId"
+                :options="userListOptions"
+                :normalizer="normalizer"
+                :show-count="true"
+                placeholder="请选择用户"
+                style="width: 320px;"/>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <el-form-item label="被合并用户" prop="mergeUserId">
+              <treeselect
+                v-model="merge.form.mergeUserId"
+                :options="userListOptions"
+                :normalizer="normalizer"
+                :show-count="true"
+                placeholder="请选择用户"
+                style="width: 320px;"/>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="submitMergeUser">确 定</el-button>
+        <el-button @click="merge.open = false">取 消</el-button>
+      </div>
+    </el-dialog>
+
     <!-- 用户导入对话框 -->
     <el-dialog :title="upload.title" :visible.sync="upload.open" width="400px" append-to-body>
       <el-upload
@@ -473,7 +521,7 @@ import {
   resetUserPwd,
   resetUserPayPwd,
   changeUserStatus,
-  deptTreeSelect, resetUserRemarkName
+  deptTreeSelect, resetUserRemarkName, selectAllUser, mergeUser
 } from "@/api/system/user";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
@@ -488,6 +536,10 @@ export default {
     return {
       // 遮罩层
       loading: true,
+      // 登录用户ID
+      loginUserId: this.$store.state.user.id,
+      // 登录用户Name
+      loginUserName: this.$store.state.user.name,
       // 选中数组
       ids: [],
       // 非单个禁用
@@ -537,6 +589,27 @@ export default {
         // 上传的地址
         url: process.env.VUE_APP_BASE_API + "/system/user/importData"
       },
+      // 合并用户
+      merge: {
+        // 是否显示弹出层（合并用户）
+        open: false,
+        // 弹出层标题（合并用户）
+        title: "",
+        // 表单验证（合并用户）
+        rules: {
+          userId: [
+            { required: true, message: "合并账号不能为空", trigger: "blur" },
+          ],
+          mergeUserId: [
+            { required: true, message: "被合并账号不能为空", trigger: "blur" },
+          ],
+        },
+        // 表单参数（合并用户）
+        form: {
+          userId: undefined,
+          mergeUserId: undefined,
+        },
+      },
       // 查询参数
       queryParams: {
         pageNum: 1,
@@ -558,6 +631,7 @@ export default {
       ],
       // 游戏收益列表
       gameWinMoneyColumns: [],
+      userListOptions:[],
       // 表单校验
       rules: {
         userName: [
@@ -852,6 +926,50 @@ export default {
     // 提交上传文件
     submitFileForm() {
       this.$refs.upload.submit();
+    },
+    // 合并用户
+    handleMergeUser(row){
+      this.merge.form = {
+        userId: undefined,
+        mergeUserId: undefined,
+      };
+      this.getUserList(row);
+    },
+    getUserList(row){
+      selectAllUser().then(response => {
+        this.userListOptions = [];
+        const menu = { userId: this.loginUserId, nickName: this.loginUserName, children: [] };
+        menu.children = this.handleTree(response.rows, "userId", "parentUserId");
+        this.userListOptions.push(menu);
+        this.merge.title = "合并账号";
+        this.merge.open = true;
+        this.merge.form.userId = row.userId;
+      });
+    },
+    /** 转换菜单数据结构 */
+    normalizer(node) {
+      if (node.children && !node.children.length) {
+        delete node.children;
+      }
+      return {
+        id: node.userId,
+        label: node.nickName,
+        children: node.children
+      };
+    },
+    submitMergeUser(){
+      var mergeForm = this.merge.form;
+      this.$refs["mergeForm"].validate(valid => {
+        if (valid) {
+          this.$modal.confirm('是否确认合并用户的数据？（合并后不可取消）').then(function() {
+            return mergeUser(mergeForm);
+          }).then(() => {
+            this.merge.open = false;
+            this.getList();
+            this.$modal.msgSuccess("合并成功");
+          }).catch(() => {});
+        }
+      });
     },
   }
 };

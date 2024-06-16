@@ -192,3 +192,12 @@ export function resetUserRemarkName(userId, remarkName) {
     data: data
   })
 }
+
+// 合并用户
+export function mergeUser(data) {
+  return request({
+    url: '/system/user/mergeUser',
+    method: 'post',
+    data: data
+  })
+}

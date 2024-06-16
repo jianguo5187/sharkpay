@@ -173,6 +173,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectUserById" parameterType="Long" resultMap="SysUserResult">
 		<include refid="selectUserVo"/>
 		where u.user_id = #{userId}
+		and u.del_flag = '0'
 	</select>
 	
 	<select id="checkUserNameUnique" parameterType="String" resultMap="SysUserResult">
@@ -291,7 +292,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="idcardFrontImg != null and idcardFrontImg != ''">idcard_front_img = #{idcardFrontImg},</if>
 			<if test="idcardBackImg != null and idcardBackImg != ''">idcard_back_img = #{idcardBackImg},</if>
 			<if test="walletAddress != null and walletAddress != ''">wallet_address = #{walletAddress},</if>
-			<if test="parentUserId != null">parent_user_id = #{parentUserId},</if>
+			<if test="openId != null and walletAddress != ''">open_id = #{openId},</if>
+			<if test="walletAddress != null and walletAddress != ''">wallet_address = #{walletAddress},</if>
 			<if test="threeBallCommission != null">three_ball_commission = #{threeBallCommission},</if>
 			<if test="fiveBallCommission != null">five_ball_commission = #{fiveBallCommission},</if>
 			<if test="tenBallCommission != null">ten_ball_commission = #{tenBallCommission},</if>
@@ -322,7 +324,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<delete id="deleteUserById" parameterType="Long">
- 		update sys_user set del_flag = '2' where user_id = #{userId}
+ 		update sys_user
+ 		set del_flag = '2'
+		  ,amount = 0
+		  ,score = 0
+ 		  ,open_id = null
+ 		  ,update_time = sysdate()
+ 		where user_id = #{userId}
  	</delete>
  	
  	<delete id="deleteUserByIds" parameterType="Long">
@@ -399,6 +407,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectUserByOpenId" parameterType="String" resultMap="SysUserResult">
 		<include refid="selectUserVo"/>
 		where u.open_id = #{openId}
+		and u.del_flag = '0'
 	</select>
 
 	<update id="updateUserRemarkName" parameterType="SysUser">
@@ -407,5 +416,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="remarkName != null and remarkName != ''">remark_name = #{remarkName}</if>
 		<if test="!(remarkName != null and remarkName != '')">remark_name = null</if>
 		where user_id = #{userId}
+	</update>
+
+	<update id="mergeChildUser">
+		update sys_user
+		set parent_user_id = #{mainUserId}
+		where parent_user_id = #{mergeUserId}
 	</update>
 </mapper> 

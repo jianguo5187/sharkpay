@@ -282,4 +282,13 @@ public class SysUserController extends BaseController
     {
         return toAjax(userService.updateUserRemarkName(user.getUserId(),user.getRemarkName()));
     }
+
+    /**
+     * 合并用户
+     */
+    @PostMapping("/mergeUser")
+    public AjaxResult mergeUser(@RequestBody SysUser user)
+    {
+        return toAjax(userService.mergeUser(user));
+    }
 }
