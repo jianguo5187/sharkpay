@@ -117,19 +117,23 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         String timeStr = formatter.format(gameTenballOpenDataInfo.getTime());
         String minStr = timeStr.substring(15,16);
         Date time = null;
-        if(Integer.parseInt(minStr) <5 && gameTenballOpenDataInfo.getPeriods()%2 == 0){
-            String dateStr = timeStr.substring(0,15) + "3:45";
-            try {
-                time = formatter.parse(dateStr);
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
-        }else if(Integer.parseInt(minStr) > 5 || gameTenballOpenDataInfo.getPeriods()%2 != 0){
-            String dateStr = timeStr.substring(0,15) + "8:45";
-            try {
-                time = formatter.parse(dateStr);
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
+        if(gameInfo.getGameId().compareTo(9l) == 0 || gameInfo.getGameId().compareTo(11l) == 0){
+            if(Integer.parseInt(minStr) <5 && gameTenballOpenDataInfo.getPeriods()%2 == 0){
+                String dateStr = timeStr.substring(0,15) + "3:45";
+                try {
+                    time = formatter.parse(dateStr);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+            }else if(Integer.parseInt(minStr) > 5 || gameTenballOpenDataInfo.getPeriods()%2 != 0){
+                String dateStr = timeStr.substring(0,15) + "8:45";
+                try {
+                    time = formatter.parse(dateStr);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+            }else{
+                time = gameTenballOpenDataInfo.getTime();
             }
         }else{
             time = gameTenballOpenDataInfo.getTime();
