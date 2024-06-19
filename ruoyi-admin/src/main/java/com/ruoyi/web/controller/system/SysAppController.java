@@ -282,4 +282,27 @@ public class SysAppController extends BaseController {
 
         return ajax;
     }
+
+    /**
+     * 获取客服聊天图片地址
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getChatImg")
+    public AjaxResult getChatImg()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("wechatImg",configService.selectConfigByKey("sys.wechat.img") );
+        ajax.put("qqChatImg",configService.selectConfigByKey("sys.qqchat.img") );
+
+        return ajax;
+    }
+
+    @PostMapping("/updateChatImg")
+    public AjaxResult updateChatImg(@RequestBody UpdateLogoImgReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        sysAppService.updateChatImg(vo);
+        return ajax;
+    }
 }

@@ -167,7 +167,7 @@ public class SysAppServiceImpl implements ISysAppService {
 
         if(StringUtils.equals(gameInfo.getGameType(),"3")){
             List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectThreeBallsGameResult(gameInfo.getGameId(),(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
-            Wave wave = waveService.selectWaveByGameId(gameInfo.getGameId());
+            Wave wave = waveService.selectWaveByGameId(2l);
 
             for(GameThreeballKj gameThreeballKj : gameThreeballKjList){
 
@@ -572,5 +572,38 @@ public class SysAppServiceImpl implements ISysAppService {
     @Override
     public List<CommissionReportRespVO> getCommissionReportList(Long userId, CashbackComissionReportReqVO vo) {
         return userwinMapper.selectCommissionReportLis(userId, vo.getFilterDay());
+    }
+
+    @Override
+    public void updateChatImg(UpdateLogoImgReqVO vo) {
+        SysConfig wechatDbConfig = new SysConfig();
+        wechatDbConfig.setConfigKey("sys.wechat.img");
+        SysConfig wechatRetConfig = configMapper.selectConfig(wechatDbConfig);
+        if(wechatRetConfig == null){
+            wechatRetConfig = new SysConfig();
+            wechatRetConfig.setConfigName("微信客服图片地址");
+            wechatRetConfig.setConfigKey("sys.wechat.img");
+            wechatRetConfig.setConfigValue(vo.getWechatImg());
+            wechatRetConfig.setConfigType("Y");
+            configService.insertConfig(wechatRetConfig);
+        }else{
+            wechatRetConfig.setConfigValue(vo.getWechatImg());
+            configService.updateConfig(wechatRetConfig);
+        }
+
+        SysConfig qqChatConfig = new SysConfig();
+        qqChatConfig.setConfigKey("sys.qqchat.img");
+        SysConfig qqChatRetConfig = configMapper.selectConfig(qqChatConfig);
+        if(qqChatRetConfig == null){
+            qqChatRetConfig = new SysConfig();
+            qqChatRetConfig.setConfigName("LOGO图片地址");
+            qqChatRetConfig.setConfigKey("sys.qqchat.img");
+            qqChatRetConfig.setConfigValue(vo.getQqChatImg());
+            qqChatRetConfig.setConfigType("Y");
+            configService.insertConfig(qqChatRetConfig);
+        }else{
+            qqChatRetConfig.setConfigValue(vo.getQqChatImg());
+            configService.updateConfig(qqChatRetConfig);
+        }
     }
 }

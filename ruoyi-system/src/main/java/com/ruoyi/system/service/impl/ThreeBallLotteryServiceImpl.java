@@ -255,7 +255,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
         Map<String, Object> gameThreeballKjMap = EntityMapTransUtils.entityToMap1(gameThreeballKj);
 
-        Wave wave = waveService.selectWaveByGameId(gameInfo.getGameId());
+        Wave wave = waveService.selectWaveByGameId(2l);
         Map<String, Object> waveMap = EntityMapTransUtils.entityToMap1(wave);
 
         List<Integer> bigSingleList = Arrays.asList(15, 17, 19, 21, 23, 25, 27);

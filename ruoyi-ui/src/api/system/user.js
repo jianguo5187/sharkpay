@@ -201,3 +201,22 @@ export function mergeUser(data) {
     data: data
   })
 }
+
+
+// 获取客服聊天图片地址
+export function getChatImg(query) {
+  return request({
+    url: '/system/app/getChatImg',
+    method: 'get',
+    params: query
+  })
+}
+
+// 客服聊天图片上传
+export function updateChatImg(data) {
+  return request({
+    url: '/system/app/updateChatImg',
+    method: 'post',
+    data: data
+  })
+}

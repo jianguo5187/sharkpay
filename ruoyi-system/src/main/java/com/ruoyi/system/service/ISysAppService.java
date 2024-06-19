@@ -26,4 +26,6 @@ public interface ISysAppService {
     public List<CashbackReportRespVO> getCashbackReportList(Long userId,CashbackComissionReportReqVO vo);
 
     public List<CommissionReportRespVO> getCommissionReportList(Long userId, CashbackComissionReportReqVO vo);
+
+    public void updateChatImg(UpdateLogoImgReqVO vo);
 }

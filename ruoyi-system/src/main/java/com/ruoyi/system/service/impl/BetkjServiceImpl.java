@@ -900,7 +900,7 @@ public class BetkjServiceImpl implements IBetkjService
 
         List<GameThreeballRecord> threeballDateRecordList = gameThreeballRecordMapper.selectUserDateList(betUserWinReqVO.getGameId(), betUserWinReqVO.getUserId(), betUserWinReqVO.getRecordTime());
 
-        Wave wave = waveService.selectWaveByGameId(gameInfo.getGameId());
+        Wave wave = waveService.selectWaveByGameId(2l);
         Map<String, Object> waveMap = EntityMapTransUtils.entityToMap1(wave);
         for(GameThreeballRecord threeballRecord : threeballDateRecordList){
             BetUserWinRespVo vo = new BetUserWinRespVo();
