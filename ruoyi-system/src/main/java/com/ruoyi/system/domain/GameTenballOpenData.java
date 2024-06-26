@@ -77,6 +77,51 @@ public class GameTenballOpenData extends BaseEntity
     @Excel(name = "开奖号码10")
     private Integer num10;
 
+    /** 预开奖时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Excel(name = "预开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date preTime;
+
+    /** 预开奖号码1 */
+    @Excel(name = "预开奖号码1")
+    private Integer preNum1;
+
+    /** 预开奖号码2 */
+    @Excel(name = "预开奖号码2")
+    private Integer preNum2;
+
+    /** 预开奖号码3 */
+    @Excel(name = "预开奖号码3")
+    private Integer preNum3;
+
+    /** 预开奖号码4 */
+    @Excel(name = "预开奖号码4")
+    private Integer preNum4;
+
+    /** 预开奖号码5 */
+    @Excel(name = "预开奖号码5")
+    private Integer preNum5;
+
+    /** 预开奖号码6 */
+    @Excel(name = "预开奖号码6")
+    private Integer preNum6;
+
+    /** 预开奖号码7 */
+    @Excel(name = "预开奖号码7")
+    private Integer preNum7;
+
+    /** 预开奖号码8 */
+    @Excel(name = "预开奖号码8")
+    private Integer preNum8;
+
+    /** 预开奖号码9 */
+    @Excel(name = "预开奖号码9")
+    private Integer preNum9;
+
+    /** 预开奖号码10 */
+    @Excel(name = "预开奖号码10")
+    private Integer preNum10;
+
     public Long getId() {
         return id;
     }
@@ -196,6 +241,105 @@ public class GameTenballOpenData extends BaseEntity
     public void setNum10(Integer num10) {
         this.num10 = num10;
     }
+    public void setPreTime(Date preTime)
+    {
+        this.preTime = preTime;
+    }
+
+    public Date getPreTime()
+    {
+        return preTime;
+    }
+    public void setPreNum1(Integer preNum1)
+    {
+        this.preNum1 = preNum1;
+    }
+
+    public Integer getPreNum1()
+    {
+        return preNum1;
+    }
+    public void setPreNum2(Integer preNum2)
+    {
+        this.preNum2 = preNum2;
+    }
+
+    public Integer getPreNum2()
+    {
+        return preNum2;
+    }
+    public void setPreNum3(Integer preNum3)
+    {
+        this.preNum3 = preNum3;
+    }
+
+    public Integer getPreNum3()
+    {
+        return preNum3;
+    }
+    public void setPreNum4(Integer preNum4)
+    {
+        this.preNum4 = preNum4;
+    }
+
+    public Integer getPreNum4()
+    {
+        return preNum4;
+    }
+    public void setPreNum5(Integer preNum5)
+    {
+        this.preNum5 = preNum5;
+    }
+
+    public Integer getPreNum5()
+    {
+        return preNum5;
+    }
+    public void setPreNum6(Integer preNum6)
+    {
+        this.preNum6 = preNum6;
+    }
+
+    public Integer getPreNum6()
+    {
+        return preNum6;
+    }
+    public void setPreNum7(Integer preNum7)
+    {
+        this.preNum7 = preNum7;
+    }
+
+    public Integer getPreNum7()
+    {
+        return preNum7;
+    }
+    public void setPreNum8(Integer preNum8)
+    {
+        this.preNum8 = preNum8;
+    }
+
+    public Integer getPreNum8()
+    {
+        return preNum8;
+    }
+    public void setPreNum9(Integer preNum9)
+    {
+        this.preNum9 = preNum9;
+    }
+
+    public Integer getPreNum9()
+    {
+        return preNum9;
+    }
+    public void setPreNum10(Integer preNum10)
+    {
+        this.preNum10 = preNum10;
+    }
+
+    public Integer getPreNum10()
+    {
+        return preNum10;
+    }
 
     @Override
     public String toString() {
@@ -215,6 +359,17 @@ public class GameTenballOpenData extends BaseEntity
             .append("num8", getNum8())
             .append("num9", getNum9())
             .append("num10", getNum10())
+            .append("preTime", getPreTime())
+            .append("preNum1", getPreNum1())
+            .append("preNum2", getPreNum2())
+            .append("preNum3", getPreNum3())
+            .append("preNum4", getPreNum4())
+            .append("preNum5", getPreNum5())
+            .append("preNum6", getPreNum6())
+            .append("preNum7", getPreNum7())
+            .append("preNum8", getPreNum8())
+            .append("preNum9", getPreNum9())
+            .append("preNum10", getPreNum10())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

@@ -57,6 +57,35 @@ public class GameFiveballOpenData extends BaseEntity
     @Excel(name = "开奖号码5")
     private Integer num5;
 
+    /** 预开奖时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Excel(name = "预开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date preTime;
+
+    /** 预开奖号码1 */
+    @Excel(name = "预开奖号码1")
+    private Integer preNum1;
+
+    /** 预开奖号码2 */
+    @Excel(name = "预开奖号码2")
+    private Integer preNum2;
+
+    /** 预开奖号码3 */
+    @Excel(name = "预开奖号码3")
+    private Integer preNum3;
+
+    /** 预开奖号码4 */
+    @Excel(name = "预开奖号码4")
+    private Integer preNum4;
+
+    /** 预开奖号码5 */
+    @Excel(name = "预开奖号码5")
+    private Integer preNum5;
+
+    /** 开奖数据状态(0已开奖,1预开奖号码) */
+    @Excel(name = "开奖数据状态(0已开奖,1预开奖号码)")
+    private String status;
+
     public Long getId() {
         return id;
     }
@@ -136,6 +165,69 @@ public class GameFiveballOpenData extends BaseEntity
     public void setNum5(Integer num5) {
         this.num5 = num5;
     }
+    public void setPreTime(Date preTime)
+    {
+        this.preTime = preTime;
+    }
+
+    public Date getPreTime()
+    {
+        return preTime;
+    }
+    public void setPreNum1(Integer preNum1)
+    {
+        this.preNum1 = preNum1;
+    }
+
+    public Integer getPreNum1()
+    {
+        return preNum1;
+    }
+    public void setPreNum2(Integer preNum2)
+    {
+        this.preNum2 = preNum2;
+    }
+
+    public Integer getPreNum2()
+    {
+        return preNum2;
+    }
+    public void setPreNum3(Integer preNum3)
+    {
+        this.preNum3 = preNum3;
+    }
+
+    public Integer getPreNum3()
+    {
+        return preNum3;
+    }
+    public void setPreNum4(Integer preNum4)
+    {
+        this.preNum4 = preNum4;
+    }
+
+    public Integer getPreNum4()
+    {
+        return preNum4;
+    }
+    public void setPreNum5(Integer preNum5)
+    {
+        this.preNum5 = preNum5;
+    }
+
+    public Integer getPreNum5()
+    {
+        return preNum5;
+    }
+    public void setStatus(String status)
+    {
+        this.status = status;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
 
     @Override
     public String toString() {
@@ -150,6 +242,13 @@ public class GameFiveballOpenData extends BaseEntity
             .append("num3", getNum3())
             .append("num4", getNum4())
             .append("num5", getNum5())
+            .append("preTime", getPreTime())
+            .append("preNum1", getPreNum1())
+            .append("preNum2", getPreNum2())
+            .append("preNum3", getPreNum3())
+            .append("preNum4", getPreNum4())
+            .append("preNum5", getPreNum5())
+            .append("status", getStatus())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

@@ -65,5 +65,9 @@ public interface GameFiveballOpenDataMapper
 
     public List<GameFiveballOpenData> selectGameFiveballOpenDataListByParam(@Param("gameId") Long gameId, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 
-    public GameFiveballOpenData selectGameFiveballOpenDataByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods);
+    public GameFiveballOpenData selectGameFiveballOpenDataByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods, @Param("status") String status);
+
+    public List<GameFiveballOpenData> selectFiveballPreOpenData();
+
+    public GameFiveballOpenData selectLastOpenDataByMinPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods, @Param("status") String status);
 }

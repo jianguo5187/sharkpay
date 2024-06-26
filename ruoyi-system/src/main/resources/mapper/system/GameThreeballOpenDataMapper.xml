@@ -13,6 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="sum1"    column="sum_1"    />
         <result property="sum2"    column="sum_2"    />
         <result property="sum3"    column="sum_3"    />
+        <result property="preTime"    column="pre_time"    />
+        <result property="preSum1"    column="pre_sum_1"    />
+        <result property="preSum2"    column="pre_sum_2"    />
+        <result property="preSum3"    column="pre_sum_3"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -21,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectGameThreeballOpenDataVo">
-        select id, periods, game_id, game_name, time, sum_1, sum_2, sum_3, create_by, create_time, update_by, update_time, remark from game_threeball_open_data
+        select id, periods, game_id, game_name, time, sum_1, sum_2, sum_3, pre_time, pre_sum_1, pre_sum_2, pre_sum_3, create_by, create_time, update_by, update_time, remark from game_threeball_open_data
     </sql>
 
     <select id="selectGameThreeballOpenDataList" parameterType="GameThreeballOpenData" resultMap="GameThreeballOpenDataResult">
@@ -34,6 +38,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sum1 != null "> and sum_1 = #{sum1}</if>
             <if test="sum2 != null "> and sum_2 = #{sum2}</if>
             <if test="sum3 != null "> and sum_3 = #{sum3}</if>
+            <if test="preTime != null "> and pre_time = #{preTime}</if>
+            <if test="preSum1 != null "> and pre_sum_1 = #{preSum1}</if>
+            <if test="preSum2 != null "> and pre_sum_2 = #{preSum2}</if>
+            <if test="preSum3 != null "> and pre_sum_3 = #{preSum3}</if>
         </where>
     </select>
     
@@ -51,6 +59,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sum1 != null">sum_1,</if>
             <if test="sum2 != null">sum_2,</if>
             <if test="sum3 != null">sum_3,</if>
+            <if test="preTime != null">pre_time,</if>
+            <if test="preSum1 != null">pre_sum_1,</if>
+            <if test="preSum2 != null">pre_sum_2,</if>
+            <if test="preSum3 != null">pre_sum_3,</if>
             <if test="createBy != null">create_by,</if>
         create_time
         )values(
@@ -61,6 +73,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sum1 != null">#{sum1},</if>
             <if test="sum2 != null">#{sum2},</if>
             <if test="sum3 != null">#{sum3},</if>
+            <if test="preTime != null">#{preTime},</if>
+            <if test="preSum1 != null">#{preSum1},</if>
+            <if test="preSum2 != null">#{preSum2},</if>
+            <if test="preSum3 != null">#{preSum3},</if>
             <if test="createBy != null">#{createBy},</if>
         sysdate()
         )
@@ -73,6 +89,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sum1 != null">sum_1 = #{sum1},</if>
             <if test="sum2 != null">sum_2 = #{sum2},</if>
             <if test="sum3 != null">sum_3 = #{sum3},</if>
+            <if test="preTime != null">pre_time = #{preTime},</if>
+            <if test="preSum1 != null">pre_sum_1 = #{preSum1},</if>
+            <if test="preSum2 != null">pre_sum_2 = #{preSum2},</if>
+            <if test="preSum3 != null">pre_sum_3 = #{preSum3},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>

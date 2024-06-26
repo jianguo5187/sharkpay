@@ -105,7 +105,17 @@ public class GameFiveballOpenDataServiceImpl implements IGameFiveballOpenDataSer
     }
 
     @Override
-    public GameFiveballOpenData selectGameFiveballOpenDataByPeriods(Long gameId, Long periods) {
-        return gameFiveballOpenDataMapper.selectGameFiveballOpenDataByPeriods(gameId,periods);
+    public GameFiveballOpenData selectGameFiveballOpenDataByPeriods(Long gameId, Long periods, String status) {
+        return gameFiveballOpenDataMapper.selectGameFiveballOpenDataByPeriods(gameId,periods,status);
+    }
+
+    @Override
+    public List<GameFiveballOpenData> selectFiveballPreOpenData() {
+        return gameFiveballOpenDataMapper.selectFiveballPreOpenData();
+    }
+
+    @Override
+    public GameFiveballOpenData selectLastOpenDataByMinPeriods(Long gameId, Long periods, String status) {
+        return gameFiveballOpenDataMapper.selectLastOpenDataByMinPeriods(gameId,periods,status);
     }
 }

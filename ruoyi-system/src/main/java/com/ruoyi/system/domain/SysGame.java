@@ -125,6 +125,10 @@ public class SysGame extends BaseEntity
     @Excel(name = "游戏有效开奖结束时间")
     private String validOpenEndTime;
 
+    /** 是否系统开奖区分(N否 Y是) */
+    @Excel(name = "是否系统开奖区分(N否 Y是)")
+    private String systemOpenType;
+
     public void setGameId(Long gameId) 
     {
         this.gameId = gameId;
@@ -376,6 +380,15 @@ public class SysGame extends BaseEntity
     {
         return validOpenEndTime;
     }
+    public void setSystemOpenType(String systemOpenType)
+    {
+        this.systemOpenType = systemOpenType;
+    }
+
+    public String getSystemOpenType()
+    {
+        return systemOpenType;
+    }
 
     @Override
     public String toString() {
@@ -405,6 +418,7 @@ public class SysGame extends BaseEntity
             .append("houseOpen", getHouseOpen())
             .append("validOpenStartTime", getValidOpenStartTime())
             .append("validOpenEndTime", getValidOpenEndTime())
+                .append("systemOpenType", getSystemOpenType())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

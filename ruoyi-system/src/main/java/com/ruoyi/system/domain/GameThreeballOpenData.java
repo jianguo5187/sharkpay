@@ -49,6 +49,23 @@ public class GameThreeballOpenData extends BaseEntity
     @Excel(name = "开奖号码3")
     private Integer sum3;
 
+    /** 预开奖时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Excel(name = "预开奖时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date preTime;
+
+    /** 预开奖号码1 */
+    @Excel(name = "预开奖号码1")
+    private Integer preSum1;
+
+    /** 预开奖号码2 */
+    @Excel(name = "预开奖号码2")
+    private Integer preSum2;
+
+    /** 预开奖号码3 */
+    @Excel(name = "预开奖号码3")
+    private Integer preSum3;
+
     public Long getId() {
         return id;
     }
@@ -112,6 +129,42 @@ public class GameThreeballOpenData extends BaseEntity
     public void setSum3(Integer sum3) {
         this.sum3 = sum3;
     }
+    public void setPreTime(Date preTime)
+    {
+        this.preTime = preTime;
+    }
+
+    public Date getPreTime()
+    {
+        return preTime;
+    }
+    public void setPreSum1(Integer preSum1)
+    {
+        this.preSum1 = preSum1;
+    }
+
+    public Integer getPreSum1()
+    {
+        return preSum1;
+    }
+    public void setPreSum2(Integer preSum2)
+    {
+        this.preSum2 = preSum2;
+    }
+
+    public Integer getPreSum2()
+    {
+        return preSum2;
+    }
+    public void setPreSum3(Integer preSum3)
+    {
+        this.preSum3 = preSum3;
+    }
+
+    public Integer getPreSum3()
+    {
+        return preSum3;
+    }
 
     @Override
     public String toString() {
@@ -124,6 +177,10 @@ public class GameThreeballOpenData extends BaseEntity
             .append("sum1", getSum1())
             .append("sum2", getSum2())
             .append("sum3", getSum3())
+            .append("preTime", getPreTime())
+            .append("preSum1", getPreSum1())
+            .append("preSum2", getPreSum2())
+            .append("preSum3", getPreSum3())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

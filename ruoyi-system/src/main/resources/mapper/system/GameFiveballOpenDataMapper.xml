@@ -15,6 +15,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="num3"    column="num3"    />
         <result property="num4"    column="num4"    />
         <result property="num5"    column="num5"    />
+        <result property="preTime"    column="pre_time"    />
+        <result property="preNum1"    column="pre_num1"    />
+        <result property="preNum2"    column="pre_num2"    />
+        <result property="preNum3"    column="pre_num3"    />
+        <result property="preNum4"    column="pre_num4"    />
+        <result property="preNum5"    column="pre_num5"    />
+        <result property="status"    column="status"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -23,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectGameFiveballOpenDataVo">
-        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, create_by, create_time, update_by, update_time, remark from game_fiveball_open_data
+        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, pre_time, pre_num1, pre_num2, pre_num3, pre_num4, pre_num5, status, create_by, create_time, update_by, update_time, remark from game_fiveball_open_data
     </sql>
 
     <select id="selectGameFiveballOpenDataList" parameterType="GameFiveballOpenData" resultMap="GameFiveballOpenDataResult">
@@ -38,6 +45,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num3 != null "> and num3 = #{num3}</if>
             <if test="num4 != null "> and num4 = #{num4}</if>
             <if test="num5 != null "> and num5 = #{num5}</if>
+            <if test="preTime != null "> and pre_time = #{preTime}</if>
+            <if test="preNum1 != null "> and pre_num1 = #{preNum1}</if>
+            <if test="preNum2 != null "> and pre_num2 = #{preNum2}</if>
+            <if test="preNum3 != null "> and pre_num3 = #{preNum3}</if>
+            <if test="preNum4 != null "> and pre_num4 = #{preNum4}</if>
+            <if test="preNum5 != null "> and pre_num5 = #{preNum5}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
         </where>
     </select>
     
@@ -57,8 +71,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num3 != null">num3,</if>
             <if test="num4 != null">num4,</if>
             <if test="num5 != null">num5,</if>
+            <if test="preTime != null">pre_time,</if>
+            <if test="preNum1 != null">pre_num1,</if>
+            <if test="preNum2 != null">pre_num2,</if>
+            <if test="preNum3 != null">pre_num3,</if>
+            <if test="preNum4 != null">pre_num4,</if>
+            <if test="preNum5 != null">pre_num5,</if>
+            <if test="status != null">status,</if>
             <if test="createBy != null">create_by,</if>
-        create_time
+            create_time
         )values(
             <if test="periods != null">#{periods},</if>
             <if test="gameId != null">#{gameId},</if>
@@ -69,8 +90,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num3 != null">#{num3},</if>
             <if test="num4 != null">#{num4},</if>
             <if test="num5 != null">#{num5},</if>
+            <if test="preTime != null">#{preTime},</if>
+            <if test="preNum1 != null">#{preNum1},</if>
+            <if test="preNum2 != null">#{preNum2},</if>
+            <if test="preNum3 != null">#{preNum3},</if>
+            <if test="preNum4 != null">#{preNum4},</if>
+            <if test="preNum5 != null">#{preNum5},</if>
+            <if test="status != null">#{status},</if>
             <if test="createBy != null">#{createBy},</if>
-        sysdate()
+            sysdate()
         )
     </insert>
 
@@ -83,6 +111,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num3 != null">num3 = #{num3},</if>
             <if test="num4 != null">num4 = #{num4},</if>
             <if test="num5 != null">num5 = #{num5},</if>
+            <if test="preTime != null">pre_time = #{preTime},</if>
+            <if test="preNum1 != null">pre_num1 = #{preNum1},</if>
+            <if test="preNum2 != null">pre_num2 = #{preNum2},</if>
+            <if test="preNum3 != null">pre_num3 = #{preNum3},</if>
+            <if test="preNum4 != null">pre_num4 = #{preNum4},</if>
+            <if test="preNum5 != null">pre_num5 = #{preNum5},</if>
+            <if test="status != null">status = #{status},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>
@@ -102,7 +137,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectLastRecord" parameterType="Long" resultMap="GameFiveballOpenDataResult">
         <include refid="selectGameFiveballOpenDataVo"/>
-        where 1 = 1
+        where status = '0'
         <if test="gameId != null "> and game_id = #{gameId}</if>
         order by id desc
         limit 1
@@ -110,7 +145,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectGameFiveballOpenDataListByParam" resultMap="GameFiveballOpenDataResult">
         <include refid="selectGameFiveballOpenDataVo"/>
-        where 1 = 1
+        where status = '0'
         <if test="gameId != null "> and game_id = #{gameId}</if>
         <if test="idDescFlg != null and idDescFlg != '' ">
             order by id desc
@@ -123,9 +158,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectGameFiveballOpenDataByPeriods" resultMap="GameFiveballOpenDataResult">
         <include refid="selectGameFiveballOpenDataVo"/>
         where 1 = 1
+        <if test="status != null and status != '' "> and status = #{status}</if>
         <if test="periods != null "> and periods = #{periods}</if>
         <if test="gameId != null "> and game_id = #{gameId}</if>
         order by id desc
+        limit 1
+    </select>
+
+    <select id="selectFiveballPreOpenData" resultMap="GameFiveballOpenDataResult">
+        <include refid="selectGameFiveballOpenDataVo"/>
+        where status = '1'
+        AND date_format(pre_time, '%Y-%m-%d %H:%i:%s.%f') &lt;= date_format(NOW(), '%Y-%m-%d %H:%i:%s.%f')
+        order by id asc
+    </select>
+
+    <select id="selectLastOpenDataByMinPeriods" resultMap="GameFiveballOpenDataResult">
+        <include refid="selectGameFiveballOpenDataVo"/>
+        where 1 = 1
+        <if test="status != null and status != ''"> and status = #{status}</if>
+        <if test="periods != null "> and periods > #{periods}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        order by id asc
         limit 1
     </select>
 </mapper>

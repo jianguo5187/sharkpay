@@ -33,6 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="houseOpen"    column="house_open"    />
         <result property="validOpenStartTime"    column="valid_open_start_time"    />
         <result property="validOpenEndTime"    column="valid_open_end_time"    />
+        <result property="systemOpenType"    column="system_open_type"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -41,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectSysGameVo">
-        select game_id, game_img, game_type, game_mark_id, game_open_code, game_name, game_alias_name, game_describe, profit_loss_name, game_record, game_kj, game_commission, game_commission_two, game_cate, game_cashback, min_bet_amount, max_bet_amount, lead_time, end_time, lottery_interval, robot_rate, room_rule, sort, status, is_hidden, house_open, valid_open_start_time, valid_open_end_time, create_by, create_time, update_by, update_time, remark from sys_game
+        select game_id, game_img, game_type, game_mark_id, game_open_code, game_name, game_alias_name, game_describe, profit_loss_name, game_record, game_kj, game_commission, game_commission_two, game_cate, game_cashback, min_bet_amount, max_bet_amount, lead_time, end_time, lottery_interval, robot_rate, room_rule, sort, status, is_hidden, house_open, valid_open_start_time, valid_open_end_time, system_open_type, create_by, create_time, update_by, update_time, remark from sys_game
     </sql>
 
     <select id="selectSysGameList" parameterType="SysGame" resultMap="SysGameResult">
@@ -70,6 +71,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="isHidden != null  and isHidden != ''"> and is_hidden = #{isHidden}</if>
             <if test="validOpenStartTime != null  and validOpenStartTime != ''"> and valid_open_start_time = #{validOpenStartTime}</if>
             <if test="validOpenEndTime != null  and validOpenEndTime != ''"> and valid_open_end_time = #{validOpenEndTime}</if>
+            <if test="systemOpenType != null  and systemOpenType != ''"> and system_open_type = #{systemOpenType}</if>
         </where>
     </select>
     
@@ -114,6 +116,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="houseOpen != null">house_open,</if>
             <if test="validOpenStartTime != null">valid_open_start_time,</if>
             <if test="validOpenEndTime != null">valid_open_end_time,</if>
+            <if test="systemOpenType != null">system_open_type,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateBy != null">update_by,</if>
@@ -148,6 +151,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="houseOpen != null">#{houseOpen},</if>
             <if test="validOpenStartTime != null">#{validOpenStartTime},</if>
             <if test="validOpenEndTime != null">#{validOpenEndTime},</if>
+            <if test="systemOpenType != null">#{systemOpenType},</if>
             <if test="createBy != null">#{createBy},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateBy != null">#{updateBy},</if>
@@ -186,6 +190,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="houseOpen != null">house_open = #{houseOpen},</if>
             <if test="validOpenStartTime != null">valid_open_start_time = #{validOpenStartTime},</if>
             <if test="validOpenEndTime != null">valid_open_end_time = #{validOpenEndTime},</if>
+            <if test="systemOpenType != null">system_open_type = #{systemOpenType},</if>
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>

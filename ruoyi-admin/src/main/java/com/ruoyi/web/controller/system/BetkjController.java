@@ -5,13 +5,11 @@ import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.core.page.TableDataInfo;
-import com.ruoyi.system.domain.Azxy10kj;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.IBetkjService;
 import com.ruoyi.system.service.ISysGameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -230,6 +230,16 @@
             >{{dict.label}}</el-radio>
           </el-radio-group>
         </el-form-item>
+        <el-form-item label="是否系统开奖区分" prop="systemOpenType">
+          <el-radio-group v-model="form.systemOpenType">
+            <el-radio
+              v-for="dict in dict.type.sys_game_open_type"
+              :key="dict.value"
+              :label="dict.value"
+            >{{dict.label}}</el-radio>
+          </el-radio-group>
+          <br/>(否->官方开奖 是->系统开奖)
+        </el-form-item>
 <!--        <el-form-item label="是否隐藏" prop="isHidden">-->
 <!--          <el-radio-group v-model="form.isHidden">-->
 <!--            <el-radio-->
@@ -256,7 +266,7 @@ import { listGame, getGame, delGame, addGame, updateGame } from "@/api/system/ga
 
 export default {
   name: "Game",
-  dicts: ['sys_yes_no', 'sys_game_type', 'sys_game_status'],
+  dicts: ['sys_yes_no', 'sys_game_type', 'sys_game_status','sys_game_open_type'],
   data() {
     return {
       // 登录用户ID
@@ -367,7 +377,8 @@ export default {
         createTime: null,
         updateBy: null,
         updateTime: null,
-        remark: null
+        remark: null,
+        systemOpenType:"N",
       };
       this.resetForm("form");
     },

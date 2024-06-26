@@ -245,4 +245,5 @@ public class MyServiceImpl implements IMyService {
     public void clearUsermoneyInfo(Long userId) {
        usermoneyMapper.clearUsermoneyInfo(userId);
     }
+
 }

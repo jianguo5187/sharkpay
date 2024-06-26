@@ -120,7 +120,7 @@
 
     <!-- 添加或修改游戏对话框 -->
     <el-dialog :title="title" :visible.sync="gameFormOpen" width="800px" append-to-body>
-      <el-form ref="gameForm" :model="gameForm" :rules="gameRules" label-width="120px">
+      <el-form ref="gameForm" :model="gameForm" :rules="gameRules" label-width="130px">
         <el-form-item label="游戏标识ID" prop="gameMarkId">
           <el-input v-model="gameForm.gameMarkId" placeholder="请输入游戏标识ID" :disabled="1 != loginUserId"/>
         </el-form-item>
@@ -188,6 +188,16 @@
             >{{dict.label}}</el-radio>
           </el-radio-group>
         </el-form-item>
+        <el-form-item label="是否系统开奖区分" prop="systemOpenType">
+          <el-radio-group v-model="gameForm.systemOpenType">
+            <el-radio
+              v-for="dict in dict.type.sys_game_open_type"
+              :key="dict.value"
+              :label="dict.value"
+            >{{dict.label}}</el-radio>
+          </el-radio-group>
+          <br/>(否->官方开奖 是->系统开奖)
+        </el-form-item>
 <!--        <el-form-item label="是否隐藏" prop="isHidden">-->
 <!--          <el-radio-group v-model="gameForm.isHidden">-->
 <!--            <el-radio-->
@@ -216,7 +226,7 @@ import {getValidBetType} from "@/api/system/betType";
 
 export default {
   name: "BetItem",
-  dicts: ['sys_bet_item_status','sys_game_status','sys_yes_no','sys_game_type'],
+  dicts: ['sys_bet_item_status','sys_game_status','sys_yes_no','sys_game_type','sys_game_open_type'],
   data() {
     return {
       // 登录用户ID
@@ -406,7 +416,8 @@ export default {
         createTime: null,
         updateBy: null,
         updateTime: null,
-        remark: null
+        remark: null,
+        systemOpenType:"N",
       };
       this.resetForm("gameForm");
     },

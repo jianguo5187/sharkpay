@@ -20,6 +20,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="num8"    column="num8"    />
         <result property="num9"    column="num9"    />
         <result property="num10"    column="num10"    />
+        <result property="preTime"    column="pre_time"    />
+        <result property="preNum1"    column="pre_num1"    />
+        <result property="preNum2"    column="pre_num2"    />
+        <result property="preNum3"    column="pre_num3"    />
+        <result property="preNum4"    column="pre_num4"    />
+        <result property="preNum5"    column="pre_num5"    />
+        <result property="preNum6"    column="pre_num6"    />
+        <result property="preNum7"    column="pre_num7"    />
+        <result property="preNum8"    column="pre_num8"    />
+        <result property="preNum9"    column="pre_num9"    />
+        <result property="preNum10"    column="pre_num10"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -28,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectGameTenballOpenDataVo">
-        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, create_by, create_time, update_by, update_time, remark from game_tenball_open_data
+        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, pre_time, pre_num1, pre_num2, pre_num3, pre_num4, pre_num5, pre_num6, pre_num7, pre_num8, pre_num9, pre_num10, create_by, create_time, update_by, update_time, remark from game_tenball_open_data
     </sql>
 
     <select id="selectGameTenballOpenDataList" parameterType="GameTenballOpenData" resultMap="GameTenballOpenDataResult">
@@ -48,6 +59,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num8 != null "> and num8 = #{num8}</if>
             <if test="num9 != null "> and num9 = #{num9}</if>
             <if test="num10 != null "> and num10 = #{num10}</if>
+            <if test="preTime != null "> and pre_time = #{preTime}</if>
+            <if test="preNum1 != null "> and pre_num1 = #{preNum1}</if>
+            <if test="preNum2 != null "> and pre_num2 = #{preNum2}</if>
+            <if test="preNum3 != null "> and pre_num3 = #{preNum3}</if>
+            <if test="preNum4 != null "> and pre_num4 = #{preNum4}</if>
+            <if test="preNum5 != null "> and pre_num5 = #{preNum5}</if>
+            <if test="preNum6 != null "> and pre_num6 = #{preNum6}</if>
+            <if test="preNum7 != null "> and pre_num7 = #{preNum7}</if>
+            <if test="preNum8 != null "> and pre_num8 = #{preNum8}</if>
+            <if test="preNum9 != null "> and pre_num9 = #{preNum9}</if>
+            <if test="preNum10 != null "> and pre_num10 = #{preNum10}</if>
         </where>
     </select>
     
@@ -72,6 +94,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num8 != null">num8,</if>
             <if test="num9 != null">num9,</if>
             <if test="num10 != null">num10,</if>
+            <if test="preTime != null">pre_time,</if>
+            <if test="preNum1 != null">pre_num1,</if>
+            <if test="preNum2 != null">pre_num2,</if>
+            <if test="preNum3 != null">pre_num3,</if>
+            <if test="preNum4 != null">pre_num4,</if>
+            <if test="preNum5 != null">pre_num5,</if>
+            <if test="preNum6 != null">pre_num6,</if>
+            <if test="preNum7 != null">pre_num7,</if>
+            <if test="preNum8 != null">pre_num8,</if>
+            <if test="preNum9 != null">pre_num9,</if>
+            <if test="preNum10 != null">pre_num10,</if>
             <if test="createBy != null">create_by,</if>
         create_time
         )values(
@@ -89,6 +122,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num8 != null">#{num8},</if>
             <if test="num9 != null">#{num9},</if>
             <if test="num10 != null">#{num10},</if>
+            <if test="preTime != null">#{preTime},</if>
+            <if test="preNum1 != null">#{preNum1},</if>
+            <if test="preNum2 != null">#{preNum2},</if>
+            <if test="preNum3 != null">#{preNum3},</if>
+            <if test="preNum4 != null">#{preNum4},</if>
+            <if test="preNum5 != null">#{preNum5},</if>
+            <if test="preNum6 != null">#{preNum6},</if>
+            <if test="preNum7 != null">#{preNum7},</if>
+            <if test="preNum8 != null">#{preNum8},</if>
+            <if test="preNum9 != null">#{preNum9},</if>
+            <if test="preNum10 != null">#{preNum10},</if>
             <if test="createBy != null">#{createBy},</if>
         sysdate()
         )
@@ -108,6 +152,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="num8 != null">num8 = #{num8},</if>
             <if test="num9 != null">num9 = #{num9},</if>
             <if test="num10 != null">num10 = #{num10},</if>
+            <if test="preTime != null">pre_time = #{preTime},</if>
+            <if test="preNum1 != null">pre_num1 = #{preNum1},</if>
+            <if test="preNum2 != null">pre_num2 = #{preNum2},</if>
+            <if test="preNum3 != null">pre_num3 = #{preNum3},</if>
+            <if test="preNum4 != null">pre_num4 = #{preNum4},</if>
+            <if test="preNum5 != null">pre_num5 = #{preNum5},</if>
+            <if test="preNum6 != null">pre_num6 = #{preNum6},</if>
+            <if test="preNum7 != null">pre_num7 = #{preNum7},</if>
+            <if test="preNum8 != null">pre_num8 = #{preNum8},</if>
+            <if test="preNum9 != null">pre_num9 = #{preNum9},</if>
+            <if test="preNum10 != null">pre_num10 = #{preNum10},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>

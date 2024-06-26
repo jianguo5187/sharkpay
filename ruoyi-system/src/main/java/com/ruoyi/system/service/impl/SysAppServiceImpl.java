@@ -606,4 +606,27 @@ public class SysAppServiceImpl implements ISysAppService {
             configService.updateConfig(qqChatRetConfig);
         }
     }
+
+    @Override
+    public List<String> getOpenData(String gameType) {
+        List<String> openCode = new ArrayList<>();
+        Random random = new Random();
+        if(StringUtils.equals("10",gameType)){
+            // 10球
+            String[] predefinedCodes = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10"};
+            openCode.addAll(java.util.Arrays.asList(predefinedCodes));
+            Collections.shuffle(openCode); // 随机排序
+        }else if(StringUtils.equals("3",gameType)){
+            // 3球
+            for (int i = 0; i < 3; i++) {
+                openCode.add(String.valueOf(random.nextInt(10))); // 生成0-9之间的随机数
+            }
+        }else if(StringUtils.equals("5",gameType)){
+            // 5球
+            for (int i = 0; i < 5; i++) {
+                openCode.add(String.valueOf(random.nextInt(10))); // 生成0-9之间的随机数
+            }
+        }
+        return openCode;
+    }
 }

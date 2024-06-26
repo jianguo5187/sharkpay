@@ -28,4 +28,6 @@ public interface ISysAppService {
     public List<CommissionReportRespVO> getCommissionReportList(Long userId, CashbackComissionReportReqVO vo);
 
     public void updateChatImg(UpdateLogoImgReqVO vo);
+
+    public List<String> getOpenData(String gameType);
 }

@@ -62,49 +62,70 @@ public class RyTask
         System.out.println("游戏类型: " + gameType);
         SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
+//        sysGame.setSystemOpenType("N"); //官方开奖
         sysGame.setGameType(gameType);
 
-        SimpleDateFormat sd = new SimpleDateFormat("MMdd");
+        SimpleDateFormat sd = new SimpleDateFormat("HHmm");
         String nowTime = sd.format(new Date());
 
         List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
 
         for(SysGame gameInfo : gameList){
-            //游戏停盘维护判断
-            if(Integer.valueOf(gameInfo.getValidOpenStartTime()).compareTo(Integer.valueOf(nowTime)) > 0
-                    || Integer.valueOf(gameInfo.getValidOpenEndTime()).compareTo(Integer.valueOf(nowTime)) < 0){
-                continue;
-            }
-            String url = configService.selectConfigByKey("sys.opengame.url") + gameInfo.getGameOpenCode() + "&limit=50";
-            String result = HttpUtils.sendGet(url);
-            JSONObject resultJson = JSONObject.parseObject(result);
-            if(resultJson == null){
-                System.out.println("获取不到开奖网站数据");
-                return ;
-            }
-            String data = resultJson.getString("data");
-            if(StringUtils.isEmpty(data)){
-                continue;
-            }
-            System.out.println(data);
-            List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
-            Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
-                    .collect(Collectors.toMap(
-                            GameOpenDataDto::getExpect,
-                            Function.identity(),
-                            (existing, replacement) -> existing // 保留现有的值，忽略替换值
-                    ));
 
-            if(openDataList != null && openDataList.size() >0){
+            Integer validOpenStartTime = Integer.valueOf(gameInfo.getValidOpenStartTime());
+            Integer validOpenEndTime = Integer.valueOf(gameInfo.getValidOpenEndTime()) + 1;
+            //游戏停盘维护判断
+            if(validOpenStartTime.compareTo(Integer.valueOf(nowTime)) > 0
+                    || validOpenEndTime.compareTo(Integer.valueOf(nowTime)) < 0){
+                continue;
+            }
+
+            //官方开奖
+            if(StringUtils.equals(gameInfo.getSystemOpenType(),"N")){
+
+                String url = configService.selectConfigByKey("sys.opengame.url") + gameInfo.getGameOpenCode() + "&limit=50";
+                String result = HttpUtils.sendGet(url);
+                JSONObject resultJson = JSONObject.parseObject(result);
+                if(resultJson == null){
+                    System.out.println("获取不到开奖网站数据");
+                    return ;
+                }
+                String data = resultJson.getString("data");
+                if(StringUtils.isEmpty(data)){
+                    continue;
+                }
+                System.out.println(data);
+                List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
+                Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
+                        .collect(Collectors.toMap(
+                                GameOpenDataDto::getExpect,
+                                Function.identity(),
+                                (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                        ));
+
+                if(openDataList != null && openDataList.size() >0){
+                    if(StringUtils.equals("10",gameType)){
+                        // 10球
+                        gameTaskService.saveTenBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    }else if(StringUtils.equals("3",gameType)){
+                        // 3球
+                        gameTaskService.saveThreeBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    }else if(StringUtils.equals("5",gameType)){
+                        // 5球
+                        gameTaskService.saveFiveBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    }
+                }
+            }else{
+                //系统开奖
                 if(StringUtils.equals("10",gameType)){
                     // 10球
-                    gameTaskService.saveTenBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    gameTaskService.saveTenBallInfoFromOfficialSystem(gameInfo);
                 }else if(StringUtils.equals("3",gameType)){
                     // 3球
-                    gameTaskService.saveThreeBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    gameTaskService.saveThreeBallInfoFromSystem(gameInfo);
                 }else if(StringUtils.equals("5",gameType)){
                     // 5球
-                    gameTaskService.saveFiveBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    gameTaskService.saveFiveBallInfoFromSystem(gameInfo);
                 }
             }
         }
@@ -119,13 +140,16 @@ public class RyTask
         sysGame.setGameType(gameType);
         List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
 
-        SimpleDateFormat sd = new SimpleDateFormat("MMdd");
+        SimpleDateFormat sd = new SimpleDateFormat("HHmm");
         String nowTime = sd.format(new Date());
 
         for(SysGame gameInfo : gameList){
+
+            Integer validOpenStartTime = Integer.valueOf(gameInfo.getValidOpenStartTime());
+            Integer validOpenEndTime = Integer.valueOf(gameInfo.getValidOpenEndTime()) + 1;
             //游戏停盘维护判断
-            if(Integer.valueOf(gameInfo.getValidOpenStartTime()).compareTo(Integer.valueOf(nowTime)) > 0
-                    || Integer.valueOf(gameInfo.getValidOpenEndTime()).compareTo(Integer.valueOf(nowTime)) < 0){
+            if(validOpenStartTime.compareTo(Integer.valueOf(nowTime)) > 0
+                    || validOpenEndTime.compareTo(Integer.valueOf(nowTime)) < 0){
                 continue;
             }
             if(StringUtils.equals("10",gameType)){
@@ -137,6 +161,44 @@ public class RyTask
             }else if(StringUtils.equals("5",gameType)){
                 // 急速时时彩
                 gameTaskService.lotteryFiveBallBalance(gameInfo.getGameMarkId());
+            }
+        }
+    }
+
+    // 根据游戏code,提前系统开奖数据
+    public void openSystemGameExpectData(String gameType){
+
+        System.out.println("游戏类型: " + gameType);
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        sysGame.setSystemOpenType("Y"); //本系统开奖
+        sysGame.setGameType(gameType);
+
+        SimpleDateFormat sd = new SimpleDateFormat("HHmm");
+        String nowTime = sd.format(new Date());
+
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+
+        for(SysGame gameInfo : gameList){
+
+            Integer validOpenStartTime = Integer.valueOf(gameInfo.getValidOpenStartTime());
+            Integer validOpenEndTime = Integer.valueOf(gameInfo.getValidOpenEndTime()) + 1;
+            //游戏停盘维护判断
+            if(validOpenStartTime.compareTo(Integer.valueOf(nowTime)) > 0
+                    || validOpenEndTime.compareTo(Integer.valueOf(nowTime)) < 0){
+                continue;
+            }
+
+            //系统开奖
+            if(StringUtils.equals("10",gameType)){
+                // 10球
+                gameTaskService.openTenBallSystemExpectData(gameInfo);
+            }else if(StringUtils.equals("3",gameType)){
+                // 3球
+                gameTaskService.openThreeBallSystemExpectData(gameInfo);
+            }else if(StringUtils.equals("5",gameType)){
+                // 5球
+                gameTaskService.openFiveBallSystemExpectData(gameInfo);
             }
         }
     }

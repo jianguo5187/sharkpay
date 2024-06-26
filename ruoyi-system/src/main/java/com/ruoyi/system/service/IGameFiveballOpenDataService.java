@@ -63,5 +63,9 @@ public interface IGameFiveballOpenDataService
 
     public List<GameFiveballOpenData> selectGameFiveballOpenDataListByParam(Long gameId, String idDescFlg, Integer limitNumber);
 
-    public GameFiveballOpenData selectGameFiveballOpenDataByPeriods(Long gameId, Long periods);
+    public GameFiveballOpenData selectGameFiveballOpenDataByPeriods(Long gameId, Long periods, String status);
+
+    public List<GameFiveballOpenData> selectFiveballPreOpenData();
+
+    public GameFiveballOpenData selectLastOpenDataByMinPeriods(Long gameId, Long periods, String status);
 }

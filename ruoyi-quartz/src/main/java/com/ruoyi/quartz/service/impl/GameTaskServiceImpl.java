@@ -2,13 +2,9 @@ package com.ruoyi.quartz.service.impl;
 
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.quartz.service.IGameTaskService;
-import com.ruoyi.system.domain.Azxy10;
-import com.ruoyi.system.domain.Jnd;
-import com.ruoyi.system.domain.Jsssc;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.*;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,15 +46,45 @@ public class GameTaskServiceImpl implements IGameTaskService {
     }
 
     @Override
+    public void saveThreeBallInfoFromSystem(SysGame gameInfo) {
+        betkjService.saveThreeBallInfoFromSystem(gameInfo);
+    }
+
+    @Override
     public void saveFiveBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
 
         betkjService.saveFiveBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
     }
 
     @Override
+    public void saveFiveBallInfoFromSystem(SysGame gameInfo) {
+        betkjService.saveFiveBallInfoFromSystem(gameInfo);
+    }
+
+    @Override
     public void saveTenBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
 
         betkjService.saveTenBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
+    }
+
+    @Override
+    public void saveTenBallInfoFromOfficialSystem(SysGame gameInfo) {
+        betkjService.saveTenBallInfoFromOfficialSystem(gameInfo);
+    }
+
+    @Override
+    public void openThreeBallSystemExpectData(SysGame gameInfo) {
+        betkjService.openThreeBallSystemExpectData(gameInfo);
+    }
+
+    @Override
+    public void openFiveBallSystemExpectData(SysGame gameInfo) {
+        betkjService.openFiveBallSystemExpectData(gameInfo);
+    }
+
+    @Override
+    public void openTenBallSystemExpectData(SysGame gameInfo) {
+        betkjService.openTenBallSystemExpectData(gameInfo);
     }
 
     @Override
