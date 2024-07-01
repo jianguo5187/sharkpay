@@ -4,6 +4,7 @@ import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.system.domain.vo.AgentUserListRespVo;
 import com.ruoyi.system.domain.vo.LoginUserInfoRespVO;
+import com.ruoyi.system.domain.vo.ParentUserListRespVO;
 
 /**
  * 用户 业务层
@@ -239,6 +240,8 @@ public interface ISysUserService
     public LoginUserInfoRespVO selectAppLoginUserInfo(Long userId);
 
     public SysUser setUserGameWin(SysUser user);
+
+    public List<ParentUserListRespVO> selectParentUserList(SysUser user);
 
     public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
 

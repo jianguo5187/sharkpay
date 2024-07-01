@@ -51,3 +51,12 @@ export function noApproveRechargeCnt(query) {
     params: query
   })
 }
+
+// 流水统计列表
+export function listUserFlowMoney(query) {
+  return request({
+    url: '/system/usermoney/listUserFlowMoney',
+    method: 'get',
+    params: query
+  })
+}

@@ -55,6 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="nickName"    column="nick_name"    />
         <result property="realName"    column="real_name"    />
         <result property="remarkName"     column="remark_name"    />
+        <result property="avatar"     column="avatar"    />
         <result property="recordTime"    column="record_time"    />
         <result property="gameId"    column="game_id"    />
         <result property="gameName"    column="game_name"    />
@@ -286,12 +287,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
 
 
-    <select id="selectBetRealTimeList" resultMap="BetRealTimeListResult">
+    <select id="selectBetRealTimeList" parameterType="com.ruoyi.system.domain.vo.BetRealTimeReqVO" resultMap="BetRealTimeListResult">
         select
              u.user_id as user_id
             ,u.nick_name as nick_name
             ,u.real_name as real_name
             ,u.remark_name as remark_name
+            ,u.avatar as avatar
             ,br.bet_id as bet_id
             ,br.record_time as record_time
             ,br.game_id as game_id
@@ -308,8 +310,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         left join sys_user u on u.user_id = br.user_id and u.del_flag = '0'
         where br.is_robot = 0
         <if test="userId != null "> and br.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
         <if test="gameId != null "> and br.game_id = #{gameId}</if>
-        <if test="settledFlg != null "> and br.is_delete = 0 and br.settle_flg = 0</if>
+        <if test="periods != null "> and br.periods = #{periods}</if>
+        <if test="settledFlgStr != null "> and br.is_delete = 0 and br.settle_flg = 0</if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(br.record_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(br.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        <if test="winFlg != null">
+            and (
+                ('1' = #{winFlg} and br.is_delete = 0 and br.settle_flg = 0)
+                or
+                ('2' = #{winFlg} and br.account_result = 0)
+                or
+                ('3' = #{winFlg} and br.account_result > 0)
+            )
+        </if>
         order by br.bet_id desc
     </select>
 

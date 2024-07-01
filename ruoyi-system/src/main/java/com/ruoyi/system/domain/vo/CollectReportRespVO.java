@@ -1,6 +1,6 @@
 package com.ruoyi.system.domain.vo;
 
-public class AgentUserListRespVo {
+public class CollectReportRespVO {
 
     /** 用户ID */
     private Long userId;
@@ -17,8 +17,17 @@ public class AgentUserListRespVo {
     /** 会员头像 */
     private String avatar;
 
-    /** 产生佣金金额 */
-    private Float generateCommissionMoney;
+    /** 投注期数	 */
+    private Integer betCnt;
+
+    /** 投注 */
+    private Float betMoneyTotal;
+
+    /** 中奖金额 */
+    private Float betWinMoneyTotal;
+
+    /** 用户盈亏 */
+    private Float winMoneyTotal;
 
     public Long getUserId() {
         return userId;
@@ -60,11 +69,35 @@ public class AgentUserListRespVo {
         this.avatar = avatar;
     }
 
-    public Float getGenerateCommissionMoney() {
-        return generateCommissionMoney;
+    public Integer getBetCnt() {
+        return betCnt;
     }
 
-    public void setGenerateCommissionMoney(Float generateCommissionMoney) {
-        this.generateCommissionMoney = generateCommissionMoney;
+    public void setBetCnt(Integer betCnt) {
+        this.betCnt = betCnt;
+    }
+
+    public Float getBetMoneyTotal() {
+        return betMoneyTotal;
+    }
+
+    public void setBetMoneyTotal(Float betMoneyTotal) {
+        this.betMoneyTotal = betMoneyTotal;
+    }
+
+    public Float getBetWinMoneyTotal() {
+        return betWinMoneyTotal;
+    }
+
+    public void setBetWinMoneyTotal(Float betWinMoneyTotal) {
+        this.betWinMoneyTotal = betWinMoneyTotal;
+    }
+
+    public Float getWinMoneyTotal() {
+        return winMoneyTotal;
+    }
+
+    public void setWinMoneyTotal(Float winMoneyTotal) {
+        this.winMoneyTotal = winMoneyTotal;
     }
 }

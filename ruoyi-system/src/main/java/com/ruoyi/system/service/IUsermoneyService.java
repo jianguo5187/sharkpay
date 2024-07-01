@@ -85,4 +85,5 @@ public interface IUsermoneyService
     public int getNoApproveRechargeCnt();
 
     public int getNoApprovePostalCnt();
+    public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney);
 }

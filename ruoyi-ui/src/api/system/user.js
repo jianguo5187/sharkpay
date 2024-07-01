@@ -153,6 +153,14 @@ export function selectAllUser() {
     method: 'get',
   })
 }
+// 查询代理上级用户列表
+export function parentUserList(query) {
+  return request({
+    url: '/system/user/parentUserList',
+    method: 'get',
+    params: query
+  })
+}
 // 查询用户列表
 export function listAgentUser(query) {
   return request({

@@ -233,4 +233,12 @@ public class UsermoneyController extends BaseController
         ajax.put("downCount",usermoneyService.getNoApprovePostalCnt());
         return ajax;
     }
+
+    @GetMapping("/listUserFlowMoney")
+    public TableDataInfo listUserFlowMoney(Usermoney usermoney)
+    {
+        startPage();
+        List<UserMoneyDetailListRespVO> list =usermoneyService.selectUserMoneyDetailList(usermoney);
+        return getDataTable(list);
+    }
 }

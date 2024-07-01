@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="house"    column="house"    />
         <result property="isDelete"    column="is_delete"    />
         <result property="hzId"    column="hz_id"    />
+        <result property="commissionFromUserId"    column="commission_from_user_id"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -87,8 +88,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="cashMoney"    column="cash_money"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.UserMoneyDetailListRespVO" id="UserMoneyDetailListResult">
+        <result property="userId"       column="user_id"      />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="avatar"     column="avatar"    />
+        <result property="id"     column="id"    />
+        <result property="beforeUserMoney"     column="before_user_money"    />
+        <result property="cashMoney"    column="cash_money"    />
+        <result property="userBalance"     column="user_balance"    />
+        <result property="remark"     column="remark"    />
+        <result property="type"    column="type"    />
+        <result property="cashTime"    column="cash_time"    />
+    </resultMap>
+
     <sql id="selectUsermoneyVo">
-        select id, user_id, cash_content, cash_time, cash_money, type, user_balance, union_pay_id, user_name, user_pay, user_account, cash_describe, game_id, game_name, house, is_delete, hz_id, create_by, create_time, update_by, update_time, remark from usermoney
+        select id, user_id, cash_content, cash_time, cash_money, type, user_balance, union_pay_id, user_name, user_pay, user_account, cash_describe, game_id, game_name, house, is_delete, hz_id, commission_from_user_id, create_by, create_time, update_by, update_time, remark from usermoney
     </sql>
 
     <select id="selectUsermoneyList" parameterType="Usermoney" resultMap="UsermoneyResult">
@@ -110,6 +126,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="house != null "> and house = #{house}</if>
             <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
             <if test="hzId != null  and hzId != ''"> and hz_id = #{hzId}</if>
+            <if test="commissionFromUserId != null"> and commission_from_user_id = #{commissionFromUserId}</if>
         </where>
     </select>
     
@@ -135,6 +152,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="house != null">house,</if>
             <if test="isDelete != null and isDelete != ''">is_delete,</if>
             <if test="hzId != null and hzId != ''">hz_id,</if>
+            <if test="commissionFromUserId != null">commission_from_user_id,</if>
             <if test="createBy != null">create_by,</if>
         <if test="remark != null">remark,</if>
         cash_time,
@@ -155,6 +173,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="house != null">#{house},</if>
             <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
             <if test="hzId != null and hzId != ''">#{hzId},</if>
+            <if test="commissionFromUserId != null">#{commissionFromUserId},</if>
             <if test="createBy != null">#{createBy},</if>
         <if test="remark != null">#{remark},</if>
         CURDATE(),
@@ -181,6 +200,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="house != null">house = #{house},</if>
             <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
             <if test="hzId != null and hzId != ''">hz_id = #{hzId},</if>
+            <if test="commissionFromUserId != null">commission_from_user_id = #{commissionFromUserId},</if>
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
@@ -254,7 +274,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </if>
     </select>
 
-    <select id="selectPostalList" resultMap="PostalListResult">
+    <select id="selectPostalList" parameterType="com.ruoyi.system.domain.vo.PostalListReqVO" resultMap="PostalListResult">
         select
              u.user_id as user_id
             ,u.nick_name as nick_name
@@ -271,6 +291,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where 1 = 1
         <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
         <if test="filterDate != null and filterDate != ''">
             and DATE_FORMAT(um.cash_time, '%Y-%m-%d') = #{filterDate}
         </if>
@@ -279,7 +302,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by um.cash_time desc,um.id desc
     </select>
 
-    <select id="selectRechargeList" resultMap="RechargeListResult">
+    <select id="selectRechargeList" parameterType="com.ruoyi.system.domain.vo.RechargeListReqVO" resultMap="RechargeListResult">
         select
              u.user_id as user_id
             ,u.nick_name as nick_name
@@ -296,6 +319,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where 1 = 1
         <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
         <if test="filterDate != null and filterDate != ''">
             and DATE_FORMAT(um.cash_time, '%Y-%m-%d') = #{filterDate}
         </if>
@@ -315,6 +341,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where um.type = '2'
         <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
             and date_format(um.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
         </if>
@@ -335,6 +364,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where um.type = '5'
         <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
             and date_format(um.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
         </if>
@@ -356,6 +388,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where um.type = '11'
         <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
         <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
             and date_format(um.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
         </if>
@@ -375,5 +410,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             date_format( um.cash_time, '%y%m%d' ) >= date_format( CURDATE() - INTERVAL 6 DAY, '%y%m%d' )
         AND um.type = #{type}
         GROUP BY um.cash_time
+    </select>
+
+    <select id="selectUserMoneyDetailList" parameterType="Usermoney" resultMap="UserMoneyDetailListResult">
+        select
+             u.user_id as user_id
+            ,u.nick_name as nick_name
+            ,u.real_name as real_name
+            ,u.remark_name as remark_name
+            ,u.avatar as avatar
+            ,um.id as id
+            ,um.user_balance - (CASE WHEN um.type in('1','2','6','8','16','11','111') then 1 else -1 end * um.cash_money)  as before_user_money
+            ,CASE WHEN um.type in('1','2','6','8','16','11','111') then 1 else -1 end * um.cash_money as cash_money
+            ,um.user_balance as user_balance
+            ,um.remark as remark
+            ,um.type as type
+            ,um.create_time as cash_time
+        from  usermoney um
+        inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
+        where um.is_delete = '0'
+        <if test="userId != null "> and um.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
+        <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(um.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        <if test="type != null and type != ''"><!-- 类型 -->
+            and um.type =  #{type}
+        </if>
+        ORDER BY um.id DESC
     </select>
 </mapper>

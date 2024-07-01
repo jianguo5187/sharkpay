@@ -3,6 +3,7 @@ package com.ruoyi.system.mapper;
 import java.util.List;
 
 import com.ruoyi.system.domain.vo.AgentUserListRespVo;
+import com.ruoyi.system.domain.vo.ParentUserListRespVO;
 import org.apache.ibatis.annotations.Param;
 import com.ruoyi.common.core.domain.entity.SysUser;
 
@@ -68,6 +69,14 @@ public interface SysUserMapper
      * @return 结果
      */
     public int updateUser(SysUser user);
+
+    /**
+     * 修改用户状态
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    public int updateUserStatus(SysUser user);
 
     /**
      * 修改用户头像
@@ -155,6 +164,8 @@ public interface SysUserMapper
     public int updateUserAmount(SysUser user);
 
     public List<SysUser> selectChildUserList(Long parentUserId);
+
+    public List<ParentUserListRespVO> selectParentUserList(SysUser user);
 
     public List<AgentUserListRespVo> selectAgentUserList(SysUser user);
 

@@ -68,17 +68,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="status"       column="role_status"    />
     </resultMap>
 
-	<resultMap type="com.ruoyi.system.domain.vo.AgentUserListRespVo" id="AgentUserListResult">
+	<resultMap type="com.ruoyi.system.domain.vo.ParentUserListRespVO" id="ParentUserListResult">
 		<result property="userId"       column="user_id"      />
 		<result property="nickName"    column="nick_name"    />
 		<result property="realName"    column="real_name"    />
 		<result property="remarkName"     column="remark_name"    />
+		<result property="avatar"       column="avatar"       />
+		<result property="childCnt"       column="child_cnt"       />
 		<result property="parentUserId"    column="parent_user_id"    />
 		<result property="parentNickName"    column="parent_nick_name"    />
 		<result property="parentRealName"    column="parent_real_name"    />
 		<result property="parentRealName"     column="parent_remark_name"    />
 		<result property="totalCommissionMoney"    column="total_commission_money"    />
 		<result property="todayCommissionMoney"    column="today_commission_money"    />
+	</resultMap>
+
+	<resultMap type="com.ruoyi.system.domain.vo.AgentUserListRespVo" id="AgentUserListResult">
+		<result property="userId"       column="user_id"      />
+		<result property="nickName"    column="nick_name"    />
+		<result property="realName"    column="real_name"    />
+		<result property="remarkName"     column="remark_name"    />
+		<result property="avatar"       column="avatar"       />
+		<result property="generateCommissionMoney"    column="generate_commission_money"    />
 	</resultMap>
 	
 	<sql id="selectUserVo">
@@ -358,43 +369,79 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND u.parent_user_id = #{parentUserId}
 	</select>
 
-	<select id="selectAgentUserList" parameterType="SysUser" resultMap="AgentUserListResult">
+	<select id="selectParentUserList" parameterType="SysUser" resultMap="ParentUserListResult">
 		SELECT
 			p.user_id AS user_id,
+			max(pu.child_cnt) AS child_cnt,
 			max( p.user_name ) AS user_name,
 			max( p.nick_name ) AS nick_name,
 			max( p.remark_name) AS remark_name,
-			max(pu.user_id) as parent_user_id,
-			max(pu.nick_name) as parent_nick_name,
-			max(pu.real_name) as parent_real_name,
-			max(pu.remark_name) AS parent_remark_name,
+			max(p.avatar) AS avatar,
 			IFNULL( sum( um.cash_money ), 0 ) AS total_commission_money,
 			IFNULL( sum( tm.pre_commission_money ), 0 ) AS today_commission_money
 		FROM
-			sys_user p
+			(
+				SELECT
+				     p.parent_user_id AS p_user_id
+				     ,count(p.user_id) as child_cnt
+				FROM sys_user p
+				WHERE p.parent_user_id is not NULL
+				  AND p.parent_user_id != 2
+				GROUP BY p.parent_user_id
+			)pu
+			INNER JOIN sys_user p
+			ON pu.p_user_id = p.user_id
 			LEFT JOIN usermoney um ON um.user_id = p.user_id
 			AND um.type = "11"
 			LEFT JOIN (
 				SELECT
 					uw.user_id AS user_id,
 					SUM(
-							ROUND(( uw.big_small_money + uw.other_money - uw.deduct_money )* g.game_commission / 100, 2 )) AS pre_commission_money
+					ROUND(( uw.big_small_money + uw.other_money - uw.deduct_money )* g.game_commission / 100, 2 )) AS pre_commission_money
 				FROM
-					userwin uw
-						INNER JOIN sys_game g ON g.game_id = uw.game_id
+				userwin uw
+				INNER JOIN sys_game g ON g.game_id = uw.game_id
 				WHERE
-					DATE_FORMAT( uw.win_time, '%Y-%m-%d' )= CURDATE()
+				DATE_FORMAT( uw.win_time, '%Y-%m-%d' )= CURDATE()
 				GROUP BY
-					uw.user_id
+				uw.user_id
 			) tm ON tm.user_id = p.user_id
 			left join sys_user pu on pu.user_id = p.parent_user_id
 		WHERE
-			p.del_flag = "0"
-		  AND EXISTS ( SELECT 1 FROM sys_user c WHERE c.parent_user_id = p.user_id )
+		    p.del_flag = '0'
+		<if test="userId != null and userId != 0">
+			AND p.user_id = #{userId}
+		</if>
+		<if test="nickName != null and nickName != ''">
+			AND CONCAT(IFNULL(p.nick_name,''), IFNULL(p.remark_name,'')) like concat('%', #{nickName}, '%')
+		</if>
 		GROUP BY
 			p.user_id
 		ORDER BY
 			p.user_id
+	</select>
+
+	<select id="selectAgentUserList" parameterType="SysUser" resultMap="AgentUserListResult">
+		SELECT
+			c.user_id AS user_id,
+			max(c.user_name ) AS user_name,
+			max(c.nick_name ) AS nick_name,
+			max(c.remark_name) AS remark_name,
+			max(c.avatar) AS avatar,
+			IFNULL( sum( um.cash_money ), 0 ) AS generate_commission_money
+		FROM
+			sys_user c
+		LEFT JOIN usermoney um ON um.commission_from_user_id = c.user_id
+		AND um.type = "11"
+		WHERE
+		c.del_flag = '0'
+		<if test="parentUserId != null and parentUserId != 0">
+			AND c.parent_user_id = #{parentUserId}
+		</if>
+		GROUP BY
+		c.user_id
+		ORDER BY
+		c.user_id
 	</select>
 
 	<select id="selectEffectiveUsersCount" resultType="Integer">

@@ -3,72 +3,64 @@
     <el-row :gutter="20">
       <!--用户数据-->
       <el-col :span="24" :xs="24">
-<!--        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">-->
-<!--          <el-form-item label="用户昵称" prop="nickName">-->
-<!--            <el-input-->
-<!--              v-model="queryParams.nickName"-->
-<!--              placeholder="请输入用户昵称"-->
-<!--              clearable-->
-<!--              style="width: 240px"-->
-<!--              @keyup.enter.native="handleQuery"-->
-<!--            />-->
-<!--          </el-form-item>-->
-<!--          <el-form-item label="手机号码" prop="phonenumber">-->
-<!--            <el-input-->
-<!--              v-model="queryParams.phonenumber"-->
-<!--              placeholder="请输入手机号码"-->
-<!--              clearable-->
-<!--              style="width: 240px"-->
-<!--              @keyup.enter.native="handleQuery"-->
-<!--            />-->
-<!--          </el-form-item>-->
-<!--          <el-form-item label="状态" prop="status">-->
-<!--            <el-select-->
-<!--              v-model="queryParams.status"-->
-<!--              placeholder="用户状态"-->
-<!--              clearable-->
-<!--              style="width: 240px"-->
-<!--            >-->
-<!--              <el-option-->
-<!--                v-for="dict in dict.type.sys_normal_disable"-->
-<!--                :key="dict.value"-->
-<!--                :label="dict.label"-->
-<!--                :value="dict.value"-->
-<!--              />-->
-<!--            </el-select>-->
-<!--          </el-form-item>-->
-<!--          <el-form-item label="创建时间">-->
-<!--            <el-date-picker-->
-<!--              v-model="dateRange"-->
-<!--              style="width: 240px"-->
-<!--              value-format="yyyy-MM-dd"-->
-<!--              type="daterange"-->
-<!--              range-separator="-"-->
-<!--              start-placeholder="开始日期"-->
-<!--              end-placeholder="结束日期"-->
-<!--            ></el-date-picker>-->
-<!--          </el-form-item>-->
-<!--          <el-form-item>-->
-<!--            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>-->
-<!--            <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>-->
-<!--          </el-form-item>-->
-<!--        </el-form>-->
+        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+          <el-form-item label="用户ID" prop="userId">
+            <el-input
+              v-model="queryParams.userId"
+              placeholder="请输入用户ID"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item label="用户昵称" prop="nickName">
+            <el-input
+              v-model="queryParams.nickName"
+              placeholder="请输入用户昵称"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+            <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+          </el-form-item>
+        </el-form>
 
         <el-row :gutter="10" class="mb8">
           <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
         </el-row>
 
-        <el-table v-loading="loading" :data="agentUserList">
-          <el-table-column label="用户昵称" align="center" prop="userId">
+        <el-table v-loading="loading" :data="parentUserList">
+          <el-table-column label="用户ID" align="center" key="userId" prop="userId"/>
+          <el-table-column label="昵称" align="center" prop="nickName">
             <template slot-scope="scope">
-              <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
+              <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
             </template>
           </el-table-column>
-          <el-table-column label="总佣金金额" align="center" key="totalCommissionMoney" prop="totalCommissionMoney"/>
-          <el-table-column label="今日佣金金额" align="center" key="todayCommissionMoney" prop="todayCommissionMoney"/>
-          <el-table-column label="上级用户" align="center" prop="parentUserId">
+          <el-table-column label="头像" align="center" prop="avatar" width="100">
             <template slot-scope="scope">
-              <span v-if="scope.row.parentUserId != null">{{ scope.row.parentNickName }}(<span style="color: blue">{{ scope.row.parentUserId }}</span>)</span>
+              <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
+            </template>
+          </el-table-column>
+          <el-table-column label="推广人数" align="center" key="childCnt" prop="childCnt"/>
+          <el-table-column label="总佣金" align="center" key="totalCommissionMoney" prop="totalCommissionMoney"/>
+          <el-table-column label="今日佣金" align="center" key="todayCommissionMoney" prop="todayCommissionMoney"/>
+<!--          <el-table-column label="上级用户" align="center" prop="parentUserId">-->
+<!--            <template slot-scope="scope">-->
+<!--              <span v-if="scope.row.parentUserId != null">{{ scope.row.parentNickName }}(<span style="color: blue">{{ scope.row.parentUserId }}</span>)</span>-->
+<!--            </template>-->
+<!--          </el-table-column>-->
+          <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+            <template slot-scope="scope">
+              <el-button
+                title="下级列表"
+                type="info"
+                icon="el-icon-key"
+                circle
+                @click="showAgentDetailList(scope.row)"
+              ></el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -82,18 +74,71 @@
         />
       </el-col>
     </el-row>
+
+    <el-dialog :title="agent.title" :visible.sync="agent.open" width="1400px" append-to-body>
+      <el-table v-loading="agent.loading" :data="agentUserList">
+        <el-table-column label="用户ID" align="center" key="userId" prop="userId"/>
+        <el-table-column label="昵称" align="center" prop="nickName">
+          <template slot-scope="scope">
+            <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
+          </template>
+        </el-table-column>
+        <el-table-column label="头像" align="center" prop="avatar" width="100">
+          <template slot-scope="scope">
+            <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
+          </template>
+        </el-table-column>
+        <el-table-column label="产生佣金" align="center" prop="generateCommissionMoney" />
+        <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+          <template slot-scope="scope">
+            <el-button
+              title="详细统计"
+              type="info"
+              icon="el-icon-burger"
+              circle
+              @click="showUserFlowDetailList(scope.row)"
+            ></el-button>
+            <el-button
+              title="投注记录"
+              type="info"
+              icon="el-icon-burger"
+              circle
+              @click="showUserBetDetailList(scope.row)"
+            ></el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <pagination
+        v-show="agent.total>0"
+        :total="agent.total"
+        :page.sync="agent.queryParams.pageNum"
+        :limit.sync="agent.queryParams.pageSize"
+        @pagination="getAgentUserList"
+      />
+    </el-dialog>
+
+    <el-dialog :title="userFlowMoney.title" :visible.sync="userFlowMoney.open" width="1400px" append-to-body>
+      <user-flow-money-list :user="userFlowMoney.user"/>
+    </el-dialog>
+
+    <el-dialog :title="userBet.title" :visible.sync="userBet.open" width="1400px" append-to-body>
+      <bet-real-time :user="userBet.user"/>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import {listAgentUser} from "@/api/system/user";
+import {listAgentUser, parentUserList} from "@/api/system/user";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+import UserFlowMoneyList from "@/views/system/userMoney"
+import BetRealTime from "@/views/system/bet/betRealTime"
 
 export default {
   name: "AgentUser",
   dicts: ['sys_normal_disable', 'sys_user_sex', 'user_type'],
-  components: { Treeselect },
+  components: { Treeselect,UserFlowMoneyList,BetRealTime},
   data() {
     return {
       // 遮罩层
@@ -107,7 +152,8 @@ export default {
       // 总条数
       total: 0,
       // 用户表格数据
-      agentUserList: null,
+      parentUserList: null,
+      agentUserList:null,
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -120,10 +166,50 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        // nickName: undefined,
+        userId: undefined,
+        nickName: undefined,
         // phonenumber: undefined,
         // status: undefined,
         // deptId: undefined
+      },
+      agent: {
+        // 遮罩层
+        loading: true,
+        // 弹出层标题
+        title: "",
+        // 是否显示弹出层
+        open: false,
+        // 总条数
+        total: 0,
+        // 查询参数
+        queryParams: {
+          pageNum: 1,
+          pageSize: 10,
+          parentUserId: undefined,
+        },
+      },
+      userFlowMoney: {
+        // 遮罩层
+        loading: true,
+        // 弹出层标题
+        title: "",
+        // 是否显示弹出层
+        open: false,
+
+        user: {
+          userId:undefined
+        },
+      },
+      userBet: {
+        // 遮罩层
+        loading: true,
+        // 弹出层标题
+        title: "",
+        // 是否显示弹出层
+        open: false,
+        user: {
+          userId: undefined
+        },
       },
       // 表单校验
       rules: {
@@ -137,8 +223,8 @@ export default {
     /** 查询用户列表 */
     getList() {
       this.loading = true;
-      listAgentUser(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
-          this.agentUserList = response.rows;
+      parentUserList(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+          this.parentUserList = response.rows;
           this.total = response.total;
           this.loading = false;
         }
@@ -156,6 +242,31 @@ export default {
       this.queryParams.deptId = undefined;
       this.$refs.tree.setCurrentKey(null);
       this.handleQuery();
+    },
+    showAgentDetailList(row){
+      this.agent.queryParams.parentUserId = row.userId;
+      this.getAgentUserList();
+    },
+    /** 查询用户列表 */
+    getAgentUserList() {
+      this.agent.loading = true;
+      listAgentUser(this.agent.queryParams).then(response => {
+          this.agentUserList = response.rows;
+          this.agent.total = response.total;
+          this.agent.loading = false;
+          this.agent.open = true;
+        }
+      );
+    },
+    showUserFlowDetailList(row){
+      this.userFlowMoney.open = true;
+      this.userFlowMoney.user = {};
+      this.userFlowMoney.user.userId = row.userId;
+    },
+    showUserBetDetailList(row){
+      this.userBet.open = true;
+      this.userBet.user = {};
+      this.userBet.user.userId = row.userId;
     },
   }
 };

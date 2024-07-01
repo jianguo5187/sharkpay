@@ -128,7 +128,7 @@ public class BetRecordServiceImpl implements IBetRecordService
 
     @Override
     public List<BetRealTimeRespVO> selectBetRealTimeList(BetRealTimeReqVO vo) {
-        return betRecordMapper.selectBetRealTimeList(vo.getGameId(),vo.getUserId(),vo.getSettledFlgStr());
+        return betRecordMapper.selectBetRealTimeList(vo);
     }
 
     @Override
@@ -207,7 +207,7 @@ public class BetRecordServiceImpl implements IBetRecordService
         usermoney.setUserId(betRecord.getUserId());
         usermoney.setGameId(betRecord.getGameId());
         usermoney.setGameName(betRecord.getGameName());
-        usermoney.setRemark("管理撤单");
+        usermoney.setRemark("管理员撤单");
         usermoney.setCashMoney(betRecord.getMoney());
         usermoney.setUserBalance(userAmount);
         usermoney.setType("111");

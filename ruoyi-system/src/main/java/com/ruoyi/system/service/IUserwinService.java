@@ -81,4 +81,10 @@ public interface IUserwinService
     public void commissionUser(Long userId,Userwin userwin);
 
     public List<TotalReportRespVO> selectTotalReportLis();
+
+    public List<UserReportRespVO> selectUserReportLis(Userwin userwin);
+
+    public List<GameReportRespVO> selectGameReportLis(Userwin userwin);
+
+    public List<CollectReportRespVO> selectCollectReportLis(Userwin userwin);
 }

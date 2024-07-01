@@ -3,6 +3,8 @@ package com.ruoyi.common.core.domain.entity;
 import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -74,6 +76,7 @@ public class SysUser extends BaseEntity
     private String loginIp;
 
     /** 最后登录时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Excel(name = "最后登录时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
     private Date loginDate;
 
@@ -160,6 +163,9 @@ public class SysUser extends BaseEntity
 
     /** 盈亏金额 */
     private Float totalWinMoney;
+
+    /** 今日金额 */
+    private Float todayWinMoney;
 
     /** 流水金额 */
     private Float totalBetMoney;
@@ -582,6 +588,14 @@ public class SysUser extends BaseEntity
 
     public void setTotalWinMoney(Float totalWinMoney) {
         this.totalWinMoney = totalWinMoney;
+    }
+
+    public Float getTodayWinMoney() {
+        return todayWinMoney;
+    }
+
+    public void setTodayWinMoney(Float todayWinMoney) {
+        this.todayWinMoney = todayWinMoney;
     }
 
     public Float getTotalBetMoney() {

@@ -5,6 +5,9 @@ public class RechargeListReqVO {
     /** 用户ID */
     private Long userId;
 
+    /** 用户昵称 */
+    private String nickName;
+
     /** 充值时间 */
     private String filterDate;
 
@@ -17,6 +20,14 @@ public class RechargeListReqVO {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getFilterDate() {

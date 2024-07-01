@@ -69,9 +69,31 @@ export function commissionUser(data) {
     data: data
   })
 }
+
 export function listTotalReport(query) {
   return request({
     url: '/system/userwin/listTotalReport',
+    method: 'get',
+    params: query
+  })
+}
+export function listUserReport(query) {
+  return request({
+    url: '/system/userwin/listUserReport',
+    method: 'get',
+    params: query
+  })
+}
+export function listGameReport(query) {
+  return request({
+    url: '/system/userwin/listGameReport',
+    method: 'get',
+    params: query
+  })
+}
+export function listCollectReport(query) {
+  return request({
+    url: '/system/userwin/listCollectReport',
     method: 'get',
     params: query
   })

@@ -1,21 +1,7 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
-      <el-form-item label="用户ID" prop="userId">
-        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
-        </el-input>
-      </el-form-item>
-      <el-form-item label="用户昵称" prop="nickName">
-        <el-input
-          v-model="queryParams.nickName"
-          placeholder="请输入用户昵称"
-          clearable
-          style="width: 240px"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-
-      <el-form-item label="筛选时间">
+      <el-form-item label="记录时间">
         <el-date-picker
           v-model="dateRange"
           style="width: 240px"
@@ -27,25 +13,58 @@
         ></el-date-picker>
       </el-form-item>
 
+      <el-form-item label="用户ID" prop="userId">
+        <el-input
+          v-model="queryParams.userId"
+          placeholder="请输入用户ID"
+          clearable
+          style="width: 240px"
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+
+      <el-form-item label="用户昵称" prop="nickName">
+        <el-input
+          v-model="queryParams.nickName"
+          placeholder="请输入用户昵称"
+          clearable
+          style="width: 240px"
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+
+      <el-form-item label="游戏" prop="gameId">
+        <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="getBetTypeList">
+          <el-option
+            clearable
+            v-for="item in gameListOptions"
+            :key="item.gameId"
+            :label="item.gameName"
+            :value="item.gameId"
+          ></el-option>
+        </el-select>
+      </el-form-item>
+
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
       </el-form-item>
     </el-form>
-
     <el-row :gutter="10" class="mb8">
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="cashBackList" show-summary :summary-method="getSummaries">
-      <el-table-column label="用户ID" align="center" key="userId" prop="userId" width="80"/>
+    <el-table v-loading="loading" :data="collectReportList">
+      <el-table-column label="用户ID" align="center" key="userId" prop="userId"/>
       <el-table-column label="昵称" align="center" prop="nickName">
         <template slot-scope="scope">
           <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
         </template>
       </el-table-column>
-      <el-table-column label="日期" align="center" prop="winTime" />
-      <el-table-column label="返点金额" align="center" prop="cashBackMoney" />
+      <el-table-column label="投注期数" align="center" prop="betCnt"/>
+      <el-table-column label="投注金额" align="center" prop="betMoneyTotal" />
+      <el-table-column label="中奖金额" align="center" prop="betWinMoneyTotal" />
+      <el-table-column label="用户盈亏" align="center" prop="winMoneyTotal" />
     </el-table>
 
     <pagination
@@ -59,15 +78,15 @@
 </template>
 
 <script>
-import {cashBackUser, cashBackYestoday, listCashBackDetail, listCashBackList} from "@/api/system/userWin";
-import {selectAllUser} from "@/api/system/user";
+import {listCollectReport} from "@/api/system/userWin";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+import {getValidGame} from "@/api/system/game";
 
 export default {
-  name: "cashbackList",
+  name: "userReport",
   components: {Treeselect},
-  dicts: ['sys_cashback_status'],
+  dicts: ['sys_postal_status'],
   data() {
     return {
       // 遮罩层
@@ -87,12 +106,12 @@ export default {
       // 总条数
       total: 0,
       // 用户盈利表格数据
-      cashBackList: [],
+      collectReportList: [],
+      gameListOptions:[],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
       open: false,
-      userListOptions:[],
       // 日期范围
       dateRange: [],
       // 查询参数
@@ -101,44 +120,33 @@ export default {
         pageSize: 20,
         userId: undefined,
         nickName: undefined,
+        gameId: undefined,
       },
+      // 表单参数
+      form: {},
+      // 表单校验
+      rules: {
+      }
     };
   },
   created() {
+    this.getGameList();
     this.getList();
   },
-  // mounted() {
-  //   setInterval(this.getList, 15000); //每15s刷新列表
-  // },
   methods: {
     /** 查询投注机器人列表 */
     getList() {
       this.loading = true;
-      listCashBackList(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
-        this.cashBackList = response.rows;
+      listCollectReport(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
+        this.collectReportList = response.rows;
         this.total = response.total;
         this.loading = false;
       });
     },
-    getUserList(){
-      selectAllUser().then(response => {
-        this.userListOptions = [];
-        const menu = { userId: this.loginUserId, nickName: this.loginUserName, children: [] };
-        menu.children = this.handleTree(response.rows, "userId", "parentUserId");
-        this.userListOptions.push(menu);
-        this.getList();
+    getGameList(){
+      getValidGame().then(response => {
+        this.gameListOptions = response.gameList;
       });
-    },
-    /** 转换菜单数据结构 */
-    normalizer(node) {
-      if (node.children && !node.children.length) {
-        delete node.children;
-      }
-      return {
-        id: node.userId,
-        label: node.nickName,
-        children: node.children
-      };
     },
     /** 搜索按钮操作 */
     handleQuery() {
@@ -149,35 +157,6 @@ export default {
     resetQuery() {
       this.resetForm("queryForm");
       this.handleQuery();
-    },
-    // 合计 指定某一列添加合计
-    getSummaries(param) {
-      const { columns, data } = param;
-      const sums = [];
-      columns.forEach((column, index) => {
-        if (index === 0) {
-          sums[index] = "合计";
-          return;
-        } else if(index >1){
-          //如果是经费（正常的加减法）
-          const values = data.map((item) => Number(item[column.property]));
-          // console.log(values);
-          if (!values.every((value) => isNaN(value))) {
-            sums[index] = values.reduce((prev, curr) => {
-              const value = Number(curr);
-              var sum = 0;
-              if (!isNaN(value)) {
-                sum = Number(Number(prev) + Number(curr)).toFixed(2);
-                return sum;
-              } else {
-                return prev;
-              }
-            }, 0);
-            sums[index] += " ";
-          }
-        }
-      });
-      return sums;
     },
   }
 };

@@ -86,8 +86,15 @@ public class Usermoney extends BaseEntity
     @Excel(name = "是否合庄模式")
     private String hzId;
 
+    /** 佣金来源用户 */
+    @Excel(name = "佣金来源用户")
+    private Long commissionFromUserId;
+
     /** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限） */
     private String dataScope;
+
+    /** 用户昵称 */
+    private String nickName;
 
     public void setId(Long id)
     {
@@ -243,12 +250,28 @@ public class Usermoney extends BaseEntity
         return hzId;
     }
 
+    public Long getCommissionFromUserId() {
+        return commissionFromUserId;
+    }
+
+    public void setCommissionFromUserId(Long commissionFromUserId) {
+        this.commissionFromUserId = commissionFromUserId;
+    }
+
     public String getDataScope() {
         return dataScope;
     }
 
     public void setDataScope(String dataScope) {
         this.dataScope = dataScope;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     @Override
@@ -271,6 +294,7 @@ public class Usermoney extends BaseEntity
             .append("house", getHouse())
             .append("isDelete", getIsDelete())
             .append("hzId", getHzId())
+            .append("commissionFromUserId", getCommissionFromUserId())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

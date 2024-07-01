@@ -1,14 +1,18 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
-      <el-form-item label="用户" prop="userId">
-        <treeselect
-          v-model="queryParams.userId"
-          :options="userListOptions"
-          :normalizer="normalizer"
-          :show-count="true"
-          placeholder="请选择用户"
-          style="width: 320px;"/>
+      <el-form-item label="用户ID" prop="userId">
+        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
+        </el-input>
+      </el-form-item>
+      <el-form-item label="用户昵称" prop="nickName">
+        <el-input
+          v-model="queryParams.nickName"
+          placeholder="请输入用户昵称"
+          clearable
+          style="width: 240px"
+          @keyup.enter.native="handleQuery"
+        />
       </el-form-item>
 
       <el-form-item label="筛选时间">
@@ -34,13 +38,12 @@
     </el-row>
 
     <el-table v-loading="loading" :data="moneyUpTotalList" show-summary :summary-method="getSummaries">
-      <el-table-column label="用户名" align="center" prop="userId">
+      <el-table-column label="用户ID" align="center" key="userId" prop="userId" width="80"/>
+      <el-table-column label="昵称" align="center" prop="nickName">
         <template slot-scope="scope">
-          <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
+          <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
         </template>
       </el-table-column>
-      <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName"/>
-      <!--      <el-table-column label="备注" align="center" prop="remark" />-->
       <el-table-column label="总下分金额" align="center" prop="cashMoney" />
     </el-table>
 
@@ -94,7 +97,8 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 20,
-        userId: null,
+        userId: undefined,
+        nickName: undefined,
       },
       // 表单参数
       form: {},
@@ -104,7 +108,7 @@ export default {
     };
   },
   created() {
-    this.getUserList();
+    this.getList();
   },
   mounted() {
     setInterval(this.getList, 15000); //每15s刷新列表

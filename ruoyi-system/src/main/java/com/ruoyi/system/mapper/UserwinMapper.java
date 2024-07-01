@@ -98,4 +98,10 @@ public interface UserwinMapper
     public List<CashbackReportRespVO> selectCashbackReportLis(@Param("userId") Long userId,@Param("filterDate")String filterDate);
 
     public List<CommissionReportRespVO> selectCommissionReportLis(@Param("userId") Long userId, @Param("filterDate")String filterDate);
+
+    public List<UserReportRespVO> selectUserReportLis(Userwin userwin);
+
+    public List<GameReportRespVO> selectGameReportLis(Userwin userwin);
+
+    public List<CollectReportRespVO> selectCollectReportLis(Userwin userwin);
 }

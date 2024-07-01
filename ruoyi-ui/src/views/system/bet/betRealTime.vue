@@ -1,6 +1,17 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="108px">
+      <el-form-item label="投注时间">
+        <el-date-picker
+          v-model="dateRange"
+          style="width: 240px"
+          value-format="yyyy-MM-dd"
+          type="daterange"
+          range-separator="-"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+        ></el-date-picker>
+      </el-form-item>
       <el-form-item label="游戏" prop="gameId">
         <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="handleQuery">
           <el-option
@@ -16,6 +27,31 @@
         <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
         </el-input>
       </el-form-item>
+      <el-form-item label="用户昵称" prop="nickName">
+        <el-input
+          v-model="queryParams.nickName"
+          placeholder="请输入用户昵称"
+          clearable
+          style="width: 240px"
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+
+      <el-form-item label="期数" prop="periods">
+        <el-input
+          v-model="queryParams.periods"
+          placeholder="请输入期数"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+
+      <el-form-item label="是否中奖" prop="winFlg">
+        <el-select v-model="queryParams.winFlg" placeholder="是否中奖" clearable :style="{width: '100%'}">
+          <el-option v-for="(item, index) in winFlgOptions" :key="index" :label="item.label"
+                     :value="item.value" :disabled="item.disabled"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="仅看未结算" prop="settledFlg">
         <el-switch v-model="queryParams.settledFlg"></el-switch>
       </el-form-item>
@@ -30,22 +66,27 @@
     </el-row>
 
     <el-table v-loading="loading" :data="betRealTimeList">
-      <el-table-column label="用户名" align="center" prop="userId">
+      <el-table-column label="序号" align="center" key="betId" prop="betId" width="80"/>
+      <el-table-column label="用户ID" align="center" key="userId" prop="userId" width="80"/>
+      <el-table-column label="昵称" align="center" prop="nickName">
         <template slot-scope="scope">
-          <span>{{ scope.row.nickName }}(<span style="color: red">{{ scope.row.userId }}</span>)</span>
+          <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
         </template>
       </el-table-column>
-      <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName"/>
-<!--      <el-table-column label="真实姓名" align="center" prop="realName" />-->
-      <el-table-column label="下注时间" align="center" prop="recordTime" />
+      <el-table-column label="头像" align="center" prop="avatar" width="100">
+        <template slot-scope="scope">
+          <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
+        </template>
+      </el-table-column>
+      <el-table-column label="下注时间" align="center" prop="recordTime" width="150"/>
       <el-table-column label="游戏名" align="center" prop="gameName" />
-      <el-table-column label="期号" align="center" prop="periods" />
-      <el-table-column label="玩法" align="center" prop="playType" />
-      <el-table-column label="投注号码" align="center" prop="playDetail" />
-      <el-table-column label="下注金额" align="center" prop="money" />
-      <el-table-column label="余额" align="center" prop="balance" />
+      <el-table-column label="期号" align="center" prop="periods" width="120"/>
+      <el-table-column label="玩法" align="center" prop="playType" width="120"/>
+      <el-table-column label="投注号码" align="center" prop="playDetail" width="80"/>
+      <el-table-column label="投注金额" align="center" prop="money" />
+      <el-table-column label="中奖金额" align="center" prop="accountResult" />
       <el-table-column label="开奖结果" align="center" prop="gameResult" />
-      <el-table-column label="盈亏" align="center" prop="accountResult" />
+<!--      <el-table-column label="盈亏" align="center" prop="accountResult" />-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <span v-if="scope.row.isDelete == 1">用户撤单</span>
@@ -78,6 +119,11 @@ import {getValidGame} from "@/api/system/game";
 
 export default {
   name: "BetRealTime",
+  props: {
+    user: {
+      type: Object
+    }
+  },
   data() {
     return {
       // 遮罩层
@@ -99,20 +145,35 @@ export default {
       // 是否显示弹出层
       open: false,
       gameListOptions:[],
+      // 日期范围
+      dateRange: [],
       // 查询参数
       queryParams: {
         pageNum: 1,
-        pageSize: 20,
+        pageSize: 10,
         userId: null,
         gameId: null,
+        nickName: undefined,
         settledFlgStr: null,
+        periods:undefined,
+        winFlg:undefined,
         settledFlg: false,
       },
       // 表单参数
       form: {},
       // 表单校验
       rules: {
-      }
+      },
+      winFlgOptions: [{
+        "label": "未开奖",
+        "value": 1
+      }, {
+        "label": "未中奖",
+        "value": 2
+      }, {
+        "label": "中奖",
+        "value": 3
+      }],
     };
   },
   created() {
@@ -120,6 +181,17 @@ export default {
   },
   mounted() {
     setInterval(this.getList, 15000); //每15s刷新列表
+  },
+  watch: {
+    user: {
+      handler(user) {console.log("watch")
+        if (user) {
+          this.queryParams.userId = user.userId;
+          this.getList();
+        }
+      },
+      immediate: true
+    }
   },
   methods: {
     /** 查询投注机器人列表 */
@@ -130,7 +202,7 @@ export default {
       }else{
         this.queryParams.settledFlgStr = null;
       }
-      listBetRealTime(this.queryParams).then(response => {
+      listBetRealTime(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
         this.betRealTimeList = response.rows;
         this.total = response.total;
         this.loading = false;

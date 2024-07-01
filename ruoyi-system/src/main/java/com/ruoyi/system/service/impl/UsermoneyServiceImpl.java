@@ -113,7 +113,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
 
     @Override
     public List<PostalListRespVO> selectPostalList(PostalListReqVO vo) {
-        return usermoneyMapper.selectPostalList(vo.getUserId(), vo.getFilterDate(), vo.getPostalStatus());
+        return usermoneyMapper.selectPostalList(vo);
     }
 
     @Override
@@ -160,7 +160,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
 
     @Override
     public List<RechargeListRespVO> selectRechargeList(RechargeListReqVO vo) {
-        return usermoneyMapper.selectRechargeList(vo.getUserId(), vo.getFilterDate(), vo.getRechargeStatus());
+        return usermoneyMapper.selectRechargeList(vo);
     }
 
     @Override
@@ -217,7 +217,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
 
         usermoney.setType("2");
         usermoney.setUserBalance(userMoney);
-        usermoney.setRemark("管理员加款");
+        usermoney.setRemark("管理员上分");
         int insertCnt = usermoneyMapper.insertUsermoney(usermoney);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
@@ -243,7 +243,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
 
         usermoney.setType("5");
         usermoney.setUserBalance(userMoney);
-        usermoney.setRemark("管理员扣款");
+        usermoney.setRemark("管理员下分");
         int insertCnt = usermoneyMapper.insertUsermoney(usermoney);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
@@ -283,5 +283,10 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         Usermoney searchUsermoney = new Usermoney();
         searchUsermoney.setType("4");
         return usermoneyMapper.selectUsermoneyList(searchUsermoney).size();
+    }
+
+    @Override
+    public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney) {
+        return usermoneyMapper.selectUserMoneyDetailList(usermoney);
     }
 }

@@ -194,4 +194,28 @@ public class UserwinController extends BaseController
         List<TotalReportRespVO> list = userwinService.selectTotalReportLis();
         return getDataTable(list);
     }
+
+    @GetMapping("/listUserReport")
+    public TableDataInfo listUserReport(Userwin userwin)
+    {
+        startPage();
+        List<UserReportRespVO> list = userwinService.selectUserReportLis(userwin);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/listGameReport")
+    public TableDataInfo listGameReport(Userwin userwin)
+    {
+        startPage();
+        List<GameReportRespVO> list = userwinService.selectGameReportLis(userwin);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/listCollectReport")
+    public TableDataInfo listCollectReport(Userwin userwin)
+    {
+        startPage();
+        List<CollectReportRespVO> list = userwinService.selectCollectReportLis(userwin);
+        return getDataTable(list);
+    }
 }

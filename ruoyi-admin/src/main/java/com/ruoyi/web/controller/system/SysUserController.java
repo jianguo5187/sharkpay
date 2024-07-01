@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ruoyi.system.domain.vo.AgentUserListRespVo;
+import com.ruoyi.system.domain.vo.ParentUserListRespVO;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -214,13 +215,13 @@ public class SysUserController extends BaseController
     /**
      * 状态修改
      */
-    @PreAuthorize("@ss.hasPermi('system:user:edit')")
+//    @PreAuthorize("@ss.hasPermi('system:user:edit')")
     @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
     public AjaxResult changeStatus(@RequestBody SysUser user)
     {
-        userService.checkUserAllowed(user);
-        userService.checkUserDataScope(user.getUserId());
+//        userService.checkUserAllowed(user);
+//        userService.checkUserDataScope(user.getUserId());
         user.setUpdateBy(getUsername());
         return toAjax(userService.updateUserStatus(user));
     }
@@ -261,6 +262,17 @@ public class SysUserController extends BaseController
     public AjaxResult deptTree(SysDept dept)
     {
         return success(deptService.selectDeptTreeList(dept));
+    }
+
+    /**
+     * 获取代理上级用户列表
+     */
+    @GetMapping("/parentUserList")
+    public TableDataInfo parentUserList(SysUser user)
+    {
+        startPage();
+        List<ParentUserListRespVO> list = userService.selectParentUserList(user);
+        return getDataTable(list);
     }
 
     /**

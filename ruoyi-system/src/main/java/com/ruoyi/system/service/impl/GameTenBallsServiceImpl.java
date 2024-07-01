@@ -422,7 +422,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             usermoney.setUserId(userId);
             usermoney.setGameId(vo.getGameId());
             usermoney.setGameName(gameTenballKj.getGameName());
-            usermoney.setRemark(gameTenballKj.getGameName() + "-" + vo.getPeriods() + playType + betNumberArg[i]);
+            usermoney.setRemark("投注[" + gameTenballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + vo.getMoney() + "]元");
             usermoney.setCashMoney(vo.getMoney());
             usermoney.setUserBalance(userAmount);
             usermoney.setType("7");
@@ -631,7 +631,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 usermoney.setUserId(userId);
                 usermoney.setGameId(vo.getGameId());
                 usermoney.setGameName(gameTenballKj.getGameName());
-                usermoney.setRemark(gameTenballKj.getGameName() + "-" + vo.getPeriods() + playType + betNumberArg[i]);
+                usermoney.setRemark("投注[" + gameTenballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + tenBallsMultiBetRecordReqVO.getMoney() + "]元");
                 usermoney.setCashMoney(tenBallsMultiBetRecordReqVO.getMoney());
                 usermoney.setUserBalance(userAmount);
                 usermoney.setType("7");

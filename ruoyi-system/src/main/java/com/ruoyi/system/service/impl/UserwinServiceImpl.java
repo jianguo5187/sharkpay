@@ -420,6 +420,7 @@ public class UserwinServiceImpl implements IUserwinService
             usermoney.setGameId(userwin.getGameId());
             usermoney.setGameName(userwin.getGameName());
             usermoney.setRemark("下线佣金");
+            usermoney.setCommissionFromUserId(user.getUserId());
             usermoneyService.insertUsermoney(usermoney);
 
             userwinMapper.updateCommissionById(userwin.getId(),money);
@@ -445,5 +446,20 @@ public class UserwinServiceImpl implements IUserwinService
     @Override
     public List<TotalReportRespVO> selectTotalReportLis() {
         return userwinMapper.selectTotalReportLis();
+    }
+
+    @Override
+    public List<UserReportRespVO> selectUserReportLis(Userwin userwin) {
+        return userwinMapper.selectUserReportLis(userwin);
+    }
+
+    @Override
+    public List<GameReportRespVO> selectGameReportLis(Userwin userwin) {
+        return userwinMapper.selectGameReportLis(userwin);
+    }
+
+    @Override
+    public List<CollectReportRespVO> selectCollectReportLis(Userwin userwin) {
+        return userwinMapper.selectCollectReportLis(userwin);
     }
 }

@@ -421,12 +421,13 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             if(money > 0){
                 Usermoney usermoney = new Usermoney();
                 usermoney.setUserId(gameThreeballRecord.getUserId());
-                usermoney.setCashContent("【加拿大2.8】中奖-" + periodId);
+                usermoney.setCashContent("【" + gameInfo.getGameName() + "】中奖-" + periodId);
                 usermoney.setCashMoney(money);
                 usermoney.setUserBalance(user.getAmount());
                 usermoney.setType("8");
                 usermoney.setGameId(gameInfo.getGameId());
                 usermoney.setGameName(gameInfo.getGameName());
+                usermoney.setRemark("【" + gameInfo.getGameName() + "】第[" + periodId + "]期,中奖金额[" + money + "]元");
                 usermoneyService.insertUsermoney(usermoney);
             }
 

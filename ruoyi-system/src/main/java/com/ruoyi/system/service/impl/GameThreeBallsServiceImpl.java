@@ -405,7 +405,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             usermoney.setUserId(userId);
             usermoney.setGameId(vo.getGameId());
             usermoney.setGameName(gameThreeballKj.getGameName());
-            usermoney.setRemark(gameThreeballKj.getGameName() + "-" + vo.getPeriods() + playType + betNumberArg[i]);
+            usermoney.setRemark("投注[" + gameThreeballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + vo.getMoney() + "]元");
             usermoney.setCashMoney(vo.getMoney());
             usermoney.setUserBalance(userAmount);
             usermoney.setType("7");
@@ -602,7 +602,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 usermoney.setUserId(userId);
                 usermoney.setGameId(vo.getGameId());
                 usermoney.setGameName(gameThreeballKj.getGameName());
-                usermoney.setRemark(gameThreeballKj.getGameName() + "-" + vo.getPeriods() + playType + betNumberArg[i]);
+                usermoney.setRemark("投注[" + gameThreeballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + threeBallsMultiBetRecordReqVO.getMoney() + "]元");
                 usermoney.setCashMoney(threeBallsMultiBetRecordReqVO.getMoney());
                 usermoney.setUserBalance(userAmount);
                 usermoney.setType("7");

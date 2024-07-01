@@ -89,6 +89,12 @@ public class Userwin extends BaseEntity
     /** 盈亏时间筛选(yyyy-MM-dd) */
     private String filterDay;
 
+    /** 用户昵称 */
+    private String nickName;
+
+    /** 上级用户ID */
+    private Long parentUserId;
+
     public void setId(Long id)
     {
         this.id = id;
@@ -253,6 +259,22 @@ public class Userwin extends BaseEntity
 
     public void setFilterDay(String filterDay) {
         this.filterDay = filterDay;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public Long getParentUserId() {
+        return parentUserId;
+    }
+
+    public void setParentUserId(Long parentUserId) {
+        this.parentUserId = parentUserId;
     }
 
     @Override

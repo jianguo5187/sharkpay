@@ -70,9 +70,9 @@ public interface UsermoneyMapper
 
     public List<Usermoney> selectValidUsermoneyList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
-    public List<PostalListRespVO> selectPostalList(@Param("userId") Long userId,@Param("filterDate") String filterDate,@Param("postalStatus") String postalStatus);
+    public List<PostalListRespVO> selectPostalList(PostalListReqVO vo);
 
-    public List<RechargeListRespVO> selectRechargeList(@Param("userId") Long userId, @Param("filterDate") String filterDate, @Param("rechargeStatus") String rechargeStatus);
+    public List<RechargeListRespVO> selectRechargeList(RechargeListReqVO vo);
 
     public List<UserMoneyUpTotalListRespVO> selectUserMoneyUpTotalList(Usermoney usermoney);
 
@@ -81,4 +81,6 @@ public interface UsermoneyMapper
     public List<CommissionListRespVO> selectCommissionList(Usermoney usermoney);
 
     public List<WeekUpDownMoneyRespVO> selectWeekUpDownMoneyList(@Param("type")String type);
+
+    public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney);
 }
