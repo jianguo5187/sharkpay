@@ -298,6 +298,110 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         List<Integer> bigDoubleList = Arrays.asList(12, 14, 16, 18);
         List<Integer> smallDoubleList = Arrays.asList(4, 6, 8, 10);
 
+        BetRecord searchBetRecord = new BetRecord();
+        searchBetRecord.setGameId(gameInfo.getGameId());
+        searchBetRecord.setPeriods(periodId);
+        searchBetRecord.setSettleFlg("0");
+        searchBetRecord.setIsDelete("0");
+        List<BetRecord> betRecordList = betRecordService.selectBetRecordList(searchBetRecord);
+        for(BetRecord betRecord : betRecordList) {
+            Float winMoney = 0f;
+
+            //冠亚和3~19的金额计算
+            Integer num1AddNum2Result = gameTenballKj.getNum1()+gameTenballKj.getNum2();
+            if(("type1Num" + num1AddNum2Result).equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num"+num1AddNum2Result);
+            }
+
+            // 冠亚和大的金额计算
+            if(num1AddNum2Result > 11 && "type1Big".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big");
+            }
+
+            // 冠亚和小的金额计算
+            if(num1AddNum2Result <= 11 && "type1Small".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small");
+            }
+
+            // 冠亚和单的金额计算
+            if(num1AddNum2Result%2 == 1 && "type1Single".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"single");
+            }
+
+            // 冠亚和双的金额计算
+            if(num1AddNum2Result%2 == 0 && "type1Double".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"doubleFlg");
+            }
+
+            // 大单
+            if(bigSingleList.contains(num1AddNum2Result) && "bigSingle".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bigsingle");
+            }
+            // 大双
+            if(bigDoubleList.contains(num1AddNum2Result) && "bigDouble".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bigdouble");
+            }
+            // 小单
+            if(smallSingleList.contains(num1AddNum2Result) && "smallSingle".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"smallsingle");
+            }
+            // 小双
+            if(smallDoubleList.contains(num1AddNum2Result) && "smallDouble".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"smalldouble");
+            }
+
+            //冠军~第十名的金额计算
+            for(int k=2;k<=11;k++){
+                // 开奖num1~10
+                for(int x=1;x<=10;x++){
+                    Object kjNumObject = gameTenballKjMap.get("num" + x);
+                    Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+
+                    Object kj2NumObject = gameTenballKjMap.get("num" + (11-x));
+                    Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
+
+                    if(kjNum == x && ("type" + k +"Num" + x).equals(betRecord.getRecordLotteryKey())){
+                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + x + "Under" + (k-1));
+                    }
+
+                    // 大的金额计算
+                    if(kjNum >5 && ("type" + k + "Big").equals(betRecord.getRecordLotteryKey())){
+                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big" + x);
+                    }
+
+                    // 小的金额计算
+                    if(kjNum <6 && ("type" + k + "Small").equals(betRecord.getRecordLotteryKey())){
+                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small" + x);
+                    }
+
+                    // 单的金额计算
+                    if(kjNum%2 == 1 && ("type" + k + "Single").equals(betRecord.getRecordLotteryKey())){
+                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"single" + x);
+                    }
+
+                    // 双的金额计算
+                    if(kjNum%2 == 0 && ("type" + k + "Double").equals(betRecord.getRecordLotteryKey())){
+                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"double" + x);
+                    }
+
+                    // 龙的金额计算
+                    if(kj2Num < kjNum && ("type" + k + "Loong").equals(betRecord.getRecordLotteryKey())){
+                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"loong" + x);
+                    }
+
+                    // 虎的金额计算
+                    if(kj2Num > kjNum && ("type" + k + "Tiger").equals(betRecord.getRecordLotteryKey())){
+                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"tiger" + x);
+                    }
+                }
+            }
+
+            betRecord.setGameResult(gameResult);
+            betRecord.setSettleFlg("1");
+            betRecord.setAccountResult(winMoney);
+            betRecordService.updateBetRecord(betRecord);
+        }
+
         for(GameTenballRecord gameTenballRecord : gameTenballRecordList){
             Float money = 0f;
             Float bigSamllMoney = 0f;
@@ -549,16 +653,16 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             adminWinMoney += gameTenballRecord.getCountMoney() - money;
             Float accountResult = money - gameTenballRecord.getCountMoney();
 
-            BetRecord betRecord = new BetRecord();
-            betRecord.setUserId(gameTenballRecord.getUserId());
-            betRecord.setGameId(gameInfo.getGameId());
-            betRecord.setPeriods(periodId);
-            betRecord.setSettleFlg("0");
-            betRecord.setIsDelete("0");
-            betRecord.setGameResult(gameResult);
-            betRecord.setAccountResult(accountResult);
-
-            betRecordService.updateLotteryResult(betRecord);
+//            BetRecord betRecord = new BetRecord();
+//            betRecord.setUserId(gameTenballRecord.getUserId());
+//            betRecord.setGameId(gameInfo.getGameId());
+//            betRecord.setPeriods(periodId);
+//            betRecord.setSettleFlg("0");
+//            betRecord.setIsDelete("0");
+//            betRecord.setGameResult(gameResult);
+//            betRecord.setAccountResult(accountResult);
+//
+//            betRecordService.updateLotteryResult(betRecord);
         }
 
         Adminwin todayAdminwin = adminwinService.selectTodayAdminwin(gameInfo.getGameId());

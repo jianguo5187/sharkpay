@@ -107,6 +107,10 @@ public class BetRecord extends BaseEntity
     @Excel(name = "房间号")
     private Long houseId;
 
+    /** 投注结算Key */
+    @Excel(name = "投注结算Key")
+    private String recordLotteryKey;
+
     public void setBetId(Long betId) 
     {
         this.betId = betId;
@@ -306,6 +310,14 @@ public class BetRecord extends BaseEntity
         return houseId;
     }
 
+    public String getRecordLotteryKey() {
+        return recordLotteryKey;
+    }
+
+    public void setRecordLotteryKey(String recordLotteryKey) {
+        this.recordLotteryKey = recordLotteryKey;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -331,6 +343,7 @@ public class BetRecord extends BaseEntity
             .append("robotPic", getRobotPic())
             .append("robotImg", getRobotImg())
             .append("houseId", getHouseId())
+            .append("recordLotteryKey", getRecordLotteryKey())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

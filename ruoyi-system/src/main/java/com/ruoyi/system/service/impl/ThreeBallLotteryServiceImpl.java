@@ -263,6 +263,114 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         List<Integer> bigDoubleList = Arrays.asList(14, 16, 18, 20, 22, 24, 26);
         List<Integer> smallDoubleList = Arrays.asList(0, 2, 4, 6, 8, 10, 12);
 
+
+        BetRecord searchBetRecord = new BetRecord();
+        searchBetRecord.setGameId(gameInfo.getGameId());
+        searchBetRecord.setPeriods(periodId);
+        searchBetRecord.setSettleFlg("0");
+        searchBetRecord.setIsDelete("0");
+        List<BetRecord> betRecordList = betRecordService.selectBetRecordList(searchBetRecord);
+        for(BetRecord betRecord : betRecordList) {
+            Float winMoney = 0f;
+
+            // 和值 数字
+            if(("num"+gameThreeballKj.getSumNum()).equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num"+gameThreeballKj.getSumNum());
+            }
+
+            // 大
+            if(gameThreeballKj.getSumNum() > 13 && "big".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big");
+            }
+            // 小
+            if(gameThreeballKj.getSumNum() < 14 && "small".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small");
+            }
+            // 单
+            if(gameThreeballKj.getSumNum()%2 == 1 && "single".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"single");
+            }
+            // 双
+            if(gameThreeballKj.getSumNum()%2 == 0 && "doubleAmount".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"doubleFlg");
+            }
+            // 极大
+            if(gameThreeballKj.getSumNum() > 21 && "muchBig".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"muchbig");
+            }
+
+            // 大单
+            if(bigSingleList.contains(gameThreeballKj.getSumNum()) && "bigSingle".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bigsingle");
+            }
+            // 大双
+            if(bigDoubleList.contains(gameThreeballKj.getSumNum()) && "bigDouble".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bigdouble");
+            }
+            // 小单
+            if(smallSingleList.contains(gameThreeballKj.getSumNum()) && "smallSingle".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"smallsingle");
+            }
+            // 小双
+            if(smallDoubleList.contains(gameThreeballKj.getSumNum()) && "smallDouble".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"smalldouble");
+            }
+            // 极小
+            if(gameThreeballKj.getSumNum() < 6 && "muchSmall".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"muchsmall");
+            }
+            // 龙
+            if(gameThreeballKj.getNum3() < gameThreeballKj.getNum1() && "loong".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"loong");
+            }
+            // 虎
+            if(gameThreeballKj.getNum1() < gameThreeballKj.getNum3() && "tiger".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"tiger");
+            }
+            // 合
+            if(gameThreeballKj.getNum1() == gameThreeballKj.getNum3() && "close".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"close");
+            }
+
+            Integer dsbResult = getBaoShunDui(gameThreeballKj.getNum1(),gameThreeballKj.getNum2(),gameThreeballKj.getNum3());
+            // 豹
+            if(dsbResult == 1 && "leopard".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"leopard");
+            }
+            // 顺
+            if(dsbResult == 2 && "shun".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"shun");
+            }
+            // 对
+            if(dsbResult == 3 && "pairs".equals(betRecord.getRecordLotteryKey())){
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"pairs");
+            }
+
+            // 红绿蓝
+            if(waveMap != null){
+                Object waveNumObject = waveMap.get("num" + gameThreeballKj.getSumNum());
+                Integer numWave = waveNumObject!=null?(Integer) waveNumObject:0;
+
+                // 绿
+                if(numWave == 1 && "green".equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"green");
+                }
+                // 红
+                if(numWave == 2 && "red".equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"red");
+                }
+                // 蓝
+                if(numWave == 3 && "blue".equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"blue");
+                }
+            }
+
+            betRecord.setGameResult(gameResult);
+            betRecord.setSettleFlg("1");
+            betRecord.setAccountResult(winMoney);
+            betRecordService.updateBetRecord(betRecord);
+        }
+
         for(GameThreeballRecord gameThreeballRecord : gameThreeballRecordList){
             Float money = 0f;
             Float bigSamllMoney = 0f;
@@ -434,16 +542,16 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             adminWinMoney += gameThreeballRecord.getCountMoney() - money;
             Float accountResult = money - gameThreeballRecord.getCountMoney();
 
-            BetRecord betRecord = new BetRecord();
-            betRecord.setUserId(gameThreeballRecord.getUserId());
-            betRecord.setGameId(gameInfo.getGameId());
-            betRecord.setPeriods(periodId);
-            betRecord.setSettleFlg("0");
-            betRecord.setIsDelete("0");
-            betRecord.setGameResult(gameResult);
-            betRecord.setAccountResult(accountResult);
-
-            betRecordService.updateLotteryResult(betRecord);
+//            BetRecord betRecord = new BetRecord();
+//            betRecord.setUserId(gameThreeballRecord.getUserId());
+//            betRecord.setGameId(gameInfo.getGameId());
+//            betRecord.setPeriods(periodId);
+//            betRecord.setSettleFlg("0");
+//            betRecord.setIsDelete("0");
+//            betRecord.setGameResult(gameResult);
+//            betRecord.setAccountResult(accountResult);
+//
+//            betRecordService.updateLotteryResult(betRecord);
 
         }
 

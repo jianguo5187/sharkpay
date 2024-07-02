@@ -389,6 +389,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             betrecord.setGameResult("");
             betrecord.setIsDelete("0");
             betrecord.setHouseId(1l);
+            betrecord.setRecordLotteryKey(key);
             betRecordMapper.insertBetRecord(betrecord);
 
             Usermoney usermoney = new Usermoney();
@@ -557,6 +558,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                 betrecord.setGameResult("");
                 betrecord.setIsDelete("0");
                 betrecord.setHouseId(1l);
+                betrecord.setRecordLotteryKey(key);
                 betRecordMapper.insertBetRecord(betrecord);
 
                 Usermoney usermoney = new Usermoney();
