@@ -64,10 +64,10 @@ public class SysUserController extends BaseController
     public TableDataInfo list(SysUser user)
     {
         startPage();
-        List<SysUser> list = userService.selectUserList(user).stream().map(f->{
-            return userService.setUserGameWin(f);
-        }).collect(Collectors.toList());
-        return getDataTable(list);
+//        List<SysUser> list = userService.selectUserList(user).stream().map(f->{
+//            return userService.setUserGameWin(f);
+//        }).collect(Collectors.toList());
+        return getDataTable(userService.selectUserList(user));
     }
 
     @Log(title = "用户管理", businessType = BusinessType.EXPORT)

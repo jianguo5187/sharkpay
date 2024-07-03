@@ -350,51 +350,95 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"smalldouble");
             }
 
-            //冠军~第十名的金额计算
-            for(int k=2;k<=11;k++){
-                // 开奖num1~10
-                for(int x=1;x<=10;x++){
-                    Object kjNumObject = gameTenballKjMap.get("num" + x);
-                    Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+            // 开奖num1~10
+            for(int x=1;x<=10;x++) {
+                Object kjNumObject = gameTenballKjMap.get("num" + x);
+                Integer kjNum = kjNumObject != null ? (Integer) kjNumObject : 0;
 
-                    Object kj2NumObject = gameTenballKjMap.get("num" + (11-x));
-                    Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
+                Object kj2NumObject = gameTenballKjMap.get("num" + (11-x));
+                Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
 
-                    if(kjNum == x && ("type" + k +"Num" + x).equals(betRecord.getRecordLotteryKey())){
-                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + x + "Under" + (k-1));
-                    }
+                if(("type" + (x+1) +"Num" + kjNum).equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + kjNum + "Under" + (x+1));
+                    break;
+                }
 
-                    // 大的金额计算
-                    if(kjNum >5 && ("type" + k + "Big").equals(betRecord.getRecordLotteryKey())){
-                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big" + x);
-                    }
+                // 大的金额计算
+                if(kjNum >5 && ("type" + (x+1) + "Big").equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big" + x);
+                }
 
-                    // 小的金额计算
-                    if(kjNum <6 && ("type" + k + "Small").equals(betRecord.getRecordLotteryKey())){
-                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small" + x);
-                    }
+                // 小的金额计算
+                if(kjNum <6 && ("type" + (x+1) + "Small").equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small" + x);
+                }
 
-                    // 单的金额计算
-                    if(kjNum%2 == 1 && ("type" + k + "Single").equals(betRecord.getRecordLotteryKey())){
-                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"single" + x);
-                    }
+                // 单的金额计算
+                if(kjNum%2 == 1 && ("type" + (x+1) + "Single").equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"single" + x);
+                }
 
-                    // 双的金额计算
-                    if(kjNum%2 == 0 && ("type" + k + "Double").equals(betRecord.getRecordLotteryKey())){
-                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"double" + x);
-                    }
+                // 双的金额计算
+                if(kjNum%2 == 0 && ("type" + (x+1) + "Double").equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"double" + x);
+                }
 
-                    // 龙的金额计算
-                    if(kj2Num < kjNum && ("type" + k + "Loong").equals(betRecord.getRecordLotteryKey())){
-                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"loong" + x);
-                    }
+                // 龙的金额计算
+                if(kj2Num < kjNum && ("type" + (x+1) + "Loong").equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"loong" + x);
+                }
 
-                    // 虎的金额计算
-                    if(kj2Num > kjNum && ("type" + k + "Tiger").equals(betRecord.getRecordLotteryKey())){
-                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"tiger" + x);
-                    }
+                // 虎的金额计算
+                if(kj2Num > kjNum && ("type" + (x+1) + "Tiger").equals(betRecord.getRecordLotteryKey())){
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"tiger" + x);
                 }
             }
+
+            //冠军~第十名的金额计算
+//            for(int k=2;k<=11;k++){
+//                // 开奖num1~10
+//                for(int x=1;x<=10;x++){
+//                    Object kjNumObject = gameTenballKjMap.get("num" + x);
+//                    Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+//
+//                    Object kj2NumObject = gameTenballKjMap.get("num" + (11-x));
+//                    Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
+//
+////                    if(kjNum == x && ("type" + k +"Num" + kjNum).equals(betRecord.getRecordLotteryKey())){
+////                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + kjNum + "Under" + (k-1));
+////                    }
+//
+//                    // 大的金额计算
+//                    if(kjNum >5 && ("type" + k + "Big").equals(betRecord.getRecordLotteryKey())){
+//                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big" + x);
+//                    }
+//
+//                    // 小的金额计算
+//                    if(kjNum <6 && ("type" + k + "Small").equals(betRecord.getRecordLotteryKey())){
+//                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small" + x);
+//                    }
+//
+//                    // 单的金额计算
+//                    if(kjNum%2 == 1 && ("type" + k + "Single").equals(betRecord.getRecordLotteryKey())){
+//                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"single" + x);
+//                    }
+//
+//                    // 双的金额计算
+//                    if(kjNum%2 == 0 && ("type" + k + "Double").equals(betRecord.getRecordLotteryKey())){
+//                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"double" + x);
+//                    }
+//
+//                    // 龙的金额计算
+//                    if(kj2Num < kjNum && ("type" + k + "Loong").equals(betRecord.getRecordLotteryKey())){
+//                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"loong" + x);
+//                    }
+//
+//                    // 虎的金额计算
+//                    if(kj2Num > kjNum && ("type" + k + "Tiger").equals(betRecord.getRecordLotteryKey())){
+//                        winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"tiger" + x);
+//                    }
+//                }
+//            }
 
             betRecord.setGameResult(gameResult);
             betRecord.setSettleFlg("1");
@@ -490,105 +534,244 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 money += gameTenballRecord.getSmallDouble() * getOddFromMapByOddKey(betItemMap,"smalldouble");
             }
 
+
             //冠军~第十名的金额计算
-            for(int k=2;k<=11;k++){
+//            for(int k=2;k<=11;k++){
+//
+//                // 大的金额计算
+//                Object bigAmountObject = gameTenballRecordMap.get("type" + k + "Big");
+//                Float bigAmount = bigAmountObject!=null?(Float) bigAmountObject:0f;
+//                if(bigAmount > 0){
+//                    bigSamllMoney += bigAmount;
+//                }
+//
+//                // 小的金额计算
+//                Object smallAmountObject = gameTenballRecordMap.get("type" + k + "Small");
+//                Float smallAmount = smallAmountObject!=null?(Float) smallAmountObject:0f;
+//                if(smallAmount > 0){
+//                    bigSamllMoney += smallAmount;
+//                }
+//
+//                // 单的金额计算
+//                Object singleAmountObject = gameTenballRecordMap.get("type" + k + "Single");
+//                Float singleAmount = singleAmountObject!=null?(Float) singleAmountObject:0f;
+//                if(singleAmount > 0){
+//                    bigSamllMoney += singleAmount;
+//                }
+//
+//                // 双的金额计算
+//                Object doubleAmountObject = gameTenballRecordMap.get("type" + k + "Double");
+//                Float doubleAmount = doubleAmountObject!=null?(Float) doubleAmountObject:0f;
+//                if(doubleAmount > 0){
+//                    bigSamllMoney += doubleAmount;
+//                }
+//
+//                // 龙的金额计算
+//                Object loongAmountObject = gameTenballRecordMap.get("type" + k + "Loong");
+//                Float loongAmount = loongAmountObject!=null?(Float) loongAmountObject:0f;
+//                if(loongAmount > 0){
+//                    otherMoney += loongAmount;
+//                }
+//
+//                // 虎的金额计算
+//                Object tigerAmountObject = gameTenballRecordMap.get("type" + k + "Tiger");
+//                Float tigerAmount = tigerAmountObject!=null?(Float) tigerAmountObject:0f;
+//                if(tigerAmount > 0){
+//                    otherMoney += tigerAmount;
+//                }
+//
+//                // 买的号码1~10的金额计算
+//                for(int l=1;l<=10;l++){
+//                    Object amountObject = gameTenballRecordMap.get("type" + k +"Num" + l);
+//                    Float amount = amountObject!=null?(Float) amountObject:0f;
+//                    if(amount > 0){
+//                        otherMoney += amount;
+//                    }
+//                }
+//
+//                Object kjNumObject = gameTenballKjMap.get("num" + (k-1));
+//                Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+//
+//                Object kj2NumObject = gameTenballKjMap.get("num" + (11-(k-1)));
+//                Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
+//
+//
+//                // 大的金额计算
+//                if(kjNum >5 && bigAmount > 0){
+//                    money += bigAmount * getOddFromMapByOddKey(betItemMap,"big" + (k-1));
+//                }
+//
+//                // 小的金额计算
+//                if(kjNum <6 && smallAmount > 0){
+//                    money += smallAmount * getOddFromMapByOddKey(betItemMap,"small" + (k-1));
+//                }
+//
+//                // 单的金额计算
+//                if(kjNum%2 == 1 && singleAmount > 0){
+//                    money += singleAmount * getOddFromMapByOddKey(betItemMap,"single" + (k-1));
+//                }
+//
+//                // 双的金额计算
+//                if(kjNum%2 == 0 && doubleAmount > 0){
+//                    money += doubleAmount * getOddFromMapByOddKey(betItemMap,"double" + (k-1));
+//                }
+//
+//                // 龙的金额计算
+//                if(kj2Num < kjNum && loongAmount > 0){
+//                    money += loongAmount * getOddFromMapByOddKey(betItemMap,"loong" + (k-1));
+//                }
+//
+//                // 虎的金额计算
+//                if(kj2Num > kjNum && tigerAmount > 0){
+//                    money += tigerAmount * getOddFromMapByOddKey(betItemMap,"tiger" + (k-1));
+//                }
+//
+//                 开奖num1~10
+//                for(int x=1;x<=10;x++){
+//                    Object kjNumObject = gameTenballKjMap.get("num" + x);
+//                    Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+//
+//                    Object kj2NumObject = gameTenballKjMap.get("num" + (11-x));
+//                    Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
+//
+//                    Object amountObject = gameTenballRecordMap.get("type" + k +"Num" + x);
+//                    Float amount = amountObject!=null?(Float) amountObject:0f;
+//
+//                    if(kjNum == x && amount > 0){
+//                        money += amount * getOddFromMapByOddKey(betItemMap,"num" + x + "Under" + (k-1));
+//                    }
+//
+//                    // 大的金额计算
+//                    if(kjNum >5 && bigAmount > 0){
+//                        money += bigAmount * getOddFromMapByOddKey(betItemMap,"big" + x);
+//                    }
+//
+//                    // 小的金额计算
+//                    if(kjNum <6 && smallAmount > 0){
+//                        money += smallAmount * getOddFromMapByOddKey(betItemMap,"small" + x);
+//                    }
+//
+//                    // 单的金额计算
+//                    if(kjNum%2 == 1 && singleAmount > 0){
+//                        money += singleAmount * getOddFromMapByOddKey(betItemMap,"single" + x);
+//                    }
+//
+//                    // 双的金额计算
+//                    if(kjNum%2 == 0 && doubleAmount > 0){
+//                        money += doubleAmount * getOddFromMapByOddKey(betItemMap,"double" + x);
+//                    }
+//
+//                    // 龙的金额计算
+//                    if(kj2Num < kjNum && loongAmount > 0){
+//                        money += loongAmount * getOddFromMapByOddKey(betItemMap,"loong" + x);
+//                    }
+//
+//                    // 虎的金额计算
+//                    if(kj2Num > kjNum && tigerAmount > 0){
+//                        money += tigerAmount * getOddFromMapByOddKey(betItemMap,"tiger" + x);
+//                    }
+//
+//                }
+//            }
 
-                // 大的金额计算
-                Object bigAmountObject = gameTenballRecordMap.get("type" + k + "Big");
-                Float bigAmount = bigAmountObject!=null?(Float) bigAmountObject:0f;
-                if(bigAmount > 0){
-                    bigSamllMoney += bigAmount;
-                }
 
-                // 小的金额计算
-                Object smallAmountObject = gameTenballRecordMap.get("type" + k + "Small");
-                Float smallAmount = smallAmountObject!=null?(Float) smallAmountObject:0f;
-                if(smallAmount > 0){
-                    bigSamllMoney += smallAmount;
-                }
+            // 开奖num1~10
 
-                // 单的金额计算
-                Object singleAmountObject = gameTenballRecordMap.get("type" + k + "Single");
-                Float singleAmount = singleAmountObject!=null?(Float) singleAmountObject:0f;
-                if(singleAmount > 0){
-                    bigSamllMoney += singleAmount;
-                }
-
-                // 双的金额计算
-                Object doubleAmountObject = gameTenballRecordMap.get("type" + k + "Double");
-                Float doubleAmount = doubleAmountObject!=null?(Float) doubleAmountObject:0f;
-                if(doubleAmount > 0){
-                    bigSamllMoney += doubleAmount;
-                }
-
-                // 龙的金额计算
-                Object loongAmountObject = gameTenballRecordMap.get("type" + k + "Loong");
-                Float loongAmount = loongAmountObject!=null?(Float) loongAmountObject:0f;
-                if(loongAmount > 0){
-                    otherMoney += loongAmount;
-                }
-
-                // 虎的金额计算
-                Object tigerAmountObject = gameTenballRecordMap.get("type" + k + "Tiger");
-                Float tigerAmount = tigerAmountObject!=null?(Float) tigerAmountObject:0f;
-                if(tigerAmount > 0){
-                    otherMoney += tigerAmount;
-                }
+            //冠军~第十名的金额计算
+            for(int x=1;x<=10;x++) {
 
                 // 买的号码1~10的金额计算
                 for(int l=1;l<=10;l++){
-                    Object amountObject = gameTenballRecordMap.get("type" + k +"Num" + l);
+                    Object amountObject = gameTenballRecordMap.get("type" + (x+1) +"Num" + l);
                     Float amount = amountObject!=null?(Float) amountObject:0f;
                     if(amount > 0){
                         otherMoney += amount;
                     }
                 }
 
-                // 开奖num1~10
-                for(int x=1;x<=10;x++){
-                    Object kjNumObject = gameTenballKjMap.get("num" + x);
-                    Integer kjNum = kjNumObject!=null?(Integer) kjNumObject:0;
+                Object kjNumObject = gameTenballKjMap.get("num" + x);
+                Integer kjNum = kjNumObject != null ? (Integer) kjNumObject : 0;
 
-                    Object kj2NumObject = gameTenballKjMap.get("num" + (11-x));
-                    Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
+                Object kj2NumObject = gameTenballKjMap.get("num" + (11-x));
+                Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
 
-                    Object amountObject = gameTenballRecordMap.get("type" + k +"Num" + x);
-                    Float amount = amountObject!=null?(Float) amountObject:0f;
+                Object amountObject = gameTenballRecordMap.get("type" + (x+1) +"Num" + kjNum);
+                Float amount = amountObject!=null?(Float) amountObject:0f;
 
-                    if(kjNum == x && amount > 0){
-                        money += amount * getOddFromMapByOddKey(betItemMap,"num" + x + "Under" + (k-1));
-                    }
+                if(amount > 0){
+                    money += amount * getOddFromMapByOddKey(betItemMap,"num" + x + "Under" + (x+1));
+                }
 
-                    // 大的金额计算
-                    if(kjNum >5 && bigAmount > 0){
-                        money += bigAmount * getOddFromMapByOddKey(betItemMap,"big" + x);
-                    }
+                // 大的金额计算
+                Object bigAmountObject = gameTenballRecordMap.get("type" + (x+1) + "Big");
+                Float bigAmount = bigAmountObject!=null?(Float) bigAmountObject:0f;
+                if(bigAmount > 0){
+                    bigSamllMoney += bigAmount;
+                }
 
-                    // 小的金额计算
-                    if(kjNum <6 && smallAmount > 0){
-                        money += smallAmount * getOddFromMapByOddKey(betItemMap,"small" + x);
-                    }
+                // 小的金额计算
+                Object smallAmountObject = gameTenballRecordMap.get("type" + (x+1) + "Small");
+                Float smallAmount = smallAmountObject!=null?(Float) smallAmountObject:0f;
+                if(smallAmount > 0){
+                    bigSamllMoney += smallAmount;
+                }
 
-                    // 单的金额计算
-                    if(kjNum%2 == 1 && singleAmount > 0){
-                        money += singleAmount * getOddFromMapByOddKey(betItemMap,"single" + x);
-                    }
+                // 单的金额计算
+                Object singleAmountObject = gameTenballRecordMap.get("type" + (x+1) + "Single");
+                Float singleAmount = singleAmountObject!=null?(Float) singleAmountObject:0f;
+                if(singleAmount > 0){
+                    bigSamllMoney += singleAmount;
+                }
 
-                    // 双的金额计算
-                    if(kjNum%2 == 0 && doubleAmount > 0){
-                        money += doubleAmount * getOddFromMapByOddKey(betItemMap,"double" + x);
-                    }
+                // 双的金额计算
+                Object doubleAmountObject = gameTenballRecordMap.get("type" + (x+1) + "Double");
+                Float doubleAmount = doubleAmountObject!=null?(Float) doubleAmountObject:0f;
+                if(doubleAmount > 0){
+                    bigSamllMoney += doubleAmount;
+                }
 
-                    // 龙的金额计算
-                    if(kj2Num < kjNum && loongAmount > 0){
-                        money += loongAmount * getOddFromMapByOddKey(betItemMap,"loong" + x);
-                    }
+                // 龙的金额计算
+                Object loongAmountObject = gameTenballRecordMap.get("type" + (x+1) + "Loong");
+                Float loongAmount = loongAmountObject!=null?(Float) loongAmountObject:0f;
+                if(loongAmount > 0){
+                    otherMoney += loongAmount;
+                }
 
-                    // 虎的金额计算
-                    if(kj2Num > kjNum && tigerAmount > 0){
-                        money += tigerAmount * getOddFromMapByOddKey(betItemMap,"tiger" + x);
-                    }
+                // 虎的金额计算
+                Object tigerAmountObject = gameTenballRecordMap.get("type" + (x+1) + "Tiger");
+                Float tigerAmount = tigerAmountObject!=null?(Float) tigerAmountObject:0f;
+                if(tigerAmount > 0){
+                    otherMoney += tigerAmount;
+                }
 
+                // 大的金额计算
+                if(kjNum >5 && bigAmount > 0){
+                    money += bigAmount * getOddFromMapByOddKey(betItemMap,"big" + ((x+1)-1));
+                }
+
+                // 小的金额计算
+                if(kjNum <6 && smallAmount > 0){
+                    money += smallAmount * getOddFromMapByOddKey(betItemMap,"small" + ((x+1)-1));
+                }
+
+                // 单的金额计算
+                if(kjNum%2 == 1 && singleAmount > 0){
+                    money += singleAmount * getOddFromMapByOddKey(betItemMap,"single" + ((x+1)-1));
+                }
+
+                // 双的金额计算
+                if(kjNum%2 == 0 && doubleAmount > 0){
+                    money += doubleAmount * getOddFromMapByOddKey(betItemMap,"double" + ((x+1)-1));
+                }
+
+                // 龙的金额计算
+                if(kj2Num < kjNum && loongAmount > 0){
+                    money += loongAmount * getOddFromMapByOddKey(betItemMap,"loong" + ((x+1)-1));
+                }
+
+                // 虎的金额计算
+                if(kj2Num > kjNum && tigerAmount > 0){
+                    money += tigerAmount * getOddFromMapByOddKey(betItemMap,"tiger" + ((x+1)-1));
                 }
             }
 

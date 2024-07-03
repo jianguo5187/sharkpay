@@ -70,9 +70,9 @@
           <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
         </el-row>
 
-        <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
+        <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange" @sort-change='sortTableFun'>
           <el-table-column type="selection" width="50" align="center" />
-          <el-table-column label="用户ID" align="center" key="userId" prop="userId" width="80"/>
+          <el-table-column label="用户ID" align="center" key="userId" prop="userId" width="80" sortable="custom"/>
           <!--          <el-table-column label="用户编号" align="center" key="userId" prop="userId" v-if="columns[0].visible" />-->
           <el-table-column label="登录账号" align="center" key="userName" prop="userName" :show-overflow-tooltip="true" />
           <el-table-column label="用户昵称" align="center" key="nickName" prop="nickName" :show-overflow-tooltip="true" />
@@ -96,8 +96,8 @@
             </template>
           </el-table-column>
           <el-table-column label="上级用户" align="center" key="parentNickName" prop="parentNickName"/>
-          <el-table-column label="余额" align="center" key="amount" prop="amount"/>
-          <el-table-column label="今日赢亏" align="center" key="todayWinMoney" prop="todayWinMoney"/>
+          <el-table-column label="余额" align="center" key="amount" prop="amount" sortable="custom"/>
+          <el-table-column label="今日赢亏" align="center" key="todayWinMoney" prop="todayWinMoney" sortable="custom"/>
 <!--          <el-table-column label="流水金额" align="center" key="totalBetMoney" prop="totalBetMoney"/>-->
           <el-table-column label="最后登录时间" align="center" key="loginDate" prop="loginDate"/>
           <el-table-column label="最后登录IP" align="center" key="loginIp" prop="loginIp"/>
@@ -644,6 +644,8 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
+        orderByColumn:"userId",
+        isAsc:"asc",
         userId: undefined,
         nickName: undefined,
         phonenumber: undefined,
@@ -806,6 +808,17 @@ export default {
       this.ids = selection.map(item => item.userId);
       this.single = selection.length != 1;
       this.multiple = !selection.length;
+    },
+    sortTableFun(data) {
+      console.log('sortTableFun');
+      const { prop, order } = data
+      //排序列
+      this.queryParams.orderByColumn=prop;
+      //排序顺序ascending或descending
+      this.queryParams.isAsc=order;
+      //返回第一页
+      this.queryParams.pageNum=1;
+      this.getList();
     },
     // 更多操作触发
     handleCommand(command, row) {
