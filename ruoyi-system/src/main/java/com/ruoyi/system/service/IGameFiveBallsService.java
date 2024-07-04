@@ -1,13 +1,14 @@
 package com.ruoyi.system.service;
 
 import com.ruoyi.system.domain.SysBetItem;
+import com.ruoyi.system.domain.SysBetType;
 import com.ruoyi.system.domain.vo.*;
 
 import java.util.List;
 
 public interface IGameFiveBallsService {
 
-    public List<SysBetItem> getOddsInfo(FiveBallsOddsReqVO vo);
+    public List<SysBetType> getOddsInfo(FiveBallsOddsReqVO vo);
 
     public FiveBallKjRecordMoneyRespVO kjRecordMoney(Long userId, FiveBallsOddsReqVO vo);
 

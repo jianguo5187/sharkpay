@@ -46,6 +46,9 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
     private ISysGameService sysGameService;
 
     @Autowired
+    private ISysBetTypeService sysBetTypeService;
+
+    @Autowired
     private BetRecordMapper betRecordMapper;
 
     @Autowired
@@ -59,12 +62,25 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
 
 
     @Override
-    public List<SysBetItem> getOddsInfo(ThreeBallsOddsReqVO vo) {
-        SysBetItem searchBetItem = new SysBetItem();
-        searchBetItem.setGameId(vo.getGameId());
-        searchBetItem.setStatus("0");
+    public List<SysBetType> getOddsInfo(ThreeBallsOddsReqVO vo) {
+        SysBetType searchBetType = new SysBetType();
+        searchBetType.setGameId(vo.getGameId());
+        searchBetType.setStatus("0");
+        List<SysBetType> betTypeList = sysBetTypeService.selectSysBetTypeList(searchBetType).stream().map(f->{
+            SysBetItem searchBetItem = new SysBetItem();
+            searchBetItem.setGameId(vo.getGameId());
+            searchBetItem.setStatus("0");
+            searchBetItem.setBetItemType(f.getBetTypeId());
 
-        return sysBetItemService.selectSysBetItemList(searchBetItem);
+            f.setBetItemList(sysBetItemService.selectSysBetItemList(searchBetItem));
+            return f;}
+        ).collect(Collectors.toList());
+//
+//        SysBetItem searchBetItem = new SysBetItem();
+//        searchBetItem.setGameId(vo.getGameId());
+//        searchBetItem.setStatus("0");
+
+        return betTypeList;
     }
 
     @Override
@@ -597,6 +613,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 betrecord.setGameResult("");
                 betrecord.setIsDelete("0");
                 betrecord.setHouseId(1l);
+                betrecord.setRecordLotteryKey(key);
                 betRecordMapper.insertBetRecord(betrecord);
 
                 Usermoney usermoney = new Usermoney();

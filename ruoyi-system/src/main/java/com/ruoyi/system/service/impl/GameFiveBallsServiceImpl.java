@@ -48,6 +48,9 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
     private ISysGameService sysGameService;
 
     @Autowired
+    private ISysBetTypeService sysBetTypeService;
+
+    @Autowired
     private BetRecordMapper betRecordMapper;
 
     @Autowired
@@ -58,12 +61,21 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
 
 
     @Override
-    public List<SysBetItem> getOddsInfo(FiveBallsOddsReqVO vo) {
-        SysBetItem searchBetItem = new SysBetItem();
-        searchBetItem.setGameId(vo.getGameId());
-        searchBetItem.setStatus("0");
+    public List<SysBetType> getOddsInfo(FiveBallsOddsReqVO vo) {
+        SysBetType searchBetType = new SysBetType();
+        searchBetType.setGameId(vo.getGameId());
+        searchBetType.setStatus("0");
+        List<SysBetType> betTypeList = sysBetTypeService.selectSysBetTypeList(searchBetType).stream().map(f->{
+            SysBetItem searchBetItem = new SysBetItem();
+            searchBetItem.setGameId(vo.getGameId());
+            searchBetItem.setStatus("0");
+            searchBetItem.setBetItemType(f.getBetTypeId());
 
-        return sysBetItemService.selectSysBetItemList(searchBetItem);
+            f.setBetItemList(sysBetItemService.selectSysBetItemList(searchBetItem));
+            return f;}
+        ).collect(Collectors.toList());
+
+        return betTypeList;
     }
 
     @Override

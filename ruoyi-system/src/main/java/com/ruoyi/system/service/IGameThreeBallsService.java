@@ -1,13 +1,14 @@
 package com.ruoyi.system.service;
 
 import com.ruoyi.system.domain.SysBetItem;
+import com.ruoyi.system.domain.SysBetType;
 import com.ruoyi.system.domain.vo.*;
 
 import java.util.List;
 
 public interface IGameThreeBallsService {
 
-    public List<SysBetItem> getOddsInfo(ThreeBallsOddsReqVO vo);
+    public List<SysBetType> getOddsInfo(ThreeBallsOddsReqVO vo);
 
     public ThreeBallKjRecordMoneyRespVO kjRecordMoney(Long userId,ThreeBallsOddsReqVO vo);
 
