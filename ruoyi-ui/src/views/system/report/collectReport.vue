@@ -34,9 +34,8 @@
       </el-form-item>
 
       <el-form-item label="游戏" prop="gameId">
-        <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="getBetTypeList">
+        <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="getList" clearable>
           <el-option
-            clearable
             v-for="item in gameListOptions"
             :key="item.gameId"
             :label="item.gameName"

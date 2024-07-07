@@ -554,7 +554,7 @@ public class BetkjServiceImpl implements IBetkjService
 
             if(gameOpenDataDtoMap.get(newPeriods) == null
                     && gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null){
-                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
+//                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
                 return;
             }
 
@@ -630,7 +630,7 @@ public class BetkjServiceImpl implements IBetkjService
 
         if(fiveballOpenData != null && gameOpenDataDtoMap.get(newPeriods) == null
                 && gameOpenDataDtoMap.get(fiveballOpenData.getPeriods()) != null){
-            System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
+//            System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
             return;
         }
 //        if(fiveballOpenData != null){
@@ -805,7 +805,7 @@ public class BetkjServiceImpl implements IBetkjService
 
             if(gameOpenDataDtoMap.get(newPeriods) == null
                     && gameOpenDataDtoMap.get(tenballOpenData.getPeriods()) != null){
-                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
+//                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
                 return;
             }
 

@@ -654,8 +654,6 @@ public class SysGameServiceImpl implements ISysGameService
                             "{\"betItemCode\":\"small6\", \"betItemName\":\"小\"}, " +
                             "{\"betItemCode\":\"single6\", \"betItemName\":\"单\"}, " +
                             "{\"betItemCode\":\"double6\", \"betItemName\":\"双\"}, " +
-                            "{\"betItemCode\":\"loong6\", \"betItemName\":\"龙\"}, " +
-                            "{\"betItemCode\":\"tiger6\", \"betItemName\":\"虎\"}, " +
                             "{\"betItemCode\":\"num1Under6\", \"betItemName\":\"1\"}, " +
                             "{\"betItemCode\":\"num2Under6\", \"betItemName\":\"2\"}, " +
                             "{\"betItemCode\":\"num3Under6\", \"betItemName\":\"3\"}, " +
@@ -672,8 +670,6 @@ public class SysGameServiceImpl implements ISysGameService
                             "{\"betItemCode\":\"small7\", \"betItemName\":\"小\"}, " +
                             "{\"betItemCode\":\"single7\", \"betItemName\":\"单\"}, " +
                             "{\"betItemCode\":\"double7\", \"betItemName\":\"双\"}, " +
-                            "{\"betItemCode\":\"loong7\", \"betItemName\":\"龙\"}, " +
-                            "{\"betItemCode\":\"tiger7\", \"betItemName\":\"虎\"}, " +
                             "{\"betItemCode\":\"num1Under7\", \"betItemName\":\"1\"}, " +
                             "{\"betItemCode\":\"num2Under7\", \"betItemName\":\"2\"}, " +
                             "{\"betItemCode\":\"num3Under7\", \"betItemName\":\"3\"}, " +
@@ -690,8 +686,6 @@ public class SysGameServiceImpl implements ISysGameService
                             "{\"betItemCode\":\"small8\", \"betItemName\":\"小\"}, " +
                             "{\"betItemCode\":\"single8\", \"betItemName\":\"单\"}, " +
                             "{\"betItemCode\":\"double8\", \"betItemName\":\"双\"}, " +
-                            "{\"betItemCode\":\"loong8\", \"betItemName\":\"龙\"}, " +
-                            "{\"betItemCode\":\"tiger8\", \"betItemName\":\"虎\"}, " +
                             "{\"betItemCode\":\"num1Under8\", \"betItemName\":\"1\"}, " +
                             "{\"betItemCode\":\"num2Under8\", \"betItemName\":\"2\"}, " +
                             "{\"betItemCode\":\"num3Under8\", \"betItemName\":\"3\"}, " +
@@ -708,8 +702,6 @@ public class SysGameServiceImpl implements ISysGameService
                             "{\"betItemCode\":\"small9\", \"betItemName\":\"小\"}, " +
                             "{\"betItemCode\":\"single9\", \"betItemName\":\"单\"}, " +
                             "{\"betItemCode\":\"double9\", \"betItemName\":\"双\"}, " +
-                            "{\"betItemCode\":\"loong9\", \"betItemName\":\"龙\"}, " +
-                            "{\"betItemCode\":\"tiger9\", \"betItemName\":\"虎\"}, " +
                             "{\"betItemCode\":\"num1Under9\", \"betItemName\":\"1\"}, " +
                             "{\"betItemCode\":\"num2Under9\", \"betItemName\":\"2\"}, " +
                             "{\"betItemCode\":\"num3Under9\", \"betItemName\":\"3\"}, " +
@@ -726,8 +718,6 @@ public class SysGameServiceImpl implements ISysGameService
                             "{\"betItemCode\":\"small10\", \"betItemName\":\"小\"}, " +
                             "{\"betItemCode\":\"single10\", \"betItemName\":\"单\"}, " +
                             "{\"betItemCode\":\"double10\", \"betItemName\":\"双\"}, " +
-                            "{\"betItemCode\":\"loong10\", \"betItemName\":\"龙\"}, " +
-                            "{\"betItemCode\":\"tiger10\", \"betItemName\":\"虎\"}, " +
                             "{\"betItemCode\":\"num1Under10\", \"betItemName\":\"1\"}, " +
                             "{\"betItemCode\":\"num2Under10\", \"betItemName\":\"2\"}, " +
                             "{\"betItemCode\":\"num3Under10\", \"betItemName\":\"3\"}, " +

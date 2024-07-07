@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysUserActiveMapper">
+    
+    <resultMap type="SysUserActive" id="SysUserActiveResult">
+        <result property="activeId"    column="active_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="loginDate"    column="login_date"    />
+        <result property="activeDate"    column="active_date"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysUserActiveVo">
+        select active_id, user_id, login_date, active_date, create_by, create_time, update_by, update_time, remark from sys_user_active
+    </sql>
+
+    <select id="selectSysUserActiveList" parameterType="SysUserActive" resultMap="SysUserActiveResult">
+        <include refid="selectSysUserActiveVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="loginDate != null "> and login_date = #{loginDate}</if>
+            <if test="activeDate != null "> and active_date = #{activeDate}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysUserActiveByActiveId" parameterType="Long" resultMap="SysUserActiveResult">
+        <include refid="selectSysUserActiveVo"/>
+        where active_id = #{activeId}
+    </select>
+        
+    <insert id="insertSysUserActive" parameterType="SysUserActive" useGeneratedKeys="true" keyProperty="activeId">
+        insert into sys_user_active
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="loginDate != null">login_date,</if>
+            <if test="activeDate != null">active_date,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="loginDate != null">#{loginDate},</if>
+            <if test="activeDate != null">#{activeDate},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysUserActive" parameterType="SysUserActive">
+        update sys_user_active
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="loginDate != null">login_date = #{loginDate},</if>
+            <if test="activeDate != null">active_date = #{activeDate},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where active_id = #{activeId}
+    </update>
+
+    <delete id="deleteSysUserActiveByActiveId" parameterType="Long">
+        delete from sys_user_active where active_id = #{activeId}
+    </delete>
+
+    <delete id="deleteSysUserActiveByActiveIds" parameterType="String">
+        delete from sys_user_active where active_id in 
+        <foreach item="activeId" collection="array" open="(" separator="," close=")">
+            #{activeId}
+        </foreach>
+    </delete>
+
+    <select id="selectUserActiveByUserId" parameterType="Long" resultMap="SysUserActiveResult">
+        <include refid="selectSysUserActiveVo"/>
+        where user_id = #{userId}
+        limit 1
+    </select>
+
+    <select id="checkUserActive" parameterType="Long" resultMap="SysUserActiveResult">
+        <include refid="selectSysUserActiveVo"/>
+        where user_id = #{userId}
+        and active_date > DATE_ADD(NOW(), INTERVAL -5 MINUTE)
+        limit 1
+    </select>
+</mapper>

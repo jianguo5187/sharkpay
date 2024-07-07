@@ -211,6 +211,13 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 for(int i=0;i<cishu;i++){
 
                     num = numArg[random(1,numArg.length)-1];
+                    //防止投注号码是空
+                    if(StringUtils.isEmpty(num)){
+                        num = numArg[0];
+                    }
+                    if(StringUtils.isEmpty(num)){
+                        continue;
+                    }
 
                     BetRecord betrecord = new BetRecord();
                     betrecord.setUserId(0l);

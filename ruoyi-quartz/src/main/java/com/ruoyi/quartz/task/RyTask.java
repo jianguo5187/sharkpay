@@ -59,7 +59,7 @@ public class RyTask
 
     // 根据游戏code,定时获取官方开奖数据
     public void getGameExpectData(String gameType){
-        System.out.println("游戏类型: " + gameType);
+//        System.out.println("游戏类型: " + gameType);
         SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
 //        sysGame.setSystemOpenType("N"); //官方开奖
@@ -87,14 +87,14 @@ public class RyTask
                 String result = HttpUtils.sendGet(url);
                 JSONObject resultJson = JSONObject.parseObject(result);
                 if(resultJson == null){
-                    System.out.println("获取不到开奖网站数据");
+//                    System.out.println("获取不到开奖网站数据");
                     return ;
                 }
                 String data = resultJson.getString("data");
                 if(StringUtils.isEmpty(data)){
                     continue;
                 }
-                System.out.println(data);
+//                System.out.println(data);
                 List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
                 Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
                         .collect(Collectors.toMap(
@@ -134,7 +134,7 @@ public class RyTask
     // 根据游戏code,定时开奖结算
     public void autoLotteryBalance(String gameType){
 
-        System.out.println("游戏类型: " + gameType);
+//        System.out.println("游戏类型: " + gameType);
         SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
         sysGame.setGameType(gameType);
@@ -168,7 +168,7 @@ public class RyTask
     // 根据游戏code,提前系统开奖数据
     public void openSystemGameExpectData(String gameType){
 
-        System.out.println("游戏类型: " + gameType);
+//        System.out.println("游戏类型: " + gameType);
         SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
         sysGame.setSystemOpenType("Y"); //本系统开奖

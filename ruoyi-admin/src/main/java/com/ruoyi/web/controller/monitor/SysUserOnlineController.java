@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.ruoyi.framework.web.service.TokenService;
+import com.ruoyi.system.service.ISysUserActiveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,6 +44,9 @@ public class SysUserOnlineController extends BaseController
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private ISysUserActiveService sysUserActiveService;
+
     @PreAuthorize("@ss.hasPermi('monitor:online:list')")
     @GetMapping("/list")
     public TableDataInfo list(String ipaddr, String userName)
@@ -52,6 +56,9 @@ public class SysUserOnlineController extends BaseController
         for (String key : keys)
         {
             LoginUser user = redisCache.getCacheObject(key);
+            if(sysUserActiveService.checkUserActive(user.getUserId()) == null){
+                continue;
+            }
             if (StringUtils.isNotEmpty(ipaddr) && StringUtils.isNotEmpty(userName))
             {
                 userOnlineList.add(userOnlineService.selectOnlineByInfo(ipaddr, userName, user));
@@ -97,6 +104,9 @@ public class SysUserOnlineController extends BaseController
         for (String key : keys)
         {
             LoginUser user = redisCache.getCacheObject(key);
+            if(sysUserActiveService.checkUserActive(user.getUserId()) == null){
+                continue;
+            }
             if (StringUtils.isNotEmpty(ipaddr) && StringUtils.isNotEmpty(userName))
             {
                 userOnlineList.add(userOnlineService.selectOnlineByInfo(ipaddr, userName, user));
