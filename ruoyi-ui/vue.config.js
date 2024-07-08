@@ -40,7 +40,14 @@ module.exports = {
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
-      }
+      },
+      [process.env.VUE_APP_KEFU_API]: {
+        target: `http://localhost:8888`,
+        changeOrigin: true,
+        pathRewrite: {
+          ['^' + process.env.VUE_APP_KEFU_API]: ''
+        }
+      },
     },
     disableHostCheck: true
   },

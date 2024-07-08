@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import kefuRequest from '@/utils/kefuRequest'
 
 // 查询实时投注列表
 export function selectHomePageData(query) {
@@ -14,5 +15,13 @@ export function selectImChatUrl(query) {
     url: '/system/app/getImChatUrl',
     method: 'get',
     params: query
+  })
+}
+
+export function getKefuNoReadCnt(data) {
+  return kefuRequest({
+    url: '/noAuthKefuNoReadCnt',
+    method: 'post',
+    data: data
   })
 }
