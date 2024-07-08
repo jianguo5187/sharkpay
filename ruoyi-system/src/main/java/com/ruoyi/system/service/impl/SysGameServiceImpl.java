@@ -7,16 +7,10 @@ import java.util.List;
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.GameOption;
-import com.ruoyi.system.domain.SysBetItem;
-import com.ruoyi.system.domain.SysBetType;
-import com.ruoyi.system.mapper.GameOptionMapper;
-import com.ruoyi.system.mapper.SysBetItemMapper;
-import com.ruoyi.system.mapper.SysBetTypeMapper;
+import com.ruoyi.system.domain.*;
+import com.ruoyi.system.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.mapper.SysGameMapper;
-import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.service.ISysGameService;
 import com.alibaba.fastjson2.JSONArray;
 
@@ -40,6 +34,9 @@ public class SysGameServiceImpl implements ISysGameService
 
     @Autowired
     private GameOptionMapper gameOptionMapper;
+
+    @Autowired
+    private GameThreeballMixedOddsMapper gameThreeballMixedOddsMapper;
 
     /**
      * 查询游戏
@@ -100,6 +97,10 @@ public class SysGameServiceImpl implements ISysGameService
             }
         }
 
+        if(StringUtils.equals(sysGame.getGameType(),"3")) {
+            insertDefaultThreeballMixedOdds(sysGame);
+        }
+
         return row;
     }
 
@@ -130,6 +131,7 @@ public class SysGameServiceImpl implements ISysGameService
         List<SysBetType> betTypeList = sysBetTypeMapper.selectSysBetTypeList(searchBetType);
         if(betTypeList.size() == 0){
             if(StringUtils.equals(sysGame.getGameType(),"3")){
+                insertDefaultThreeballMixedOdds(sysGame);
                 insertDefaultThreeballBetTypeAndItem(sysGame);
             }else if(StringUtils.equals(sysGame.getGameType(),"5")){
                 insertDefaultFiveballBetTypeAndItem(sysGame);
@@ -138,7 +140,39 @@ public class SysGameServiceImpl implements ISysGameService
             }
         }
 
+        if(StringUtils.equals(sysGame.getGameType(),"3")) {
+            insertDefaultThreeballMixedOdds(sysGame);
+        }
+
         return row;
+    }
+
+    // 新增3球特殊赔率设置
+    public void insertDefaultThreeballMixedOdds(SysGame sysGame){
+        GameThreeballMixedOdds searchGameThreeballMixedOdds = new GameThreeballMixedOdds();
+        searchGameThreeballMixedOdds.setGameId(sysGame.getGameId());
+
+        GameThreeballMixedOdds threeballMixedOdds = gameThreeballMixedOddsMapper.selectGameThreeballMixedOddsByGameId(searchGameThreeballMixedOdds);
+        if(threeballMixedOdds == null){
+            threeballMixedOdds = new GameThreeballMixedOdds();
+            threeballMixedOdds.setGameId(sysGame.getGameId());
+            threeballMixedOdds.setNumberMinQuota(0f);
+            threeballMixedOdds.setNumberMaxQuota(0f);
+            threeballMixedOdds.setLessNumberOdd(100f);
+            threeballMixedOdds.setCenterNumberOdd(100f);
+            threeballMixedOdds.setGreaterNumberOdd(100f);
+            threeballMixedOdds.setSdbMinQuota(0f);
+            threeballMixedOdds.setSdbMaxQuota(0f);
+            threeballMixedOdds.setLessSdbOdd(100f);
+            threeballMixedOdds.setCenterSdbOdd(100f);
+            threeballMixedOdds.setGreaterSdbOdd(100f);
+            threeballMixedOdds.setZeroNineMinQuota(0f);
+            threeballMixedOdds.setZeroNineMaxQuota(0f);
+            threeballMixedOdds.setLessZeroNineOdd(100f);
+            threeballMixedOdds.setCenterZeroNineOdd(100f);
+            threeballMixedOdds.setGreaterZeroNineOdd(100f);
+            gameThreeballMixedOddsMapper.insertGameThreeballMixedOdds(threeballMixedOdds);
+        }
     }
 
     public void insertDefaultThreeballBetTypeAndItem(SysGame sysGame){

@@ -53,6 +53,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
     @Autowired
     private IWaveService waveService;
 
+    @Autowired
+    private IGameThreeballMixedOddsService gameThreeballMixedOddsService;
+
     @Override
     public void lotteryThreeBall(String gameCode) {
 
@@ -263,6 +266,16 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         List<Integer> bigDoubleList = Arrays.asList(14, 16, 18, 20, 22, 24, 26);
         List<Integer> smallDoubleList = Arrays.asList(0, 2, 4, 6, 8, 10, 12);
 
+        GameThreeballMixedOdds searchGameThreeballMixedOdds = new GameThreeballMixedOdds();
+        searchGameThreeballMixedOdds.setGameId(gameInfo.getGameId());
+        GameThreeballMixedOdds gameThreeballMixedOdds = gameThreeballMixedOddsService.selectGameThreeballMixedOddsByGameId(searchGameThreeballMixedOdds);
+
+        Map<Long , GameThreeballRecord> threeballRecordMap = gameThreeballRecordList.stream()
+                .collect(Collectors.toMap(
+                        GameThreeballRecord::getUserId,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
 
         BetRecord searchBetRecord = new BetRecord();
         searchBetRecord.setGameId(gameInfo.getGameId());
@@ -272,6 +285,12 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         List<BetRecord> betRecordList = betRecordService.selectBetRecordList(searchBetRecord);
         for(BetRecord betRecord : betRecordList) {
             Float winMoney = 0f;
+            Float countMoney = 0f;
+            if(threeballRecordMap.containsKey(betRecord.getUserId())){
+                countMoney = threeballRecordMap.get(betRecord.getUserId()).getCountMoney();
+            }else{
+                continue;
+            }
 
             // 和值 数字
             if(("num"+gameThreeballKj.getSumNum()).equals(betRecord.getRecordLotteryKey())){
@@ -280,20 +299,69 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
             // 大
             if(gameThreeballKj.getSumNum() > 13 && "big".equals(betRecord.getRecordLotteryKey())){
-                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big");
+                if(gameThreeballKj.getSumNum() == 14 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 14
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) > 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getCenterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 14
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) <= 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getLessNumberOdd();
+                }else{
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"big");
+                }
             }
+
             // 小
             if(gameThreeballKj.getSumNum() < 14 && "small".equals(betRecord.getRecordLotteryKey())){
-                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small");
+                if(gameThreeballKj.getSumNum() == 13 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 13
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) > 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getCenterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 13
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) <= 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getLessNumberOdd();
+                }else{
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"small");
+                }
             }
+
             // 单
             if(gameThreeballKj.getSumNum()%2 == 1 && "single".equals(betRecord.getRecordLotteryKey())){
-                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"single");
+                if(gameThreeballKj.getSumNum() == 13 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 13
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) > 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getCenterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 13
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) <= 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getLessNumberOdd();
+                }else {
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap, "single");
+                }
             }
+
             // 双
             if(gameThreeballKj.getSumNum()%2 == 0 && "doubleAmount".equals(betRecord.getRecordLotteryKey())){
-                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"doubleFlg");
+
+                if(gameThreeballKj.getSumNum() == 14 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 14
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) > 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getCenterNumberOdd();
+                }else if(gameThreeballKj.getSumNum() == 14
+                        && countMoney.compareTo(gameThreeballMixedOdds.getNumberMinQuota()) <= 0){
+                    winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getLessNumberOdd();
+                }else{
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"doubleFlg");
+                }
             }
+
             // 极大
             if(gameThreeballKj.getSumNum() > 21 && "muchBig".equals(betRecord.getRecordLotteryKey())){
                 winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"muchbig");

@@ -111,10 +111,9 @@ public class SysGameController extends BaseController
      * @return 用户流水信息
      */
     @GetMapping("getValidGame")
-    public AjaxResult getValidGame()
+    public AjaxResult getValidGame(SysGame sysGame)
     {
         AjaxResult ajax = AjaxResult.success();
-        SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
         ajax.put("gameList", sysGameService.selectSysGameList(sysGame));
         return ajax;

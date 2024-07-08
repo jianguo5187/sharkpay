@@ -44,10 +44,11 @@ export function delGame(gameId) {
 }
 
 // 查询有效的游戏列表
-export function getValidGame() {
+export function getValidGame(query) {
   return request({
     url: '/system/game/getValidGame',
-    method: 'get'
+    method: 'get',
+    params: query
   })
 }
 

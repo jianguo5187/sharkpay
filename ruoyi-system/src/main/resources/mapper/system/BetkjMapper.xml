@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             , case when status = '1' then bet_time else pre_time end as bet_open_time
             , case when status = '1'
                 then
-                    <if test='gameType == "3"'>CONCAT(n1,'+',n2,'+',n3,'=',sum_num)</if>
+                    <if test='gameType == "3"'>CONCAT(num1,'+',num2,'+',num3,'=',sum_num)</if>
                     <if test='gameType == "5"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'=',sum)</if>
                     <if test='gameType == "10"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'+',num6,'+',num7,'+',num8,'+',num9,'+',num10)</if>
                 else ''
