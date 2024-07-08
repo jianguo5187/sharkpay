@@ -26,6 +26,10 @@
         ></el-date-picker>
       </el-form-item>
 
+      <el-form-item label="包含测试用户" prop="includeTestUserFlg">
+        <el-switch v-model="queryParams.includeTestUserFlg" @change="getList"></el-switch>
+      </el-form-item>
+
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -100,6 +104,7 @@ export default {
         pageSize: 20,
         userId: undefined,
         nickName: undefined,
+        includeTestUserFlg:false,
       },
     };
   },

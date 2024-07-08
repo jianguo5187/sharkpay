@@ -93,7 +93,7 @@ public interface UserwinMapper
 
     public Float selectBetWinToalAmount();
 
-    public List<TotalReportRespVO> selectTotalReportLis();
+    public List<TotalReportRespVO> selectTotalReportLis(Userwin userwin);
 
     public List<CashbackReportRespVO> selectCashbackReportLis(@Param("userId") Long userId,@Param("filterDate")String filterDate);
 

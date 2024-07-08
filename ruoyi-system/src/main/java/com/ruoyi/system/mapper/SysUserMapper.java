@@ -176,4 +176,6 @@ public interface SysUserMapper
     public int updateUserRemarkName(@Param("userId")Long userId, @Param("remarkName") String remarkName);
 
     public int mergeChildUser(@Param("mainUserId")Long mainUserId, @Param("mergeUserId") Long mergeUserId);
+
+    public Float getUserTotalAmount();
 }

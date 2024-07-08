@@ -137,6 +137,10 @@ public class SysUser extends BaseEntity
     @Excel(name = "10球反水比率")
     private Float tenBallCashback;
 
+    /** 测试用户(0不是,1是) */
+    @Excel(name = "测试用户(0不是,1是)")
+    private String isTest;
+
     /** 部门对象 */
     @Excels({
         @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
@@ -530,6 +534,14 @@ public class SysUser extends BaseEntity
 
     public void setTenBallCashback(Float tenBallCashback) {
         this.tenBallCashback = tenBallCashback;
+    }
+
+    public String getIsTest() {
+        return isTest;
+    }
+
+    public void setIsTest(String isTest) {
+        this.isTest = isTest;
     }
 
     public SysDept getDept()

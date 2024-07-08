@@ -18,6 +18,14 @@ export function selectImChatUrl(query) {
   })
 }
 
+export function selectUserTotalAmount(query) {
+  return request({
+    url: '/system/app/getUserTotalAmount',
+    method: 'get',
+    params: query
+  })
+}
+
 export function getKefuNoReadCnt(data) {
   return kefuRequest({
     url: '/noAuthKefuNoReadCnt',

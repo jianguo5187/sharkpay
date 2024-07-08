@@ -1,5 +1,11 @@
 <template>
   <div class="app-container">
+    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
+      <el-form-item label="包含测试用户" prop="includeTestUserFlg">
+        <el-switch v-model="queryParams.includeTestUserFlg" @change="getList"></el-switch>
+      </el-form-item>
+    </el-form>
+
     <el-row :gutter="10" class="mb8">
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
@@ -66,6 +72,7 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 20,
+        includeTestUserFlg:false,
       },
       // 表单参数
       form: {},
@@ -81,6 +88,7 @@ export default {
     /** 查询投注机器人列表 */
     getList() {
       this.loading = true;
+      console.log("getList");
       listTotalReport(this.queryParams).then(response => {
         this.totalReportList = response.rows;
         this.total = response.total;

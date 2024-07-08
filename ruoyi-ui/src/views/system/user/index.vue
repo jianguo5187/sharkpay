@@ -305,6 +305,19 @@
         </el-row>
         <el-row>
           <el-col :span="12">
+            <el-form-item label="测试用户">
+              <el-radio-group v-model="form.isTest">
+                <el-radio
+                  v-for="dict in dict.type.sys_user_is_test"
+                  :key="dict.value"
+                  :label="dict.value"
+                >{{dict.label}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
             <el-form-item label="状态">
               <el-radio-group v-model="form.status">
                 <el-radio
@@ -501,7 +514,7 @@ import BetRealTime from "@/views/system/bet/betRealTime"
 
 export default {
   name: "User",
-  dicts: ['sys_normal_disable', 'sys_user_sex', 'user_type','sys_user_status'],
+  dicts: ['sys_normal_disable', 'sys_user_sex', 'user_type','sys_user_status','sys_user_is_test'],
   components: { Treeselect ,UserFlowMoneyList,BetRealTime},
   data() {
     return {
@@ -776,6 +789,7 @@ export default {
         idcardNo: undefined,
         idcardFrontImg: undefined,
         idcardBackImg: undefined,
+        isTest: "0",
         status: "0",
         userType: undefined,
         threeBallCommission: "100",

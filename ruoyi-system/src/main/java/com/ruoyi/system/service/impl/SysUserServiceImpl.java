@@ -741,4 +741,9 @@ public class SysUserServiceImpl implements ISysUserService
         // 更新主账号
         return userMapper.updateUser(mainUser);
     }
+
+    @Override
+    public Float getUserTotalAmount() {
+        return userMapper.getUserTotalAmount();
+    }
 }

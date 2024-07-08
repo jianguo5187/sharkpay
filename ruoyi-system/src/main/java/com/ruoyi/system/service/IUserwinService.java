@@ -80,7 +80,7 @@ public interface IUserwinService
 
     public void commissionUser(Long userId,Userwin userwin);
 
-    public List<TotalReportRespVO> selectTotalReportLis();
+    public List<TotalReportRespVO> selectTotalReportLis(Userwin userwin);
 
     public List<UserReportRespVO> selectUserReportLis(Userwin userwin);
 

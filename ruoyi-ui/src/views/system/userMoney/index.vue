@@ -48,6 +48,10 @@
         </el-select>
       </el-form-item>
 
+      <el-form-item label="包含测试用户" prop="includeTestUserFlg">
+        <el-switch v-model="queryParams.includeTestUserFlg" @change="getList"></el-switch>
+      </el-form-item>
+
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -142,6 +146,7 @@ export default {
         userId: undefined,
         nickName: undefined,
         type: null,
+        includeTestUserFlg:false,
       },
       // 表单参数
       form: {},

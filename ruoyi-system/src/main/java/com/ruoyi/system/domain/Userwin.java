@@ -95,6 +95,9 @@ public class Userwin extends BaseEntity
     /** 上级用户ID */
     private Long parentUserId;
 
+    /** 测试用户标识 */
+    private Boolean includeTestUserFlg;
+
     public void setId(Long id)
     {
         this.id = id;
@@ -275,6 +278,14 @@ public class Userwin extends BaseEntity
 
     public void setParentUserId(Long parentUserId) {
         this.parentUserId = parentUserId;
+    }
+
+    public Boolean getIncludeTestUserFlg() {
+        return includeTestUserFlg;
+    }
+
+    public void setIncludeTestUserFlg(Boolean includeTestUserFlg) {
+        this.includeTestUserFlg = includeTestUserFlg;
     }
 
     @Override

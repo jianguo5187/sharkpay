@@ -191,7 +191,7 @@ public class UserwinController extends BaseController
     public TableDataInfo listTotalReport(Userwin userwin)
     {
         startPage();
-        List<TotalReportRespVO> list = userwinService.selectTotalReportLis();
+        List<TotalReportRespVO> list = userwinService.selectTotalReportLis(userwin);
         return getDataTable(list);
     }
 

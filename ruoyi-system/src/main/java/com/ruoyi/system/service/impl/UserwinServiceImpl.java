@@ -444,8 +444,8 @@ public class UserwinServiceImpl implements IUserwinService
     }
 
     @Override
-    public List<TotalReportRespVO> selectTotalReportLis() {
-        return userwinMapper.selectTotalReportLis();
+    public List<TotalReportRespVO> selectTotalReportLis(Userwin userwin) {
+        return userwinMapper.selectTotalReportLis(userwin);
     }
 
     @Override

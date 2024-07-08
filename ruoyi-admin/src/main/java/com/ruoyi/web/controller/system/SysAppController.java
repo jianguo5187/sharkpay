@@ -198,6 +198,19 @@ public class SysAppController extends BaseController {
     }
 
     /**
+     * 获取用户余额
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getUserTotalAmount")
+    public AjaxResult getUserTotalAmount()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("userTotalAmount",userService.getUserTotalAmount());
+        return ajax;
+    }
+
+    /**
      * 获取IM聊天网站URL
      *
      * @return 用户信息

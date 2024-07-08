@@ -6,6 +6,9 @@
     <top-nav id="topmenu-container" class="topmenu-container" v-if="topNav"/>
 
     <div class="right-menu">
+      <el-tooltip content="会员余额" effect="dark" placement="bottom">
+        <user-amount id="user-amount" class="right-menu-item hover-effect" />
+      </el-tooltip>
       <el-tooltip content="客服" effect="dark" placement="bottom">
         <im-chat id="im-chat" class="right-menu-item hover-effect" />
       </el-tooltip>
@@ -71,6 +74,7 @@ import TopPostal from '@/components/Postal'
 import TopRecharge from '@/components/Recharge'
 import OnlineUser from '@/components/OnlineUser'
 import ImChat from '@/components/ImChat'
+import UserAmount from '@/components/UserAmount'
 
 export default {
   components: {
@@ -85,7 +89,8 @@ export default {
     TopPostal,
     TopRecharge,
     OnlineUser,
-    ImChat
+    ImChat,
+    UserAmount
   },
   computed: {
     ...mapGetters([

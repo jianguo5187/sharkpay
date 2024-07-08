@@ -250,4 +250,6 @@ public interface ISysUserService
     public int updateUserRemarkName(Long userId, String remarkName);
 
     public int mergeUser(SysUser user);
+
+    public Float getUserTotalAmount();
 }

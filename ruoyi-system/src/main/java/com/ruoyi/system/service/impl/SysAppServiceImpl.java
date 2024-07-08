@@ -435,6 +435,7 @@ public class SysAppServiceImpl implements ISysAppService {
         String today = sd.format(new Date());
         Userwin searchUserwin = new Userwin();
         searchUserwin.setFilterDay(today);
+        searchUserwin.setIncludeTestUserFlg(false);
 
         Float todayWinMoney = 0f;
         List<UserTotalRankListRespVO> totalUserWinList = userwinService.selectUserTotalRankList(searchUserwin);

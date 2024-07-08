@@ -413,6 +413,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
         </if>
         <if test="cashBackStatus != null "> and uw.is_cash_back > 0 = #{cashBackStatus}</if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
         GROUP BY uw.user_id,uw.win_time,uw.game_id
         ORDER BY uw.win_time desc,uw.game_id
     </select>
@@ -452,6 +453,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
             and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
         </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
         GROUP BY uw.user_id,uw.win_time
         ORDER BY uw.win_time desc,uw.user_id
     </select>
@@ -510,6 +512,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
         </if>
         <if test="commissionStatus != null "> and uw.is_commission = #{commissionStatus}</if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
         GROUP BY uw.user_id,pu.user_id,uw.win_time,uw.game_id
         ORDER BY uw.win_time desc,uw.game_id
     </select>
@@ -527,8 +530,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
 
     <select id="selectBetWinToalAmount" resultType="Float">
-        select IFNULL(sum(win_money)*-1,0)
-        from userwin
+        select IFNULL(sum(win.win_money)*-1,0)
+        from userwin win
+        inner join sys_user u on u.user_id = win.user_id and u.del_flag = '0' and u.is_test = '0'
     </select>
 
     <select id="selectTotalReportLis" resultMap="TotalReportListResult">
@@ -552,6 +556,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                       DATE_FORMAT(u.create_time,'%Y-%m-%d') as calendar_date
                      ,count(*) as create_user_cnt
                  FROM sys_user u
+                 WHERE u.del_flag = '0'
+                 <if test="!includeTestUserFlg">  and u.is_test = '0'</if>
                  group by DATE_FORMAT(u.create_time,'%Y-%m-%d')
              ) u_temp on u_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -567,8 +573,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                              ,r.user_id as user_id
                              ,SUM(r.money) as bet_money
                          FROM `bet_record` r
+                         inner join sys_user u
+                         ON u.user_id = r.user_id
+                         AND u.del_flag = '0'
                          WHERE r.is_delete = '0'
                            AND r.is_robot = '0'
+                         <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                          GROUP BY r.user_id,DATE_FORMAT(r.record_time,'%Y-%m-%d')
                      ) bet_temp
                  GROUP BY bet_temp.record_time
@@ -579,8 +589,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  DATE_FORMAT(up.cash_time,'%Y-%m-%d') as calendar_date
                 ,sum(up.cash_money) as up_money_total
             FROM usermoney up
+            inner join sys_user u
+            ON u.user_id = up.user_id
+            AND u.del_flag = '0'
             WHERE up.type = '2'
               AND up.is_delete = '0'
+            <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY DATE_FORMAT(up.cash_time,'%Y-%m-%d')
         )up_temp ON up_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -589,8 +603,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  DATE_FORMAT(down.cash_time,'%Y-%m-%d') as calendar_date
                 ,sum(down.cash_money) as down_money_total
             FROM usermoney down
+            inner join sys_user u
+            ON u.user_id = down.user_id
+            AND u.del_flag = '0'
             WHERE down.type = '5'
               AND down.is_delete = '0'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY DATE_FORMAT(down.cash_time,'%Y-%m-%d')
         )down_temp ON down_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -599,7 +617,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  DATE_FORMAT(cb.win_time,'%Y-%m-%d') as calendar_date
                 ,sum(cb.cash_back_money) as cash_back_money_total
             FROM userwin cb
+            inner join sys_user u
+            ON u.user_id = cb.user_id
+            AND u.del_flag = '0'
             WHERE cb.is_cash_back = '1'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY DATE_FORMAT(cb.win_time,'%Y-%m-%d')
         )cb_temp ON cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -609,7 +631,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 ,sum(ROUND((no_cb.big_small_money + no_cb.other_money - no_cb.deduct_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
             FROM userwin no_cb
             inner join sys_game g on g.game_id = no_cb.game_id
+            inner join sys_user u
+            ON u.user_id = no_cb.user_id
+            AND u.del_flag = '0'
             WHERE no_cb.is_cash_back = '0'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d')
         )no_cb_temp ON no_cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -621,6 +647,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                      inner join sys_user u on u.user_id = commission.user_id and u.del_flag = '0'
                      inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
             WHERE commission.is_commission = '1'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY DATE_FORMAT(commission.win_time,'%Y-%m-%d')
         )commission_temp ON commission_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -629,8 +656,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d') as calendar_date
                 ,sum(bet_win.cash_money) as bet_win_money_total
             FROM usermoney bet_win
+            inner join sys_user u
+            ON u.user_id = bet_win.user_id
+            AND u.del_flag = '0'
             WHERE bet_win.type = '8'
               AND bet_win.is_delete = '0'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d')
         )bet_win_temp ON bet_win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -639,6 +670,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  DATE_FORMAT(win.win_time,'%Y-%m-%d') as calendar_date
                 ,sum(win.win_money)*-1 as win_money_total
             FROM userwin win
+            inner join sys_user u
+            ON u.user_id = win.user_id
+            AND u.del_flag = '0'
+            WHERE 1=1
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY DATE_FORMAT(win.win_time,'%Y-%m-%d')
         )win_temp ON win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -756,6 +792,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                        r.user_id as user_id
                       ,SUM(r.money) as bet_money_total
                  FROM `bet_record` r
+                 inner join sys_user u
+                 ON u.user_id = r.user_id
+                 AND u.del_flag = '0'
                  WHERE r.is_delete = '0'
                    AND r.is_robot = '0'
                 <if test="userId != null "> and r.user_id = #{userId}</if>
@@ -765,6 +804,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+                <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                  GROUP BY r.user_id
              )bet_count_temp ON bet_count_temp.user_id = u.user_id
 
@@ -774,6 +814,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                      bet_win.user_id as user_id
                     ,sum(bet_win.cash_money) as bet_win_money_total
                 FROM usermoney bet_win
+                inner join sys_user u
+                ON u.user_id = bet_win.user_id
+                AND u.del_flag = '0'
                 WHERE bet_win.type = '8'
                 AND bet_win.is_delete = '0'
                 <if test="userId != null "> and bet_win.user_id = #{userId}</if>
@@ -783,6 +826,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(bet_win.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY bet_win.user_id
             )bet_win_temp ON bet_win_temp.user_id = u.user_id
 
@@ -792,6 +836,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                      win.user_id as user_id
                     ,sum(win.win_money) as win_money_total
                 FROM userwin win
+                inner join sys_user u
+                ON u.user_id = win.user_id
+                AND u.del_flag = '0'
                 WHERE 1 = 1
                 <if test="userId != null "> and win.user_id = #{userId}</if>
                 <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
@@ -800,6 +847,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(win.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY win.user_id
             )win_temp ON win_temp.user_id = u.user_id
 
@@ -809,6 +857,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                       up.user_id as user_id
                      ,sum(up.cash_money) as up_money_total
                 FROM usermoney up
+                inner join sys_user u
+                ON u.user_id = up.user_id
+                AND u.del_flag = '0'
                 WHERE up.type = '2'
                   AND up.is_delete = '0'
                 <if test="userId != null "> and up.user_id = #{userId}</if>
@@ -818,6 +869,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(up.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY up.user_id
             )up_temp ON up_temp.user_id = u.user_id
 
@@ -827,6 +879,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                       down.user_id as user_id
                      ,sum(down.cash_money) as down_money_total
                 FROM usermoney down
+                inner join sys_user u
+                ON u.user_id = down.user_id
+                AND u.del_flag = '0'
                 WHERE down.type = '5'
                   AND down.is_delete = '0'
                 <if test="userId != null "> and down.user_id = #{userId}</if>
@@ -836,6 +891,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(down.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY down.user_id
             )down_temp ON down_temp.user_id = u.user_id
 
@@ -855,6 +911,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(commission.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY commission.user_id
             )commission_temp ON commission_temp.user_id = u.user_id
 
@@ -864,6 +921,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                       cb.user_id as user_id
                      ,sum(cb.cash_back_money) as cash_back_money_total
                 FROM userwin cb
+                inner join sys_user u
+                ON u.user_id = cb.user_id
+                AND u.del_flag = '0'
                 WHERE cb.is_cash_back = '1'
                 <if test="userId != null "> and cb.user_id = #{userId}</if>
                 <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
@@ -872,6 +932,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(cb.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY cb.user_id
             )cb_temp ON cb_temp.user_id = u.user_id
 
@@ -881,7 +942,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                       no_cb.user_id as user_id
                      ,sum(ROUND((no_cb.big_small_money + no_cb.other_money - no_cb.deduct_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
                 FROM userwin no_cb
-                         inner join sys_game g on g.game_id = no_cb.game_id
+                inner join sys_game g on g.game_id = no_cb.game_id
+                inner join sys_user u
+                ON u.user_id = no_cb.user_id
+                AND u.del_flag = '0'
                 WHERE no_cb.is_cash_back = '0'
                 <if test="userId != null "> and no_cb.user_id = #{userId}</if>
                 <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
@@ -890,6 +954,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(no_cb.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY no_cb.user_id
             )no_cb_temp ON no_cb_temp.user_id = u.user_id
         where u.del_flag = '0'
@@ -898,6 +963,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
         </if>
         <if test="parentUserId != null "> and u.parent_user_id = #{parentUserId}</if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
         ORDER BY u.user_id ASC
     </select>
 
@@ -914,6 +980,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                      DATE_FORMAT(r.record_time,'%Y-%m-%d') as calendar_date
                     ,SUM(r.money) as bet_money_total
                 FROM `bet_record` r
+                inner join sys_user u
+                ON u.user_id = r.user_id
+                AND u.del_flag = '0'
                 WHERE r.is_delete = '0'
                 AND r.is_robot = '0'
                 <if test="gameId != null "> and r.game_id = #{gameId}</if>
@@ -923,6 +992,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY DATE_FORMAT(r.record_time,'%Y-%m-%d')
              )bet_count_temp ON bet_count_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -932,6 +1002,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                     DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d') as calendar_date
                      ,sum(bet_win.cash_money) as bet_win_money_total
                 FROM usermoney bet_win
+                inner join sys_user u
+                ON u.user_id = bet_win.user_id
+                AND u.del_flag = '0'
                 WHERE bet_win.type = '8'
                   AND bet_win.is_delete = '0'
                 <if test="gameId != null "> and bet_win.game_id = #{gameId}</if>
@@ -941,6 +1014,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(bet_win.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d')
             )bet_win_temp ON bet_win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
 
@@ -950,6 +1024,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                     DATE_FORMAT(win.win_time,'%Y-%m-%d') as calendar_date
                      ,sum(win.win_money)*-1 as win_money_total
                 FROM userwin win
+                inner join sys_user u
+                ON u.user_id = win.user_id
+                AND u.del_flag = '0'
                 WHERE 1 = 1
                 <if test="gameId != null "> and win.game_id = #{gameId}</if>
                 <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
@@ -958,6 +1035,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                     and date_format(win.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
                 </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
                 GROUP BY DATE_FORMAT(win.win_time,'%Y-%m-%d')
             )win_temp ON win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
         WHERE 1 = 1
@@ -990,6 +1068,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 ,COUNT(*) AS bet_cnt
                 ,SUM(r.money) as bet_money_total
             FROM `bet_record` r
+            inner join sys_user u
+            ON u.user_id = r.user_id
+            AND u.del_flag = '0'
             WHERE r.is_delete = '0'
             AND r.is_robot = '0'
             <if test="gameId != null "> and r.game_id = #{gameId}</if>
@@ -1000,6 +1081,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                 and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
             </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY r.user_id
         )bet_count_temp ON bet_count_temp.user_id = u.user_id
 
@@ -1009,6 +1091,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  bet_win.user_id as user_id
                 ,sum(bet_win.cash_money) as bet_win_money_total
             FROM usermoney bet_win
+            inner join sys_user u
+            ON u.user_id = bet_win.user_id
+            AND u.del_flag = '0'
             WHERE bet_win.type = '8'
             AND bet_win.is_delete = '0'
             <if test="gameId != null "> and bet_win.game_id = #{gameId}</if>
@@ -1019,6 +1104,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                 and date_format(bet_win.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
             </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY bet_win.user_id
         )bet_win_temp ON bet_win_temp.user_id = u.user_id
 
@@ -1028,6 +1114,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  win.user_id as user_id
                 ,sum(win.win_money) as win_money_total
             FROM userwin win
+            inner join sys_user u
+            ON u.user_id = win.user_id
+            AND u.del_flag = '0'
             WHERE 1 = 1
             <if test="gameId != null "> and win.game_id = #{gameId}</if>
             <if test="userId != null "> and win.user_id = #{userId}</if>
@@ -1037,6 +1126,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
                 and date_format(win.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
             </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY win.user_id
         )win_temp ON win_temp.user_id = u.user_id
 
@@ -1045,6 +1135,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="nickName != null and nickName != ''">
             AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
         </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
         ORDER BY u.user_id ASC
     </select>
 </mapper>
