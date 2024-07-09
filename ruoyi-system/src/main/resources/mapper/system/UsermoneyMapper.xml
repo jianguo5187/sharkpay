@@ -447,4 +447,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="!includeTestUserFlg">and u.is_test = '0'</if>
         ORDER BY um.id DESC
     </select>
+
+    <update id="updateUpDownAmount" parameterType="Usermoney">
+        update usermoney
+        set cash_money = #{cashMoney}
+        ,user_balance = #{userBalance}
+        where id = #{id}
+    </update>
 </mapper>

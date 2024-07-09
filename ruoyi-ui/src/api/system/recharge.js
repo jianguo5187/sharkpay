@@ -60,3 +60,11 @@ export function listUserFlowMoney(query) {
     params: query
   })
 }
+
+export function updateUpDownAmount(data) {
+  return request({
+    url: '/system/usermoney/updateUpDownAmount',
+    method: 'post',
+    data: data
+  })
+}

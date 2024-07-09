@@ -83,4 +83,6 @@ public interface UsermoneyMapper
     public List<WeekUpDownMoneyRespVO> selectWeekUpDownMoneyList(@Param("type")String type);
 
     public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney);
+
+    public int updateUpDownAmount(Usermoney usermoney);
 }

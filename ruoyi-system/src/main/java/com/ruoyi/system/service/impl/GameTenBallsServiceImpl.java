@@ -309,49 +309,49 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 Map<String, Object> updateGameTenballMap = EntityMapTransUtils.entityToMap1(updateGameTenballRecord);
 
                 if(vo.getType() == 1){
-                    if("单".equals(betNumberArg[i])){
+                    if("单".equals(betNumberArg[i].trim())){
                         Float betMoney = updateGameTenballRecord.getType1Single() + vo.getMoney();
                         updateGameTenballRecord.setType1Single(betMoney);
                         columnKey = "type1Single";
-                    }else if("双".equals(betNumberArg[i])){
+                    }else if("双".equals(betNumberArg[i].trim())){
 
                         Float betMoney = updateGameTenballRecord.getType1Double() + vo.getMoney();
                         updateGameTenballRecord.setType1Double(betMoney);
                         columnKey = "type1Double";
-                    }else if("大".equals(betNumberArg[i])){
+                    }else if("大".equals(betNumberArg[i].trim())){
 
                         Float betMoney = updateGameTenballRecord.getType1Big() + vo.getMoney();
                         updateGameTenballRecord.setType1Big(betMoney);
                         columnKey = "type1Big";
-                    }else if("小".equals(betNumberArg[i])){
+                    }else if("小".equals(betNumberArg[i].trim())){
 
                         Float betMoney = updateGameTenballRecord.getType1Small() + vo.getMoney();
                         updateGameTenballRecord.setType1Small(betMoney);
                         columnKey = "type1Small";
                     }else{
-                        Object betRecordAmountObject = updateGameTenballMap.get("type1Num" +betNumberArg[i]);
+                        Object betRecordAmountObject = updateGameTenballMap.get("type1Num" +betNumberArg[i].trim());
                         Float betRecordAmount = betRecordAmountObject!=null?(Float) betRecordAmountObject:0f;
                         Float betMoney = betRecordAmount + vo.getMoney();
-                        updateGameTenballMap.put("type1Num" +betNumberArg[i], betMoney);
+                        updateGameTenballMap.put("type1Num" +betNumberArg[i].trim(), betMoney);
 
                         updateGameTenballRecord = EntityMapTransUtils.mapToEntity1(GameTenballRecord.class, updateGameTenballMap);
-                        columnKey = "type1Num" +betNumberArg[i];
+                        columnKey = "type1Num" +betNumberArg[i].trim();
                     }
                 }else{
-                    if("单".equals(betNumberArg[i])){
+                    if("单".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Single" ;
-                    }else if("双".equals(betNumberArg[i])){
+                    }else if("双".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Double";
-                    }else if("大".equals(betNumberArg[i])){
+                    }else if("大".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Big";
-                    }else if("小".equals(betNumberArg[i])){
+                    }else if("小".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Small";
-                    }else if("龙".equals(betNumberArg[i]) && (vo.getType()-1) < 6){
+                    }else if("龙".equals(betNumberArg[i].trim()) && (vo.getType()-1) < 6){
                         columnKey = "type"+(vo.getType()) + "Loong";
-                    }else if("虎".equals(betNumberArg[i]) && (vo.getType()-1) < 6){
+                    }else if("虎".equals(betNumberArg[i].trim()) && (vo.getType()-1) < 6){
                         columnKey = "type"+(vo.getType()) + "Tiger";
                     }else{
-                        columnKey = "type"+(vo.getType()) + "Num" +betNumberArg[i];
+                        columnKey = "type"+(vo.getType()) + "Num" +betNumberArg[i].trim();
                     }
 
                     Object betRecordAmountObject = updateGameTenballMap.get(columnKey);
@@ -371,42 +371,42 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 Map<String, Object> newGameTenballMap = EntityMapTransUtils.entityToMap1(newGameTenballRecord);
 
                 if(vo.getType() == 1){
-                    if("单".equals(betNumberArg[i])){
+                    if("单".equals(betNumberArg[i].trim())){
                         newGameTenballRecord.setType1Single(vo.getMoney());
                         columnKey = "type1Single";
-                    }else if("双".equals(betNumberArg[i])){
+                    }else if("双".equals(betNumberArg[i].trim())){
                         newGameTenballRecord.setType1Double(vo.getMoney());
                         columnKey = "type1Double";
-                    }else if("大".equals(betNumberArg[i])){
+                    }else if("大".equals(betNumberArg[i].trim())){
                         newGameTenballRecord.setType1Big(vo.getMoney());
                         columnKey = "type1Big";
-                    }else if("小".equals(betNumberArg[i])){
+                    }else if("小".equals(betNumberArg[i].trim())){
                         newGameTenballRecord.setType1Small(vo.getMoney());
                         columnKey = "type1Small";
                     }else{
-                        Object betRecordAmountObject = newGameTenballMap.get("type1Num" +betNumberArg[i]);
+                        Object betRecordAmountObject = newGameTenballMap.get("type1Num" +betNumberArg[i].trim());
                         Float betRecordAmount = betRecordAmountObject!=null?(Float) betRecordAmountObject:0f;
                         Float betMoney = betRecordAmount + vo.getMoney();
-                        newGameTenballMap.put("type1Num" +betNumberArg[i], betMoney);
+                        newGameTenballMap.put("type1Num" +betNumberArg[i].trim(), betMoney);
 
                         newGameTenballRecord = EntityMapTransUtils.mapToEntity1(GameTenballRecord.class, newGameTenballMap);
-                        columnKey = "type1Num" +betNumberArg[i];
+                        columnKey = "type1Num" +betNumberArg[i].trim();
                     }
                 }else{
-                    if("单".equals(betNumberArg[i])){
+                    if("单".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Single";
-                    }else if("双".equals(betNumberArg[i])){
+                    }else if("双".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Double";
-                    }else if("大".equals(betNumberArg[i])){
+                    }else if("大".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Big";
-                    }else if("小".equals(betNumberArg[i])){
+                    }else if("小".equals(betNumberArg[i].trim())){
                         columnKey = "type"+(vo.getType()) + "Small";
-                    }else if("龙".equals(betNumberArg[i]) && (vo.getType()-1) < 6){
+                    }else if("龙".equals(betNumberArg[i].trim()) && (vo.getType()-1) < 6){
                         columnKey = "type"+(vo.getType()) + "Loong";
-                    }else if("虎".equals(betNumberArg[i]) && (vo.getType()-1) < 6){
+                    }else if("虎".equals(betNumberArg[i].trim()) && (vo.getType()-1) < 6){
                         columnKey = "type"+(vo.getType()) + "Tiger";
                     }else{
-                        columnKey = "type"+(vo.getType()) + "Num" +betNumberArg[i];
+                        columnKey = "type"+(vo.getType()) + "Num" +betNumberArg[i].trim();
                     }
 
                     Object betRecordAmountObject = newGameTenballMap.get(columnKey);
@@ -438,7 +438,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             betrecord.setGameName(gameTenballKj.getGameName());
 
             betrecord.setPlayType(playType);
-            betrecord.setPlayDetail(betNumberArg[i]);
+            betrecord.setPlayDetail(betNumberArg[i].trim());
             betrecord.setPlayGroup(vo.getType());
             betrecord.setOption(0);
             betrecord.setMoney(vo.getMoney());
@@ -455,7 +455,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             usermoney.setUserId(userId);
             usermoney.setGameId(vo.getGameId());
             usermoney.setGameName(gameTenballKj.getGameName());
-            usermoney.setRemark("投注[" + gameTenballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + vo.getMoney() + "]元");
+            usermoney.setRemark("投注[" + gameTenballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i].trim() + "],金额[" + vo.getMoney() + "]元");
             usermoney.setCashMoney(vo.getMoney());
             usermoney.setUserBalance(userAmount);
             usermoney.setType("7");
@@ -527,49 +527,49 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                     Map<String, Object> updateGameTenballMap = EntityMapTransUtils.entityToMap1(updateGameTenballRecord);
 
                     if(tenBallsMultiBetRecordReqVO.getType() == 1){
-                        if("单".equals(betNumberArg[i])){
+                        if("单".equals(betNumberArg[i].trim())){
                             Float betMoney = updateGameTenballRecord.getType1Single() + tenBallsMultiBetRecordReqVO.getMoney();
                             updateGameTenballRecord.setType1Single(betMoney);
                             columnKey = "type1Single";
-                        }else if("双".equals(betNumberArg[i])){
+                        }else if("双".equals(betNumberArg[i].trim())){
 
                             Float betMoney = updateGameTenballRecord.getType1Double() + tenBallsMultiBetRecordReqVO.getMoney();
                             updateGameTenballRecord.setType1Double(betMoney);
                             columnKey = "type1Double";
-                        }else if("大".equals(betNumberArg[i])){
+                        }else if("大".equals(betNumberArg[i].trim())){
 
                             Float betMoney = updateGameTenballRecord.getType1Big() + tenBallsMultiBetRecordReqVO.getMoney();
                             updateGameTenballRecord.setType1Big(betMoney);
                             columnKey = "type1Big";
-                        }else if("小".equals(betNumberArg[i])){
+                        }else if("小".equals(betNumberArg[i].trim())){
 
                             Float betMoney = updateGameTenballRecord.getType1Small() + tenBallsMultiBetRecordReqVO.getMoney();
                             updateGameTenballRecord.setType1Small(betMoney);
                             columnKey = "type1Small";
                         }else{
-                            Object betRecordAmountObject = updateGameTenballMap.get("type1Num" +betNumberArg[i]);
+                            Object betRecordAmountObject = updateGameTenballMap.get("type1Num" +betNumberArg[i].trim());
                             Float betRecordAmount = betRecordAmountObject!=null?(Float) betRecordAmountObject:0f;
                             Float betMoney = betRecordAmount + tenBallsMultiBetRecordReqVO.getMoney();
-                            updateGameTenballMap.put("type1Num" +betNumberArg[i], betMoney);
+                            updateGameTenballMap.put("type1Num" +betNumberArg[i].trim(), betMoney);
 
                             updateGameTenballRecord = EntityMapTransUtils.mapToEntity1(GameTenballRecord.class, updateGameTenballMap);
-                            columnKey = "type1Num" +betNumberArg[i];
+                            columnKey = "type1Num" +betNumberArg[i].trim();
                         }
                     }else{
-                        if("单".equals(betNumberArg[i])){
+                        if("单".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Single" ;
-                        }else if("双".equals(betNumberArg[i])){
+                        }else if("双".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Double";
-                        }else if("大".equals(betNumberArg[i])){
+                        }else if("大".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Big";
-                        }else if("小".equals(betNumberArg[i])){
+                        }else if("小".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Small";
-                        }else if("龙".equals(betNumberArg[i]) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
+                        }else if("龙".equals(betNumberArg[i].trim()) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Loong";
-                        }else if("虎".equals(betNumberArg[i]) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
+                        }else if("虎".equals(betNumberArg[i].trim()) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Tiger";
                         }else{
-                            columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Num" +betNumberArg[i];
+                            columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Num" +betNumberArg[i].trim();
                         }
 
                         Object betRecordAmountObject = updateGameTenballMap.get(columnKey);
@@ -590,42 +590,42 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                     Map<String, Object> newGameTenballMap = EntityMapTransUtils.entityToMap1(newGameTenballRecord);
 
                     if(tenBallsMultiBetRecordReqVO.getType() == 1){
-                        if("单".equals(betNumberArg[i])){
+                        if("单".equals(betNumberArg[i].trim())){
                             newGameTenballRecord.setType1Single(tenBallsMultiBetRecordReqVO.getMoney());
                             columnKey = "type1Single";
-                        }else if("双".equals(betNumberArg[i])){
+                        }else if("双".equals(betNumberArg[i].trim())){
                             newGameTenballRecord.setType1Double(tenBallsMultiBetRecordReqVO.getMoney());
                             columnKey = "type1Double";
-                        }else if("大".equals(betNumberArg[i])){
+                        }else if("大".equals(betNumberArg[i].trim())){
                             newGameTenballRecord.setType1Big(tenBallsMultiBetRecordReqVO.getMoney());
                             columnKey = "type1Big";
-                        }else if("小".equals(betNumberArg[i])){
+                        }else if("小".equals(betNumberArg[i].trim())){
                             newGameTenballRecord.setType1Small(tenBallsMultiBetRecordReqVO.getMoney());
                             columnKey = "type1Small";
                         }else{
-                            Object betRecordAmountObject = newGameTenballMap.get("type1Num" +betNumberArg[i]);
+                            Object betRecordAmountObject = newGameTenballMap.get("type1Num" +betNumberArg[i].trim());
                             Float betRecordAmount = betRecordAmountObject!=null?(Float) betRecordAmountObject:0f;
                             Float betMoney = betRecordAmount + tenBallsMultiBetRecordReqVO.getMoney();
-                            newGameTenballMap.put("type1Num" +betNumberArg[i], betMoney);
+                            newGameTenballMap.put("type1Num" +betNumberArg[i].trim(), betMoney);
 
                             newGameTenballRecord = EntityMapTransUtils.mapToEntity1(GameTenballRecord.class, newGameTenballMap);
-                            columnKey = "type1Num" +betNumberArg[i];
+                            columnKey = "type1Num" +betNumberArg[i].trim();
                         }
                     }else{
-                        if("单".equals(betNumberArg[i])){
+                        if("单".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Single";
-                        }else if("双".equals(betNumberArg[i])){
+                        }else if("双".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Double";
-                        }else if("大".equals(betNumberArg[i])){
+                        }else if("大".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Big";
-                        }else if("小".equals(betNumberArg[i])){
+                        }else if("小".equals(betNumberArg[i].trim())){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Small";
-                        }else if("龙".equals(betNumberArg[i]) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
+                        }else if("龙".equals(betNumberArg[i].trim()) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Loong";
-                        }else if("虎".equals(betNumberArg[i]) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
+                        }else if("虎".equals(betNumberArg[i].trim()) && (tenBallsMultiBetRecordReqVO.getType()-1) < 6){
                             columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Tiger";
                         }else{
-                            columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Num" +betNumberArg[i];
+                            columnKey = "type"+(tenBallsMultiBetRecordReqVO.getType()) + "Num" +betNumberArg[i].trim();
                         }
 
                         Object betRecordAmountObject = newGameTenballMap.get(columnKey);
@@ -657,7 +657,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 betrecord.setGameName(gameTenballKj.getGameName());
 
                 betrecord.setPlayType(playType);
-                betrecord.setPlayDetail(betNumberArg[i]);
+                betrecord.setPlayDetail(betNumberArg[i].trim());
                 betrecord.setPlayGroup(tenBallsMultiBetRecordReqVO.getType());
                 betrecord.setOption(0);
                 betrecord.setMoney(tenBallsMultiBetRecordReqVO.getMoney());
@@ -674,7 +674,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 usermoney.setUserId(userId);
                 usermoney.setGameId(vo.getGameId());
                 usermoney.setGameName(gameTenballKj.getGameName());
-                usermoney.setRemark("投注[" + gameTenballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + tenBallsMultiBetRecordReqVO.getMoney() + "]元");
+                usermoney.setRemark("投注[" + gameTenballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i].trim() + "],金额[" + tenBallsMultiBetRecordReqVO.getMoney() + "]元");
                 usermoney.setCashMoney(tenBallsMultiBetRecordReqVO.getMoney());
                 usermoney.setUserBalance(userAmount);
                 usermoney.setType("7");
@@ -761,10 +761,10 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             Float bigDxds = getLimitAmountByKey(limitAmountMap,"big_dxds");
 
             if(betType == 1){
-                if(tema.contains(betNumberArg[i])){
+                if(tema.contains(betNumberArg[i].trim())){
                     List<String> special = Arrays.asList("3", "4", "18", "19");
-                    Float recordAmount = GameTenballMap.get("type1Num"+betNumberArg[i])!=null?(Float) GameTenballMap.get("type1Num"+betNumberArg[i]):0f;
-                    if(special.contains(betNumberArg[i])){
+                    Float recordAmount = GameTenballMap.get("type1Num"+betNumberArg[i].trim())!=null?(Float) GameTenballMap.get("type1Num"+betNumberArg[i].trim()):0f;
+                    if(special.contains(betNumberArg[i].trim())){
                         if(getLimitAmountByKey(limitAmountMap,"big_num_special").compareTo(money + recordAmount)<0){
                             throw new ServiceException("特殊号码投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,"big_num_special"));
                         }
@@ -775,67 +775,67 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                     }
                 }
 
-                if(bigSmall.contains(betNumberArg[i])){
-                    if("单".equals(betNumberArg[i]) && bigDxds.compareTo(money + gameTenballRecord.getType1Single()) < 0){
+                if(bigSmall.contains(betNumberArg[i].trim())){
+                    if("单".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + gameTenballRecord.getType1Single()) < 0){
                         throw new ServiceException("和值单金额不可以大于" + bigDxds);
                     }
-                    if("双".equals(betNumberArg[i]) && bigDxds.compareTo(money + gameTenballRecord.getType1Double()) < 0){
+                    if("双".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + gameTenballRecord.getType1Double()) < 0){
                         throw new ServiceException("和值双金额不可以大于" + bigDxds);
                     }
-                    if("大".equals(betNumberArg[i]) && bigDxds.compareTo(money + gameTenballRecord.getType1Big()) < 0){
+                    if("大".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + gameTenballRecord.getType1Big()) < 0){
                         throw new ServiceException("和值大金额不可以大于" + bigDxds);
                     }
-                    if("小".equals(betNumberArg[i]) && bigDxds.compareTo(money + gameTenballRecord.getType1Small()) < 0){
+                    if("小".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + gameTenballRecord.getType1Small()) < 0){
                         throw new ServiceException("和值小金额不可以大于" + bigDxds);
                     }
                 }
             }else{
-                if(rank.contains(betNumberArg[i])){
-                    Object recordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Num" +betNumberArg[i]);
+                if(rank.contains(betNumberArg[i].trim())){
+                    Object recordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Num" +betNumberArg[i].trim());
                     Float recordAmount = recordAmountObject!=null?(Float) recordAmountObject:0f;
                     if(getLimitAmountByKey(limitAmountMap,"big_num").compareTo(money + recordAmount)<0){
                         throw new ServiceException("赛道号码注金额不可以大于" + getLimitAmountByKey(limitAmountMap,"big_num"));
                     }
                 }
 
-                if(bigSmall.contains(betNumberArg[i])){
+                if(bigSmall.contains(betNumberArg[i].trim())){
 
                     Object singleRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Single");
                     Float singleRecordAmount = singleRecordAmountObject!=null?(Float) singleRecordAmountObject:0f;
-                    if("单".equals(betNumberArg[i]) && bigDxds.compareTo(money + singleRecordAmount) < 0){
+                    if("单".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + singleRecordAmount) < 0){
                         throw new ServiceException("赛道单金额不可以大于" + bigDxds);
                     }
 
                     Object doubleRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Double");
                     Float doubleRecordAmount = doubleRecordAmountObject!=null?(Float) doubleRecordAmountObject:0f;
-                    if("双".equals(betNumberArg[i]) && bigDxds.compareTo(money + doubleRecordAmount) < 0){
+                    if("双".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + doubleRecordAmount) < 0){
                         throw new ServiceException("赛道双金额不可以大于" + bigDxds);
                     }
 
                     Object bigRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Big");
                     Float bigRecordAmount = bigRecordAmountObject!=null?(Float) bigRecordAmountObject:0f;
-                    if("大".equals(betNumberArg[i]) && bigDxds.compareTo(money + bigRecordAmount) < 0){
+                    if("大".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + bigRecordAmount) < 0){
                         throw new ServiceException("赛道大金额不可以大于" + bigDxds);
                     }
 
                     Object smallRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Small");
                     Float smallRecordAmount = smallRecordAmountObject!=null?(Float) smallRecordAmountObject:0f;
-                    if("小".equals(betNumberArg[i]) && bigDxds.compareTo(money + smallRecordAmount) < 0){
+                    if("小".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + smallRecordAmount) < 0){
                         throw new ServiceException("赛道小金额不可以大于" + bigDxds);
                     }
                 }
 
-                if(longTiger.contains(betNumberArg[i])){
+                if(longTiger.contains(betNumberArg[i].trim())){
 
                     Object loongRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Loong");
                     Float loongRecordAmount = loongRecordAmountObject!=null?(Float) loongRecordAmountObject:0f;
-                    if("小".equals(betNumberArg[i]) && bigDxds.compareTo(money + loongRecordAmount) < 0){
+                    if("小".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + loongRecordAmount) < 0){
                         throw new ServiceException("赛道小金额不可以大于" + bigDxds);
                     }
 
                     Object tigerRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Tiger");
                     Float tigerRecordAmount = tigerRecordAmountObject!=null?(Float) tigerRecordAmountObject:0f;
-                    if("小".equals(betNumberArg[i]) && bigDxds.compareTo(money + tigerRecordAmount) < 0){
+                    if("小".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + tigerRecordAmount) < 0){
                         throw new ServiceException("虎金额不可以大于" + bigDxds);
                     }
                 }

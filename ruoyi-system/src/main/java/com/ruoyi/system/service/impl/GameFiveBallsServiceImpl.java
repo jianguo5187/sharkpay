@@ -345,7 +345,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         Float userAmount = user.getAmount();
         for(int i=0; i<betNumberArg.length; i++){
 
-            String key = allFiledMap.get(vo.getType()+betNumberArg[i]);
+            String key = allFiledMap.get(vo.getType()+betNumberArg[i].trim());
 
             searchGameFiveballRecord = new GameFiveballRecord();
             searchGameFiveballRecord.setGameId(vo.getGameId());
@@ -398,7 +398,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             betrecord.setGameName(gameFiveballKj.getGameName());
 
             betrecord.setPlayType(playType);
-            betrecord.setPlayDetail(betNumberArg[i]);
+            betrecord.setPlayDetail(betNumberArg[i].trim());
             betrecord.setPlayGroup(vo.getType());
             betrecord.setOption(0);
             betrecord.setMoney(vo.getMoney());
@@ -415,7 +415,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             usermoney.setUserId(userId);
             usermoney.setGameId(vo.getGameId());
             usermoney.setGameName(gameFiveballKj.getGameName());
-            usermoney.setRemark("投注[" + gameFiveballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + vo.getMoney() + "]元");
+            usermoney.setRemark("投注[" + gameFiveballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i].trim() + "],金额[" + vo.getMoney() + "]元");
             usermoney.setCashMoney(vo.getMoney());
             usermoney.setUserBalance(userAmount);
             usermoney.setType("7");
@@ -514,7 +514,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             }
 
             for(int i=0; i<betNumberArg.length; i++){
-                String key = allFiledMap.get(fiveBallsMultiBetRecordReqVO.getType()+betNumberArg[i]);
+                String key = allFiledMap.get(fiveBallsMultiBetRecordReqVO.getType()+betNumberArg[i].trim());
                 searchGameFiveballRecord = new GameFiveballRecord();
                 searchGameFiveballRecord.setGameId(vo.getGameId());
                 searchGameFiveballRecord.setUserId(userId);
@@ -567,7 +567,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                 betrecord.setGameName(gameFiveballKj.getGameName());
 
                 betrecord.setPlayType(playType);
-                betrecord.setPlayDetail(betNumberArg[i]);
+                betrecord.setPlayDetail(betNumberArg[i].trim());
                 betrecord.setPlayGroup(fiveBallsMultiBetRecordReqVO.getType());
                 betrecord.setOption(0);
                 betrecord.setMoney(fiveBallsMultiBetRecordReqVO.getMoney());
@@ -584,7 +584,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                 usermoney.setUserId(userId);
                 usermoney.setGameId(vo.getGameId());
                 usermoney.setGameName(gameFiveballKj.getGameName());
-                usermoney.setRemark("投注[" + gameFiveballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + fiveBallsMultiBetRecordReqVO.getMoney() + "]元");
+                usermoney.setRemark("投注[" + gameFiveballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i].trim() + "],金额[" + fiveBallsMultiBetRecordReqVO.getMoney() + "]元");
                 usermoney.setCashMoney(fiveBallsMultiBetRecordReqVO.getMoney());
                 usermoney.setUserBalance(userAmount);
                 usermoney.setType("7");
@@ -666,7 +666,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
 
         for(int i=0; i<betNumberArg.length; i++){
             Map<String, Object> GameFiveballMap = EntityMapTransUtils.entityToMap1(gameFiveballRecord);
-            String key = allFiledMap.get(betType+betNumberArg[i]);
+            String key = allFiledMap.get(betType+betNumberArg[i].trim());
 
             if(StringUtils.isEmpty(key)){
                 throw new ServiceException("投注类型+投注号码不规范");
@@ -674,7 +674,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             Float recordAmount = GameFiveballMap.get(key) != null ? (Float) GameFiveballMap.get(key) : 0f;
 
             if(betType == 1) {
-                if ("和".equals(betNumberArg[i])) {
+                if ("和".equals(betNumberArg[i].trim())) {
                     if (getLimitAmountByKey(limitAmountMap,"big_special_he").compareTo(money + recordAmount) < 0) {
                         throw new ServiceException("和投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,"big_special_he"));
                     }
@@ -688,7 +688,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                     throw new ServiceException("前中后三投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,"big_special"));
                 }
             }else{
-                if(bigSmall.contains(betNumberArg[i])){
+                if(bigSmall.contains(betNumberArg[i].trim())){
                     if (getLimitAmountByKey(limitAmountMap,"big_dxds").compareTo(money + recordAmount) < 0) {
                         throw new ServiceException("两面投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,"big_dxds"));
                     }

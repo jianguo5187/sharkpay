@@ -96,9 +96,9 @@
         <el-form-item label="投注项名" prop="betItemName">
           <el-input v-model="form.betItemName" placeholder="请输入投注项名" />
         </el-form-item>
-        <el-form-item label="特色定义内容" prop="betItemDescribe">
-          <el-input v-model="form.betItemDescribe" type="textarea" placeholder="请输入内容" />
-        </el-form-item>
+<!--        <el-form-item label="特色定义内容" prop="betItemDescribe">-->
+<!--          <el-input v-model="form.betItemDescribe" type="textarea" placeholder="请输入内容" />-->
+<!--        </el-form-item>-->
         <el-form-item label="赔率" prop="odd">
           <el-input-number v-model="form.odd" :min="0" placeholder="请输入赔率" :precision="2"/>
         </el-form-item>
