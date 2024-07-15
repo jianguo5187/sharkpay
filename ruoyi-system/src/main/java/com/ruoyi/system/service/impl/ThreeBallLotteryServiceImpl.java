@@ -303,7 +303,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
             // 大
             if(gameThreeballKj.getSumNum() > 13 && "big".equals(betRecord.getRecordLotteryKey())){
-                if(gameThreeballKj.getSumNum() == 14 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 14 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0 && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 14
                         && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -316,7 +316,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -337,7 +337,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
             // 小
             if(gameThreeballKj.getSumNum() < 14 && "small".equals(betRecord.getRecordLotteryKey())){
-                if(gameThreeballKj.getSumNum() == 13 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 13 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0 && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 13
                         && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -351,7 +351,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -372,7 +372,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
             // 单
             if(gameThreeballKj.getSumNum()%2 == 1 && "single".equals(betRecord.getRecordLotteryKey())){
-                if(gameThreeballKj.getSumNum() == 13 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 13 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0 && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 13
                         && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -385,7 +385,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -407,7 +407,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             // 双
             if(gameThreeballKj.getSumNum()%2 == 0 && "doubleAmount".equals(betRecord.getRecordLotteryKey())){
 
-                if(gameThreeballKj.getSumNum() == 14 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 14 && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0  && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 14
                         && countMoney.compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -421,7 +421,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -450,7 +450,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0  && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -473,7 +473,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0  && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -496,7 +496,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -518,7 +518,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && countMoney.compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -555,7 +555,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             Integer dsbResult = getBaoShunDui(gameThreeballKj.getNum1(),gameThreeballKj.getNum2(),gameThreeballKj.getNum3());
             // 豹
             if(dsbResult == 1 && "leopard".equals(betRecord.getRecordLotteryKey())){
-                if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0) {
+                if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0 && gameThreeballMixedOdds.getSdbMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterSdbOdd();
                 }else if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) <= 0
                         && countMoney.compareTo(gameThreeballMixedOdds.getSdbMinQuota()) > 0){
@@ -569,7 +569,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             // 顺
             if(dsbResult == 2 && "shun".equals(betRecord.getRecordLotteryKey())){
 
-                if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0) {
+                if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0 && gameThreeballMixedOdds.getSdbMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterSdbOdd();
                 }else if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) <= 0
                         && countMoney.compareTo(gameThreeballMixedOdds.getSdbMinQuota()) > 0){
@@ -582,7 +582,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             }
             // 对
             if(dsbResult == 3 && "pairs".equals(betRecord.getRecordLotteryKey())){
-                if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0) {
+                if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0 && gameThreeballMixedOdds.getSdbMaxQuota().compareTo(0f) > 0) {
                     winMoney = betRecord.getMoney() * gameThreeballMixedOdds.getGreaterSdbOdd();
                 }else if(countMoney.compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) <= 0
                         && countMoney.compareTo(gameThreeballMixedOdds.getSdbMinQuota()) > 0){
@@ -643,7 +643,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             if(gameThreeballKj.getSumNum() > 13 && gameThreeballRecord.getBig() > 0){
                 bigSamllMoney += gameThreeballRecord.getBig();
 
-                if(gameThreeballKj.getSumNum() == 14 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 14 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0 && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getBig() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 14
                         && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -656,7 +656,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         money += gameThreeballRecord.getBig() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -678,7 +678,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             if(gameThreeballKj.getSumNum() < 14 && gameThreeballRecord.getSmall() > 0){
                 bigSamllMoney += gameThreeballRecord.getSmall();
 
-                if(gameThreeballKj.getSumNum() == 13 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 13 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0 && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getSmall() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 13
                         && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -692,7 +692,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         money += gameThreeballRecord.getSmall() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -713,7 +713,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             // 单
             if(gameThreeballKj.getSumNum()%2 == 1 && gameThreeballRecord.getSingle() > 0){
                 bigSamllMoney += gameThreeballRecord.getSingle();
-                if(gameThreeballKj.getSumNum() == 13 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 13 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0 && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getSingle() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 13
                         && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -726,7 +726,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         money += gameThreeballRecord.getSingle() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -748,7 +748,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             if(gameThreeballKj.getSumNum()%2 == 0 && gameThreeballRecord.getDoubleAmount() > 0){
                 bigSamllMoney += gameThreeballRecord.getDoubleAmount();
 
-                if(gameThreeballKj.getSumNum() == 14 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0) {
+                if(gameThreeballKj.getSumNum() == 14 && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) > 0 && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getDoubleAmount() * gameThreeballMixedOdds.getGreaterNumberOdd();
                 }else if(gameThreeballKj.getSumNum() == 14
                         && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getNumberMaxQuota()) <= 0
@@ -761,7 +761,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                             || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                            && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                         money += gameThreeballRecord.getDoubleAmount() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                     }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                             || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -789,7 +789,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getBigSingle() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -812,7 +812,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getBigDouble() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -835,7 +835,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getSmallSingle() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -858,7 +858,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
                         || gameThreeballKj.getNum3() == 0 || gameThreeballKj.getNum3() == 9)
-                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0) {
+                        && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getZeroNineMaxQuota()) > 0 && gameThreeballMixedOdds.getZeroNineMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getSmallDouble() * gameThreeballMixedOdds.getGreaterZeroNineOdd();
                 }else if((gameThreeballKj.getNum1() == 0 || gameThreeballKj.getNum1() == 9
                         || gameThreeballKj.getNum2() == 0 || gameThreeballKj.getNum2() == 9
@@ -896,7 +896,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             Integer dsbResult = getBaoShunDui(gameThreeballKj.getNum1(),gameThreeballKj.getNum2(),gameThreeballKj.getNum3());
             // 豹
             if(dsbResult == 1 && gameThreeballRecord.getLeopard() > 0){
-                if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0) {
+                if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0 && gameThreeballMixedOdds.getSdbMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getLeopard() * gameThreeballMixedOdds.getGreaterSdbOdd();
                 }else if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) <= 0
                         && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMinQuota()) > 0){
@@ -909,7 +909,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             }
             // 顺
             if(dsbResult == 2 && gameThreeballRecord.getShun() > 0){
-                if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0) {
+                if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0 && gameThreeballMixedOdds.getSdbMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getShun() * gameThreeballMixedOdds.getGreaterSdbOdd();
                 }else if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) <= 0
                         && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMinQuota()) > 0){
@@ -922,7 +922,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             }
             // 对
             if(dsbResult == 3 && gameThreeballRecord.getPairs() > 0){
-                if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0) {
+                if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) > 0 && gameThreeballMixedOdds.getSdbMaxQuota().compareTo(0f) > 0) {
                     money += gameThreeballRecord.getPairs() * gameThreeballMixedOdds.getGreaterSdbOdd();
                 }else if(gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMaxQuota()) <= 0
                         && gameThreeballRecord.getCountMoney().compareTo(gameThreeballMixedOdds.getSdbMinQuota()) > 0){
