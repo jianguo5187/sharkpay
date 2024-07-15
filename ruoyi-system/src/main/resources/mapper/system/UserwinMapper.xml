@@ -420,7 +420,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectYestodayNoCashBackList" resultMap="UserwinResult">
         <include refid="selectUserwinVo"/>
-        where uw.is_cash_back = '0'
+        where is_cash_back = '0'
         and date_format(win_time,'%Y%m%d') = DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
     </select>
 

@@ -289,4 +289,9 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney) {
         return usermoneyMapper.selectUserMoneyDetailList(usermoney);
     }
+
+    @Override
+    public int updateUpDownAmount(Usermoney usermoney) {
+        return usermoneyMapper.updateUpDownAmount(usermoney);
+    }
 }

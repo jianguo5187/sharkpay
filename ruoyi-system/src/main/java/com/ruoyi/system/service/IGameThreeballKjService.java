@@ -68,4 +68,6 @@ public interface IGameThreeballKjService
 
     public GameThreeballKj selectGameThreeballKjByPeriods(Long gameId, Long periods);
     public List<GameThreeballKj> selectThreeBallsGameResult(Long gameId,Integer pageNumber,Integer pageRowCount);
+
+    public List<GameThreeballKj> selectKajiangPeriods(Long gameId);
 }

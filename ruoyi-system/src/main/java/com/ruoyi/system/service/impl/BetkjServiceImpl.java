@@ -258,6 +258,12 @@ public class BetkjServiceImpl implements IBetkjService
                 for(GameThreeballKj gameThreeballKj : gameThreeballKjList){
                     threeballHandleLottery(gameInfo, gameThreeballKj.getPeriods());
                 }
+
+                // 已开奖但未结算
+                List<GameThreeballKj> gameThreeballKajiangPeriodsList = gameThreeballKjService.selectKajiangPeriods(vo.getGameId());
+                for(GameThreeballKj gameThreeballKj : gameThreeballKajiangPeriodsList){
+                    threeballHandleLottery(gameInfo, gameThreeballKj.getPeriods());
+                }
             }else{
                 threeballHandleLottery(gameInfo, vo.getPeriods());
             }
@@ -271,6 +277,12 @@ public class BetkjServiceImpl implements IBetkjService
                 for(GameFiveballKj gameFiveballKj : gameThreeballKjList){
                     fiveballHandleLottery(gameInfo, gameFiveballKj.getPeriods());
                 }
+
+                // 已开奖但未结算
+                List<GameFiveballKj> gameThreeballKajiangPeriodsList = gameFiveballKjService.selectKajiangPeriods(vo.getGameId());
+                for(GameFiveballKj gameFiveballKj : gameThreeballKajiangPeriodsList){
+                    fiveballHandleLottery(gameInfo, gameFiveballKj.getPeriods());
+                }
             }else{
                 fiveballHandleLottery(gameInfo, vo.getPeriods());
             }
@@ -282,6 +294,11 @@ public class BetkjServiceImpl implements IBetkjService
                 searchGameTenballKj.setStatus("2"); //开奖中
                 List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectGameTenballKjList(searchGameTenballKj);
                 for(GameTenballKj gameTenballKj : gameTenballKjList){
+                    tenballHandleLottery(gameInfo, gameTenballKj.getPeriods());
+                }
+
+                List<GameTenballKj> gameTenballKajiangPeriodsList = gameTenballKjService.selectKajiangPeriods(vo.getGameId());
+                for(GameTenballKj gameTenballKj : gameTenballKajiangPeriodsList){
                     tenballHandleLottery(gameInfo, gameTenballKj.getPeriods());
                 }
             }else{

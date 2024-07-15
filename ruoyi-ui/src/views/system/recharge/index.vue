@@ -53,7 +53,16 @@
           <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
         </template>
       </el-table-column>
-      <el-table-column label="提现金额" align="center" prop="cashMoney" />
+      <el-table-column label="充值金额" align="center" prop="cashMoney">
+<!--        <template slot-scope="scope">-->
+<!--          <el-button-->
+<!--            size="mini"-->
+<!--            type="text"-->
+<!--            @click="handleUpdateCashMoney(scope.row)"-->
+<!--          >{{ scope.row.cashMoney }}-->
+<!--          </el-button>-->
+<!--        </template>-->
+      </el-table-column>
       <el-table-column label="余额" align="center" prop="userBalance" />
       <el-table-column label="申请时间" align="center" prop="cashTime" />
       <el-table-column label="方式" align="center" prop="userAccount" />
@@ -88,15 +97,32 @@
       :limit.sync="queryParams.pageSize"
       @pagination="getList"
     />
+
+    <!-- 冻结/解冻账号 -->
+    <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
+      <el-form ref="updateUserAmountForm" :model="form" :rules="rules" label-width="120px">
+        <el-form-item label="修改后金额" prop="cashMoney">
+          <el-input
+            v-model="form.cashMoney"
+            placeholder="请输入金额"
+            clearable
+          />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="submitUserAmountForm">确 定</el-button>
+        <el-button @click="open = false">取 消</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import {agreeApply, refuseApply, listRecharge} from "@/api/system/recharge";
+import {agreeApply, refuseApply, listRecharge, updateUpDownAmount} from "@/api/system/recharge";
 import {getValidGame} from "@/api/system/game";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
-import {selectAllUser} from "@/api/system/user";
+import {changeUserStatus, selectAllUser} from "@/api/system/user";
 
 export default {
   name: "recharge",
@@ -221,6 +247,35 @@ export default {
         }
       });
       return sums;
+    },
+    // 表单重置
+    reset() {
+      this.form = {
+        id: undefined,
+        cashMoney: undefined,
+        type: undefined,
+      };
+      this.resetForm("form");
+    },
+    handleUpdateCashMoney(row) {
+      this.reset();
+      this.title = "修改金额";
+      this.open = true;
+      this.form.id = row.id;
+      this.form.cashMoney = row.cashMoney;
+      this.form.type = row.type;
+    },
+    submitUserAmountForm(){
+      console.log("submitUserAmountForm");
+      var submitForm = this.form;
+      this.$modal.confirm('确认要修改上分金额吗？').then(function() {
+        return updateUpDownAmount(submitForm);
+      }).then(() => {
+        this.open = false;
+        this.getList();
+        this.$modal.msgSuccess("修改成功");
+      }).catch(function() {
+      });
     },
   }
 };

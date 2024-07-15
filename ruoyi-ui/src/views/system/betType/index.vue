@@ -89,7 +89,7 @@
 <!--      <el-table-column label="排序" align="center" prop="sort" />-->
       <el-table-column label="游戏状态" align="center" prop="status">
         <template slot-scope="scope">
-          <dict-tag :options="dict.type.sys_bet_item_status" :value="scope.row.status"/>
+          <dict-tag :options="dict.type.sys_bet_type_status" :value="scope.row.status"/>
         </template>
       </el-table-column>
 <!--      <el-table-column label="备注" align="center" prop="remark" />-->
@@ -141,7 +141,7 @@
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="form.status">
             <el-radio
-              v-for="dict in dict.type.sys_bet_item_status"
+              v-for="dict in dict.type.sys_bet_type_status"
               :key="dict.value"
               :label="dict.value"
             >{{dict.label}}</el-radio>
@@ -168,7 +168,7 @@ import {getValidGame} from "@/api/system/game";
 
 export default {
   name: "BetType",
-  dicts: ['sys_bet_item_status'],
+  dicts: ['sys_bet_type_status'],
   data() {
     return {
       // 登录用户ID

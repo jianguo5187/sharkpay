@@ -86,4 +86,6 @@ public interface IUsermoneyService
 
     public int getNoApprovePostalCnt();
     public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney);
+
+    public int updateUpDownAmount(Usermoney usermoney);
 }

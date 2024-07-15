@@ -241,4 +241,13 @@ public class UsermoneyController extends BaseController
         List<UserMoneyDetailListRespVO> list =usermoneyService.selectUserMoneyDetailList(usermoney);
         return getDataTable(list);
     }
+
+    /**
+     * 更新金额
+     */
+    @PostMapping("/updateUpDownAmount")
+    public AjaxResult updateUpDownAmount(@RequestBody Usermoney usermoney)
+    {
+        return toAjax(usermoneyService.updateUsermoney(usermoney));
+    }
 }

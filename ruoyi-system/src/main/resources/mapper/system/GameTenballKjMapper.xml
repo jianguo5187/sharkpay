@@ -208,4 +208,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             limit #{pageNumber} , #{pageRowCount}
         </if>
     </select>
+
+    <select id="selectKajiangPeriods" resultMap="GameTenballKjResult">
+        SELECT
+        kj.periods as periods
+        FROM
+        game_tenball_kj kj
+        INNER JOIN bet_record bet ON kj.periods = bet.periods
+        AND kj.game_id = bet.game_id
+        AND bet.settle_flg = '0'
+        AND bet.is_delete = '0'
+        AND bet.is_robot = '0'
+        WHERE
+        kj.STATUS = '1'
+        <if test="gameId != null "> and kj.game_id = #{gameId}</if>
+        GROUP BY
+        kj.game_id,
+        kj.periods
+    </select>
 </mapper>

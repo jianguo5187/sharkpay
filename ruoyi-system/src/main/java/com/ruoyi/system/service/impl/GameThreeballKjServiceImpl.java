@@ -118,4 +118,9 @@ public class GameThreeballKjServiceImpl implements IGameThreeballKjService
     public List<GameThreeballKj> selectThreeBallsGameResult(Long gameId, Integer pageNumber, Integer pageRowCount) {
         return gameThreeballKjMapper.selectThreeBallsGameResult(gameId,pageNumber,pageRowCount);
     }
+
+    @Override
+    public List<GameThreeballKj> selectKajiangPeriods(Long gameId) {
+        return gameThreeballKjMapper.selectKajiangPeriods(gameId);
+    }
 }

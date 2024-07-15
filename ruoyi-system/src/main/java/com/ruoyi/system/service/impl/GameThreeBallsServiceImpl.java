@@ -320,14 +320,14 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 }
             }
             for(int i=0; i<betNumberArg.length; i++){
-                if(countMap.containsKey(betNumberArg[i])){
+                if(countMap.containsKey(betNumberArg[i].trim())){
                     numTypeCnt++;
                 }
             }
         }
 
         for(int i=0; i<betNumberArg.length; i++) {
-            GameOption gameOption = gameOptionMap.get(betNumberArg[i] + "");
+            GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
             if("猜数字".equals(gameOption.getPlayGroupTitle())){
                 Integer numCount = limitAmountMap.get("num_count").getDictLabel() != null ? Integer.parseInt(limitAmountMap.get("num_count").getDictLabel()):0;
                 if (numCount >0 && numCount.compareTo((countMap.size() + betNumberArg.length - numTypeCnt)) < 0) {
@@ -340,10 +340,10 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 String keyB = "b_num" +gameOption.getPlayGroup();
                 Float recordAmount = gameThreeballRecordMap.get(mainKey) != null ? (Float) gameThreeballRecordMap.get(mainKey) : 0f;
                 if(limitAmountMap.get(keyB) != null && (getLimitAmountByKey(limitAmountMap,keyB)).compareTo(vo.getMoney()+recordAmount) < 0){
-                    throw new ServiceException(betNumberArg[i] + "投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,keyB));
+                    throw new ServiceException(betNumberArg[i].trim() + "投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,keyB));
                 }
                 List<String> specialList = Arrays.asList("0", "1", "2", "3", "24", "25", "26", "27");
-                if (specialList.contains(betNumberArg[i] + "")) {
+                if (specialList.contains(betNumberArg[i].trim() + "")) {
                     if (getLimitAmountByKey(limitAmountMap,"big_special").compareTo(vo.getMoney() + recordAmount) < 0) {
                         throw new ServiceException("特殊号码投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,"big_special"));
                     }
@@ -354,7 +354,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
         Float userAmount = user.getAmount();
         for(int i=0; i<betNumberArg.length; i++){
 
-            GameOption gameOption = gameOptionMap.get(betNumberArg[i] + "");
+            GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
             String key = gameOption.getKey();
             String playType = gameOption.getPlayGroupTitle();
             Integer playGroup = gameOption.getPlayGroup();
@@ -412,7 +412,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             betrecord.setGameName(gameThreeballKj.getGameName());
 
             betrecord.setPlayType(playType);
-            betrecord.setPlayDetail(betNumberArg[i]);
+            betrecord.setPlayDetail(betNumberArg[i].trim());
             betrecord.setPlayGroup(playGroup);
             betrecord.setOption(0);
             betrecord.setMoney(vo.getMoney());
@@ -429,7 +429,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             usermoney.setUserId(userId);
             usermoney.setGameId(vo.getGameId());
             usermoney.setGameName(gameThreeballKj.getGameName());
-            usermoney.setRemark("投注[" + gameThreeballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + vo.getMoney() + "]元");
+            usermoney.setRemark("投注[" + gameThreeballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i].trim() + "],金额[" + vo.getMoney() + "]元");
             usermoney.setCashMoney(vo.getMoney());
             usermoney.setUserBalance(userAmount);
             usermoney.setType("7");
@@ -515,18 +515,18 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                     }
                 }
                 for(int i=0; i<betNumberArg.length; i++){
-                    if(countMap.containsKey(betNumberArg[i])){
+                    if(countMap.containsKey(betNumberArg[i].trim())){
                         numTypeCnt++;
                     }
                 }
             }
 
             for(int i=0; i<betNumberArg.length; i++) {
-                GameOption gameOption = gameOptionMap.get(betNumberArg[i] + "");
+                GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
                 if("猜数字".equals(gameOption.getPlayGroupTitle())){
                     Integer numCount = limitAmountMap.get("num_count").getDictLabel() != null ? Integer.parseInt(limitAmountMap.get("num_count").getDictLabel()):0;
                     if (numCount >0 && numCount.compareTo((countMap.size() + betNumberArg.length - numTypeCnt)) < 0) {
-                        throw new ServiceException("投注猜数字不可以超过" + getLimitAmountByKey(limitAmountMap,"num_count"));
+                        throw new ServiceException("投注猜数字不可以超过" + getLimitAmountByKey(limitAmountMap,"num_count") + "个");
                     }
                 }
                 if(gameThreeballRecord != null){
@@ -535,10 +535,10 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                     String keyB = "b_num" +gameOption.getPlayGroup();
                     Float recordAmount = gameThreeballRecordMap.get(mainKey) != null ? (Float) gameThreeballRecordMap.get(mainKey) : 0f;
                     if(limitAmountMap.get(keyB) != null && (getLimitAmountByKey(limitAmountMap,keyB)).compareTo(threeBallsMultiBetRecordReqVO.getMoney()+recordAmount) < 0){
-                        throw new ServiceException(betNumberArg[i] + "投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,keyB));
+                        throw new ServiceException(betNumberArg[i].trim() + "投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,keyB));
                     }
                     List<String> specialList = Arrays.asList("0", "1", "2", "3", "24", "25", "26", "27");
-                    if (specialList.contains(betNumberArg[i] + "")) {
+                    if (specialList.contains(betNumberArg[i].trim() + "")) {
                         if (getLimitAmountByKey(limitAmountMap,"big_special").compareTo(threeBallsMultiBetRecordReqVO.getMoney() + recordAmount) < 0) {
                             throw new ServiceException("特殊号码投注金额不可以大于" + getLimitAmountByKey(limitAmountMap,"big_special"));
                         }
@@ -552,7 +552,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             betNumberArg = threeBallsMultiBetRecordReqVO.getNumber().split(",");
             for(int i=0; i<betNumberArg.length; i++){
 
-                GameOption gameOption = gameOptionMap.get(betNumberArg[i] + "");
+                GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
                 String key = gameOption.getKey();
                 String playType = gameOption.getPlayGroupTitle();
                 Integer playGroup = gameOption.getPlayGroup();
@@ -610,7 +610,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 betrecord.setGameName(gameThreeballKj.getGameName());
 
                 betrecord.setPlayType(playType);
-                betrecord.setPlayDetail(betNumberArg[i]);
+                betrecord.setPlayDetail(betNumberArg[i].trim());
                 betrecord.setPlayGroup(playGroup);
                 betrecord.setOption(0);
                 betrecord.setMoney(threeBallsMultiBetRecordReqVO.getMoney());
@@ -627,7 +627,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 usermoney.setUserId(userId);
                 usermoney.setGameId(vo.getGameId());
                 usermoney.setGameName(gameThreeballKj.getGameName());
-                usermoney.setRemark("投注[" + gameThreeballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i] + "],金额[" + threeBallsMultiBetRecordReqVO.getMoney() + "]元");
+                usermoney.setRemark("投注[" + gameThreeballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,投注内容[" + playType + "/" + betNumberArg[i].trim() + "],金额[" + threeBallsMultiBetRecordReqVO.getMoney() + "]元");
                 usermoney.setCashMoney(threeBallsMultiBetRecordReqVO.getMoney());
                 usermoney.setUserBalance(userAmount);
                 usermoney.setType("7");

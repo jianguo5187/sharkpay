@@ -236,7 +236,8 @@ public class SysGameServiceImpl implements ISysGameService
                             "{\"betItemCode\":\"num23\", \"betItemName\":\"23\"}," +
                             "{\"betItemCode\":\"num24\", \"betItemName\":\"24\"}," +
                             "{\"betItemCode\":\"num25\", \"betItemName\":\"25\"}," +
-                            "{\"betItemCode\":\"num26\", \"betItemName\":\"26\"}" +
+                            "{\"betItemCode\":\"num26\", \"betItemName\":\"26\"}," +
+                            "{\"betItemCode\":\"num27\", \"betItemName\":\"27\"}" +
                         "], " +
                         "[" +
                             "{\"betItemCode\":\"red\", \"betItemName\":\"红\"}, " +

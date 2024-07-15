@@ -30,6 +30,23 @@
           </el-select>
         </el-form-item>
       </el-row>
+      <el-row :gutter="20">
+        <el-form-item label="状态" prop="status">
+          <el-select
+            v-model="queryParams.status"
+            placeholder="状态"
+            clearable
+            style="width: 240px"
+          >
+            <el-option
+              v-for="dict in dict.type.sys_bet_item_status"
+              :key="dict.value"
+              :label="dict.label"
+              :value="dict.value"
+            />
+          </el-select>
+        </el-form-item>
+      </el-row>
 
     </el-form>
 
@@ -67,7 +84,7 @@
     <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="180px">
         <el-form-item label="游戏" prop="gameId">
-          <el-select v-model="form.gameId" placeholder="请选择游戏"  disabled="false">
+          <el-select v-model="form.gameId" placeholder="请选择游戏"  :disabled="1 != loginUserId" @change="getFormBetTypeList">
             <el-option
               clearable
               v-for="item in gameListOptions"
@@ -79,7 +96,7 @@
         </el-form-item>
 
         <el-form-item label="游戏投注类型" prop="betItemType">
-          <el-select v-model="form.betItemType" placeholder="请选择游戏投注类型" disabled="false">
+          <el-select v-model="form.betItemType" placeholder="请选择游戏投注类型" :disabled="1 != loginUserId">
             <el-option
               clearable
               v-for="item in formBetTypeListOptions"
@@ -96,9 +113,9 @@
         <el-form-item label="投注项名" prop="betItemName">
           <el-input v-model="form.betItemName" placeholder="请输入投注项名" />
         </el-form-item>
-        <el-form-item label="特色定义内容" prop="betItemDescribe">
-          <el-input v-model="form.betItemDescribe" type="textarea" placeholder="请输入内容" />
-        </el-form-item>
+<!--        <el-form-item label="特色定义内容" prop="betItemDescribe">-->
+<!--          <el-input v-model="form.betItemDescribe" type="textarea" placeholder="请输入内容" />-->
+<!--        </el-form-item>-->
         <el-form-item label="赔率" prop="odd">
           <el-input-number v-model="form.odd" :min="0" placeholder="请输入赔率" :precision="2"/>
         </el-form-item>
@@ -107,6 +124,15 @@
         </el-form-item>
         <el-form-item label="最大投注金额" prop="maxBetAmount">
           <el-input-number v-model="form.maxBetAmount" :min="0" placeholder="请输入最大投注金额" :precision="2"/>
+        </el-form-item>
+        <el-form-item label="状态" prop="status">
+          <el-radio-group v-model="form.status">
+            <el-radio
+              v-for="dict in dict.type.sys_bet_item_status"
+              :key="dict.value"
+              :label="dict.value"
+            >{{dict.label}}</el-radio>
+          </el-radio-group>
         </el-form-item>
         <el-form-item label="排序" prop="sort">
           <el-input-number v-model="form.sort" controls-position="right" :min="0" />
@@ -226,7 +252,7 @@ import {getValidBetType} from "@/api/system/betType";
 
 export default {
   name: "BetItem",
-  dicts: ['sys_bet_item_status','sys_game_status','sys_yes_no','sys_game_type','sys_game_open_type'],
+  dicts: ['sys_bet_item_status','sys_game_status','sys_yes_no','sys_game_type','sys_game_open_type','sys_bet_item_status'],
   data() {
     return {
       // 登录用户ID
@@ -264,7 +290,7 @@ export default {
         minBetAmount: null,
         maxBetAmount: null,
         sort: null,
-        status: null,
+        status: '0',
       },
       // 表单参数
       form: {},
@@ -441,6 +467,10 @@ export default {
     handleAdd() {
       this.reset();
       this.open = true;
+      this.form.gameId = this.queryParams.gameId;
+      this.getFormBetTypeList();
+      // this.form.gameType = this.queryParams.gameType;
+
       this.title = "添加游戏投注项";
     },
     /** 游戏修改按钮操作 */

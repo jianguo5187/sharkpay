@@ -68,4 +68,6 @@ public interface IGameTenballKjService
     public GameTenballKj selectGameTenballKjByPeriods(Long gameId, Long periods);
 
     public List<GameTenballKj> selectTenBallsGameResult(Long gameId,Integer pageNumber,Integer pageRowCount);
+
+    public List<GameTenballKj> selectKajiangPeriods(Long gameId);
 }

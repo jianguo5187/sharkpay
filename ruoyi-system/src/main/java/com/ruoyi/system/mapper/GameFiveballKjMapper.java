@@ -71,4 +71,5 @@ public interface GameFiveballKjMapper
 
     public List<GameFiveballKj> selectFiveBallsGameResult(@Param("gameId") Long gameId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
+    public List<GameFiveballKj> selectKajiangPeriods(Long gameId);
 }

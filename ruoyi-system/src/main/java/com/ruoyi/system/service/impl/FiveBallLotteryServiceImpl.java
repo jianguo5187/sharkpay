@@ -98,6 +98,13 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
     @Override
     public void createFiveBallData(SysGame gameInfo){
         List<GameFiveballKj> GameFiveballKjList = gameFiveballKjService.selectGameFiveballKjListWithStatusZeroAndLimit(gameInfo.getGameId(), null,"0",null,"1",null);
+        Integer autoInsertKjRecordSize = 0;
+        if(StringUtils.equals(gameInfo.getSystemOpenType(),"Y")){
+
+        }else{
+
+        }
+
         Integer kjSize = GameFiveballKjList.size();
         if(kjSize == 10){
             return;

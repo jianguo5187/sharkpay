@@ -69,4 +69,6 @@ public interface IGameFiveballKjService
     public GameFiveballKj selectGameFiveballKjByPeriods(Long gameId, Long periods);
 
     public List<GameFiveballKj> selectFiveBallsGameResult(Long gameId,Integer pageNumber,Integer pageRowCount);
+
+    public List<GameFiveballKj> selectKajiangPeriods(Long gameId);
 }
