@@ -53,16 +53,7 @@
           <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
         </template>
       </el-table-column>
-      <el-table-column label="充值金额" align="center" prop="cashMoney">
-<!--        <template slot-scope="scope">-->
-<!--          <el-button-->
-<!--            size="mini"-->
-<!--            type="text"-->
-<!--            @click="handleUpdateCashMoney(scope.row)"-->
-<!--          >{{ scope.row.cashMoney }}-->
-<!--          </el-button>-->
-<!--        </template>-->
-      </el-table-column>
+      <el-table-column label="提现金额" align="center" prop="cashMoney" />
       <el-table-column label="余额" align="center" prop="userBalance" />
       <el-table-column label="申请时间" align="center" prop="cashTime" />
       <el-table-column label="方式" align="center" prop="userAccount" />
