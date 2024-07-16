@@ -1,7 +1,7 @@
 <template>
   <div style="background-color: #DDEBF7;margin: 6px 10px;height: 80%">
     <router-link to="/topPostal/index">
-      下分<span class="layui-badge" id="up_count">{{down_count}}</span>
+      下分<span class="layui-badge" id="up_count">{{downCount}}</span>
     </router-link>
   </div>
 </template>
@@ -12,24 +12,29 @@ import {noApprovePostalCnt} from "@/api/system/postal";
 
 export default {
   name: 'TopRecharge',
-  data() {
-    return {
-      down_count:0,
+  props: {
+    downCount: {
+      type: Number
     }
   },
-  created() {
-    this.getUpCount();
-  },
-  mounted() {
-    setInterval(this.getUpCount, 15000); //每15s刷新列表
-  },
-  methods: {
-    getUpCount() {
-      noApprovePostalCnt().then(response => {
-        this.down_count = response.downCount;
-      });
-    }
-  }
+  // data() {
+  //   return {
+  //     down_count:0,
+  //   }
+  // },
+  // created() {
+  //   this.getCount();
+  // },
+  // mounted() {
+  //   setInterval(this.getUpCount, 15000); //每15s刷新列表
+  // },
+  // methods: {
+  //   getUpCount() {
+  //     noApprovePostalCnt().then(response => {
+  //       this.down_count = response.downCount;
+  //     });
+  //   }
+  // }
 }
 </script>
 <style scoped lang="scss">

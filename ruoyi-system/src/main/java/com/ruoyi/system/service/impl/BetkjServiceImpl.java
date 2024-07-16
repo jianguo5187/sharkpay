@@ -279,8 +279,8 @@ public class BetkjServiceImpl implements IBetkjService
                 }
 
                 // 已开奖但未结算
-                List<GameFiveballKj> gameThreeballKajiangPeriodsList = gameFiveballKjService.selectKajiangPeriods(vo.getGameId());
-                for(GameFiveballKj gameFiveballKj : gameThreeballKajiangPeriodsList){
+                List<GameFiveballKj> gameFiveballKajiangPeriodsList = gameFiveballKjService.selectKajiangPeriods(vo.getGameId());
+                for(GameFiveballKj gameFiveballKj : gameFiveballKajiangPeriodsList){
                     fiveballHandleLottery(gameInfo, gameFiveballKj.getPeriods());
                 }
             }else{
@@ -1789,5 +1789,29 @@ public class BetkjServiceImpl implements IBetkjService
         String winTime = sd.format(vo.getRecordTime());
 
         userwinMapper.updateUserDeductMoney(vo.getUserId(), vo.getGameId(), winTime, vo.getIsDeduct(), countMoney);
+    }
+
+    @Override
+    public void autoKajiangLottery() {
+        // 3球已开奖但未结算
+        List<GameThreeballKj> gameThreeballKajiangPeriodsList = gameThreeballKjService.selectKajiangPeriods(null);
+        for(GameThreeballKj gameThreeballKj :gameThreeballKajiangPeriodsList){
+            SysGame gameInfo = sysGameService.selectSysGameByGameId(gameThreeballKj.getGameId());
+            threeballHandleLottery(gameInfo, gameThreeballKj.getPeriods());
+        }
+
+        //5球已开奖但未结算
+        List<GameFiveballKj> gameFiveballKajiangPeriodsList = gameFiveballKjService.selectKajiangPeriods(null);
+        for(GameFiveballKj gameFiveballKj : gameFiveballKajiangPeriodsList){
+            SysGame gameInfo = sysGameService.selectSysGameByGameId(gameFiveballKj.getGameId());
+            fiveballHandleLottery(gameInfo, gameFiveballKj.getPeriods());
+        }
+
+        //10球已开奖但未结算
+        List<GameTenballKj> gameTenballKajiangPeriodsList = gameTenballKjService.selectKajiangPeriods(null);
+        for(GameTenballKj gameTenballKj : gameTenballKajiangPeriodsList){
+            SysGame gameInfo = sysGameService.selectSysGameByGameId(gameTenballKj.getGameId());
+            tenballHandleLottery(gameInfo, gameTenballKj.getPeriods());
+        }
     }
 }

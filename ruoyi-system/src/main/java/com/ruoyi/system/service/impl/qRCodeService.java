@@ -46,7 +46,7 @@ public class qRCodeService implements IQRCodeService {
 
     @Override
     public String getShareQRCodeValue(Long userId) {
-        SysUser user = userService.selectUserById(userId);
+//        SysUser user = userService.selectUserById(userId);
 
         SysEntryDomain searchEntryDomain = new SysEntryDomain();
         searchEntryDomain.setStatus("0");
@@ -55,20 +55,20 @@ public class qRCodeService implements IQRCodeService {
             throw new ServiceException("未配置有效入口域名");
         }
 
-        String content = entryDomainList.get(0).getEntryDomainUrl() + "inviteCode=" + user.getInviteCode();
+        String content = entryDomainList.get(0).getEntryDomainUrl() + "parentUserId=" + userId;
         return content;
     }
 
     @Override
     public List<ShareQRCodeRespVO> getEnalbeSysEntryDomainList(Long userId) {
-        SysUser user = userService.selectUserById(userId);
+//        SysUser user = userService.selectUserById(userId);
         SysEntryDomain searchEntryDomain = new SysEntryDomain();
         searchEntryDomain.setStatus("0");
         List<SysEntryDomain> entryDomainList = entryDomainService.selectSysEntryDomainList(searchEntryDomain);
         List<ShareQRCodeRespVO> shareQrCodeList = new ArrayList<>();
         for(SysEntryDomain entryDomain: entryDomainList){
             ShareQRCodeRespVO respVO = new ShareQRCodeRespVO();
-            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "inviteCode=" + user.getInviteCode());
+            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "parentUserId=" + userId);
             shareQrCodeList.add(respVO);
         }
         return shareQrCodeList;

@@ -250,4 +250,16 @@ public class UsermoneyController extends BaseController
     {
         return toAjax(usermoneyService.updateUsermoney(usermoney));
     }
+
+    /**
+     * 获取未承认的上下分件数
+     */
+    @GetMapping("/noApproveUpAndDownCnt")
+    public AjaxResult noApproveUpAndDownCnt()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("upCount",usermoneyService.getNoApproveRechargeCnt());
+        ajax.put("downCount",usermoneyService.getNoApprovePostalCnt());
+        return ajax;
+    }
 }

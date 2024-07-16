@@ -7,3 +7,11 @@ export function listCommissionList(query) {
     params: query
   })
 }
+
+export function noApproveUpAndDownCnt(query) {
+  return request({
+    url: '/system/usermoney/noApproveUpAndDownCnt',
+    method: 'get',
+    params: query
+  })
+}

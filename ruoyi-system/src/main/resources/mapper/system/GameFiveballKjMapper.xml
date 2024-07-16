@@ -268,7 +268,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectKajiangPeriods" resultMap="GameFiveballKjResult">
         SELECT
-        kj.periods as periods
+             kj.game_id as game_id
+            ,kj.periods as periods
         FROM
         game_fiveball_kj kj
         INNER JOIN bet_record bet ON kj.periods = bet.periods

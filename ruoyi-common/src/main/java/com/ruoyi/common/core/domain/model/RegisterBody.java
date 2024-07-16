@@ -38,6 +38,9 @@ public class RegisterBody extends LoginBody
     /** 邀请码 */
     private String inviteCode;
 
+    /** 上级用户ID */
+    private Long parentUserId;
+
     public String getNickName() {
         return nickName;
     }
@@ -116,5 +119,13 @@ public class RegisterBody extends LoginBody
 
     public void setInviteCode(String inviteCode) {
         this.inviteCode = inviteCode;
+    }
+
+    public Long getParentUserId() {
+        return parentUserId;
+    }
+
+    public void setParentUserId(Long parentUserId) {
+        this.parentUserId = parentUserId;
     }
 }

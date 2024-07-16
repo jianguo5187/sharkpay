@@ -120,11 +120,14 @@ public class SysRegisterService
         else
         {
             Long parentUserId = 2l;
-            SysUser parentUser = userService.selectUserByInviteCode(sysUser);
-            if(StringUtils.isNotEmpty(sysUser.getInviteCode()) && StringUtils.isNull(parentUser)){
-                msg = "注册用户'" + username + "'失败，邀请码不存在";
+            SysUser parentUser = userService.selectUserById(registerBody.getParentUserId());
+//            SysUser parentUser = userService.selectUserByInviteCode(sysUser);
+//            if(StringUtils.isNotEmpty(sysUser.getInviteCode()) && StringUtils.isNull(parentUser)){
+            if(registerBody.getParentUserId() != null && registerBody.getParentUserId() > 0 && StringUtils.isNull(parentUser)){
+                msg = "注册用户'" + username + "'失败，上级用户ID不存在";
             }else{
-                if(StringUtils.isNotEmpty(sysUser.getInviteCode())){
+//                if(StringUtils.isNotEmpty(sysUser.getInviteCode())){
+                if(registerBody.getParentUserId() != null && registerBody.getParentUserId() > 0){
                     parentUserId = parentUser.getUserId();
                 }
                 if(StringUtils.isNotEmpty(registerBody.getAvatar())){

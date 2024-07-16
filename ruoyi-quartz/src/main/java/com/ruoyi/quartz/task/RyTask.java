@@ -211,4 +211,9 @@ public class RyTask
     public void insertRobotBet(){
         gameTaskService.insertRobotBet();
     }
+
+    // 自动卡奖结算(已开奖未结算的数据可以自动结算)
+    public void autoKajiangLottery(){
+        gameTaskService.autoKajiangLottery();
+    }
 }

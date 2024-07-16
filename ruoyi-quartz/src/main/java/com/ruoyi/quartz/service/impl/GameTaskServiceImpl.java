@@ -2,6 +2,7 @@ package com.ruoyi.quartz.service.impl;
 
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.quartz.service.IGameTaskService;
+import com.ruoyi.system.domain.GameThreeballKj;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.*;
@@ -361,5 +362,10 @@ public class GameTaskServiceImpl implements IGameTaskService {
                 }
             }
         }
+    }
+
+    @Override
+    public void autoKajiangLottery() {
+        betkjService.autoKajiangLottery();
     }
 }

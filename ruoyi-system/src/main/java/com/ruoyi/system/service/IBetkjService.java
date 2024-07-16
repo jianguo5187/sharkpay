@@ -54,4 +54,6 @@ public interface IBetkjService
     public List<BetUserWinRespVo> selectUserGameWinBetList(SysGame gameInfo, BetUserWinReqVO betUserWinReqVO);
 
     public void betUserDeduct(BetUserDeductReqVO vo);
+
+    public void autoKajiangLottery();
 }

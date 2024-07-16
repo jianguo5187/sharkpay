@@ -1,7 +1,7 @@
 <template>
   <div style="background-color: #DDEBF7;margin: 6px 10px;height: 80%">
     <router-link to="/topRecharge/index">
-      上分<span class="layui-badge" id="up_count">{{up_count}}</span>
+      上分<span class="layui-badge" id="up_count">{{upCount}}</span>
     </router-link>
   </div>
 </template>
@@ -11,24 +11,29 @@ import {noApproveRechargeCnt} from "@/api/system/recharge";
 
 export default {
   name: 'TopRecharge',
-  data() {
-    return {
-      up_count:0,
+  props: {
+    upCount: {
+      type: Number
     }
   },
-  created() {
-    this.getUpCount();
-  },
-  mounted() {
-    setInterval(this.getUpCount, 15000); //每15s刷新列表
-  },
-  methods: {
-    getUpCount() {
-      noApproveRechargeCnt().then(response => {
-        this.up_count = response.upCount;
-      });
-    }
-  }
+  // data() {
+  //   return {
+  //     up_count:0,
+  //   }
+  // },
+  // created() {
+  //   this.getUpCount();
+  // },
+  // mounted() {
+  //   setInterval(this.getUpCount, 15000); //每15s刷新列表
+  // },
+  // methods: {
+  //   getUpCount() {
+  //     noApproveRechargeCnt().then(response => {
+  //       this.up_count = response.upCount;
+  //     });
+  //   }
+  // }
 }
 </script>
 <style scoped lang="scss">

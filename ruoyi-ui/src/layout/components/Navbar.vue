@@ -16,10 +16,10 @@
         <online-user id="online-user" class="right-menu-item hover-effect" />
       </el-tooltip>
       <el-tooltip content="下分" effect="dark" placement="bottom">
-        <top-postal id="top-postal" class="right-menu-item hover-effect" />
+        <top-postal id="top-postal" class="right-menu-item hover-effect" :down-count="down_count"/>
       </el-tooltip>
       <el-tooltip content="上分" effect="dark" placement="bottom">
-        <top-recharge id="top-recharge" class="right-menu-item hover-effect" />
+        <top-recharge id="top-recharge" class="right-menu-item hover-effect" :up-count="up_count"/>
       </el-tooltip>
 <!--      <template v-if="device!=='mobile'">-->
 <!--        <search id="header-search" class="right-menu-item" />-->
@@ -56,6 +56,8 @@
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+      <audio ref="sfAudioPlayer" src="@/assets/audio/sf.mp3" @ended="handleSfEnded" controls muted style="display:none"></audio>
+      <audio ref="xfAudioPlayer" src="@/assets/audio/xf.mp3" @ended="handleXfEnded" controls muted style="display:none"></audio>
     </div>
   </div>
 </template>
@@ -75,6 +77,7 @@ import TopRecharge from '@/components/Recharge'
 import OnlineUser from '@/components/OnlineUser'
 import ImChat from '@/components/ImChat'
 import UserAmount from '@/components/UserAmount'
+import {noApproveUpAndDownCnt} from "@/api/system/userMoney";
 
 export default {
   components: {
@@ -115,7 +118,94 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      up_count:0,
+      down_count:0,
+      sfPlayCount: 0,
+      isSfPlaying: false,
+      xfPlayCount: 0,
+      isXfPlaying: false,
+    }
+  },
+  mounted() {
+    this.getUpAndDownCnt();
+    setInterval(this.getUpAndDownCnt, 15000); //每15s刷新列表
+  },
   methods: {
+    getUpAndDownCnt(){
+      noApproveUpAndDownCnt().then(response => {
+        this.up_count = response.upCount;
+        this.down_count = response.downCount;
+        console.log("noApproveUpAndDownCnt");
+        if(this.up_count > 0){
+          this.sfPlayCount = 0;
+          this.playSfAudio();
+        }else if(this.down_count >0){
+          this.xfPlayCount = 0;
+          this.playXfAudio();
+        }
+      });
+    },
+    playSfAudio() {
+      this.isSfPlaying = true;
+      const sfAudioPlayer = this.$refs.sfAudioPlayer;
+
+      // 确保audio元素已准备好
+      if (sfAudioPlayer.readyState >= 3) {
+        sfAudioPlayer.play().then(() => {
+          // 播放成功
+        }).catch(error => {
+          // 播放失败，可能是浏览器自动播放策略导致
+          console.error('自动播放失败:', error);
+          // 在这里可以处理播放失败的逻辑，比如提示用户
+        });
+      } else {
+        // 如果audio还没准备好，则等待一段时间再尝试播放
+        setTimeout(() => {
+          this.playSfAudio();
+        }, 100);
+      }
+    },
+    handleSfEnded() {
+      this.sfPlayCount++;
+      if (this.sfPlayCount < 5) {
+        // 如果还没有播放5次，则再次播放
+        this.playSfAudio();
+      } else {
+        // 播放5次后，移除事件监听器
+        this.isSfPlaying = false;
+      }
+    },
+    handleXfEnded(){
+      this.xfPlayCount++;
+      if (this.xfPlayCount < 5) {
+        // 如果还没有播放5次，则再次播放
+        this.playXfAudio();
+      } else {
+        // 播放5次后，移除事件监听器
+        this.isXfPlaying = false;
+      }
+    },
+    playXfAudio() {
+      this.isXfPlaying = true;
+      const xfAudioPlayer = this.$refs.xfAudioPlayer;
+      // 确保audio元素已准备好
+      if (xfAudioPlayer.readyState >= 3) {
+        xfAudioPlayer.play().then(() => {
+          // 播放成功
+        }).catch(error => {
+          // 播放失败，可能是浏览器自动播放策略导致
+          console.error('自动播放失败:', error);
+          // 在这里可以处理播放失败的逻辑，比如提示用户
+        });
+      } else {
+        // 如果audio还没准备好，则等待一段时间再尝试播放
+        setTimeout(() => {
+          this.playXfAudio();
+        }, 100);
+      }
+    },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
