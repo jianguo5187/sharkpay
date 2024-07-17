@@ -82,10 +82,10 @@ public class SysLoginController
     }
 
     @GetMapping("/wxLogin")
-    public AjaxResult miniProgramLogin(@RequestParam("code") String code,@RequestParam("inviteCode") String inviteCode) {
+    public AjaxResult miniProgramLogin(@RequestParam("code") String code,@RequestParam("parentUserId") Long parentUserId) {
         AjaxResult ajax = AjaxResult.success();
         // 生成令牌
-        String token = loginService.miniProgramLogin(code,inviteCode);
+        String token = loginService.miniProgramLogin(code,parentUserId);
         ajax.put(Constants.TOKEN, token);
         return ajax;
     }
