@@ -433,8 +433,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		GROUP BY
 			p.user_id
-		ORDER BY
-			p.user_id
+		<if test="params.dataScope != null and params.dataScope != ''">
+			${params.dataScope}
+		</if>
+		<if test="params.dataScope == null or params.dataScope == ''">
+			ORDER BY
+				p.user_id
+		</if>
 	</select>
 
 	<select id="selectAgentUserList" parameterType="SysUser" resultMap="AgentUserListResult">

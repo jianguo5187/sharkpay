@@ -74,6 +74,7 @@ export default {
       loginForm: {
         username: "",
         password: "",
+        loginType: "pc",
         // username: "admin",
         // password: "admin123",
         rememberMe: false,

@@ -32,8 +32,8 @@
           <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
         </el-row>
 
-        <el-table v-loading="loading" :data="parentUserList">
-          <el-table-column label="用户ID" align="center" key="userId" prop="userId"/>
+        <el-table v-loading="loading" :data="parentUserList" @sort-change='sortTableFun'>
+          <el-table-column label="用户ID" align="center" key="userId" prop="userId" sortable="custom"/>
           <el-table-column label="昵称" align="center" prop="nickName">
             <template slot-scope="scope">
               <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
@@ -44,9 +44,9 @@
               <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
             </template>
           </el-table-column>
-          <el-table-column label="推广人数" align="center" key="childCnt" prop="childCnt"/>
-          <el-table-column label="总佣金" align="center" key="totalCommissionMoney" prop="totalCommissionMoney"/>
-          <el-table-column label="今日佣金" align="center" key="todayCommissionMoney" prop="todayCommissionMoney"/>
+          <el-table-column label="推广人数" align="center" key="childCnt" prop="childCnt" sortable="custom"/>
+          <el-table-column label="总佣金" align="center" key="totalCommissionMoney" prop="totalCommissionMoney" sortable="custom"/>
+          <el-table-column label="今日佣金" align="center" key="todayCommissionMoney" prop="todayCommissionMoney" sortable="custom"/>
 <!--          <el-table-column label="上级用户" align="center" prop="parentUserId">-->
 <!--            <template slot-scope="scope">-->
 <!--              <span v-if="scope.row.parentUserId != null">{{ scope.row.parentNickName }}(<span style="color: blue">{{ scope.row.parentUserId }}</span>)</span>-->
@@ -168,6 +168,8 @@ export default {
         pageSize: 10,
         userId: undefined,
         nickName: undefined,
+        orderByColumn:"userId",
+        isAsc:"asc",
         // phonenumber: undefined,
         // status: undefined,
         // deptId: undefined
@@ -267,6 +269,16 @@ export default {
       this.userBet.open = true;
       this.userBet.user = {};
       this.userBet.user.userId = row.userId;
+    },
+    sortTableFun(data) {
+      const { prop, order } = data
+      //排序列
+      this.queryParams.orderByColumn=prop;
+      //排序顺序ascending或descending
+      this.queryParams.isAsc=order;
+      //返回第一页
+      this.queryParams.pageNum=1;
+      this.getList();
     },
   }
 };

@@ -45,17 +45,17 @@
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="rechargeList" show-summary :summary-method="getSummaries">
-      <el-table-column label="订单编号" align="center" prop="id" />
-      <el-table-column label="用户ID" align="center" key="userId" prop="userId"/>
+    <el-table v-loading="loading" :data="rechargeList" show-summary :summary-method="getSummaries" @sort-change='sortTableFun'>
+      <el-table-column label="订单编号" align="center" prop="id" sortable="custom"/>
+      <el-table-column label="用户ID" align="center" key="userId" prop="userId" sortable="custom"/>
       <el-table-column label="昵称" align="center" prop="nickName">
         <template slot-scope="scope">
           <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
         </template>
       </el-table-column>
-      <el-table-column label="充值金额" align="center" prop="cashMoney" />
-      <el-table-column label="余额" align="center" prop="userBalance" />
-      <el-table-column label="申请时间" align="center" prop="cashTime" />
+      <el-table-column label="充值金额" align="center" prop="cashMoney" sortable="custom"/>
+      <el-table-column label="余额" align="center" prop="userBalance" sortable="custom"/>
+      <el-table-column label="申请时间" align="center" prop="cashTime" sortable="custom"/>
       <el-table-column label="方式" align="center" prop="userAccount" />
       <el-table-column label="备注" align="center" prop="remark" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
@@ -152,6 +152,8 @@ export default {
         nickName: undefined,
         rechargeStatus: null,
         filterDate: null,
+        orderByColumn:"cashTime desc ,id",
+        isAsc:"desc",
       },
       // 表单参数
       form: {},
@@ -267,6 +269,16 @@ export default {
         this.$modal.msgSuccess("修改成功");
       }).catch(function() {
       });
+    },
+    sortTableFun(data) {
+      const { prop, order } = data
+      //排序列
+      this.queryParams.orderByColumn=prop;
+      //排序顺序ascending或descending
+      this.queryParams.isAsc=order;
+      //返回第一页
+      this.queryParams.pageNum=1;
+      this.getList();
     },
   }
 };

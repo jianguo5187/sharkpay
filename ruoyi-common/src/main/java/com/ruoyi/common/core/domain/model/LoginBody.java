@@ -27,6 +27,12 @@ public class LoginBody
      */
     private String uuid;
 
+
+    /**
+     * 登录类型（pc，app）
+     */
+    private String loginType;
+
     public String getUsername()
     {
         return username;
@@ -65,5 +71,13 @@ public class LoginBody
     public void setUuid(String uuid)
     {
         this.uuid = uuid;
+    }
+
+    public String getLoginType() {
+        return loginType;
+    }
+
+    public void setLoginType(String loginType) {
+        this.loginType = loginType;
     }
 }

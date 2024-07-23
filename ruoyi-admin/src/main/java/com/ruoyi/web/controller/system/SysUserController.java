@@ -303,4 +303,19 @@ public class SysUserController extends BaseController
     {
         return toAjax(userService.mergeUser(user));
     }
+
+    /**
+     * 新增子管理员用户
+     */
+    @PostMapping("/addChildAdminUser")
+    public AjaxResult addChildAdminUser(@RequestBody SysUser user)
+    {
+        if (!userService.checkUserNameUnique(user))
+        {
+            return error("新增用户'" + user.getUserName() + "'失败，登录账号已存在");
+        }
+        user.setCreateBy(getUsername());
+        user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
+        return toAjax(userService.addChildAdminUser(user));
+    }
 }

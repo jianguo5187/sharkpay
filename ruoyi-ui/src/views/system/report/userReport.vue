@@ -76,8 +76,8 @@
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="totalReportList">
-      <el-table-column label="用户ID" align="center" key="userId" prop="userId"/>
+    <el-table v-loading="loading" :data="totalReportList" @sort-change='sortTableFun'>
+      <el-table-column label="用户ID" align="center" key="userId" prop="userId" sortable="custom"/>
       <el-table-column label="昵称" align="center" prop="nickName">
         <template slot-scope="scope">
           <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
@@ -89,15 +89,15 @@
         </template>
       </el-table-column>
       <el-table-column label="上级用户ID" align="center" prop="parentUserId"/>
-      <el-table-column label="投注" align="center" prop="betMoneyTotal" />
-      <el-table-column label="中奖" align="center" prop="betWinMoneyTotal" />
-      <el-table-column label="用户盈亏" align="center" prop="winMoneyTotal" />
-      <el-table-column label="上分" align="center" prop="upMoneyTotal" />
-      <el-table-column label="签到" align="center" prop="signMoneyTotal" />
-      <el-table-column label="下分" align="center" prop="downMoneyTotal" />
-      <el-table-column label="佣金" align="center" prop="commissionMoneyTotal" />
-      <el-table-column label="已反水" align="center" prop="cashBackMoneyTotal" />
-      <el-table-column label="待反水" align="center" prop="noCashBackMoneyTotal" />
+      <el-table-column label="投注" align="center" prop="betMoneyTotal" sortable="custom"/>
+      <el-table-column label="中奖" align="center" prop="betWinMoneyTotal" sortable="custom"/>
+      <el-table-column label="用户盈亏" align="center" prop="winMoneyTotal" sortable="custom"/>
+      <el-table-column label="上分" align="center" prop="upMoneyTotal" sortable="custom"/>
+      <el-table-column label="签到" align="center" prop="signMoneyTotal" sortable="custom"/>
+      <el-table-column label="下分" align="center" prop="downMoneyTotal" sortable="custom"/>
+      <el-table-column label="佣金" align="center" prop="commissionMoneyTotal" sortable="custom"/>
+      <el-table-column label="已反水" align="center" prop="cashBackMoneyTotal" sortable="custom"/>
+      <el-table-column label="待反水" align="center" prop="noCashBackMoneyTotal"sortable="custom" />
     </el-table>
 
     <pagination
@@ -153,6 +153,8 @@ export default {
         nickName: undefined,
         parentUserId: undefined,
         includeTestUserFlg:false,
+        orderByColumn:"userId",
+        isAsc:"asc",
       },
       // 表单参数
       form: {},
@@ -223,6 +225,16 @@ export default {
       sTime = `${sTime}`
       eTime = `${eTime}`
       this.dateRange= [sTime, eTime] // 显示的默认时间
+    },
+    sortTableFun(data) {
+      const { prop, order } = data
+      //排序列
+      this.queryParams.orderByColumn=prop;
+      //排序顺序ascending或descending
+      this.queryParams.isAsc=order;
+      //返回第一页
+      this.queryParams.pageNum=1;
+      this.getList();
     },
   }
 };

@@ -58,6 +58,16 @@
         <el-row :gutter="10" class="mb8">
           <el-col :span="1.5">
             <el-button
+              type="primary"
+              plain
+              icon="el-icon-plus"
+              size="mini"
+              @click="handleAdd"
+              v-if="loginUserId == 1 || loginUserId == 2 || loginUserId == 3"
+            >添加子账号</el-button>
+          </el-col>
+          <el-col :span="1.5">
+            <el-button
               type="success"
               plain
               icon="el-icon-edit"
@@ -488,6 +498,62 @@
     <el-dialog :title="userBet.title" :visible.sync="userBet.open" width="1400px" append-to-body>
       <bet-real-time :user="userBet.user"/>
     </el-dialog>
+
+
+    <!-- 添加子管理员用户配置对话框 -->
+    <el-dialog :title="addChildAdmin.title" :visible.sync="addChildAdmin.open" width="1000px" append-to-body>
+      <el-form ref="addChildAdminForm" :model="addChildAdmin.form" :rules="addChildAdmin.rules" label-width="120px">
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="用户昵称" prop="nickName">
+              <el-input v-model="addChildAdmin.form.nickName" placeholder="请输入用户昵称" maxlength="30" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item v-if="addChildAdmin.form.userId == undefined" label="登录账号" prop="userName">
+              <el-input v-model="addChildAdmin.form.userName" placeholder="请输入登录账号" maxlength="30" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item v-if="addChildAdmin.form.userId == undefined" label="用户密码" prop="password">
+              <el-input v-model="addChildAdmin.form.password" placeholder="请输入用户密码" type="password" maxlength="20" show-password/>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="测试用户">
+              <el-radio-group v-model="addChildAdmin.form.isTest">
+                <el-radio
+                  v-for="dict in dict.type.sys_user_is_test"
+                  :key="dict.value"
+                  :label="dict.value"
+                >{{dict.label}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="状态">
+              <el-radio-group v-model="addChildAdmin.form.status">
+                <el-radio
+                  v-for="dict in dict.type.sys_normal_disable"
+                  :key="dict.value"
+                  :label="dict.value"
+                >{{dict.label}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="submitAddChildAdminForm">确 定</el-button>
+        <el-button @click="addChildAdmin.open = false">取 消</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -501,7 +567,7 @@ import {
   resetUserPwd,
   resetUserPayPwd,
   changeUserStatus,
-  deptTreeSelect, resetUserRemarkName, selectAllUser, mergeUser
+  deptTreeSelect, resetUserRemarkName, selectAllUser, mergeUser, addChildAdminUser
 } from "@/api/system/user";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
@@ -705,7 +771,38 @@ export default {
             trigger: "blur"
           }
         ]
-      }
+      },
+      // 添加子账号
+      addChildAdmin: {
+        // 是否显示弹出层（添加子账号）
+        open: false,
+        // 弹出层标题（添加子账号）
+        title: "",
+        // 表单验证（添加子账号）
+        rules: {
+          userName: [
+            { required: true, message: "登录账号不能为空", trigger: "blur" },
+            { min: 2, max: 20, message: '登录账号长度必须介于 2 和 20 之间', trigger: 'blur' }
+          ],
+          nickName: [
+            { required: true, message: "用户昵称不能为空", trigger: "blur" }
+          ],
+          password: [
+            { required: true, message: "用户密码不能为空", trigger: "blur" },
+            { min: 5, max: 20, message: '用户密码长度必须介于 5 和 20 之间', trigger: 'blur' }
+          ],
+        },
+        // 表单参数（添加子账号）
+        form: {
+          userId: undefined,
+          nickName: undefined,
+          userName: undefined,
+          password: undefined,
+          isTest: undefined,
+          status: undefined,
+          roleIds: []
+        },
+      },
     };
   },
   watch: {
@@ -849,16 +946,21 @@ export default {
     },
     /** 新增按钮操作 */
     handleAdd() {
-      this.reset();
-      getUser().then(response => {
-        this.postOptions = response.posts;
-        this.roleOptions = response.roles;
-        this.open = true;
-        this.title = "添加用户";
-        this.form.password = this.initPassword;
-        this.form.roleIds.push(3);
-        // this.form.roleIds
-      });
+      this.addChildAdmin.form = {
+          userId: undefined,
+          nickName: undefined,
+          userName: undefined,
+          password: undefined,
+          isTest: "0",
+          status: "0",
+          deptId:100,
+          roleIds:[]
+      };
+
+      this.addChildAdmin.open = true;
+      this.addChildAdmin.title = "添加子账号";
+      this.addChildAdmin.form.password = this.initPassword;
+      this.addChildAdmin.form.roleIds.push(4);
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
@@ -1097,6 +1199,18 @@ export default {
       this.userBet.user = {};
       this.userBet.user.userId = row.userId;
     },
+    submitAddChildAdminForm(){
+      var addChildAdmin = this.addChildAdmin.form;
+      this.$refs["addChildAdminForm"].validate(valid => {
+        if (valid) {
+          addChildAdminUser(addChildAdmin).then(response => {
+            this.$modal.msgSuccess("新增子账号成功");
+            this.addChildAdmin.open = false;
+            this.getList();
+          });
+        }
+      });
+    }
   }
 };
 </script>

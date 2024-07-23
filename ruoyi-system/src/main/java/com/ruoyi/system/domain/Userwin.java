@@ -98,6 +98,9 @@ public class Userwin extends BaseEntity
     /** 测试用户标识 */
     private Boolean includeTestUserFlg;
 
+    /** 排序有效标识 */
+    private String sortFlg;
+
     public void setId(Long id)
     {
         this.id = id;
@@ -286,6 +289,14 @@ public class Userwin extends BaseEntity
 
     public void setIncludeTestUserFlg(Boolean includeTestUserFlg) {
         this.includeTestUserFlg = includeTestUserFlg;
+    }
+
+    public String getSortFlg() {
+        return sortFlg;
+    }
+
+    public void setSortFlg(String sortFlg) {
+        this.sortFlg = sortFlg;
     }
 
     @Override

@@ -30,4 +30,6 @@ public interface ISysAppService {
     public void updateChatImg(UpdateLogoImgReqVO vo);
 
     public List<String> getOpenData(String gameType);
+
+    public void updateSiteSetting(UpdateSiteSettingReqVO vo);
 }

@@ -2,6 +2,9 @@ package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import java.util.Set;
+
+import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.ruoyi.common.constant.Constants;
@@ -31,6 +34,9 @@ public class SysLoginController
     @Autowired
     private SysPermissionService permissionService;
 
+    @Autowired
+    private ISysConfigService configService;
+
     /**
      * 登录方法
      * 
@@ -41,6 +47,12 @@ public class SysLoginController
     public AjaxResult login(@RequestBody LoginBody loginBody)
     {
         AjaxResult ajax = AjaxResult.success();
+        if(!StringUtils.equals(loginBody.getLoginType(),"pc")){
+            String siteDisabledFlag = configService.selectConfigByKey("sys.site.openFlg");
+            if(!StringUtils.equals(siteDisabledFlag,"true")){
+                return ajax.error("网站关闭中，无法访问");
+            }
+        }
         // 生成令牌
         String token = loginService.login(loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(),
                 loginBody.getUuid());
@@ -84,6 +96,10 @@ public class SysLoginController
     @GetMapping("/wxLogin")
     public AjaxResult miniProgramLogin(@RequestParam("code") String code,@RequestParam("parentUserId") Long parentUserId) {
         AjaxResult ajax = AjaxResult.success();
+        String siteDisabledFlag = configService.selectConfigByKey("sys.site.openFlg");
+        if(!StringUtils.equals(siteDisabledFlag,"true")){
+            return ajax.error("网站关闭中，无法访问");
+        }
         // 生成令牌
         String token = loginService.miniProgramLogin(code,parentUserId);
         ajax.put(Constants.TOKEN, token);

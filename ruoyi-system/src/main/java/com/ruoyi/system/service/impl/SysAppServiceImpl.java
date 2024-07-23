@@ -630,4 +630,22 @@ public class SysAppServiceImpl implements ISysAppService {
         }
         return openCode;
     }
+
+    @Override
+    public void updateSiteSetting(UpdateSiteSettingReqVO vo) {
+        SysConfig dbConfig = new SysConfig();
+        dbConfig.setConfigKey("sys.site.openFlg");
+        SysConfig retConfig = configMapper.selectConfig(dbConfig);
+        if(retConfig == null){
+            retConfig = new SysConfig();
+            retConfig.setConfigName("站点开关");
+            retConfig.setConfigKey("sys.site.openFlg");
+            retConfig.setConfigValue(vo.isSiteOpenFlg().toString());
+            retConfig.setConfigType("Y");
+            configService.insertConfig(retConfig);
+        }else{
+            retConfig.setConfigValue(vo.isSiteOpenFlg().toString());
+            configService.updateConfig(retConfig);
+        }
+    }
 }

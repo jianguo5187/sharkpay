@@ -746,4 +746,15 @@ public class SysUserServiceImpl implements ISysUserService
     public Float getUserTotalAmount() {
         return userMapper.getUserTotalAmount();
     }
+
+    @Override
+    public int addChildAdminUser(SysUser user) {
+        // 新增用户信息
+        int rows = userMapper.insertUser(user);
+        // 新增用户岗位关联
+        insertUserPost(user);
+        // 新增用户与角色管理
+        insertUserRole(user);
+        return rows;
+    }
 }

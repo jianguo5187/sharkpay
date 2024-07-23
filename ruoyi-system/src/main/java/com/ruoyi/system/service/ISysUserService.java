@@ -252,4 +252,6 @@ public interface ISysUserService
     public int mergeUser(SysUser user);
 
     public Float getUserTotalAmount();
+
+    public int addChildAdminUser(SysUser user);
 }

@@ -318,4 +318,28 @@ public class SysAppController extends BaseController {
         sysAppService.updateChatImg(vo);
         return ajax;
     }
+
+
+
+    /**
+     * 获取站点设置
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getSiteSetting")
+    public AjaxResult getSiteSetting()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("siteOpenFlg",configService.selectConfigByKey("sys.site.openFlg") );
+
+        return ajax;
+    }
+
+    @PostMapping("/updateSiteSetting")
+    public AjaxResult updateSiteSetting(@RequestBody UpdateSiteSettingReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        sysAppService.updateSiteSetting(vo);
+        return ajax;
+    }
 }

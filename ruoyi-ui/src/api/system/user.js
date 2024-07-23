@@ -228,3 +228,31 @@ export function updateChatImg(data) {
     data: data
   })
 }
+
+
+// 获取客服聊天图片地址
+export function getSiteSetting(query) {
+  return request({
+    url: '/system/app/getSiteSetting',
+    method: 'get',
+    params: query
+  })
+}
+
+// 客服聊天图片上传
+export function updateSiteSetting(data) {
+  return request({
+    url: '/system/app/updateSiteSetting',
+    method: 'post',
+    data: data
+  })
+}
+
+// 新增子管理员用户
+export function addChildAdminUser(data) {
+  return request({
+    url: '/system/user/addChildAdminUser',
+    method: 'post',
+    data: data
+  })
+}
