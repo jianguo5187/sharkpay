@@ -55,7 +55,7 @@ public class qRCodeService implements IQRCodeService {
             throw new ServiceException("未配置有效入口域名");
         }
 
-        String content = entryDomainList.get(0).getEntryDomainUrl() + "parentUserId=" + userId;
+        String content = entryDomainList.get(0).getEntryDomainUrl() + "?parentUserId=" + userId;
         return content;
     }
 
@@ -68,7 +68,7 @@ public class qRCodeService implements IQRCodeService {
         List<ShareQRCodeRespVO> shareQrCodeList = new ArrayList<>();
         for(SysEntryDomain entryDomain: entryDomainList){
             ShareQRCodeRespVO respVO = new ShareQRCodeRespVO();
-            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "parentUserId=" + userId);
+            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "?parentUserId=" + userId);
             shareQrCodeList.add(respVO);
         }
         return shareQrCodeList;
