@@ -3,6 +3,7 @@ package com.ruoyi.system.service.impl;
 import java.net.URLEncoder;
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.ServletUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.domain.SysEntryDomain;
 import com.ruoyi.system.service.ISysConfigService;
@@ -107,7 +108,7 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
             List<SysLandingDomain> landingDomainList = selectSysLandingDomainList(landingDomainSearch);
             if(landingDomainList.size() > 0){
                 String landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
-                HttpUtils.sendGet(entryDomainUrl + "/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+landingDomainUrl);
+                HttpUtils.sendGet(entryDomainUrl + "/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
             }
         }
         return rowId;

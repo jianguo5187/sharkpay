@@ -3,6 +3,7 @@ package com.ruoyi.system.service.impl;
 import java.net.URLEncoder;
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.ServletUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,7 +97,7 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
         if(entryDomainList.size() > 0){
             String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
 
-            HttpUtils.sendGet(entryDomainUrl + "/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+URLEncoder.encode(entryDomainUrl));
+            HttpUtils.sendGet(entryDomainUrl + "/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
         }
 
         return rowId;
