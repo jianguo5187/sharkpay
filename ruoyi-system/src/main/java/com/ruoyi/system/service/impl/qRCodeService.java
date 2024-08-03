@@ -54,21 +54,23 @@ public class qRCodeService implements IQRCodeService {
         if(entryDomainList == null || entryDomainList.size() == 0){
             throw new ServiceException("未配置有效入口域名");
         }
+        String webType = configService.selectConfigByKey("sys.web.type");
 
-        String content = entryDomainList.get(0).getEntryDomainUrl() + "?parentUserId=" + userId;
+        String content = entryDomainList.get(0).getEntryDomainUrl() + "?webType=" + webType + "&parentUserId=" + userId;
         return content;
     }
 
     @Override
     public List<ShareQRCodeRespVO> getEnalbeSysEntryDomainList(Long userId) {
 //        SysUser user = userService.selectUserById(userId);
+        String webType = configService.selectConfigByKey("sys.web.type");
         SysEntryDomain searchEntryDomain = new SysEntryDomain();
         searchEntryDomain.setStatus("0");
         List<SysEntryDomain> entryDomainList = entryDomainService.selectSysEntryDomainList(searchEntryDomain);
         List<ShareQRCodeRespVO> shareQrCodeList = new ArrayList<>();
         for(SysEntryDomain entryDomain: entryDomainList){
             ShareQRCodeRespVO respVO = new ShareQRCodeRespVO();
-            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "?parentUserId=" + userId);
+            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "?webType=" + webType +"&parentUserId=" + userId);
             shareQrCodeList.add(respVO);
         }
         return shareQrCodeList;
