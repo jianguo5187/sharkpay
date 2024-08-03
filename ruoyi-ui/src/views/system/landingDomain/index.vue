@@ -1,5 +1,14 @@
 <template>
   <div class="app-container">
+    <div style="padding-bottom: 10px;">
+      <span style="font-size: 20px;">
+        域名设置规则:
+      </span>
+      <br>
+      <span style="font-size: 15px;">
+        输入的域名必须包含<span style="color: red;">http或者https</span>【例如：http://123.abca.cn】
+      </span>
+    </div>
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="108px">
       <el-form-item label="落地域名状态" prop="status">
         <el-select v-model="queryParams.status" placeholder="请选择落地域名状态" clearable @change="handleQuery">
@@ -108,6 +117,16 @@ export default {
   name: "LandingDomain",
   dicts: ['landing_domain_status'],
   data() {
+    const validateHttpOrHttps = (rule, value, callback) => {
+      const regex = /^(https?|http):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
+      // const regex = /^(http:\/\/|https:\/\/)
+      // const regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+      if (regex.test(value)) {
+        callback();
+      } else {
+        callback(new Error('请输入有效的HTTP或HTTPS URL'));
+      }
+    };
     return {
       // 遮罩层
       loading: true,
@@ -137,6 +156,10 @@ export default {
       form: {},
       // 表单校验
       rules: {
+        landingDomainUrl: [
+          { required: true, message: '请输入URL', trigger: 'blur' },
+          { validator: validateHttpOrHttps, trigger: 'blur' }
+        ]
       }
     };
   },

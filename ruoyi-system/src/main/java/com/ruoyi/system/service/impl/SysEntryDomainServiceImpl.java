@@ -1,7 +1,10 @@
 package com.ruoyi.system.service.impl;
 
+import java.net.URLEncoder;
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.http.HttpUtils;
+import com.ruoyi.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.SysEntryDomainMapper;
@@ -19,6 +22,9 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
 {
     @Autowired
     private SysEntryDomainMapper sysEntryDomainMapper;
+
+    @Autowired
+    private ISysConfigService configService;
 
     /**
      * 查询入口域名
@@ -79,7 +85,21 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
     @Override
     public int deleteSysEntryDomainByEntryDomainIds(Long[] entryDomainIds)
     {
-        return sysEntryDomainMapper.deleteSysEntryDomainByEntryDomainIds(entryDomainIds);
+        int rowId = sysEntryDomainMapper.deleteSysEntryDomainByEntryDomainIds(entryDomainIds);
+
+        String webType = configService.selectConfigByKey("sys.web.type");
+        String webName = configService.selectConfigByKey("sys.web.name");
+        SysEntryDomain entryDomainSearch = new SysEntryDomain();
+        entryDomainSearch.setStatus("0");
+        entryDomainSearch.setDelFlag("0");
+        List<SysEntryDomain> entryDomainList = selectSysEntryDomainList(entryDomainSearch);
+        if(entryDomainList.size() > 0){
+            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
+
+            HttpUtils.sendGet(entryDomainUrl + "/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+URLEncoder.encode(entryDomainUrl));
+        }
+
+        return rowId;
     }
 
     /**

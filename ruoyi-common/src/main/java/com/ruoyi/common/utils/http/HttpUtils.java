@@ -1,14 +1,7 @@
 package com.ruoyi.common.utils.http;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.*;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.HostnameVerifier;
@@ -72,6 +65,7 @@ public class HttpUtils
 //            log.info("sendGet - {}", urlNameString);
             URL realUrl = new URL(urlNameString);
             URLConnection connection = realUrl.openConnection();
+            connection.setConnectTimeout(5000);
             connection.setRequestProperty("accept", "*/*");
             connection.setRequestProperty("connection", "Keep-Alive");
             connection.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
@@ -139,6 +133,7 @@ public class HttpUtils
             conn.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
             conn.setRequestProperty("Accept-Charset", "utf-8");
             conn.setRequestProperty("contentType", "utf-8");
+            conn.setConnectTimeout(5000);
             conn.setDoOutput(true);
             conn.setDoInput(true);
             out = new PrintWriter(conn.getOutputStream());

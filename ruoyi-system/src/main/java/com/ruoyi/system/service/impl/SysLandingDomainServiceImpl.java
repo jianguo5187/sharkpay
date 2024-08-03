@@ -1,7 +1,12 @@
 package com.ruoyi.system.service.impl;
 
+import java.net.URLEncoder;
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.http.HttpUtils;
+import com.ruoyi.system.domain.SysEntryDomain;
+import com.ruoyi.system.service.ISysConfigService;
+import com.ruoyi.system.service.ISysEntryDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.SysLandingDomainMapper;
@@ -19,6 +24,12 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
 {
     @Autowired
     private SysLandingDomainMapper sysLandingDomainMapper;
+
+    @Autowired
+    private ISysConfigService configService;
+
+    @Autowired
+    private ISysEntryDomainService sysEntryDomainService;
 
     /**
      * 查询落地域名
@@ -79,7 +90,27 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
     @Override
     public int deleteSysLandingDomainByLandingDomainIds(Long[] landingDomainIds)
     {
-        return sysLandingDomainMapper.deleteSysLandingDomainByLandingDomainIds(landingDomainIds);
+        int rowId = sysLandingDomainMapper.deleteSysLandingDomainByLandingDomainIds(landingDomainIds);
+
+        String webType = configService.selectConfigByKey("sys.web.type");
+
+        SysEntryDomain entryDomainSearch = new SysEntryDomain();
+        entryDomainSearch.setStatus("0");
+        entryDomainSearch.setDelFlag("0");
+        List<SysEntryDomain> entryDomainList = sysEntryDomainService.selectSysEntryDomainList(entryDomainSearch);
+        if(entryDomainList.size() > 0){
+            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
+
+            SysLandingDomain landingDomainSearch = new SysLandingDomain();
+            landingDomainSearch.setStatus("0");
+            landingDomainSearch.setDelFlag("0");
+            List<SysLandingDomain> landingDomainList = selectSysLandingDomainList(landingDomainSearch);
+            if(landingDomainList.size() > 0){
+                String landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
+                HttpUtils.sendGet(entryDomainUrl + "/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+landingDomainUrl);
+            }
+        }
+        return rowId;
     }
 
     /**

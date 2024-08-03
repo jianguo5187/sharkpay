@@ -19,7 +19,8 @@ public class AddressUtils
     private static final Logger log = LoggerFactory.getLogger(AddressUtils.class);
 
     // IP地址查询
-    public static final String IP_URL = "http://whois.pconline.com.cn/ipJson.jsp";
+//    public static final String IP_URL = "http://whois.pconline.com.cn/ipJson.jsp";
+    public static final String IP_URL = "http://ip-api.com/json/";
 
     // 未知地址
     public static final String UNKNOWN = "XX XX";
@@ -35,14 +36,14 @@ public class AddressUtils
         {
             try
             {
-                String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
+                String rspStr = HttpUtils.sendGet(IP_URL+ ip + "?lang=zh-CN");
                 if (StringUtils.isEmpty(rspStr))
                 {
                     log.error("获取地理位置异常 {}", ip);
                     return UNKNOWN;
                 }
                 JSONObject obj = JSON.parseObject(rspStr);
-                String region = obj.getString("pro");
+                String region = obj.getString("regionName");
                 String city = obj.getString("city");
                 return String.format("%s %s", region, city);
             }
