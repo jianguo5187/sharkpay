@@ -20,8 +20,8 @@ autoGame:
 # 微信小程序配置
 wx:
   minApp:
-    appId: wxd53bb8f141c95042
-    appSecret: 36c38221c7eeb701a65cb655b02ce7ea
+#    appId: wxd53bb8f141c95042
+#    appSecret: 36c38221c7eeb701a65cb655b02ce7ea
     oauth2Url: https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code
     userinfoUrl: https://api.weixin.qq.com/sns/userinfo?access_token={0}&openid={1}&lang=zh_CN
 

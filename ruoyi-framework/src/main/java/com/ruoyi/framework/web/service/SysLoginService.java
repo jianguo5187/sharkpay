@@ -67,13 +67,13 @@ public class SysLoginService
     @Autowired
     private SysPermissionService permissionService;
 
-    //微信小程序appId
-    @Value("${wx.minApp.appId}")
-    private String appId;
-
-    //微信小程序密钥
-    @Value("${wx.minApp.appSecret}")
-    private String appSecret;
+//    微信小程序appId
+//    @Value("${wx.minApp.appId}")
+//    private String appId;
+//
+//    //微信小程序密钥
+//    @Value("${wx.minApp.appSecret}")
+//    private String appSecret;
 
     //微信登录通过code换取网页授权access_token的URL
     @Value("${wx.minApp.oauth2Url}")
@@ -215,6 +215,9 @@ public class SysLoginService
      */
     public String miniProgramLogin(String code,Long parentUserId){
         //微信小程序获取openId请求地址
+
+        String appId = configService.selectConfigByKey("sys.wechat.appId");
+        String appSecret = configService.selectConfigByKey("sys.wechat.appSecret");
 //        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code";
         String replaceUrl = oauth2Url.replace("{0}", appId).replace("{1}", appSecret).replace("{2}", code);
         String res = HttpUtil.get(replaceUrl);

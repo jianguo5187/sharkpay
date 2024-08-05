@@ -8,6 +8,7 @@ import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
+import com.ruoyi.system.domain.SysLandingDomain;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,9 @@ public class SysAppController extends BaseController {
     @Autowired
     private ISysEntryDomainService sysEntryDomainService;
 
+    @Autowired
+    private ISysLandingDomainService sysLandingDomainService;
+
     /**
      * 修改密码接口
      */
@@ -88,7 +92,16 @@ public class SysAppController extends BaseController {
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         AjaxResult ajax = AjaxResult.success();
         ajax.put("user", userService.selectAppLoginUserInfo(sessionUser.getUserId()));
-        ajax.put("imUrl",configService.selectConfigByKey("sys.im.h5.Site") );
+
+        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+        landingDomainSearch.setStatus("0");
+        landingDomainSearch.setDelFlag("0");
+        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+        String landingDomainUrl = "";
+        if(landingDomainList.size() > 0) {
+            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":82";
+        }
+        ajax.put("imUrl",landingDomainUrl );
         ajax.put("homeNotice",configService.selectConfigByKey("sys.app.home.notice") );
         ajax.put("minChangeMoney",configService.selectConfigByKey("sys.change.min") );
         ajax.put("minPostalMoney",configService.selectConfigByKey("sys.postal.min") );
@@ -206,7 +219,8 @@ public class SysAppController extends BaseController {
     public AjaxResult getUserTotalAmount()
     {
         AjaxResult ajax = AjaxResult.success();
-        ajax.put("userTotalAmount",userService.getUserTotalAmount());
+        Float userAmount = userService.getUserTotalAmount();
+        ajax.put("userTotalAmount",userAmount==null?0f:userAmount);
         return ajax;
     }
 
@@ -219,7 +233,16 @@ public class SysAppController extends BaseController {
     public AjaxResult getImChatUrl()
     {
         AjaxResult ajax = AjaxResult.success();
-        ajax.put("imUrl",configService.selectConfigByKey("sys.im.site") );
+
+        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+        landingDomainSearch.setStatus("0");
+        landingDomainSearch.setDelFlag("0");
+        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+        String landingDomainUrl = "";
+        if(landingDomainList.size() > 0) {
+            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":81";
+        }
+        ajax.put("imUrl",landingDomainUrl );
         return ajax;
     }
 

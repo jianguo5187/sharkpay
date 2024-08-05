@@ -6,7 +6,11 @@
       </span>
       <br>
       <span style="font-size: 15px;">
-        输入的域名必须包含<span style="color: red;">http或者https</span>【例如：http://123.abca.cn】
+        输入的域名必须包含<span style="color: red;">http或者https</span>【例如：http://ping.abca.cn】
+      </span>
+      <br>
+      <span style="font-size: 15px;color: red;">
+        域名不要数字开头，否则微信扫一扫登录会被拦截
       </span>
     </div>
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="108px">

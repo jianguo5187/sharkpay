@@ -643,7 +643,10 @@ public class BetkjServiceImpl implements IBetkjService
 
         GameFiveballOpenData fiveballOpenData = gameFiveballOpenDataService.selectLastRecord(gameInfo.getGameId());
 
-        Long newPeriods = fiveballOpenData.getPeriods() + 1;
+        Long newPeriods =  0l;
+        if(fiveballOpenData != null){
+            newPeriods = fiveballOpenData.getPeriods() + 1;
+        }
 
         if(fiveballOpenData != null && gameOpenDataDtoMap.get(newPeriods) == null
                 && gameOpenDataDtoMap.get(fiveballOpenData.getPeriods()) != null){
