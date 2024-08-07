@@ -365,4 +365,29 @@ public class SysAppController extends BaseController {
         sysAppService.updateSiteSetting(vo);
         return ajax;
     }
+
+
+
+    /**
+     * 获取有效的落地域名站点设置
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getEffectivedDomainUrl")
+    public AjaxResult getEffectivedDomainUrl()
+    {
+        AjaxResult ajax = AjaxResult.success();
+
+        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+        landingDomainSearch.setStatus("0");
+        landingDomainSearch.setDelFlag("0");
+        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+        String landingDomainUrl = "";
+        if(landingDomainList.size() > 0) {
+            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
+        }
+        ajax.put("domainUrl",landingDomainUrl );
+
+        return ajax;
+    }
 }
