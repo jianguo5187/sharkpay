@@ -59,6 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="countMoney != null "> and count_money = #{countMoney}</if>
             <if test="winMoney != null "> and win_money = #{winMoney}</if>
         </where>
+        order by periods asc
     </select>
     
     <select id="selectGameTenballKjById" parameterType="Long" resultMap="GameTenballKjResult">

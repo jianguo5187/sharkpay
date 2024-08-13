@@ -8,13 +8,13 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
-        <el-col :span="12">
-          <el-form-item label="微信客服图片" prop="wechatImg">
-            <imageUpload v-model="logo.form.wechatImg" :imgUrl="logo.form.wechatImg" :limit="1"></imageUpload>
-          </el-form-item>
-        </el-col>
-      </el-row>
+<!--      <el-row>-->
+<!--        <el-col :span="12">-->
+<!--          <el-form-item label="微信客服图片" prop="wechatImg">-->
+<!--            <imageUpload v-model="logo.form.wechatImg" :imgUrl="logo.form.wechatImg" :limit="1"></imageUpload>-->
+<!--          </el-form-item>-->
+<!--        </el-col>-->
+<!--      </el-row>-->
       <el-form-item>
         <el-button type="primary" size="mini" @click="submitLogoForm">确认更改logo图片</el-button>
       </el-form-item>

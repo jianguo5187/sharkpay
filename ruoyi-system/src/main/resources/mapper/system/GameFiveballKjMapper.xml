@@ -83,6 +83,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="numM != null "> and num_m = #{numM}</if>
             <if test="numB != null "> and num_b = #{numB}</if>
         </where>
+        order by periods asc
     </select>
     
     <select id="selectGameFiveballKjById" parameterType="Long" resultMap="GameFiveballKjResult">

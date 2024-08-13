@@ -151,7 +151,11 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                 respVO.setPreTime(preTime/ 1000L);
                 respVO.setBetTime(betTime/ 1000L);
             }else{
-                GameFiveballKj lasterGameFiveballKj = gameFiveballKjList.get(gameFiveballKjList.size()-1);
+                int size = 0;
+                if(gameFiveballKjList.size() > 1){
+                    size = 1;
+                }
+                GameFiveballKj lasterGameFiveballKj = gameFiveballKjList.get(size);
                 Long preTime = lasterGameFiveballKj.getPreTime().getTime() - date.getTime();
                 Long betTime = lasterGameFiveballKj.getBetTime().getTime() - date.getTime();
                 respVO.setPeriods(lasterGameFiveballKj.getPeriods());

@@ -633,8 +633,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectSumRecordByPeriodId" parameterType="Long" resultMap="RecordSumResult">
         SELECT
             COUNT(user_id) as user_count
-             ,SUM(count_money) as CountMoney
-             ,SUM(win_money) as WinMoney
+             ,SUM(count_money) as count_money
+             ,SUM(win_money) as win_money
         from game_fiveball_record
         where periods = #{periods}
         <if test="gameId != null "> and game_id = #{gameId}</if>

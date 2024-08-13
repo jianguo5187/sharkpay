@@ -156,7 +156,11 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 respVO.setPreTime(preTime/ 1000L);
                 respVO.setBetTime(betTime/ 1000L);
             }else{
-                GameThreeballKj lasterGameThreeballKj = gameThreeballKjList.get(gameThreeballKjList.size()-1);
+                int size = 0;
+                if(gameThreeballKjList.size() > 1){
+                    size = 1;
+                }
+                GameThreeballKj lasterGameThreeballKj = gameThreeballKjList.get(size);
                 Long preTime = lasterGameThreeballKj.getPreTime().getTime() - date.getTime();
                 Long betTime = lasterGameThreeballKj.getBetTime().getTime() - date.getTime();
                 respVO.setPeriods(lasterGameThreeballKj.getPeriods());

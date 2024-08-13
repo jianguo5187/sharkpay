@@ -633,18 +633,50 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Override
     public void updateSiteSetting(UpdateSiteSettingReqVO vo) {
+//        SysConfig dbConfig = new SysConfig();
+//        dbConfig.setConfigKey("sys.site.openFlg");
+//        SysConfig retConfig = configMapper.selectConfig(dbConfig);
+//        if(retConfig == null){
+//            retConfig = new SysConfig();
+//            retConfig.setConfigName("站点开关");
+//            retConfig.setConfigKey("sys.site.openFlg");
+//            retConfig.setConfigValue(vo.isSiteOpenFlg().toString());
+//            retConfig.setConfigType("Y");
+//            configService.insertConfig(retConfig);
+//        }else{
+//            retConfig.setConfigValue(vo.isSiteOpenFlg().toString());
+//            configService.updateConfig(retConfig);
+//        }
+        updateAndInsertConfigInfo("站点开关", "sys.site.openFlg",vo.isSiteOpenFlg().toString());
+        updateAndInsertConfigInfo("最小充值金额", "sys.change.min",vo.getMinChargeMoney().toString());
+        updateAndInsertConfigInfo("最小提现金额", "sys.postal.min",vo.getMinPostalMoney().toString());
+        updateAndInsertConfigInfo("每日提现次数", "sys.postal.maxCnt",vo.getPostalMaxCnt().toString());
+        updateAndInsertConfigInfo("app首页公告内容", "sys.app.home.notice",vo.getAppHomeNotice().toString());
+        updateAndInsertConfigInfo("官方开奖URL", "sys.opengame.url",vo.getOpenRecordUrl().toString());
+        updateAndInsertConfigInfo("网站唯一标识ID", "sys.web.type",vo.getWebType().toString());
+        updateAndInsertConfigInfo("网站名称", "sys.web.name",vo.getWebName().toString());
+        updateAndInsertConfigInfo("微信appId", "sys.wechat.appId",vo.getWechatAppId().toString());
+        updateAndInsertConfigInfo("微信appSecret", "sys.wechat.appSecret",vo.getWechatAppSecret().toString());
+        updateAndInsertConfigInfo("自开彩种赢亏比率", "sys.game.winRate",vo.getSystemGameWinRate().toString());
+
+        // 刷新缓存
+        configService.resetConfigCache();
+    }
+
+    public void updateAndInsertConfigInfo(String configName, String configKey, String configValue){
+
         SysConfig dbConfig = new SysConfig();
-        dbConfig.setConfigKey("sys.site.openFlg");
+        dbConfig.setConfigKey(configKey);
         SysConfig retConfig = configMapper.selectConfig(dbConfig);
         if(retConfig == null){
             retConfig = new SysConfig();
-            retConfig.setConfigName("站点开关");
-            retConfig.setConfigKey("sys.site.openFlg");
-            retConfig.setConfigValue(vo.isSiteOpenFlg().toString());
+            retConfig.setConfigName(configName);
+            retConfig.setConfigKey(configKey);
+            retConfig.setConfigValue(configValue);
             retConfig.setConfigType("Y");
             configService.insertConfig(retConfig);
         }else{
-            retConfig.setConfigValue(vo.isSiteOpenFlg().toString());
+            retConfig.setConfigValue(configValue);
             configService.updateConfig(retConfig);
         }
     }

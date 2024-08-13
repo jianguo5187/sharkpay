@@ -354,6 +354,16 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
         ajax.put("siteOpenFlg",configService.selectConfigByKey("sys.site.openFlg") );
+        ajax.put("minChargeMoney",configService.selectConfigByKey("sys.change.min") );
+        ajax.put("minPostalMoney",configService.selectConfigByKey("sys.postal.min") );
+        ajax.put("postalMaxCnt",configService.selectConfigByKey("sys.postal.maxCnt") );
+        ajax.put("appHomeNotice",configService.selectConfigByKey("sys.app.home.notice") );
+        ajax.put("openRecordUrl",configService.selectConfigByKey("sys.opengame.url") );
+        ajax.put("webType",configService.selectConfigByKey("sys.web.type") );
+        ajax.put("webName",configService.selectConfigByKey("sys.web.name") );
+        ajax.put("wechatAppId",configService.selectConfigByKey("sys.wechat.appId") );
+        ajax.put("wechatAppSecret",configService.selectConfigByKey("sys.wechat.appSecret") );
+        ajax.put("systemGameWinRate",configService.selectConfigByKey("sys.game.winRate") );
 
         return ajax;
     }

@@ -29,6 +29,11 @@ import java.util.stream.Collectors;
 @Service
 public class BetkjServiceImpl implements IBetkjService
 {
+
+    //系统提前开奖期数
+    @Value("${gameOpen.periodsSize}")
+    private Integer periodsSize;
+
     @Autowired
     private BetkjMapper betkjMapper;
 
@@ -747,7 +752,7 @@ public class BetkjServiceImpl implements IBetkjService
         searchPreFiveballOpenData.setGameId(gameInfo.getGameId());
         List<GameFiveballOpenData> preFiveballOpenDataList = gameFiveballOpenDataService.selectGameFiveballOpenDataList(searchPreFiveballOpenData);
         Integer preOpenSize = preFiveballOpenDataList.size();
-        if(preOpenSize == 10){
+        if(preOpenSize >= periodsSize){
             return;
         }
         //没有预开奖数据
@@ -768,7 +773,7 @@ public class BetkjServiceImpl implements IBetkjService
         Calendar currentTime = Calendar.getInstance();
 
         // 需要产生的虚拟开奖记录个数
-        for(int i=1;i<=10;i++) {
+        for(int i=1;i<=periodsSize;i++) {
             Long newPeriods = fiveballOpenData.getPeriods() + i;
 
             GameFiveballOpenData preFiveballOpenData = gameFiveballOpenDataService.selectGameFiveballOpenDataByPeriods(gameInfo.getGameId(), newPeriods,null);

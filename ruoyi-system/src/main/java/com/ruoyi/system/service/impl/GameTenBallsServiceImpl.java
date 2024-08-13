@@ -153,7 +153,11 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 respVO.setPreTime(preTime/ 1000L);
                 respVO.setBetTime(betTime/ 1000L);
             }else{
-                GameTenballKj lasterGameTenballKj = gameTenballKjList.get(gameTenballKjList.size()-1);
+                int size = 0;
+                if(gameTenballKjList.size() > 1){
+                    size = 1;
+                }
+                GameTenballKj lasterGameTenballKj = gameTenballKjList.get(size);
                 Long preTime = lasterGameTenballKj.getPreTime().getTime() - date.getTime();
                 Long betTime = lasterGameTenballKj.getBetTime().getTime() - date.getTime();
                 respVO.setPeriods(lasterGameTenballKj.getPeriods());
