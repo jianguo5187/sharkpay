@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -47,6 +48,9 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
 
     @Autowired
     private ISysBetTypeService sysBetTypeService;
+
+    @Autowired
+    private IUserwinService userwinService;
 
     @Autowired
     private BetRecordMapper betRecordMapper;
@@ -112,6 +116,22 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             }
         }else{
             respVO.setLotteryStatus("0");
+        }
+
+        Userwin searchUserwin = new Userwin();
+        searchUserwin.setGameId(vo.getGameId());
+        searchUserwin.setUserId(userId);
+        searchUserwin.setIncludeTestUserFlg(true);
+        Map<String, Object> params = new HashMap<>();
+        SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
+        String today = sd.format(new Date());
+        params.put("beginTime",today);
+        params.put("endTime",today);
+        List<CollectReportRespVO> list = userwinService.selectCollectReportLis(searchUserwin);
+        if(list == null || list.size() == 0){
+            respVO.setTodayGameWinMoneyTotal(0f);
+        }else{
+            respVO.setTodayGameWinMoneyTotal(list.get(0).getWinMoneyTotal());
         }
 
         return respVO;

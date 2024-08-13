@@ -31,6 +31,9 @@ public class TenBallKjRecordMoneyRespVO {
     /** 盈亏余额 */
     private Float profitLossMoney;
 
+    /** 今日彩种盈亏余额 */
+    private Float todayGameWinMoneyTotal;
+
     public Long getPeriods() {
         return periods;
     }
@@ -93,5 +96,13 @@ public class TenBallKjRecordMoneyRespVO {
 
     public void setProfitLossMoney(Float profitLossMoney) {
         this.profitLossMoney = profitLossMoney;
+    }
+
+    public Float getTodayGameWinMoneyTotal() {
+        return todayGameWinMoneyTotal;
+    }
+
+    public void setTodayGameWinMoneyTotal(Float todayGameWinMoneyTotal) {
+        this.todayGameWinMoneyTotal = todayGameWinMoneyTotal;
     }
 }
