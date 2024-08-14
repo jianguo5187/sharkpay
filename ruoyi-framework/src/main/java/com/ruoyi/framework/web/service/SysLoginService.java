@@ -10,6 +10,8 @@ import com.ruoyi.common.utils.file.ImageUtils;
 import com.ruoyi.common.utils.uuid.UUID;
 import com.ruoyi.framework.pojo.dos.WxMiniAppLoginResponseDO;
 import com.ruoyi.framework.pojo.dos.WxMiniAppLoginUserInfoResponseDO;
+import com.ruoyi.system.domain.SysEntryDomain;
+import com.ruoyi.system.service.ISysEntryDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,6 +42,7 @@ import com.ruoyi.system.service.ISysUserService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * 登录校验方法
@@ -67,6 +70,9 @@ public class SysLoginService
     @Autowired
     private SysPermissionService permissionService;
 
+    @Autowired
+    private ISysEntryDomainService sysEntryDomainService;
+
 //    微信小程序appId
 //    @Value("${wx.minApp.appId}")
 //    private String appId;
@@ -74,6 +80,10 @@ public class SysLoginService
 //    //微信小程序密钥
 //    @Value("${wx.minApp.appSecret}")
 //    private String appSecret;
+
+    //微信授权URL
+    @Value("${wx.minApp.authUrl}")
+    private String authUrl;
 
     //微信登录通过code换取网页授权access_token的URL
     @Value("${wx.minApp.oauth2Url}")
@@ -209,6 +219,51 @@ public class SysLoginService
         sysUser.setLoginDate(DateUtils.getNowDate());
         userService.updateUserProfile(sysUser);
     }
+
+    public String getUrlRedir(Long parentUserId){
+//        authUrl
+        String wechatAuthUrl = configService.selectConfigByKey("sys.wechat.authUrl");
+        String appId = configService.selectConfigByKey("sys.wechat.appId");
+
+        if(!wechatAuthUrl.startsWith("http") && !wechatAuthUrl.startsWith("https")){
+            wechatAuthUrl = "http://" + wechatAuthUrl;
+        }
+
+        wechatAuthUrl = wechatAuthUrl + ":8080/wxRedirect";
+
+        if(parentUserId != null && parentUserId > 0){
+            wechatAuthUrl = wechatAuthUrl + "?parentUserId=" + parentUserId;
+        }
+
+        String urlRedir = authUrl.replace("{0}", appId).replace("{1}", ServletUtils.urlEncode(wechatAuthUrl));
+        return urlRedir;
+    }
+
+    public String getAppUrlRedir(String token, Long parentUserId){
+
+        SysEntryDomain entryDomainSearch = new SysEntryDomain();
+        entryDomainSearch.setStatus("0");
+        entryDomainSearch.setDelFlag("0");
+        List<SysEntryDomain> entryDomainList = sysEntryDomainService.selectSysEntryDomainList(entryDomainSearch);
+        String appUrlRedir = "";
+        if(entryDomainList.size() > 0) {
+            appUrlRedir = entryDomainList.get(0).getEntryDomainUrl();
+        }else{
+            throw new ServiceException(StringUtils.format("未配置落地域名"));
+        }
+
+        if(!appUrlRedir.startsWith("http") && !appUrlRedir.startsWith("https")){
+            appUrlRedir = "http://" + appUrlRedir;
+        }
+
+        appUrlRedir = appUrlRedir + "?token=" + token;
+        if(parentUserId != null && parentUserId > 0){
+            appUrlRedir = appUrlRedir + "&parentUserId=" + parentUserId;
+        }
+
+        return appUrlRedir;
+    }
+
     /**
      * 小程序一键登录
      * @return token

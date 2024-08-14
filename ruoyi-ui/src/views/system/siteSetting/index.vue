@@ -73,6 +73,13 @@
       </el-row>
       <el-row>
         <el-col :span="12">
+          <el-form-item label="授权域名" prop="wechatAuthUrl">
+            <el-input v-model="siteSetting.form.wechatAuthUrl" placeholder="请输入授权域名"/> 例如：http://c12q.zs2ux.cn
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
           <el-form-item label="自开彩种赢亏比率" prop="systemGameWinRate">
             <el-input-number v-model="siteSetting.form.systemGameWinRate" :min="1" :max="100" placeholder="请输入自开彩种赢亏比率"/> 1~100
           </el-form-item>
@@ -108,6 +115,7 @@ export default {
           webName: undefined,
           wechatAppId: undefined,
           wechatAppSecret: undefined,
+          wechatAuthUrl: undefined,
           systemGameWinRate: 10,
         },
         // 表单校验
@@ -147,6 +155,9 @@ export default {
           ],
           wechatAppSecret: [
             { required: true, message: "微信Secret不能为空", trigger: "blur" }
+          ],
+          wechatAuthUrl: [
+            { required: true, message: "授权域名不能为空", trigger: "blur" }
           ],
           systemGameWinRate: [
             { required: true, message: "自开彩种赢亏比率不能为空", trigger: "blur" }
@@ -198,6 +209,9 @@ export default {
         }
         if(response.wechatAppSecret != undefined){
           this.siteSetting.form.wechatAppSecret = response.wechatAppSecret;
+        }
+        if(response.wechatAuthUrl != undefined){
+          this.siteSetting.form.wechatAuthUrl = response.wechatAuthUrl;
         }
         if(response.systemGameWinRate != undefined){
           this.siteSetting.form.systemGameWinRate = response.systemGameWinRate;

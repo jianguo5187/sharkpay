@@ -657,6 +657,7 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("网站名称", "sys.web.name",vo.getWebName().toString());
         updateAndInsertConfigInfo("微信appId", "sys.wechat.appId",vo.getWechatAppId().toString());
         updateAndInsertConfigInfo("微信appSecret", "sys.wechat.appSecret",vo.getWechatAppSecret().toString());
+        updateAndInsertConfigInfo("授权域名", "sys.wechat.authUrl",vo.getWechatAuthUrl().toString());
         updateAndInsertConfigInfo("自开彩种赢亏比率", "sys.game.winRate",vo.getSystemGameWinRate().toString());
 
         // 刷新缓存

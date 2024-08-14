@@ -32,6 +32,9 @@ public class UpdateSiteSettingReqVO {
     //微信appSecret
     private String wechatAppSecret;
 
+    //授权域名
+    private String wechatAuthUrl;
+
     //自开彩种赢亏比率
     private Float systemGameWinRate;
 
@@ -117,6 +120,14 @@ public class UpdateSiteSettingReqVO {
 
     public void setWechatAppSecret(String wechatAppSecret) {
         this.wechatAppSecret = wechatAppSecret;
+    }
+
+    public String getWechatAuthUrl() {
+        return wechatAuthUrl;
+    }
+
+    public void setWechatAuthUrl(String wechatAuthUrl) {
+        this.wechatAuthUrl = wechatAuthUrl;
     }
 
     public Float getSystemGameWinRate() {
