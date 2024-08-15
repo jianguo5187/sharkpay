@@ -1,26 +1,8 @@
 package com.ruoyi.framework.web.service;
 
-import javax.annotation.Resource;
-
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-import com.ruoyi.common.utils.*;
-import com.ruoyi.common.utils.file.ImageUtils;
-import com.ruoyi.common.utils.uuid.UUID;
-import com.ruoyi.framework.pojo.dos.WxMiniAppLoginResponseDO;
-import com.ruoyi.framework.pojo.dos.WxMiniAppLoginUserInfoResponseDO;
-import com.ruoyi.system.domain.SysEntryDomain;
-import com.ruoyi.system.service.ISysEntryDomainService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.stereotype.Component;
 import com.ruoyi.common.constant.CacheConstants;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.constant.UserConstants;
@@ -28,18 +10,29 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.core.redis.RedisCache;
 import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.exception.user.BlackListException;
-import com.ruoyi.common.exception.user.CaptchaException;
-import com.ruoyi.common.exception.user.CaptchaExpireException;
-import com.ruoyi.common.exception.user.UserNotExistsException;
-import com.ruoyi.common.exception.user.UserPasswordNotMatchException;
+import com.ruoyi.common.exception.user.*;
+import com.ruoyi.common.utils.*;
+import com.ruoyi.common.utils.file.ImageUtils;
 import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.framework.manager.AsyncManager;
 import com.ruoyi.framework.manager.factory.AsyncFactory;
+import com.ruoyi.framework.pojo.dos.WxMiniAppLoginResponseDO;
+import com.ruoyi.framework.pojo.dos.WxMiniAppLoginUserInfoResponseDO;
 import com.ruoyi.framework.security.context.AuthenticationContextHolder;
+import com.ruoyi.system.domain.SysLandingDomain;
 import com.ruoyi.system.service.ISysConfigService;
+import com.ruoyi.system.service.ISysLandingDomainService;
 import com.ruoyi.system.service.ISysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -71,7 +64,7 @@ public class SysLoginService
     private SysPermissionService permissionService;
 
     @Autowired
-    private ISysEntryDomainService sysEntryDomainService;
+    private ISysLandingDomainService sysLandingDomainService;
 
 //    微信小程序appId
 //    @Value("${wx.minApp.appId}")
@@ -229,7 +222,7 @@ public class SysLoginService
             wechatAuthUrl = "http://" + wechatAuthUrl;
         }
 
-        wechatAuthUrl = wechatAuthUrl + ":8080/wxRedirect";
+        wechatAuthUrl = wechatAuthUrl + "/wxRedirect";
 
         if(parentUserId != null && parentUserId > 0){
             wechatAuthUrl = wechatAuthUrl + "?parentUserId=" + parentUserId;
@@ -241,13 +234,13 @@ public class SysLoginService
 
     public String getAppUrlRedir(String token, Long parentUserId){
 
-        SysEntryDomain entryDomainSearch = new SysEntryDomain();
-        entryDomainSearch.setStatus("0");
-        entryDomainSearch.setDelFlag("0");
-        List<SysEntryDomain> entryDomainList = sysEntryDomainService.selectSysEntryDomainList(entryDomainSearch);
+        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+        landingDomainSearch.setStatus("0");
+        landingDomainSearch.setDelFlag("0");
+        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
         String appUrlRedir = "";
-        if(entryDomainList.size() > 0) {
-            appUrlRedir = entryDomainList.get(0).getEntryDomainUrl();
+        if(landingDomainList.size() > 0) {
+            appUrlRedir = landingDomainList.get(0).getLandingDomainUrl();
         }else{
             throw new ServiceException(StringUtils.format("未配置落地域名"));
         }

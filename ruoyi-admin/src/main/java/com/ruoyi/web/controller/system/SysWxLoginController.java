@@ -47,12 +47,11 @@ public class SysWxLoginController
 
     @GetMapping("/wxRedirect")
     public ModelAndView wxRedirect(@RequestParam("code") String code,@RequestParam(name = "parentUserId", required = false) Long parentUserId) {
-        System.out.println("code : " + code);
         String siteDisabledFlag = configService.selectConfigByKey("sys.site.openFlg");
         if(!StringUtils.equals(siteDisabledFlag,"true")){
+            System.out.println("siteDisabledFlag : " + siteDisabledFlag);
             // 如果没有提供rewrite参数，或者参数为空，可以重定向到默认页面
             return new ModelAndView("redirect:/defaultPage");
-//            return ajax.error("网站关闭中，无法访问");
         }
         // 生成令牌
         String token = loginService.miniProgramLogin(code,parentUserId);
