@@ -50,3 +50,39 @@ export function userDeduct(data) {
     data: data
   })
 }
+
+// 自开奖重开
+export function reOpen(data) {
+  return request({
+    url: '/system/betkj/reOpen',
+    method: 'post',
+    data: data
+  })
+}
+
+// 自开奖修改开奖号码
+export function editOpenCode(data) {
+  return request({
+    url: '/system/betkj/editOpenCode',
+    method: 'post',
+    data: data
+  })
+}
+
+// 延迟开奖
+export function sleepOpenCode(data) {
+  return request({
+    url: '/system/betkj/sleepOpenCode',
+    method: 'post',
+    data: data
+  })
+}
+
+// 查询最后一条未开奖记录
+export function getLastNoOpenRecord(query) {
+  return request({
+    url: '/system/betkj/getLastNoOpenRecord',
+    method: 'get',
+    params: query
+  })
+}
