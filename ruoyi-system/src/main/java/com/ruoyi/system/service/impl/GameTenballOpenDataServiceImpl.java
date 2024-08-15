@@ -105,7 +105,17 @@ public class GameTenballOpenDataServiceImpl implements IGameTenballOpenDataServi
     }
 
     @Override
-    public GameTenballOpenData selectGameTenballOpenDataByPeriods(Long gameId, Long periods) {
-        return gameTenballOpenDataMapper.selectGameTenballOpenDataByPeriods(gameId,periods);
+    public GameTenballOpenData selectGameTenballOpenDataByPeriods(Long gameId, Long periods, String status) {
+        return gameTenballOpenDataMapper.selectGameTenballOpenDataByPeriods(gameId,periods,status);
+    }
+
+    @Override
+    public List<GameTenballOpenData> selectTenballPreOpenData() {
+        return gameTenballOpenDataMapper.selectTenballPreOpenData();
+    }
+
+    @Override
+    public GameTenballOpenData selectLastOpenDataByMinPeriods(Long gameId, Long periods, String status) {
+        return gameTenballOpenDataMapper.selectLastOpenDataByMinPeriods(gameId,periods,status);
     }
 }

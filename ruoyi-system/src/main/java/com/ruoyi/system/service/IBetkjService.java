@@ -43,7 +43,7 @@ public interface IBetkjService
     public void saveTenBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long , GameOpenDataDto> gameOpenDataDtoMap);
 
     // 定时保存10球的系统开奖结果
-    public void saveTenBallInfoFromOfficialSystem(SysGame gameInfo);
+    public void saveTenBallInfoFromSystem(SysGame gameInfo);
 
     public void openThreeBallSystemExpectData(SysGame gameInfo);
 

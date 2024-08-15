@@ -65,5 +65,9 @@ public interface GameTenballOpenDataMapper
 
     public List<GameTenballOpenData> selectGameTenballOpenDataListByParam(@Param("gameId") Long gameId, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 
-    public GameTenballOpenData selectGameTenballOpenDataByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods);
+    public GameTenballOpenData selectGameTenballOpenDataByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods, @Param("status") String status);
+
+    public List<GameTenballOpenData> selectTenballPreOpenData();
+
+    public GameTenballOpenData selectLastOpenDataByMinPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods, @Param("status") String status);
 }

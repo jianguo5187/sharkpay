@@ -105,7 +105,17 @@ public class GameThreeballOpenDataServiceImpl implements IGameThreeballOpenDataS
     }
 
     @Override
-    public GameThreeballOpenData selectGameThreeballOpenDataByPeriods(Long gameId, Long periods) {
-        return gameThreeballOpenDataMapper.selectGameThreeballOpenDataByPeriods(gameId,periods);
+    public GameThreeballOpenData selectGameThreeballOpenDataByPeriods(Long gameId, Long periods, String status) {
+        return gameThreeballOpenDataMapper.selectGameThreeballOpenDataByPeriods(gameId,periods,status);
+    }
+
+    @Override
+    public List<GameThreeballOpenData> selectThreeballPreOpenData() {
+        return gameThreeballOpenDataMapper.selectThreeballPreOpenData();
+    }
+
+    @Override
+    public GameThreeballOpenData selectLastOpenDataByMinPeriods(Long gameId, Long periods, String status) {
+        return gameThreeballOpenDataMapper.selectLastOpenDataByMinPeriods(gameId,periods,status);
     }
 }

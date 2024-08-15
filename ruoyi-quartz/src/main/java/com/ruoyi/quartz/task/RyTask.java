@@ -119,7 +119,7 @@ public class RyTask
                 //系统开奖
                 if(StringUtils.equals("10",gameType)){
                     // 10球
-                    gameTaskService.saveTenBallInfoFromOfficialSystem(gameInfo);
+                    gameTaskService.saveTenBallInfoFromSystem(gameInfo);
                 }else if(StringUtils.equals("3",gameType)){
                     // 3球
                     gameTaskService.saveThreeBallInfoFromSystem(gameInfo);

@@ -122,6 +122,10 @@ public class GameTenballOpenData extends BaseEntity
     @Excel(name = "预开奖号码10")
     private Integer preNum10;
 
+    /** 开奖数据状态(0已开奖,1预开奖号码) */
+    @Excel(name = "开奖数据状态(0已开奖,1预开奖号码)")
+    private String status;
+
     public Long getId() {
         return id;
     }
@@ -339,6 +343,14 @@ public class GameTenballOpenData extends BaseEntity
     public Integer getPreNum10()
     {
         return preNum10;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

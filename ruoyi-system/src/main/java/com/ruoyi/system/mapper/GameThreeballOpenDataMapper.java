@@ -65,5 +65,9 @@ public interface GameThreeballOpenDataMapper
 
     public List<GameThreeballOpenData> selectGameThreeballOpenDataListByParam(@Param("gameId") Long gameId, @Param("idDescFlg") String idDescFlg, @Param("limitNumber") Integer limitNumber);
 
-    public GameThreeballOpenData selectGameThreeballOpenDataByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods);
+    public GameThreeballOpenData selectGameThreeballOpenDataByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods, @Param("status") String status);
+
+    public List<GameThreeballOpenData> selectThreeballPreOpenData();
+
+    public GameThreeballOpenData selectLastOpenDataByMinPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods, @Param("status") String status);
 }

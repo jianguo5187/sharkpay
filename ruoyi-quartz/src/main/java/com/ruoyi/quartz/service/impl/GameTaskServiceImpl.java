@@ -69,8 +69,8 @@ public class GameTaskServiceImpl implements IGameTaskService {
     }
 
     @Override
-    public void saveTenBallInfoFromOfficialSystem(SysGame gameInfo) {
-        betkjService.saveTenBallInfoFromOfficialSystem(gameInfo);
+    public void saveTenBallInfoFromSystem(SysGame gameInfo) {
+        betkjService.saveTenBallInfoFromSystem(gameInfo);
     }
 
     @Override

@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="preSum1"    column="pre_sum_1"    />
         <result property="preSum2"    column="pre_sum_2"    />
         <result property="preSum3"    column="pre_sum_3"    />
+        <result property="status"    column="status"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -25,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectGameThreeballOpenDataVo">
-        select id, periods, game_id, game_name, time, sum_1, sum_2, sum_3, pre_time, pre_sum_1, pre_sum_2, pre_sum_3, create_by, create_time, update_by, update_time, remark from game_threeball_open_data
+        select id, periods, game_id, game_name, time, sum_1, sum_2, sum_3, pre_time, pre_sum_1, pre_sum_2, pre_sum_3, status, create_by, create_time, update_by, update_time, remark from game_threeball_open_data
     </sql>
 
     <select id="selectGameThreeballOpenDataList" parameterType="GameThreeballOpenData" resultMap="GameThreeballOpenDataResult">
@@ -42,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preSum1 != null "> and pre_sum_1 = #{preSum1}</if>
             <if test="preSum2 != null "> and pre_sum_2 = #{preSum2}</if>
             <if test="preSum3 != null "> and pre_sum_3 = #{preSum3}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
         </where>
     </select>
     
@@ -63,6 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preSum1 != null">pre_sum_1,</if>
             <if test="preSum2 != null">pre_sum_2,</if>
             <if test="preSum3 != null">pre_sum_3,</if>
+            <if test="status != null">status,</if>
             <if test="createBy != null">create_by,</if>
         create_time
         )values(
@@ -77,6 +80,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preSum1 != null">#{preSum1},</if>
             <if test="preSum2 != null">#{preSum2},</if>
             <if test="preSum3 != null">#{preSum3},</if>
+            <if test="status != null">#{status},</if>
             <if test="createBy != null">#{createBy},</if>
         sysdate()
         )
@@ -93,6 +97,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preSum1 != null">pre_sum_1 = #{preSum1},</if>
             <if test="preSum2 != null">pre_sum_2 = #{preSum2},</if>
             <if test="preSum3 != null">pre_sum_3 = #{preSum3},</if>
+            <if test="status != null">status = #{status},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>
@@ -112,7 +117,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectLastRecord" parameterType="Long" resultMap="GameThreeballOpenDataResult">
         <include refid="selectGameThreeballOpenDataVo"/>
-        where 1 = 1
+        where status = '0'
         <if test="gameId != null "> and game_id = #{gameId}</if>
         order by id desc
         limit 1
@@ -120,7 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectGameThreeballOpenDataListByParam" resultMap="GameThreeballOpenDataResult">
         <include refid="selectGameThreeballOpenDataVo"/>
-        where 1 = 1
+        where status = '0'
         <if test="gameId != null "> and game_id = #{gameId}</if>
         <if test="idDescFlg != null and idDescFlg != '' ">
             order by id desc
@@ -133,9 +138,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectGameThreeballOpenDataByPeriods" resultMap="GameThreeballOpenDataResult">
         <include refid="selectGameThreeballOpenDataVo"/>
         where 1 = 1
+        <if test="status != null and status != '' "> and status = #{status}</if>
         <if test="periods != null "> and periods = #{periods}</if>
         <if test="gameId != null "> and game_id = #{gameId}</if>
         order by id desc
+        limit 1
+    </select>
+
+    <select id="selectThreeballPreOpenData" resultMap="GameThreeballOpenDataResult">
+        <include refid="selectGameThreeballOpenDataVo"/>
+        where status = '1'
+        AND date_format(pre_time, '%Y-%m-%d %H:%i:%s.%f') &lt;= date_format(NOW(), '%Y-%m-%d %H:%i:%s.%f')
+        order by id asc
+    </select>
+
+    <select id="selectLastOpenDataByMinPeriods" resultMap="GameThreeballOpenDataResult">
+        <include refid="selectGameThreeballOpenDataVo"/>
+        where 1 = 1
+        <if test="status != null and status != ''"> and status = #{status}</if>
+        <if test="periods != null "> and periods > #{periods}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        order by id asc
         limit 1
     </select>
 </mapper>

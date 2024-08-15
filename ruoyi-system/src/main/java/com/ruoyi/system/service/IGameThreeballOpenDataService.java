@@ -63,5 +63,9 @@ public interface IGameThreeballOpenDataService
 
     public List<GameThreeballOpenData> selectGameThreeballOpenDataListByParam(Long gameId, String idDescFlg, Integer limitNumber);
 
-    public GameThreeballOpenData selectGameThreeballOpenDataByPeriods(Long gameId, Long periods);
+    public GameThreeballOpenData selectGameThreeballOpenDataByPeriods(Long gameId, Long periods,String status);
+
+    public List<GameThreeballOpenData> selectThreeballPreOpenData();
+
+    public GameThreeballOpenData selectLastOpenDataByMinPeriods(Long gameId, Long periods, String status);
 }

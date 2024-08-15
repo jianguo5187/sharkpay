@@ -148,7 +148,7 @@ public class BetkjServiceImpl implements IBetkjService
             return;
         }
 
-        GameThreeballOpenData gameThreeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), periods);
+        GameThreeballOpenData gameThreeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), periods,"0");
 
         if(!StringUtils.equals(gameThreeballKj.getStatus(),"1") && gameThreeballOpenData == null){
             return;
@@ -221,7 +221,7 @@ public class BetkjServiceImpl implements IBetkjService
         if(gameTenballKj == null){
             return;
         }
-        GameTenballOpenData gameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), periods);
+        GameTenballOpenData gameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), periods,"0");
 
         if(!StringUtils.equals(gameTenballKj.getStatus(),"1") && gameTenballOpenData == null){
             return;
@@ -319,7 +319,7 @@ public class BetkjServiceImpl implements IBetkjService
                 .collect(Collectors.toList());
 
         for(GameOpenDataDto gameOpenDataDto : sortedList){
-            GameThreeballOpenData newGameThreeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), gameOpenDataDto.getExpect());
+            GameThreeballOpenData newGameThreeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), gameOpenDataDto.getExpect(),"0");
             if(newGameThreeballOpenData == null) {
                 newGameThreeballOpenData = new GameThreeballOpenData();
                 newGameThreeballOpenData.setPeriods(gameOpenDataDto.getExpect());
@@ -484,7 +484,7 @@ public class BetkjServiceImpl implements IBetkjService
                 .collect(Collectors.toList());
 
         for(GameOpenDataDto gameOpenDataDto : sortedList){
-            GameTenballOpenData newGameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), gameOpenDataDto.getExpect());
+            GameTenballOpenData newGameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), gameOpenDataDto.getExpect(),"0");
             if(newGameTenballOpenData == null) {
                 newGameTenballOpenData = new GameTenballOpenData();
                 newGameTenballOpenData.setPeriods(gameOpenDataDto.getExpect());
@@ -569,52 +569,63 @@ public class BetkjServiceImpl implements IBetkjService
         }
 
         GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectLastRecord(gameInfo.getGameId());
+
+        Long newPeriods =  0l;
         if(threeballOpenData != null){
-            GameOpenDataDto openData = new GameOpenDataDto();
+            newPeriods = threeballOpenData.getPeriods() + 1;
+        }
 
-            Long newPeriods = threeballOpenData.getPeriods() + 1;
+        if(threeballOpenData != null && gameOpenDataDtoMap.get(newPeriods) == null
+                && gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null){
+            return;
+        }
 
-            if(gameOpenDataDtoMap.get(newPeriods) == null
-                    && gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null){
-//                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
-                return;
-            }
-
-            Long newId = 0l;
-            if((gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null)){
-                openData = gameOpenDataDtoMap.get(newPeriods);
-                newId = newPeriods;
-            }else{
-                openData = openDataList.get(0);
-                newId = openData.getExpect();
-            }
-            GameThreeballOpenData newGameThreeballOpenDataInfo = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(),newId);
-            boolean newFlg = false;
-            if(newGameThreeballOpenDataInfo == null){
-                newGameThreeballOpenDataInfo = new GameThreeballOpenData();
-                newFlg = true;
-            }
-            newGameThreeballOpenDataInfo.setPeriods(newId);
-            newGameThreeballOpenDataInfo.setGameId(gameInfo.getGameId());
-            newGameThreeballOpenDataInfo.setGameName(gameInfo.getGameName());
-            String [] numList = openData.getOpencode().split(",");
-            newGameThreeballOpenDataInfo.setSum1(Integer.parseInt(numList[0]));
-            newGameThreeballOpenDataInfo.setSum2(Integer.parseInt(numList[1]));
-            newGameThreeballOpenDataInfo.setSum3(Integer.parseInt(numList[2]));
-            newGameThreeballOpenDataInfo.setTime(openData.getOpentime());
-            newGameThreeballOpenDataInfo.setCreateBy("TASK");
-
-            if(newFlg){
-                gameThreeballOpenDataService.insertGameThreeballOpenData(newGameThreeballOpenDataInfo);
-            }else{
-                gameThreeballOpenDataService.updateGameThreeballOpenData(newGameThreeballOpenDataInfo);
-            }
-        }else{
+//        if(threeballOpenData != null){
+//            GameOpenDataDto openData = new GameOpenDataDto();
+//
+//            Long newPeriods = threeballOpenData.getPeriods() + 1;
+//
+//            if(gameOpenDataDtoMap.get(newPeriods) == null
+//                    && gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null){
+////                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
+//                return;
+//            }
+//
+//            Long newId = 0l;
+//            if((gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null)){
+//                openData = gameOpenDataDtoMap.get(newPeriods);
+//                newId = newPeriods;
+//            }else{
+//                openData = openDataList.get(0);
+//                newId = openData.getExpect();
+//            }
+//            GameThreeballOpenData newGameThreeballOpenDataInfo = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(),newId);
+//            boolean newFlg = false;
+//            if(newGameThreeballOpenDataInfo == null){
+//                newGameThreeballOpenDataInfo = new GameThreeballOpenData();
+//                newFlg = true;
+//            }
+//            newGameThreeballOpenDataInfo.setPeriods(newId);
+//            newGameThreeballOpenDataInfo.setGameId(gameInfo.getGameId());
+//            newGameThreeballOpenDataInfo.setGameName(gameInfo.getGameName());
+//            String [] numList = openData.getOpencode().split(",");
+//            newGameThreeballOpenDataInfo.setSum1(Integer.parseInt(numList[0]));
+//            newGameThreeballOpenDataInfo.setSum2(Integer.parseInt(numList[1]));
+//            newGameThreeballOpenDataInfo.setSum3(Integer.parseInt(numList[2]));
+//            newGameThreeballOpenDataInfo.setTime(openData.getOpentime());
+//            newGameThreeballOpenDataInfo.setCreateBy("TASK");
+//
+//            if(newFlg){
+//                gameThreeballOpenDataService.insertGameThreeballOpenData(newGameThreeballOpenDataInfo);
+//            }else{
+//                gameThreeballOpenDataService.updateGameThreeballOpenData(newGameThreeballOpenDataInfo);
+//            }
+//        }else{
             List<GameOpenDataDto> sortedList = openDataList.stream()
                     .sorted(Comparator.comparing(GameOpenDataDto::getExpect)) // 根据expect字段进行排序
                     .collect(Collectors.toList());
             for(GameOpenDataDto gameOpenDataDto : sortedList){
-                GameThreeballOpenData newGameThreeballOpenDataInfo = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(),gameOpenDataDto.getExpect());
+                GameThreeballOpenData newGameThreeballOpenDataInfo = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(),gameOpenDataDto.getExpect(),null);
                 if(newGameThreeballOpenDataInfo == null) {
                     newGameThreeballOpenDataInfo = new GameThreeballOpenData();
                     newGameThreeballOpenDataInfo.setPeriods(gameOpenDataDto.getExpect());
@@ -630,11 +641,98 @@ public class BetkjServiceImpl implements IBetkjService
                     gameThreeballOpenDataService.insertGameThreeballOpenData(newGameThreeballOpenDataInfo);
                 }
             }
-        }
+//        }
     }
 
     @Override
     public void saveThreeBallInfoFromSystem(SysGame gameInfo) {
+
+        GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectLastRecord(gameInfo.getGameId());
+        Date beforeOpenDataTime = null;
+        if(threeballOpenData == null) {
+            //初始没数据
+            threeballOpenData = new GameThreeballOpenData();
+            threeballOpenData.setPeriods(1l);
+            threeballOpenData.setGameId(gameInfo.getGameId());
+            threeballOpenData.setGameName(gameInfo.getGameName());
+            List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+            threeballOpenData.setSum1(Integer.parseInt(openCode.get(0)));
+            threeballOpenData.setSum2(Integer.parseInt(openCode.get(1)));
+            threeballOpenData.setSum3(Integer.parseInt(openCode.get(2)));
+            threeballOpenData.setTime(new Date());
+            threeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
+            threeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
+            threeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
+            threeballOpenData.setPreTime(new Date());
+            threeballOpenData.setCreateBy("TASK");
+
+            gameThreeballOpenDataService.insertGameThreeballOpenData(threeballOpenData);
+        }
+
+        //获取开奖数据
+        GameThreeballOpenData searchPreThreeballOpenData = new GameThreeballOpenData();
+        searchPreThreeballOpenData.setStatus("2"); //预开奖
+        searchPreThreeballOpenData.setGameId(gameInfo.getGameId());
+        List<GameThreeballOpenData> preThreeballOpenDataList = gameThreeballOpenDataService.selectGameThreeballOpenDataList(searchPreThreeballOpenData);
+        Integer preOpenSize = preThreeballOpenDataList.size();
+        if(preOpenSize >= periodsSize){
+            return;
+        }
+        //没有预开奖数据
+        if(preOpenSize == 0){
+            beforeOpenDataTime = new Date();
+        }else{
+            beforeOpenDataTime = threeballOpenData.getTime();
+        }
+        SimpleDateFormat sd = new SimpleDateFormat("HHmmss");
+        Integer startTime = 0;
+        Integer endTime = 999999;
+        if(StringUtils.isNotEmpty(gameInfo.getValidOpenStartTime())){
+            startTime = Integer.parseInt(gameInfo.getValidOpenStartTime()+"00");
+        }
+        if(StringUtils.isNotEmpty(gameInfo.getValidOpenEndTime())){
+            endTime = Integer.parseInt(gameInfo.getValidOpenEndTime()+"59");
+        }
+        Calendar currentTime = Calendar.getInstance();
+
+        // 需要产生的虚拟开奖记录个数
+        for(int i=1;i<=periodsSize;i++) {
+            Long newPeriods = threeballOpenData.getPeriods() + i;
+
+            GameThreeballOpenData preThreeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), newPeriods,null);
+            if(preThreeballOpenData == null){
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(beforeOpenDataTime);
+                //预计开奖时间
+                calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*i);
+                calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);
+                String preTime = sd.format(calendar.getTime());
+                if(startTime.compareTo(Integer.parseInt(preTime)) > 0 || endTime.compareTo(Integer.parseInt(preTime)) < 0){
+                    break;
+                }
+
+                preThreeballOpenData = new GameThreeballOpenData();
+
+                preThreeballOpenData.setPeriods(newPeriods);
+                preThreeballOpenData.setGameId(gameInfo.getGameId());
+                preThreeballOpenData.setGameName(gameInfo.getGameName());
+                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+                preThreeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
+                preThreeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
+                preThreeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
+                preThreeballOpenData.setStatus("1");
+
+                if(currentTime.after(calendar.getTime())){
+                    beforeOpenDataTime = new Date();
+                    preThreeballOpenData.setPreTime(new Date());
+                }else{
+                    preThreeballOpenData.setPreTime(calendar.getTime());
+                }
+                preThreeballOpenData.setCreateBy("TASK");
+
+                gameThreeballOpenDataService.insertGameThreeballOpenData(preThreeballOpenData);
+            }
+        }
 
     }
 
@@ -823,62 +921,73 @@ public class BetkjServiceImpl implements IBetkjService
         }
 
         GameTenballOpenData tenballOpenData = gameTenballOpenDataService.selectLastRecord(gameInfo.getGameId());
+
+        Long newPeriods =  0l;
         if(tenballOpenData != null){
-            GameOpenDataDto openData = new GameOpenDataDto();
+            newPeriods = tenballOpenData.getPeriods() + 1;
+        }
 
-            Long newPeriods = tenballOpenData.getPeriods() + 1;
+        if(tenballOpenData != null && gameOpenDataDtoMap.get(newPeriods) == null
+                && gameOpenDataDtoMap.get(tenballOpenData.getPeriods()) != null){
+            return;
+        }
 
-            if(gameOpenDataDtoMap.get(newPeriods) == null
-                    && gameOpenDataDtoMap.get(tenballOpenData.getPeriods()) != null){
-//                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
-                return;
-            }
-
-            Long newId = 0l;
-            if((gameOpenDataDtoMap.get(tenballOpenData.getPeriods()) != null)){
-                openData = gameOpenDataDtoMap.get(newPeriods);
-                newId = newPeriods;
-            }else{
-                openData = openDataList.get(0);
-                newId = openData.getExpect();
-            }
-
-            GameTenballOpenData newGameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), newId);
-
-            boolean newFlg = false;
-            if(newGameTenballOpenData == null){
-                newGameTenballOpenData = new GameTenballOpenData();
-                newFlg = true;
-            }
-            newGameTenballOpenData.setPeriods(newId);
-            newGameTenballOpenData.setGameId(gameInfo.getGameId());
-            newGameTenballOpenData.setGameName(gameInfo.getGameName());
-            String [] numList = openData.getOpencode().split(",");
-            newGameTenballOpenData.setNum1(Integer.parseInt(numList[0]));
-            newGameTenballOpenData.setNum2(Integer.parseInt(numList[1]));
-            newGameTenballOpenData.setNum3(Integer.parseInt(numList[2]));
-            newGameTenballOpenData.setNum4(Integer.parseInt(numList[3]));
-            newGameTenballOpenData.setNum5(Integer.parseInt(numList[4]));
-            newGameTenballOpenData.setNum6(Integer.parseInt(numList[5]));
-            newGameTenballOpenData.setNum7(Integer.parseInt(numList[6]));
-            newGameTenballOpenData.setNum8(Integer.parseInt(numList[7]));
-            newGameTenballOpenData.setNum9(Integer.parseInt(numList[8]));
-            newGameTenballOpenData.setNum10(Integer.parseInt(numList[9]));
-            newGameTenballOpenData.setTime(openData.getOpentime());
-            newGameTenballOpenData.setCreateBy("TASK");
-
-            if(newFlg){
-                gameTenballOpenDataService.insertGameTenballOpenData(newGameTenballOpenData);
-            }else{
-                gameTenballOpenDataService.updateGameTenballOpenData(newGameTenballOpenData);
-            }
-        }else{
+//        if(tenballOpenData != null){
+//            GameOpenDataDto openData = new GameOpenDataDto();
+//
+//            Long newPeriods = tenballOpenData.getPeriods() + 1;
+//
+//            if(gameOpenDataDtoMap.get(newPeriods) == null
+//                    && gameOpenDataDtoMap.get(tenballOpenData.getPeriods()) != null){
+////                System.out.println(gameInfo.getGameName() + ": 暂时无新数据");
+//                return;
+//            }
+//
+//            Long newId = 0l;
+//            if((gameOpenDataDtoMap.get(tenballOpenData.getPeriods()) != null)){
+//                openData = gameOpenDataDtoMap.get(newPeriods);
+//                newId = newPeriods;
+//            }else{
+//                openData = openDataList.get(0);
+//                newId = openData.getExpect();
+//            }
+//
+//            GameTenballOpenData newGameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), newId);
+//
+//            boolean newFlg = false;
+//            if(newGameTenballOpenData == null){
+//                newGameTenballOpenData = new GameTenballOpenData();
+//                newFlg = true;
+//            }
+//            newGameTenballOpenData.setPeriods(newId);
+//            newGameTenballOpenData.setGameId(gameInfo.getGameId());
+//            newGameTenballOpenData.setGameName(gameInfo.getGameName());
+//            String [] numList = openData.getOpencode().split(",");
+//            newGameTenballOpenData.setNum1(Integer.parseInt(numList[0]));
+//            newGameTenballOpenData.setNum2(Integer.parseInt(numList[1]));
+//            newGameTenballOpenData.setNum3(Integer.parseInt(numList[2]));
+//            newGameTenballOpenData.setNum4(Integer.parseInt(numList[3]));
+//            newGameTenballOpenData.setNum5(Integer.parseInt(numList[4]));
+//            newGameTenballOpenData.setNum6(Integer.parseInt(numList[5]));
+//            newGameTenballOpenData.setNum7(Integer.parseInt(numList[6]));
+//            newGameTenballOpenData.setNum8(Integer.parseInt(numList[7]));
+//            newGameTenballOpenData.setNum9(Integer.parseInt(numList[8]));
+//            newGameTenballOpenData.setNum10(Integer.parseInt(numList[9]));
+//            newGameTenballOpenData.setTime(openData.getOpentime());
+//            newGameTenballOpenData.setCreateBy("TASK");
+//
+//            if(newFlg){
+//                gameTenballOpenDataService.insertGameTenballOpenData(newGameTenballOpenData);
+//            }else{
+//                gameTenballOpenDataService.updateGameTenballOpenData(newGameTenballOpenData);
+//            }
+//        }else{
             List<GameOpenDataDto> sortedList = openDataList.stream()
                     .sorted(Comparator.comparing(GameOpenDataDto::getExpect)) // 根据expect字段进行排序
                     .collect(Collectors.toList());
 
             for(GameOpenDataDto gameOpenDataDto : sortedList){
-                GameTenballOpenData newGameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), gameOpenDataDto.getExpect());
+                GameTenballOpenData newGameTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), gameOpenDataDto.getExpect(),null);
                 if(newGameTenballOpenData == null) {
                     newGameTenballOpenData = new GameTenballOpenData();
                     newGameTenballOpenData.setPeriods(gameOpenDataDto.getExpect());
@@ -901,17 +1010,146 @@ public class BetkjServiceImpl implements IBetkjService
                     gameTenballOpenDataService.insertGameTenballOpenData(newGameTenballOpenData);
                 }
             }
-        }
+//        }
     }
 
     @Override
-    public void saveTenBallInfoFromOfficialSystem(SysGame gameInfo) {
+    public void saveTenBallInfoFromSystem(SysGame gameInfo) {
+
+        GameTenballOpenData tenballOpenData = gameTenballOpenDataService.selectLastRecord(gameInfo.getGameId());
+        Date beforeOpenDataTime = null;
+        if(tenballOpenData == null) {
+            //初始没数据
+            tenballOpenData = new GameTenballOpenData();
+            tenballOpenData.setPeriods(1l);
+            tenballOpenData.setGameId(gameInfo.getGameId());
+            tenballOpenData.setGameName(gameInfo.getGameName());
+            List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+
+
+            tenballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
+            tenballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
+            tenballOpenData.setNum3(Integer.parseInt(openCode.get(2)));
+            tenballOpenData.setNum4(Integer.parseInt(openCode.get(3)));
+            tenballOpenData.setNum5(Integer.parseInt(openCode.get(4)));
+            tenballOpenData.setNum6(Integer.parseInt(openCode.get(5)));
+            tenballOpenData.setNum7(Integer.parseInt(openCode.get(6)));
+            tenballOpenData.setNum8(Integer.parseInt(openCode.get(7)));
+            tenballOpenData.setNum9(Integer.parseInt(openCode.get(8)));
+            tenballOpenData.setNum10(Integer.parseInt(openCode.get(9)));
+            tenballOpenData.setTime(new Date());
+            tenballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
+            tenballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
+            tenballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
+            tenballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
+            tenballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
+            tenballOpenData.setPreNum6(Integer.parseInt(openCode.get(5)));
+            tenballOpenData.setPreNum7(Integer.parseInt(openCode.get(6)));
+            tenballOpenData.setPreNum8(Integer.parseInt(openCode.get(7)));
+            tenballOpenData.setPreNum9(Integer.parseInt(openCode.get(8)));
+            tenballOpenData.setPreNum10(Integer.parseInt(openCode.get(9)));
+            tenballOpenData.setPreTime(new Date());
+            tenballOpenData.setCreateBy("TASK");
+
+            gameTenballOpenDataService.insertGameTenballOpenData(tenballOpenData);
+        }
+
+        //获取开奖数据
+        GameTenballOpenData searchPreTenballOpenData = new GameTenballOpenData();
+        searchPreTenballOpenData.setStatus("2"); //预开奖
+        searchPreTenballOpenData.setGameId(gameInfo.getGameId());
+        List<GameTenballOpenData> preTenballOpenDataList = gameTenballOpenDataService.selectGameTenballOpenDataList(searchPreTenballOpenData);
+        Integer preOpenSize = preTenballOpenDataList.size();
+        if(preOpenSize >= periodsSize){
+            return;
+        }
+        //没有预开奖数据
+        if(preOpenSize == 0){
+            beforeOpenDataTime = new Date();
+        }else{
+            beforeOpenDataTime = tenballOpenData.getTime();
+        }
+        SimpleDateFormat sd = new SimpleDateFormat("HHmmss");
+        Integer startTime = 0;
+        Integer endTime = 999999;
+        if(StringUtils.isNotEmpty(gameInfo.getValidOpenStartTime())){
+            startTime = Integer.parseInt(gameInfo.getValidOpenStartTime()+"00");
+        }
+        if(StringUtils.isNotEmpty(gameInfo.getValidOpenEndTime())){
+            endTime = Integer.parseInt(gameInfo.getValidOpenEndTime()+"59");
+        }
+        Calendar currentTime = Calendar.getInstance();
+
+        // 需要产生的虚拟开奖记录个数
+        for(int i=1;i<=periodsSize;i++) {
+            Long newPeriods = tenballOpenData.getPeriods() + i;
+
+            GameTenballOpenData preTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), newPeriods,null);
+            if(preTenballOpenData == null){
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(beforeOpenDataTime);
+                //预计开奖时间
+                calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*i);
+                calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);
+                String preTime = sd.format(calendar.getTime());
+                if(startTime.compareTo(Integer.parseInt(preTime)) > 0 || endTime.compareTo(Integer.parseInt(preTime)) < 0){
+                    break;
+                }
+
+                preTenballOpenData = new GameTenballOpenData();
+
+                preTenballOpenData.setPeriods(newPeriods);
+                preTenballOpenData.setGameId(gameInfo.getGameId());
+                preTenballOpenData.setGameName(gameInfo.getGameName());
+                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+                preTenballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
+                preTenballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
+                preTenballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
+                preTenballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
+                preTenballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
+                preTenballOpenData.setPreNum6(Integer.parseInt(openCode.get(5)));
+                preTenballOpenData.setPreNum7(Integer.parseInt(openCode.get(6)));
+                preTenballOpenData.setPreNum8(Integer.parseInt(openCode.get(7)));
+                preTenballOpenData.setPreNum9(Integer.parseInt(openCode.get(8)));
+                preTenballOpenData.setPreNum10(Integer.parseInt(openCode.get(9)));
+                preTenballOpenData.setStatus("1");
+
+                if(currentTime.after(calendar.getTime())){
+                    beforeOpenDataTime = new Date();
+                    preTenballOpenData.setPreTime(new Date());
+                }else{
+                    preTenballOpenData.setPreTime(calendar.getTime());
+                }
+                preTenballOpenData.setCreateBy("TASK");
+
+                gameTenballOpenDataService.insertGameTenballOpenData(preTenballOpenData);
+            }
+        }
 
     }
 
     @Override
     public void openThreeBallSystemExpectData(SysGame gameInfo) {
 
+        List<GameThreeballOpenData> preThreeballOpenData = gameThreeballOpenDataService.selectThreeballPreOpenData();
+        boolean nextOpenFlg = false;
+        for(GameThreeballOpenData gameThreeballOpenData : preThreeballOpenData){
+            gameThreeballOpenData.setStatus("0");
+            gameThreeballOpenData.setSum1(gameThreeballOpenData.getPreSum1());
+            gameThreeballOpenData.setSum2(gameThreeballOpenData.getPreSum2());
+            gameThreeballOpenData.setSum3(gameThreeballOpenData.getPreSum3());
+            gameThreeballOpenData.setTime(gameThreeballOpenData.getPreTime());
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(gameThreeballOpenData.getPreTime());
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);//实际开奖时间要大于等于预时间
+            gameThreeballOpenData.setTime(calendar.getTime());
+            gameThreeballOpenDataService.updateGameThreeballOpenData(gameThreeballOpenData);
+            nextOpenFlg = true;
+        }
+        if(nextOpenFlg){
+            saveThreeBallInfoFromSystem(gameInfo);
+        }
     }
 
     @Override
@@ -943,6 +1181,32 @@ public class BetkjServiceImpl implements IBetkjService
     @Override
     public void openTenBallSystemExpectData(SysGame gameInfo) {
 
+        List<GameTenballOpenData> preTenballOpenData = gameTenballOpenDataService.selectTenballPreOpenData();
+        boolean nextOpenFlg = false;
+        for(GameTenballOpenData gameTenballOpenData : preTenballOpenData){
+            gameTenballOpenData.setStatus("0");
+            gameTenballOpenData.setNum1(gameTenballOpenData.getPreNum1());
+            gameTenballOpenData.setNum2(gameTenballOpenData.getPreNum2());
+            gameTenballOpenData.setNum3(gameTenballOpenData.getPreNum3());
+            gameTenballOpenData.setNum4(gameTenballOpenData.getPreNum4());
+            gameTenballOpenData.setNum5(gameTenballOpenData.getPreNum5());
+            gameTenballOpenData.setNum6(gameTenballOpenData.getPreNum6());
+            gameTenballOpenData.setNum7(gameTenballOpenData.getPreNum7());
+            gameTenballOpenData.setNum8(gameTenballOpenData.getPreNum8());
+            gameTenballOpenData.setNum9(gameTenballOpenData.getPreNum9());
+            gameTenballOpenData.setNum10(gameTenballOpenData.getPreNum10());
+            gameTenballOpenData.setTime(gameTenballOpenData.getPreTime());
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(gameTenballOpenData.getPreTime());
+            calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);//实际开奖时间要大于等于预时间
+            gameTenballOpenData.setTime(calendar.getTime());
+            gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
+            nextOpenFlg = true;
+        }
+        if(nextOpenFlg){
+            saveTenBallInfoFromSystem(gameInfo);
+        }
     }
 
     // 大1 小0 [小,大]

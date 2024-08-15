@@ -63,5 +63,9 @@ public interface IGameTenballOpenDataService
 
     public List<GameTenballOpenData> selectGameTenballOpenDataListByParam(Long gameId, String idDescFlg, Integer limitNumber);
 
-    public GameTenballOpenData selectGameTenballOpenDataByPeriods(Long gameId, Long periods);
+    public GameTenballOpenData selectGameTenballOpenDataByPeriods(Long gameId, Long periods,String status);
+
+    public List<GameTenballOpenData> selectTenballPreOpenData();
+
+    public GameTenballOpenData selectLastOpenDataByMinPeriods(Long gameId, Long periods, String status);
 }
