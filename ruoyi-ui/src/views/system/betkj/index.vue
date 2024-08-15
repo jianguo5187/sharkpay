@@ -53,7 +53,7 @@
 
     <el-table v-loading="loading" :data="betkjList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="期数" width="85" align="center" prop="periods" />
+      <el-table-column label="期数" width="130" align="center" prop="periods"/>
       <el-table-column label="开奖时间" align="center" prop="betOpenTime" />
       <el-table-column label="是否已经开奖" align="center" prop="status">
         <template slot-scope="scope">

@@ -2095,6 +2095,39 @@ public class BetkjServiceImpl implements IBetkjService
     }
 
     @Override
+    public void autoAllRepairLottery() {
+
+        // 3球卡奖
+        GameThreeballKj searchGameThreeballKj = new GameThreeballKj();
+        searchGameThreeballKj.setStatus("2"); //开奖中
+        List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectGameThreeballKjList(searchGameThreeballKj);
+        for(GameThreeballKj gameThreeballKj : gameThreeballKjList){
+            SysGame gameInfo = sysGameService.selectSysGameByGameId(gameThreeballKj.getGameId());
+            threeballHandleLottery(gameInfo, gameThreeballKj.getPeriods());
+        }
+
+        // 5球卡奖
+        GameFiveballKj searchGameFiveballKj = new GameFiveballKj();
+        searchGameFiveballKj.setStatus("2"); //开奖中
+        List<GameFiveballKj> gameFiveballKjList = gameFiveballKjService.selectGameFiveballKjList(searchGameFiveballKj);
+        for(GameFiveballKj gameFiveballKj : gameFiveballKjList){
+            SysGame gameInfo = sysGameService.selectSysGameByGameId(gameFiveballKj.getGameId());
+            fiveballHandleLottery(gameInfo, gameFiveballKj.getPeriods());
+        }
+
+        // 10球卡奖
+        GameTenballKj searchGameTenballKj = new GameTenballKj();
+        searchGameTenballKj.setStatus("2"); //开奖中
+        List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectGameTenballKjList(searchGameTenballKj);
+        for(GameTenballKj gameTenballKj : gameTenballKjList){
+            SysGame gameInfo = sysGameService.selectSysGameByGameId(gameTenballKj.getGameId());
+            tenballHandleLottery(gameInfo, gameTenballKj.getPeriods());
+        }
+
+        autoKajiangLottery();
+    }
+
+    @Override
     public int reOpen(EditSystemBetCodeReqVO vo) {
 
         int row = 0;

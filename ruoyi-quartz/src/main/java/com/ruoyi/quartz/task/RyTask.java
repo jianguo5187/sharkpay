@@ -216,4 +216,8 @@ public class RyTask
     public void autoKajiangLottery(){
         gameTaskService.autoKajiangLottery();
     }
+
+    public void autoAllRepairLottery(){
+        gameTaskService.autoAllRepairLottery();
+    }
 }

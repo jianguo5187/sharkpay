@@ -57,6 +57,8 @@ public interface IBetkjService
 
     public void autoKajiangLottery();
 
+    public void autoAllRepairLottery();
+
     public int reOpen(EditSystemBetCodeReqVO vo);
 
     public int editOpenCode(EditSystemBetCodeReqVO vo);
