@@ -377,8 +377,6 @@ public class SysAppController extends BaseController {
         return ajax;
     }
 
-
-
     /**
      * 获取有效的落地域名站点设置
      *

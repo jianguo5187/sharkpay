@@ -56,4 +56,12 @@ public interface IBetkjService
     public void betUserDeduct(BetUserDeductReqVO vo);
 
     public void autoKajiangLottery();
+
+    public int reOpen(EditSystemBetCodeReqVO vo);
+
+    public int editOpenCode(EditSystemBetCodeReqVO vo);
+
+    public int sleepOpenCode(EditSystemBetCodeReqVO vo);
+
+    public LastNoOpenRecordRespVo getLastNoOpenRecord(BetkjReqVO vo);
 }

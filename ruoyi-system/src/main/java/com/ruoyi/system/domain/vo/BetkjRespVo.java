@@ -1,6 +1,7 @@
 package com.ruoyi.system.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ruoyi.common.annotation.Excel;
 
 import java.util.Date;
 
@@ -30,6 +31,12 @@ public class BetkjRespVo {
 
     /** 中奖金额 */
     private Float winMoney;
+
+    /** 游戏类别 */
+    private String gameType;
+
+    /** 是否系统开奖区分(N否 Y是) */
+    private String systemOpenType;
 
     public Long getGameId() {
         return gameId;
@@ -93,5 +100,21 @@ public class BetkjRespVo {
 
     public void setWinMoney(Float winMoney) {
         this.winMoney = winMoney;
+    }
+
+    public String getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(String gameType) {
+        this.gameType = gameType;
+    }
+
+    public String getSystemOpenType() {
+        return systemOpenType;
+    }
+
+    public void setSystemOpenType(String systemOpenType) {
+        this.systemOpenType = systemOpenType;
     }
 }

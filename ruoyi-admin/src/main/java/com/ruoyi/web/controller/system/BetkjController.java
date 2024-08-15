@@ -95,4 +95,36 @@ public class BetkjController extends BaseController
         AjaxResult ajax = AjaxResult.success("处理成功");
         return ajax;
     }
+
+    @PostMapping("/reOpen")
+    public AjaxResult reOpen(@RequestBody EditSystemBetCodeReqVO vo)
+    {
+        return toAjax(betkjService.reOpen(vo));
+    }
+
+    @PostMapping("/editOpenCode")
+    public AjaxResult editOpenCode(@RequestBody EditSystemBetCodeReqVO vo)
+    {
+        return toAjax(betkjService.editOpenCode(vo));
+    }
+
+    @PostMapping("/sleepOpenCode")
+    public AjaxResult sleepOpenCode(@RequestBody EditSystemBetCodeReqVO vo)
+    {
+        return toAjax(betkjService.sleepOpenCode(vo));
+    }
+
+    /**
+     * 获取有效的落地域名站点设置
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getLastNoOpenRecord")
+    public AjaxResult getLastNoOpenRecord(BetkjReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+
+        ajax.put("lastNoOpenRecord",betkjService.getLastNoOpenRecord(vo) );
+        return ajax;
+    }
 }

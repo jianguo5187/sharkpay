@@ -21,7 +21,7 @@ public interface BetkjMapper
      * 
      * @return 开奖集合
      */
-    public List<BetkjRespVo> selectBetkjList(@Param("gameId") Long gameId, @Param("betkjTableName") String betkjTableName, @Param("gameType") String gameType, @Param("periods") Long periods, @Param("status") String status);
+    public List<BetkjRespVo> selectBetkjList(@Param("gameId") Long gameId, @Param("betkjTableName") String betkjTableName, @Param("openCodeTableName") String openCodeTableName, @Param("gameType") String gameType, @Param("periods") Long periods, @Param("status") String status);
 
     public List<GameListRespVO> gameRecordList(@Param("gameId") Long gameId, @Param("betRecordTableName") String betRecordTableName,@Param("userId") Long userId, @Param("filterDay") String filterDay);
 
