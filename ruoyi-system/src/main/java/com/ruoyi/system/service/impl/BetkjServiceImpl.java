@@ -646,6 +646,15 @@ public class BetkjServiceImpl implements IBetkjService
                     newGameThreeballOpenDataInfo.setCreateBy("TASK");
 
                     gameThreeballOpenDataService.insertGameThreeballOpenData(newGameThreeballOpenDataInfo);
+                } else if (newGameThreeballOpenDataInfo.getSum1() == null) {
+
+                    String[] numList = gameOpenDataDto.getOpencode().split(",");
+                    newGameThreeballOpenDataInfo.setSum1(Integer.parseInt(numList[0]));
+                    newGameThreeballOpenDataInfo.setSum2(Integer.parseInt(numList[1]));
+                    newGameThreeballOpenDataInfo.setSum3(Integer.parseInt(numList[2]));
+                    newGameThreeballOpenDataInfo.setTime(gameOpenDataDto.getOpentime());
+
+                    gameThreeballOpenDataService.updateGameThreeballOpenData(newGameThreeballOpenDataInfo);
                 }
             }
 //        }
@@ -818,6 +827,15 @@ public class BetkjServiceImpl implements IBetkjService
                     newGameFiveballOpenDataInfo.setCreateBy("TASK");
 
                     gameFiveballOpenDataService.insertGameFiveballOpenData(newGameFiveballOpenDataInfo);
+                } else if (newGameFiveballOpenDataInfo.getNum1() == null) {
+                    String[] numList = gameOpenDataDto.getOpencode().split(",");
+                    newGameFiveballOpenDataInfo.setNum1(Integer.parseInt(numList[0]));
+                    newGameFiveballOpenDataInfo.setNum2(Integer.parseInt(numList[1]));
+                    newGameFiveballOpenDataInfo.setNum3(Integer.parseInt(numList[2]));
+                    newGameFiveballOpenDataInfo.setNum4(Integer.parseInt(numList[3]));
+                    newGameFiveballOpenDataInfo.setNum5(Integer.parseInt(numList[4]));
+                    newGameFiveballOpenDataInfo.setTime(gameOpenDataDto.getOpentime());
+                    gameFiveballOpenDataService.updateGameFiveballOpenData(newGameFiveballOpenDataInfo);
                 }
 //            }
         }
@@ -1015,6 +1033,22 @@ public class BetkjServiceImpl implements IBetkjService
                     newGameTenballOpenData.setCreateBy("TASK");
 
                     gameTenballOpenDataService.insertGameTenballOpenData(newGameTenballOpenData);
+                } else if (newGameTenballOpenData.getNum1() == null) {
+
+                    String[] numList = gameOpenDataDto.getOpencode().split(",");
+                    newGameTenballOpenData.setNum1(Integer.parseInt(numList[0]));
+                    newGameTenballOpenData.setNum2(Integer.parseInt(numList[1]));
+                    newGameTenballOpenData.setNum3(Integer.parseInt(numList[2]));
+                    newGameTenballOpenData.setNum4(Integer.parseInt(numList[3]));
+                    newGameTenballOpenData.setNum5(Integer.parseInt(numList[4]));
+                    newGameTenballOpenData.setNum6(Integer.parseInt(numList[5]));
+                    newGameTenballOpenData.setNum7(Integer.parseInt(numList[6]));
+                    newGameTenballOpenData.setNum8(Integer.parseInt(numList[7]));
+                    newGameTenballOpenData.setNum9(Integer.parseInt(numList[8]));
+                    newGameTenballOpenData.setNum10(Integer.parseInt(numList[9]));
+                    newGameTenballOpenData.setTime(gameOpenDataDto.getOpentime());
+
+                    gameTenballOpenDataService.updateGameTenballOpenData(newGameTenballOpenData);
                 }
             }
 //        }

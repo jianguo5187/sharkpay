@@ -9,9 +9,9 @@ import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.mapper.*;
+import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.service.ISysGameService;
 import com.alibaba.fastjson2.JSONArray;
 
 /**
@@ -37,6 +37,36 @@ public class SysGameServiceImpl implements ISysGameService
 
     @Autowired
     private GameThreeballMixedOddsMapper gameThreeballMixedOddsMapper;
+
+    @Autowired
+    private IGameThreeballOpenDataService gameThreeballOpenDataService;
+
+    @Autowired
+    private IGameThreeballKjService gameThreeballKjService;
+
+    @Autowired
+    private IGameFiveballOpenDataService gameFiveballOpenDataService;
+
+    @Autowired
+    private IGameFiveballKjService gameFiveballKjService;
+
+    @Autowired
+    private IGameTenballOpenDataService gameTenballOpenDataService;
+
+    @Autowired
+    private IGameTenballKjService gameTenballKjService;
+
+    @Autowired
+    private IBetkjService betkjService;
+
+    @Autowired
+    private IThreeBallLotteryService threeBallLotteryService;
+
+    @Autowired
+    private IFiveBallLotteryService fiveBallLotteryService;
+
+    @Autowired
+    private ITenBallLotteryService tenBallLotteryService;
 
     /**
      * 查询游戏
@@ -124,6 +154,7 @@ public class SysGameServiceImpl implements ISysGameService
             sysGame.setGameRecord("game_tenball_record");
             sysGame.setGameKj("game_tenball_kj");
         }
+        SysGame oldSysGame = selectSysGameByGameId(sysGame.getGameId());
         int row = sysGameMapper.updateSysGame(sysGame);
 
         SysBetType searchBetType = new SysBetType();
@@ -140,11 +171,168 @@ public class SysGameServiceImpl implements ISysGameService
             }
         }
 
+        // 开奖区分变化
+        if(!StringUtils.equals(sysGame.getSystemOpenType(),oldSysGame.getSystemOpenType())){
+            if(StringUtils.equals(sysGame.getGameType(),"3")){
+                updateThreeballKjAndCodeTable(sysGame);
+            }else if(StringUtils.equals(sysGame.getGameType(),"5")){
+                updateFiveballKjAndCodeTable(sysGame);
+            }else{
+                updateTenballKjAndCodeTable(sysGame);
+            }
+        }
+
         if(StringUtils.equals(sysGame.getGameType(),"3")) {
             insertDefaultThreeballMixedOdds(sysGame);
         }
 
         return row;
+    }
+
+    //重新获取3球开奖数据
+    public void updateThreeballKjAndCodeTable(SysGame sysGame){
+        //系统开奖 -> 官方开奖
+        if(StringUtils.equals(sysGame.getSystemOpenType(),"N")){
+            //删除系统开奖自动生成的未开奖数据
+            GameThreeballOpenData searchGameThreeballOpenData = new GameThreeballOpenData();
+            searchGameThreeballOpenData.setGameId(sysGame.getGameId());
+            searchGameThreeballOpenData.setStatus("1");//系统预开奖
+            List<GameThreeballOpenData> gameThreeballOpenDataList = gameThreeballOpenDataService.selectGameThreeballOpenDataList(searchGameThreeballOpenData);
+            for(GameThreeballOpenData threeballOpenData : gameThreeballOpenDataList){
+                gameThreeballOpenDataService.deleteGameThreeballOpenDataById(threeballOpenData.getId());
+            }
+
+            GameThreeballKj searchGameThreeballKj = new GameThreeballKj();
+            searchGameThreeballKj.setGameId(sysGame.getGameId());
+            searchGameThreeballKj.setStatus("0"); //未开奖
+            List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectGameThreeballKjList(searchGameThreeballKj);
+            for(GameThreeballKj gameThreeballKj : gameThreeballKjList){
+                gameThreeballKjService.deleteGameThreeballKjById(gameThreeballKj.getId());
+            }
+
+            //重新获取一次未开奖数据
+            threeBallLotteryService.createThreeData(sysGame);
+        }else{
+        //官方开奖 -> 系统开奖
+            //删除系统开奖自动生成的未开奖数据
+            GameThreeballOpenData searchGameThreeballOpenData = new GameThreeballOpenData();
+            searchGameThreeballOpenData.setGameId(sysGame.getGameId());
+            searchGameThreeballOpenData.setStatus("1");//系统预开奖
+            List<GameThreeballOpenData> gameThreeballOpenDataList = gameThreeballOpenDataService.selectGameThreeballOpenDataList(searchGameThreeballOpenData);
+            for(GameThreeballOpenData threeballOpenData : gameThreeballOpenDataList){
+                gameThreeballOpenDataService.deleteGameThreeballOpenDataById(threeballOpenData.getId());
+            }
+
+            GameThreeballKj searchGameThreeballKj = new GameThreeballKj();
+            searchGameThreeballKj.setGameId(sysGame.getGameId());
+            searchGameThreeballKj.setStatus("0"); //未开奖
+            List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectGameThreeballKjList(searchGameThreeballKj);
+            for(GameThreeballKj gameThreeballKj : gameThreeballKjList){
+                gameThreeballKjService.deleteGameThreeballKjById(gameThreeballKj.getId());
+            }
+
+            //重新获取一次未开奖数据
+            betkjService.saveThreeBallInfoFromSystem(sysGame);
+            threeBallLotteryService.createThreeData(sysGame);
+
+        }
+    }
+
+    //重新获取5球开奖数据
+    public void updateFiveballKjAndCodeTable(SysGame sysGame){
+        //系统开奖 -> 官方开奖
+        if(StringUtils.equals(sysGame.getSystemOpenType(),"N")){
+            //删除系统开奖自动生成的未开奖数据
+            GameFiveballOpenData searchGameFiveballOpenData = new GameFiveballOpenData();
+            searchGameFiveballOpenData.setGameId(sysGame.getGameId());
+            searchGameFiveballOpenData.setStatus("1");//系统预开奖
+            List<GameFiveballOpenData> gameFiveballOpenDataList = gameFiveballOpenDataService.selectGameFiveballOpenDataList(searchGameFiveballOpenData);
+            for(GameFiveballOpenData fiveballOpenData : gameFiveballOpenDataList){
+                gameFiveballOpenDataService.deleteGameFiveballOpenDataById(fiveballOpenData.getId());
+            }
+
+            GameFiveballKj searchGameFiveballKj = new GameFiveballKj();
+            searchGameFiveballKj.setGameId(sysGame.getGameId());
+            searchGameFiveballKj.setStatus("0"); //未开奖
+            List<GameFiveballKj> gameFiveballKjList = gameFiveballKjService.selectGameFiveballKjList(searchGameFiveballKj);
+            for(GameFiveballKj gameFiveballKj : gameFiveballKjList){
+                gameFiveballKjService.deleteGameFiveballKjById(gameFiveballKj.getId());
+            }
+
+            //重新获取一次未开奖数据
+            fiveBallLotteryService.createFiveBallData(sysGame);
+        }else{
+            //官方开奖 -> 系统开奖
+            //删除系统开奖自动生成的未开奖数据
+            GameFiveballOpenData searchGameFiveballOpenData = new GameFiveballOpenData();
+            searchGameFiveballOpenData.setGameId(sysGame.getGameId());
+            searchGameFiveballOpenData.setStatus("1");//系统预开奖
+            List<GameFiveballOpenData> gameFiveballOpenDataList = gameFiveballOpenDataService.selectGameFiveballOpenDataList(searchGameFiveballOpenData);
+            for(GameFiveballOpenData fiveballOpenData : gameFiveballOpenDataList){
+                gameFiveballOpenDataService.deleteGameFiveballOpenDataById(fiveballOpenData.getId());
+            }
+
+            GameFiveballKj searchGameFiveballKj = new GameFiveballKj();
+            searchGameFiveballKj.setGameId(sysGame.getGameId());
+            searchGameFiveballKj.setStatus("0"); //未开奖
+            List<GameFiveballKj> gameFiveballKjList = gameFiveballKjService.selectGameFiveballKjList(searchGameFiveballKj);
+            for(GameFiveballKj gameFiveballKj : gameFiveballKjList){
+                gameFiveballKjService.deleteGameFiveballKjById(gameFiveballKj.getId());
+            }
+
+            //重新获取一次未开奖数据
+            betkjService.saveFiveBallInfoFromSystem(sysGame);
+            fiveBallLotteryService.createFiveBallData(sysGame);
+
+        }
+    }
+
+    //重新获取10球开奖数据
+    public void updateTenballKjAndCodeTable(SysGame sysGame){
+        //系统开奖 -> 官方开奖
+        if(StringUtils.equals(sysGame.getSystemOpenType(),"N")){
+            //删除系统开奖自动生成的未开奖数据
+            GameTenballOpenData searchGameTenballOpenData = new GameTenballOpenData();
+            searchGameTenballOpenData.setGameId(sysGame.getGameId());
+            searchGameTenballOpenData.setStatus("1");//系统预开奖
+            List<GameTenballOpenData> gameTenballOpenDataList = gameTenballOpenDataService.selectGameTenballOpenDataList(searchGameTenballOpenData);
+            for(GameTenballOpenData tenballOpenData : gameTenballOpenDataList){
+                gameTenballOpenDataService.deleteGameTenballOpenDataById(tenballOpenData.getId());
+            }
+
+            GameTenballKj searchGameTenballKj = new GameTenballKj();
+            searchGameTenballKj.setGameId(sysGame.getGameId());
+            searchGameTenballKj.setStatus("0"); //未开奖
+            List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectGameTenballKjList(searchGameTenballKj);
+            for(GameTenballKj gameTenballKj : gameTenballKjList){
+                gameTenballKjService.deleteGameTenballKjById(gameTenballKj.getId());
+            }
+
+            //重新获取一次未开奖数据
+            tenBallLotteryService.createTenballData(sysGame);
+        }else{
+            //官方开奖 -> 系统开奖
+            //删除系统开奖自动生成的未开奖数据
+            GameTenballOpenData searchGameTenballOpenData = new GameTenballOpenData();
+            searchGameTenballOpenData.setGameId(sysGame.getGameId());
+            searchGameTenballOpenData.setStatus("1");//系统预开奖
+            List<GameTenballOpenData> gameTenballOpenDataList = gameTenballOpenDataService.selectGameTenballOpenDataList(searchGameTenballOpenData);
+            for(GameTenballOpenData tenballOpenData : gameTenballOpenDataList){
+                gameTenballOpenDataService.deleteGameTenballOpenDataById(tenballOpenData.getId());
+            }
+
+            GameTenballKj searchGameTenballKj = new GameTenballKj();
+            searchGameTenballKj.setGameId(sysGame.getGameId());
+            searchGameTenballKj.setStatus("0"); //未开奖
+            List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectGameTenballKjList(searchGameTenballKj);
+            for(GameTenballKj gameTenballKj : gameTenballKjList){
+                gameTenballKjService.deleteGameTenballKjById(gameTenballKj.getId());
+            }
+
+            //重新获取一次未开奖数据
+            betkjService.saveTenBallInfoFromSystem(sysGame);
+            tenBallLotteryService.createTenballData(sysGame);
+        }
     }
 
     // 新增3球特殊赔率设置
