@@ -66,4 +66,6 @@ public interface IBetkjService
     public int sleepOpenCode(EditSystemBetCodeReqVO vo);
 
     public LastNoOpenRecordRespVo getLastNoOpenRecord(BetkjReqVO vo);
+
+    public void autoDeleteOldRobotBet();
 }

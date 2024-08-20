@@ -46,6 +46,8 @@ public interface IGameTaskService {
     public void autoKajiangLottery();
 
     public void autoAllRepairLottery();
+
+    public void autoDeleteOldRobotBet();
 //
 //    // 定时保存澳洲幸运10官方开奖结果
 //    public void saveAzxy10InfoFromOfficial(List<GameOpenDataDto> openDataList, Map<Long , GameOpenDataDto> gameOpenDataDtoMap);

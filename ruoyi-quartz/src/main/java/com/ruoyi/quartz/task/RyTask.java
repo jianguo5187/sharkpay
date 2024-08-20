@@ -220,4 +220,8 @@ public class RyTask
     public void autoAllRepairLottery(){
         gameTaskService.autoAllRepairLottery();
     }
+
+    public void autoDeleteOldRobotBet(){
+        gameTaskService.autoDeleteOldRobotBet();
+    }
 }

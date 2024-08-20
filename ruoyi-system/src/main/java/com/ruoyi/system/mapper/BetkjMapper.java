@@ -32,4 +32,6 @@ public interface BetkjMapper
     public Float selectGameRecordCountMoneyById(@Param("betRecordTableName") String betRecordTableName, @Param("id") Long id);
 
     public int updateGameRecordDeductType(@Param("betRecordTableName") String betRecordTableName, @Param("id") Long id,@Param("isDeduct") String isDeduct);
+
+    public int deleteAllOldRobotBet();
 }

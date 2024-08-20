@@ -149,4 +149,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         set is_deduct = #{isDeduct}
         where id = #{id}
     </update>
+
+    <delete id="deleteAllOldRobotBet">
+        delete from bet_record where is_robot = '1' and DATE(record_time) &lt; CURDATE() - INTERVAL 1 DAY
+    </delete>
 </mapper>

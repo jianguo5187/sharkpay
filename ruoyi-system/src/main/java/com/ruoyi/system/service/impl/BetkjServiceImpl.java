@@ -2434,4 +2434,9 @@ public class BetkjServiceImpl implements IBetkjService
         }
         return respVo;
     }
+
+    @Override
+    public void autoDeleteOldRobotBet() {
+        betkjMapper.deleteAllOldRobotBet();
+    }
 }

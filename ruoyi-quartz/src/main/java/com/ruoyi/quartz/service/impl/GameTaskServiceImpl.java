@@ -373,4 +373,9 @@ public class GameTaskServiceImpl implements IGameTaskService {
     public void autoAllRepairLottery() {
         betkjService.autoAllRepairLottery();
     }
+
+    @Override
+    public void autoDeleteOldRobotBet() {
+        betkjService.autoDeleteOldRobotBet();
+    }
 }

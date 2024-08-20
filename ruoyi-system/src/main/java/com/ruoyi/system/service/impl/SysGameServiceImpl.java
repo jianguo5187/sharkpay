@@ -3,11 +3,16 @@ package com.ruoyi.system.service.impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.domain.*;
+import com.ruoyi.system.domain.vo.GameOpenDataDto;
 import com.ruoyi.system.mapper.*;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +72,9 @@ public class SysGameServiceImpl implements ISysGameService
 
     @Autowired
     private ITenBallLotteryService tenBallLotteryService;
+
+    @Autowired
+    private ISysConfigService configService;
 
     /**
      * 查询游戏
@@ -194,6 +202,9 @@ public class SysGameServiceImpl implements ISysGameService
         //系统开奖 -> 官方开奖
         if(StringUtils.equals(sysGame.getSystemOpenType(),"N")){
             //删除系统开奖自动生成的未开奖数据
+            GameThreeballOpenData lastOpenRecord = gameThreeballOpenDataService.selectLastRecord(sysGame.getGameId());
+            gameThreeballOpenDataService.deleteGameThreeballOpenDataById(lastOpenRecord.getId());
+
             GameThreeballOpenData searchGameThreeballOpenData = new GameThreeballOpenData();
             searchGameThreeballOpenData.setGameId(sysGame.getGameId());
             searchGameThreeballOpenData.setStatus("1");//系统预开奖
@@ -208,6 +219,28 @@ public class SysGameServiceImpl implements ISysGameService
             List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectGameThreeballKjList(searchGameThreeballKj);
             for(GameThreeballKj gameThreeballKj : gameThreeballKjList){
                 gameThreeballKjService.deleteGameThreeballKjById(gameThreeballKj.getId());
+            }
+
+            //重新获取一次开奖数据
+            String url = configService.selectConfigByKey("sys.opengame.url") + sysGame.getGameOpenCode() + "&limit=50";
+            String result = HttpUtils.sendGet(url);
+            JSONObject resultJson = JSONObject.parseObject(result);
+
+            if(!(resultJson == null)){
+                String data = resultJson.getString("data");
+                if(!StringUtils.isEmpty(data)){
+                    List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
+                    Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
+                            .collect(Collectors.toMap(
+                                    GameOpenDataDto::getExpect,
+                                    Function.identity(),
+                                    (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                            ));
+
+                    if(openDataList != null && openDataList.size() >0){
+                        betkjService.saveThreeBallInfoFromOfficial(sysGame.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    }
+                }
             }
 
             //重新获取一次未开奖数据
@@ -259,6 +292,27 @@ public class SysGameServiceImpl implements ISysGameService
                 gameFiveballKjService.deleteGameFiveballKjById(gameFiveballKj.getId());
             }
 
+            //重新获取一次开奖数据
+            String url = configService.selectConfigByKey("sys.opengame.url") + sysGame.getGameOpenCode() + "&limit=50";
+            String result = HttpUtils.sendGet(url);
+            JSONObject resultJson = JSONObject.parseObject(result);
+
+            if(!(resultJson == null)){
+                String data = resultJson.getString("data");
+                if(!StringUtils.isEmpty(data)){
+                    List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
+                    Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
+                            .collect(Collectors.toMap(
+                                    GameOpenDataDto::getExpect,
+                                    Function.identity(),
+                                    (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                            ));
+
+                    if(openDataList != null && openDataList.size() >0){
+                        betkjService.saveFiveBallInfoFromOfficial(sysGame.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    }
+                }
+            }
             //重新获取一次未开奖数据
             fiveBallLotteryService.createFiveBallData(sysGame);
         }else{
@@ -306,6 +360,28 @@ public class SysGameServiceImpl implements ISysGameService
             List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectGameTenballKjList(searchGameTenballKj);
             for(GameTenballKj gameTenballKj : gameTenballKjList){
                 gameTenballKjService.deleteGameTenballKjById(gameTenballKj.getId());
+            }
+
+            //重新获取一次开奖数据
+            String url = configService.selectConfigByKey("sys.opengame.url") + sysGame.getGameOpenCode() + "&limit=50";
+            String result = HttpUtils.sendGet(url);
+            JSONObject resultJson = JSONObject.parseObject(result);
+
+            if(!(resultJson == null)){
+                String data = resultJson.getString("data");
+                if(!StringUtils.isEmpty(data)){
+                    List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
+                    Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
+                            .collect(Collectors.toMap(
+                                    GameOpenDataDto::getExpect,
+                                    Function.identity(),
+                                    (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                            ));
+
+                    if(openDataList != null && openDataList.size() >0){
+                        betkjService.saveTenBallInfoFromOfficial(sysGame.getGameMarkId(),openDataList,gameOpenDataDtoMap);
+                    }
+                }
             }
 
             //重新获取一次未开奖数据
