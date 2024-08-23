@@ -90,6 +90,12 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
 
         String webType = configService.selectConfigByKey("sys.web.type");
         String webName = configService.selectConfigByKey("sys.web.name");
+
+        String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
+        if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
+            qrServerIp = "http://" + qrServerIp;
+        }
+
         SysEntryDomain entryDomainSearch = new SysEntryDomain();
         entryDomainSearch.setStatus("0");
         entryDomainSearch.setDelFlag("0");
@@ -97,7 +103,7 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
         if(entryDomainList.size() > 0){
             String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
 
-            HttpUtils.sendGet(entryDomainUrl + "/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
+            HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
         }
 
         return rowId;

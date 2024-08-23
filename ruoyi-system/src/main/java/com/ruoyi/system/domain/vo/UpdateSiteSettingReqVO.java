@@ -35,6 +35,14 @@ public class UpdateSiteSettingReqVO {
     //授权域名
     private String wechatAuthUrl;
 
+    //客服端聊天地址
+    private String kefuImUrl;
+
+    //玩家端聊天地址
+    private String appImUrl;
+
+    private String qrServerUrl;
+
     //自开彩种赢亏比率
     private Float systemGameWinRate;
 
@@ -128,6 +136,30 @@ public class UpdateSiteSettingReqVO {
 
     public void setWechatAuthUrl(String wechatAuthUrl) {
         this.wechatAuthUrl = wechatAuthUrl;
+    }
+
+    public String getKefuImUrl() {
+        return kefuImUrl;
+    }
+
+    public void setKefuImUrl(String kefuImUrl) {
+        this.kefuImUrl = kefuImUrl;
+    }
+
+    public String getAppImUrl() {
+        return appImUrl;
+    }
+
+    public void setAppImUrl(String appImUrl) {
+        this.appImUrl = appImUrl;
+    }
+
+    public String getQrServerUrl() {
+        return qrServerUrl;
+    }
+
+    public void setQrServerUrl(String qrServerUrl) {
+        this.qrServerUrl = qrServerUrl;
     }
 
     public Float getSystemGameWinRate() {

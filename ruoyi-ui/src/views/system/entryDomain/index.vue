@@ -163,7 +163,7 @@ export default {
       rules: {
         entryDomainUrl: [
           { required: true, message: '请输入URL', trigger: 'blur' },
-          { validator: validateHttpOrHttps, trigger: 'blur' }
+          // { validator: validateHttpOrHttps, trigger: 'blur' }
         ]
       }
     };

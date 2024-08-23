@@ -80,6 +80,27 @@
       </el-row>
       <el-row>
         <el-col :span="12">
+          <el-form-item label="客服端聊天地址" prop="kefuImUrl">
+            <el-input v-model="siteSetting.form.kefuImUrl" placeholder="请输入客服端聊天地址"/> 例如：http://43.132.168.72:81
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="玩家端聊天地址" prop="appImUrl">
+            <el-input v-model="siteSetting.form.appImUrl" placeholder="请输入玩家端聊天地址"/> 例如：http://43.132.168.72:82
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="二维码服务器IP地址" prop="qrServerUrl">
+            <el-input v-model="siteSetting.form.qrServerUrl" placeholder="请输入二维码服务器IP地址"/> 例如：http://43.159.192.159
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
           <el-form-item label="自开彩种赢亏比率" prop="systemGameWinRate">
             <el-input-number v-model="siteSetting.form.systemGameWinRate" :min="1" :max="100" placeholder="请输入自开彩种赢亏比率"/> 1~100
           </el-form-item>
@@ -116,6 +137,9 @@ export default {
           wechatAppId: undefined,
           wechatAppSecret: undefined,
           wechatAuthUrl: undefined,
+          kefuImUrl: undefined,
+          appImUrl: undefined,
+          qrServerUrl: undefined,
           systemGameWinRate: 10,
         },
         // 表单校验
@@ -132,12 +156,6 @@ export default {
           postalMaxCnt: [
             { required: true, message: "每日提现次数不能为空", trigger: "blur" }
           ],
-          // imSite: [
-          //   { required: true, message: "客服聊天网站地址不能为空", trigger: "blur" }
-          // ],
-          // appImSite: [
-          //   { required: true, message: "客户聊天网站地不能为空", trigger: "blur" }
-          // ],
           appHomeNotice: [
             { required: true, message: "app首页公告内容不能为空", trigger: "blur" }
           ],
@@ -158,6 +176,15 @@ export default {
           ],
           wechatAuthUrl: [
             { required: true, message: "授权域名不能为空", trigger: "blur" }
+          ],
+          kefuImUrl: [
+            { required: true, message: "客服聊天网站地址不能为空", trigger: "blur" }
+          ],
+          appImUrl: [
+            { required: true, message: "客户聊天网站地不能为空", trigger: "blur" }
+          ],
+          qrServerUrl: [
+            { required: true, message: "二维码服务器IP地址不能为空", trigger: "blur" }
           ],
           systemGameWinRate: [
             { required: true, message: "自开彩种赢亏比率不能为空", trigger: "blur" }
@@ -186,12 +213,6 @@ export default {
         if(response.postalMaxCnt != undefined){
           this.siteSetting.form.postalMaxCnt = response.postalMaxCnt;
         }
-        // if(response.imSite != undefined){
-        //   this.siteSetting.form.imSite = response.imSite;
-        // }
-        // if(response.appImSite != undefined){
-        //   this.siteSetting.form.appImSite = response.appImSite;
-        // }
         if(response.appHomeNotice != undefined){
           this.siteSetting.form.appHomeNotice = response.appHomeNotice;
         }
@@ -212,6 +233,15 @@ export default {
         }
         if(response.wechatAuthUrl != undefined){
           this.siteSetting.form.wechatAuthUrl = response.wechatAuthUrl;
+        }
+        if(response.kefuImUrl != undefined){
+          this.siteSetting.form.kefuImUrl = response.kefuImUrl;
+        }
+        if(response.appImUrl != undefined){
+          this.siteSetting.form.appImUrl = response.appImUrl;
+        }
+        if(response.qrServerUrl != undefined){
+          this.siteSetting.form.qrServerUrl = response.qrServerUrl;
         }
         if(response.systemGameWinRate != undefined){
           this.siteSetting.form.systemGameWinRate = response.systemGameWinRate;

@@ -95,12 +95,18 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
 
         String webType = configService.selectConfigByKey("sys.web.type");
 
-        SysEntryDomain entryDomainSearch = new SysEntryDomain();
-        entryDomainSearch.setStatus("0");
-        entryDomainSearch.setDelFlag("0");
-        List<SysEntryDomain> entryDomainList = sysEntryDomainService.selectSysEntryDomainList(entryDomainSearch);
-        if(entryDomainList.size() > 0){
-            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
+        String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
+
+        if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
+            qrServerIp = "http://" + qrServerIp;
+        }
+
+//        SysEntryDomain entryDomainSearch = new SysEntryDomain();
+//        entryDomainSearch.setStatus("0");
+//        entryDomainSearch.setDelFlag("0");
+//        List<SysEntryDomain> entryDomainList = sysEntryDomainService.selectSysEntryDomainList(entryDomainSearch);
+//        if(entryDomainList.size() > 0){
+//            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
 
             SysLandingDomain landingDomainSearch = new SysLandingDomain();
             landingDomainSearch.setStatus("0");
@@ -108,9 +114,9 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
             List<SysLandingDomain> landingDomainList = selectSysLandingDomainList(landingDomainSearch);
             if(landingDomainList.size() > 0){
                 String landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
-                HttpUtils.sendGet(entryDomainUrl + "/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+                HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
             }
-        }
+//        }
         return rowId;
     }
 

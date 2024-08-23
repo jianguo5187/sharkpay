@@ -93,14 +93,14 @@ public class SysAppController extends BaseController {
         AjaxResult ajax = AjaxResult.success();
         ajax.put("user", userService.selectAppLoginUserInfo(sessionUser.getUserId()));
 
-        SysLandingDomain landingDomainSearch = new SysLandingDomain();
-        landingDomainSearch.setStatus("0");
-        landingDomainSearch.setDelFlag("0");
-        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
-        String landingDomainUrl = "";
-        if(landingDomainList.size() > 0) {
-            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":82";
-        }
+//        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+//        landingDomainSearch.setStatus("0");
+//        landingDomainSearch.setDelFlag("0");
+//        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+        String landingDomainUrl = configService.selectConfigByKey("sys.im.appUrl");
+//        if(landingDomainList.size() > 0) {
+//            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":82";
+//        }
         ajax.put("imUrl",landingDomainUrl );
         ajax.put("homeNotice",configService.selectConfigByKey("sys.app.home.notice") );
         ajax.put("minChangeMoney",configService.selectConfigByKey("sys.change.min") );
@@ -234,14 +234,15 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
 
-        SysLandingDomain landingDomainSearch = new SysLandingDomain();
-        landingDomainSearch.setStatus("0");
-        landingDomainSearch.setDelFlag("0");
-        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
-        String landingDomainUrl = "";
-        if(landingDomainList.size() > 0) {
-            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":81";
-        }
+//        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+//        landingDomainSearch.setStatus("0");
+//        landingDomainSearch.setDelFlag("0");
+//        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+        String landingDomainUrl = configService.selectConfigByKey("sys.im.kefuUrl");
+//        if(landingDomainList.size() > 0) {
+//            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":81";
+//        }
+
         ajax.put("imUrl",landingDomainUrl );
         return ajax;
     }
@@ -364,6 +365,9 @@ public class SysAppController extends BaseController {
         ajax.put("wechatAppId",configService.selectConfigByKey("sys.wechat.appId") );
         ajax.put("wechatAppSecret",configService.selectConfigByKey("sys.wechat.appSecret") );
         ajax.put("wechatAuthUrl",configService.selectConfigByKey("sys.wechat.authUrl") );
+        ajax.put("kefuImUrl",configService.selectConfigByKey("sys.im.kefuUrl") );
+        ajax.put("appImUrl",configService.selectConfigByKey("sys.im.appUrl") );
+        ajax.put("qrServerUrl",configService.selectConfigByKey("sys.web.qrServer") );
         ajax.put("systemGameWinRate",configService.selectConfigByKey("sys.game.winRate") );
 
         return ajax;

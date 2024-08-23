@@ -162,7 +162,7 @@ export default {
       rules: {
         landingDomainUrl: [
           { required: true, message: '请输入URL', trigger: 'blur' },
-          { validator: validateHttpOrHttps, trigger: 'blur' }
+          // { validator: validateHttpOrHttps, trigger: 'blur' }
         ]
       }
     };
