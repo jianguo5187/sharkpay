@@ -5,12 +5,10 @@ import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.QRCodeUtil;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.SysEntryDomain;
+import com.ruoyi.system.domain.SysLandingDomain;
 import com.ruoyi.system.domain.vo.ShareQRCodeBase64ReqVO;
 import com.ruoyi.system.domain.vo.ShareQRCodeRespVO;
-import com.ruoyi.system.service.IQRCodeService;
-import com.ruoyi.system.service.ISysConfigService;
-import com.ruoyi.system.service.ISysEntryDomainService;
-import com.ruoyi.system.service.ISysUserService;
+import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,17 +27,31 @@ public class qRCodeService implements IQRCodeService {
     @Autowired
     private ISysEntryDomainService entryDomainService;
 
+    @Autowired
+    private ISysLandingDomainService sysLandingDomainService;
+
     @Override
     public String getShareQRCodeBase64(Long userId, ShareQRCodeBase64ReqVO reqVO) {
         String content = getShareQRCodeValue(userId);
 
         String shareQRCodeBase64 = "";
-        if(StringUtils.isNotEmpty(reqVO.getDomainUrl())){
+//        if(StringUtils.isNotEmpty(reqVO.getDomainUrl())){
             String logoImg = configService.selectConfigByKey("sys.logo.img");
-            shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content,reqVO.getDomainUrl() + logoImg);
-        }else{
-            shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content);
-        }
+
+            SysLandingDomain landingDomainSearch = new SysLandingDomain();
+            landingDomainSearch.setStatus("0");
+            landingDomainSearch.setDelFlag("0");
+            List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+            String landingDomainUrl= "";
+            if(landingDomainList.size() > 0) {
+                landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":83/prod-api/";
+                shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content,landingDomainUrl + logoImg);
+            }else{
+                shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content);
+            }
+//        }else{
+//            shareQRCodeBase64 = QRCodeUtil.getBase64QRCode(content);
+//        }
 
         return shareQRCodeBase64;
     }
