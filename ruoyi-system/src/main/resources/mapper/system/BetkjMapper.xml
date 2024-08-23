@@ -151,6 +151,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
 
     <delete id="deleteAllOldRobotBet">
-        delete from bet_record where is_robot = '1' and DATE(record_time) &lt; CURDATE() - INTERVAL 1 DAY
+        delete from bet_record where is_robot = '1' and DATE(record_time) &lt;= date_sub(now() , INTERVAL 3 HOUR)
     </delete>
 </mapper>
