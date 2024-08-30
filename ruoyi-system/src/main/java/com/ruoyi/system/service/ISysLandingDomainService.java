@@ -58,4 +58,6 @@ public interface ISysLandingDomainService
      * @return 结果
      */
     public int deleteSysLandingDomainByLandingDomainId(Long landingDomainId);
+
+    public String getValidLandingDomainUrl();
 }

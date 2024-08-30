@@ -45,6 +45,11 @@ import java.util.List;
 @Component
 public class SysLoginService
 {
+
+    //落地域名端口号
+    @Value("${landingDomain.port}")
+    private Integer landingDomainPort;
+
     @Autowired
     private TokenService tokenService;
 
@@ -222,10 +227,12 @@ public class SysLoginService
             wechatAuthUrl = "http://" + wechatAuthUrl;
         }
 
-        wechatAuthUrl = wechatAuthUrl + "/wxRedirect";
+        wechatAuthUrl = wechatAuthUrl + "/prod-api/wxRedirect";
 
         if(parentUserId != null && parentUserId > 0){
             wechatAuthUrl = wechatAuthUrl + "?parentUserId=" + parentUserId;
+        }else{
+            return "http://www.baidu.com";
         }
 
         String urlRedir = authUrl.replace("{0}", appId).replace("{1}", ServletUtils.urlEncode(wechatAuthUrl));
@@ -234,22 +241,22 @@ public class SysLoginService
 
     public String getAppUrlRedir(String token, Long parentUserId){
 
-        SysLandingDomain landingDomainSearch = new SysLandingDomain();
-        landingDomainSearch.setStatus("0");
-        landingDomainSearch.setDelFlag("0");
-        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
-        String appUrlRedir = "";
-        if(landingDomainList.size() > 0) {
-            appUrlRedir = landingDomainList.get(0).getLandingDomainUrl();
-        }else{
+//        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+//        landingDomainSearch.setStatus("0");
+//        landingDomainSearch.setDelFlag("0");
+//        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+        String appUrlRedir = sysLandingDomainService.getValidLandingDomainUrl();
+        if(StringUtils.isEmpty(appUrlRedir)) {
+//            appUrlRedir = landingDomainList.get(0).getLandingDomainUrl();
+//        }else{
             throw new ServiceException(StringUtils.format("未配置落地域名"));
         }
+//
+//        if(!appUrlRedir.startsWith("http") && !appUrlRedir.startsWith("https")){
+//            appUrlRedir = "http://" + appUrlRedir;
+//        }
 
-        if(!appUrlRedir.startsWith("http") && !appUrlRedir.startsWith("https")){
-            appUrlRedir = "http://" + appUrlRedir;
-        }
-
-        appUrlRedir = appUrlRedir + "?token=" + token;
+        appUrlRedir = appUrlRedir + ":"+ landingDomainPort + "?token=" + token;
         if(parentUserId != null && parentUserId > 0){
             appUrlRedir = appUrlRedir + "&parentUserId=" + parentUserId;
         }

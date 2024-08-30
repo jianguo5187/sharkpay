@@ -29,6 +29,9 @@ wx:
 gameOpen:
   periodsSize: 10
 
+landingDomain:
+  port: 6678
+
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8080

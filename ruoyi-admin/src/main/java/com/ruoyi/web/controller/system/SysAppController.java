@@ -391,15 +391,15 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
 
-        SysLandingDomain landingDomainSearch = new SysLandingDomain();
-        landingDomainSearch.setStatus("0");
-        landingDomainSearch.setDelFlag("0");
-        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
-        String landingDomainUrl = "";
-        if(landingDomainList.size() > 0) {
-            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
-        }
-        ajax.put("domainUrl",landingDomainUrl );
+//        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+//        landingDomainSearch.setStatus("0");
+//        landingDomainSearch.setDelFlag("0");
+//        List<SysLandingDomain> landingDomainList = sysLandingDomainService.selectSysLandingDomainList(landingDomainSearch);
+//        String landingDomainUrl = "";
+//        if(landingDomainList.size() > 0) {
+//            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
+//        }
+        ajax.put("domainUrl",sysLandingDomainService.getValidLandingDomainUrl() );
 
         return ajax;
     }
