@@ -20,6 +20,9 @@ public class IpUtils
     // 匹配网段
     public final static String REGX_IP_SEG = "(" + REGX_IP + "\\-" + REGX_IP + ")";
 
+    private static final String LOCALHOST_IP = "0:0:0:0:0:0:0:1";
+    private static final String LOCALHOST_IP1 = "127.0.0.1";
+
     /**
      * 获取客户端IP
      * 
@@ -63,6 +66,15 @@ public class IpUtils
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
         {
             ip = request.getRemoteAddr();
+//            if (LOCALHOST_IP1.equalsIgnoreCase(ip) || LOCALHOST_IP.equalsIgnoreCase(ip)) {
+//                //根据网卡取本机配置的IP
+//                InetAddress iNet = null;
+//                try {
+//                    iNet = InetAddress.getLocalHost();
+//                } catch (UnknownHostException e) {
+//                }
+//                ip = iNet.getHostAddress();
+//            }
         }
 
         return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : getMultistageReverseProxyIp(ip);

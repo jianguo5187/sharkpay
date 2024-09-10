@@ -3,6 +3,8 @@ package com.ruoyi.framework.config;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.DispatcherType;
+
+import com.ruoyi.common.filter.IpAddressFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -51,6 +53,18 @@ public class FilterConfig
         registration.setFilter(new RepeatableFilter());
         registration.addUrlPatterns("/*");
         registration.setName("repeatableFilter");
+        registration.setOrder(FilterRegistrationBean.LOWEST_PRECEDENCE);
+        return registration;
+    }
+
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Bean
+    public FilterRegistrationBean ipAddressFilter()
+    {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new IpAddressFilter());
+        registration.addUrlPatterns("/*");
+        registration.setName("ipAddressFilter");
         registration.setOrder(FilterRegistrationBean.LOWEST_PRECEDENCE);
         return registration;
     }

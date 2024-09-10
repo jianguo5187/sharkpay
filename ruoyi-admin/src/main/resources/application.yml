@@ -30,6 +30,7 @@ gameOpen:
   periodsSize: 10
 
 landingDomain:
+#  port: 8443
   port: 6678
 
 # 开发环境配置

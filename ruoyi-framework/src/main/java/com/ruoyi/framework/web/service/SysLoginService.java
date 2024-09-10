@@ -255,8 +255,10 @@ public class SysLoginService
 //        if(!appUrlRedir.startsWith("http") && !appUrlRedir.startsWith("https")){
 //            appUrlRedir = "http://" + appUrlRedir;
 //        }
-
-        appUrlRedir = appUrlRedir + ":"+ landingDomainPort + "?token=" + token;
+//      // TODO OLD
+//        appUrlRedir = appUrlRedir + ":"+ landingDomainPort + "?token=" + token;
+        //TODO 0907
+        appUrlRedir = appUrlRedir + "?token=" + token;
         if(parentUserId != null && parentUserId > 0){
             appUrlRedir = appUrlRedir + "&parentUserId=" + parentUserId;
         }

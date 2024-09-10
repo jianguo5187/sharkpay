@@ -75,7 +75,10 @@ public class qRCodeService implements IQRCodeService {
         }
         String webType = configService.selectConfigByKey("sys.web.type");
 
+        // TODO OLD
         String content = entryDomainList.get(0).getEntryDomainUrl() + ":6678?webType=" + webType + "&parentUserId=" + userId;
+//        // TODO 0907
+//        String content = entryDomainList.get(0).getEntryDomainUrl() + "?webType=" + webType + "&parentUserId=" + userId;
         return content;
     }
 
@@ -89,7 +92,10 @@ public class qRCodeService implements IQRCodeService {
         List<ShareQRCodeRespVO> shareQrCodeList = new ArrayList<>();
         for(SysEntryDomain entryDomain: entryDomainList){
             ShareQRCodeRespVO respVO = new ShareQRCodeRespVO();
+        // TODO OLD
             respVO.setShareUrl(entryDomain.getEntryDomainUrl() + ":6678?webType=" + webType +"&parentUserId=" + userId);
+//        // TODO 0907
+//            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "?webType=" + webType +"&parentUserId=" + userId);
             shareQrCodeList.add(respVO);
         }
         return shareQrCodeList;

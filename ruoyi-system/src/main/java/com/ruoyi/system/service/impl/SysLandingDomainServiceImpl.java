@@ -146,11 +146,21 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
         if(landingDomainList.size() > 0){
 
             landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
-            if(landingDomainUrl.startsWith("http") || landingDomainUrl.startsWith("https")){
-                landingDomainUrl = landingDomainUrl.replace("http://","").replace("https://","");
-            }
-
-            landingDomainUrl = "http://" + generateSoleName() + "." + landingDomainUrl;
+//            0907（下面注释掉）
+//            boolean httpsFlg = false;
+//            if(landingDomainUrl.startsWith("http")){
+//                landingDomainUrl = landingDomainUrl.replace("http://","");
+//            }
+//            if(landingDomainUrl.startsWith("https")){
+//                landingDomainUrl = landingDomainUrl.replace("https://","");
+//                httpsFlg = true;
+//            }
+//            if(httpsFlg){
+//                landingDomainUrl = "https://" + landingDomainUrl;
+//            }else{
+//                landingDomainUrl = "http://" + landingDomainUrl;
+//            }
+//            landingDomainUrl = "http://" + generateSoleName() + "." + landingDomainUrl;
         }
         return landingDomainUrl;
     }
@@ -179,6 +189,6 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
             }
             soleResult.append(tmpResult);
         }
-        return soleResult.toString();
+        return soleResult.toString() + System.currentTimeMillis();
     }
 }
