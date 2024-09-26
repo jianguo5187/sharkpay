@@ -1,10 +1,17 @@
 package com.ruoyi.system.service.impl;
 
+import com.alibaba.fastjson2.JSONObject;
+import com.ruoyi.common.core.redis.RedisCache;
+import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.http.NewHttpUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.mapper.*;
 import com.ruoyi.system.service.*;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +64,9 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Autowired
     private SysConfigMapper configMapper;
+
+    @Autowired
+    private RedisCache redisCache;
 
     @Override
     public List<GameListRespVO> gameRecordList(Long userId, GameListReqVO vo) {
@@ -663,6 +673,11 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("二维码服务器IP", "sys.web.qrServer",vo.getQrServerUrl());
         updateAndInsertConfigInfo("自开彩种赢亏比率", "sys.game.winRate",vo.getSystemGameWinRate().toString());
 
+        updateAndInsertConfigInfo("阿里云IP查询AppCode", "sys.ali.cloudApiCode",vo.getAliCloudApiCode());
+        updateAndInsertConfigInfo("拒绝访问省份", "sys.refuse.province",vo.getRefuseProvince());
+        updateAndInsertConfigInfo("拒绝访问城市", "sys.refuse.city",vo.getRefuseCity());
+        updateAndInsertConfigInfo("拒绝访问服务商", "sys.refuse.isp",vo.getRefuseIsp());
+
         // 刷新缓存
         configService.resetConfigCache();
     }
@@ -677,11 +692,110 @@ public class SysAppServiceImpl implements ISysAppService {
             retConfig.setConfigName(configName);
             retConfig.setConfigKey(configKey);
             retConfig.setConfigValue(configValue);
-            retConfig.setConfigType("Y");
+            retConfig.setConfigType("N");
             configService.insertConfig(retConfig);
         }else{
-            retConfig.setConfigValue(configValue);
-            configService.updateConfig(retConfig);
+            if(StringUtils.isNotEmpty(configValue)){
+                retConfig.setConfigValue(configValue);
+                configService.updateConfig(retConfig);
+            }else{
+                Long[] configIds = {retConfig.getConfigId()};
+                configService.deleteConfigByIds(configIds);
+            }
         }
+    }
+
+    @Override
+    public String checkIpAddressValid(CheckIpAddressValidReqVO vo) {
+        String checkResult = "1";
+        String cacheKey = "CHECK_IP-";
+        String configValue = Convert.toStr(redisCache.getCacheObject(cacheKey + vo.getIpAddress()));
+        String reponseResult ="";
+        if (StringUtils.isNotEmpty(configValue)){
+            reponseResult = configValue;
+        }else{
+            reponseResult = getIpAddress(vo.getIpAddress());
+        }
+
+        if(StringUtils.isNotEmpty(reponseResult)){
+            redisCache.setCacheObject(cacheKey + vo.getIpAddress(), reponseResult);
+
+            JSONObject resultJson = JSONObject.parseObject(reponseResult);
+            if(resultJson != null && resultJson.getInteger("code").compareTo(200) == 0 && resultJson.getJSONObject("data") != null){
+//                ipaddrCity = resultJson.getString("city");
+                JSONObject dataJson = resultJson.getJSONObject("data");
+                String country = dataJson.getString("country");
+                String region = dataJson.getString("region");
+                String city = dataJson.getString("city");
+                String isp = dataJson.getString("isp");
+
+                String refuseProvinceArg = configService.selectConfigByKey("sys.refuse.province");
+                String refuseCityArg = configService.selectConfigByKey("sys.refuse.city");
+                String refuseIspArg = configService.selectConfigByKey("sys.refuse.isp");
+                List<String> refuseProvinceList = new ArrayList<>();
+                List<String> refuseCityList = new ArrayList<>();
+                List<String> refuseIspList = new ArrayList<>();
+
+                if(StringUtils.isNotEmpty(refuseProvinceArg)){
+                    refuseProvinceList = Arrays.asList(refuseProvinceArg.split(","));
+                }
+                if(StringUtils.isNotEmpty(refuseCityArg)){
+                    refuseCityList = Arrays.asList(refuseCityArg.split(","));
+                }
+                if(StringUtils.isNotEmpty(refuseIspArg)){
+                    refuseIspList = Arrays.asList(refuseIspArg.split(","));
+                }
+
+                if(refuseProvinceList.contains(region)
+                        || refuseCityList.contains(city)
+                        || refuseIspList.contains(isp)){
+                    checkResult = "0";
+                }
+            }
+        }
+
+        return checkResult;
+    }
+
+    public String getIpAddress(String ipAddress){
+        String host = "https://ipaddquery.market.alicloudapi.com";
+        String path = "/ip/address-query";
+        String method = "POST";
+        String appcode = configService.selectConfigByKey("sys.ali.cloudApiCode");
+        Map<String, String> headers = new HashMap<String, String>();
+        //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
+        headers.put("Authorization", "APPCODE " + appcode);
+        //根据API的要求，定义相对应的Content-Type
+        headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+        Map<String, String> querys = new HashMap<String, String>();
+        Map<String, String> bodys = new HashMap<String, String>();
+        bodys.put("ip", ipAddress);
+        String reponseResult = "";
+        try {
+            /**
+             * 重要提示如下:
+             * HttpUtils请从
+             * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
+             * 下载
+             *
+             * 相应的依赖请参照
+             * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
+             */
+            HttpResponse response = NewHttpUtils.doPost(host, path, method, headers, querys, bodys);
+            System.out.println(response.toString());
+            //获取response的body
+            HttpEntity entity = response.getEntity();
+            if (entity != null) {
+                String content = EntityUtils.toString(entity);
+                // 处理内容
+                return content;
+            }
+//            System.out.println(EntityUtils.toString(response.getEntity()));
+//            return EntityUtils.toString(response.getEntity());
+//            reponseResult = response.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return reponseResult;
     }
 }

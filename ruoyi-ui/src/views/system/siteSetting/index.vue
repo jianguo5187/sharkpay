@@ -106,6 +106,34 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="阿里云IP查询AppCode" prop="aliCloudApiCode">
+            <el-input v-model="siteSetting.form.aliCloudApiCode" placeholder="请输入阿里云IP查询AppCode"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="拒绝访问省份" prop="refuseProvince">
+            <el-input v-model="siteSetting.form.refuseProvince" placeholder="请输入拒绝访问省份"/>  用半角逗号隔开 例如：福建,浙江,广州
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="拒绝访问城市" prop="refuseCity">
+            <el-input v-model="siteSetting.form.refuseCity" placeholder="请输入拒绝访问城市"/>  用半角逗号隔开 例如：厦门,深圳,杭州
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="拒绝访问服务商" prop="refuseIsp">
+            <el-input v-model="siteSetting.form.refuseIsp" placeholder="请输入拒绝访问服务商"/>  用半角逗号隔开 例如：中国联通,中国移动
+          </el-form-item>
+        </el-col>
+      </el-row>
       <el-form-item>
         <el-button type="primary" size="mini" @click="submitForm">确认修改</el-button>
       </el-form-item>
@@ -140,6 +168,11 @@ export default {
           kefuImUrl: undefined,
           appImUrl: undefined,
           qrServerUrl: undefined,
+
+          aliCloudApiCode: undefined,
+          refuseProvince: undefined,
+          refuseCity: undefined,
+          refuseIsp: undefined,
           systemGameWinRate: 10,
         },
         // 表单校验
@@ -189,6 +222,19 @@ export default {
           systemGameWinRate: [
             { required: true, message: "自开彩种赢亏比率不能为空", trigger: "blur" }
           ],
+
+          aliCloudApiCode: [
+            { required: true, message: "阿里云IP查询AppCode不能为空", trigger: "blur" }
+          ],
+          // refuseProvince: [
+          //   { required: true, message: "拒绝访问省份不能为空", trigger: "blur" }
+          // ],
+          // refuseCity: [
+          //   { required: true, message: "拒绝访问城市不能为空", trigger: "blur" }
+          // ],
+          // refuseIsp: [
+          //   { required: true, message: "拒绝访问服务商不能为空", trigger: "blur" }
+          // ],
         }
       },
     };
@@ -245,6 +291,19 @@ export default {
         }
         if(response.systemGameWinRate != undefined){
           this.siteSetting.form.systemGameWinRate = response.systemGameWinRate;
+        }
+
+        if(response.aliCloudApiCode != undefined){
+          this.siteSetting.form.aliCloudApiCode = response.aliCloudApiCode;
+        }
+        if(response.refuseProvince != undefined){
+          this.siteSetting.form.refuseProvince = response.refuseProvince;
+        }
+        if(response.refuseCity != undefined){
+          this.siteSetting.form.refuseCity = response.refuseCity;
+        }
+        if(response.refuseIsp != undefined){
+          this.siteSetting.form.refuseIsp = response.refuseIsp;
         }
         console.log("getSiteSetting");
       });

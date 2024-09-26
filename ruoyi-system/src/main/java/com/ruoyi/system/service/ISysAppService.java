@@ -32,4 +32,6 @@ public interface ISysAppService {
     public List<String> getOpenData(String gameType);
 
     public void updateSiteSetting(UpdateSiteSettingReqVO vo);
+
+    public String checkIpAddressValid(CheckIpAddressValidReqVO vo);
 }

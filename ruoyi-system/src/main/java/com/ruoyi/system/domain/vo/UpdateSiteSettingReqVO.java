@@ -46,6 +46,14 @@ public class UpdateSiteSettingReqVO {
     //自开彩种赢亏比率
     private Float systemGameWinRate;
 
+    private String aliCloudApiCode;
+
+    private String refuseProvince;
+
+    private String refuseCity;
+
+    private String refuseIsp;
+
     public Boolean isSiteOpenFlg() {
         return siteOpenFlg;
     }
@@ -168,5 +176,37 @@ public class UpdateSiteSettingReqVO {
 
     public void setSystemGameWinRate(Float systemGameWinRate) {
         this.systemGameWinRate = systemGameWinRate;
+    }
+
+    public String getAliCloudApiCode() {
+        return aliCloudApiCode;
+    }
+
+    public void setAliCloudApiCode(String aliCloudApiCode) {
+        this.aliCloudApiCode = aliCloudApiCode;
+    }
+
+    public String getRefuseProvince() {
+        return refuseProvince;
+    }
+
+    public void setRefuseProvince(String refuseProvince) {
+        this.refuseProvince = refuseProvince;
+    }
+
+    public String getRefuseCity() {
+        return refuseCity;
+    }
+
+    public void setRefuseCity(String refuseCity) {
+        this.refuseCity = refuseCity;
+    }
+
+    public String getRefuseIsp() {
+        return refuseIsp;
+    }
+
+    public void setRefuseIsp(String refuseIsp) {
+        this.refuseIsp = refuseIsp;
     }
 }

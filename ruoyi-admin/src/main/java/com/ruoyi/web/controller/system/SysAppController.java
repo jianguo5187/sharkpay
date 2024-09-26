@@ -9,6 +9,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.SysLandingDomain;
+import com.ruoyi.system.domain.SysRequestInfo;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,9 @@ public class SysAppController extends BaseController {
 
     @Autowired
     private ISysLandingDomainService sysLandingDomainService;
+
+    @Autowired
+    private ISysRequestInfoService sysRequestInfoService;
 
     /**
      * 修改密码接口
@@ -370,6 +374,10 @@ public class SysAppController extends BaseController {
         ajax.put("qrServerUrl",configService.selectConfigByKey("sys.web.qrServer") );
         ajax.put("systemGameWinRate",configService.selectConfigByKey("sys.game.winRate") );
 
+        ajax.put("aliCloudApiCode",configService.selectConfigByKey("sys.ali.cloudApiCode") );
+        ajax.put("refuseProvince",configService.selectConfigByKey("sys.refuse.province") );
+        ajax.put("refuseCity",configService.selectConfigByKey("sys.refuse.city") );
+        ajax.put("refuseIsp",configService.selectConfigByKey("sys.refuse.isp") );
         return ajax;
     }
 
@@ -401,6 +409,36 @@ public class SysAppController extends BaseController {
 //        }
         ajax.put("domainUrl",sysLandingDomainService.getValidLandingDomainUrl() );
 
+        return ajax;
+    }
+
+    @PostMapping("/insertRequestInfo")
+    public AjaxResult insertRequestInfo(@RequestBody InsertRequestInfoReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysRequestInfo sysRequestInfo = new SysRequestInfo();
+        sysRequestInfo.setRequestInfoIp(vo.getRequestInfoIp());
+        sysRequestInfo.setRequestInfoHeadValue(vo.getRequestInfoHeadValue());
+        sysRequestInfoService.insertSysRequestInfo(sysRequestInfo);
+        ajax.put("insertData",sysRequestInfo);
+        return ajax;
+    }
+
+    @GetMapping("getAllRequestInfoList")
+    public AjaxResult getAllRequestInfoList()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysRequestInfo sysRequestInfo = new SysRequestInfo();
+        ajax.put("data",sysRequestInfoService.selectSysRequestInfoList(sysRequestInfo));
+        return ajax;
+    }
+
+
+    @PostMapping("checkIpAddressValid")
+    public AjaxResult checkIpAddressValid(@RequestBody CheckIpAddressValidReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("data",sysAppService.checkIpAddressValid(vo));
         return ajax;
     }
 }

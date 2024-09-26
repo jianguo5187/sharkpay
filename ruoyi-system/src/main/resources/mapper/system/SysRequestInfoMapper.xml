@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysRequestInfoMapper">
+    
+    <resultMap type="SysRequestInfo" id="SysRequestInfoResult">
+        <result property="requestInfoId"    column="request_info_id"    />
+        <result property="requestInfoIp"    column="request_info_ip"    />
+        <result property="requestInfoHeadValue"    column="request_info_head_value"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysRequestInfoVo">
+        select request_info_id, request_info_ip, request_info_head_value, create_by, create_time, update_by, update_time, remark from sys_request_info
+    </sql>
+
+    <select id="selectSysRequestInfoList" parameterType="SysRequestInfo" resultMap="SysRequestInfoResult">
+        <include refid="selectSysRequestInfoVo"/>
+        <where>  
+            <if test="requestInfoIp != null  and requestInfoIp != ''"> and request_info_ip = #{requestInfoIp}</if>
+            <if test="requestInfoHeadValue != null  and requestInfoHeadValue != ''"> and request_info_head_value = #{requestInfoHeadValue}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysRequestInfoByRequestInfoId" parameterType="Long" resultMap="SysRequestInfoResult">
+        <include refid="selectSysRequestInfoVo"/>
+        where request_info_id = #{requestInfoId}
+    </select>
+        
+    <insert id="insertSysRequestInfo" parameterType="SysRequestInfo" useGeneratedKeys="true" keyProperty="requestInfoId">
+        insert into sys_request_info(
+            <if test="requestInfoIp != null">request_info_ip,</if>
+            <if test="requestInfoHeadValue != null">request_info_head_value,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+            create_time
+        )values(
+            <if test="requestInfoIp != null">#{requestInfoIp},</if>
+            <if test="requestInfoHeadValue != null">#{requestInfoHeadValue},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateSysRequestInfo" parameterType="SysRequestInfo">
+        update sys_request_info
+        <set>
+            <if test="requestInfoIp != null">request_info_ip = #{requestInfoIp},</if>
+            <if test="requestInfoHeadValue != null">request_info_head_value = #{requestInfoHeadValue},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where request_info_id = #{requestInfoId}
+    </update>
+
+    <delete id="deleteSysRequestInfoByRequestInfoId" parameterType="Long">
+        delete from sys_request_info where request_info_id = #{requestInfoId}
+    </delete>
+
+    <delete id="deleteSysRequestInfoByRequestInfoIds" parameterType="String">
+        delete from sys_request_info where request_info_id in 
+        <foreach item="requestInfoId" collection="array" open="(" separator="," close=")">
+            #{requestInfoId}
+        </foreach>
+    </delete>
+</mapper>

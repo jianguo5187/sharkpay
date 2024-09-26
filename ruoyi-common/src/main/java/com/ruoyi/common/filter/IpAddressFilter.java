@@ -27,8 +27,8 @@ public class IpAddressFilter implements Filter {
             throws IOException, ServletException
     {
         String requestIp = IpUtils.getIpAddr();
-        System.out.println("requestIp : " + requestIp );
-        //TODO 本地执行请注释掉这段代码
+//        System.out.println("requestIp : " + requestIp );
+//        //TODO 本地执行请注释掉这段代码
 //        if(StringUtils.equals(requestIp,"127.0.0.1")){
 //            // 如果请求头不存在或值不正确，可以返回错误响应
 //            HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -38,17 +38,17 @@ public class IpAddressFilter implements Filter {
 //            return; // 阻止链中的下一个过滤器或servlet执行
 //        }
 
-        String requestCity = getAddressCity(requestIp);
-        List<String> noAllowedCities = Arrays.asList("深圳市","广州市","韶关市");
-
-        if(noAllowedCities.contains(requestCity)){
-            // 如果请求头不存在或值不正确，可以返回错误响应
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.setStatus(HttpServletResponse.SC_PROXY_AUTHENTICATION_REQUIRED);
-            httpResponse.setCharacterEncoding("utf-8");
-            httpResponse.getWriter().write("网站维护中！！！");
-            return; // 阻止链中的下一个过滤器或servlet执行
-        }
+//        String requestCity = getAddressCity(requestIp);
+//        List<String> noAllowedCities = Arrays.asList("深圳市","广州市","韶关市");
+//
+//        if(noAllowedCities.contains(requestCity)){
+//            // 如果请求头不存在或值不正确，可以返回错误响应
+//            HttpServletResponse httpResponse = (HttpServletResponse) response;
+//            httpResponse.setStatus(HttpServletResponse.SC_PROXY_AUTHENTICATION_REQUIRED);
+//            httpResponse.setCharacterEncoding("utf-8");
+//            httpResponse.getWriter().write("网站维护中！！！");
+//            return; // 阻止链中的下一个过滤器或servlet执行
+//        }
         chain.doFilter(request, response);
     }
 
