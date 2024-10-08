@@ -102,6 +102,38 @@ public class AjaxResult extends HashMap<String, Object>
         return new AjaxResult(HttpStatus.SUCCESS, msg, data);
     }
 
+
+    /**
+     * 返回成功消息
+     *
+     * @return 成功消息
+     */
+    public static AjaxResult badMethod()
+    {
+        return AjaxResult.badMethod("服务器维护中");
+    }
+    /**
+     * 返回成功消息
+     *
+     * @param msg 返回内容
+     * @return 成功消息
+     */
+    public static AjaxResult badMethod(String msg)
+    {
+        return AjaxResult.badMethod(msg, null);
+    }
+    /**
+     * 返回405拒绝
+     *
+     * @param msg 返回内容
+     * @param data 数据对象
+     * @return 成功消息
+     */
+    public static AjaxResult badMethod(String msg, Object data)
+    {
+        return new AjaxResult(HttpStatus.UNAUTHORIZED, msg, data);
+    }
+
     /**
      * 返回警告消息
      *

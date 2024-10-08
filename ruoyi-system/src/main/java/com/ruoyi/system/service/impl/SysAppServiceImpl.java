@@ -707,7 +707,7 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Override
     public String checkIpAddressValid(CheckIpAddressValidReqVO vo) {
-        String checkResult = "1";
+        String checkResult = "0";
         String cacheKey = "CHECK_IP-";
         String configValue = Convert.toStr(redisCache.getCacheObject(cacheKey + vo.getIpAddress()));
         String reponseResult ="";
@@ -716,6 +716,8 @@ public class SysAppServiceImpl implements ISysAppService {
         }else{
             reponseResult = getIpAddress(vo.getIpAddress());
         }
+
+        System.out.println(new Date() + " ApiResult : " + reponseResult);
 
         if(StringUtils.isNotEmpty(reponseResult)){
             redisCache.setCacheObject(cacheKey + vo.getIpAddress(), reponseResult);
@@ -750,6 +752,8 @@ public class SysAppServiceImpl implements ISysAppService {
                         || refuseCityList.contains(city)
                         || refuseIspList.contains(isp)){
                     checkResult = "0";
+                }else{
+                    checkResult = "1";
                 }
             }
         }

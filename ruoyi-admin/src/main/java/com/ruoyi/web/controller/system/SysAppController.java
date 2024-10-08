@@ -6,6 +6,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.SysLandingDomain;
@@ -15,7 +16,10 @@ import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -434,11 +438,67 @@ public class SysAppController extends BaseController {
     }
 
 
-    @PostMapping("checkIpAddressValid")
-    public AjaxResult checkIpAddressValid(@RequestBody CheckIpAddressValidReqVO vo)
+    @GetMapping("checkIpAddressValid")
+    public AjaxResult checkIpAddressValid(HttpServletRequest request, HttpServletResponse response)
     {
-        AjaxResult ajax = AjaxResult.success();
-        ajax.put("data",sysAppService.checkIpAddressValid(vo));
-        return ajax;
+        StringBuffer sb = new StringBuffer();
+        for (String headerName : Collections.list(request.getHeaderNames())) {
+            sb.append(headerName + ": " + request.getHeader(headerName) + ";");
+//            System.out.println(headerName + ": " + request.getHeader(headerName));
+        }
+        System.out.println(new Date() + " 请求头信息: 【" + sb.toString() + "】");
+
+        CheckIpAddressValidReqVO vo = new CheckIpAddressValidReqVO();
+        String ip = IpUtils.getIpAddr(request);
+//        String ip = getIpAddr(request);
+        System.out.println(new Date() + " IpAddress : " + ip);
+
+        if(StringUtils.isEmpty(ip) || StringUtils.equals(ip,"127.0.0.1")){
+            AjaxResult ajax = AjaxResult.badMethod();
+            ajax.put("data","0");
+            response.setStatus(401);
+            System.out.println("checkResult : 0");
+            return ajax;
+        }
+
+        vo.setIpAddress(ip);
+        String result = sysAppService.checkIpAddressValid(vo);
+        System.out.println(new Date() + " checkResult : " + result);
+        if(StringUtils.equals("0",result)){
+
+            AjaxResult ajax = AjaxResult.badMethod();
+            ajax.put("data",result);
+            response.setStatus(401);
+            return ajax;
+        }else{
+            AjaxResult ajax = AjaxResult.success();
+            ajax.put("data",result);
+            return ajax;
+        }
+    }
+
+    @GetMapping("checkIpAddressApi")
+    public AjaxResult checkIpAddressApi(@RequestParam("ipAddress")  String ipAddress)
+    {
+        if(StringUtils.isEmpty(ipAddress)){
+            AjaxResult ajax = AjaxResult.badMethod();
+            ajax.put("data","0");
+            return ajax;
+        }
+
+        CheckIpAddressValidReqVO vo = new CheckIpAddressValidReqVO();
+        vo.setIpAddress(ipAddress);
+        String result = sysAppService.checkIpAddressValid(vo);
+        System.out.println(new Date() + " checkResult : " + result);
+        if(StringUtils.equals("0",result)){
+
+            AjaxResult ajax = AjaxResult.badMethod();
+            ajax.put("data",result);
+            return ajax;
+        }else{
+            AjaxResult ajax = AjaxResult.success();
+            ajax.put("data",result);
+            return ajax;
+        }
     }
 }

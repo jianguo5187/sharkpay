@@ -117,7 +117,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/*/api-docs", "/druid/**").permitAll()
                 .antMatchers("/websocket/**","/wxLogin","/getWxLoginCode","/wxRedirect","/system/app/getEffectivedDomainUrl").permitAll()
                 .antMatchers("/system/app/insertRequestInfo","/system/app/getAllRequestInfoList").permitAll()
-                .antMatchers("/system/app/checkIpAddressValid").permitAll()
+                .antMatchers("/system/app/checkIpAddressValid","/system/app/checkIpAddressApi").permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated()
                 .and()
