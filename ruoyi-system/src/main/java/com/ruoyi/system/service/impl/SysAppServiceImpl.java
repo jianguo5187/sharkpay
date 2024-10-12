@@ -827,12 +827,13 @@ public class SysAppServiceImpl implements ISysAppService {
         String appcode = configService.selectConfigByKey("sys.wxAutoCheck.apiCode");
 
 //        appcode = "e15f1ab30cf671b1b75763ef10945418";
+        Boolean checkResult = false;
         for(int i = 0; i<validDomainList.size()-1;i++){
             SysLandingDomain sysLandingDomain = validDomainList.get(i);
             String checkDomainUrl = sysLandingDomain.getLandingDomainUrl().replace("http://","").replace("https://","");
 
             String ipCheckResultStr = HttpUtils.sendGet(apiUrl.replace("{0}", appcode).replace("{1}", checkDomainUrl));
-            Boolean checkResult = false;
+            checkResult = false;
             if (StringUtils.isNotEmpty(ipCheckResultStr)){
                 JSONObject obj = JSON.parseObject(ipCheckResultStr);
                 String data = obj.getString("data");
@@ -858,5 +859,8 @@ public class SysAppServiceImpl implements ISysAppService {
             }
         }
 
+        if(!checkResult){
+            sysLandingDomainService.updateMainUrlToQrServer();
+        }
     }
 }

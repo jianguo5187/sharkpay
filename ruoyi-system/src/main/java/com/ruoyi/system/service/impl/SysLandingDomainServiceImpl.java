@@ -95,22 +95,6 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
     {
         int rowId = sysLandingDomainMapper.deleteSysLandingDomainByLandingDomainIds(landingDomainIds);
 
-        //防止没有有效落地域名同步到QR服务器
-        SysLandingDomain searchLandingDomain = new SysLandingDomain();
-        searchLandingDomain.setStatus("0"); //正常
-        searchLandingDomain.setDelFlag("0"); //未删除
-        List<SysLandingDomain> validDomainList = selectSysLandingDomainList(searchLandingDomain);
-        if(validDomainList.size() == 0){
-            SysLandingDomain searchNoValidLandingDomain = new SysLandingDomain();
-            searchNoValidLandingDomain.setDelFlag("0"); //未删除
-            List<SysLandingDomain> noValidDomainList = selectSysLandingDomainList(searchNoValidLandingDomain);
-            if(noValidDomainList.size() > 0){
-                SysLandingDomain landingDomain = noValidDomainList.get(0);
-                landingDomain.setStatus("0");
-                updateSysLandingDomain(landingDomain);
-            }
-        }
-
         updateMainUrlToQrServer();
         return rowId;
     }
@@ -187,6 +171,22 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
 
     @Override
     public void updateMainUrlToQrServer() {
+
+        //防止没有有效落地域名同步到QR服务器
+        SysLandingDomain searchLandingDomain = new SysLandingDomain();
+        searchLandingDomain.setStatus("0"); //正常
+        searchLandingDomain.setDelFlag("0"); //未删除
+        List<SysLandingDomain> validDomainList = selectSysLandingDomainList(searchLandingDomain);
+        if(validDomainList.size() == 0){
+            SysLandingDomain searchNoValidLandingDomain = new SysLandingDomain();
+            searchNoValidLandingDomain.setDelFlag("0"); //未删除
+            List<SysLandingDomain> noValidDomainList = selectSysLandingDomainList(searchNoValidLandingDomain);
+            if(noValidDomainList.size() > 0){
+                SysLandingDomain landingDomain = noValidDomainList.get(0);
+                landingDomain.setStatus("0");
+                updateSysLandingDomain(landingDomain);
+            }
+        }
 
         String webType = configService.selectConfigByKey("sys.web.type");
 
