@@ -95,30 +95,23 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
     {
         int rowId = sysLandingDomainMapper.deleteSysLandingDomainByLandingDomainIds(landingDomainIds);
 
-        String webType = configService.selectConfigByKey("sys.web.type");
-
-        String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
-
-        if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
-            qrServerIp = "http://" + qrServerIp;
+        //防止没有有效落地域名同步到QR服务器
+        SysLandingDomain searchLandingDomain = new SysLandingDomain();
+        searchLandingDomain.setStatus("0"); //正常
+        searchLandingDomain.setDelFlag("0"); //未删除
+        List<SysLandingDomain> validDomainList = selectSysLandingDomainList(searchLandingDomain);
+        if(validDomainList.size() == 0){
+            SysLandingDomain searchNoValidLandingDomain = new SysLandingDomain();
+            searchNoValidLandingDomain.setDelFlag("0"); //未删除
+            List<SysLandingDomain> noValidDomainList = selectSysLandingDomainList(searchNoValidLandingDomain);
+            if(noValidDomainList.size() > 0){
+                SysLandingDomain landingDomain = noValidDomainList.get(0);
+                landingDomain.setStatus("0");
+                updateSysLandingDomain(landingDomain);
+            }
         }
 
-//        SysEntryDomain entryDomainSearch = new SysEntryDomain();
-//        entryDomainSearch.setStatus("0");
-//        entryDomainSearch.setDelFlag("0");
-//        List<SysEntryDomain> entryDomainList = sysEntryDomainService.selectSysEntryDomainList(entryDomainSearch);
-//        if(entryDomainList.size() > 0){
-//            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
-
-            SysLandingDomain landingDomainSearch = new SysLandingDomain();
-            landingDomainSearch.setStatus("0");
-            landingDomainSearch.setDelFlag("0");
-            List<SysLandingDomain> landingDomainList = selectSysLandingDomainList(landingDomainSearch);
-            if(landingDomainList.size() > 0){
-                String landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
-                HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
-            }
-//        }
+        updateMainUrlToQrServer();
         return rowId;
     }
 
@@ -190,5 +183,34 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
             soleResult.append(tmpResult);
         }
         return soleResult.toString() + System.currentTimeMillis();
+    }
+
+    @Override
+    public void updateMainUrlToQrServer() {
+
+        String webType = configService.selectConfigByKey("sys.web.type");
+
+        String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
+
+        if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
+            qrServerIp = "http://" + qrServerIp;
+        }
+
+//        SysEntryDomain entryDomainSearch = new SysEntryDomain();
+//        entryDomainSearch.setStatus("0");
+//        entryDomainSearch.setDelFlag("0");
+//        List<SysEntryDomain> entryDomainList = sysEntryDomainService.selectSysEntryDomainList(entryDomainSearch);
+//        if(entryDomainList.size() > 0){
+//            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
+
+        SysLandingDomain landingDomainSearch = new SysLandingDomain();
+        landingDomainSearch.setStatus("0");
+        landingDomainSearch.setDelFlag("0");
+        List<SysLandingDomain> landingDomainList = selectSysLandingDomainList(landingDomainSearch);
+        if(landingDomainList.size() > 0){
+            String landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
+            HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+        }
+//        }
     }
 }

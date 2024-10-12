@@ -60,4 +60,6 @@ public interface ISysLandingDomainService
     public int deleteSysLandingDomainByLandingDomainId(Long landingDomainId);
 
     public String getValidLandingDomainUrl();
+
+    public void updateMainUrlToQrServer();
 }

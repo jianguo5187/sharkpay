@@ -54,6 +54,8 @@ public class UpdateSiteSettingReqVO {
 
     private String refuseIsp;
 
+    private String wxAutoCheckApiCode;
+
     public Boolean isSiteOpenFlg() {
         return siteOpenFlg;
     }
@@ -208,5 +210,13 @@ public class UpdateSiteSettingReqVO {
 
     public void setRefuseIsp(String refuseIsp) {
         this.refuseIsp = refuseIsp;
+    }
+
+    public String getWxAutoCheckApiCode() {
+        return wxAutoCheckApiCode;
+    }
+
+    public void setWxAutoCheckApiCode(String wxAutoCheckApiCode) {
+        this.wxAutoCheckApiCode = wxAutoCheckApiCode;
     }
 }

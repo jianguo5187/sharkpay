@@ -7,6 +7,7 @@ import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.domain.SysGame;
 import com.ruoyi.system.domain.vo.GameOpenDataDto;
 import com.ruoyi.quartz.service.IGameTaskService;
+import com.ruoyi.system.service.ISysAppService;
 import com.ruoyi.system.service.ISysCalendarService;
 import com.ruoyi.system.service.ISysConfigService;
 import com.ruoyi.system.service.ISysGameService;
@@ -41,6 +42,9 @@ public class RyTask
 
     @Autowired
     private ISysGameService sysGameService;
+
+    @Autowired
+    private ISysAppService sysAppService;
 
     public void ryMultipleParams(String s, Boolean b, Long l, Double d, Integer i)
     {
@@ -223,5 +227,9 @@ public class RyTask
 
     public void autoDeleteOldRobotBet(){
         gameTaskService.autoDeleteOldRobotBet();
+    }
+
+    public void autoCheckDoaminUrl(){
+        sysAppService.autoModifyValidDomainUrl();
     }
 }

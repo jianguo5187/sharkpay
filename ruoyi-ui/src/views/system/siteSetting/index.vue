@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form ref="siteSettingForm" :model="siteSetting.form" :rules="siteSetting.rules" label-width="140px">
+    <el-form ref="siteSettingForm" :model="siteSetting.form" :rules="siteSetting.rules" label-width="200px">
       <el-row>
         <el-col :span="12">
           <el-form-item label="站点开关" prop="siteOpenFlg">
@@ -134,6 +134,13 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="微信拦截状态接口Code" prop="wxAutoCheckApiCode">
+            <el-input v-model="siteSetting.form.wxAutoCheckApiCode" placeholder="请输入微信拦截状态接口Code"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
       <el-form-item>
         <el-button type="primary" size="mini" @click="submitForm">确认修改</el-button>
       </el-form-item>
@@ -173,6 +180,7 @@ export default {
           refuseProvince: undefined,
           refuseCity: undefined,
           refuseIsp: undefined,
+          wxAutoCheckApiCode: undefined,
           systemGameWinRate: 10,
         },
         // 表单校验
@@ -232,9 +240,9 @@ export default {
           // refuseCity: [
           //   { required: true, message: "拒绝访问城市不能为空", trigger: "blur" }
           // ],
-          // refuseIsp: [
-          //   { required: true, message: "拒绝访问服务商不能为空", trigger: "blur" }
-          // ],
+          wxAutoCheckApiCode: [
+            { required: true, message: "微信拦截状态接口Code不能为空", trigger: "blur" }
+          ],
         }
       },
     };
@@ -304,6 +312,9 @@ export default {
         }
         if(response.refuseIsp != undefined){
           this.siteSetting.form.refuseIsp = response.refuseIsp;
+        }
+        if(response.wxAutoCheckApiCode != undefined){
+          this.siteSetting.form.wxAutoCheckApiCode = response.wxAutoCheckApiCode;
         }
         console.log("getSiteSetting");
       });

@@ -382,6 +382,9 @@ public class SysAppController extends BaseController {
         ajax.put("refuseProvince",configService.selectConfigByKey("sys.refuse.province") );
         ajax.put("refuseCity",configService.selectConfigByKey("sys.refuse.city") );
         ajax.put("refuseIsp",configService.selectConfigByKey("sys.refuse.isp") );
+
+
+        ajax.put("wxAutoCheckApiCode",configService.selectConfigByKey("sys.wxAutoCheck.apiCode") );
         return ajax;
     }
 

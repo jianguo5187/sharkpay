@@ -34,4 +34,6 @@ public interface ISysAppService {
     public void updateSiteSetting(UpdateSiteSettingReqVO vo);
 
     public String checkIpAddressValid(CheckIpAddressValidReqVO vo);
+
+    public void autoModifyValidDomainUrl();
 }

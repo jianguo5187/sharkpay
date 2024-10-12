@@ -1,9 +1,11 @@
 package com.ruoyi.system.service.impl;
 
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.core.redis.RedisCache;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.common.utils.http.NewHttpUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
@@ -13,6 +15,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -67,6 +70,13 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Autowired
     private RedisCache redisCache;
+
+    @Autowired
+    private ISysLandingDomainService sysLandingDomainService;
+
+    //验证微信拦截APIUrl
+    @Value("${wx.autoCheck.apiUrl}")
+    private String apiUrl;
 
     @Override
     public List<GameListRespVO> gameRecordList(Long userId, GameListReqVO vo) {
@@ -678,6 +688,7 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("拒绝访问城市", "sys.refuse.city",vo.getRefuseCity());
         updateAndInsertConfigInfo("拒绝访问服务商", "sys.refuse.isp",vo.getRefuseIsp());
 
+        updateAndInsertConfigInfo("微信拦截状态接口Code", "sys.wxAutoCheck.apiCode",vo.getWxAutoCheckApiCode());
         // 刷新缓存
         configService.resetConfigCache();
     }
@@ -801,5 +812,51 @@ public class SysAppServiceImpl implements ISysAppService {
             e.printStackTrace();
         }
         return reponseResult;
+    }
+
+    @Override
+    public void autoModifyValidDomainUrl() {
+        SysLandingDomain searchLandingDomain = new SysLandingDomain();
+        searchLandingDomain.setDelFlag("0"); //未删除
+        List<SysLandingDomain> validDomainList = sysLandingDomainService.selectSysLandingDomainList(searchLandingDomain);
+
+        if(validDomainList.size() <= 1){
+            return;
+        }
+
+        String appcode = configService.selectConfigByKey("sys.wxAutoCheck.apiCode");
+
+//        appcode = "e15f1ab30cf671b1b75763ef10945418";
+        for(int i = 0; i<validDomainList.size()-1;i++){
+            SysLandingDomain sysLandingDomain = validDomainList.get(i);
+            String checkDomainUrl = sysLandingDomain.getLandingDomainUrl().replace("http://","").replace("https://","");
+
+            String ipCheckResultStr = HttpUtils.sendGet(apiUrl.replace("{0}", appcode).replace("{1}", checkDomainUrl));
+            Boolean checkResult = false;
+            if (StringUtils.isNotEmpty(ipCheckResultStr)){
+                JSONObject obj = JSON.parseObject(ipCheckResultStr);
+                String data = obj.getString("data");
+                if(StringUtils.isNotEmpty(data)){
+                    JSONObject domainResultJson = JSON.parseObject(data);
+                    String domainResult = domainResultJson.getString(checkDomainUrl);
+                    if(StringUtils.isNotEmpty(domainResult)  && StringUtils.equals(domainResult,"1")){
+                        checkResult = true;
+                    }
+                }
+
+            }
+            if(checkResult){
+                sysLandingDomain.setStatus("0");
+            }else{
+                sysLandingDomain.setDelFlag("1");
+            }
+            sysLandingDomainService.updateSysLandingDomain(sysLandingDomain);
+
+            if(checkResult){
+                sysLandingDomainService.updateMainUrlToQrServer();
+                return;
+            }
+        }
+
     }
 }
