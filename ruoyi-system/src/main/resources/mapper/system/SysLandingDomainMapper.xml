@@ -23,7 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectSysLandingDomainList" parameterType="SysLandingDomain" resultMap="SysLandingDomainResult">
         <include refid="selectSysLandingDomainVo"/>
         where
-        del_flag = '0'
+        1 = 1
+        <if test="delFlag != null"> and del_flag = #{delFlag}</if>
         <if test="status != null  and status != ''"> and status = #{status}</if>
     </select>
     

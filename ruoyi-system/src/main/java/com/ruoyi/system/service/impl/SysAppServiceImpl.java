@@ -816,51 +816,114 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Override
     public void autoModifyValidDomainUrl() {
-        SysLandingDomain searchLandingDomain = new SysLandingDomain();
-        searchLandingDomain.setDelFlag("0"); //未删除
-        List<SysLandingDomain> validDomainList = sysLandingDomainService.selectSysLandingDomainList(searchLandingDomain);
-
-        if(validDomainList.size() <= 1){
+        SysLandingDomain searchUserLandingDomain = new SysLandingDomain();
+        searchUserLandingDomain.setStatus("0"); //有效
+        searchUserLandingDomain.setDelFlag("0"); //未删除
+        List<SysLandingDomain> validDomainList = sysLandingDomainService.selectSysLandingDomainList(searchUserLandingDomain);
+        if(validDomainList.size() < 1){
             return;
         }
-
+//        if(validDomainList.size() <= 1){
+//            return;
+//        }
+//        String checkHostArg = "";
+//        for(SysLandingDomain sysLandingDomain : validDomainList){
+//            if(StringUtils.isNotEmpty(checkHostArg)){
+//                checkHostArg = checkHostArg + ",";
+//            }
+//            String checkDomainUrl = sysLandingDomain.getLandingDomainUrl().replace("http://","").replace("https://","");
+//            checkHostArg = checkHostArg + checkDomainUrl;
+//        }
+        Boolean checkResult = true;
         String appcode = configService.selectConfigByKey("sys.wxAutoCheck.apiCode");
-
-//        appcode = "e15f1ab30cf671b1b75763ef10945418";
-        Boolean checkResult = false;
-        for(int i = 0; i<validDomainList.size()-1;i++){
-            SysLandingDomain sysLandingDomain = validDomainList.get(i);
+        if(validDomainList.size() > 0){
+            SysLandingDomain sysLandingDomain = validDomainList.get(0);
             String checkDomainUrl = sysLandingDomain.getLandingDomainUrl().replace("http://","").replace("https://","");
-
             String ipCheckResultStr = HttpUtils.sendGet(apiUrl.replace("{0}", appcode).replace("{1}", checkDomainUrl));
-            checkResult = false;
-            if (StringUtils.isNotEmpty(ipCheckResultStr)){
+            if (StringUtils.isNotEmpty(ipCheckResultStr)) {
                 JSONObject obj = JSON.parseObject(ipCheckResultStr);
                 String data = obj.getString("data");
-                if(StringUtils.isNotEmpty(data)){
+                if (StringUtils.isNotEmpty(data)) {
                     JSONObject domainResultJson = JSON.parseObject(data);
                     String domainResult = domainResultJson.getString(checkDomainUrl);
                     if(StringUtils.isNotEmpty(domainResult)  && StringUtils.equals(domainResult,"1")){
                         checkResult = true;
+                    }else{
+                        checkResult = false;
+                        sysLandingDomain.setDelFlag("1");
+                        sysLandingDomainService.updateSysLandingDomain(sysLandingDomain);
+
+                        sysLandingDomainService.updateMainUrlToQrServer();
                     }
                 }
-
             }
-            if(checkResult){
-                sysLandingDomain.setStatus("0");
-            }else{
-                sysLandingDomain.setDelFlag("1");
-            }
-            sysLandingDomainService.updateSysLandingDomain(sysLandingDomain);
-
-            if(checkResult){
-                sysLandingDomainService.updateMainUrlToQrServer();
-                return;
-            }
+        }else{
+            return;
         }
 
-        if(!checkResult){
-            sysLandingDomainService.updateMainUrlToQrServer();
+        if(!checkResult && validDomainList.size() >1){
+            autoModifyValidDomainUrl();
         }
+//        Boolean checkResult = false;
+//        if (StringUtils.isNotEmpty(ipCheckResultStr)) {
+//            JSONObject obj = JSON.parseObject(ipCheckResultStr);
+//            String data = obj.getString("data");
+//            if (StringUtils.isNotEmpty(data)) {
+//                JSONObject domainResultJson = JSON.parseObject(data);
+//                for(SysLandingDomain sysLandingDomain : validDomainList){
+//                    String domainResult = domainResultJson.getString(sysLandingDomain.getLandingDomainUrl().replace("http://","").replace("https://",""));
+//                    if(StringUtils.isNotEmpty(domainResult)  && StringUtils.equals(domainResult,"1")){
+//                        sysLandingDomain.setStatus("0");
+//                        sysLandingDomain.setDelFlag("0");
+//                        checkResult = true;
+//                    }else{
+//                        sysLandingDomain.setDelFlag("1");
+//                    }
+//                    sysLandingDomainService.updateSysLandingDomain(sysLandingDomain);
+//                }
+//            }
+//        }
+//        if(!checkResult){
+//            SysLandingDomain lastSysLandingDomain = validDomainList.get(validDomainList.size()-1);
+//            lastSysLandingDomain.setStatus("0");
+//            lastSysLandingDomain.setDelFlag("0");
+//            sysLandingDomainService.updateSysLandingDomain(lastSysLandingDomain);
+//        }
+//        sysLandingDomainService.updateMainUrlToQrServer();
+//        appcode = "e15f1ab30cf671b1b75763ef10945418";
+//        for(int i = 0; i<validDomainList.size()-1;i++){
+//            SysLandingDomain sysLandingDomain = validDomainList.get(i);
+//            String checkDomainUrl = sysLandingDomain.getLandingDomainUrl().replace("http://","").replace("https://","");
+//
+//            String ipCheckResultStr = HttpUtils.sendGet(apiUrl.replace("{0}", appcode).replace("{1}", checkDomainUrl));
+//            checkResult = false;
+//            if (StringUtils.isNotEmpty(ipCheckResultStr)){
+//                JSONObject obj = JSON.parseObject(ipCheckResultStr);
+//                String data = obj.getString("data");
+//                if(StringUtils.isNotEmpty(data)){
+//                    JSONObject domainResultJson = JSON.parseObject(data);
+//                    String domainResult = domainResultJson.getString(checkDomainUrl);
+//                    if(StringUtils.isNotEmpty(domainResult)  && StringUtils.equals(domainResult,"1")){
+//                        checkResult = true;
+//                    }
+//                }
+//
+//            }
+//            if(checkResult){
+//                sysLandingDomain.setStatus("0");
+//            }else{
+//                sysLandingDomain.setDelFlag("1");
+//            }
+//            sysLandingDomainService.updateSysLandingDomain(sysLandingDomain);
+//
+//            if(checkResult){
+//                sysLandingDomainService.updateMainUrlToQrServer();
+//                return;
+//            }
+//        }
+
+//        if(!checkResult){
+//            sysLandingDomainService.updateMainUrlToQrServer();
+//        }
     }
 }

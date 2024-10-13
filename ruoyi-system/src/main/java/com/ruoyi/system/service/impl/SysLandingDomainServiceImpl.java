@@ -178,13 +178,24 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
         searchLandingDomain.setDelFlag("0"); //未删除
         List<SysLandingDomain> validDomainList = selectSysLandingDomainList(searchLandingDomain);
         if(validDomainList.size() == 0){
-            SysLandingDomain searchNoValidLandingDomain = new SysLandingDomain();
-            searchNoValidLandingDomain.setDelFlag("0"); //未删除
-            List<SysLandingDomain> noValidDomainList = selectSysLandingDomainList(searchNoValidLandingDomain);
-            if(noValidDomainList.size() > 0){
-                SysLandingDomain landingDomain = noValidDomainList.get(0);
-                landingDomain.setStatus("0");
-                updateSysLandingDomain(landingDomain);
+            SysLandingDomain searchNoDeleteLandingDomain = new SysLandingDomain();
+            searchNoDeleteLandingDomain.setDelFlag("0"); //未删除
+            List<SysLandingDomain> noDeleteDomainList = selectSysLandingDomainList(searchNoDeleteLandingDomain);
+            if(noDeleteDomainList.size() == 0){
+                SysLandingDomain searchNoValidLandingDomain = new SysLandingDomain();
+                searchNoValidLandingDomain.setStatus("0"); //正常
+                List<SysLandingDomain> noValidDomainList = selectSysLandingDomainList(searchNoValidLandingDomain);
+                if(noValidDomainList.size() > 0){
+                    SysLandingDomain landingDomain = noValidDomainList.get(noValidDomainList.size() - 1);
+                    landingDomain.setStatus("0"); //正常
+                    landingDomain.setDelFlag("0"); //未删除
+                    updateSysLandingDomain(landingDomain);
+                }
+            }else{
+                SysLandingDomain noDeleteLandingDomain = noDeleteDomainList.get(0);
+                noDeleteLandingDomain.setStatus("0"); //正常
+                noDeleteLandingDomain.setDelFlag("0"); //未删除
+                updateSysLandingDomain(noDeleteLandingDomain);
             }
         }
 

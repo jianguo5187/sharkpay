@@ -44,6 +44,7 @@ public class SysLandingDomainController extends BaseController
     public TableDataInfo list(SysLandingDomain sysLandingDomain)
     {
         startPage();
+        sysLandingDomain.setDelFlag("0");
         List<SysLandingDomain> list = sysLandingDomainService.selectSysLandingDomainList(sysLandingDomain);
         return getDataTable(list);
     }
@@ -55,6 +56,7 @@ public class SysLandingDomainController extends BaseController
     @PostMapping("/export")
     public void export(HttpServletResponse response, SysLandingDomain sysLandingDomain)
     {
+        sysLandingDomain.setDelFlag("0");
         List<SysLandingDomain> list = sysLandingDomainService.selectSysLandingDomainList(sysLandingDomain);
         ExcelUtil<SysLandingDomain> util = new ExcelUtil<SysLandingDomain>(SysLandingDomain.class);
         util.exportExcel(response, list, "落地域名数据");
