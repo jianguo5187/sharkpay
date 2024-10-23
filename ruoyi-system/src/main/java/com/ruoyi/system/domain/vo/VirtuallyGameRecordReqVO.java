@@ -8,6 +8,9 @@ public class VirtuallyGameRecordReqVO {
     /** id(期数) */
     private Long periods;
 
+    /** 最后下注ID */
+    private Long lastBetRecordId;
+
     public Long getGameId() {
         return gameId;
     }
@@ -22,5 +25,13 @@ public class VirtuallyGameRecordReqVO {
 
     public void setPeriods(Long periods) {
         this.periods = periods;
+    }
+
+    public Long getLastBetRecordId() {
+        return lastBetRecordId;
+    }
+
+    public void setLastBetRecordId(Long lastBetRecordId) {
+        this.lastBetRecordId = lastBetRecordId;
     }
 }

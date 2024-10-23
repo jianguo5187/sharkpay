@@ -18,9 +18,9 @@ public interface IGameFiveBallsService {
 
     public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg);
 
-    public void addFiveBallsBetRecord(Long userId,FiveBallsAddBetRecordReqVO vo);
+    public Long addFiveBallsBetRecord(Long userId,FiveBallsAddBetRecordReqVO vo);
 
-    public void addFiveBallsMultiBetRecord(Long userId,FiveBallsAddMultiBetRecordReqVO vo);
+    public Long addFiveBallsMultiBetRecord(Long userId,FiveBallsAddMultiBetRecordReqVO vo);
 
     public void delFiveBallsBetRecord(Long userId,DelBetRecordReqVO vo);
 }

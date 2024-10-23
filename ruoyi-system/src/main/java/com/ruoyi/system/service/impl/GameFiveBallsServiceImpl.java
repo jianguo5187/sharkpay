@@ -190,6 +190,11 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             return respVO;
         }
 
+        if(vo.getLastBetRecordId() != null && vo.getLastBetRecordId() > 0) {
+            List<VirtuallyGameRecordRespVO> dbVirtuallyRecordList = betRecordMapper.getVirtuallyRecordList(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId());
+            respVO.addAll(dbVirtuallyRecordList);
+        }
+
         SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
         Random random = new Random();
         BigDecimal result = new BigDecimal(gameInfo.getRobotRate()).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
@@ -294,7 +299,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
     }
 
     @Override
-    public void addFiveBallsBetRecord(Long userId, FiveBallsAddBetRecordReqVO vo) {
+    public Long addFiveBallsBetRecord(Long userId, FiveBallsAddBetRecordReqVO vo) {
         Date date = new Date();
         GameFiveballKj gameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(vo.getGameId(), vo.getPeriods());
         if(gameFiveballKj.getBetTime() == null || gameFiveballKj.getBetTime().compareTo(date) < 0){
@@ -367,6 +372,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         }
 
         Float userAmount = user.getAmount();
+        Long lastBetRecordId = 0l;
         for(int i=0; i<betNumberArg.length; i++){
 
             String key = allFiledMap.get(vo.getType()+betNumberArg[i].trim());
@@ -445,14 +451,16 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             usermoney.setType("7");
             usermoney.setCashContent(vo.getPeriods().toString());
             usermoneyMapper.insertUsermoney(usermoney);
+            lastBetRecordId = betrecord.getBetId();
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
+        return lastBetRecordId;
     }
 
     @Override
-    public void addFiveBallsMultiBetRecord(Long userId, FiveBallsAddMultiBetRecordReqVO vo) {
+    public Long addFiveBallsMultiBetRecord(Long userId, FiveBallsAddMultiBetRecordReqVO vo) {
         Date date = new Date();
         GameFiveballKj gameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(vo.getGameId(), vo.getPeriods());
         if(gameFiveballKj.getBetTime() == null || gameFiveballKj.getBetTime().compareTo(date) < 0){
@@ -520,6 +528,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         }
 
         Float userAmount = user.getAmount();
+        Long lastBetRecordId = 0l;
         for(FiveBallsMultiBetRecordReqVO fiveBallsMultiBetRecordReqVO : vo.getRecordList()) {
 
             String[] betNumberArg = fiveBallsMultiBetRecordReqVO.getNumber().split(",");
@@ -614,11 +623,13 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                 usermoney.setType("7");
                 usermoney.setCashContent(vo.getPeriods().toString());
                 usermoneyMapper.insertUsermoney(usermoney);
+                lastBetRecordId = betrecord.getBetId();
             }
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
+        return lastBetRecordId;
     }
 
     @Override

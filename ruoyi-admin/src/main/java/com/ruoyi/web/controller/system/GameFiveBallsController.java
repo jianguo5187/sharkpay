@@ -85,7 +85,15 @@ public class GameFiveBallsController  extends BaseController {
     public AjaxResult virtuallyGameRecord(@RequestBody VirtuallyGameRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        ajax.put("virtuallyRecordList",gameFiveBallsService.virtuallyGameRecord(sessionUser.getUserId(),vo,false));
+        List<VirtuallyGameRecordRespVO> virtuallyRecordList = gameFiveBallsService.virtuallyGameRecord(sessionUser.getUserId(),vo,false);
+        Long lastBetRecordId = 0l;
+        for(VirtuallyGameRecordRespVO virtuallyGameRecordRespVO : virtuallyRecordList){
+            if(virtuallyGameRecordRespVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = virtuallyGameRecordRespVO.getBetId();
+            }
+        }
+        ajax.put("virtuallyRecordList",virtuallyRecordList);
+        ajax.put("lastBetRecordId",lastBetRecordId);
         return ajax;
     }
 
@@ -137,7 +145,7 @@ public class GameFiveBallsController  extends BaseController {
     public AjaxResult addFiveBallsBetRecord(@RequestBody FiveBallsAddBetRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        gameFiveBallsService.addFiveBallsBetRecord(sessionUser.getUserId(),vo);
+        ajax.put("lastBetRecordId",gameFiveBallsService.addFiveBallsBetRecord(sessionUser.getUserId(),vo));
         return ajax;
     }
 
@@ -148,7 +156,7 @@ public class GameFiveBallsController  extends BaseController {
     public AjaxResult addFiveBallsMultiBetRecord(@RequestBody FiveBallsAddMultiBetRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        gameFiveBallsService.addFiveBallsMultiBetRecord(sessionUser.getUserId(),vo);
+        ajax.put("lastBetRecordId",gameFiveBallsService.addFiveBallsMultiBetRecord(sessionUser.getUserId(),vo));
         return ajax;
     }
 

@@ -195,6 +195,11 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             return respVO;
         }
 
+        if(vo.getLastBetRecordId() != null && vo.getLastBetRecordId() > 0){
+            List<VirtuallyGameRecordRespVO> dbVirtuallyRecordList  = betRecordMapper.getVirtuallyRecordList(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId());
+            respVO.addAll(dbVirtuallyRecordList);
+        }
+
         SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
         Random random = new Random();
         BigDecimal result = new BigDecimal(gameInfo.getRobotRate()).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
@@ -281,7 +286,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
     }
 
     @Override
-    public void addThreeBallsBetRecord(Long userId, ThreeBallsAddBetRecordReqVO vo) {
+    public Long addThreeBallsBetRecord(Long userId, ThreeBallsAddBetRecordReqVO vo) {
         Date date = new Date();
         GameThreeballKj gameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(vo.getGameId(), vo.getPeriods());
         if(gameThreeballKj.getBetTime() == null || gameThreeballKj.getBetTime().compareTo(date) < 0){
@@ -350,6 +355,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             }
         }
 
+        Long lastBetRecordId = 0l;
         for(int i=0; i<betNumberArg.length; i++) {
             GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
             if("猜数字".equals(gameOption.getPlayGroupTitle())){
@@ -459,14 +465,16 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             usermoney.setType("7");
             usermoney.setCashContent(vo.getPeriods().toString());
             usermoneyMapper.insertUsermoney(usermoney);
+            lastBetRecordId = betrecord.getBetId();
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
+        return lastBetRecordId;
     }
 
     @Override
-    public void addThreeBallsMultiBetRecord(Long userId, ThreeBallsAddMultiBetRecordReqVO vo) {
+    public Long addThreeBallsMultiBetRecord(Long userId, ThreeBallsAddMultiBetRecordReqVO vo) {
         Date date = new Date();
         GameThreeballKj gameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(vo.getGameId(), vo.getPeriods());
         if(gameThreeballKj.getBetTime() == null || gameThreeballKj.getBetTime().compareTo(date) < 0){
@@ -572,6 +580,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
         }
 
         Float userAmount = user.getAmount();
+        Long lastBetRecordId = 0l;
         for(ThreeBallsMultiBetRecordReqVO threeBallsMultiBetRecordReqVO : vo.getRecordList()) {
             betNumberArg = threeBallsMultiBetRecordReqVO.getNumber().split(",");
             for(int i=0; i<betNumberArg.length; i++){
@@ -657,11 +666,13 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 usermoney.setType("7");
                 usermoney.setCashContent(vo.getPeriods().toString());
                 usermoneyMapper.insertUsermoney(usermoney);
+                lastBetRecordId = betrecord.getBetId();
             }
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
+        return lastBetRecordId;
     }
 
     @Override

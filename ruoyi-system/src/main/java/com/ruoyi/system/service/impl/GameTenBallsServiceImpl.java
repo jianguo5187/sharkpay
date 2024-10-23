@@ -192,6 +192,11 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             return respVO;
         }
 
+        if(vo.getLastBetRecordId() != null && vo.getLastBetRecordId() > 0){
+            List<VirtuallyGameRecordRespVO> dbVirtuallyRecordList  = betRecordMapper.getVirtuallyRecordList(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId());
+            respVO.addAll(dbVirtuallyRecordList);
+        }
+
         SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
         Random random = new Random();
         BigDecimal result = new BigDecimal(gameInfo.getRobotRate()).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
@@ -285,7 +290,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
     }
 
     @Override
-    public void addTenBallsBetRecord(Long userId, TenBallsAddBetRecordReqVO vo) {
+    public Long addTenBallsBetRecord(Long userId, TenBallsAddBetRecordReqVO vo) {
         Date date = new Date();
         GameTenballKj gameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods());
         if(gameTenballKj.getBetTime() == null || gameTenballKj.getBetTime().compareTo(date) < 0){
@@ -319,6 +324,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         }
 
         Float userAmount = user.getAmount();
+        Long lastBetRecordId = 0l;
         for(int i=0; i<betNumberArg.length; i++){
 
             searchGameTenballRecord = new GameTenballRecord();
@@ -485,14 +491,17 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             usermoney.setType("7");
             usermoney.setCashContent(vo.getPeriods().toString());
             usermoneyMapper.insertUsermoney(usermoney);
+
+            lastBetRecordId = betrecord.getBetId();
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
+        return lastBetRecordId;
     }
 
     @Override
-    public void addTenBallsMultiBetRecord(Long userId, TenBallsAddMultiBetRecordReqVO vo) {
+    public Long addTenBallsMultiBetRecord(Long userId, TenBallsAddMultiBetRecordReqVO vo) {
 
         SysUser user = userService.selectUserById(userId);
         Date date = new Date();
@@ -528,6 +537,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         }
 
         Float userAmount = user.getAmount();
+        Long lastBetRecordId = 0l;
         for(TenBallsMultiBetRecordReqVO tenBallsMultiBetRecordReqVO : vo.getRecordList()) {
             String[] betNumberArg = tenBallsMultiBetRecordReqVO.getNumber().split(",");
             String playType = "";
@@ -704,12 +714,13 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 usermoney.setType("7");
                 usermoney.setCashContent(vo.getPeriods().toString());
                 usermoneyMapper.insertUsermoney(usermoney);
+                lastBetRecordId = betrecord.getBetId();
             }
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
-
+        return lastBetRecordId;
     }
 
     @Override

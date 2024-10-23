@@ -84,7 +84,16 @@ public class GameThreeBallsController  extends BaseController {
     public AjaxResult virtuallyGameRecord(@RequestBody VirtuallyGameRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        ajax.put("virtuallyRecordList",gameThreeBallsService.virtuallyGameRecord(sessionUser.getUserId(),vo,false));
+        List<VirtuallyGameRecordRespVO> virtuallyRecordList = gameThreeBallsService.virtuallyGameRecord(sessionUser.getUserId(),vo,false);
+        Long lastBetRecordId = 0l;
+        for(VirtuallyGameRecordRespVO virtuallyGameRecordRespVO : virtuallyRecordList){
+            if(virtuallyGameRecordRespVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = virtuallyGameRecordRespVO.getBetId();
+            }
+        }
+        ajax.put("virtuallyRecordList",virtuallyRecordList);
+        ajax.put("lastBetRecordId",lastBetRecordId);
+
         return ajax;
     }
 
@@ -136,7 +145,7 @@ public class GameThreeBallsController  extends BaseController {
     public AjaxResult addThreeBallsBetRecord(@RequestBody ThreeBallsAddBetRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        gameThreeBallsService.addThreeBallsBetRecord(sessionUser.getUserId(),vo);
+        ajax.put("lastBetRecordId",gameThreeBallsService.addThreeBallsBetRecord(sessionUser.getUserId(),vo));
         return ajax;
     }
 
@@ -147,7 +156,7 @@ public class GameThreeBallsController  extends BaseController {
     public AjaxResult addThreeBallsMultiBetRecord(@RequestBody ThreeBallsAddMultiBetRecordReqVO vo){
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        gameThreeBallsService.addThreeBallsMultiBetRecord(sessionUser.getUserId(),vo);
+        ajax.put("lastBetRecordId",gameThreeBallsService.addThreeBallsMultiBetRecord(sessionUser.getUserId(),vo));
         return ajax;
     }
 

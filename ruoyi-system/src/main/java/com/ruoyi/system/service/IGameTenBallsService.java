@@ -18,9 +18,9 @@ public interface IGameTenBallsService {
 
     public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg);
 
-    public void addTenBallsBetRecord(Long userId,TenBallsAddBetRecordReqVO vo);
+    public Long addTenBallsBetRecord(Long userId,TenBallsAddBetRecordReqVO vo);
 
-    public void addTenBallsMultiBetRecord(Long userId,TenBallsAddMultiBetRecordReqVO vo);
+    public Long addTenBallsMultiBetRecord(Long userId,TenBallsAddMultiBetRecordReqVO vo);
 
     public void delTenBallsBetRecord(Long userId,DelBetRecordReqVO vo);
 }
