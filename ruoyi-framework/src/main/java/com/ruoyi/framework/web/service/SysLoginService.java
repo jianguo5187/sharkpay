@@ -33,6 +33,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -100,7 +101,7 @@ public class SysLoginService
      * @param uuid 唯一标识
      * @return 结果
      */
-    public String login(String username, String password, String code, String uuid)
+    public String login(HttpServletRequest request,String username, String password, String code, String uuid)
     {
         // 验证码校验
         validateCaptcha(username, code, uuid);
@@ -134,7 +135,7 @@ public class SysLoginService
         }
         AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-        recordLoginInfo(loginUser.getUserId());
+        recordLoginInfo(request,loginUser.getUserId());
         // 生成token
         return tokenService.createToken(loginUser);
     }
@@ -209,11 +210,11 @@ public class SysLoginService
      *
      * @param userId 用户ID
      */
-    public void recordLoginInfo(Long userId)
+    public void recordLoginInfo(HttpServletRequest request,Long userId)
     {
         SysUser sysUser = new SysUser();
         sysUser.setUserId(userId);
-        sysUser.setLoginIp(IpUtils.getIpAddr());
+        sysUser.setLoginIp(IpUtils.getIpAddr(request));
         sysUser.setLoginDate(DateUtils.getNowDate());
         userService.updateUserProfile(sysUser);
     }
@@ -270,7 +271,7 @@ public class SysLoginService
      * 小程序一键登录
      * @return token
      */
-    public String miniProgramLogin(String code,Long parentUserId){
+    public String miniProgramLogin(HttpServletRequest request, String code,Long parentUserId){
         //微信小程序获取openId请求地址
 
         String appId = configService.selectConfigByKey("sys.wechat.appId");
@@ -346,7 +347,7 @@ public class SysLoginService
             UserDetails userDetail = createLoginUser(user);
             LoginUser loginUser = BeanUtil.copyProperties(userDetail, LoginUser.class);
             //记录登录日志
-            recordLoginInfo(loginUser.getUserId());
+            recordLoginInfo(request,loginUser.getUserId());
             // 生成token
             return tokenService.createToken(loginUser);
         }else {

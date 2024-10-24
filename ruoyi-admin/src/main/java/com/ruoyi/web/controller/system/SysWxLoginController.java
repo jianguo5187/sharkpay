@@ -18,6 +18,8 @@ import com.ruoyi.framework.web.service.SysPermissionService;
 import com.ruoyi.system.service.ISysMenuService;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 微信登录验证
  * 
@@ -46,7 +48,7 @@ public class SysWxLoginController
     }
 
     @GetMapping("/wxRedirect")
-    public ModelAndView wxRedirect(@RequestParam("code") String code,@RequestParam(name = "parentUserId", required = false) Long parentUserId) {
+    public ModelAndView wxRedirect(HttpServletRequest request, @RequestParam("code") String code, @RequestParam(name = "parentUserId", required = false) Long parentUserId) {
         String siteDisabledFlag = configService.selectConfigByKey("sys.site.openFlg");
         if(!StringUtils.equals(siteDisabledFlag,"true")){
             System.out.println("siteDisabledFlag : " + siteDisabledFlag);
@@ -54,7 +56,7 @@ public class SysWxLoginController
             return new ModelAndView("redirect:/defaultPage");
         }
         // 生成令牌
-        String token = loginService.miniProgramLogin(code,parentUserId);
+        String token = loginService.miniProgramLogin(request,code,parentUserId);
         // 跳转授权页
         String appUrlRedir = loginService.getAppUrlRedir(token,parentUserId);
         return new ModelAndView("redirect:" + appUrlRedir);

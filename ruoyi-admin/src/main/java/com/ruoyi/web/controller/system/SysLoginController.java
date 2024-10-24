@@ -17,6 +17,8 @@ import com.ruoyi.framework.web.service.SysLoginService;
 import com.ruoyi.framework.web.service.SysPermissionService;
 import com.ruoyi.system.service.ISysMenuService;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 登录验证
  * 
@@ -44,7 +46,7 @@ public class SysLoginController
      * @return 结果
      */
     @PostMapping("/login")
-    public AjaxResult login(@RequestBody LoginBody loginBody)
+    public AjaxResult login(HttpServletRequest request, @RequestBody LoginBody loginBody)
     {
         AjaxResult ajax = AjaxResult.success();
         if(!StringUtils.equals(loginBody.getLoginType(),"pc")){
@@ -54,7 +56,7 @@ public class SysLoginController
             }
         }
         // 生成令牌
-        String token = loginService.login(loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(),
+        String token = loginService.login(request,loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(),
                 loginBody.getUuid());
         ajax.put(Constants.TOKEN, token);
         return ajax;
@@ -94,14 +96,14 @@ public class SysLoginController
     }
 
     @GetMapping("/wxLogin")
-    public AjaxResult miniProgramLogin(@RequestParam("code") String code,@RequestParam("parentUserId") Long parentUserId) {
+    public AjaxResult miniProgramLogin(HttpServletRequest request, @RequestParam("code") String code,@RequestParam("parentUserId") Long parentUserId) {
         AjaxResult ajax = AjaxResult.success();
         String siteDisabledFlag = configService.selectConfigByKey("sys.site.openFlg");
         if(!StringUtils.equals(siteDisabledFlag,"true")){
             return ajax.error("网站关闭中，无法访问");
         }
         // 生成令牌
-        String token = loginService.miniProgramLogin(code,parentUserId);
+        String token = loginService.miniProgramLogin(request,code,parentUserId);
         ajax.put(Constants.TOKEN, token);
         return ajax;
     }
