@@ -17,6 +17,9 @@ public class CommissionReportRespVO {
     /** 佣金 */
     private Float commissionMoneyTotal;
 
+    /** 未返佣金 */
+    private Float noCommissionMoneyTotal;
+
     public Long getUserId() {
         return userId;
     }
@@ -55,5 +58,13 @@ public class CommissionReportRespVO {
 
     public void setCommissionMoneyTotal(Float commissionMoneyTotal) {
         this.commissionMoneyTotal = commissionMoneyTotal;
+    }
+
+    public Float getNoCommissionMoneyTotal() {
+        return noCommissionMoneyTotal;
+    }
+
+    public void setNoCommissionMoneyTotal(Float noCommissionMoneyTotal) {
+        this.noCommissionMoneyTotal = noCommissionMoneyTotal;
     }
 }

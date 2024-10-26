@@ -315,8 +315,10 @@ public class SysAppController extends BaseController {
         }
         List<CommissionReportRespVO> commissionReportList = sysAppService.getCommissionReportList(sessionUser.getUserId(),vo);
         Float totalCommission = 0f;
+        Float totalNoCommission = 0f;
         for(CommissionReportRespVO commissionReportRespVO :commissionReportList){
             totalCommission += commissionReportRespVO.getCommissionMoneyTotal();
+            totalNoCommission += commissionReportRespVO.getNoCommissionMoneyTotal();
         }
 
         ajax.put("cashbackReportList",cashbackReportList);
@@ -324,6 +326,7 @@ public class SysAppController extends BaseController {
         ajax.put("totalCashBack",totalCashBack);
         ajax.put("totalNoCashBack",totalNoCashBack);
         ajax.put("totalCommission",totalCommission);
+        ajax.put("totalNoCommission",totalNoCommission);
 
         return ajax;
     }
