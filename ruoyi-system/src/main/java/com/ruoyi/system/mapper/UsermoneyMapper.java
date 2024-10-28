@@ -85,4 +85,6 @@ public interface UsermoneyMapper
     public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney);
 
     public int updateUpDownAmount(Usermoney usermoney);
+
+    public Float selectUserGameWinMoneyByPeriods(@Param("userId") Long userId,@Param("gameId") Long gameId,@Param("periods") Long periods);
 }

@@ -128,6 +128,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         }else{
             respVO.setTodayGameWinMoneyTotal(list.get(0).getWinMoneyTotal());
         }
+        respVO.setPeriodsGameWinMoneyTotal(usermoneyMapper.selectUserGameWinMoneyByPeriods(userId, vo.getGameId(), vo.getLastPeriods()));
 
         return respVO;
     }

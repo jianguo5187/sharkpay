@@ -34,6 +34,9 @@ public class FiveBallKjRecordMoneyRespVO {
     /** 今日彩种盈亏余额 */
     private Float todayGameWinMoneyTotal;
 
+    /** 彩种盈亏余额 */
+    private Float periodsGameWinMoneyTotal;
+
     public Long getPeriods() {
         return periods;
     }
@@ -104,5 +107,13 @@ public class FiveBallKjRecordMoneyRespVO {
 
     public void setTodayGameWinMoneyTotal(Float todayGameWinMoneyTotal) {
         this.todayGameWinMoneyTotal = todayGameWinMoneyTotal;
+    }
+
+    public Float getPeriodsGameWinMoneyTotal() {
+        return periodsGameWinMoneyTotal;
+    }
+
+    public void setPeriodsGameWinMoneyTotal(Float periodsGameWinMoneyTotal) {
+        this.periodsGameWinMoneyTotal = periodsGameWinMoneyTotal;
     }
 }

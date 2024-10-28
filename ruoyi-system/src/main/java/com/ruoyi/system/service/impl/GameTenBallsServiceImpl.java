@@ -130,6 +130,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         }else{
             respVO.setTodayGameWinMoneyTotal(list.get(0).getWinMoneyTotal());
         }
+        respVO.setPeriodsGameWinMoneyTotal(usermoneyMapper.selectUserGameWinMoneyByPeriods(userId, vo.getGameId(), vo.getLastPeriods()));
 
         return respVO;
     }
