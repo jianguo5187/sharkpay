@@ -229,14 +229,7 @@ public class UserwinServiceImpl implements IUserwinService
 
     @Override
     public List<CashBackDetailListRespVO> selectCashBackDetailList(Userwin userwin) {
-        return userwinMapper.selectCashBackDetailList(userwin).stream().filter(f->f.getPreCashBackMoney().compareTo(0f)>0).map(f->{
-            if(f.getCashBackMoney().compareTo(0f) > 0){
-                f.setCashBackStatus("1");
-            }else{
-                f.setCashBackStatus("0");
-            }
-            return f;
-        }).collect(Collectors.toList());
+        return userwinMapper.selectCashBackDetailList(userwin);
     }
 
     @Override
@@ -336,14 +329,7 @@ public class UserwinServiceImpl implements IUserwinService
 
     @Override
     public List<CommissionDetailListRespVO> selectCommissionDetailList(Userwin userwin) {
-        return userwinMapper.selectCommissionDetailList(userwin).stream().filter(f->f.getPreCommissionMoney().compareTo(0f)>0).map(f->{
-            if(f.getCommissionMoney().compareTo(0f) > 0){
-                f.setCommissionStatus("1");
-            }else{
-                f.setCommissionStatus("0");
-            }
-            return f;
-        }).collect(Collectors.toList());
+        return userwinMapper.selectCommissionDetailList(userwin);
     }
 
     @Override

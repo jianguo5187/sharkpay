@@ -378,4 +378,17 @@ public class GameTaskServiceImpl implements IGameTaskService {
     public void autoDeleteOldRobotBet() {
         betkjService.autoDeleteOldRobotBet();
     }
+
+    @Override
+    public void autoAllBetRepair() {
+
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+        for(SysGame gameInfo : gameList){
+            BetRepairReqVO vo = new BetRepairReqVO();
+            vo.setGameId(gameInfo.getGameId());
+            betkjService.BetRepair(vo);
+        }
+    }
 }

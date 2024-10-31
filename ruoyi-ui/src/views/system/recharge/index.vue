@@ -48,9 +48,19 @@
     <el-table v-loading="loading" :data="rechargeList" show-summary :summary-method="getSummaries" @sort-change='sortTableFun'>
       <el-table-column label="订单编号" align="center" prop="id" sortable="custom"/>
       <el-table-column label="用户ID" align="center" key="userId" prop="userId" sortable="custom"/>
-      <el-table-column label="昵称" align="center" prop="nickName">
+      <el-table-column label="昵称" align="center" prop="nickName"/>
+      <el-table-column label="备注名" align="center" prop="remarkName">
         <template slot-scope="scope">
-          <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
+          <el-button
+            size="mini"
+            type="text"
+            @click="handleUpdateRemarkName(scope.row)"
+          >
+                  <span v-if="scope.row.remarkName != null">
+                    {{ scope.row.remarkName }}
+                  </span>
+            <span v-else style="color: red">空值</span>
+          </el-button>
         </template>
       </el-table-column>
       <el-table-column label="充值金额" align="center" prop="cashMoney" sortable="custom"/>
@@ -113,7 +123,7 @@ import {agreeApply, refuseApply, listRecharge, updateUpDownAmount} from "@/api/s
 import {getValidGame} from "@/api/system/game";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
-import {changeUserStatus, selectAllUser} from "@/api/system/user";
+import {changeUserStatus, resetUserRemarkName, selectAllUser} from "@/api/system/user";
 
 export default {
   name: "recharge",
@@ -280,6 +290,40 @@ export default {
       this.queryParams.pageNum=1;
       this.getList();
     },
+    /** 修改用户备注名按钮操作 */
+    handleUpdateRemarkName(row) {
+      this.$prompt('请输入"' + row.nickName + '"的备注名', "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        closeOnClickModal: false,
+        // inputPattern: /^.{1,6}$/,
+        // inputErrorMessage: "用户密码长度必须介于 1 和 6 之间"
+      }).then(({ value }) => {
+        resetUserRemarkName(row.userId, value).then(response => {
+          this.getList();
+          this.$modal.msgSuccess("修改成功");
+        });
+      }).catch(() => {});
+    },
+    dateFormat(row, column, cellValue) {
+      const date = cellValue;
+      if (date) {
+        return this.formatDateToString(new Date(date));
+      } else {
+        return '--';
+      }
+    },
+    formatDateToString(date) {
+      console.log("formatDateToString");
+      // return '--';
+      const year = date.getFullYear();
+      const month = this.padStart(date.getMonth() + 1);
+      const day = this.padStart(date.getDate());
+      return `${year}-${month}-${day}`;
+    },
+    padStart(value) {
+      return value.toString().padStart(2, '0');
+    }
   }
 };
 </script>

@@ -176,7 +176,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="commissionFromUserId != null">#{commissionFromUserId},</if>
             <if test="createBy != null">#{createBy},</if>
         <if test="remark != null">#{remark},</if>
-        CURDATE(),
+        sysdate(),
         sysdate()
         )
     </insert>
@@ -240,7 +240,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectUsermoneyVo"/>
         where user_id = #{userId}
         and `type` in('5')
-        and cash_time = CURDATE()
+        and DATE_FORMAT(cash_time, '%Y-%m-%d') = DATE_FORMAT(CURDATE(), '%Y-%m-%d')
     </select>
 
     <select id="selectUserPostalList" resultMap="UsermoneyResult">

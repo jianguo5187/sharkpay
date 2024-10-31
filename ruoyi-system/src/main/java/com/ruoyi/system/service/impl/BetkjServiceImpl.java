@@ -129,22 +129,25 @@ public class BetkjServiceImpl implements IBetkjService
         if(resultJson == null){
             throw new ServiceException("获取不到开奖网站数据");
         }
-        String data = resultJson.getString("data");
-        System.out.println(data);
-        List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
-        Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
-                .collect(Collectors.toMap(
-                        GameOpenDataDto::getExpect,
-                        Function.identity(),
-                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
-                ));
 
-        if(StringUtils.equals(gameInfo.getGameType(),"3")){
-            repairThreeBallInfoFromOfficial(gameInfo,openDataList,gameOpenDataDtoMap);
-        }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
-            repairFiveBallInfoFromOfficial(gameInfo,openDataList,gameOpenDataDtoMap);
-        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
-            repairTenBallInfoFromOfficial(gameInfo,openDataList,gameOpenDataDtoMap);
+        String data = resultJson.getString("data");
+        if (!StringUtils.isEmpty(data)) {
+//            System.out.println(data);
+            List<GameOpenDataDto> openDataList = JSONArray.parseArray(data.toString(),GameOpenDataDto.class);
+            Map<Long , GameOpenDataDto> gameOpenDataDtoMap = openDataList.stream()
+                    .collect(Collectors.toMap(
+                            GameOpenDataDto::getExpect,
+                            Function.identity(),
+                            (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                    ));
+
+            if(StringUtils.equals(gameInfo.getGameType(),"3")){
+                repairThreeBallInfoFromOfficial(gameInfo,openDataList,gameOpenDataDtoMap);
+            }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
+                repairFiveBallInfoFromOfficial(gameInfo,openDataList,gameOpenDataDtoMap);
+            }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
+                repairTenBallInfoFromOfficial(gameInfo,openDataList,gameOpenDataDtoMap);
+            }
         }
     }
 
@@ -582,10 +585,10 @@ public class BetkjServiceImpl implements IBetkjService
             newPeriods = threeballOpenData.getPeriods() + 1;
         }
 
-        if(threeballOpenData != null && gameOpenDataDtoMap.get(newPeriods) == null
-                && gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null){
-            return;
-        }
+//        if(threeballOpenData != null && gameOpenDataDtoMap.get(newPeriods) == null
+//                && gameOpenDataDtoMap.get(threeballOpenData.getPeriods()) != null){
+//            return;
+//        }
 
 //        if(threeballOpenData != null){
 //            GameOpenDataDto openData = new GameOpenDataDto();
@@ -668,7 +671,7 @@ public class BetkjServiceImpl implements IBetkjService
         if(threeballOpenData == null) {
             //初始没数据
             threeballOpenData = new GameThreeballOpenData();
-            threeballOpenData.setPeriods(1l);
+            threeballOpenData.setPeriods(3526718l);
             threeballOpenData.setGameId(gameInfo.getGameId());
             threeballOpenData.setGameName(gameInfo.getGameName());
             List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
@@ -849,7 +852,7 @@ public class BetkjServiceImpl implements IBetkjService
         if(fiveballOpenData == null){
             //初始没数据
             fiveballOpenData = new GameFiveballOpenData();
-            fiveballOpenData.setPeriods(1l);
+            fiveballOpenData.setPeriods(3526718l);
             fiveballOpenData.setGameId(gameInfo.getGameId());
             fiveballOpenData.setGameName(gameInfo.getGameName());
             List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
@@ -1062,7 +1065,7 @@ public class BetkjServiceImpl implements IBetkjService
         if(tenballOpenData == null) {
             //初始没数据
             tenballOpenData = new GameTenballOpenData();
-            tenballOpenData.setPeriods(1l);
+            tenballOpenData.setPeriods(3526718l);
             tenballOpenData.setGameId(gameInfo.getGameId());
             tenballOpenData.setGameName(gameInfo.getGameName());
             List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());

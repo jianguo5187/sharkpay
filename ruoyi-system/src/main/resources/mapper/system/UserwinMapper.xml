@@ -365,58 +365,74 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectCashBackDetailList" parameterType="Userwin" resultMap="CashBackDetailListResult">
         SELECT
-             uw.user_id as user_id
-            ,max(u.nick_name) as nick_name
-            ,max(u.real_name) as real_name
-            ,max(u.remark_name) as remark_name
-            ,uw.win_time as win_time
-            ,uw.game_id as game_id
-            ,max(uw.game_name) as game_name
-            ,SUM(uw.big_small_money + uw.other_money) AS total_bet_money
-            ,SUM(uw.win_money) AS win_money
-            ,SUM(
-                CASE
-                    WHEN uw.is_cash_back = '1' then 0
-                else
-                    ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)
-                    * CASE
-                        WHEN g.game_type = '3' and u.three_ball_cashback = 0 then 0
-                        WHEN g.game_type = '5' and u.five_ball_cashback = 0 then 0
-                        WHEN g.game_type = '10' and u.ten_ball_cashback = 0 then 0
+              MAIN.user_id AS user_id
+            , MAIN.nick_name AS nick_name
+            , MAIN.real_name AS real_name
+            , MAIN.remark_name AS remark_name
+            , MAIN.win_time AS win_time
+            , MAIN.game_id AS game_id
+            , MAIN.game_name AS game_name
+            , MAIN.total_bet_money AS total_bet_money
+            , MAIN.win_money AS win_money
+            , MAIN.pre_cash_back_money AS pre_cash_back_money
+            , MAIN.cash_back_money AS cash_back_money
+            , MAIN.cash_back_rate AS cash_back_rate
+        FROM(
+            SELECT
+                 uw.user_id as user_id
+                ,max(u.nick_name) as nick_name
+                ,max(u.real_name) as real_name
+                ,max(u.remark_name) as remark_name
+                ,uw.win_time as win_time
+                ,uw.game_id as game_id
+                ,max(uw.game_name) as game_name
+                ,SUM(uw.big_small_money + uw.other_money) AS total_bet_money
+                ,SUM(uw.win_money) AS win_money
+                ,SUM(
+                    CASE
+                        WHEN uw.is_cash_back = '1' then 0
+                    else
+                        ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)
+                        * CASE
+                            WHEN g.game_type = '3' and u.three_ball_cashback = 0 then 0
+                            WHEN g.game_type = '5' and u.five_ball_cashback = 0 then 0
+                            WHEN g.game_type = '10' and u.ten_ball_cashback = 0 then 0
+                            WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
+                            WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
+                            WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
+                            ELSE g.game_cashback
+                        END
+                     / 100, 2) end
+                    ) AS pre_cash_back_money
+                ,SUM(CASE WHEN uw.is_cash_back = '1' then uw.cash_back_money else 0 end) AS cash_back_money
+                ,MAX(
+                    CASE
                         WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
                         WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
                         WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
-                        ELSE g.game_cashback
-                    END
-                 / 100, 2) end
-                ) AS pre_cash_back_money
-            ,SUM(CASE WHEN uw.is_cash_back = '1' then uw.cash_back_money else 0 end) AS cash_back_money
-            ,MAX(
-                CASE
-                    WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
-                    WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
-                    WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
-                    ELSE g.game_cashback END
-                )AS cash_back_rate
-        FROM userwin uw
-        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
-        inner join sys_game g on g.game_id = uw.game_id
-        WHERE
-        1 = 1
-        <if test="userId != null "> and uw.user_id = #{userId}</if>
-        <if test="nickName != null and nickName != ''">
-            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
-        </if>
-        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
-            and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
-        </if>
-        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
-            and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
-        </if>
-        <if test="cashBackStatus != null "> and uw.is_cash_back > 0 = #{cashBackStatus}</if>
-        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
-        GROUP BY uw.user_id,uw.win_time,uw.game_id
-        ORDER BY uw.win_time desc,uw.game_id
+                        ELSE g.game_cashback END
+                    )AS cash_back_rate
+            FROM userwin uw
+            inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+            inner join sys_game g on g.game_id = uw.game_id
+            WHERE
+            1 = 1
+            <if test="userId != null "> and uw.user_id = #{userId}</if>
+            <if test="nickName != null and nickName != ''">
+                AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+            <if test="cashBackStatus != null "> and uw.is_cash_back > 0 = #{cashBackStatus}</if>
+            <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY uw.user_id,uw.win_time,uw.game_id
+            ORDER BY uw.win_time desc,uw.game_id
+        )MAIN
+        WHERE MAIN.pre_cash_back_money > 0
     </select>
 
     <select id="selectYestodayNoCashBackList" resultMap="UserwinResult">
@@ -461,61 +477,79 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectCommissionDetailList" parameterType="Userwin" resultMap="CommissionDetailListResult">
         SELECT
-             uw.user_id as user_id
-            ,max(u.nick_name) as nick_name
-            ,max(u.real_name) as real_name
-            ,max(u.remark_name) as remark_name
-            ,pu.user_id as parent_user_id
-            ,max(pu.nick_name) as parent_nick_name
-            ,max(pu.real_name) as parent_real_name
-            ,max(pu.remark_name) as parent_remark_name
-            ,uw.win_time as win_time
-            ,uw.game_id as game_id
-            ,max(uw.game_name) as game_name
-            ,SUM(case when uw.is_commission = '1' then uw.commission_money else 0 end) AS commission_money
-            ,SUM(
-                CASE
-                    WHEN uw.is_commission = '1' then 0
-                else
-                    ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)
-                    * CASE
-                        WHEN g.game_type = '3' and u.three_ball_commission = 0 then 0
-                        WHEN g.game_type = '5' and u.five_ball_commission = 0 then 0
-                        WHEN g.game_type = '10' and u.ten_ball_commission = 0 then 0
-                        WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
-                        WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
-                        WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
-                        ELSE g.game_commission
-                    END
-                / 100, 2) end
-            ) AS pre_commission_money
-            ,MAX(
-                CASE
-                WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
-                WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
-                WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
-                ELSE g.game_commission END
-            )AS commission_rate
-        FROM userwin uw
-        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
-        inner join sys_game g on g.game_id = uw.game_id
-        inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
-        WHERE
-        1 = 1
-        <if test="userId != null "> and uw.user_id = #{userId}</if>
-        <if test="nickName != null and nickName != ''">
-            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
-        </if>
-        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
-            and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
-        </if>
-        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
-            and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
-        </if>
-        <if test="commissionStatus != null "> and uw.is_commission = #{commissionStatus}</if>
-        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
-        GROUP BY uw.user_id,pu.user_id,uw.win_time,uw.game_id
-        ORDER BY uw.win_time desc,uw.game_id
+              MAIN.user_id AS user_id
+            , MAIN.nick_name AS nick_name
+            , MAIN.real_name AS real_name
+            , MAIN.remark_name AS remark_name
+            , MAIN.parent_user_id AS parent_user_id
+            , MAIN.parent_nick_name AS parent_nick_name
+            , MAIN.parent_real_name AS parent_real_name
+            , MAIN.parent_remark_name AS parent_remark_name
+            , MAIN.win_time AS win_time
+            , MAIN.game_id AS game_id
+            , MAIN.game_name AS game_name
+            , MAIN.commission_money AS commission_money
+            , MAIN.pre_commission_money AS pre_commission_money
+            , MAIN.commission_rate AS commission_rate
+        FROM(
+            SELECT
+                 uw.user_id as user_id
+                ,max(u.nick_name) as nick_name
+                ,max(u.real_name) as real_name
+                ,max(u.remark_name) as remark_name
+                ,pu.user_id as parent_user_id
+                ,max(pu.nick_name) as parent_nick_name
+                ,max(pu.real_name) as parent_real_name
+                ,max(pu.remark_name) as parent_remark_name
+                ,uw.win_time as win_time
+                ,uw.game_id as game_id
+                ,max(uw.game_name) as game_name
+                ,SUM(case when uw.is_commission = '1' then uw.commission_money else 0 end) AS commission_money
+                ,SUM(
+                    CASE
+                        WHEN uw.is_commission = '1' then 0
+                    else
+                        ROUND((uw.big_small_money + uw.other_money - uw.deduct_money)
+                        * CASE
+                            WHEN g.game_type = '3' and u.three_ball_commission = 0 then 0
+                            WHEN g.game_type = '5' and u.five_ball_commission = 0 then 0
+                            WHEN g.game_type = '10' and u.ten_ball_commission = 0 then 0
+                            WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
+                            WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
+                            WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
+                            ELSE g.game_commission
+                        END
+                    / 100, 2) end
+                ) AS pre_commission_money
+                ,MAX(
+                    CASE
+                    WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
+                    WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
+                    WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
+                    ELSE g.game_commission END
+                )AS commission_rate
+            FROM userwin uw
+            inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+            inner join sys_game g on g.game_id = uw.game_id
+            inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
+            WHERE
+            1 = 1
+            <if test="userId != null "> and uw.user_id = #{userId}</if>
+            <if test="nickName != null and nickName != ''">
+                AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+            <if test="commissionStatus != null "> and uw.is_commission = #{commissionStatus}</if>
+            <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY uw.user_id,pu.user_id,uw.win_time,uw.game_id
+            ORDER BY uw.win_time desc,uw.game_id
+        )MAIN
+        WHERE MAIN.pre_commission_money > 0
     </select>
 
     <select id="selectYestodayNoCommissionList" resultMap="UserwinResult">

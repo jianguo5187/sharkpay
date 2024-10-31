@@ -67,6 +67,46 @@
       </el-row>
 
       <el-row>
+        <b>13,14组合特殊赔率：</b>
+      </el-row>
+      <el-row>
+        <el-col :span="4">
+          <el-form-item label="金额下限" prop="comboNumberMinQuota">
+            <el-input-number v-model="form.comboNumberMinQuota" :min="0" placeholder="请输入下限金额" :precision="2"/>
+          </el-form-item>
+        </el-col>
+        <el-col :span="1">
+          ~
+        </el-col>
+        <el-col :span="4">
+          <el-form-item label="金额上限" prop="comboNumberMaxQuota">
+            <el-input-number v-model="form.comboNumberMaxQuota" :min="0" placeholder="请输入上限金额" :precision="2"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="4">
+          <el-form-item label="小于下限赔率" prop="comboLessNumberOdd">
+            <el-input-number v-model="form.comboLessNumberOdd" :min="0" :max="100" placeholder="请输入小于下限赔率" :precision="2"/>
+          </el-form-item>
+        </el-col>
+        <el-col :span="4">
+          <el-form-item label="下限上限之间赔率" prop="comboCenterNumberOdd">
+            <el-input-number v-model="form.comboCenterNumberOdd" :min="0" :max="100" placeholder="请输入下限上限之间赔率" :precision="2"/>
+          </el-form-item>
+        </el-col>
+        <el-col :span="4">
+          <el-form-item label="大于上限赔率" prop="comboGreaterNumberOdd">
+            <el-input-number v-model="form.comboGreaterNumberOdd" :min="0" :max="100" placeholder="请输入大于上限赔率" :precision="2"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
+
+      <el-row>
+        <b>------------------------------------------------------------------------------------------------------------------------------------------------</b>
+      </el-row>
+
+      <el-row>
         <b>顺对豹特殊赔率：</b>
       </el-row>
       <el-row>
@@ -228,6 +268,11 @@ export default {
         lessNumberOdd: 0,
         centerNumberOdd: 0,
         greaterNumberOdd: 0,
+        comboNumberMinQuota: 0,
+        comboNumberMaxQuota: 0,
+        comboLessNumberOdd: 0,
+        comboCenterNumberOdd: 0,
+        comboGreaterNumberOdd: 0,
         sdbMinQuota: 0,
         sdbMaxQuota: 0,
         lessSdbOdd: 0,

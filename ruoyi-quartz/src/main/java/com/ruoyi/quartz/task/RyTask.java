@@ -232,4 +232,8 @@ public class RyTask
     public void autoCheckDoaminUrl(){
         sysAppService.autoModifyValidDomainUrl();
     }
+
+    public void autoAllBetRepair(){
+        gameTaskService.autoAllBetRepair();
+    }
 }

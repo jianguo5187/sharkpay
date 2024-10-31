@@ -42,6 +42,26 @@ public class GameThreeballMixedOdds extends BaseEntity
     @Excel(name = "13,14大小单双大于下限赔率")
     private Float greaterNumberOdd;
 
+    /** 13,14组合额度下限 */
+    @Excel(name = "13,14组合额度下限")
+    private Float comboNumberMinQuota;
+
+    /** 13,14大小单双额度上限 */
+    @Excel(name = "13,14组合额度上限")
+    private Float comboNumberMaxQuota;
+
+    /** 13,14大小单双小于下限赔率 */
+    @Excel(name = "13,14组合小于下限赔率")
+    private Float comboLessNumberOdd;
+
+    /** 13,14大小单双中间赔率 */
+    @Excel(name = "13,14组合中间赔率")
+    private Float comboCenterNumberOdd;
+
+    /** 13,14大小单双大于下限赔率 */
+    @Excel(name = "13,14组合大于下限赔率")
+    private Float comboGreaterNumberOdd;
+
     /** 顺对豹额度下限 */
     @Excel(name = "顺对豹额度下限")
     private Float sdbMinQuota;
@@ -145,7 +165,48 @@ public class GameThreeballMixedOdds extends BaseEntity
     {
         return greaterNumberOdd;
     }
-    public void setSdbMinQuota(Float sdbMinQuota) 
+
+    public Float getComboNumberMinQuota() {
+        return comboNumberMinQuota;
+    }
+
+    public void setComboNumberMinQuota(Float comboNumberMinQuota) {
+        this.comboNumberMinQuota = comboNumberMinQuota;
+    }
+
+    public Float getComboNumberMaxQuota() {
+        return comboNumberMaxQuota;
+    }
+
+    public void setComboNumberMaxQuota(Float comboNumberMaxQuota) {
+        this.comboNumberMaxQuota = comboNumberMaxQuota;
+    }
+
+    public Float getComboLessNumberOdd() {
+        return comboLessNumberOdd;
+    }
+
+    public void setComboLessNumberOdd(Float comboLessNumberOdd) {
+        this.comboLessNumberOdd = comboLessNumberOdd;
+    }
+
+    public Float getComboCenterNumberOdd() {
+        return comboCenterNumberOdd;
+    }
+
+    public void setComboCenterNumberOdd(Float comboCenterNumberOdd) {
+        this.comboCenterNumberOdd = comboCenterNumberOdd;
+    }
+
+    public Float getComboGreaterNumberOdd() {
+        return comboGreaterNumberOdd;
+    }
+
+    public void setComboGreaterNumberOdd(Float comboGreaterNumberOdd) {
+        this.comboGreaterNumberOdd = comboGreaterNumberOdd;
+    }
+
+    public void setSdbMinQuota(Float sdbMinQuota)
     {
         this.sdbMinQuota = sdbMinQuota;
     }

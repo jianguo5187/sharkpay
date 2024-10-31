@@ -12,6 +12,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="lessNumberOdd"    column="less_number_odd"    />
         <result property="centerNumberOdd"    column="center_number_odd"    />
         <result property="greaterNumberOdd"    column="greater_number_odd"    />
+        <result property="comboNumberMinQuota"    column="combo_number_min_quota"    />
+        <result property="comboNumberMaxQuota"    column="combo_number_max_quota"    />
+        <result property="comboLessNumberOdd"    column="combo_less_number_odd"    />
+        <result property="comboCenterNumberOdd"    column="combo_center_number_odd"    />
+        <result property="comboGreaterNumberOdd"    column="combo_greater_number_odd"    />
         <result property="sdbMinQuota"    column="sdb_min_quota"    />
         <result property="sdbMaxQuota"    column="sdb_max_quota"    />
         <result property="lessSdbOdd"    column="less_sdb_odd"    />
@@ -30,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectGameThreeballMixedOddsVo">
-        select mixed_odds_id, game_id, number_min_quota, number_max_quota, less_number_odd, center_number_odd, greater_number_odd, sdb_min_quota, sdb_max_quota, less_sdb_odd, center_sdb_odd, greater_sdb_odd, zero_nine_min_quota, zero_nine_max_quota, less_zero_nine_odd, center_zero_nine_odd, greater_zero_nine_odd, create_by, create_time, update_by, update_time, remark from game_threeball_mixed_odds
+        select mixed_odds_id, game_id, number_min_quota, number_max_quota, less_number_odd, center_number_odd,combo_number_min_quota, combo_number_max_quota, combo_less_number_odd, combo_center_number_odd, combo_greater_number_odd,  greater_number_odd, sdb_min_quota, sdb_max_quota, less_sdb_odd, center_sdb_odd, greater_sdb_odd, zero_nine_min_quota, zero_nine_max_quota, less_zero_nine_odd, center_zero_nine_odd, greater_zero_nine_odd, create_by, create_time, update_by, update_time, remark from game_threeball_mixed_odds
     </sql>
 
     <select id="selectGameThreeballMixedOddsList" parameterType="GameThreeballMixedOdds" resultMap="GameThreeballMixedOddsResult">
@@ -54,6 +59,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="lessNumberOdd != null">less_number_odd,</if>
             <if test="centerNumberOdd != null">center_number_odd,</if>
             <if test="greaterNumberOdd != null">greater_number_odd,</if>
+            <if test="comboNumberMinQuota != null">combo_number_min_quota,</if>
+            <if test="comboNumberMaxQuota != null">combo_number_max_quota,</if>
+            <if test="comboLessNumberOdd != null">combo_less_number_odd,</if>
+            <if test="comboCenterNumberOdd != null">combo_center_number_odd,</if>
+            <if test="comboGreaterNumberOdd != null">combo_greater_number_odd,</if>
             <if test="sdbMinQuota != null">sdb_min_quota,</if>
             <if test="sdbMaxQuota != null">sdb_max_quota,</if>
             <if test="lessSdbOdd != null">less_sdb_odd,</if>
@@ -77,6 +87,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="lessNumberOdd != null">#{lessNumberOdd},</if>
             <if test="centerNumberOdd != null">#{centerNumberOdd},</if>
             <if test="greaterNumberOdd != null">#{greaterNumberOdd},</if>
+            <if test="comboNumberMinQuota != null">#{comboNumberMinQuota},</if>
+            <if test="comboNumberMaxQuota != null">#{comboNumberMaxQuota},</if>
+            <if test="comboLessNumberOdd != null">#{comboLessNumberOdd},</if>
+            <if test="comboCenterNumberOdd != null">#{comboCenterNumberOdd},</if>
+            <if test="comboGreaterNumberOdd != null">#{comboGreaterNumberOdd},</if>
             <if test="sdbMinQuota != null">#{sdbMinQuota},</if>
             <if test="sdbMaxQuota != null">#{sdbMaxQuota},</if>
             <if test="lessSdbOdd != null">#{lessSdbOdd},</if>
@@ -104,6 +119,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="lessNumberOdd != null">less_number_odd = #{lessNumberOdd},</if>
             <if test="centerNumberOdd != null">center_number_odd = #{centerNumberOdd},</if>
             <if test="greaterNumberOdd != null">greater_number_odd = #{greaterNumberOdd},</if>
+            <if test="comboNumberMinQuota != null">combo_number_min_quota = #{comboNumberMinQuota},</if>
+            <if test="comboNumberMaxQuota != null">combo_number_max_quota = #{comboNumberMaxQuota},</if>
+            <if test="comboLessNumberOdd != null">combo_less_number_odd = #{comboLessNumberOdd},</if>
+            <if test="comboCenterNumberOdd != null">combo_center_number_odd = #{comboCenterNumberOdd},</if>
+            <if test="comboGreaterNumberOdd != null">combo_greater_number_odd = #{comboGreaterNumberOdd},</if>
             <if test="sdbMinQuota != null">sdb_min_quota = #{sdbMinQuota},</if>
             <if test="sdbMaxQuota != null">sdb_max_quota = #{sdbMaxQuota},</if>
             <if test="lessSdbOdd != null">less_sdb_odd = #{lessSdbOdd},</if>

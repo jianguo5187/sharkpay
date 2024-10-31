@@ -65,8 +65,19 @@
       <el-table-column label="提现金额" align="center" prop="cashMoney" sortable="custom"/>
       <el-table-column label="余额" align="center" prop="userBalance" sortable="custom"/>
       <el-table-column label="申请时间" align="center" prop="cashTime" sortable="custom"/>
-      <el-table-column label="方式" align="center" prop="userAccount" />
+<!--      <el-table-column label="方式" align="center" prop="userAccount" />-->
       <el-table-column label="备注" align="center" prop="remark" />
+      <el-table-column label="投注记录" align="center" class-name="small-padding fixed-width">
+        <template slot-scope="scope">
+          <el-button
+            title="投注记录"
+            size="mini"
+            type="danger"
+            icon="el-icon-burger"
+            @click="showUserBetDetailList(scope.row)"
+          >投注记录</el-button>
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <span v-if="scope.row.type == '5'">提现成功</span>
@@ -97,6 +108,10 @@
       :limit.sync="queryParams.pageSize"
       @pagination="getList"
     />
+
+    <el-dialog :title="userBet.title" :visible.sync="userBet.open" width="1400px" append-to-body>
+      <bet-real-time :user="userBet.user"/>
+    </el-dialog>
   </div>
 </template>
 
@@ -105,10 +120,11 @@ import {agreeApply, refuseApply, listPostal} from "@/api/system/postal";
 import {selectAllUser} from "@/api/system/user";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+import BetRealTime from "@/views/system/bet/betRealTime"
 
 export default {
   name: "postal",
-  components: {Treeselect},
+  components: {BetRealTime, Treeselect},
   dicts: ['sys_postal_status'],
   data() {
     return {
@@ -135,6 +151,17 @@ export default {
       // 是否显示弹出层
       open: false,
       userListOptions:[],
+      userBet: {
+        // 遮罩层
+        loading: true,
+        // 弹出层标题
+        title: "",
+        // 是否显示弹出层
+        open: false,
+        user: {
+          userId: undefined
+        },
+      },
       // 查询参数
       queryParams: {
         pageNum: 1,
@@ -261,6 +288,31 @@ export default {
       //返回第一页
       this.queryParams.pageNum=1;
       this.getList();
+    },
+    showUserBetDetailList(row){
+      this.userBet.open = true;
+      this.userBet.title = "投注记录";
+      this.userBet.user = {};
+      this.userBet.user.userId = row.userId;
+    },
+    dateFormat(row, column, cellValue) {
+      const date = cellValue;
+      if (date) {
+        return this.formatDateToString(new Date(date));
+      } else {
+        return '--';
+      }
+    },
+    formatDateToString(date) {
+      console.log("formatDateToString");
+      // return '--';
+      const year = date.getFullYear();
+      const month = this.padStart(date.getMonth() + 1);
+      const day = this.padStart(date.getDate());
+      return `${year}-${month}-${day}`;
+    },
+    padStart(value) {
+      return value.toString().padStart(2, '0');
     },
   }
 };

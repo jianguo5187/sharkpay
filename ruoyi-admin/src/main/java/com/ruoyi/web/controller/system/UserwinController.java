@@ -127,6 +127,13 @@ public class UserwinController extends BaseController
     {
         startPage();
         List<CashBackDetailListRespVO> list = userwinService.selectCashBackDetailList(userwin);
+        for(CashBackDetailListRespVO respVO :list){
+            if(respVO.getCashBackMoney().compareTo(0f) > 0){
+                respVO.setCashBackStatus("1");
+            }else{
+                respVO.setCashBackStatus("0");
+            }
+        }
         return getDataTable(list);
     }
 
@@ -163,6 +170,13 @@ public class UserwinController extends BaseController
     {
         startPage();
         List<CommissionDetailListRespVO> list = userwinService.selectCommissionDetailList(userwin);
+        for(CommissionDetailListRespVO respVO : list){
+            if(respVO.getCommissionMoney().compareTo(0f) > 0){
+                respVO.setCommissionStatus("1");
+            }else{
+                respVO.setCommissionStatus("0");
+            }
+        }
         return getDataTable(list);
     }
 
