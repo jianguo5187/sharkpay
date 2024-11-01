@@ -397,7 +397,11 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 lotterKeyMap.put("doubleAmount","doubleFlg");
 
                 // 大,小,单,双
-                if(lotterKeyMap.containsKey(betRecord.getRecordLotteryKey())){
+                if((gameThreeballKj.getSumNum() > 13 && "big".equals(betRecord.getRecordLotteryKey()))
+                        || (gameThreeballKj.getSumNum() < 14 && "small".equals(betRecord.getRecordLotteryKey()))
+                        || (gameThreeballKj.getSumNum()%2 == 1 && "single".equals(betRecord.getRecordLotteryKey()))
+                        || (gameThreeballKj.getSumNum()%2 == 0 && "doubleAmount".equals(betRecord.getRecordLotteryKey()))){
+//                if(lotterKeyMap.containsKey(betRecord.getRecordLotteryKey())){
 //            "big".equals(betRecord.getRecordLotteryKey()))
 //                || ("small".equals(betRecord.getRecordLotteryKey()))
 //                || ("single".equals(betRecord.getRecordLotteryKey()))
@@ -459,14 +463,20 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                 }
                 Map<String,String> comboLotterKeyMap = new HashMap<>();
-                comboLotterKeyMap.put("muchBig","muchBig");
+                comboLotterKeyMap.put("muchBig","muchbig");
                 comboLotterKeyMap.put("bigSingle","bigsingle");
                 comboLotterKeyMap.put("bigDouble","bigdouble");
                 comboLotterKeyMap.put("smallSingle","smallsingle");
-                comboLotterKeyMap.put("smallDouble","smallDouble");
-                comboLotterKeyMap.put("muchSmall","muchSmall");
+                comboLotterKeyMap.put("smallDouble","smalldouble");
+                comboLotterKeyMap.put("muchSmall","muchsmall");
 
-                if(comboLotterKeyMap.containsKey(betRecord.getRecordLotteryKey())){
+                if(gameThreeballKj.getSumNum() > 21 && "muchBig".equals(betRecord.getRecordLotteryKey())
+                        || bigSingleList.contains(gameThreeballKj.getSumNum()) && "bigSingle".equals(betRecord.getRecordLotteryKey())
+                        || bigDoubleList.contains(gameThreeballKj.getSumNum()) && "bigDouble".equals(betRecord.getRecordLotteryKey())
+                        || smallSingleList.contains(gameThreeballKj.getSumNum()) && "smallSingle".equals(betRecord.getRecordLotteryKey())
+                        || smallDoubleList.contains(gameThreeballKj.getSumNum()) && "smallDouble".equals(betRecord.getRecordLotteryKey())
+                        || gameThreeballKj.getSumNum() < 6 && "muchSmall".equals(betRecord.getRecordLotteryKey())){
+//                if(comboLotterKeyMap.containsKey(betRecord.getRecordLotteryKey())){
 //                    (gameThreeballKj.getSumNum() > 21 && "muchBig".equals(betRecord.getRecordLotteryKey())
 //                || bigSingleList.contains(gameThreeballKj.getSumNum()) && "bigSingle".equals(betRecord.getRecordLotteryKey())
 //                || bigDoubleList.contains(gameThreeballKj.getSumNum()) && "bigDouble".equals(betRecord.getRecordLotteryKey())
@@ -521,15 +531,15 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                         // 常规赔率
                     }else{
 
-                        if(gameThreeballKj.getSumNum() > 21
-                                || bigSingleList.contains(gameThreeballKj.getSumNum())
-                                || bigDoubleList.contains(gameThreeballKj.getSumNum())
-                                || smallSingleList.contains(gameThreeballKj.getSumNum())
-                                || smallDoubleList.contains(gameThreeballKj.getSumNum())
-                                || gameThreeballKj.getSumNum() < 6){
+//                        if(gameThreeballKj.getSumNum() > 21
+//                                || bigSingleList.contains(gameThreeballKj.getSumNum())
+//                                || bigDoubleList.contains(gameThreeballKj.getSumNum())
+//                                || smallSingleList.contains(gameThreeballKj.getSumNum())
+//                                || smallDoubleList.contains(gameThreeballKj.getSumNum())
+//                                || gameThreeballKj.getSumNum() < 6){
 
                             winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,comboLotterKeyMap.get(betRecord.getRecordLotteryKey()));
-                        }
+//                        }
                     }
                 }
 
@@ -854,20 +864,20 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if(StringUtils.isNotEmpty(systemGameWinRate)){
                     gameWinRate = Float.valueOf(systemGameWinRate);
                 }
-                if(winRate.compareTo(gameWinRate) <= 0){
-                    //重开奖
-                    List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
-                    gameThreeballOpenData.setSum1(Integer.parseInt(openCode.get(0)));
-                    gameThreeballOpenData.setSum2(Integer.parseInt(openCode.get(1)));
-                    gameThreeballOpenData.setSum3(Integer.parseInt(openCode.get(2)));
-                    gameThreeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
-                    gameThreeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
-                    gameThreeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
-                    gameThreeballOpenData.setUpdateBy("PREOPEN");
-                    gameThreeballOpenDataService.updateGameThreeballOpenData(gameThreeballOpenData);
-
-                    gameThreeballKj = setGameThreeballKj(gameThreeballKj,gameThreeballOpenData);
-                }
+//                if(winRate.compareTo(0f) <= 0 || winRate.compareTo(gameWinRate) <= 0){
+//                    //重开奖
+//                    List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+//                    gameThreeballOpenData.setSum1(Integer.parseInt(openCode.get(0)));
+//                    gameThreeballOpenData.setSum2(Integer.parseInt(openCode.get(1)));
+//                    gameThreeballOpenData.setSum3(Integer.parseInt(openCode.get(2)));
+//                    gameThreeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
+//                    gameThreeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
+//                    gameThreeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
+//                    gameThreeballOpenData.setUpdateBy("PREOPEN");
+//                    gameThreeballOpenDataService.updateGameThreeballOpenData(gameThreeballOpenData);
+//
+//                    gameThreeballKj = setGameThreeballKj(gameThreeballKj,gameThreeballOpenData);
+//                }
             }
         }
 
@@ -977,7 +987,14 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             lotterKeyMap.put("doubleAmount","doubleFlg");
 
             // 大,小,单,双
-            if(lotterKeyMap.containsKey(betRecord.getRecordLotteryKey())){
+            if((gameThreeballKj.getSumNum() > 13 && "big".equals(betRecord.getRecordLotteryKey()))
+                    || (gameThreeballKj.getSumNum() < 14 && "small".equals(betRecord.getRecordLotteryKey()))
+                    || (gameThreeballKj.getSumNum()%2 == 1 && "single".equals(betRecord.getRecordLotteryKey()))
+                    || (gameThreeballKj.getSumNum()%2 == 0 && "doubleAmount".equals(betRecord.getRecordLotteryKey()))){
+//                && (gameThreeballKj.getSumNum() > 13
+//                        || gameThreeballKj.getSumNum() < 14
+//                        || gameThreeballKj.getSumNum()%2 == 1
+//                        || gameThreeballKj.getSumNum()%2 == 0)){
 //            "big".equals(betRecord.getRecordLotteryKey()))
 //                || ("small".equals(betRecord.getRecordLotteryKey()))
 //                || ("single".equals(betRecord.getRecordLotteryKey()))
@@ -1030,12 +1047,12 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                 // 常规赔率
                 }else{
-                    if(gameThreeballKj.getSumNum() > 13
-                            || gameThreeballKj.getSumNum() < 14
-                            || gameThreeballKj.getSumNum()%2 == 1
-                            || gameThreeballKj.getSumNum()%2 == 0 ){
+//                    if(gameThreeballKj.getSumNum() > 13
+//                            || gameThreeballKj.getSumNum() < 14
+//                            || gameThreeballKj.getSumNum()%2 == 1
+//                            || gameThreeballKj.getSumNum()%2 == 0 ){
                         winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,lotterKeyMap.get(betRecord.getRecordLotteryKey()));
-                    }
+//                    }
                 }
             }
 //                if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14)
@@ -1176,20 +1193,20 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
             // 组合
             Map<String,String> comboLotterKeyMap = new HashMap<>();
-            comboLotterKeyMap.put("muchBig","muchBig");
+            comboLotterKeyMap.put("muchBig","muchbig");
             comboLotterKeyMap.put("bigSingle","bigsingle");
             comboLotterKeyMap.put("bigDouble","bigdouble");
             comboLotterKeyMap.put("smallSingle","smallsingle");
-            comboLotterKeyMap.put("smallDouble","smallDouble");
-            comboLotterKeyMap.put("muchSmall","muchSmall");
+            comboLotterKeyMap.put("smallDouble","smalldouble");
+            comboLotterKeyMap.put("muchSmall","muchsmall");
 
-            if(comboLotterKeyMap.containsKey(betRecord.getRecordLotteryKey())){
-//                    (gameThreeballKj.getSumNum() > 21 && "muchBig".equals(betRecord.getRecordLotteryKey())
-//                || bigSingleList.contains(gameThreeballKj.getSumNum()) && "bigSingle".equals(betRecord.getRecordLotteryKey())
-//                || bigDoubleList.contains(gameThreeballKj.getSumNum()) && "bigDouble".equals(betRecord.getRecordLotteryKey())
-//                || smallSingleList.contains(gameThreeballKj.getSumNum()) && "smallSingle".equals(betRecord.getRecordLotteryKey())
-//                || smallDoubleList.contains(gameThreeballKj.getSumNum()) && "smallDouble".equals(betRecord.getRecordLotteryKey())
-//                || gameThreeballKj.getSumNum() < 6 && "muchSmall".equals(betRecord.getRecordLotteryKey()))){
+//            if(comboLotterKeyMap.containsKey(betRecord.getRecordLotteryKey())){
+            if(gameThreeballKj.getSumNum() > 21 && "muchBig".equals(betRecord.getRecordLotteryKey())
+                || bigSingleList.contains(gameThreeballKj.getSumNum()) && "bigSingle".equals(betRecord.getRecordLotteryKey())
+                || bigDoubleList.contains(gameThreeballKj.getSumNum()) && "bigDouble".equals(betRecord.getRecordLotteryKey())
+                || smallSingleList.contains(gameThreeballKj.getSumNum()) && "smallSingle".equals(betRecord.getRecordLotteryKey())
+                || smallDoubleList.contains(gameThreeballKj.getSumNum()) && "smallDouble".equals(betRecord.getRecordLotteryKey())
+                || gameThreeballKj.getSumNum() < 6 && "muchSmall".equals(betRecord.getRecordLotteryKey())){
 
                 // 1314且设置了上限
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getComboNumberMaxQuota().compareTo(0f) > 0){
@@ -1238,15 +1255,14 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     // 常规赔率
                 }else{
 
-                    if(gameThreeballKj.getSumNum() > 21
-                            || bigSingleList.contains(gameThreeballKj.getSumNum())
-                            || bigDoubleList.contains(gameThreeballKj.getSumNum())
-                            || smallSingleList.contains(gameThreeballKj.getSumNum())
-                            || smallDoubleList.contains(gameThreeballKj.getSumNum())
-                            || gameThreeballKj.getSumNum() < 6){
-
+//                    if(gameThreeballKj.getSumNum() > 21
+//                            || bigSingleList.contains(gameThreeballKj.getSumNum())
+//                            || bigDoubleList.contains(gameThreeballKj.getSumNum())
+//                            || smallSingleList.contains(gameThreeballKj.getSumNum())
+//                            || smallDoubleList.contains(gameThreeballKj.getSumNum())
+//                            || gameThreeballKj.getSumNum() < 6){
                         winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,comboLotterKeyMap.get(betRecord.getRecordLotteryKey()));
-                    }
+//                    }
                 }
             }
 
@@ -1450,7 +1466,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             }
 
             // 大
-            if(gameThreeballRecord.getBig() > 0){
+            if(gameThreeballKj.getSumNum() > 13 && gameThreeballRecord.getBig() > 0){
                 bigSamllMoney += gameThreeballRecord.getBig();
 
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0){
@@ -1497,9 +1513,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(gameThreeballKj.getSumNum() > 13){
+//                    if(gameThreeballKj.getSumNum() > 13){
                         money += gameThreeballRecord.getBig() * getOddFromMapByOddKey(betItemMap,"big");
-                    }
+//                    }
                 }
             }
 //            if(gameThreeballKj.getSumNum() > 13 && gameThreeballRecord.getBig() > 0){
@@ -1538,7 +1554,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //            }
 
             // 小
-            if(gameThreeballRecord.getSmall() > 0){
+            if(gameThreeballKj.getSumNum() < 14 && gameThreeballRecord.getSmall() > 0){
                 bigSamllMoney += gameThreeballRecord.getSmall();
 
                 // 1314且设置了上限
@@ -1587,9 +1603,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(gameThreeballKj.getSumNum() < 14){
+//                    if(gameThreeballKj.getSumNum() < 14){
                         money += gameThreeballRecord.getSmall() * getOddFromMapByOddKey(betItemMap,"small");
-                    }
+//                    }
                 }
             }
 //            if(gameThreeballKj.getSumNum() < 14 && gameThreeballRecord.getSmall() > 0){
@@ -1628,7 +1644,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //                }
 //            }
             // 单
-            if(gameThreeballRecord.getSingle() > 0){
+            if(gameThreeballKj.getSumNum()%2 == 1 && gameThreeballRecord.getSingle() > 0){
                 bigSamllMoney += gameThreeballRecord.getSingle();
 
                 // 1314且设置了上限
@@ -1677,9 +1693,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(gameThreeballKj.getSumNum()%2 == 1){
+//                    if(gameThreeballKj.getSumNum()%2 == 1){
                         money += gameThreeballRecord.getSingle() * getOddFromMapByOddKey(betItemMap, "single");
-                    }
+//                    }
                 }
             }
 //            if(gameThreeballKj.getSumNum()%2 == 1 && gameThreeballRecord.getSingle() > 0){
@@ -1716,7 +1732,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //                }
 //            }
             // 双
-            if(gameThreeballRecord.getDoubleAmount() > 0){
+            if(gameThreeballKj.getSumNum()%2 == 0 && gameThreeballRecord.getDoubleAmount() > 0){
                 bigSamllMoney += gameThreeballRecord.getDoubleAmount();
                 // 1314且设置了上限
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getNumberMaxQuota().compareTo(0f) > 0){
@@ -1763,9 +1779,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(gameThreeballKj.getSumNum()%2 == 0 ){
+//                    if(gameThreeballKj.getSumNum()%2 == 0 ){
                         money += gameThreeballRecord.getDoubleAmount() * getOddFromMapByOddKey(betItemMap, "doubleFlg");
-                    }
+//                    }
                 }
             }
 //            if(gameThreeballKj.getSumNum()%2 == 0 && gameThreeballRecord.getDoubleAmount() > 0){
@@ -1804,7 +1820,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //            }
             // 极大
 
-            if(gameThreeballRecord.getMuchBig() > 0){
+            if(gameThreeballKj.getSumNum() > 21 && gameThreeballRecord.getMuchBig() > 0){
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getComboNumberMaxQuota().compareTo(0f) > 0){
 
                     // 大于上限
@@ -1850,9 +1866,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(gameThreeballKj.getSumNum() > 21){
+//                    if(gameThreeballKj.getSumNum() > 21){
                         money += gameThreeballRecord.getMuchBig() * getOddFromMapByOddKey(betItemMap,"muchbig");
-                    }
+//                    }
                 }
             }
 //            if(gameThreeballKj.getSumNum() > 21 && gameThreeballRecord.getMuchBig() > 0){
@@ -1860,7 +1876,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //            }
 
             // 大单
-            if(gameThreeballRecord.getBigSingle() > 0){
+            if(bigSingleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getBigSingle() > 0){
                 combinationMoney += gameThreeballRecord.getBigSingle();
 
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getComboNumberMaxQuota().compareTo(0f) > 0){
@@ -1908,9 +1924,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(bigSingleList.contains(gameThreeballKj.getSumNum())){
+//                    if(bigSingleList.contains(gameThreeballKj.getSumNum())){
                         money += gameThreeballRecord.getBigSingle() * getOddFromMapByOddKey(betItemMap, "bigsingle");
-                    }
+//                    }
                 }
             }
 //            if(bigSingleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getBigSingle() > 0){
@@ -1936,7 +1952,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //                combinationMoney += gameThreeballRecord.getBigSingle();
 //            }
             // 大双
-            if(gameThreeballRecord.getBigDouble() > 0){
+            if(bigDoubleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getBigDouble() > 0){
                 combinationMoney += gameThreeballRecord.getSmallSingle();
 
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getComboNumberMaxQuota().compareTo(0f) > 0){
@@ -1985,9 +2001,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     // 常规赔率
                 }else{
 
-                    if(bigDoubleList.contains(gameThreeballKj.getSumNum())){
+//                    if(bigDoubleList.contains(gameThreeballKj.getSumNum())){
                         money += gameThreeballRecord.getBigDouble() * getOddFromMapByOddKey(betItemMap, "bigdouble");
-                    }
+//                    }
                 }
             }
 //            if(bigDoubleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getBigDouble() > 0){
@@ -2014,7 +2030,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //            }
 
             // 小单
-            if(gameThreeballRecord.getSmallSingle() > 0){
+            if(smallSingleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getSmallSingle() > 0){
                 combinationMoney += gameThreeballRecord.getSmallSingle();
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getComboNumberMaxQuota().compareTo(0f) > 0){
 
@@ -2061,9 +2077,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(smallSingleList.contains(gameThreeballKj.getSumNum())){
+//                    if(smallSingleList.contains(gameThreeballKj.getSumNum())){
                         money += gameThreeballRecord.getSmallSingle() * getOddFromMapByOddKey(betItemMap, "smallsingle");
-                    }
+//                    }
                 }
             }
 //            if(smallSingleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getSmallSingle() > 0){
@@ -2089,7 +2105,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //                combinationMoney += gameThreeballRecord.getSmallSingle();
 //            }
             // 小双
-            if(gameThreeballRecord.getSmallDouble() > 0){
+            if(smallDoubleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getSmallDouble() > 0){
                 combinationMoney += gameThreeballRecord.getSmallDouble();
 
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getComboNumberMaxQuota().compareTo(0f) > 0){
@@ -2137,9 +2153,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     }
                     // 常规赔率
                 }else{
-                    if(smallDoubleList.contains(gameThreeballKj.getSumNum())){
+//                    if(smallDoubleList.contains(gameThreeballKj.getSumNum())){
                         money += gameThreeballRecord.getSmallDouble() * getOddFromMapByOddKey(betItemMap, "smalldouble");
-                    }
+//                    }
                 }
             }
 //            if(smallDoubleList.contains(gameThreeballKj.getSumNum()) && gameThreeballRecord.getSmallDouble() > 0){
@@ -2165,7 +2181,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 //                combinationMoney += gameThreeballRecord.getSmallDouble();
 //            }
             // 极小
-            if(gameThreeballRecord.getMuchSmall() > 0){
+            if(gameThreeballKj.getSumNum() < 6 && gameThreeballRecord.getMuchSmall() > 0){
 
                 if((gameThreeballKj.getSumNum() == 13 || gameThreeballKj.getSumNum() == 14) && gameThreeballMixedOdds.getComboNumberMaxQuota().compareTo(0f) > 0){
 
@@ -2213,9 +2229,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                     // 常规赔率
                 }else{
 
-                    if(gameThreeballKj.getSumNum() < 6){
+//                    if(gameThreeballKj.getSumNum() < 6){
                         money += gameThreeballRecord.getMuchSmall() * getOddFromMapByOddKey(betItemMap,"muchsmall");
-                    }
+//                    }
                 }
             }
 //            if(gameThreeballKj.getSumNum() < 6 && gameThreeballRecord.getMuchSmall() > 0){

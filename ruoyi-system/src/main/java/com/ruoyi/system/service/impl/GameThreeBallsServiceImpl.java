@@ -178,13 +178,23 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
 
     @Override
     public List<BetRecordListRespVO> betRecordList(Long userId, ThreeBallsBetRecordListReqVO vo) {
-        if(StringUtils.isNull(vo.getPageNumber())){
-            vo.setPageNumber(1);
+//        if(StringUtils.isNull(vo.getPageNumber())){
+//            vo.setPageNumber(1);
+//        }
+//        if(StringUtils.isNull(vo.getPageRowCount())){
+//            vo.setPageRowCount(20);
+//        }
+        Integer pageNumber = null;
+        if(StringUtils.isNotNull(vo.getPageNumber()) || StringUtils.isNotNull(vo.getPageRowCount())){
+            if(StringUtils.isNull(vo.getPageNumber())){
+                vo.setPageNumber(1);
+            }
+            if(StringUtils.isNull(vo.getPageRowCount())){
+                vo.setPageRowCount(20);
+            }
+            pageNumber = (vo.getPageNumber()-1)*vo.getPageRowCount();
         }
-        if(StringUtils.isNull(vo.getPageRowCount())){
-            vo.setPageRowCount(20);
-        }
-        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), (vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), pageNumber, vo.getPageRowCount());
     }
 
     @Override
@@ -218,7 +228,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);
 
                 Integer type = 0;
-                String playType = "和值";
+//                String playType = "和值";
                 String num = "";
                 String money = "";
 
@@ -235,6 +245,16 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 int cishu = random(3,7);
                 Date now = new Date();
 
+                GameOption searchGameOption = new GameOption();
+                searchGameOption.setGameId(vo.getGameId());
+                List<GameOption> gameOptionList = gameOptionMapper.selectGameOptionList(searchGameOption);
+                Map<String , GameOption> gameOptionMap = gameOptionList.stream()
+                        .collect(Collectors.toMap(
+                                GameOption::getTitle,
+                                Function.identity(),
+                                (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                        ));
+
                 for(int i=0;i<cishu;i++){
 
                     num = numArg[random(1,numArg.length)-1];
@@ -246,12 +266,18 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                         continue;
                     }
 
+                    GameOption gameOption = gameOptionMap.get(num + "");
+                    String key = gameOption.getKey();
+                    String playType = gameOption.getPlayGroupTitle();
+                    Integer playGroup = gameOption.getPlayGroup();
+
                     BetRecord betrecord = new BetRecord();
                     betrecord.setUserId(0l);
                     betrecord.setPeriods(vo.getPeriods());
                     betrecord.setGameId(vo.getGameId());
                     betrecord.setGameName(gameThreeballKj.getGameName());
                     betrecord.setPlayType(playType);
+                    betrecord.setPlayGroup(playGroup);
                     betrecord.setPlayDetail(num);
                     betrecord.setPlayGroup(type);
                     betrecord.setOption(0);
@@ -263,6 +289,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                     betrecord.setIsDelete("0");
                     betrecord.setIsRobot("1");
                     betrecord.setHouseId(1l);
+                    betrecord.setRecordLotteryKey(key);
                     betrecord.setRobotNickName(virtuallyGameUser.getUserName());
                     betrecord.setRobotPic(virtuallyGameUser.getRobotPic());
                     int insertIndex = betRecordMapper.insertBetRecord(betrecord);

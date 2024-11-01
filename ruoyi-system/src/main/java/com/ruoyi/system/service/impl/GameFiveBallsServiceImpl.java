@@ -172,13 +172,23 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
 
     @Override
     public List<BetRecordListRespVO> betRecordList(Long userId, FiveBallsBetRecordListReqVO vo) {
-        if(StringUtils.isNull(vo.getPageNumber())){
-            vo.setPageNumber(1);
+//        if(StringUtils.isNull(vo.getPageNumber())){
+//            vo.setPageNumber(1);
+//        }
+//        if(StringUtils.isNull(vo.getPageRowCount())){
+//            vo.setPageRowCount(20);
+//        }
+        Integer pageNumber = null;
+        if(StringUtils.isNotNull(vo.getPageNumber()) || StringUtils.isNotNull(vo.getPageRowCount())){
+            if(StringUtils.isNull(vo.getPageNumber())){
+                vo.setPageNumber(1);
+            }
+            if(StringUtils.isNull(vo.getPageRowCount())){
+                vo.setPageRowCount(20);
+            }
+            pageNumber = (vo.getPageNumber()-1)*vo.getPageRowCount();
         }
-        if(StringUtils.isNull(vo.getPageRowCount())){
-            vo.setPageRowCount(20);
-        }
-        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), (vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), pageNumber, vo.getPageRowCount());
     }
 
     @Override
