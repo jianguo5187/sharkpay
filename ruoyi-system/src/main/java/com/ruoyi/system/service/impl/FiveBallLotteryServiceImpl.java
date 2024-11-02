@@ -573,34 +573,37 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                     winMoney += betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bBan");
                 }
                 if(gameFiveballKj.getNumB() == 4 && "backZa".equals(betRecord.getRecordLotteryKey())){
-                    winMoney += betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"fBao");
+                    winMoney += betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bZa");
                 }
             }
 
-            Float winRate = (betMoney - winMoney)/betMoney*100;
-            String systemGameWinRate = configService.selectConfigByKey("sys.game.winRate");
-            // 默认一定重开一次
-            Float gameWinRate = 0f;
-            if(StringUtils.isNotEmpty(systemGameWinRate)){
-                gameWinRate = Float.valueOf(systemGameWinRate);
-            }
-            if(betMoney >0 && winRate.compareTo(gameWinRate) < 0){
-                //重开奖
-                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
-                gameFiveballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
-                gameFiveballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
-                gameFiveballOpenData.setNum3(Integer.parseInt(openCode.get(2)));
-                gameFiveballOpenData.setNum4(Integer.parseInt(openCode.get(3)));
-                gameFiveballOpenData.setNum5(Integer.parseInt(openCode.get(4)));
-                gameFiveballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
-                gameFiveballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
-                gameFiveballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
-                gameFiveballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
-                gameFiveballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
-                gameFiveballOpenData.setUpdateBy("PREOPEN");
-                gameFiveballOpenDataService.updateGameFiveballOpenData(gameFiveballOpenData);
+            if(betMoney.compareTo(0f) > 0){
 
-                gameFiveballKj = setGameFiveballKj(gameFiveballKj,gameFiveballOpenData);
+                Float winRate = (betMoney - winMoney)/betMoney*100;
+                String systemGameWinRate = configService.selectConfigByKey("sys.game.winRate");
+                // 默认一定重开一次
+                Float gameWinRate = 0f;
+                if(StringUtils.isNotEmpty(systemGameWinRate)){
+                    gameWinRate = Float.valueOf(systemGameWinRate);
+                }
+                if(winRate.compareTo(0f) <= 0 || winRate.compareTo(gameWinRate) <= 0){
+                    //重开奖
+                    List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+                    gameFiveballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
+                    gameFiveballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
+                    gameFiveballOpenData.setNum3(Integer.parseInt(openCode.get(2)));
+                    gameFiveballOpenData.setNum4(Integer.parseInt(openCode.get(3)));
+                    gameFiveballOpenData.setNum5(Integer.parseInt(openCode.get(4)));
+                    gameFiveballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
+                    gameFiveballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
+                    gameFiveballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
+                    gameFiveballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
+                    gameFiveballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
+                    gameFiveballOpenData.setUpdateBy("PREOPEN");
+                    gameFiveballOpenDataService.updateGameFiveballOpenData(gameFiveballOpenData);
+
+                    gameFiveballKj = setGameFiveballKj(gameFiveballKj,gameFiveballOpenData);
+                }
             }
 
         }
@@ -679,10 +682,6 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 ));
 
         Map<String, Object> gameFiveballKjMap = EntityMapTransUtils.entityToMap1(gameFiveballKj);
-        List<Integer> bigSingleList = Arrays.asList(13, 15, 17, 19);
-        List<Integer> smallSingleList = Arrays.asList(3, 5, 7, 9, 11);
-        List<Integer> bigDoubleList = Arrays.asList(12, 14, 16, 18);
-        List<Integer> smallDoubleList = Arrays.asList(4, 6, 8, 10);
 
         BetRecord searchBetRecord = new BetRecord();
         searchBetRecord.setGameId(gameInfo.getGameId());
@@ -828,7 +827,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bBan");
             }
             if(gameFiveballKj.getNumB() == 4 && "backZa".equals(betRecord.getRecordLotteryKey())){
-                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"fBao");
+                winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"bZa");
             }
 
             betRecord.setGameResult(gameResult);
@@ -1156,20 +1155,46 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         Integer[] after = new Integer[]{num1, num2, num3};
         Arrays.sort(after);
 
+        Integer[] nums = {num1,num2,num3};
+        Arrays.sort(nums);
+
         //豹子
         if(num1 == num2 && num1 == num3 && num2 == num3){
             result = 0;
         // 对子
-        }else if((num1 == num2 && num2 != num3) || (num1 != num2 && num2 == num3)){
+        }else if((nums[0] == nums[1] && nums[1] != nums[2]) || (nums[0] != nums[1] && nums[1] == nums[2])){
             result = 1;
         // 顺子
-        }else if(isStraight(c) || isStraight(after)){
+        }else if(nums[1] - nums[0] == 1 && nums[2] - nums[1] == 1){
+            result = 2;
+        // 顺子
+        }else if(nums[0] == 0 && nums[1] == 1 && nums[2] == 9){
+            result = 2;
+        // 顺子
+        }else if(nums[0] == 0 && nums[1] == 8 && nums[2] == 9) {
             result = 2;
         // 半顺
-        }else if(isHalfStraight(c) || isHalfStraight(after)){
+        }else if((nums[1] - nums[0] == 1 && nums[2] - nums[1] != 1) || (nums[1] - nums[0] != 1 && nums[2] - nums[1] == 1)) {
             result = 3;
         }else{
             result = 4;
+        }
+
+        Integer result2 = 404;
+        //豹子
+        if(num1 == num2 && num1 == num3 && num2 == num3){
+            result2 = 0;
+        // 对子
+        }else if((num1 == num2 && num2 != num3) || (num1 != num2 && num2 == num3)){
+            result2 = 1;
+        // 顺子
+        }else if(isStraight(c) || isStraight(after)){
+            result2 = 2;
+        // 半顺
+        }else if(isHalfStraight(c) || isHalfStraight(after)){
+            result2 = 3;
+        }else{
+            result2 = 4;
         }
 
         return result;

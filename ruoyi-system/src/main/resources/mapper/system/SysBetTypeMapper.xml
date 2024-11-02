@@ -18,6 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.GameBetTypeAndItemRespVO" id="SysBetTypeItemResult">
+        <result property="betTypeName"       column="bet_type_name"      />
+        <result property="betItemCode"    column="bet_item_code"    />
+        <result property="betItemName"    column="bet_item_name"    />
+    </resultMap>
+
     <sql id="selectSysBetTypeVo">
         select b.bet_type_id, b.game_id, b.bet_type_name, b.sort, b.status, b.create_by, b.create_time, b.update_by, b.update_time, b.remark
         ,g.game_name
@@ -93,4 +99,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{betTypeId}
         </foreach>
     </delete>
+
+    <select id="selectGameBetTypeAndItemList" parameterType="Long" resultMap="SysBetTypeItemResult">
+        SELECT
+            betType.bet_type_name AS bet_type_name,
+            betItem.bet_item_code AS bet_item_code,
+            betItem.bet_item_name AS bet_item_name
+        FROM
+            sys_bet_type betType
+        INNER JOIN sys_bet_item betItem
+        ON betType.bet_type_id = betItem.bet_item_type
+        WHERE
+            betType.game_id = #{gameId}
+          AND betType.STATUS = '0'
+          AND betItem.STATUS = '0'
+        ORDER BY
+            betType.sort,
+            betItem.sort
+    </select>
 </mapper>

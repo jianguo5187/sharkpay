@@ -59,6 +59,7 @@
           icon="el-icon-plus"
           size="mini"
           @click="handleAdd"
+          v-if="loginUserId == 1"
           v-hasPermi="['system:role:add']"
         >新增</el-button>
       </el-col>
@@ -70,6 +71,7 @@
           size="mini"
           :disabled="single"
           @click="handleUpdate"
+          v-if="loginUserId == 1"
           v-hasPermi="['system:role:edit']"
         >修改</el-button>
       </el-col>
@@ -81,6 +83,7 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
+          v-if="loginUserId == 1"
           v-hasPermi="['system:role:remove']"
         >删除</el-button>
       </el-col>
@@ -91,6 +94,7 @@
           icon="el-icon-download"
           size="mini"
           @click="handleExport"
+          v-if="loginUserId == 1"
           v-hasPermi="['system:role:export']"
         >导出</el-button>
       </el-col>
@@ -102,8 +106,9 @@
       <el-table-column label="角色编号" prop="roleId" width="120" />
       <el-table-column label="角色名称" prop="roleName" :show-overflow-tooltip="true" width="150" />
       <el-table-column label="权限字符" prop="roleKey" :show-overflow-tooltip="true" width="150" />
-      <el-table-column label="显示顺序" prop="roleSort" width="100" />
-      <el-table-column label="状态" align="center" width="100">
+<!--      <el-table-column label="显示顺序" prop="roleSort" width="100" />-->
+      <el-table-column label="状态" align="center" width="100"
+                       v-if="loginUserId == 1">
         <template slot-scope="scope">
           <el-switch
             v-model="scope.row.status"
@@ -132,9 +137,11 @@
             type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
+            v-if="loginUserId == 1"
             v-hasPermi="['system:role:remove']"
           >删除</el-button>
-          <el-dropdown size="mini" @command="(command) => handleCommand(command, scope.row)" v-hasPermi="['system:role:edit']">
+          <el-dropdown size="mini" @command="(command) => handleCommand(command, scope.row)" v-hasPermi="['system:role:edit']"
+                       v-if="loginUserId == 1">
             <el-button size="mini" type="text" icon="el-icon-d-arrow-right">更多</el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item command="handleDataScope" icon="el-icon-circle-check"
@@ -159,22 +166,22 @@
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="100px">
         <el-form-item label="角色名称" prop="roleName">
-          <el-input v-model="form.roleName" placeholder="请输入角色名称" />
+          <el-input v-model="form.roleName" placeholder="请输入角色名称" :disabled="loginUserId != 1"/>
         </el-form-item>
         <el-form-item prop="roleKey">
           <span slot="label">
-            <el-tooltip content="控制器中定义的权限字符，如：@PreAuthorize(`@ss.hasRole('admin')`)" placement="top">
+            <el-tooltip content="控制器中定义的权限字符，如：@PreAuthorize(`@ss.hasRole('admin')`)" placement="top" >
               <i class="el-icon-question"></i>
             </el-tooltip>
             权限字符
           </span>
-          <el-input v-model="form.roleKey" placeholder="请输入权限字符" />
+          <el-input v-model="form.roleKey" placeholder="请输入权限字符" :disabled="loginUserId != 1"/>
         </el-form-item>
-        <el-form-item label="角色顺序" prop="roleSort">
-          <el-input-number v-model="form.roleSort" controls-position="right" :min="0" />
-        </el-form-item>
-        <el-form-item label="状态">
-          <el-radio-group v-model="form.status">
+<!--        <el-form-item label="角色顺序" prop="roleSort">-->
+<!--          <el-input-number v-model="form.roleSort" controls-position="right" :min="0" />-->
+<!--        </el-form-item>-->
+        <el-form-item label="状态" >
+          <el-radio-group v-model="form.status" :disabled="loginUserId != 1">
             <el-radio
               v-for="dict in dict.type.sys_normal_disable"
               :key="dict.value"
@@ -262,6 +269,8 @@ export default {
     return {
       // 遮罩层
       loading: true,
+      // 登录用户ID
+      loginUserId: this.$store.state.user.id,
       // 选中数组
       ids: [],
       // 非单个禁用

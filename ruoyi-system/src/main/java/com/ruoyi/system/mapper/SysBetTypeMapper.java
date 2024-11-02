@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.SysBetType;
+import com.ruoyi.system.domain.vo.GameBetTypeAndItemRespVO;
 
 /**
  * 游戏玩法Mapper接口
@@ -58,4 +59,6 @@ public interface SysBetTypeMapper
      * @return 结果
      */
     public int deleteSysBetTypeByBetTypeIds(Long[] betTypeIds);
+
+    public List<GameBetTypeAndItemRespVO> selectGameBetTypeAndItemList(Long gameId);
 }

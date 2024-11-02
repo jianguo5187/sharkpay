@@ -9,6 +9,7 @@ import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.mapper.BetRecordMapper;
 import com.ruoyi.system.mapper.FalseUserMapper;
+import com.ruoyi.system.mapper.SysBetTypeMapper;
 import com.ruoyi.system.mapper.UsermoneyMapper;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.BeanUtils;
@@ -62,6 +63,9 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
 
     @Autowired
     private UsermoneyMapper usermoneyMapper;
+
+    @Autowired
+    private SysBetTypeMapper betTypeMapper;
 
 
     @Override
@@ -221,52 +225,72 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             if(falseUserList != null && falseUserList.size() > 0){
                 FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);
 
-                Integer type = 0;
-                String playType = "";
-                String num = "";
-                String money = "";
-                List<String> playList = new ArrayList<>();
+                List<GameBetTypeAndItemRespVO> betTypeAndItemRespVOList = betTypeMapper.selectGameBetTypeAndItemList(vo.getGameId());
+                Map<String,Integer> betTypeMap = new HashMap<>();
+                betTypeMap.put("和值",1);
+                betTypeMap.put("球1",2);
+                betTypeMap.put("球2",3);
+                betTypeMap.put("球3",4);
+                betTypeMap.put("球4",5);
+                betTypeMap.put("球5",6);
+                betTypeMap.put("前三",7);
+                betTypeMap.put("中三",8);
+                betTypeMap.put("后三",9);
 
-                String[] numArg = falseUser.getRobotBetNum().split("\\|");
+//                Integer type = 0;
+//                String playType = "";
+//                String num = "";
+                String money = "";
+//                List<String> playList = new ArrayList<>();
+
+//                String[] numArg = falseUser.getRobotBetNum().split("\\|");
                 String[] moneyArg = falseUser.getRobotBetMoney().split("\\|");
 
                 money = moneyArg[random(1,moneyArg.length)-1];
-                int cishu = 0 ;
-
-                if(falseUser.getPlayType() == 0){
-                    cishu = 1;
-                    playList.add("和值");
-                }else if(falseUser.getPlayType() == 1){
-                    cishu = random(3,7);
-                    playList.add("球1");
-                    playList.add("球2");
-                    playList.add("球3");
-                    playList.add("球4");
-                    playList.add("球5");
-                }else{
-                    cishu = random(1,2);
-                    playList.add("前三");
-                    playList.add("中三");
-                    playList.add("后三");
-                }
+//                int cishu = 0 ;
+//                if(falseUser.getPlayType() == 0){
+//                    cishu = 1;
+//                    playList.add("和值");
+//                }else if(falseUser.getPlayType() == 1){
+//                    cishu = random(3,7);
+//                    playList.add("球1");
+//                    playList.add("球2");
+//                    playList.add("球3");
+//                    playList.add("球4");
+//                    playList.add("球5");
+//                }else{
+//                    cishu = random(1,2);
+//                    playList.add("前三");
+//                    playList.add("中三");
+//                    playList.add("后三");
+//                }
                 FalseUser searchFalseUser = new FalseUser();
                 List<FalseUser> allFalseUserList = falseUserMapper.selectFalseUserList(searchFalseUser);
 
                 FalseUser virtuallyGameUser = allFalseUserList.get(random(1,allFalseUserList.size()) - 1);
 
                 Date now = new Date();
+                int cishu = random(3,7);
 
                 for(int i=0;i<cishu;i++){
 
-                    num = numArg[random(1,numArg.length)-1];
-                    //防止投注号码是空
-                    if(StringUtils.isEmpty(num)){
-                        num = numArg[0];
-                    }
-                    if(StringUtils.isEmpty(num)){
+//                    num = numArg[random(1,numArg.length)-1];
+//                    //防止投注号码是空
+//                    if(StringUtils.isEmpty(num)){
+//                        num = numArg[0];
+//                    }
+//                    if(StringUtils.isEmpty(num)){
+//                        continue;
+//                    }
+
+                    int betNumIndex = random(0,betTypeAndItemRespVOList.size()-1);
+                    if(betNumIndex >= betTypeAndItemRespVOList.size()){
                         continue;
                     }
-                    playType = playList.get(random(1,playList.size())-1);
+                    GameBetTypeAndItemRespVO betTypeAndItem =  betTypeAndItemRespVOList.get(betNumIndex);
+
+                    String playType = betTypeAndItem.getBetTypeName();
+                    Integer type = betTypeMap.get(betTypeAndItem.getBetTypeName());
 
                     BetRecord betrecord = new BetRecord();
                     betrecord.setUserId(0l);
@@ -274,7 +298,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                     betrecord.setGameId(vo.getGameId());
                     betrecord.setGameName(gameFiveballKj.getGameName());
                     betrecord.setPlayType(playType);
-                    betrecord.setPlayDetail(num);
+                    betrecord.setPlayDetail(betTypeAndItem.getBetItemName());
                     betrecord.setPlayGroup(type);
                     betrecord.setOption(0);
                     betrecord.setMoney(changeLongNumber(money));
@@ -296,7 +320,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                         virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
                         virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());
                         virtuallyGameRecord.setStime(now);
-                        virtuallyGameRecord.setNumber(num);
+                        virtuallyGameRecord.setNumber(betTypeAndItem.getBetItemName());
                         virtuallyGameRecord.setMoney(changeLongNumber(money));
                         virtuallyGameRecord.setType(type);
                         virtuallyGameRecord.setPeriods(vo.getPeriods());
@@ -502,6 +526,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         }
 
         Map<String,String> allFiledMap = new HashMap<>();
+
         allFiledMap.put("1大","sumBig");
         allFiledMap.put("1小","sumSmall");
         allFiledMap.put("1单","sumSingle");
@@ -518,21 +543,21 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             allFiledMap.put((i+1)+"单","num"+i+"Single");
             allFiledMap.put((i+1)+"双","num"+i+"Double");
         }
-        allFiledMap.put("7豹","fBao");
-        allFiledMap.put("7对","fDui");
-        allFiledMap.put("7顺","fSun");
-        allFiledMap.put("7半","fBan");
-        allFiledMap.put("7杂","fZa");
-        allFiledMap.put("8豹","mBao");
-        allFiledMap.put("8对","mDui");
-        allFiledMap.put("8顺","mSun");
-        allFiledMap.put("8半","mBan");
-        allFiledMap.put("8杂","mZa");
-        allFiledMap.put("9豹","bBao");
-        allFiledMap.put("9对","bDui");
-        allFiledMap.put("9顺","bSun");
-        allFiledMap.put("9半","bBan");
-        allFiledMap.put("9杂","bZa");
+        allFiledMap.put("7豹","firstBao");
+        allFiledMap.put("7对","firstDui");
+        allFiledMap.put("7顺","firstSun");
+        allFiledMap.put("7半","firstBan");
+        allFiledMap.put("7杂","firstZa");
+        allFiledMap.put("8豹","midBao");
+        allFiledMap.put("8对","midDui");
+        allFiledMap.put("8顺","midSun");
+        allFiledMap.put("8半","midBan");
+        allFiledMap.put("8杂","midZa");
+        allFiledMap.put("9豹","backBao");
+        allFiledMap.put("9对","backDui");
+        allFiledMap.put("9顺","backSun");
+        allFiledMap.put("9半","backBan");
+        allFiledMap.put("9杂","backZa");
 
         for(FiveBallsMultiBetRecordReqVO fiveBallsMultiBetRecordReqVO : vo.getRecordList()) {
             checkBetFiveBallLimitAmount(gameFiveballRecord, fiveBallsMultiBetRecordReqVO.getNumber(), fiveBallsMultiBetRecordReqVO.getMoney(), fiveBallsMultiBetRecordReqVO.getType(), allFiledMap);

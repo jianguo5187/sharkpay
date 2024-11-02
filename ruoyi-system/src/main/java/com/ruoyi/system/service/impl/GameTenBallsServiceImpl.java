@@ -9,6 +9,7 @@ import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.mapper.BetRecordMapper;
 import com.ruoyi.system.mapper.FalseUserMapper;
+import com.ruoyi.system.mapper.SysBetTypeMapper;
 import com.ruoyi.system.mapper.UsermoneyMapper;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.BeanUtils;
@@ -60,6 +61,9 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
 
     @Autowired
     private UsermoneyMapper usermoneyMapper;
+
+    @Autowired
+    private SysBetTypeMapper betTypeMapper;
 
 
     @Override
@@ -223,41 +227,76 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             if(falseUserList != null && falseUserList.size() > 0){
                 FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);
 
-                Integer type = 0;
-                String playType = "";
-                String num = "";
+//                Integer type = 0;
+//                String playType = "";
+//                String num = "";
                 String money = "";
 
-                String[] numArg = falseUser.getRobotBetNum().split("\\|");
+//                String[] numArg = falseUser.getRobotBetNum().split("\\|");
                 String[] moneyArg = falseUser.getRobotBetMoney().split("\\|");
 
                 money = moneyArg[random(1,moneyArg.length)-1];
 
-                if(falseUser.getPlayType() == 0){
-                    type = 1;
-                    playType = "冠亚和";
-                }else{
-                    type = random(2,11);
-                    playType = "第" + (type - 1) + "名";
-                }
+//                if(falseUser.getPlayType() == 0){
+//                    type = 1;
+//                    playType = "冠亚和";
+//                }else{
+//                    type = random(2,11);
+//                    playType = "第" + (type - 1) + "名";
+//                }
                 FalseUser searchFalseUser = new FalseUser();
                 List<FalseUser> allFalseUserList = falseUserMapper.selectFalseUserList(searchFalseUser);
 
                 FalseUser virtuallyGameUser = allFalseUserList.get(random(1,allFalseUserList.size()) - 1);
+                List<GameBetTypeAndItemRespVO> betTypeAndItemRespVOList = betTypeMapper.selectGameBetTypeAndItemList(vo.getGameId());
+
+                Map<String,Integer> betTypeMap = new HashMap<>();
+                betTypeMap.put("冠亚和值",1);
+                betTypeMap.put("猜冠军",2);
+                betTypeMap.put("猜亚军",3);
+                betTypeMap.put("猜第三名",4);
+                betTypeMap.put("猜第四名",5);
+                betTypeMap.put("猜第五名",6);
+                betTypeMap.put("猜第六名",7);
+                betTypeMap.put("猜第七名",8);
+                betTypeMap.put("猜第八名",9);
+                betTypeMap.put("猜第九名",10);
+                betTypeMap.put("猜第十名",11);
+
+                Map<String,String> palyTypeMap = new HashMap<>();
+                palyTypeMap.put("冠亚和值","冠亚和");
+                palyTypeMap.put("猜冠军","第1名");
+                palyTypeMap.put("猜亚军","第2名");
+                palyTypeMap.put("猜第三名","第3名");
+                palyTypeMap.put("猜第四名","第4名");
+                palyTypeMap.put("猜第五名","第5名");
+                palyTypeMap.put("猜第六名","第6名");
+                palyTypeMap.put("猜第七名","第7名");
+                palyTypeMap.put("猜第八名","第8名");
+                palyTypeMap.put("猜第九名","第9名");
+                palyTypeMap.put("猜第十名","第10名");
 
                 int cishu = random(3,7);
                 Date now = new Date();
 
                 for(int i=0;i<cishu;i++){
 
-                    num = numArg[random(1,numArg.length)-1];
-                    //防止投注号码是空
-                    if(StringUtils.isEmpty(num)){
-                        num = numArg[0];
-                    }
-                    if(StringUtils.isEmpty(num)){
+//                    num = numArg[random(1,numArg.length)-1];
+//                    //防止投注号码是空
+//                    if(StringUtils.isEmpty(num)){
+//                        num = numArg[0];
+//                    }
+//                    if(StringUtils.isEmpty(num)){
+//                        continue;
+//                    }
+
+                    int betNumIndex = random(0,betTypeAndItemRespVOList.size()-1);
+                    if(betNumIndex >= betTypeAndItemRespVOList.size()){
                         continue;
                     }
+                    GameBetTypeAndItemRespVO betTypeAndItem =  betTypeAndItemRespVOList.get(betNumIndex);
+                    String playType = palyTypeMap.get(betTypeAndItem.getBetTypeName());
+                    int type = betTypeMap.get(betTypeAndItem.getBetTypeName());
 
                     BetRecord betrecord = new BetRecord();
                     betrecord.setUserId(0l);
@@ -265,7 +304,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                     betrecord.setGameId(vo.getGameId());
                     betrecord.setGameName(gameTenballKj.getGameName());
                     betrecord.setPlayType(playType);
-                    betrecord.setPlayDetail(num);
+                    betrecord.setPlayDetail(betTypeAndItem.getBetItemName());
                     betrecord.setPlayGroup(type);
                     betrecord.setOption(0);
                     betrecord.setMoney(changeLongNumber(money));
@@ -287,7 +326,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                         virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
                         virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());
                         virtuallyGameRecord.setStime(now);
-                        virtuallyGameRecord.setNumber(num);
+                        virtuallyGameRecord.setNumber(betTypeAndItem.getBetItemName());
                         virtuallyGameRecord.setMoney(changeLongNumber(money));
                         virtuallyGameRecord.setType(type);
                         virtuallyGameRecord.setPeriods(vo.getPeriods());
