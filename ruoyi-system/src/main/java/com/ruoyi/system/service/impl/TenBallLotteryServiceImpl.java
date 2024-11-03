@@ -591,9 +591,19 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         searchBetRecord.setPeriods(periodId);
         searchBetRecord.setSettleFlg("0");
         searchBetRecord.setIsDelete("0");
+        searchBetRecord.setIsRobot("0");
         List<BetRecord> betRecordList = betRecordService.selectBetRecordList(searchBetRecord);
+        Map<Long,Float> userBetMoneyMap = new HashMap<>();
+
         for(BetRecord betRecord : betRecordList) {
             Float winMoney = 0f;
+            Float userBetMoney = 0F;
+
+            if(userBetMoneyMap.containsKey(betRecord.getUserId())){
+                userBetMoney = userBetMoneyMap.get(betRecord.getUserId());
+            }
+            userBetMoney += betRecord.getMoney();
+            userBetMoneyMap.put(betRecord.getUserId(),userBetMoney);
 
             //冠亚和3~19的金额计算
             Integer num1AddNum2Result = gameTenballKj.getNum1()+gameTenballKj.getNum2();
@@ -1079,6 +1089,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 userwin.setWinMoney(money - gameTenballRecord.getCountMoney());
                 userwin.setBigSmallMoney(bigSamllMoney);
                 userwin.setOtherMoney(otherMoney);
+                userwin.setBetMoney(userBetMoneyMap.get(gameTenballRecord.getUserId()));
                 userwin.setCreateBy("lotteryTenball");
 
                 userwinService.insertUserwin(userwin);
@@ -1087,6 +1098,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 userwin.setWinMoney(userwin.getWinMoney() + (money - gameTenballRecord.getCountMoney()));
                 userwin.setBigSmallMoney(userwin.getBigSmallMoney() + bigSamllMoney);
                 userwin.setOtherMoney(userwin.getOtherMoney() + otherMoney);
+                userwin.setBetMoney(userwin.getBetMoney() + userBetMoneyMap.get(gameTenballRecord.getUserId()));
                 userwin.setCreateBy("lotteryTenball");
                 userwinService.updateUserwin(userwin);
             }

@@ -203,7 +203,7 @@ public class MyServiceImpl implements IMyService {
             List<Userwin> uwList = userwinMapper.selectUserWinListByDay(userId, gameInfo.getGameId(), day);
             if(uwList != null && uwList.size() > 0){
                 Userwin userWin = uwList.get(0);
-                Float lsnum = userWin.getBigSmallMoney() + userWin.getOtherMoney() - userWin.getDeductMoney();
+                Float lsnum = userWin.getBetMoney() - userWin.getDeductMoney();
 
                 totalLsNum += lsnum;
 //                totalFxMoney += userWin.getRecordrebate();

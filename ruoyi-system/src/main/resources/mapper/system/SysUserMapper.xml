@@ -413,7 +413,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				SELECT
 					uw.user_id AS user_id,
 					SUM(
-					ROUND(( uw.big_small_money + uw.other_money - uw.deduct_money )* g.game_commission / 100, 2 )) AS pre_commission_money
+					ROUND(( uw.bet_money - uw.deduct_money )* g.game_commission / 100, 2 )) AS pre_commission_money
 				FROM
 				userwin uw
 				INNER JOIN sys_game g ON g.game_id = uw.game_id

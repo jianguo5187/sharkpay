@@ -40,6 +40,9 @@ public class CommissionDetailListRespVO {
     /** 游戏名 */
     private String gameName;
 
+    /** 流水金额 */
+    private Float totalBetMoney;
+
     /** 佣金金额 */
     private Float commissionMoney;
 
@@ -137,6 +140,14 @@ public class CommissionDetailListRespVO {
 
     public void setGameName(String gameName) {
         this.gameName = gameName;
+    }
+
+    public Float getTotalBetMoney() {
+        return totalBetMoney;
+    }
+
+    public void setTotalBetMoney(Float totalBetMoney) {
+        this.totalBetMoney = totalBetMoney;
     }
 
     public Float getCommissionMoney() {

@@ -671,7 +671,8 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("最小充值金额", "sys.change.min",vo.getMinChargeMoney().toString());
         updateAndInsertConfigInfo("最小提现金额", "sys.postal.min",vo.getMinPostalMoney().toString());
         updateAndInsertConfigInfo("每日提现次数", "sys.postal.maxCnt",vo.getPostalMaxCnt().toString());
-        updateAndInsertConfigInfo("app首页公告内容", "sys.app.home.notice",vo.getAppHomeNotice().toString());
+        updateAndInsertConfigInfo("app首页公告内容", "sys.app.home.appHomeAnnouncement",vo.getAppHomeAnnouncement().toString());
+        updateAndInsertConfigInfo("轮播公告内容", "sys.app.home.notice",vo.getAppHomeNotice().toString());
         updateAndInsertConfigInfo("官方开奖URL", "sys.opengame.url",vo.getOpenRecordUrl().toString());
         updateAndInsertConfigInfo("网站唯一标识ID", "sys.web.type",vo.getWebType().toString());
         updateAndInsertConfigInfo("网站名称", "sys.web.name",vo.getWebName().toString());

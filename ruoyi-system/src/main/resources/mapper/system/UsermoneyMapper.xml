@@ -154,9 +154,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">hz_id,</if>
             <if test="commissionFromUserId != null">commission_from_user_id,</if>
             <if test="createBy != null">create_by,</if>
-        <if test="remark != null">remark,</if>
-        cash_time,
-        create_time
+            <if test="remark != null">remark,</if>
+            cash_time,
+            create_time
         )values(
             <if test="userId != null">#{userId},</if>
             <if test="cashContent != null">#{cashContent},</if>
@@ -175,18 +175,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">#{hzId},</if>
             <if test="commissionFromUserId != null">#{commissionFromUserId},</if>
             <if test="createBy != null">#{createBy},</if>
-        <if test="remark != null">#{remark},</if>
-        sysdate(),
-        sysdate()
+            <if test="remark != null">#{remark},</if>
+            sysdate(),
+            sysdate()
         )
     </insert>
 
     <update id="updateUsermoney" parameterType="Usermoney">
         update usermoney
-        <trim prefix="SET" suffixOverrides=",">
+        <set>
             <if test="userId != null">user_id = #{userId},</if>
             <if test="cashContent != null">cash_content = #{cashContent},</if>
-            <if test="cashTime != null">cash_time = #{cashTime},</if>
             <if test="cashMoney != null">cash_money = #{cashMoney},</if>
             <if test="type != null">type = #{type},</if>
             <if test="userBalance != null">user_balance = #{userBalance},</if>
@@ -204,9 +203,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="remark != null">remark = #{remark},</if>
-        </trim>
+            update_time = sysdate()
+        </set>
         where id = #{id}
     </update>
 
@@ -231,6 +230,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="filterDateTo != null and filterDateTo != ''">
             and DATE_FORMAT(cash_time, '%Y-%m-%d') &lt;= #{filterDateTo}
         </if>
+        order by cash_time desc
         <if test="pageNumber != null">
             limit #{pageNumber} , #{pageRowCount}
         </if>

@@ -57,6 +57,10 @@ public class Userwin extends BaseEntity
     @Excel(name = "扣除金额")
     private Float deductMoney;
 
+    /** 投注金额 */
+    @Excel(name = "投注金额")
+    private Float betMoney;
+
     /** 反水金额 */
     @Excel(name = "反水金额")
     private Float cashBackMoney;
@@ -188,6 +192,14 @@ public class Userwin extends BaseEntity
 
     public void setDeductMoney(Float deductMoney) {
         this.deductMoney = deductMoney;
+    }
+
+    public Float getBetMoney() {
+        return betMoney;
+    }
+
+    public void setBetMoney(Float betMoney) {
+        this.betMoney = betMoney;
     }
 
     public Float getCashBackMoney() {

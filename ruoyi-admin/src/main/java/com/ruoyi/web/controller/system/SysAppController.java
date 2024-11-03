@@ -110,7 +110,9 @@ public class SysAppController extends BaseController {
 //            landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl()+":82";
 //        }
         ajax.put("imUrl",landingDomainUrl );
+        ajax.put("appHomeAnnouncement",configService.selectConfigByKey("sys.app.home.appHomeAnnouncement") );
         ajax.put("homeNotice",configService.selectConfigByKey("sys.app.home.notice") );
+        ajax.put("webName",configService.selectConfigByKey("sys.web.name") );
         ajax.put("minChangeMoney",configService.selectConfigByKey("sys.change.min") );
         ajax.put("minPostalMoney",configService.selectConfigByKey("sys.postal.min") );
         ajax.put("maxPostalCnt",configService.selectConfigByKey("sys.postal.maxCnt") );
@@ -369,6 +371,7 @@ public class SysAppController extends BaseController {
         ajax.put("minChargeMoney",configService.selectConfigByKey("sys.change.min") );
         ajax.put("minPostalMoney",configService.selectConfigByKey("sys.postal.min") );
         ajax.put("postalMaxCnt",configService.selectConfigByKey("sys.postal.maxCnt") );
+        ajax.put("appHomeAnnouncement",configService.selectConfigByKey("sys.app.home.appHomeAnnouncement") );
         ajax.put("appHomeNotice",configService.selectConfigByKey("sys.app.home.notice") );
         ajax.put("openRecordUrl",configService.selectConfigByKey("sys.opengame.url") );
         ajax.put("webType",configService.selectConfigByKey("sys.web.type") );

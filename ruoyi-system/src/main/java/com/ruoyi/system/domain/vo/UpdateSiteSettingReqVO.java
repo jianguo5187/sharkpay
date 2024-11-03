@@ -15,7 +15,11 @@ public class UpdateSiteSettingReqVO {
     private Integer postalMaxCnt;
 
     //app首页公告内容
+    private String appHomeAnnouncement;
+
+    //app轮播公告
     private String appHomeNotice;
+
 
     //官方开奖URL
     private String openRecordUrl;
@@ -90,6 +94,14 @@ public class UpdateSiteSettingReqVO {
 
     public void setPostalMaxCnt(Integer postalMaxCnt) {
         this.postalMaxCnt = postalMaxCnt;
+    }
+
+    public String getAppHomeAnnouncement() {
+        return appHomeAnnouncement;
+    }
+
+    public void setAppHomeAnnouncement(String appHomeAnnouncement) {
+        this.appHomeAnnouncement = appHomeAnnouncement;
     }
 
     public String getAppHomeNotice() {

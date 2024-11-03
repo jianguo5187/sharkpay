@@ -31,8 +31,15 @@
       </el-row>
       <el-row>
         <el-col :span="12">
-          <el-form-item label="app首页公告内容" prop="appHomeNotice">
-            <el-input v-model="siteSetting.form.appHomeNotice" placeholder="请输入app首页公告内容"/>
+          <el-form-item label="app首页公告内容" prop="appHomeAnnouncement">
+            <el-input v-model="siteSetting.form.appHomeAnnouncement" type="textarea" :rows="6" placeholder="请输入app首页公告内容"></el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="轮播信息" prop="appHomeNotice">
+            <el-input v-model="siteSetting.form.appHomeNotice" placeholder="请输入轮播公告"/>
           </el-form-item>
         </el-col>
       </el-row>
@@ -166,6 +173,7 @@ export default {
           // imSite: undefined,
           // appImSite: undefined,
           appHomeNotice: undefined,
+          appHomeAnnouncement:undefined,
           openRecordUrl: undefined,
           webType: undefined,
           webName: undefined,
@@ -197,8 +205,11 @@ export default {
           postalMaxCnt: [
             { required: true, message: "每日提现次数不能为空", trigger: "blur" }
           ],
-          appHomeNotice: [
+          appHomeAnnouncement: [
             { required: true, message: "app首页公告内容不能为空", trigger: "blur" }
+          ],
+          appHomeNotice: [
+            { required: true, message: "轮播公告不能为空", trigger: "blur" }
           ],
           openRecordUrl: [
             { required: true, message: "官方开奖URL不能为空", trigger: "blur" }
@@ -266,6 +277,9 @@ export default {
         }
         if(response.postalMaxCnt != undefined){
           this.siteSetting.form.postalMaxCnt = response.postalMaxCnt;
+        }
+        if(response.appHomeAnnouncement != undefined){
+          this.siteSetting.form.appHomeAnnouncement = response.appHomeAnnouncement;
         }
         if(response.appHomeNotice != undefined){
           this.siteSetting.form.appHomeNotice = response.appHomeNotice;

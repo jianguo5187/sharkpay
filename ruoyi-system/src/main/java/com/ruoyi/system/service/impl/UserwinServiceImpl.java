@@ -220,7 +220,7 @@ public class UserwinServiceImpl implements IUserwinService
         SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
 
         return userwinMapper.selectUserGameWinRankList(userwin).stream().map(f->{
-            f.setTotalBetMoney(f.getBigSmallMoney() + f.getOtherMoney() - f.getDeductMoney());
+            f.setTotalBetMoney(f.getTotalBetMoney() - f.getDeductMoney());
             String winTime = sd.format(f.getWinTime());
             f.setRecordCount(userwinMapper.selectUserGameWinDateCount(f.getUserId(), f.getGameId(), winTime, f.getGameRecord()));
             return f;
@@ -284,7 +284,7 @@ public class UserwinServiceImpl implements IUserwinService
                 }
             }
 
-            Float amont = userwin.getBigSmallMoney() + userwin.getOtherMoney() - userwin.getDeductMoney();
+            Float amont = userwin.getBetMoney()- userwin.getDeductMoney();
             Float resutAmont = amont * gameCashback / 100;
             Float money = BigDecimal.valueOf(resutAmont).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
 
@@ -389,7 +389,7 @@ public class UserwinServiceImpl implements IUserwinService
                 }
             }
 
-            Float amont = userwin.getBigSmallMoney() + userwin.getOtherMoney() - userwin.getDeductMoney();
+            Float amont = userwin.getBetMoney() - userwin.getDeductMoney();
             Float resutAmont = amont * gameCommission / 100;
             Float money = BigDecimal.valueOf(resutAmont).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
 

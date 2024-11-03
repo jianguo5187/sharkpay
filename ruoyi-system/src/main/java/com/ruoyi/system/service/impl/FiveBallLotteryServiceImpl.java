@@ -688,9 +688,18 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         searchBetRecord.setPeriods(periodId);
         searchBetRecord.setSettleFlg("0");
         searchBetRecord.setIsDelete("0");
+        searchBetRecord.setIsRobot("0");
         List<BetRecord> betRecordList = betRecordService.selectBetRecordList(searchBetRecord);
+        Map<Long,Float> userBetMoneyMap = new HashMap<>();
         for(BetRecord betRecord : betRecordList){
             Float winMoney = 0f;
+
+            Float userBetMoney = 0F;
+            if(userBetMoneyMap.containsKey(betRecord.getUserId())){
+                userBetMoney = userBetMoneyMap.get(betRecord.getUserId());
+            }
+            userBetMoney += betRecord.getMoney();
+            userBetMoneyMap.put(betRecord.getUserId(),userBetMoney);
 
             // 和值
             // 大1 小0 [小,大]
@@ -1019,6 +1028,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 userwin.setWinMoney(money - gameFiveballRecord.getCountMoney());
                 userwin.setBigSmallMoney(bigSamllMoney);
                 userwin.setOtherMoney(otherMoney);
+                userwin.setBetMoney(userBetMoneyMap.get(gameFiveballRecord.getUserId()));
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
 
                 userwinService.insertUserwin(userwin);
@@ -1027,6 +1037,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 userwin.setWinMoney(userwin.getWinMoney() + (money - gameFiveballRecord.getCountMoney()));
                 userwin.setBigSmallMoney(userwin.getBigSmallMoney() + bigSamllMoney);
                 userwin.setOtherMoney(userwin.getOtherMoney() + otherMoney);
+                userwin.setBetMoney(userwin.getBetMoney() + userBetMoneyMap.get(gameFiveballRecord.getUserId()));
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
                 userwinService.updateUserwin(userwin);
             }
