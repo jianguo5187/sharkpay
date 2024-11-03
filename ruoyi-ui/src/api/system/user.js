@@ -256,3 +256,16 @@ export function addChildAdminUser(data) {
     data: data
   })
 }
+
+// 用户备注名修改
+export function resetUserParentUserId(userId, parentUserId) {
+  const data = {
+    userId,
+    parentUserId
+  }
+  return request({
+    url: '/system/user/updateUserParent',
+    method: 'put',
+    data: data
+  })
+}

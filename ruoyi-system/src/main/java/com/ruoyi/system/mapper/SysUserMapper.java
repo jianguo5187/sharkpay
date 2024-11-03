@@ -178,4 +178,6 @@ public interface SysUserMapper
     public int mergeChildUser(@Param("mainUserId")Long mainUserId, @Param("mergeUserId") Long mergeUserId);
 
     public Float getUserTotalAmount();
+
+    public int updateUserParent(@Param("userId")Long userId, @Param("parentUserId") Long parentUserId);
 }

@@ -105,7 +105,20 @@
               <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
             </template>
           </el-table-column>
-          <el-table-column label="上级用户" align="center" key="parentNickName" prop="parentNickName"/>
+          <el-table-column label="上级用户" align="center" key="parentNickName" prop="parentNickName">
+            <template slot-scope="scope">
+              <el-button
+                size="mini"
+                type="text"
+                @click="handleUpdateParent(scope.row)"
+              >
+                  <span v-if="scope.row.parentNickName != null">
+                    {{ scope.row.parentNickName }}
+                  </span>
+                <span v-else>无</span>
+              </el-button>
+            </template>
+          </el-table-column>
           <el-table-column label="余额" align="center" key="amount" prop="amount" sortable="custom"/>
           <el-table-column label="今日赢亏" align="center" key="todayWinMoney" prop="todayWinMoney" sortable="custom"/>
 <!--          <el-table-column label="流水金额" align="center" key="totalBetMoney" prop="totalBetMoney"/>-->
@@ -567,7 +580,7 @@ import {
   resetUserPwd,
   resetUserPayPwd,
   changeUserStatus,
-  deptTreeSelect, resetUserRemarkName, selectAllUser, mergeUser, addChildAdminUser
+  deptTreeSelect, resetUserRemarkName, selectAllUser, mergeUser, addChildAdminUser, resetUserParentUserId
 } from "@/api/system/user";
 import { getToken } from "@/utils/auth";
 import Treeselect from "@riophae/vue-treeselect";
@@ -1018,6 +1031,25 @@ export default {
           this.getList();
           this.$modal.msgSuccess("修改成功");
         });
+      }).catch(() => {});
+    },
+    /** 修改用户上级用户按钮操作 */
+    handleUpdateParent(row) {
+      this.$prompt('请输入要修改的上级用户ID', "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        closeOnClickModal: false,
+        inputPattern: /^.*[0-9].*$/,
+        inputErrorMessage: '请输入上级用户ID'
+      }).then(({ value }) => {
+        if (row.userId == value) {
+          this.$modal.msgError("不能设置自己作为上级");
+        }else{
+          resetUserParentUserId(row.userId, value).then(response => {
+            this.getList();
+            this.$modal.msgSuccess("修改成功");
+          });
+        }
       }).catch(() => {});
     },
     /** 分配角色操作 */

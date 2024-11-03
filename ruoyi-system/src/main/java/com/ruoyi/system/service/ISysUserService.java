@@ -254,4 +254,6 @@ public interface ISysUserService
     public Float getUserTotalAmount();
 
     public int addChildAdminUser(SysUser user);
+
+    public int updateUserParent(Long userId, Long parentUserId);
 }

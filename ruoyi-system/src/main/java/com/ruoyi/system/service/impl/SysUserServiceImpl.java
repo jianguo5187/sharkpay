@@ -757,4 +757,12 @@ public class SysUserServiceImpl implements ISysUserService
         insertUserRole(user);
         return rows;
     }
+
+    @Override
+    public int updateUserParent(Long userId, Long parentUserId) {
+        if(StringUtils.isNull(selectUserById(parentUserId))){
+            throw new ServiceException("输入的上级不存在！");
+        }
+        return userMapper.updateUserParent(userId,parentUserId);
+    }
 }

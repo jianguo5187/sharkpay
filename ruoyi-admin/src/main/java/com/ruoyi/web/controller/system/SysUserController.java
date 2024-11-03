@@ -318,4 +318,13 @@ public class SysUserController extends BaseController
         user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
         return toAjax(userService.addChildAdminUser(user));
     }
+
+    /**
+     * 修改用户备注名
+     */
+    @PutMapping("/updateUserParent")
+    public AjaxResult updateUserParent(@RequestBody SysUser user)
+    {
+        return toAjax(userService.updateUserParent(user.getUserId(),user.getParentUserId()));
+    }
 }
