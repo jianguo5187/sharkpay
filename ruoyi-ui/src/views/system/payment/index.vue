@@ -18,7 +18,7 @@
         />
       </el-form-item>
       <el-form-item label="收款类型" prop="paymentType">
-        <el-select v-model="queryParams.paymentType" placeholder="请选择收款类型" clearable>
+        <el-select v-model="queryParams.paymentType" placeholder="请选择收款类型" clearable @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_payment_type"
             :key="dict.value"
@@ -28,7 +28,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="状态" prop="status">
-        <el-select v-model="queryParams.status" placeholder="请选择状态" clearable>
+        <el-select v-model="queryParams.status" placeholder="请选择状态" clearable @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_payment_status"
             :key="dict.value"

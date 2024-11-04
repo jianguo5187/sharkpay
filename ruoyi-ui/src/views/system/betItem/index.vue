@@ -36,6 +36,7 @@
             v-model="queryParams.status"
             placeholder="状态"
             clearable
+            @change="handleQuery"
             style="width: 240px"
           >
             <el-option

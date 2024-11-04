@@ -28,6 +28,7 @@
               v-model="queryParams.status"
               placeholder="用户状态"
               clearable
+              @change="handleQuery"
               style="width: 240px"
             >
               <el-option

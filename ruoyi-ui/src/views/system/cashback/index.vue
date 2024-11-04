@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
       <el-form-item label="用户ID" prop="userId">
-        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
+        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}" @keyup.enter.native="handleQuery">
         </el-input>
       </el-form-item>
       <el-form-item label="用户昵称" prop="nickName">
@@ -28,7 +28,7 @@
       </el-form-item>
 
       <el-form-item label="反水状态" prop="status">
-        <el-select v-model="queryParams.cashBackStatus" placeholder="请选择反水状态" clearable>
+        <el-select v-model="queryParams.cashBackStatus" placeholder="请选择反水状态" clearable @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_cashback_status"
             :key="dict.value"

@@ -24,7 +24,7 @@
       </el-form-item>
 
       <el-form-item label="开奖状态" prop="status">
-        <el-select v-model="queryParams.status" placeholder="请选择开奖状态" clearable>
+        <el-select v-model="queryParams.status" placeholder="请选择开奖状态" clearable @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_kj_status"
             :key="dict.value"

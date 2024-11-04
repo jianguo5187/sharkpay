@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="120px">
       <el-form-item label="状态" prop="status">
-        <el-select v-model="queryParams.status" placeholder="状态" clearable>
+        <el-select v-model="queryParams.status" placeholder="状态" clearable @change="handleQuery">
           <el-option
             v-for="dict in dict.type.sys_replace_status"
             :key="dict.value"

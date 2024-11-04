@@ -38,6 +38,7 @@
           placeholder="类型"
           clearable
           style="width: 240px"
+          @change="handleQuery"
         >
           <el-option
             v-for="dict in dict.type.sys_user_money_type"

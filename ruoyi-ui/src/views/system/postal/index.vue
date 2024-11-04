@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="98px">
       <el-form-item label="用户ID" prop="userId">
-        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
+        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}" @keyup.enter.native="handleQuery">
         </el-input>
       </el-form-item>
       <el-form-item label="用户昵称" prop="nickName">
@@ -34,6 +34,7 @@
           placeholder="提现方式"
           clearable
           style="width: 240px"
+          @change="handleQuery"
         >
           <el-option
             v-for="dict in dict.type.sys_postal_status"

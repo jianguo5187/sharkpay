@@ -24,7 +24,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="用户ID" prop="userId">
-        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
+        <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}" @keyup.enter.native="handleQuery">
         </el-input>
       </el-form-item>
       <el-form-item label="用户昵称" prop="nickName">
@@ -47,13 +47,13 @@
       </el-form-item>
 
       <el-form-item label="是否中奖" prop="winFlg">
-        <el-select v-model="queryParams.winFlg" placeholder="是否中奖" clearable :style="{width: '100%'}">
+        <el-select v-model="queryParams.winFlg" placeholder="是否中奖" clearable :style="{width: '100%'}" @change="handleQuery">
           <el-option v-for="(item, index) in winFlgOptions" :key="index" :label="item.label"
                      :value="item.value" :disabled="item.disabled"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="仅看未结算" prop="settledFlg">
-        <el-switch v-model="queryParams.settledFlg"></el-switch>
+        <el-switch v-model="queryParams.settledFlg" @change="handleQuery"></el-switch>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
