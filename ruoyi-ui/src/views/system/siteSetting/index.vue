@@ -113,35 +113,35 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="阿里云IP查询AppCode" prop="aliCloudApiCode">
             <el-input v-model="siteSetting.form.aliCloudApiCode" placeholder="请输入阿里云IP查询AppCode"/>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="拒绝访问省份" prop="refuseProvince">
             <el-input v-model="siteSetting.form.refuseProvince" placeholder="请输入拒绝访问省份"/>  用半角逗号隔开 例如：福建,浙江,广州
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="拒绝访问城市" prop="refuseCity">
             <el-input v-model="siteSetting.form.refuseCity" placeholder="请输入拒绝访问城市"/>  用半角逗号隔开 例如：厦门,深圳,杭州
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="拒绝访问服务商" prop="refuseIsp">
             <el-input v-model="siteSetting.form.refuseIsp" placeholder="请输入拒绝访问服务商"/>  用半角逗号隔开 例如：中国联通,中国移动
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="微信拦截状态接口Code" prop="wxAutoCheckApiCode">
             <el-input v-model="siteSetting.form.wxAutoCheckApiCode" placeholder="请输入微信拦截状态接口Code"/>
@@ -162,6 +162,8 @@ export default {
   name: "SiteSetting",
   data() {
     return {
+      // 登录用户ID
+      loginUserId: this.$store.state.user.id,
       // 上传chat参数
       siteSetting: {
         // 表单参数

@@ -36,4 +36,8 @@ public interface ISysAppService {
     public String checkIpAddressValid(CheckIpAddressValidReqVO vo);
 
     public void autoModifyValidDomainUrl();
+
+    public GameLimitSettingRespVO getGameLimitSetting();
+
+    public void updatGameLimitSetting(GameLimitSettingUpdateReqVO vo);
 }

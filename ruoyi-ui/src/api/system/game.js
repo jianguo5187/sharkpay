@@ -52,3 +52,21 @@ export function getValidGame(query) {
   })
 }
 
+
+// 获取客服聊天图片地址
+export function getGameLimitSetting(query) {
+  return request({
+    url: '/system/app/getGameLimitSetting',
+    method: 'get',
+    params: query
+  })
+}
+
+// 客服聊天图片上传
+export function updateGameLimitSetting(data) {
+  return request({
+    url: '/system/app/updatGameLimitSetting',
+    method: 'post',
+    data: data
+  })
+}

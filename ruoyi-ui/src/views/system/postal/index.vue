@@ -55,7 +55,7 @@
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="postalList" show-summary :summary-method="getSummaries" @sort-change='sortTableFun'>
+    <el-table v-loading="loading" :data="postalList" show-summary :summary-method="getSummaries" @sort-change='sortTableFun' :row-class-name="tableRowClassName">
       <el-table-column label="订单编号" align="center" prop="id" sortable="custom"/>
       <el-table-column label="用户ID" align="center" key="userId" prop="userId" sortable="custom"/>
       <el-table-column label="昵称" align="center" prop="nickName">
@@ -81,7 +81,17 @@
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.type == '5'">提现成功</span>
+          <span v-if="scope.row.type == '5'">
+            提现成功
+              <el-button
+                title="修改金额"
+                circle
+                size="small"
+                icon="el-icon-postcard"
+                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
+                @click="handleUpdateUserAmount(scope.row)"
+              ></el-button>
+          </span>
           <span v-if="scope.row.type == '6'">提现失败</span>
           <el-button
             size="mini"
@@ -113,15 +123,34 @@
     <el-dialog :title="userBet.title" :visible.sync="userBet.open" width="1400px" append-to-body>
       <bet-real-time :user="userBet.user"/>
     </el-dialog>
+
+    <!-- 修改金额 -->
+    <el-dialog :title="updateAmount.title" :visible.sync="updateAmount.open" width="500px" append-to-body>
+      <el-form ref="updateUserAmountForm" :model="updateAmount.form" :rules="updateAmount.rules" label-width="120px">
+        <el-form-item label="上下分" prop="cashMoney">
+          <el-input
+            v-model="updateAmount.form.cashMoney"
+            placeholder="请输入上下分"
+            clearable
+          />
+          <span>正数为上分,负数为下分</span>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="submitUserAmountForm">确 定</el-button>
+        <el-button @click="updateAmount.open = false">取 消</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import {agreeApply, refuseApply, listPostal} from "@/api/system/postal";
+import {agreeApply, refuseApply, listPostal, adminPostal} from "@/api/system/postal";
 import {selectAllUser} from "@/api/system/user";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 import BetRealTime from "@/views/system/bet/betRealTime"
+import {adminRecharge} from "@/api/system/recharge";
 
 export default {
   name: "postal",
@@ -161,6 +190,24 @@ export default {
         open: false,
         user: {
           userId: undefined
+        },
+      },
+      // 修改金额
+      updateAmount: {
+        // 是否显示弹出层（修改金额）
+        open: false,
+        // 弹出层标题（修改金额）
+        title: "",
+        // 表单验证（修改金额）
+        rules: {
+          cashMoney: [
+            { required: true, message: "金额必须输入！", trigger: "blur" },
+          ],
+        },
+        // 表单参数（合并用户）
+        form: {
+          userId: undefined,
+          cashMoney: undefined,
         },
       },
       // 查询参数
@@ -315,6 +362,56 @@ export default {
     padStart(value) {
       return value.toString().padStart(2, '0');
     },
+    /** 修改金额按钮操作 */
+    handleUpdateUserAmount(row) {
+      this.updateAmount.form = {
+        userId: undefined,
+        amount: undefined,
+      };
+      this.updateAmount.title = "修改金额";
+      this.updateAmount.open = true;
+      this.updateAmount.form.userId = row.userId;
+    },
+    submitUserAmountForm(){
+      var updateUserAmountForm = this.updateAmount;
+      this.$refs["updateUserAmountForm"].validate(valid => {
+        if (valid) {
+          if(updateUserAmountForm.form.cashMoney > 0 ){
+            console.log('submitUserAmountForm1');
+            adminRecharge(updateUserAmountForm.form).then(response => {
+              updateUserAmountForm.open = false;
+              this.getList();
+              this.$modal.msgSuccess("上分成功");
+            });
+          }else if(updateUserAmountForm.form.cashMoney <0){
+            updateUserAmountForm.form.cashMoney = updateUserAmountForm.form.cashMoney * -1;
+            adminPostal(updateUserAmountForm.form).then(response => {
+              updateUserAmountForm.open = false;
+              this.getList();
+              this.$modal.msgSuccess("下分成功");
+            });
+          }
+        }
+      });
+    },
+    tableRowClassName({row, rowIndex}) {
+      if (row.type == '5') {
+        return 'success-row';
+      } else if(row.type == '6') {
+        return 'warning-row';
+      }
+      return ''
+    },
   }
 };
 </script>
+
+
+<style>
+  .warning-row{
+    background: oldlace !important;
+  }
+  .success-row{
+    background: #f0f9eb !important;
+  }
+</style>

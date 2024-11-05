@@ -221,6 +221,19 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
         if(landingDomainList.size() > 0){
             String landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
             HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+        }else{
+            SysLandingDomain noDeleteLandingDomainSearch = new SysLandingDomain();
+            noDeleteLandingDomainSearch.setDelFlag("0");
+            List<SysLandingDomain> noDeleteLandingDomainList = selectSysLandingDomainList(noDeleteLandingDomainSearch);
+            if(noDeleteLandingDomainList.size() > 0){
+                SysLandingDomain noDeleteLandingDomain = noDeleteLandingDomainList.get(0);
+                String landingDomainUrl = noDeleteLandingDomain.getLandingDomainUrl();
+                HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+
+                noDeleteLandingDomain.setStatus("0"); //正常
+                noDeleteLandingDomain.setDelFlag("0"); //未删除
+                updateSysLandingDomain(noDeleteLandingDomain);
+            }
         }
 //        }
     }

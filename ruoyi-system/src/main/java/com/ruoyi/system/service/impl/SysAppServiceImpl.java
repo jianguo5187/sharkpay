@@ -2,6 +2,7 @@ package com.ruoyi.system.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
+import com.ruoyi.common.core.domain.entity.SysDictData;
 import com.ruoyi.common.core.redis.RedisCache;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.StringUtils;
@@ -73,6 +74,9 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Autowired
     private ISysLandingDomainService sysLandingDomainService;
+
+    @Autowired
+    private ISysDictDataService dictDataService;
 
     //验证微信拦截APIUrl
     @Value("${wx.autoCheck.apiUrl}")
@@ -926,5 +930,154 @@ public class SysAppServiceImpl implements ISysAppService {
 //        if(!checkResult){
 //            sysLandingDomainService.updateMainUrlToQrServer();
 //        }
+    }
+
+    @Override
+    public GameLimitSettingRespVO getGameLimitSetting(){
+        GameLimitSettingRespVO respVO = new GameLimitSettingRespVO();
+
+        SysDictData searchThreeBallGameLimitSettinga = new SysDictData();
+        searchThreeBallGameLimitSettinga.setStatus("0");
+        searchThreeBallGameLimitSettinga.setDictType("limit_amount_three");
+        List<SysDictData> threeBallGameLimitSettingList = dictDataService.selectDictDataList(searchThreeBallGameLimitSettinga);
+        Map<String , SysDictData> threeBallGameLimiSettingMap = threeBallGameLimitSettingList.stream()
+                .collect(Collectors.toMap(
+                        SysDictData::getDictValue,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        respVO.setThreeBallBetSpecialAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"big_special"));
+        respVO.setThreeBallBetNumCount(getLimitSettingByKey(threeBallGameLimiSettingMap,"num_count"));
+        respVO.setThreeBallMinBetAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"small_num"));
+        respVO.setThreeBallMaxSumBetAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"sum_max"));
+        respVO.setThreeBallBetNumAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"b_num1"));
+        respVO.setThreeBallBetDxdsAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"b_num2"));
+        respVO.setThreeBallBetMuchAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"b_num3"));
+        respVO.setThreeBallBetCombinationAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"b_num4"));
+        respVO.setThreeBallBetBoseAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"b_num5"));
+        respVO.setThreeBallBetSdbAmount(getLimitSettingByKey(threeBallGameLimiSettingMap,"b_num6"));
+
+        SysDictData searchFiveBallGameLimitSettinga = new SysDictData();
+        searchFiveBallGameLimitSettinga.setStatus("0");
+        searchFiveBallGameLimitSettinga.setDictType("limit_amount_five");
+        List<SysDictData> fiveBallGameLimitSettingList = dictDataService.selectDictDataList(searchFiveBallGameLimitSettinga);
+        Map<String , SysDictData> fiveBallGameLimiSettingMap = fiveBallGameLimitSettingList.stream()
+                .collect(Collectors.toMap(
+                        SysDictData::getDictValue,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+        respVO.setFiveBallMinBetAmount(getLimitSettingByKey(fiveBallGameLimiSettingMap,"small_num"));
+        respVO.setFiveBallMaxSumBetAmount(getLimitSettingByKey(fiveBallGameLimiSettingMap,"sum_max"));
+        respVO.setFiveBallBetHeAmount(getLimitSettingByKey(fiveBallGameLimiSettingMap,"big_special_he"));
+        respVO.setFiveBallBetDxdslhAmount(getLimitSettingByKey(fiveBallGameLimiSettingMap,"big_dxds"));
+        respVO.setFiveBallBetNumAmount(getLimitSettingByKey(fiveBallGameLimiSettingMap,"big_num"));
+        respVO.setFiveBallBetQzhAmount(getLimitSettingByKey(fiveBallGameLimiSettingMap,"big_special"));
+
+        SysDictData searchTenBallGameLimitSettinga = new SysDictData();
+        searchTenBallGameLimitSettinga.setStatus("0");
+        searchTenBallGameLimitSettinga.setDictType("limit_amount_ten");
+        List<SysDictData> tenBallGameLimitSettingList = dictDataService.selectDictDataList(searchTenBallGameLimitSettinga);
+        Map<String , SysDictData> tenBallGameLimiSettingMap = tenBallGameLimitSettingList.stream()
+                .collect(Collectors.toMap(
+                        SysDictData::getDictValue,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+        respVO.setTenBallMinBetAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"small_num"));
+        respVO.setTenBallMaxSumBetAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"sum_max"));
+        respVO.setTenBallBetSpecialNumAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"big_num_special"));
+        respVO.setTenBallBetOtherNumAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"sum_num_special"));
+        respVO.setTenBallBetDxdslhAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"big_dxds"));
+        respVO.setTenBallBetNumAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"big_num"));
+        return respVO;
+    }
+
+    @Override
+    public void updatGameLimitSetting(GameLimitSettingUpdateReqVO vo) {
+
+        SysDictData searchThreeBallGameLimitSettinga = new SysDictData();
+        searchThreeBallGameLimitSettinga.setStatus("0");
+        searchThreeBallGameLimitSettinga.setDictType("limit_amount_three");
+        List<SysDictData> threeBallGameLimitSettingList = dictDataService.selectDictDataList(searchThreeBallGameLimitSettinga);
+        Map<String , SysDictData> threeBallGameLimiSettingMap = threeBallGameLimitSettingList.stream()
+                .collect(Collectors.toMap(
+                        SysDictData::getDictValue,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"big_special", vo.getThreeBallBetSpecialAmount(), "limit_amount_three", "特殊号码限额");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"num_count", vo.getThreeBallBetNumCount(), "limit_amount_three", "号码投注个数（为0不限制投注个数）");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"small_num", vo.getThreeBallMinBetAmount(), "limit_amount_three", "最小下注额度");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"sum_max", vo.getThreeBallMaxSumBetAmount(), "limit_amount_three", "下注总额度");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"b_num1", vo.getThreeBallBetNumAmount(), "limit_amount_three", "投注数字限额");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"b_num2", vo.getThreeBallBetDxdsAmount(), "limit_amount_three", "投注大小单双限额");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"b_num3", vo.getThreeBallBetMuchAmount(), "limit_amount_three", "投注极值限额");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"b_num4", vo.getThreeBallBetCombinationAmount(), "limit_amount_three", "投注组合限额");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"b_num5", vo.getThreeBallBetBoseAmount(), "limit_amount_three", "投注波色限额");
+        upateOrInsertLimitSettingByKey(threeBallGameLimiSettingMap,"b_num6", vo.getThreeBallBetSdbAmount(), "limit_amount_three", "投注对顺豹限额");
+
+
+        SysDictData searchFiveBallGameLimitSettinga = new SysDictData();
+        searchFiveBallGameLimitSettinga.setStatus("0");
+        searchFiveBallGameLimitSettinga.setDictType("limit_amount_five");
+        List<SysDictData> fiveBallGameLimitSettingList = dictDataService.selectDictDataList(searchFiveBallGameLimitSettinga);
+        Map<String , SysDictData> fiveBallGameLimiSettingMap = fiveBallGameLimitSettingList.stream()
+                .collect(Collectors.toMap(
+                        SysDictData::getDictValue,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+
+        upateOrInsertLimitSettingByKey(fiveBallGameLimiSettingMap,"small_num", vo.getFiveBallMinBetAmount(), "limit_amount_five", "最小下注额度");
+        upateOrInsertLimitSettingByKey(fiveBallGameLimiSettingMap,"sum_max", vo.getFiveBallMaxSumBetAmount(), "limit_amount_five", "下注总额度");
+        upateOrInsertLimitSettingByKey(fiveBallGameLimiSettingMap,"big_special_he", vo.getFiveBallBetHeAmount(), "limit_amount_five", "投注和值（和）限额");
+        upateOrInsertLimitSettingByKey(fiveBallGameLimiSettingMap,"big_dxds", vo.getFiveBallBetDxdslhAmount(), "limit_amount_five", "投注大小单双龙虎限额");
+        upateOrInsertLimitSettingByKey(fiveBallGameLimiSettingMap,"big_num", vo.getFiveBallBetNumAmount(), "limit_amount_five", "投注数字号码限额");
+        upateOrInsertLimitSettingByKey(fiveBallGameLimiSettingMap,"big_special", vo.getFiveBallBetQzhAmount(), "limit_amount_five", "投注前中后三投限额");
+
+        SysDictData searchTenBallGameLimitSettinga = new SysDictData();
+        searchTenBallGameLimitSettinga.setStatus("0");
+        searchTenBallGameLimitSettinga.setDictType("limit_amount_ten");
+        List<SysDictData> tenBallGameLimitSettingList = dictDataService.selectDictDataList(searchTenBallGameLimitSettinga);
+        Map<String , SysDictData> tenBallGameLimiSettingMap = tenBallGameLimitSettingList.stream()
+                .collect(Collectors.toMap(
+                        SysDictData::getDictValue,
+                        Function.identity(),
+                        (existing, replacement) -> existing // 保留现有的值，忽略替换值
+                ));
+        upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"small_num", vo.getTenBallMinBetAmount(), "limit_amount_ten", "最小下注额度");
+        upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"sum_max", vo.getTenBallMaxSumBetAmount(), "limit_amount_ten", "下注总额度");
+        upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"big_num_special", vo.getTenBallBetSpecialNumAmount(), "limit_amount_ten", "投注冠亚和特殊号码总额度");
+        upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"sum_num_special", vo.getTenBallBetOtherNumAmount(), "limit_amount_ten", "投注冠亚和其他号码总额度");
+        upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"big_dxds", vo.getTenBallBetDxdslhAmount(), "limit_amount_ten", "投注大小单双龙虎限额");
+        upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"big_num", vo.getTenBallBetNumAmount(), "limit_amount_ten", "投注赛道号码限额");
+    }
+
+    private Float getLimitSettingByKey(Map<String , SysDictData> limitAmountMap, String key){
+        Float limitAmount = 0f;
+        if(limitAmountMap.containsKey(key)){
+            limitAmount = Float.parseFloat(limitAmountMap.get(key).getDictLabel());
+        }
+
+        return limitAmount;
+    }
+
+    private void upateOrInsertLimitSettingByKey(Map<String , SysDictData> limitAmountMap, String key, Float limitAmount, String type, String remark){
+        if(limitAmountMap.containsKey(key)){
+            SysDictData gameLimitSetting = limitAmountMap.get(key);
+            gameLimitSetting.setDictLabel(String.valueOf(limitAmount));
+            dictDataService.updateDictData(gameLimitSetting);
+        }else{
+            SysDictData gameLimitSetting = new SysDictData();
+            gameLimitSetting.setDictLabel(String.valueOf(limitAmount));
+            gameLimitSetting.setDictValue(key);
+            gameLimitSetting.setDictType(type);
+            gameLimitSetting.setListClass("default");
+            gameLimitSetting.setRemark(remark);
+            dictDataService.insertDictData(gameLimitSetting);
+        }
     }
 }

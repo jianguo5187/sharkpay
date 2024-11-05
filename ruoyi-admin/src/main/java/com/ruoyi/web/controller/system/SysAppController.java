@@ -510,4 +510,25 @@ public class SysAppController extends BaseController {
             return ajax;
         }
     }
+
+    /**
+     * 获取游戏投注设置
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getGameLimitSetting")
+    public AjaxResult getGameLimitSetting()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("gameLimitSetting",sysAppService.getGameLimitSetting());
+        return ajax;
+    }
+
+    @PostMapping("/updatGameLimitSetting")
+    public AjaxResult updatGameLimitSetting(@RequestBody GameLimitSettingUpdateReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        sysAppService.updatGameLimitSetting(vo);
+        return ajax;
+    }
 }

@@ -10,6 +10,7 @@ import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,9 @@ public class qRCodeService implements IQRCodeService {
         String webType = configService.selectConfigByKey("sys.web.type");
 
         // TODO OLD
-        String content = entryDomainList.get(0).getEntryDomainUrl() + ":6678?webType=" + webType + "&parentUserId=" + userId;
+        Instant now = Instant.now();
+        Long timestamp = now.toEpochMilli();
+        String content = entryDomainList.get(0).getEntryDomainUrl() + ":6678?webType=" + webType + "&parentUserId=" + userId + "&time=" + timestamp;
 //        // TODO 0907
 //        String content = entryDomainList.get(0).getEntryDomainUrl() + "?webType=" + webType + "&parentUserId=" + userId;
         return content;
@@ -90,10 +93,12 @@ public class qRCodeService implements IQRCodeService {
         searchEntryDomain.setStatus("0");
         List<SysEntryDomain> entryDomainList = entryDomainService.selectSysEntryDomainList(searchEntryDomain);
         List<ShareQRCodeRespVO> shareQrCodeList = new ArrayList<>();
+        Instant now = Instant.now();
+        Long timestamp = now.toEpochMilli();
         for(SysEntryDomain entryDomain: entryDomainList){
             ShareQRCodeRespVO respVO = new ShareQRCodeRespVO();
         // TODO OLD
-            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + ":6678?webType=" + webType +"&parentUserId=" + userId);
+            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + ":6678?webType=" + webType +"&parentUserId=" + userId + "&time=" + timestamp);
 //        // TODO 0907
 //            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "?webType=" + webType +"&parentUserId=" + userId);
             shareQrCodeList.add(respVO);
