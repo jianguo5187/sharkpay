@@ -46,10 +46,10 @@ public class GameTaskServiceImpl implements IGameTaskService {
         betkjService.saveThreeBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
     }
 
-    @Override
-    public void saveThreeBallInfoFromSystem(SysGame gameInfo) {
-        betkjService.saveThreeBallInfoFromSystem(gameInfo);
-    }
+//    @Override
+//    public void saveThreeBallInfoFromSystem(SysGame gameInfo) {
+//        betkjService.saveThreeBallInfoFromSystem(gameInfo);
+//    }
 
     @Override
     public void saveFiveBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
@@ -57,10 +57,10 @@ public class GameTaskServiceImpl implements IGameTaskService {
         betkjService.saveFiveBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
     }
 
-    @Override
-    public void saveFiveBallInfoFromSystem(SysGame gameInfo) {
-        betkjService.saveFiveBallInfoFromSystem(gameInfo);
-    }
+//    @Override
+//    public void saveFiveBallInfoFromSystem(SysGame gameInfo) {
+//        betkjService.saveFiveBallInfoFromSystem(gameInfo);
+//    }
 
     @Override
     public void saveTenBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
@@ -68,10 +68,10 @@ public class GameTaskServiceImpl implements IGameTaskService {
         betkjService.saveTenBallInfoFromOfficial(gameCode,openDataList,gameOpenDataDtoMap);
     }
 
-    @Override
-    public void saveTenBallInfoFromSystem(SysGame gameInfo) {
-        betkjService.saveTenBallInfoFromSystem(gameInfo);
-    }
+//    @Override
+//    public void saveTenBallInfoFromSystem(SysGame gameInfo) {
+//        betkjService.saveTenBallInfoFromSystem(gameInfo);
+//    }
 
     @Override
     public void openThreeBallSystemExpectData(SysGame gameInfo) {

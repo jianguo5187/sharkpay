@@ -91,6 +91,9 @@ public class BetkjServiceImpl implements IBetkjService
     @Autowired
     private ISysGameService gameService;
 
+    @Autowired
+    private IGameSystemOpenDataService gameSystemOpenDataService;
+
 
     // 获取官方开奖结果的URL
     @Value("${autoGame.url}")
@@ -669,12 +672,15 @@ public class BetkjServiceImpl implements IBetkjService
         GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectLastRecord(gameInfo.getGameId());
         Date beforeOpenDataTime = null;
         if(threeballOpenData == null) {
+            //从开奖表获取
+            GameSystemOpenData gameSystemOpenData = gameSystemOpenDataService.selectLastRecordByGameSystemMark(gameInfo.getGameOpenCode());
+
             //初始没数据
             threeballOpenData = new GameThreeballOpenData();
-            threeballOpenData.setPeriods(3526718l);
+            threeballOpenData.setPeriods(gameSystemOpenData.getPeriods());
             threeballOpenData.setGameId(gameInfo.getGameId());
             threeballOpenData.setGameName(gameInfo.getGameName());
-            List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+            List<String> openCode = Arrays.asList(gameSystemOpenData.getOpenCode().split(","));
             threeballOpenData.setSum1(Integer.parseInt(openCode.get(0)));
             threeballOpenData.setSum2(Integer.parseInt(openCode.get(1)));
             threeballOpenData.setSum3(Integer.parseInt(openCode.get(2)));
@@ -719,7 +725,11 @@ public class BetkjServiceImpl implements IBetkjService
             Long newPeriods = threeballOpenData.getPeriods() + i;
 
             GameThreeballOpenData preThreeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), newPeriods,null);
+
             if(preThreeballOpenData == null){
+
+                GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(gameInfo.getGameOpenCode(), newPeriods,null);
+
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(beforeOpenDataTime);
                 //预计开奖时间
@@ -730,24 +740,42 @@ public class BetkjServiceImpl implements IBetkjService
                     break;
                 }
 
+                if(systemOpenData == null){
+
+                    systemOpenData = new GameSystemOpenData();
+                    systemOpenData.setPeriods(newPeriods);
+                    systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+                    List<String> openCodeList = sysAppService.getOpenData(gameInfo.getGameType());
+                    String openCode = openCodeList.stream().collect(Collectors.joining(","));
+                    systemOpenData.setPreOpenCode(openCode);
+                    systemOpenData.setStatus("1");
+
+                    if(currentTime.after(calendar.getTime())){
+                        systemOpenData.setPreTime(new Date());
+                    }else{
+                        systemOpenData.setPreTime(calendar.getTime());
+                    }
+                    systemOpenData.setCreateBy("TASK");
+                    gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+                }
+
                 preThreeballOpenData = new GameThreeballOpenData();
 
                 preThreeballOpenData.setPeriods(newPeriods);
                 preThreeballOpenData.setGameId(gameInfo.getGameId());
                 preThreeballOpenData.setGameName(gameInfo.getGameName());
-                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+
+                List<String> openCode = Arrays.asList(systemOpenData.getPreOpenCode().split(","));
                 preThreeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
                 preThreeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
                 preThreeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
                 preThreeballOpenData.setStatus("1");
+                preThreeballOpenData.setPreTime(systemOpenData.getPreTime());
+                preThreeballOpenData.setCreateBy("TASK");
 
                 if(currentTime.after(calendar.getTime())){
                     beforeOpenDataTime = new Date();
-                    preThreeballOpenData.setPreTime(new Date());
-                }else{
-                    preThreeballOpenData.setPreTime(calendar.getTime());
                 }
-                preThreeballOpenData.setCreateBy("TASK");
 
                 gameThreeballOpenDataService.insertGameThreeballOpenData(preThreeballOpenData);
             }
@@ -1175,8 +1203,40 @@ public class BetkjServiceImpl implements IBetkjService
     @Override
     public void openThreeBallSystemExpectData(SysGame gameInfo) {
 
+        Long maxPeriods = gameSystemOpenDataService.selectMaxPeriodsByGameSystemMark(gameInfo.getGameOpenCode());
+        boolean insertFlg = false;
+        boolean initSystemOpenDataFlg = false;
+        if(maxPeriods == null || maxPeriods == 0){
+            insertFlg = true;
+        }
+        if(!insertFlg){
+            GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(gameInfo.getGameOpenCode(), maxPeriods,null);
+            if(systemOpenData == null){
+                insertFlg = true;
+                initSystemOpenDataFlg = true;
+            }else if(maxPeriods.compareTo(systemOpenData.getPeriods()) > 0){
+                initSystemOpenDataFlg = true;
+            }
+        }
+
+        if(insertFlg && !initSystemOpenDataFlg){
+            List<String> openCodeList = sysAppService.getOpenData(gameInfo.getGameType());
+            String openCode = openCodeList.stream().collect(Collectors.joining(","));
+
+            GameSystemOpenData systemOpenData = new GameSystemOpenData();
+            //初始没数据
+            systemOpenData.setPeriods(maxPeriods);
+            systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+            systemOpenData.setOpenCode(openCode);
+            systemOpenData.setPreOpenCode(openCode);
+            systemOpenData.setOpenTime(new Date());
+            systemOpenData.setPreTime(new Date());
+            systemOpenData.setStatus("0");
+            systemOpenData.setCreateBy("TASK");
+            gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+        }
+
         List<GameThreeballOpenData> preThreeballOpenData = gameThreeballOpenDataService.selectThreeballPreOpenData();
-        boolean nextOpenFlg = false;
         for(GameThreeballOpenData gameThreeballOpenData : preThreeballOpenData){
             gameThreeballOpenData.setStatus("0");
             gameThreeballOpenData.setSum1(gameThreeballOpenData.getPreSum1());
@@ -1189,18 +1249,49 @@ public class BetkjServiceImpl implements IBetkjService
             calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);//实际开奖时间要大于等于预时间
             gameThreeballOpenData.setTime(calendar.getTime());
             gameThreeballOpenDataService.updateGameThreeballOpenData(gameThreeballOpenData);
-            nextOpenFlg = true;
+
+            GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(gameInfo.getGameOpenCode(), gameThreeballOpenData.getPeriods(),null);
+            if(systemOpenData == null){
+                // 补已开奖数据
+                systemOpenData = new GameSystemOpenData();
+                systemOpenData.setPeriods(gameThreeballOpenData.getPeriods());
+                systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+                systemOpenData.setOpenCode(gameThreeballOpenData.getSum1() + "," + gameThreeballOpenData.getSum2() + "," + gameThreeballOpenData.getSum3());
+                systemOpenData.setPreOpenCode(gameThreeballOpenData.getPreSum1() + "," + gameThreeballOpenData.getPreSum2() + "," + gameThreeballOpenData.getPreSum3());
+                systemOpenData.setOpenTime(gameThreeballOpenData.getTime());
+                systemOpenData.setPreTime(gameThreeballOpenData.getPreTime());
+                systemOpenData.setStatus("0");
+                systemOpenData.setCreateBy("TASK");
+                gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+            }else{
+                systemOpenData.setOpenCode(gameThreeballOpenData.getSum1() + "," + gameThreeballOpenData.getSum2() + "," + gameThreeballOpenData.getSum3());
+                systemOpenData.setOpenTime(gameThreeballOpenData.getTime());
+                systemOpenData.setStatus("0");
+                systemOpenData.setCreateBy("TASK");
+                gameSystemOpenDataService.updateGameSystemOpenData(systemOpenData);
+            }
+//            if(initSystemOpenDataFlg){
+//                // 补已开奖数据
+//                GameSystemOpenData systemOpenData = new GameSystemOpenData();
+//                systemOpenData.setPeriods(gameThreeballOpenData.getPeriods());
+//                systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+//                systemOpenData.setOpenCode(gameThreeballOpenData.getSum1() + "," + gameThreeballOpenData.getSum2() + "," + gameThreeballOpenData.getSum3());
+//                systemOpenData.setPreOpenCode(gameThreeballOpenData.getPreSum1() + "," + gameThreeballOpenData.getPreSum2() + "," + gameThreeballOpenData.getPreSum3());
+//                systemOpenData.setOpenTime(gameThreeballOpenData.getTime());
+//                systemOpenData.setPreTime(gameThreeballOpenData.getPreTime());
+//                systemOpenData.setStatus("0");
+//                systemOpenData.setCreateBy("TASK");
+//                gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+//            }
         }
-        if(nextOpenFlg){
-            saveThreeBallInfoFromSystem(gameInfo);
-        }
+
+        saveThreeBallInfoFromSystem(gameInfo);
     }
 
     @Override
     public void openFiveBallSystemExpectData(SysGame gameInfo) {
 
         List<GameFiveballOpenData> preFiveballOpenData = gameFiveballOpenDataService.selectFiveballPreOpenData();
-        boolean nextOpenFlg = false;
         for(GameFiveballOpenData gameFiveballOpenData : preFiveballOpenData){
             gameFiveballOpenData.setStatus("0");
             gameFiveballOpenData.setNum1(gameFiveballOpenData.getPreNum1());
@@ -1215,18 +1306,14 @@ public class BetkjServiceImpl implements IBetkjService
             calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);//实际开奖时间要大于等于预时间
             gameFiveballOpenData.setTime(calendar.getTime());
             gameFiveballOpenDataService.updateGameFiveballOpenData(gameFiveballOpenData);
-            nextOpenFlg = true;
         }
-        if(nextOpenFlg){
-            saveFiveBallInfoFromSystem(gameInfo);
-        }
+        saveFiveBallInfoFromSystem(gameInfo);
     }
 
     @Override
     public void openTenBallSystemExpectData(SysGame gameInfo) {
 
         List<GameTenballOpenData> preTenballOpenData = gameTenballOpenDataService.selectTenballPreOpenData();
-        boolean nextOpenFlg = false;
         for(GameTenballOpenData gameTenballOpenData : preTenballOpenData){
             gameTenballOpenData.setStatus("0");
             gameTenballOpenData.setNum1(gameTenballOpenData.getPreNum1());
@@ -1246,11 +1333,8 @@ public class BetkjServiceImpl implements IBetkjService
             calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);//实际开奖时间要大于等于预时间
             gameTenballOpenData.setTime(calendar.getTime());
             gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
-            nextOpenFlg = true;
         }
-        if(nextOpenFlg){
-            saveTenBallInfoFromSystem(gameInfo);
-        }
+        saveTenBallInfoFromSystem(gameInfo);
     }
 
     // 大1 小0 [小,大]
@@ -2177,15 +2261,30 @@ public class BetkjServiceImpl implements IBetkjService
                 throw new ServiceException("无法操作已经开奖的数据！");
             }
 
-            GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(vo.getGameId(), vo.getPeriods(), null);
-            if(threeballOpenData == null){
+            GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(vo.getGameOpenCode(), vo.getPeriods(),null);
+            if(systemOpenData == null){
                 throw new ServiceException("该期开奖记录被删除，请联系管理员！");
             }
+
             List<String> openCode = sysAppService.getOpenData(vo.getGameType());
-            threeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
-            threeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
-            threeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
-            row = gameThreeballOpenDataService.updateGameThreeballOpenData(threeballOpenData);
+            systemOpenData.setPreOpenCode(openCode.stream().collect(Collectors.joining(",")));
+            row = gameSystemOpenDataService.updateGameSystemOpenData(systemOpenData);
+
+            SysGame sysGame = new SysGame();
+            sysGame.setStatus("0"); //有效
+            sysGame.setSystemOpenType("Y"); //本系统开奖
+            sysGame.setGameType(vo.getGameType()); // 类型
+            sysGame.setGameOpenCode(vo.getGameOpenCode()); //开奖识别码
+
+            List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+            for(SysGame gameInfo : gameList){
+                GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), vo.getPeriods(), null);
+                threeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
+                threeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
+                threeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
+                gameThreeballOpenDataService.updateGameThreeballOpenData(threeballOpenData);
+            }
+
         }else if(StringUtils.equals(vo.getGameType(),"5")){
             GameFiveballKj fiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(vo.getGameId(), vo.getPeriods());
             if(fiveballKj == null){
@@ -2260,14 +2359,29 @@ public class BetkjServiceImpl implements IBetkjService
                 throw new ServiceException("无法操作已经开奖的数据！");
             }
 
-            GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(vo.getGameId(), vo.getPeriods(), null);
-            if(threeballOpenData == null){
+            GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(vo.getGameOpenCode(), vo.getPeriods(),null);
+            if(systemOpenData == null){
                 throw new ServiceException("该期开奖记录被删除，请联系管理员！");
             }
-            threeballOpenData.setPreSum1(Integer.parseInt(newOpenCodeArg[0]));
-            threeballOpenData.setPreSum2(Integer.parseInt(newOpenCodeArg[1]));
-            threeballOpenData.setPreSum3(Integer.parseInt(newOpenCodeArg[2]));
-            row = gameThreeballOpenDataService.updateGameThreeballOpenData(threeballOpenData);
+
+            systemOpenData.setPreOpenCode(vo.getNewOpenCode());
+            row = gameSystemOpenDataService.updateGameSystemOpenData(systemOpenData);
+
+            SysGame sysGame = new SysGame();
+            sysGame.setStatus("0"); //有效
+            sysGame.setSystemOpenType("Y"); //本系统开奖
+            sysGame.setGameType(vo.getGameType()); // 类型
+            sysGame.setGameOpenCode(vo.getGameOpenCode()); //开奖识别码
+            List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+            for(SysGame gameInfo : gameList){
+
+                GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), vo.getPeriods(), null);
+                threeballOpenData.setPreSum1(Integer.parseInt(newOpenCodeArg[0]));
+                threeballOpenData.setPreSum2(Integer.parseInt(newOpenCodeArg[1]));
+                threeballOpenData.setPreSum3(Integer.parseInt(newOpenCodeArg[2]));
+                gameThreeballOpenDataService.updateGameThreeballOpenData(threeballOpenData);
+            }
+
         }else if(StringUtils.equals(vo.getGameType(),"5")){
             if(newOpenCodeArg.length != 5){
                 throw new ServiceException("开奖号码个数不正确。");
@@ -2353,17 +2467,34 @@ public class BetkjServiceImpl implements IBetkjService
                 throw new ServiceException("无法操作已经开奖的数据！");
             }
 
-            GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(vo.getGameId(), vo.getPeriods(), null);
-            if(threeballOpenData == null){
+            GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(vo.getGameOpenCode(), vo.getPeriods(),null);
+            if(systemOpenData == null){
                 throw new ServiceException("该期开奖记录被删除，请联系管理员！");
             }
 
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(threeballOpenData.getPreTime());
+            calendar.setTime(systemOpenData.getPreTime());
             //预计开奖时间
             calendar.add(Calendar.SECOND, vo.getSleepSeconds());
-            threeballOpenData.setPreTime(calendar.getTime());
-            row = gameThreeballOpenDataService.updateGameThreeballOpenData(threeballOpenData);
+
+            systemOpenData.setPreTime(calendar.getTime());
+            row = gameSystemOpenDataService.updateGameSystemOpenData(systemOpenData);
+
+            SysGame sysGame = new SysGame();
+            sysGame.setStatus("0"); //有效
+            sysGame.setSystemOpenType("Y"); //本系统开奖
+            sysGame.setGameType(vo.getGameType()); // 类型
+            sysGame.setGameOpenCode(vo.getGameOpenCode()); //开奖识别码
+            List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+            for(SysGame gameInfo : gameList){
+
+                GameThreeballOpenData threeballOpenData = gameThreeballOpenDataService.selectGameThreeballOpenDataByPeriods(gameInfo.getGameId(), vo.getPeriods(), null);
+//            if(threeballOpenData == null){
+//                throw new ServiceException("该期开奖记录被删除，请联系管理员！");
+//            }
+                threeballOpenData.setPreTime(calendar.getTime());
+                gameThreeballOpenDataService.updateGameThreeballOpenData(threeballOpenData);
+            }
         }else if(StringUtils.equals(vo.getGameType(),"5")){
             GameFiveballKj fiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(vo.getGameId(), vo.getPeriods());
             if(fiveballKj == null){

@@ -12,19 +12,19 @@ public interface IGameTaskService {
     public void saveThreeBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long , GameOpenDataDto> gameOpenDataDtoMap);
 
     // 定时保存3球的系统开奖结果
-    public void saveThreeBallInfoFromSystem(SysGame gameInfo);
+//    public void saveThreeBallInfoFromSystem(SysGame gameInfo);
 
     // 定时保存5球的官方开奖结果
     public void saveFiveBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long , GameOpenDataDto> gameOpenDataDtoMap);
 
     // 定时保存5球的系统开奖结果
-    public void saveFiveBallInfoFromSystem(SysGame gameInfo);
+//    public void saveFiveBallInfoFromSystem(SysGame gameInfo);
 
     // 定时保存10球的官方开奖结果
     public void saveTenBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long , GameOpenDataDto> gameOpenDataDtoMap);
 
     // 定时保存10球的系统开奖结果
-    public void saveTenBallInfoFromSystem(SysGame gameInfo);
+//    public void saveTenBallInfoFromSystem(SysGame gameInfo);
 
     public void openThreeBallSystemExpectData(SysGame gameInfo);
 

@@ -265,7 +265,7 @@ public class SysGameServiceImpl implements ISysGameService
             }
 
             //重新获取一次未开奖数据
-            betkjService.saveThreeBallInfoFromSystem(sysGame);
+            betkjService.openThreeBallSystemExpectData(sysGame);
             threeBallLotteryService.createThreeData(sysGame);
 
         }
@@ -335,7 +335,7 @@ public class SysGameServiceImpl implements ISysGameService
             }
 
             //重新获取一次未开奖数据
-            betkjService.saveFiveBallInfoFromSystem(sysGame);
+            betkjService.openFiveBallSystemExpectData(sysGame);
             fiveBallLotteryService.createFiveBallData(sysGame);
 
         }
@@ -406,7 +406,7 @@ public class SysGameServiceImpl implements ISysGameService
             }
 
             //重新获取一次未开奖数据
-            betkjService.saveTenBallInfoFromSystem(sysGame);
+            betkjService.openTenBallSystemExpectData(sysGame);
             tenBallLotteryService.createTenballData(sysGame);
         }
     }

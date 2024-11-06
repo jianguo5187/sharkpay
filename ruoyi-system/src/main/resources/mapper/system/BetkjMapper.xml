@@ -15,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="winMoney"    column="win_money"    />
         <result property="gameType"    column="game_type"    />
         <result property="systemOpenType"    column="system_open_type"    />
+        <result property="gameOpenCode"    column="game_open_code"    />
     </resultMap>
 
     <resultMap type="com.ruoyi.system.domain.vo.GameListRespVO" id="GameListResult">
@@ -65,6 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,g.game_name as game_name
             ,g.game_type as game_type
             ,g.system_open_type as system_open_type
+            ,g.game_open_code as game_open_code
         from ${betkjTableName} kj
         inner join sys_game g on g.game_id = kj.game_id
         left join ${openCodeTableName} c on c.game_id = kj.game_id and c.periods = kj.periods

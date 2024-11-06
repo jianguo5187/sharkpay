@@ -66,7 +66,7 @@ public class RyTask
 //        System.out.println("游戏类型: " + gameType);
         SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
-//        sysGame.setSystemOpenType("N"); //官方开奖
+        sysGame.setSystemOpenType("N"); //官方开奖
         sysGame.setGameType(gameType);
 
         SimpleDateFormat sd = new SimpleDateFormat("HHmm");
@@ -119,18 +119,18 @@ public class RyTask
                         gameTaskService.saveFiveBallInfoFromOfficial(gameInfo.getGameMarkId(),openDataList,gameOpenDataDtoMap);
                     }
                 }
-            }else{
-                //系统开奖
-                if(StringUtils.equals("10",gameType)){
-                    // 10球
-                    gameTaskService.saveTenBallInfoFromSystem(gameInfo);
-                }else if(StringUtils.equals("3",gameType)){
-                    // 3球
-                    gameTaskService.saveThreeBallInfoFromSystem(gameInfo);
-                }else if(StringUtils.equals("5",gameType)){
-                    // 5球
-                    gameTaskService.saveFiveBallInfoFromSystem(gameInfo);
-                }
+//            }else{
+//                //系统开奖
+//                if(StringUtils.equals("10",gameType)){
+//                    // 10球
+//                    gameTaskService.saveTenBallInfoFromSystem(gameInfo);
+//                }else if(StringUtils.equals("3",gameType)){
+//                    // 3球
+//                    gameTaskService.saveThreeBallInfoFromSystem(gameInfo);
+//                }else if(StringUtils.equals("5",gameType)){
+//                    // 5球
+//                    gameTaskService.saveFiveBallInfoFromSystem(gameInfo);
+//                }
             }
         }
     }

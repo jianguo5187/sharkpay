@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.GameSystemOpenDataMapper">
+    
+    <resultMap type="GameSystemOpenData" id="GameSystemOpenDataResult">
+        <result property="id"    column="id"    />
+        <result property="periods"    column="periods"    />
+        <result property="gameSystemMark"    column="game_system_mark"    />
+        <result property="openTime"    column="open_time"    />
+        <result property="openCode"    column="open_code"    />
+        <result property="preTime"    column="pre_time"    />
+        <result property="preOpenCode"    column="pre_open_code"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectGameSystemOpenDataVo">
+        select id, periods, game_system_mark, open_time, open_code, pre_time, pre_open_code, status, create_by, create_time, update_by, update_time, remark from game_system_open_data
+    </sql>
+
+    <select id="selectGameSystemOpenDataList" parameterType="GameSystemOpenData" resultMap="GameSystemOpenDataResult">
+        <include refid="selectGameSystemOpenDataVo"/>
+        <where>  
+            <if test="periods != null "> and periods = #{periods}</if>
+            <if test="gameSystemMark != null  and gameSystemMark != ''"> and game_system_mark = #{gameSystemMark}</if>
+            <if test="openTime != null "> and open_time = #{openTime}</if>
+            <if test="openCode != null  and openCode != ''"> and open_code = #{openCode}</if>
+            <if test="preTime != null "> and pre_time = #{preTime}</if>
+            <if test="preOpenCode != null  and preOpenCode != ''"> and pre_open_code = #{preOpenCode}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectGameSystemOpenDataById" parameterType="Long" resultMap="GameSystemOpenDataResult">
+        <include refid="selectGameSystemOpenDataVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGameSystemOpenData" parameterType="GameSystemOpenData" useGeneratedKeys="true" keyProperty="id">
+        insert into game_system_open_data(
+            <if test="periods != null">periods,</if>
+            <if test="gameSystemMark != null">game_system_mark,</if>
+            <if test="openTime != null">open_time,</if>
+            <if test="openCode != null">open_code,</if>
+            <if test="preTime != null">pre_time,</if>
+            <if test="preOpenCode != null">pre_open_code,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+            create_time
+        )values(
+            <if test="periods != null">#{periods},</if>
+            <if test="gameSystemMark != null">#{gameSystemMark},</if>
+            <if test="openTime != null">#{openTime},</if>
+            <if test="openCode != null">#{openCode},</if>
+            <if test="preTime != null">#{preTime},</if>
+            <if test="preOpenCode != null">#{preOpenCode},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateGameSystemOpenData" parameterType="GameSystemOpenData">
+        update game_system_open_data
+        <set>
+            <if test="periods != null">periods = #{periods},</if>
+            <if test="gameSystemMark != null">game_system_mark = #{gameSystemMark},</if>
+            <if test="openTime != null">open_time = #{openTime},</if>
+            <if test="openCode != null">open_code = #{openCode},</if>
+            <if test="preTime != null">pre_time = #{preTime},</if>
+            <if test="preOpenCode != null">pre_open_code = #{preOpenCode},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGameSystemOpenDataById" parameterType="Long">
+        delete from game_system_open_data where id = #{id}
+    </delete>
+
+    <delete id="deleteGameSystemOpenDataByIds" parameterType="String">
+        delete from game_system_open_data where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <select id="selectMaxPeriodsByGameSystemMark" resultType="Long">
+        SELECT
+            MAX( main.periods ) AS periods
+        FROM
+            (
+                SELECT
+                    max( openData.periods ) AS periods
+                FROM
+                    game_system_open_data openData
+                WHERE
+                    openData.game_system_mark = #{gameSystemMark}
+                UNION ALL
+                SELECT
+                    max( od.periods ) AS periods
+                FROM
+                    sys_game game
+                INNER JOIN game_threeball_open_data od ON game.game_id = od.game_id
+                WHERE
+                    game.game_open_code = #{gameSystemMark}
+                  AND game.status = '0'
+            ) main
+    </select>
+
+    <select id="selectLastRecordByGameSystemMark" resultMap="GameSystemOpenDataResult">
+        <include refid="selectGameSystemOpenDataVo"/>
+        where status = '0'
+        and game_system_mark = #{gameSystemMark}
+        order by id desc
+        limit 1
+    </select>
+
+    <select id="selectGamelOpenDataByGameSystemMarkAndPeriods" resultMap="GameSystemOpenDataResult">
+        <include refid="selectGameSystemOpenDataVo"/>
+        where 1 = 1
+        and game_system_mark = #{gameSystemMark}
+        <if test="status != null and status != '' "> and status = #{status}</if>
+        <if test="periods != null "> and periods = #{periods}</if>
+        order by id desc
+        limit 1
+    </select>
+
+    <select id="selectNotOpenSystemOpenDataByGameSystemMark" resultMap="GameSystemOpenDataResult">
+        <include refid="selectGameSystemOpenDataVo"/>
+        where status = '1'
+        AND date_format(pre_time, '%Y-%m-%d %H:%i:%s.%f') &lt;= date_format(NOW(), '%Y-%m-%d %H:%i:%s.%f')
+        order by id asc
+    </select>
+</mapper>

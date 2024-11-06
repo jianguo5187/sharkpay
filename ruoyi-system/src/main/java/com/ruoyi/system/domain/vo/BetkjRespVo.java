@@ -38,6 +38,9 @@ public class BetkjRespVo {
     /** 是否系统开奖区分(N否 Y是) */
     private String systemOpenType;
 
+    /** 游戏开奖code */
+    private String gameOpenCode;
+
     public Long getGameId() {
         return gameId;
     }
@@ -116,5 +119,13 @@ public class BetkjRespVo {
 
     public void setSystemOpenType(String systemOpenType) {
         this.systemOpenType = systemOpenType;
+    }
+
+    public String getGameOpenCode() {
+        return gameOpenCode;
+    }
+
+    public void setGameOpenCode(String gameOpenCode) {
+        this.gameOpenCode = gameOpenCode;
     }
 }

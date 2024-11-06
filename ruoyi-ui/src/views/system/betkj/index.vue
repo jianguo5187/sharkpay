@@ -233,9 +233,10 @@ export default {
       const gameId = row.gameId;
       const gameType = row.gameType;
       const periods = row.periods;
+      const gameOpenCode = row.gameOpenCode;
       this.$modal.confirm('确定重新生成一组数据').then(function() {
         console.log('handleReOpenCode');
-        return reOpen({gameId:gameId,gameType:gameType,periods:periods});
+        return reOpen({gameId:gameId,gameType:gameType,periods:periods,gameOpenCode:gameOpenCode});
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("重开奖成功");
@@ -246,13 +247,14 @@ export default {
       const gameId = row.gameId;
       const gameType = row.gameType;
       const periods = row.periods;
+      const gameOpenCode = row.gameOpenCode;
 
       this.$prompt('请输入开奖数据，号码之间用逗号隔开', "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         closeOnClickModal: false,
       }).then(({ value }) => {
-        editOpenCode({gameId:gameId,gameType:gameType,periods:periods,newOpenCode:value}).then(response => {
+        editOpenCode({gameId:gameId,gameType:gameType,periods:periods,newOpenCode:value,gameOpenCode:gameOpenCode}).then(response => {
           this.getList();
           this.$modal.msgSuccess("修改成功");
         });
@@ -264,6 +266,7 @@ export default {
       const gameId = row.gameId;
       const gameType = row.gameType;
       const periods = row.periods;
+      const gameOpenCode = row.gameOpenCode;
 
       this.$prompt('请输入延迟开奖秒数', "提示", {
         confirmButtonText: "确定",
@@ -272,7 +275,7 @@ export default {
         inputPattern: /^[1-9]*[1-9][0-9]*$/,
         inputErrorMessage: "请输入数字",
       }).then(({ value }) => {
-        sleepOpenCode({gameId:gameId,gameType:gameType,periods:periods,sleepSeconds:value}).then(response => {
+        sleepOpenCode({gameId:gameId,gameType:gameType,periods:periods,sleepSeconds:value,gameOpenCode:gameOpenCode}).then(response => {
           this.getList();
           this.$modal.msgSuccess("修改成功");
         });

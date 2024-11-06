@@ -16,6 +16,9 @@ public class EditSystemBetCodeReqVO {
     /** 延迟秒数 */
     private Integer sleepSeconds;
 
+    /** 游戏开奖code */
+    private String gameOpenCode;
+
     public Long getGameId() {
         return gameId;
     }
@@ -54,5 +57,13 @@ public class EditSystemBetCodeReqVO {
 
     public void setSleepSeconds(Integer sleepSeconds) {
         this.sleepSeconds = sleepSeconds;
+    }
+
+    public String getGameOpenCode() {
+        return gameOpenCode;
+    }
+
+    public void setGameOpenCode(String gameOpenCode) {
+        this.gameOpenCode = gameOpenCode;
     }
 }

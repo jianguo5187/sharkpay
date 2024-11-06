@@ -861,20 +861,20 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 if(StringUtils.isNotEmpty(systemGameWinRate)){
                     gameWinRate = Float.valueOf(systemGameWinRate);
                 }
-                if(winRate.compareTo(0f) <= 0 || winRate.compareTo(gameWinRate) <= 0){
-                    //重开奖
-                    List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
-                    gameThreeballOpenData.setSum1(Integer.parseInt(openCode.get(0)));
-                    gameThreeballOpenData.setSum2(Integer.parseInt(openCode.get(1)));
-                    gameThreeballOpenData.setSum3(Integer.parseInt(openCode.get(2)));
-                    gameThreeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
-                    gameThreeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
-                    gameThreeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
-                    gameThreeballOpenData.setUpdateBy("PREOPEN");
-                    gameThreeballOpenDataService.updateGameThreeballOpenData(gameThreeballOpenData);
-
-                    gameThreeballKj = setGameThreeballKj(gameThreeballKj,gameThreeballOpenData);
-                }
+//                if(winRate.compareTo(0f) <= 0 || winRate.compareTo(gameWinRate) <= 0){
+//                    //重开奖
+//                    List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+//                    gameThreeballOpenData.setSum1(Integer.parseInt(openCode.get(0)));
+//                    gameThreeballOpenData.setSum2(Integer.parseInt(openCode.get(1)));
+//                    gameThreeballOpenData.setSum3(Integer.parseInt(openCode.get(2)));
+//                    gameThreeballOpenData.setPreSum1(Integer.parseInt(openCode.get(0)));
+//                    gameThreeballOpenData.setPreSum2(Integer.parseInt(openCode.get(1)));
+//                    gameThreeballOpenData.setPreSum3(Integer.parseInt(openCode.get(2)));
+//                    gameThreeballOpenData.setUpdateBy("PREOPEN");
+//                    gameThreeballOpenDataService.updateGameThreeballOpenData(gameThreeballOpenData);
+//
+//                    gameThreeballKj = setGameThreeballKj(gameThreeballKj,gameThreeballOpenData);
+//                }
             }
         }
 
