@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.ImUserMapper">
+    
+    <resultMap type="ImUser" id="ImUserResult">
+        <result property="id"    column="id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="headImage"    column="head_image"    />
+        <result property="headImageThumb"    column="head_image_thumb"    />
+        <result property="password"    column="password"    />
+        <result property="sex"    column="sex"    />
+        <result property="type"    column="type"    />
+        <result property="signature"    column="signature"    />
+        <result property="lastLoginTime"    column="last_login_time"    />
+        <result property="createdTime"    column="created_time"    />
+        <result property="thirdUserId"    column="third_user_id"    />
+        <result property="remarkName"    column="remark_name"    />
+        <result property="userIp"    column="user_ip"    />
+        <result property="userIpAddress"    column="user_ip_address"    />
+    </resultMap>
+
+    <sql id="selectImUserVo">
+        select id, user_name, nick_name, head_image, head_image_thumb, password, sex, type, signature, last_login_time, created_time, third_user_id, remark_name, user_ip, user_ip_address from im_user
+    </sql>
+
+    <select id="selectImUserList" parameterType="ImUser" resultMap="ImUserResult">
+        <include refid="selectImUserVo"/>
+        <where>  
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="nickName != null  and nickName != ''"> and nick_name like concat('%', #{nickName}, '%')</if>
+            <if test="headImage != null  and headImage != ''"> and head_image = #{headImage}</if>
+            <if test="headImageThumb != null  and headImageThumb != ''"> and head_image_thumb = #{headImageThumb}</if>
+            <if test="password != null  and password != ''"> and password = #{password}</if>
+            <if test="sex != null "> and sex = #{sex}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="signature != null  and signature != ''"> and signature = #{signature}</if>
+            <if test="lastLoginTime != null "> and last_login_time = #{lastLoginTime}</if>
+            <if test="createdTime != null "> and created_time = #{createdTime}</if>
+            <if test="thirdUserId != null  and thirdUserId != ''"> and third_user_id = #{thirdUserId}</if>
+            <if test="remarkName != null  and remarkName != ''"> and remark_name like concat('%', #{remarkName}, '%')</if>
+            <if test="userIp != null  and userIp != ''"> and user_ip = #{userIp}</if>
+            <if test="userIpAddress != null  and userIpAddress != ''"> and user_ip_address = #{userIpAddress}</if>
+        </where>
+    </select>
+    
+    <select id="selectImUserById" parameterType="Long" resultMap="ImUserResult">
+        <include refid="selectImUserVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertImUser" parameterType="ImUser" useGeneratedKeys="true" keyProperty="id">
+        insert into im_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null and userName != ''">user_name,</if>
+            <if test="nickName != null">nick_name,</if>
+            <if test="headImage != null">head_image,</if>
+            <if test="headImageThumb != null">head_image_thumb,</if>
+            <if test="password != null and password != ''">password,</if>
+            <if test="sex != null">sex,</if>
+            <if test="type != null">type,</if>
+            <if test="signature != null">signature,</if>
+            <if test="lastLoginTime != null">last_login_time,</if>
+            <if test="createdTime != null">created_time,</if>
+            <if test="thirdUserId != null">third_user_id,</if>
+            <if test="remarkName != null">remark_name,</if>
+            <if test="userIp != null">user_ip,</if>
+            <if test="userIpAddress != null">user_ip_address,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userName != null and userName != ''">#{userName},</if>
+            <if test="nickName != null">#{nickName},</if>
+            <if test="headImage != null">#{headImage},</if>
+            <if test="headImageThumb != null">#{headImageThumb},</if>
+            <if test="password != null and password != ''">#{password},</if>
+            <if test="sex != null">#{sex},</if>
+            <if test="type != null">#{type},</if>
+            <if test="signature != null">#{signature},</if>
+            <if test="lastLoginTime != null">#{lastLoginTime},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="thirdUserId != null">#{thirdUserId},</if>
+            <if test="remarkName != null">#{remarkName},</if>
+            <if test="userIp != null">#{userIp},</if>
+            <if test="userIpAddress != null">#{userIpAddress},</if>
+         </trim>
+    </insert>
+
+    <update id="updateImUser" parameterType="ImUser">
+        update im_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null and userName != ''">user_name = #{userName},</if>
+            <if test="nickName != null">nick_name = #{nickName},</if>
+            <if test="headImage != null">head_image = #{headImage},</if>
+            <if test="headImageThumb != null">head_image_thumb = #{headImageThumb},</if>
+            <if test="password != null and password != ''">password = #{password},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="signature != null">signature = #{signature},</if>
+            <if test="lastLoginTime != null">last_login_time = #{lastLoginTime},</if>
+            <if test="createdTime != null">created_time = #{createdTime},</if>
+            <if test="thirdUserId != null">third_user_id = #{thirdUserId},</if>
+            <if test="remarkName != null">remark_name = #{remarkName},</if>
+            <if test="userIp != null">user_ip = #{userIp},</if>
+            <if test="userIpAddress != null">user_ip_address = #{userIpAddress},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteImUserById" parameterType="Long">
+        delete from im_user where id = #{id}
+    </delete>
+
+    <delete id="deleteImUserByIds" parameterType="String">
+        delete from im_user where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectImUserByThirdUserId" resultMap="ImUserResult">
+        <include refid="selectImUserVo"/>
+        where third_user_id = #{thirdUserId}
+        limit 1
+    </select>
+</mapper>

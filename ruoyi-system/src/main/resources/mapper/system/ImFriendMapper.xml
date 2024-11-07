@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.ImFriendMapper">
+    
+    <resultMap type="ImFriend" id="ImFriendResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="friendId"    column="friend_id"    />
+        <result property="friendNickName"    column="friend_nick_name"    />
+        <result property="friendHeadImage"    column="friend_head_image"    />
+        <result property="createdTime"    column="created_time"    />
+        <result property="remarkName"    column="remark_name"    />
+    </resultMap>
+
+    <sql id="selectImFriendVo">
+        select id, user_id, friend_id, friend_nick_name, friend_head_image, created_time, remark_name from im_friend
+    </sql>
+
+    <select id="selectImFriendList" parameterType="ImFriend" resultMap="ImFriendResult">
+        <include refid="selectImFriendVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="friendId != null "> and friend_id = #{friendId}</if>
+            <if test="friendNickName != null  and friendNickName != ''"> and friend_nick_name like concat('%', #{friendNickName}, '%')</if>
+            <if test="friendHeadImage != null  and friendHeadImage != ''"> and friend_head_image = #{friendHeadImage}</if>
+            <if test="createdTime != null "> and created_time = #{createdTime}</if>
+            <if test="remarkName != null  and remarkName != ''"> and remark_name like concat('%', #{remarkName}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectImFriendById" parameterType="Long" resultMap="ImFriendResult">
+        <include refid="selectImFriendVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertImFriend" parameterType="ImFriend" useGeneratedKeys="true" keyProperty="id">
+        insert into im_friend
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="friendId != null">friend_id,</if>
+            <if test="friendNickName != null">friend_nick_name,</if>
+            <if test="friendHeadImage != null">friend_head_image,</if>
+            <if test="createdTime != null">created_time,</if>
+            <if test="remarkName != null">remark_name,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="friendId != null">#{friendId},</if>
+            <if test="friendNickName != null">#{friendNickName},</if>
+            <if test="friendHeadImage != null">#{friendHeadImage},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="remarkName != null">#{remarkName},</if>
+         </trim>
+    </insert>
+
+    <update id="updateImFriend" parameterType="ImFriend">
+        update im_friend
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="friendId != null">friend_id = #{friendId},</if>
+            <if test="friendNickName != null">friend_nick_name = #{friendNickName},</if>
+            <if test="friendHeadImage != null">friend_head_image = #{friendHeadImage},</if>
+            <if test="createdTime != null">created_time = #{createdTime},</if>
+            <if test="remarkName != null">remark_name = #{remarkName},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteImFriendById" parameterType="Long">
+        delete from im_friend where id = #{id}
+    </delete>
+
+    <delete id="deleteImFriendByIds" parameterType="String">
+        delete from im_friend where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateImFriendRemark" parameterType="ImFriend">
+        update im_friend
+        SET remark_name = #{remarkName}
+        where user_id = #{userId}
+        and friend_id = #{friendId}
+    </update>
+</mapper>

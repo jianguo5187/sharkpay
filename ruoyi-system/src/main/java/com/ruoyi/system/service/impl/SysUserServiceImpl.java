@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Validator;
 
-import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.AgentUserListRespVo;
 import com.ruoyi.system.domain.vo.LoginUserInfoRespVO;
 import com.ruoyi.system.domain.vo.ParentUserListRespVO;
@@ -31,9 +31,6 @@ import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.bean.BeanValidators;
 import com.ruoyi.common.utils.spring.SpringUtils;
-import com.ruoyi.system.domain.SysPost;
-import com.ruoyi.system.domain.SysUserPost;
-import com.ruoyi.system.domain.SysUserRole;
 import com.ruoyi.system.service.ISysConfigService;
 import com.ruoyi.system.service.ISysUserService;
 
@@ -73,6 +70,12 @@ public class SysUserServiceImpl implements ISysUserService
 
     @Autowired
     private UserwinMapper userwinMapper;
+
+    @Autowired
+    private ImUserMapper imUserMapper;
+
+    @Autowired
+    private ImFriendMapper imFriendMapper;
 
     /**
      * 根据条件分页查询用户列表
@@ -715,7 +718,19 @@ public class SysUserServiceImpl implements ISysUserService
 
     @Override
     public int updateUserRemarkName(Long userId, String remarkName) {
-        return userMapper.updateUserRemarkName(userId,remarkName);
+        int row = userMapper.updateUserRemarkName(userId,remarkName);
+        ImUser imUser = imUserMapper.selectImUserByThirdUserId("sharkUser" + userId);
+        if(imUser != null){
+            imUser.setRemarkName(remarkName);
+            imUserMapper.updateImUser(imUser);
+
+            ImFriend imFriend = new ImFriend();
+            imFriend.setUserId(1l);
+            imFriend.setFriendId(imUser.getId());
+            imFriend.setRemarkName(remarkName);
+            imFriendMapper.updateImFriendRemark(imFriend);
+        }
+        return row;
     }
 
     @Override

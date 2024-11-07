@@ -13,6 +13,9 @@ public class LoginUserInfoRespVO {
     /** 用户昵称 */
     private String nickName;
 
+    /** 用户备注名 */
+    private String remarkName;
+
     /** 用户类型（00系统用户,01平台管理员,02APP用户） */
     private String userType;
 
@@ -77,6 +80,14 @@ public class LoginUserInfoRespVO {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public String getRemarkName() {
+        return remarkName;
+    }
+
+    public void setRemarkName(String remarkName) {
+        this.remarkName = remarkName;
     }
 
     public String getUserType() {
