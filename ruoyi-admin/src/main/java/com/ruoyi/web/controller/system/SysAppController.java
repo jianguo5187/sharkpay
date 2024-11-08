@@ -531,4 +531,31 @@ public class SysAppController extends BaseController {
         sysAppService.updatGameLimitSetting(vo);
         return ajax;
     }
+
+    /**
+     * 获取用户下级列表
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getChildUserList")
+    public AjaxResult getChildUserList()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        ajax.put("childUser",userService.selectChildUserList(sessionUser.getUserId()));
+        return ajax;
+    }
+
+    /**
+     * 获取用户下级报表
+     *
+     * @return 用户信息
+     */
+    @PostMapping("getChildReportList")
+    public AjaxResult getChildReportList(@RequestBody ChildReportReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("childReportList",sysAppService.selectChildReportList(vo));
+        return ajax;
+    }
 }

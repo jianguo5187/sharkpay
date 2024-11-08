@@ -586,24 +586,24 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 if(StringUtils.isNotEmpty(systemGameWinRate)){
                     gameWinRate = Float.valueOf(systemGameWinRate);
                 }
-                if(winRate.compareTo(0f) <= 0 || winRate.compareTo(gameWinRate) <= 0){
-                    //重开奖
-                    List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
-                    gameFiveballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
-                    gameFiveballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
-                    gameFiveballOpenData.setNum3(Integer.parseInt(openCode.get(2)));
-                    gameFiveballOpenData.setNum4(Integer.parseInt(openCode.get(3)));
-                    gameFiveballOpenData.setNum5(Integer.parseInt(openCode.get(4)));
-                    gameFiveballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
-                    gameFiveballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
-                    gameFiveballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
-                    gameFiveballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
-                    gameFiveballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
-                    gameFiveballOpenData.setUpdateBy("PREOPEN");
-                    gameFiveballOpenDataService.updateGameFiveballOpenData(gameFiveballOpenData);
-
-                    gameFiveballKj = setGameFiveballKj(gameFiveballKj,gameFiveballOpenData);
-                }
+//                if(winRate.compareTo(0f) <= 0 || winRate.compareTo(gameWinRate) <= 0){
+//                    //重开奖
+//                    List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+//                    gameFiveballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
+//                    gameFiveballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
+//                    gameFiveballOpenData.setNum3(Integer.parseInt(openCode.get(2)));
+//                    gameFiveballOpenData.setNum4(Integer.parseInt(openCode.get(3)));
+//                    gameFiveballOpenData.setNum5(Integer.parseInt(openCode.get(4)));
+//                    gameFiveballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
+//                    gameFiveballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
+//                    gameFiveballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
+//                    gameFiveballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
+//                    gameFiveballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
+//                    gameFiveballOpenData.setUpdateBy("PREOPEN");
+//                    gameFiveballOpenDataService.updateGameFiveballOpenData(gameFiveballOpenData);
+//
+//                    gameFiveballKj = setGameFiveballKj(gameFiveballKj,gameFiveballOpenData);
+//                }
             }
 
         }

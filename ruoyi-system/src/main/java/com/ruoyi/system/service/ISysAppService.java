@@ -40,4 +40,6 @@ public interface ISysAppService {
     public GameLimitSettingRespVO getGameLimitSetting();
 
     public void updatGameLimitSetting(GameLimitSettingUpdateReqVO vo);
+
+    public List<ChildReportRespVO> selectChildReportList(ChildReportReqVO vo);
 }

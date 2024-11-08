@@ -104,4 +104,6 @@ public interface UserwinMapper
     public List<GameReportRespVO> selectGameReportLis(Userwin userwin);
 
     public List<CollectReportRespVO> selectCollectReportLis(Userwin userwin);
+
+    public List<ChildReportRespVO> selectChildReportList(@Param("userId") Long userId);
 }

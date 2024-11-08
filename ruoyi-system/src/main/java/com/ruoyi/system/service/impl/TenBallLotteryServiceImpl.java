@@ -481,36 +481,36 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             if(StringUtils.isNotEmpty(systemGameWinRate)){
                 gameWinRate = Float.valueOf(systemGameWinRate);
             }
-            if(betMoney >0 && winRate.compareTo(gameWinRate) < 0){
-                //重开奖
-                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
-
-                gameTenballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
-                gameTenballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
-                gameTenballOpenData.setNum3(Integer.parseInt(openCode.get(2)));
-                gameTenballOpenData.setNum4(Integer.parseInt(openCode.get(3)));
-                gameTenballOpenData.setNum5(Integer.parseInt(openCode.get(4)));
-                gameTenballOpenData.setNum6(Integer.parseInt(openCode.get(5)));
-                gameTenballOpenData.setNum7(Integer.parseInt(openCode.get(6)));
-                gameTenballOpenData.setNum8(Integer.parseInt(openCode.get(7)));
-                gameTenballOpenData.setNum9(Integer.parseInt(openCode.get(8)));
-                gameTenballOpenData.setNum10(Integer.parseInt(openCode.get(9)));
-                gameTenballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
-                gameTenballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
-                gameTenballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
-                gameTenballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
-                gameTenballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
-                gameTenballOpenData.setPreNum6(Integer.parseInt(openCode.get(5)));
-                gameTenballOpenData.setPreNum7(Integer.parseInt(openCode.get(6)));
-                gameTenballOpenData.setPreNum8(Integer.parseInt(openCode.get(7)));
-                gameTenballOpenData.setPreNum9(Integer.parseInt(openCode.get(8)));
-                gameTenballOpenData.setPreNum10(Integer.parseInt(openCode.get(9)));
-                gameTenballOpenData.setUpdateBy("PREOPEN");
-
-                gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
-
-                gameTenballKj = setGameTenballKj(gameTenballKj,gameTenballOpenData);
-            }
+//            if(betMoney >0 && winRate.compareTo(gameWinRate) < 0){
+//                //重开奖
+//                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+//
+//                gameTenballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
+//                gameTenballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
+//                gameTenballOpenData.setNum3(Integer.parseInt(openCode.get(2)));
+//                gameTenballOpenData.setNum4(Integer.parseInt(openCode.get(3)));
+//                gameTenballOpenData.setNum5(Integer.parseInt(openCode.get(4)));
+//                gameTenballOpenData.setNum6(Integer.parseInt(openCode.get(5)));
+//                gameTenballOpenData.setNum7(Integer.parseInt(openCode.get(6)));
+//                gameTenballOpenData.setNum8(Integer.parseInt(openCode.get(7)));
+//                gameTenballOpenData.setNum9(Integer.parseInt(openCode.get(8)));
+//                gameTenballOpenData.setNum10(Integer.parseInt(openCode.get(9)));
+//                gameTenballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
+//                gameTenballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
+//                gameTenballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
+//                gameTenballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
+//                gameTenballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
+//                gameTenballOpenData.setPreNum6(Integer.parseInt(openCode.get(5)));
+//                gameTenballOpenData.setPreNum7(Integer.parseInt(openCode.get(6)));
+//                gameTenballOpenData.setPreNum8(Integer.parseInt(openCode.get(7)));
+//                gameTenballOpenData.setPreNum9(Integer.parseInt(openCode.get(8)));
+//                gameTenballOpenData.setPreNum10(Integer.parseInt(openCode.get(9)));
+//                gameTenballOpenData.setUpdateBy("PREOPEN");
+//
+//                gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
+//
+//                gameTenballKj = setGameTenballKj(gameTenballKj,gameTenballOpenData);
+//            }
         }
 
         int updateInt = gameTenballKjService.updateGameTenballKj(gameTenballKj);

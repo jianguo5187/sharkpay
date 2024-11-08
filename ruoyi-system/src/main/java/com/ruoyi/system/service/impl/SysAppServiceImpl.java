@@ -854,8 +854,10 @@ public class SysAppServiceImpl implements ISysAppService {
                     if(StringUtils.isNotEmpty(domainResult)  && StringUtils.equals(domainResult,"1")){
                         checkResult = true;
                     }else{
+                        System.out.println("微信拦截状态:  " + ipCheckResultStr);
                         checkResult = false;
                         sysLandingDomain.setDelFlag("1");
+                        sysLandingDomain.setUpdateBy("task");
                         sysLandingDomainService.updateSysLandingDomain(sysLandingDomain);
 
                         sysLandingDomainService.updateMainUrlToQrServer();
@@ -1079,5 +1081,10 @@ public class SysAppServiceImpl implements ISysAppService {
             gameLimitSetting.setRemark(remark);
             dictDataService.insertDictData(gameLimitSetting);
         }
+    }
+
+    @Override
+    public List<ChildReportRespVO> selectChildReportList(ChildReportReqVO vo) {
+        return userwinMapper.selectChildReportList(vo.getUserId());
     }
 }

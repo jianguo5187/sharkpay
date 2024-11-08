@@ -157,6 +157,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="winMoneyTotal"    column="win_money_total"    />
     </resultMap>
 
+    <resultMap type="com.ruoyi.system.domain.vo.ChildReportRespVO" id="ChildReportListResult">
+        <result property="calendarDate"    column="calendar_date"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="upMoneyTotal"    column="up_money_total"    />
+        <result property="downMoneyTotal"    column="down_money_total"    />
+        <result property="cashBackMoneyTotal"    column="cash_back_money_total"    />
+        <result property="noCashBackMoneyTotal"    column="no_cash_back_money_total"    />
+        <result property="commissionMoneyTotal"    column="commission_money_total"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoneyTotal"    column="win_money_total"    />
+    </resultMap>
+
     <sql id="selectUserwinVo">
         select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, bet_money, cash_back_money, commission_money, is_delete, is_cash_back, is_commission, create_by, create_time, update_by, update_time, remark from userwin
     </sql>
@@ -1210,5 +1222,105 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </if>
         <if test="!includeTestUserFlg">and u.is_test = '0'</if>
         ORDER BY u.user_id ASC
+    </select>
+
+    <select id="selectChildReportList" resultMap="ChildReportListResult">
+        SELECT
+              DATE_FORMAT(c.calendar_date,'%Y-%m-%d') AS calendar_date
+            , IFNULL(bet_temp.bet_money_total,0) as bet_money_total
+            , IFNULL(up_temp.up_money_total,0) as up_money_total
+            , IFNULL(down_temp.down_money_total,0) as down_money_total
+            , IFNULL(cb_temp.cash_back_money_total,0) as cash_back_money_total
+            , IFNULL(no_cb_temp.no_cash_back_money_total,0) as no_cash_back_money_total
+            , IFNULL(commission_temp.commission_money_total,0) as commission_money_total
+            , IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
+            , IFNULL(bet_win_temp.bet_win_money_total,0) - IFNULL(bet_temp.bet_money_total,0) as win_money_total
+        FROM sys_calendar c
+        LEFT JOIN
+        (
+            SELECT
+                DATE_FORMAT(r.record_time,'%Y-%m-%d') as calendar_date
+                ,SUM(r.money) as bet_money_total
+            FROM `bet_record` r
+            WHERE r.is_delete = '0'
+            AND r.is_robot = '0'
+            AND r.user_id = #{userId}
+            GROUP BY DATE_FORMAT(r.record_time,'%Y-%m-%d')
+        )bet_temp ON bet_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(up.cash_time,'%Y-%m-%d') as calendar_date
+                , SUM(up.cash_money) as up_money_total
+            FROM usermoney up
+            WHERE up.type = '2'
+            AND up.is_delete = '0'
+            AND up.user_id = #{userId}
+            GROUP BY DATE_FORMAT(up.cash_time,'%Y-%m-%d')
+        )up_temp ON up_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(down.cash_time,'%Y-%m-%d') as calendar_date
+                , SUM(down.cash_money) as down_money_total
+            FROM usermoney down
+            WHERE down.type = '5'
+            AND down.is_delete = '0'
+            AND down.user_id = #{userId}
+            GROUP BY DATE_FORMAT(down.cash_time,'%Y-%m-%d')
+        )down_temp ON down_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(cb.win_time,'%Y-%m-%d') as calendar_date
+                , SUM(cb.cash_back_money) as cash_back_money_total
+            FROM userwin cb
+            WHERE cb.is_cash_back = '1'
+            AND cb.user_id = #{userId}
+            GROUP BY DATE_FORMAT(cb.win_time,'%Y-%m-%d')
+        )cb_temp ON cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
+                , SUM(ROUND((no_cb.bet_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+            FROM userwin no_cb
+            inner join sys_game g on g.game_id = no_cb.game_id
+            WHERE no_cb.is_cash_back = '0'
+            AND no_cb.user_id = #{userId}
+            GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d')
+        )no_cb_temp ON no_cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(commission.win_time,'%Y-%m-%d') as calendar_date
+                , SUM(commission.commission_money) as commission_money_total
+            FROM userwin commission
+            inner join sys_user u on u.user_id = commission.user_id and u.del_flag = '0'
+            inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
+            WHERE commission.is_commission = '1'
+            AND commission.user_id = #{userId}
+            GROUP BY DATE_FORMAT(commission.win_time,'%Y-%m-%d')
+        )commission_temp ON commission_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d') as calendar_date
+                , sum(bet_win.cash_money) as bet_win_money_total
+            FROM usermoney bet_win
+            WHERE bet_win.type = '8'
+            AND bet_win.is_delete = '0'
+            AND bet_win.user_id = #{userId}
+            GROUP BY DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d')
+        )bet_win_temp ON bet_win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+        WHERE IFNULL(bet_temp.bet_money_total,0) &lt;&gt; 0
+        OR IFNULL(up_temp.up_money_total,0) &lt;&gt; 0
+        OR IFNULL(down_temp.down_money_total,0) &lt;&gt; 0
+        OR IFNULL(cb_temp.cash_back_money_total,0) &lt;&gt; 0
+        OR IFNULL(no_cb_temp.no_cash_back_money_total,0) &lt;&gt; 0
+        OR IFNULL(commission_temp.commission_money_total,0) &lt;&gt; 0
+        OR IFNULL(bet_win_temp.bet_win_money_total,0) &lt;&gt; 0
+
+        ORDER BY c.calendar_id DESC
     </select>
 </mapper>
