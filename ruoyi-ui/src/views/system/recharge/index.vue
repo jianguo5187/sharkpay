@@ -418,9 +418,9 @@ export default {
 
 <style >
 .warning-row{
-  background: oldlace !important;
+  background: #efc2c2 !important;
 }
 .success-row{
-  background: #f0f9eb !important;
+  background: #b4f593 !important;
 }
 </style>

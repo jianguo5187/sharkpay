@@ -854,7 +854,7 @@ public class SysAppServiceImpl implements ISysAppService {
                     if(StringUtils.isNotEmpty(domainResult)  && StringUtils.equals(domainResult,"1")){
                         checkResult = true;
                     }else{
-                        System.out.println("微信拦截状态:  " + ipCheckResultStr);
+                        System.out.println("微信拦截状态【" + checkDomainUrl + "】:  " + ipCheckResultStr);
                         checkResult = false;
                         sysLandingDomain.setDelFlag("1");
                         sysLandingDomain.setUpdateBy("task");

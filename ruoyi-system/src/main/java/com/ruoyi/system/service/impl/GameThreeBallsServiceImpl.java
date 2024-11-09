@@ -378,7 +378,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 }
             }
             for(int i=0; i<betNumberArg.length; i++){
-                if(countMap.containsKey(betNumberArg[i].trim())){
+                if(countMap.containsKey("num"+betNumberArg[i].trim())){
                     numTypeCnt++;
                 }
             }
@@ -387,10 +387,10 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
         Long lastBetRecordId = 0l;
         for(int i=0; i<betNumberArg.length; i++) {
             GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
-            if("猜数字".equals(gameOption.getPlayGroupTitle())){
-                Integer numCount = limitAmountMap.get("num_count").getDictLabel() != null ? Integer.parseInt(limitAmountMap.get("num_count").getDictLabel()):0;
+            if("特码".equals(gameOption.getPlayGroupTitle())){
+                Integer numCount = limitAmountMap.get("num_count").getDictLabel() != null ? (int)Float.parseFloat(limitAmountMap.get("num_count").getDictLabel()):0;
                 if (numCount >0 && numCount.compareTo((countMap.size() + betNumberArg.length - numTypeCnt)) < 0) {
-                    throw new ServiceException("投注猜数字不可以超过" + getLimitAmountByKey(limitAmountMap,"num_count"));
+                    throw new ServiceException("投注特码不可以超过" + getLimitAmountByKey(limitAmountMap,"num_count"));
                 }
             }
             if(gameThreeballRecord != null){
@@ -576,7 +576,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                     }
                 }
                 for(int i=0; i<betNumberArg.length; i++){
-                    if(countMap.containsKey(betNumberArg[i].trim())){
+                    if(countMap.containsKey("num"+betNumberArg[i].trim())){
                         numTypeCnt++;
                     }
                 }
@@ -584,10 +584,10 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
 
             for(int i=0; i<betNumberArg.length; i++) {
                 GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
-                if("猜数字".equals(gameOption.getPlayGroupTitle())){
-                    Integer numCount = limitAmountMap.get("num_count").getDictLabel() != null ? Integer.parseInt(limitAmountMap.get("num_count").getDictLabel()):0;
+                if("特码".equals(gameOption.getPlayGroupTitle())){
+                    Integer numCount = limitAmountMap.get("num_count").getDictLabel() != null ? (int)Float.parseFloat(limitAmountMap.get("num_count").getDictLabel()):0;
                     if (numCount >0 && numCount.compareTo((countMap.size() + betNumberArg.length - numTypeCnt)) < 0) {
-                        throw new ServiceException("投注猜数字不可以超过" + getLimitAmountByKey(limitAmountMap,"num_count") + "个");
+                        throw new ServiceException("投注特码不可以超过" + getLimitAmountByKey(limitAmountMap,"num_count") + "个");
                     }
                 }
                 if(gameThreeballRecord != null){

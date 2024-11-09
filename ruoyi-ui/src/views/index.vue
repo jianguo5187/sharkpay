@@ -28,13 +28,13 @@
       </el-col>
     </el-row>
     <el-row>
-      <el-col :span="12">
+      <el-col :span="11">
         <div id="main" class="echarts-border" style="width:500px; height:400px"></div>
       </el-col>
 <!--    </el-row>-->
 <!--    <el-row>-->
-      <el-col :span="12">
-        <div id="betEchart" class="echarts-border" style="width:500px; height:400px"></div>
+      <el-col :span="13">
+        <div id="betEchart" class="echarts-border" style="width:600px; height:400px"></div>
       </el-col>
     </el-row>
   </div>
@@ -139,7 +139,7 @@ export default {
       charOption = {
         title: {
           text: '投注统计',
-          top:-5,
+          top:-3,
         },
         tooltip: {
           trigger: 'axis',

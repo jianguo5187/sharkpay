@@ -190,7 +190,7 @@ export default {
       this.form = {
         landingDomainId: null,
         landingDomainUrl: null,
-        status: "0",
+        status: "1",
         delFlag: null,
         createBy: null,
         createTime: null,

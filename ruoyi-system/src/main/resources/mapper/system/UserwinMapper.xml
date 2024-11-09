@@ -1043,6 +1043,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 GROUP BY no_cb.user_id
             )no_cb_temp ON no_cb_temp.user_id = u.user_id
         where u.del_flag = '0'
+        AND (
+            IFNULL(bet_count_temp.bet_money_total,0) &lt;&gt; 0
+        OR IFNULL(bet_win_temp.bet_win_money_total,0) &lt;&gt; 0
+        OR IFNULL(win_temp.win_money_total,0) &lt;&gt; 0
+        OR IFNULL(up_temp.up_money_total,0) &lt;&gt; 0
+        OR IFNULL(down_temp.down_money_total,0) &lt;&gt; 0
+        OR IFNULL(commission_temp.commission_money_total,0) &lt;&gt; 0
+        OR IFNULL(cb_temp.cash_back_money_total,0) &lt;&gt; 0
+        OR IFNULL(no_cb_temp.no_cash_back_money_total,0) &lt;&gt; 0
+        )
         <if test="userId != null "> and u.user_id = #{userId}</if>
         <if test="nickName != null and nickName != ''">
             AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
@@ -1141,7 +1151,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,u.remark_name as remark_name
             ,u.avatar as avatar
             ,IFNULL(bet_count_temp.bet_cnt,0) as bet_cnt
-            ,IFNULL(bet_count_temp.bet_money_total,0) as bet_money_total
+            ,IFNULL(bet_money_temp.bet_money_total,0) as bet_money_total
             ,IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
             ,IFNULL(win_temp.win_money_total,0) as win_money_total
         FROM sys_user u
@@ -1149,8 +1159,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         LEFT JOIN
         (
             SELECT
-                 r.user_id as user_id
+                 count_temp.user_id as user_id
                 ,COUNT(*) AS bet_cnt
+            FROM(
+                SELECT
+                     r.user_id as user_id
+                    ,r.periods as periods
+                    ,r.game_id as game_id
+                FROM `bet_record` r
+                inner join sys_user u
+                ON u.user_id = r.user_id
+                AND u.del_flag = '0'
+                WHERE r.is_delete = '0'
+                AND r.is_robot = '0'
+                <if test="gameId != null "> and r.game_id = #{gameId}</if>
+                <if test="userId != null "> and r.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+                <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY r.user_id,r.periods,r.game_id
+            ) count_temp
+            GROUP BY count_temp.user_id
+        )bet_count_temp ON bet_count_temp.user_id = u.user_id
+
+        LEFT JOIN
+        (
+            SELECT
+                 r.user_id as user_id
                 ,SUM(r.money) as bet_money_total
             FROM `bet_record` r
             inner join sys_user u
@@ -1168,7 +1207,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             </if>
         <if test="!includeTestUserFlg">and u.is_test = '0'</if>
             GROUP BY r.user_id
-        )bet_count_temp ON bet_count_temp.user_id = u.user_id
+        )bet_money_temp ON bet_money_temp.user_id = u.user_id
 
         LEFT JOIN
         (
@@ -1216,6 +1255,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         )win_temp ON win_temp.user_id = u.user_id
 
         where u.del_flag = '0'
+        AND IFNULL(bet_count_temp.bet_cnt,0) > 0
         <if test="userId != null "> and u.user_id = #{userId}</if>
         <if test="nickName != null and nickName != ''">
             AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')

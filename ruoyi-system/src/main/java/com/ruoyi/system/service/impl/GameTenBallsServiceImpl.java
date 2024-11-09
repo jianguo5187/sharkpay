@@ -914,13 +914,13 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
 
                     Object loongRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Loong");
                     Float loongRecordAmount = loongRecordAmountObject!=null?(Float) loongRecordAmountObject:0f;
-                    if("小".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + loongRecordAmount) < 0){
+                    if("龙".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + loongRecordAmount) < 0){
                         throw new ServiceException("龙金额不可以大于" + bigDxds);
                     }
 
                     Object tigerRecordAmountObject = GameTenballMap.get("type"+(betType - 1) + "Tiger");
                     Float tigerRecordAmount = tigerRecordAmountObject!=null?(Float) tigerRecordAmountObject:0f;
-                    if("小".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + tigerRecordAmount) < 0){
+                    if("虎".equals(betNumberArg[i].trim()) && bigDxds.compareTo(money + tigerRecordAmount) < 0){
                         throw new ServiceException("虎金额不可以大于" + bigDxds);
                     }
                 }
