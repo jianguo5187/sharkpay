@@ -168,4 +168,15 @@ public class GameTenBallsController  extends BaseController {
         gameTenBallsService.delTenBallsBetRecord(sessionUser.getUserId(),vo);
         return ajax;
     }
+
+    /**
+     * 10球追号
+     */
+    @PostMapping("/addTenBallsAutoBetRecord")
+    public AjaxResult addTenBallsAutoBetRecord(@RequestBody AddAutoBetRecordReqVO vo){
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        ajax.put("lastBetRecordId",gameTenBallsService.addTenBallsAutoBetRecord(sessionUser.getUserId(),vo));
+        return ajax;
+    }
 }

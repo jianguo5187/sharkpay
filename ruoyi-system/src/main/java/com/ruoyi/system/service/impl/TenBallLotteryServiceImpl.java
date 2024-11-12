@@ -4,6 +4,8 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.system.domain.vo.TenBallsAddMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.TenBallsMultiBetRecordReqVO;
 import com.ruoyi.system.service.ITenBallLotteryService;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.RecordSumRespVo;
@@ -60,6 +62,12 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 
     @Autowired
     private ISysConfigService configService;
+
+    @Autowired
+    private IGameAutoBetRecordService gameAutoBetRecordService;
+
+    @Autowired
+    private IGameTenBallsService gameTenBallsService;
 
     @Override
     public void lotteryTenBall(String gameCode) {
@@ -742,6 +750,30 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             betRecord.setSettleFlg("1");
             betRecord.setAccountResult(winMoney);
             betRecordService.updateBetRecord(betRecord);
+
+            //如果是追号记录
+            if(StringUtils.equals(betRecord.getAutoBetFlg(),"1")){
+                GameAutoBetRecord autoBetRecord = gameAutoBetRecordService.selectGameAutoBetRecordById(betRecord.getAutoBetRecordId());
+
+                // 有中奖
+                if(winMoney.compareTo(0f) > 0){
+                    if(StringUtils.equals(autoBetRecord.getWinStopStatus(),"1")){
+                        autoBetRecord.setStatus("1"); //已停
+                    }
+                    autoBetRecord.setWinCount(autoBetRecord.getWinCount() + 1);
+                    autoBetRecord.setWinMoney(autoBetRecord.getWinMoney() + winMoney);
+                }
+
+                if(autoBetRecord.getRemainCount() == 0){
+                    autoBetRecord.setStatus("1"); //已停
+                }else{
+                    autoBetRecord.setRemainCount(autoBetRecord.getRemainCount() - 1);
+                }
+//                autoBetRecord.setCountMoney(autoBetRecord.getCountMoney() + betRecord.getMoney());
+                autoBetRecord.setUpdateBy("lotteryGameTenballOpenData");
+
+                gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
+            }
         }
 
         for(GameTenballRecord gameTenballRecord : gameTenballRecordList){
@@ -1146,6 +1178,48 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 //            betRecord.setAccountResult(accountResult);
 //
 //            betRecordService.updateLotteryResult(betRecord);
+
+            GameAutoBetRecord searchAutoBetRecord = new GameAutoBetRecord();
+            searchAutoBetRecord.setStatus("0");
+            searchAutoBetRecord.setUserId(gameTenballRecord.getUserId());
+            searchAutoBetRecord.setGameId(gameTenballKj.getGameId());
+            List<GameAutoBetRecord> autoBetRecordList = gameAutoBetRecordService.selectGameAutoBetRecordList(searchAutoBetRecord);
+            Float nextBetNeedMoney = 0f;
+            for(GameAutoBetRecord autoBetRecord : autoBetRecordList){
+                nextBetNeedMoney = nextBetNeedMoney + autoBetRecord.getAutoBetMoney() * Float.valueOf((float)Math.pow((double)autoBetRecord.getAutoBetTimes(),(autoBetRecord.getAutoBetCount() - autoBetRecord.getRemainCount() - 1)));
+            }
+
+            //判断用户余额够不够继续追号
+            if(user.getAmount().compareTo(nextBetNeedMoney) >= 0){
+                TenBallsAddMultiBetRecordReqVO reqVO = new TenBallsAddMultiBetRecordReqVO();
+                List<TenBallsMultiBetRecordReqVO> multiBetRecordList = new ArrayList<>();
+                Long nextPeriods = gameTenballRecord.getPeriods() + 1;
+                for(GameAutoBetRecord autoBetRecord : autoBetRecordList){
+                    TenBallsMultiBetRecordReqVO vo = new TenBallsMultiBetRecordReqVO();
+                    vo.setType(autoBetRecord.getAutoBetType());
+                    vo.setNumber(autoBetRecord.getAutoBetNumber());
+                    vo.setMoney(autoBetRecord.getAutoBetMoney() * Float.valueOf((float)Math.pow((double)autoBetRecord.getAutoBetTimes(),(autoBetRecord.getAutoBetCount() - autoBetRecord.getRemainCount() - 1))));
+                    vo.setAutoBetRecordId(autoBetRecord.getId());
+                    multiBetRecordList.add(vo);
+
+                    autoBetRecord.setNowPeriods(nextPeriods);
+                    autoBetRecord.setCountMoney(autoBetRecord.getCountMoney() + vo.getMoney());
+                    gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
+                }
+                reqVO.setGameId(gameTenballKj.getGameId());
+                reqVO.setPeriods(nextPeriods);
+                reqVO.setRecordList(multiBetRecordList);
+                reqVO.setAutoBetFlg("1");
+                gameTenBallsService.addTenBallsMultiBetRecord(gameTenballRecord.getUserId(),reqVO);
+
+            }else{
+                //钱不够了，所有追号任务停止
+                for(GameAutoBetRecord autoBetRecord : autoBetRecordList){
+                    autoBetRecord.setStatus("1");
+                    autoBetRecord.setRemark("余额不足，追号停止");
+                    gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
+                }
+            }
         }
 
         Adminwin todayAdminwin = adminwinService.selectTodayAdminwin(gameInfo.getGameId());

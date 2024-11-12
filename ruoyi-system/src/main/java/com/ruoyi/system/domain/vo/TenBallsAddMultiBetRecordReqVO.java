@@ -10,6 +10,9 @@ public class TenBallsAddMultiBetRecordReqVO {
     /** 期数 */
     private Long periods;
 
+    /** 追号区分（0否 1是） */
+    private String autoBetFlg;
+
     /** 期数 */
     private List<TenBallsMultiBetRecordReqVO> recordList;
 
@@ -35,5 +38,13 @@ public class TenBallsAddMultiBetRecordReqVO {
 
     public void setRecordList(List<TenBallsMultiBetRecordReqVO> recordList) {
         this.recordList = recordList;
+    }
+
+    public String getAutoBetFlg() {
+        return autoBetFlg;
+    }
+
+    public void setAutoBetFlg(String autoBetFlg) {
+        this.autoBetFlg = autoBetFlg;
     }
 }

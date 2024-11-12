@@ -15,6 +15,7 @@ import com.ruoyi.system.service.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -51,6 +52,9 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
 
     @Autowired
     private IUserwinService userwinService;
+
+    @Autowired
+    private IGameAutoBetRecordService gameAutoBetRecordService;
 
     @Autowired
     private BetRecordMapper betRecordMapper;
@@ -482,6 +486,8 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             betrecord.setIsDelete("0");
             betrecord.setHouseId(1l);
             betrecord.setRecordLotteryKey(key);
+            betrecord.setBetType(vo.getType());
+            betrecord.setBetNumber(betNumberArg[i].trim());
             betRecordMapper.insertBetRecord(betrecord);
 
             Usermoney usermoney = new Usermoney();
@@ -614,7 +620,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             betNumberArg = threeBallsMultiBetRecordReqVO.getNumber().split(",");
             for(int i=0; i<betNumberArg.length; i++){
 
-                GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim() + "");
+                GameOption gameOption = gameOptionMap.get(betNumberArg[i].trim());
                 String key = gameOption.getKey();
                 String playType = gameOption.getPlayGroupTitle();
                 Integer playGroup = gameOption.getPlayGroup();
@@ -683,6 +689,12 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                 betrecord.setIsDelete("0");
                 betrecord.setHouseId(1l);
                 betrecord.setRecordLotteryKey(key);
+                if(StringUtils.equals(vo.getAutoBetFlg(), "1")){
+                    betrecord.setAutoBetFlg("1"); //自动追号
+                    betrecord.setAutoBetRecordId(threeBallsMultiBetRecordReqVO.getAutoBetRecordId());//自动追号ID
+                }
+                betrecord.setBetType(threeBallsMultiBetRecordReqVO.getType());
+                betrecord.setBetNumber(betNumberArg[i].trim());
                 betRecordMapper.insertBetRecord(betrecord);
 
                 Usermoney usermoney = new Usermoney();
@@ -713,6 +725,19 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             throw new ServiceException("当前期数已截止");
         }
 
+        // 查询手动下注信息
+//        BetRecord searchSelfBetRecord = new BetRecord();
+//        searchSelfBetRecord.setUserId(userId);
+//        searchSelfBetRecord.setGameId(vo.getGameId());
+//        searchSelfBetRecord.setPeriods(vo.getPeriods());
+//        searchSelfBetRecord.setIsDelete("0");
+//        // 因为都可以撤单，所以这边代码注释掉
+////        searchSelfBetRecord.setAutoBetFlg("0");//手动下注
+//        List<BetRecord> selfBetRecordList = betRecordMapper.selectBetRecordList(searchSelfBetRecord);
+//        if(selfBetRecordList == null || selfBetRecordList.size() == 0){
+//            throw new ServiceException("本期暂无投注记录");
+//        }
+
         GameThreeballRecord searchGameThreeballRecord = new GameThreeballRecord();
         searchGameThreeballRecord.setGameId(vo.getGameId());
         searchGameThreeballRecord.setUserId(userId);
@@ -722,28 +747,77 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
         if(gameThreeballRecordList == null || gameThreeballRecordList.size() == 0){
             throw new ServiceException("本期暂无投注记录");
         }
-
-        Usermoney searchUsermoney = new Usermoney();
-        searchUsermoney.setUserId(userId);
-        searchUsermoney.setGameId(vo.getGameId());
-        searchUsermoney.setType("7"); //购买彩票
-        searchUsermoney.setCashContent(vo.getPeriods().toString());
-
-        List<Usermoney> userMoneyList = usermoneyMapper.selectUsermoneyList(searchUsermoney);
-        if(userMoneyList == null || userMoneyList.size() == 0){
-            throw new ServiceException("本期暂无投注记录");
-        }
         GameThreeballRecord gameThreeballRecord = gameThreeballRecordList.get(0);
+        // 因为都可以撤单，所以直接删掉下注记录
         gameThreeballRecordService.deleteGameThreeballRecordById(gameThreeballRecord.getId());
 
-        for(Usermoney usermoney :userMoneyList){
-            usermoneyMapper.deleteUsermoneyById(usermoney.getId());
-        }
+        // 因为都可以撤单，所以把追号任务都停了
+        gameAutoBetRecordService.cancelAllAutoBetRecord(gameThreeballRecord.getUserId(),gameThreeballKj.getGameId());
+
+        // 因为都可以撤单，所以这边代码注释掉
+//        BetRecord searchAutoBetRecord = new BetRecord();
+//        searchAutoBetRecord.setUserId(userId);
+//        searchAutoBetRecord.setGameId(vo.getGameId());
+//        searchAutoBetRecord.setPeriods(vo.getPeriods());
+//        searchAutoBetRecord.setIsDelete("0");
+//        searchAutoBetRecord.setAutoBetFlg("1");//追号下注
+//        List<BetRecord> autoBetRecordList = betRecordMapper.selectBetRecordList(searchAutoBetRecord);
+//        if(autoBetRecordList == null || autoBetRecordList.size() == 0){
+//            // 没有追号任务，直接把record表记录删掉
+//            gameThreeballRecordService.deleteGameThreeballRecordById(gameThreeballRecord.getId());
+//        }else{
+//            // 投注记录表投注金额字段全部变成空
+//            gameThreeballRecord = initRecordAmount(gameThreeballRecord);
+//
+//            GameOption searchGameOption = new GameOption();
+//            searchGameOption.setGameId(vo.getGameId());
+//            List<GameOption> gameOptionList = gameOptionMapper.selectGameOptionList(searchGameOption);
+//            Map<String , GameOption> gameOptionMap = gameOptionList.stream()
+//                    .collect(Collectors.toMap(
+//                            GameOption::getTitle,
+//                            Function.identity(),
+//                            (existing, replacement) -> existing // 保留现有的值，忽略替换值
+//                    ));
+//
+//            // 把自动下注的值加回去
+//            for(BetRecord autoBetRecord : autoBetRecordList){
+//
+//                GameOption gameOption = gameOptionMap.get(autoBetRecord.getBetNumber());
+//                String key = gameOption.getKey();
+//
+//                Map<String, Object> updateGameThreeballMap = EntityMapTransUtils.entityToMap1(gameThreeballRecord);
+//
+//                Object betRecordAmountObject = updateGameThreeballMap.get(key);
+//                Float betRecordAmount = betRecordAmountObject!=null?(Float) betRecordAmountObject:0f;
+//                Float betMoney = betRecordAmount + autoBetRecord.getMoney();
+//                updateGameThreeballMap.put(key, betMoney);
+//                gameThreeballRecord = EntityMapTransUtils.mapToEntity1(GameThreeballRecord.class, updateGameThreeballMap);
+//
+//                gameThreeballRecord.setCountMoney(gameThreeballRecord.getCountMoney() + autoBetRecord.getMoney());
+//                gameThreeballRecord.setHouse(1);
+//                gameThreeballRecord.setRecordTime(date);
+//                gameThreeballRecordService.updateGameThreeballRecord(gameThreeballRecord);
+//            }
+//        }
+
         user.setAmount(user.getAmount() + gameThreeballRecord.getCountMoney());
         userService.updateUserAmount(user);
 
+        Usermoney cancelBetUsermoney = new Usermoney();
+        cancelBetUsermoney.setUserId(userId);
+        cancelBetUsermoney.setGameId(vo.getGameId());
+        cancelBetUsermoney.setGameName(gameThreeballKj.getGameName());
+        cancelBetUsermoney.setRemark("彩票撤单[" + gameThreeballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,金额[" + gameThreeballRecord.getCountMoney() + "]元");
+        cancelBetUsermoney.setCashMoney(gameThreeballRecord.getCountMoney());
+        cancelBetUsermoney.setUserBalance(user.getAmount());
+        cancelBetUsermoney.setType("9");
+        cancelBetUsermoney.setCashContent(vo.getPeriods().toString());
+        usermoneyMapper.insertUsermoney(cancelBetUsermoney);
+
+        // 把下注表数据状态更新为删除
         betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId, "1");
     }
+
     private Float getLimitAmountByKey(Map<String , SysDictData> limitAmountMap, String key){
         Float limitAmount = 0f;
         if(limitAmountMap.containsKey(key)){
@@ -766,5 +840,96 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             floatNum = 0f;
         }
         return floatNum;
+    }
+
+    public GameThreeballRecord initRecordAmount(GameThreeballRecord record){
+        record.setCountMoney(0f);
+        record.setBig(0f);
+        record.setSmall(0f);
+        record.setSingle(0f);
+        record.setDoubleAmount(0f);
+        record.setMuchBig(0f);
+        record.setBigSingle(0f);
+        record.setSmallSingle(0f);
+        record.setBigDouble(0f);
+        record.setSmallDouble(0f);
+        record.setMuchSmall(0f);
+        record.setNum0(0f);
+        record.setNum1(0f);
+        record.setNum2(0f);
+        record.setNum3(0f);
+        record.setNum4(0f);
+        record.setNum5(0f);
+        record.setNum6(0f);
+        record.setNum7(0f);
+        record.setNum8(0f);
+        record.setNum9(0f);
+        record.setNum10(0f);
+        record.setNum11(0f);
+        record.setNum12(0f);
+        record.setNum13(0f);
+        record.setNum14(0f);
+        record.setNum15(0f);
+        record.setNum16(0f);
+        record.setNum17(0f);
+        record.setNum18(0f);
+        record.setNum19(0f);
+        record.setNum20(0f);
+        record.setNum21(0f);
+        record.setNum22(0f);
+        record.setNum23(0f);
+        record.setNum24(0f);
+        record.setNum25(0f);
+        record.setNum26(0f);
+        record.setNum27(0f);
+        record.setRed(0f);
+        record.setGreen(0f);
+        record.setBlue(0f);
+        record.setLoong(0f);
+        record.setTiger(0f);
+        record.setClose(0f);
+        record.setLeopard(0f);
+        record.setPairs(0f);
+        record.setShun(0f);
+
+        return record;
+    }
+
+    @Override
+    @Transactional
+    public Long addThreeBallsAutoBetRecord(Long userId, AddAutoBetRecordReqVO vo) {
+
+        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+        GameAutoBetRecord autoBetRecord = new GameAutoBetRecord();
+        autoBetRecord.setUserId(userId);
+        autoBetRecord.setStartPeriods(vo.getPeriods());
+        autoBetRecord.setNowPeriods(vo.getPeriods());
+        autoBetRecord.setGameId(vo.getGameId());
+        autoBetRecord.setGameName(gameInfo.getGameName());
+        autoBetRecord.setAutoBetType(vo.getType());
+        autoBetRecord.setAutoBetNumber(vo.getNumber());
+        autoBetRecord.setWinStopStatus(vo.getWinStopStatus());
+        autoBetRecord.setAutoBetCount(vo.getAutoBetCount());
+        autoBetRecord.setAutoBetTimes(vo.getAutoBetTimes());
+        autoBetRecord.setAutoBetMoney(vo.getMoney());
+        autoBetRecord.setRemainCount(vo.getAutoBetCount() - 1);
+        autoBetRecord.setCountMoney(vo.getMoney());
+        gameAutoBetRecordService.insertGameAutoBetRecord(autoBetRecord);
+
+        ThreeBallsAddMultiBetRecordReqVO reqVO = new ThreeBallsAddMultiBetRecordReqVO();
+        List<ThreeBallsMultiBetRecordReqVO> multiBetRecordList = new ArrayList<>();
+        ThreeBallsMultiBetRecordReqVO multiBetRecordReqVO = new ThreeBallsMultiBetRecordReqVO();
+        multiBetRecordReqVO.setType(vo.getType());
+        multiBetRecordReqVO.setNumber(vo.getNumber());
+        multiBetRecordReqVO.setMoney(vo.getMoney());
+        multiBetRecordReqVO.setAutoBetRecordId(autoBetRecord.getId());
+        multiBetRecordList.add(multiBetRecordReqVO);
+
+        reqVO.setGameId(vo.getGameId());
+        reqVO.setPeriods(vo.getPeriods());
+        reqVO.setRecordList(multiBetRecordList);
+        reqVO.setAutoBetFlg("1");
+        Long lastRecordId = addThreeBallsMultiBetRecord(userId,reqVO);
+        return lastRecordId;
     }
 }

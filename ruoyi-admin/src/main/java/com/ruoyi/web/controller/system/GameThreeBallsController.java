@@ -170,4 +170,15 @@ public class GameThreeBallsController  extends BaseController {
         gameThreeBallsService.delThreeBallsBetRecord(sessionUser.getUserId(),vo);
         return ajax;
     }
+
+    /**
+     * 3球追号
+     */
+    @PostMapping("/addThreeBallsAutoBetRecord")
+    public AjaxResult addThreeBallsAutoBetRecord(@RequestBody AddAutoBetRecordReqVO vo){
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        ajax.put("lastBetRecordId",gameThreeBallsService.addThreeBallsAutoBetRecord(sessionUser.getUserId(),vo));
+        return ajax;
+    }
 }

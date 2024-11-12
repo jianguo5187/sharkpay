@@ -10,6 +10,9 @@ public class ThreeBallsAddMultiBetRecordReqVO {
     /** 期数 */
     private Long periods;
 
+    /** 追号区分（0否 1是） */
+    private String autoBetFlg;
+
     /** 期数 */
     private List<ThreeBallsMultiBetRecordReqVO> recordList;
 
@@ -35,5 +38,12 @@ public class ThreeBallsAddMultiBetRecordReqVO {
 
     public void setGameId(Long gameId) {
         this.gameId = gameId;
+    }
+    public String getAutoBetFlg() {
+        return autoBetFlg;
+    }
+
+    public void setAutoBetFlg(String autoBetFlg) {
+        this.autoBetFlg = autoBetFlg;
     }
 }

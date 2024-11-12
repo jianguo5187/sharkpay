@@ -28,6 +28,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="robotImg"    column="robot_img"    />
         <result property="houseId"    column="house_id"    />
         <result property="recordLotteryKey"    column="record_lottery_key"    />
+        <result property="autoBetFlg"    column="auto_bet_flg"    />
+        <result property="autoBetRecordId"    column="auto_bet_record_id"    />
+        <result property="betType"    column="bet_type"    />
+        <result property="betNumber"    column="bet_number"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -116,7 +120,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
 
     <sql id="selectBetRecordVo">
-        select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, `option`, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, record_lottery_key, create_by, create_time, update_by, update_time, remark from bet_record
+        select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, `option`, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, record_lottery_key, auto_bet_flg, auto_bet_record_id, bet_type, bet_number, create_by, create_time, update_by, update_time, remark from bet_record
     </sql>
 
     <select id="selectBetRecordList" parameterType="BetRecord" resultMap="BetRecordResult">
@@ -144,6 +148,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="robotImg != null  and robotImg != ''"> and robot_img = #{robotImg}</if>
             <if test="houseId != null "> and house_id = #{houseId}</if>
             <if test="recordLotteryKey != null  and recordLotteryKey != ''"> and record_lottery_key = #{recordLotteryKey}</if>
+            <if test="autoBetFlg != null  and autoBetFlg != ''"> and auto_bet_flg = #{autoBetFlg}</if>
+            <if test="autoBetRecordId != null "> and auto_bet_record_id = #{autoBetRecordId}</if>
         </where>
     </select>
     
@@ -174,6 +180,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="robotImg != null">robot_img,</if>
             <if test="houseId != null">house_id,</if>
             <if test="recordLotteryKey != null and recordLotteryKey != ''">record_lottery_key,</if>
+            <if test="autoBetFlg != null and autoBetFlg != ''">auto_bet_flg,</if>
+            <if test="autoBetRecordId != null">auto_bet_record_id,</if>
+            <if test="betType != null">bet_type,</if>
+            <if test="betNumber != null and betNumber != ''">bet_number,</if>
             <if test="createBy != null">create_by,</if>
         record_time,
         time_checkpoint,
@@ -199,6 +209,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="robotImg != null">#{robotImg},</if>
             <if test="houseId != null">#{houseId},</if>
             <if test="recordLotteryKey != null and recordLotteryKey != ''">#{recordLotteryKey},</if>
+            <if test="autoBetFlg != null and autoBetFlg != ''">#{autoBetFlg},</if>
+            <if test="autoBetRecordId != null">#{autoBetRecordId},</if>
+            <if test="betType != null">#{betType},</if>
+            <if test="betNumber != null and betNumber != ''">#{betNumber},</if>
             <if test="createBy != null">#{createBy},</if>
         sysdate(),
         sysdate(),
@@ -225,6 +239,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="robotImg != null">robot_img = #{robotImg},</if>
             <if test="houseId != null">house_id = #{houseId},</if>
             <if test="recordLotteryKey != null and recordLotteryKey != ''">record_lottery_key = #{recordLotteryKey},</if>
+            <if test="autoBetFlg != null and autoBetFlg != ''">auto_bet_flg = #{autoBetFlg},</if>
+            <if test="autoBetRecordId != null">auto_bet_record_id = #{autoBetRecordId},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>
@@ -290,7 +306,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         and periods = #{periods}
         and user_id = #{userId}
     </update>
-
 
     <select id="selectBetRealTimeList" parameterType="com.ruoyi.system.domain.vo.BetRealTimeReqVO" resultMap="BetRealTimeListResult">
         select

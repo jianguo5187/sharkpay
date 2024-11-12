@@ -558,4 +558,30 @@ public class SysAppController extends BaseController {
         ajax.put("childReportList",sysAppService.selectChildReportList(vo));
         return ajax;
     }
+
+    /**
+     * 追号任务
+     *
+     * @return 用户信息
+     */
+    @PostMapping("getAutoBetScheduleList")
+    public AjaxResult getAutoBetScheduleList(@RequestBody AutoBetScheduleListReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        ajax.put("autoBetScheduleList",sysAppService.getAutoBetScheduleList(sessionUser.getUserId(),vo));
+        return ajax;
+    }
+
+    /**
+     * 追号任务
+     *
+     * @return 用户信息
+     */
+    @PostMapping("stopAutoBetSchedule")
+    public AjaxResult stopAutoBetSchedule(@RequestBody StopAutoBetScheduleReqVO vo)
+    {
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(sysAppService.stopAutoBetSchedule(sessionUser,vo));
+    }
 }

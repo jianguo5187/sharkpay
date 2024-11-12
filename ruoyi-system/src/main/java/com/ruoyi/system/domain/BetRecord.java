@@ -111,6 +111,21 @@ public class BetRecord extends BaseEntity
     @Excel(name = "投注结算Key")
     private String recordLotteryKey;
 
+    /** 追号区分（0否 1是） */
+    @Excel(name = "追号区分（0否 1是）")
+    private String autoBetFlg;
+
+    /** 追号ID */
+    private Long autoBetRecordId;
+
+    /** 投注类型 */
+    @Excel(name = "投注类型")
+    private Integer betType;
+
+    /** 投注号码 */
+    @Excel(name = "投注号码")
+    private String betNumber;
+
     public void setBetId(Long betId) 
     {
         this.betId = betId;
@@ -316,6 +331,38 @@ public class BetRecord extends BaseEntity
 
     public void setRecordLotteryKey(String recordLotteryKey) {
         this.recordLotteryKey = recordLotteryKey;
+    }
+
+    public String getAutoBetFlg() {
+        return autoBetFlg;
+    }
+
+    public void setAutoBetFlg(String autoBetFlg) {
+        this.autoBetFlg = autoBetFlg;
+    }
+
+    public Long getAutoBetRecordId() {
+        return autoBetRecordId;
+    }
+
+    public void setAutoBetRecordId(Long autoBetRecordId) {
+        this.autoBetRecordId = autoBetRecordId;
+    }
+
+    public Integer getBetType() {
+        return betType;
+    }
+
+    public void setBetType(Integer betType) {
+        this.betType = betType;
+    }
+
+    public String getBetNumber() {
+        return betNumber;
+    }
+
+    public void setBetNumber(String betNumber) {
+        this.betNumber = betNumber;
     }
 
     @Override

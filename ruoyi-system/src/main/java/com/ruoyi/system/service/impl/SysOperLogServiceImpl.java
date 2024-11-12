@@ -73,4 +73,13 @@ public class SysOperLogServiceImpl implements ISysOperLogService
     {
         operLogMapper.cleanOperLog();
     }
+
+    /**
+     * 清空任务日志
+     */
+    @Override
+    public void cleanJobLog()
+    {
+        operLogMapper.cleanJobLog();
+    }
 }

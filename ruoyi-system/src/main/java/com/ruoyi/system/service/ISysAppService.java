@@ -1,5 +1,7 @@
 package com.ruoyi.system.service;
 
+import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.system.domain.GameAutoBetRecord;
 import com.ruoyi.system.domain.SysReplace;
 import com.ruoyi.system.domain.vo.*;
 
@@ -42,4 +44,8 @@ public interface ISysAppService {
     public void updatGameLimitSetting(GameLimitSettingUpdateReqVO vo);
 
     public List<ChildReportRespVO> selectChildReportList(ChildReportReqVO vo);
+
+    public List<GameAutoBetRecord> getAutoBetScheduleList(Long userId, AutoBetScheduleListReqVO vo);
+
+    public int stopAutoBetSchedule(SysUser user, StopAutoBetScheduleReqVO vo);
 }

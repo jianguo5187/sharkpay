@@ -84,4 +84,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         truncate table sys_oper_log
     </update>
 
+	<update id="cleanJobLog">
+		truncate table sys_job_log
+	</update>
+
 </mapper> 

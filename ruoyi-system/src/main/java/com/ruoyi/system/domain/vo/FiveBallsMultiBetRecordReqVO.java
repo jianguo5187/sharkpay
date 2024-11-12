@@ -11,6 +11,9 @@ public class FiveBallsMultiBetRecordReqVO {
     /** 投注金额不能为空 */
     private Float money;
 
+    /** 追号ID */
+    private Long autoBetRecordId;
+
     public Integer getType() {
         return type;
     }
@@ -33,5 +36,13 @@ public class FiveBallsMultiBetRecordReqVO {
 
     public void setMoney(Float money) {
         this.money = money;
+    }
+
+    public Long getAutoBetRecordId() {
+        return autoBetRecordId;
+    }
+
+    public void setAutoBetRecordId(Long autoBetRecordId) {
+        this.autoBetRecordId = autoBetRecordId;
     }
 }

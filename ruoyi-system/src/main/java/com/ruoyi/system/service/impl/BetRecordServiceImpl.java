@@ -47,6 +47,9 @@ public class BetRecordServiceImpl implements IBetRecordService
     @Autowired
     private ISysAdminRecordService sysAdminRecordService;
 
+    @Autowired
+    private IGameAutoBetRecordService gameAutoBetRecordService;
+
     /**
      * 查询投注单
      * 
@@ -197,9 +200,12 @@ public class BetRecordServiceImpl implements IBetRecordService
             }
         }
 
+        // 因为都可以撤单，所以把追号任务都停了
+        gameAutoBetRecordService.cancelAllAutoBetRecord(betRecord.getUserId(),betRecord.getGameId());
+
         SysUser user = userService.selectUserById(betRecord.getUserId());
 
-        betRecordMapper.cancelBetRecordByPeriods(betRecord.getGameId(), betRecord.getPeriods(), betRecord.getUserId(), "2");
+        betRecordMapper.cancelBetRecordByPeriods(betRecord.getGameId(), betRecord.getPeriods(), betRecord.getUserId(), "1");
 
         Float userAmount = user.getAmount() + countMoeny;
 

@@ -3,6 +3,7 @@ package com.ruoyi.system.service.impl;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.core.domain.entity.SysDictData;
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.redis.RedisCache;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.StringUtils;
@@ -77,6 +78,9 @@ public class SysAppServiceImpl implements ISysAppService {
 
     @Autowired
     private ISysDictDataService dictDataService;
+
+    @Autowired
+    private IGameAutoBetRecordService gameAutoBetRecordService;
 
     //验证微信拦截APIUrl
     @Value("${wx.autoCheck.apiUrl}")
@@ -1084,5 +1088,23 @@ public class SysAppServiceImpl implements ISysAppService {
     @Override
     public List<ChildReportRespVO> selectChildReportList(ChildReportReqVO vo) {
         return userwinMapper.selectChildReportList(vo.getUserId());
+    }
+
+    @Override
+    public List<GameAutoBetRecord> getAutoBetScheduleList(Long userId, AutoBetScheduleListReqVO vo) {
+
+        GameAutoBetRecord searchAutoBetRecord = new GameAutoBetRecord();
+        searchAutoBetRecord.setUserId(userId);
+        searchAutoBetRecord.setGameId(vo.getGameId());
+        return gameAutoBetRecordService.getAutoBetScheduleList(searchAutoBetRecord);
+    }
+
+    @Override
+    public int stopAutoBetSchedule(SysUser user, StopAutoBetScheduleReqVO vo){
+        GameAutoBetRecord autoBetRecord = gameAutoBetRecordService.selectGameAutoBetRecordById(vo.getAutoBetId());
+        autoBetRecord.setStatus("1");
+        autoBetRecord.setRemark(user.getNickName() + "停止");
+        autoBetRecord.setUpdateBy(user.getNickName());
+        return gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
     }
 }

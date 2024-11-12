@@ -15,6 +15,7 @@ import com.ruoyi.system.service.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -66,6 +67,9 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
 
     @Autowired
     private SysBetTypeMapper betTypeMapper;
+
+    @Autowired
+    private IGameAutoBetRecordService gameAutoBetRecordService;
 
 
     @Override
@@ -474,6 +478,8 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             betrecord.setIsDelete("0");
             betrecord.setHouseId(1l);
             betrecord.setRecordLotteryKey(key);
+            betrecord.setBetType(vo.getType());
+            betrecord.setBetNumber(betNumberArg[i].trim());
             betRecordMapper.insertBetRecord(betrecord);
 
             Usermoney usermoney = new Usermoney();
@@ -647,6 +653,12 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
                 betrecord.setIsDelete("0");
                 betrecord.setHouseId(1l);
                 betrecord.setRecordLotteryKey(key);
+                if(StringUtils.equals(vo.getAutoBetFlg(), "1")){
+                    betrecord.setAutoBetFlg("1"); //自动追号
+                    betrecord.setAutoBetRecordId(fiveBallsMultiBetRecordReqVO.getAutoBetRecordId());//自动追号ID
+                }
+                betrecord.setBetType(fiveBallsMultiBetRecordReqVO.getType());
+                betrecord.setBetNumber(betNumberArg[i].trim());
                 betRecordMapper.insertBetRecord(betrecord);
 
                 Usermoney usermoney = new Usermoney();
@@ -677,6 +689,19 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             throw new ServiceException("当前期数已截止");
         }
 
+        // 查询手动下注信息
+//        BetRecord searchSelfBetRecord = new BetRecord();
+//        searchSelfBetRecord.setUserId(userId);
+//        searchSelfBetRecord.setGameId(vo.getGameId());
+//        searchSelfBetRecord.setPeriods(vo.getPeriods());
+//        searchSelfBetRecord.setIsDelete("0");
+//        // 因为都可以撤单，所以这边代码注释掉
+////        searchSelfBetRecord.setAutoBetFlg("0");//手动下注
+//        List<BetRecord> selfBetRecordList = betRecordMapper.selectBetRecordList(searchSelfBetRecord);
+//        if(selfBetRecordList == null || selfBetRecordList.size() == 0){
+//            throw new ServiceException("本期暂无投注记录");
+//        }
+
         GameFiveballRecord searchGameFiveballRecord = new GameFiveballRecord();
         searchGameFiveballRecord.setGameId(vo.getGameId());
         searchGameFiveballRecord.setUserId(userId);
@@ -686,26 +711,44 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         if(gameFiveballRecordList == null || gameFiveballRecordList.size() == 0){
             throw new ServiceException("本期暂无投注记录");
         }
-
-        Usermoney searchUsermoney = new Usermoney();
-        searchUsermoney.setUserId(userId);
-        searchUsermoney.setGameId(vo.getGameId());
-        searchUsermoney.setType("7"); //购买彩票
-        searchUsermoney.setCashContent(vo.getPeriods().toString());
-
-        List<Usermoney> userMoneyList = usermoneyMapper.selectUsermoneyList(searchUsermoney);
-        if(userMoneyList == null || userMoneyList.size() == 0){
-            throw new ServiceException("本期暂无投注记录");
-        }
         GameFiveballRecord gameFiveballRecord = gameFiveballRecordList.get(0);
+        // 因为都可以撤单，所以直接删掉下注记录
         gameFiveballRecordService.deleteGameFiveballRecordById(gameFiveballRecord.getId());
+        // 因为都可以撤单，所以把追号任务都停了
+        gameAutoBetRecordService.cancelAllAutoBetRecord(gameFiveballRecord.getUserId(),gameFiveballKj.getGameId());
 
-        for(Usermoney usermoney :userMoneyList){
-            usermoneyMapper.deleteUsermoneyById(usermoney.getId());
-        }
+
+//        Usermoney searchUsermoney = new Usermoney();
+//        searchUsermoney.setUserId(userId);
+//        searchUsermoney.setGameId(vo.getGameId());
+//        searchUsermoney.setType("7"); //购买彩票
+//        searchUsermoney.setCashContent(vo.getPeriods().toString());
+//
+//        List<Usermoney> userMoneyList = usermoneyMapper.selectUsermoneyList(searchUsermoney);
+//        if(userMoneyList == null || userMoneyList.size() == 0){
+//            throw new ServiceException("本期暂无投注记录");
+//        }
+//
+//        for(Usermoney usermoney :userMoneyList){
+//            usermoneyMapper.deleteUsermoneyById(usermoney.getId());
+//        }
+
         user.setAmount(user.getAmount() + gameFiveballRecord.getCountMoney());
         userService.updateUserAmount(user);
 
+        Usermoney cancelBetUsermoney = new Usermoney();
+        cancelBetUsermoney.setUserId(userId);
+        cancelBetUsermoney.setGameId(vo.getGameId());
+        cancelBetUsermoney.setGameName(gameFiveballKj.getGameName());
+        cancelBetUsermoney.setRemark("彩票撤单[" + gameFiveballKj.getGameName() + "]第[" + vo.getPeriods() + "]期,金额[" + gameFiveballRecord.getCountMoney() + "]元");
+        cancelBetUsermoney.setCashMoney(gameFiveballRecord.getCountMoney());
+        cancelBetUsermoney.setUserBalance(user.getAmount());
+        cancelBetUsermoney.setType("9");
+        cancelBetUsermoney.setCashContent(vo.getPeriods().toString());
+        usermoneyMapper.insertUsermoney(cancelBetUsermoney);
+
+
+        // 把下注表数据状态更新为删除
         betRecordMapper.cancelBetRecordByPeriods(vo.getGameId(), vo.getPeriods(), userId, "1");
     }
 
@@ -793,5 +836,44 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             floatNum = 0f;
         }
         return floatNum;
+    }
+
+    @Override
+    @Transactional
+    public Long addFiveBallsAutoBetRecord(Long userId, AddAutoBetRecordReqVO vo) {
+
+        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+        GameAutoBetRecord autoBetRecord = new GameAutoBetRecord();
+        autoBetRecord.setUserId(userId);
+        autoBetRecord.setStartPeriods(vo.getPeriods());
+        autoBetRecord.setNowPeriods(vo.getPeriods());
+        autoBetRecord.setGameId(vo.getGameId());
+        autoBetRecord.setGameName(gameInfo.getGameName());
+        autoBetRecord.setAutoBetType(vo.getType());
+        autoBetRecord.setAutoBetNumber(vo.getNumber());
+        autoBetRecord.setWinStopStatus(vo.getWinStopStatus());
+        autoBetRecord.setAutoBetCount(vo.getAutoBetCount());
+        autoBetRecord.setAutoBetTimes(vo.getAutoBetTimes());
+        autoBetRecord.setAutoBetMoney(vo.getMoney());
+        autoBetRecord.setRemainCount(vo.getAutoBetCount() - 1);
+        autoBetRecord.setCountMoney(vo.getMoney());
+        gameAutoBetRecordService.insertGameAutoBetRecord(autoBetRecord);
+
+        FiveBallsAddMultiBetRecordReqVO reqVO = new FiveBallsAddMultiBetRecordReqVO();
+        List<FiveBallsMultiBetRecordReqVO> multiBetRecordList = new ArrayList<>();
+        FiveBallsMultiBetRecordReqVO multiBetRecordReqVO = new FiveBallsMultiBetRecordReqVO();
+        multiBetRecordReqVO.setType(vo.getType());
+        multiBetRecordReqVO.setNumber(vo.getNumber());
+        multiBetRecordReqVO.setMoney(vo.getMoney());
+        multiBetRecordReqVO.setAutoBetRecordId(autoBetRecord.getId());
+        multiBetRecordList.add(multiBetRecordReqVO);
+
+        reqVO.setGameId(vo.getGameId());
+        reqVO.setPeriods(vo.getPeriods());
+        reqVO.setRecordList(multiBetRecordList);
+        reqVO.setAutoBetFlg("1");
+        Long lastRecordId = addFiveBallsMultiBetRecord(userId,reqVO);
+
+        return lastRecordId;
     }
 }

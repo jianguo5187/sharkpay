@@ -45,4 +45,9 @@ public interface ISysOperLogService
      * 清空操作日志
      */
     public void cleanOperLog();
+
+    /**
+     * 清空任务日志
+     */
+    public void cleanJobLog();
 }

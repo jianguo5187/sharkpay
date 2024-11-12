@@ -170,4 +170,15 @@ public class GameFiveBallsController  extends BaseController {
         gameFiveBallsService.delFiveBallsBetRecord(sessionUser.getUserId(),vo);
         return ajax;
     }
+
+    /**
+     * 5球追号
+     */
+    @PostMapping("/addFiveBallsAutoBetRecord")
+    public AjaxResult addFiveBallsAutoBetRecord(@RequestBody AddAutoBetRecordReqVO vo){
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        ajax.put("lastBetRecordId",gameFiveBallsService.addFiveBallsAutoBetRecord(sessionUser.getUserId(),vo));
+        return ajax;
+    }
 }

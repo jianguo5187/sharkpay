@@ -94,6 +94,8 @@ public class BetkjServiceImpl implements IBetkjService
     @Autowired
     private IGameSystemOpenDataService gameSystemOpenDataService;
 
+    @Autowired
+    private ISysOperLogService operLogService;
 
     // 获取官方开奖结果的URL
     @Value("${autoGame.url}")
@@ -2704,5 +2706,7 @@ public class BetkjServiceImpl implements IBetkjService
     @Override
     public void autoDeleteOldRobotBet() {
         betkjMapper.deleteAllOldRobotBet();
+        operLogService.cleanOperLog();
+        operLogService.cleanJobLog();
     }
 }

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.GameAutoBetRecordMapper">
+
+    <resultMap type="GameAutoBetRecord" id="GameAutoBetRecordResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="startPeriods"    column="start_periods"    />
+        <result property="nowPeriods"    column="now_periods"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="autoBetType"    column="auto_bet_type"    />
+        <result property="autoBetNumber"    column="auto_bet_number"    />
+        <result property="winStopStatus"    column="win_stop_status"    />
+        <result property="autoBetCount"    column="auto_bet_count"    />
+        <result property="autoBetTimes"    column="auto_bet_times"    />
+        <result property="autoBetMoney"    column="auto_bet_money"    />
+        <result property="remainCount"    column="remain_count"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="winCount"    column="win_count"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectGameAutoBetRecordVo">
+        select id, user_id, start_periods, now_periods, game_id, game_name, auto_bet_type, auto_bet_number, win_stop_status, auto_bet_count, auto_bet_times, auto_bet_money, remain_count, count_money, win_money, win_count, status, create_by, create_time, update_by, update_time, remark from game_auto_bet_record
+    </sql>
+
+    <select id="selectGameAutoBetRecordList" parameterType="GameAutoBetRecord" resultMap="GameAutoBetRecordResult">
+        <include refid="selectGameAutoBetRecordVo"/>
+        <where>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="startPeriods != null "> and start_periods = #{startPeriods}</if>
+            <if test="nowPeriods != null "> and now_periods = #{nowPeriods}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="autoBetType != null "> and auto_bet_type = #{autoBetType}</if>
+            <if test="autoBetNumber != null  and autoBetNumber != ''"> and auto_bet_number = #{autoBetNumber}</if>
+            <if test="winStopStatus != null  and winStopStatus != ''"> and win_stop_status = #{winStopStatus}</if>
+            <if test="autoBetCount != null "> and auto_bet_count = #{autoBetCount}</if>
+            <if test="autoBetTimes != null "> and auto_bet_times = #{autoBetTimes}</if>
+            <if test="autoBetMoney != null "> and auto_bet_money = #{autoBetMoney}</if>
+            <if test="remainCount != null "> and remain_count = #{remainCount}</if>
+            <if test="countMoney != null "> and count_money = #{countMoney}</if>
+            <if test="winMoney != null "> and win_money = #{winMoney}</if>
+            <if test="winCount != null "> and win_count = #{winCount}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+
+    <select id="selectGameAutoBetRecordById" parameterType="Long" resultMap="GameAutoBetRecordResult">
+        <include refid="selectGameAutoBetRecordVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertGameAutoBetRecord" parameterType="GameAutoBetRecord" useGeneratedKeys="true" keyProperty="id">
+        insert into game_auto_bet_record(
+            <if test="userId != null">user_id,</if>
+            <if test="startPeriods != null">start_periods,</if>
+            <if test="nowPeriods != null">now_periods,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="autoBetType != null">auto_bet_type,</if>
+            <if test="autoBetNumber != null">auto_bet_number,</if>
+            <if test="winStopStatus != null">win_stop_status,</if>
+            <if test="autoBetCount != null">auto_bet_count,</if>
+            <if test="autoBetTimes != null">auto_bet_times,</if>
+            <if test="autoBetMoney != null">auto_bet_money,</if>
+            <if test="remainCount != null">remain_count,</if>
+            <if test="countMoney != null">count_money,</if>
+            <if test="winMoney != null">win_money,</if>
+            <if test="winCount != null">win_count,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+            create_time
+        )values(
+            <if test="userId != null">#{userId},</if>
+            <if test="startPeriods != null">#{startPeriods},</if>
+            <if test="nowPeriods != null">#{nowPeriods},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="autoBetType != null">#{autoBetType},</if>
+            <if test="autoBetNumber != null">#{autoBetNumber},</if>
+            <if test="winStopStatus != null">#{winStopStatus},</if>
+            <if test="autoBetCount != null">#{autoBetCount},</if>
+            <if test="autoBetTimes != null">#{autoBetTimes},</if>
+            <if test="autoBetMoney != null">#{autoBetMoney},</if>
+            <if test="remainCount != null">#{remainCount},</if>
+            <if test="countMoney != null">#{countMoney},</if>
+            <if test="winMoney != null">#{winMoney},</if>
+            <if test="winCount != null">#{winCount},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateGameAutoBetRecord" parameterType="GameAutoBetRecord">
+        update game_auto_bet_record
+        <set>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="startPeriods != null">start_periods = #{startPeriods},</if>
+            <if test="nowPeriods != null">now_periods = #{nowPeriods},</if>
+            <if test="gameId != null">game_id = #{gameId},</if>
+            <if test="gameName != null">game_name = #{gameName},</if>
+            <if test="autoBetType != null">auto_bet_type = #{autoBetType},</if>
+            <if test="autoBetNumber != null">auto_bet_number = #{autoBetNumber},</if>
+            <if test="winStopStatus != null">win_stop_status = #{winStopStatus},</if>
+            <if test="autoBetCount != null">auto_bet_count = #{autoBetCount},</if>
+            <if test="autoBetTimes != null">auto_bet_times = #{autoBetTimes},</if>
+            <if test="autoBetMoney != null">auto_bet_money = #{autoBetMoney},</if>
+            <if test="remainCount != null">remain_count = #{remainCount},</if>
+            <if test="countMoney != null">count_money = #{countMoney},</if>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="winCount != null">win_count = #{winCount},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGameAutoBetRecordById" parameterType="Long">
+        delete from game_auto_bet_record where id = #{id}
+    </delete>
+
+    <delete id="deleteGameAutoBetRecordByIds" parameterType="String">
+        delete from game_auto_bet_record where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="cancelAllAutoBetRecord">
+        update game_auto_bet_record
+        set update_time = sysdate(),status = '1'
+        where game_id = #{gameId}
+          and user_id = #{userId}
+    </update>
+
+    <select id="getAutoBetScheduleList" parameterType="GameAutoBetRecord" resultMap="GameAutoBetRecordResult">
+        <include refid="selectGameAutoBetRecordVo"/>
+        where user_id = #{userId}
+        and game_id = #{gameId}
+        order by id desc
+    </select>
+</mapper>
