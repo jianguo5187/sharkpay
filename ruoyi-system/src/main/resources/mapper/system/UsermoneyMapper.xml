@@ -42,6 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userBalance"    column="user_balance"    />
         <result property="userAccount"    column="user_account"    />
         <result property="remark"    column="remark"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
     </resultMap>
 
     <resultMap type="com.ruoyi.system.domain.vo.RechargeListRespVO" id="RechargeListResult">
@@ -56,6 +58,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="userBalance"    column="user_balance"    />
         <result property="userAccount"    column="user_account"    />
         <result property="remark"    column="remark"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
     </resultMap>
 
     <resultMap type="com.ruoyi.system.domain.vo.UserMoneyUpTotalListRespVO" id="UserMoneyUpTotalListResult">
@@ -154,9 +158,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">hz_id,</if>
             <if test="commissionFromUserId != null">commission_from_user_id,</if>
             <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
             <if test="remark != null">remark,</if>
             cash_time,
-            create_time
+            create_time,
+            update_time
         )values(
             <if test="userId != null">#{userId},</if>
             <if test="cashContent != null">#{cashContent},</if>
@@ -175,7 +181,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="hzId != null and hzId != ''">#{hzId},</if>
             <if test="commissionFromUserId != null">#{commissionFromUserId},</if>
             <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
             <if test="remark != null">#{remark},</if>
+            sysdate(),
             sysdate(),
             sysdate()
         )
@@ -288,6 +296,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,um.user_balance as user_balance
             ,um.user_account as user_account
             ,um.remark as remark
+            ,um.update_by as update_by
+            ,um.update_time as update_time
         from  usermoney um
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where 1 = 1
@@ -321,6 +331,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,um.user_balance as user_balance
             ,um.user_account as user_account
             ,um.remark as remark
+            ,um.update_by as update_by
+            ,um.update_time as update_time
         from  usermoney um
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where 1 = 1

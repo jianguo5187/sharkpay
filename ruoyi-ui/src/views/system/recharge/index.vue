@@ -69,10 +69,11 @@
       <el-table-column label="申请时间" align="center" prop="cashTime" sortable="custom"/>
       <el-table-column label="方式" align="center" prop="userAccount" />
       <el-table-column label="备注" align="center" prop="remark" />
+      <el-table-column label="操作时间" align="center" prop="updateTime" width="180"/>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <span v-if="scope.row.type == '2'">
-            申请成功
+            申请成功(操作者：{{scope.row.updateBy}})
               <el-button
                 title="修改金额"
                 circle
@@ -82,7 +83,7 @@
                 @click="handleUpdateUserAmount(scope.row)"
               ></el-button>
           </span>
-          <span v-if="scope.row.type == '3'">申请失败</span>
+          <span v-if="scope.row.type == '3'">申请失败(操作者：{{scope.row.updateBy}})</span>
           <el-button
             size="mini"
             type="success"

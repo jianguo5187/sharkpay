@@ -8,12 +8,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Validator;
 
+import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.AgentUserListRespVo;
 import com.ruoyi.system.domain.vo.LoginUserInfoRespVO;
 import com.ruoyi.system.domain.vo.ParentUserListRespVO;
 import com.ruoyi.system.domain.vo.UserTotalRankListRespVO;
 import com.ruoyi.system.mapper.*;
+import com.ruoyi.system.service.ISysAdminActionLogService;
 import com.ruoyi.system.service.IUserwinService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,6 +79,9 @@ public class SysUserServiceImpl implements ISysUserService
 
     @Autowired
     private ImFriendMapper imFriendMapper;
+
+    @Autowired
+    private ISysAdminActionLogService sysAdminActionLogService;
 
     /**
      * 根据条件分页查询用户列表
@@ -774,10 +780,33 @@ public class SysUserServiceImpl implements ISysUserService
     }
 
     @Override
-    public int updateUserParent(Long userId, Long parentUserId) {
+    public int updateUserParent(SysUser actionUser,Long userId, Long parentUserId) {
         if(StringUtils.isNull(selectUserById(parentUserId))){
             throw new ServiceException("输入的上级不存在！");
         }
+        SysUser user = selectUserById(userId);
+
+        // 判断是否是管理员登录，如果是记录登录信息
+        boolean isAdminFlag = false;
+        List<SysRole> roles = actionUser.getRoles();
+        for(SysRole role : roles){
+            if(role.getRoleId() == 2 || role.getRoleId() == 4){
+                isAdminFlag = true;
+                break;
+            }
+        }
+        if(isAdminFlag){
+            SysAdminActionLog sysAdminActionLog = new SysAdminActionLog();
+            sysAdminActionLog.setType("3");//修改上级
+            sysAdminActionLog.setAdminUserId(actionUser.getUserId());
+            sysAdminActionLog.setAdminUserName(actionUser.getNickName());
+            sysAdminActionLog.setActionLoginIp(IpUtils.getIpAddr());
+            sysAdminActionLog.setActionTargetIp(userId.toString());
+            sysAdminActionLog.setCreateBy(actionUser.getNickName());
+            sysAdminActionLog.setRemark("[" + actionUser.getNickName() + "],修改用户id[" + userId + "],上级id["+ user.getParentUserId() + "] ->[" + parentUserId + "],时间：" + DateUtils.getTime());
+            sysAdminActionLogService.insertSysAdminActionLog(sysAdminActionLog);
+        }
+
         return userMapper.updateUserParent(userId,parentUserId);
     }
 }

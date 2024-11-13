@@ -1,6 +1,8 @@
 package com.ruoyi.system.service;
 
 import java.util.List;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.system.domain.Usermoney;
 import com.ruoyi.system.domain.vo.*;
 
@@ -62,19 +64,19 @@ public interface IUsermoneyService
 
     public List<PostalListRespVO> selectPostalList(PostalListReqVO vo);
 
-    public int agreePostalApply(Usermoney usermoney, Long userId);
+    public int agreePostalApply(Usermoney usermoney, SysUser actionUser);
 
-    public int refusePostalApply(Usermoney usermoney, Long userId);
+    public int refusePostalApply(Usermoney usermoney, SysUser actionUser);
 
     public List<RechargeListRespVO> selectRechargeList(RechargeListReqVO vo);
 
-    public int agreeRechargeApply(Usermoney usermoney, Long userId);
+    public int agreeRechargeApply(Usermoney usermoney, SysUser actionUser);
 
-    public int refuseRechargeApply(Usermoney usermoney, Long userId);
+    public int refuseRechargeApply(Usermoney usermoney, SysUser actionUser);
 
-    public int adminRecharge(Usermoney usermoney, Long userId);
+    public int adminRecharge(Usermoney usermoney, SysUser actionUser);
 
-    public int adminPostal(Usermoney usermoney, Long userId);
+    public int adminPostal(Usermoney usermoney, SysUser actionUser);
 
     public List<UserMoneyUpTotalListRespVO> selectUserMoneyUpTotalList(Usermoney usermoney);
 

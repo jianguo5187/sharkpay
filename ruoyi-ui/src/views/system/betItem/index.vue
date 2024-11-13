@@ -120,12 +120,12 @@
         <el-form-item label="赔率" prop="odd">
           <el-input-number v-model="form.odd" :min="0" placeholder="请输入赔率" :precision="2"/>
         </el-form-item>
-        <el-form-item label="最小投注金额" prop="minBetAmount">
-          <el-input-number v-model="form.minBetAmount" :min="0" placeholder="请输入最小投注金额" :precision="2"/>
-        </el-form-item>
-        <el-form-item label="最大投注金额" prop="maxBetAmount">
-          <el-input-number v-model="form.maxBetAmount" :min="0" placeholder="请输入最大投注金额" :precision="2"/>
-        </el-form-item>
+<!--        <el-form-item label="最小投注金额" prop="minBetAmount" v-show="false">-->
+<!--          <el-input-number v-model="form.minBetAmount" :min="0" placeholder="请输入最小投注金额" :precision="2"/>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="最大投注金额" prop="maxBetAmount" v-show="false">-->
+<!--          <el-input-number v-model="form.maxBetAmount" :min="0" placeholder="请输入最大投注金额" :precision="2"/>-->
+<!--        </el-form-item>-->
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="form.status">
             <el-radio
@@ -288,8 +288,8 @@ export default {
         betItemName: null,
         betItemDescribe: null,
         odd: null,
-        minBetAmount: null,
-        maxBetAmount: null,
+        // minBetAmount: null,
+        // maxBetAmount: null,
         sort: null,
         status: '0',
       },
@@ -395,8 +395,8 @@ export default {
         betItemName: null,
         betItemDescribe: null,
         odd: null,
-        minBetAmount: null,
-        maxBetAmount: null,
+        // minBetAmount: null,
+        // maxBetAmount: null,
         sort: 0,
         status: "0",
         createBy: null,

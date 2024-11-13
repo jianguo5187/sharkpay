@@ -123,8 +123,8 @@ public class UsermoneyController extends BaseController
     @PostMapping("/agreePostalApply")
     public AjaxResult agreePostalApply(@RequestBody Usermoney usermoney)
     {
-        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        return toAjax(usermoneyService.agreePostalApply(usermoney,sessionUser.getUserId()));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.agreePostalApply(usermoney,actionUser));
     }
 
     /**
@@ -133,8 +133,8 @@ public class UsermoneyController extends BaseController
     @PostMapping("/refusePostalApply")
     public AjaxResult refusePostalApply(@RequestBody Usermoney usermoney)
     {
-        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        return toAjax(usermoneyService.refusePostalApply(usermoney,sessionUser.getUserId()));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.refusePostalApply(usermoney,actionUser));
     }
 
     /**
@@ -154,8 +154,8 @@ public class UsermoneyController extends BaseController
     @PostMapping("/agreeRechargeApply")
     public AjaxResult agreeRechargeApply(@RequestBody Usermoney usermoney)
     {
-        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        return toAjax(usermoneyService.agreeRechargeApply(usermoney,sessionUser.getUserId()));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.agreeRechargeApply(usermoney,actionUser));
     }
 
     /**
@@ -164,8 +164,8 @@ public class UsermoneyController extends BaseController
     @PostMapping("/refuseRechargeApply")
     public AjaxResult refuseRechargeApply(@RequestBody Usermoney usermoney)
     {
-        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        return toAjax(usermoneyService.refuseRechargeApply(usermoney,sessionUser.getUserId()));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.refuseRechargeApply(usermoney,actionUser));
     }
 
     /**
@@ -174,8 +174,8 @@ public class UsermoneyController extends BaseController
     @PostMapping("/adminRecharge")
     public AjaxResult adminRecharge(@RequestBody Usermoney usermoney)
     {
-        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        return toAjax(usermoneyService.adminRecharge(usermoney,sessionUser.getUserId()));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.adminRecharge(usermoney,actionUser));
     }
 
     /**
@@ -184,8 +184,8 @@ public class UsermoneyController extends BaseController
     @PostMapping("/adminPostal")
     public AjaxResult adminPostal(@RequestBody Usermoney usermoney)
     {
-        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        return toAjax(usermoneyService.adminPostal(usermoney,sessionUser.getUserId()));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(usermoneyService.adminPostal(usermoney,actionUser));
     }
 
     @GetMapping("/listUserMoneyUpTotal")

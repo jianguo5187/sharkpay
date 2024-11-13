@@ -325,6 +325,7 @@ public class SysUserController extends BaseController
     @PutMapping("/updateUserParent")
     public AjaxResult updateUserParent(@RequestBody SysUser user)
     {
-        return toAjax(userService.updateUserParent(user.getUserId(),user.getParentUserId()));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(userService.updateUserParent(actionUser, user.getUserId(),user.getParentUserId()));
     }
 }

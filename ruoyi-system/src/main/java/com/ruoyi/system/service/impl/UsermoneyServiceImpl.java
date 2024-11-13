@@ -117,11 +117,12 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     }
 
     @Override
-    public int agreePostalApply(Usermoney usermoney, Long userId) {
+    public int agreePostalApply(Usermoney usermoney, SysUser actionUser) {
         Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
 
         dbUsermoney.setType("5");
         dbUsermoney.setRemark("提现成功");
+        dbUsermoney.setUpdateBy(actionUser.getNickName());
 
         int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
 
@@ -129,19 +130,20 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         sysAdminRecord.setType(2);//下分
         sysAdminRecord.setIsAgree("0");
         sysAdminRecord.setOriginId(usermoney.getId());
-        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecord.setAdminUserId(actionUser.getUserId());
         int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return upCnt1>0&&insertCnt1>0?1:0;
     }
 
     @Override
-    public int refusePostalApply(Usermoney usermoney, Long userId) {
+    public int refusePostalApply(Usermoney usermoney, SysUser actionUser) {
         Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
 
         SysUser user = userService.selectUserById(dbUsermoney.getUserId());
         dbUsermoney.setType("6");
         dbUsermoney.setRemark("提现失败");
+        dbUsermoney.setUpdateBy(actionUser.getNickName());
         int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
 
         Float userMoney = user.getAmount() + dbUsermoney.getCashMoney();
@@ -152,7 +154,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         sysAdminRecord.setType(2);//下分
         sysAdminRecord.setIsAgree("1");
         sysAdminRecord.setOriginId(usermoney.getId());
-        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecord.setAdminUserId(actionUser.getUserId());
         int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return upCnt1>0&&insertCnt1>0?1:0;
@@ -164,7 +166,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     }
 
     @Override
-    public int agreeRechargeApply(Usermoney usermoney, Long userId) {
+    public int agreeRechargeApply(Usermoney usermoney, SysUser actionUser) {
         Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
         SysUser user = userService.selectUserById(dbUsermoney.getUserId());
 
@@ -173,6 +175,7 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         dbUsermoney.setType("2");
         dbUsermoney.setRemark("充值成功");
         dbUsermoney.setUserBalance(userMoney);
+        dbUsermoney.setUpdateBy(actionUser.getNickName());
         int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
 
         user.setAmount(userMoney);
@@ -182,33 +185,34 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         sysAdminRecord.setType(1);//上分
         sysAdminRecord.setIsAgree("0");
         sysAdminRecord.setOriginId(usermoney.getId());
-        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecord.setAdminUserId(actionUser.getUserId());
         int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return upCnt1>0&&insertCnt1>0?1:0;
     }
 
     @Override
-    public int refuseRechargeApply(Usermoney usermoney, Long userId) {
+    public int refuseRechargeApply(Usermoney usermoney, SysUser actionUser) {
         Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
 
         SysUser user = userService.selectUserById(dbUsermoney.getUserId());
         dbUsermoney.setType("3");
         dbUsermoney.setRemark("充值失败");
+        dbUsermoney.setUpdateBy(actionUser.getNickName());
         int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
         sysAdminRecord.setType(1);//上分
         sysAdminRecord.setIsAgree("1");
         sysAdminRecord.setOriginId(usermoney.getId());
-        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecord.setAdminUserId(actionUser.getUserId());
         int insertCnt1 = sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return upCnt1>0&&insertCnt1>0?1:0;
     }
 
     @Override
-    public int adminRecharge(Usermoney usermoney, Long userId) {
+    public int adminRecharge(Usermoney usermoney, SysUser actionUser) {
 
         SysUser user = userService.selectUserById(usermoney.getUserId());
         Float userMoney = user.getAmount() + usermoney.getCashMoney();
@@ -218,20 +222,22 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         usermoney.setType("2");
         usermoney.setUserBalance(userMoney);
         usermoney.setRemark("管理员上分");
+        usermoney.setCreateBy(actionUser.getNickName());
+        usermoney.setUpdateBy(actionUser.getNickName());
         int insertCnt = usermoneyMapper.insertUsermoney(usermoney);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
         sysAdminRecord.setType(3);//手动上分
         sysAdminRecord.setIsAgree("0");
         sysAdminRecord.setOriginId(usermoney.getId());
-        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecord.setAdminUserId(actionUser.getUserId());
         sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return insertCnt;
     }
 
     @Override
-    public int adminPostal(Usermoney usermoney, Long userId) {
+    public int adminPostal(Usermoney usermoney, SysUser actionUser) {
         SysUser user = userService.selectUserById(usermoney.getUserId());
         if(user.getAmount().compareTo(usermoney.getCashMoney()) < 0){
             throw new ServiceException("用户余额不足");
@@ -244,13 +250,15 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         usermoney.setType("5");
         usermoney.setUserBalance(userMoney);
         usermoney.setRemark("管理员下分");
+        usermoney.setCreateBy(actionUser.getNickName());
+        usermoney.setUpdateBy(actionUser.getNickName());
         int insertCnt = usermoneyMapper.insertUsermoney(usermoney);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
         sysAdminRecord.setType(4);//手动下分
         sysAdminRecord.setIsAgree("0");
         sysAdminRecord.setOriginId(usermoney.getId());
-        sysAdminRecord.setAdminUserId(userId);
+        sysAdminRecord.setAdminUserId(actionUser.getUserId());
         sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
 
         return insertCnt;

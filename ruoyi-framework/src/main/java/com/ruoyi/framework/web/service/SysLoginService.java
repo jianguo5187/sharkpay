@@ -6,6 +6,7 @@ import cn.hutool.json.JSONUtil;
 import com.ruoyi.common.constant.CacheConstants;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.constant.UserConstants;
+import com.ruoyi.common.core.domain.entity.SysRole;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.core.redis.RedisCache;
@@ -19,7 +20,9 @@ import com.ruoyi.framework.manager.factory.AsyncFactory;
 import com.ruoyi.framework.pojo.dos.WxMiniAppLoginResponseDO;
 import com.ruoyi.framework.pojo.dos.WxMiniAppLoginUserInfoResponseDO;
 import com.ruoyi.framework.security.context.AuthenticationContextHolder;
+import com.ruoyi.system.domain.SysAdminActionLog;
 import com.ruoyi.system.domain.SysLandingDomain;
+import com.ruoyi.system.service.ISysAdminActionLogService;
 import com.ruoyi.system.service.ISysConfigService;
 import com.ruoyi.system.service.ISysLandingDomainService;
 import com.ruoyi.system.service.ISysUserService;
@@ -71,6 +74,9 @@ public class SysLoginService
 
     @Autowired
     private ISysLandingDomainService sysLandingDomainService;
+
+    @Autowired
+    private ISysAdminActionLogService sysAdminActionLogService;
 
 //    微信小程序appId
 //    @Value("${wx.minApp.appId}")
@@ -136,6 +142,35 @@ public class SysLoginService
         AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         recordLoginInfo(request,loginUser.getUserId());
+
+        // 判断是否是管理员登录，如果是记录登录信息
+        boolean isAdminFlag = false;
+        Long roleId = 0l;
+        SysUser user = loginUser.getUser();
+        List<SysRole> roles = user.getRoles();
+        for(SysRole role : roles){
+            if(role.getRoleId() == 2 || role.getRoleId() == 4){
+                roleId = role.getRoleId();
+                isAdminFlag = true;
+                break;
+            }
+        }
+        if(isAdminFlag){
+            SysAdminActionLog sysAdminActionLog = new SysAdminActionLog();
+            if(roleId == 2){
+                sysAdminActionLog.setType("1");//平台管理员登录
+            }else{
+                sysAdminActionLog.setType("2");//子管理员登录
+            }
+            sysAdminActionLog.setAdminUserId(user.getUserId());
+            sysAdminActionLog.setAdminUserName(user.getNickName());
+            sysAdminActionLog.setActionLoginIp(IpUtils.getIpAddr());
+            sysAdminActionLog.setActionTargetIp(user.getUserId().toString());
+            sysAdminActionLog.setCreateBy(user.getNickName());
+            sysAdminActionLog.setRemark("[" + user.getNickName() + "]管理员登录。");
+            sysAdminActionLogService.insertSysAdminActionLog(sysAdminActionLog);
+        }
+
         // 生成token
         return tokenService.createToken(loginUser);
     }

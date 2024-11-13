@@ -2,6 +2,9 @@ package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.utils.SecurityUtils;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -92,7 +95,8 @@ public class SysBetItemController extends BaseController
         if(!sysBetItemService.checkBetItemCodeUnique(sysBetItem)){
             return error("游戏投注项Cd'" + sysBetItem.getBetItemCode() + "'已存在");
         }
-        return toAjax(sysBetItemService.updateSysBetItem(sysBetItem));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(sysBetItemService.updateSysBetItem(actionUser,sysBetItem));
     }
 
     /**

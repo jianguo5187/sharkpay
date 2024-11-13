@@ -751,29 +751,33 @@ public class SysAppServiceImpl implements ISysAppService {
                 String city = dataJson.getString("city");
                 String isp = dataJson.getString("isp");
 
-                String refuseProvinceArg = configService.selectConfigByKey("sys.refuse.province");
-                String refuseCityArg = configService.selectConfigByKey("sys.refuse.city");
-                String refuseIspArg = configService.selectConfigByKey("sys.refuse.isp");
-                List<String> refuseProvinceList = new ArrayList<>();
-                List<String> refuseCityList = new ArrayList<>();
-                List<String> refuseIspList = new ArrayList<>();
-
-                if(StringUtils.isNotEmpty(refuseProvinceArg)){
-                    refuseProvinceList = Arrays.asList(refuseProvinceArg.split(","));
-                }
-                if(StringUtils.isNotEmpty(refuseCityArg)){
-                    refuseCityList = Arrays.asList(refuseCityArg.split(","));
-                }
-                if(StringUtils.isNotEmpty(refuseIspArg)){
-                    refuseIspList = Arrays.asList(refuseIspArg.split(","));
-                }
-
-                if(refuseProvinceList.contains(region)
-                        || refuseCityList.contains(city)
-                        || refuseIspList.contains(isp)){
+                if(!StringUtils.equals(country,"中国")){
                     checkResult = "0";
                 }else{
-                    checkResult = "1";
+                    String refuseProvinceArg = configService.selectConfigByKey("sys.refuse.province");
+                    String refuseCityArg = configService.selectConfigByKey("sys.refuse.city");
+                    String refuseIspArg = configService.selectConfigByKey("sys.refuse.isp");
+                    List<String> refuseProvinceList = new ArrayList<>();
+                    List<String> refuseCityList = new ArrayList<>();
+                    List<String> refuseIspList = new ArrayList<>();
+
+                    if(StringUtils.isNotEmpty(refuseProvinceArg)){
+                        refuseProvinceList = Arrays.asList(refuseProvinceArg.split(","));
+                    }
+                    if(StringUtils.isNotEmpty(refuseCityArg)){
+                        refuseCityList = Arrays.asList(refuseCityArg.split(","));
+                    }
+                    if(StringUtils.isNotEmpty(refuseIspArg)){
+                        refuseIspList = Arrays.asList(refuseIspArg.split(","));
+                    }
+
+                    if(refuseProvinceList.contains(region)
+                            || refuseCityList.contains(city)
+                            || refuseIspList.contains(isp)){
+                        checkResult = "0";
+                    }else{
+                        checkResult = "1";
+                    }
                 }
             }
         }

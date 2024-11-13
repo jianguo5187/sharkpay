@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysAdminActionLogMapper">
+    
+    <resultMap type="SysAdminActionLog" id="SysAdminActionLogResult">
+        <result property="id"    column="id"    />
+        <result property="type"    column="type"    />
+        <result property="adminUserId"    column="admin_user_id"    />
+        <result property="adminUserName"    column="admin_user_name"    />
+        <result property="actionLoginIp"    column="action_login_ip"    />
+        <result property="actionTargetIp"    column="action_target_ip"    />
+        <result property="actionOldValue"    column="action_old_value"    />
+        <result property="actionNewValue"    column="action_new_value"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysAdminActionLogVo">
+        select id, type, admin_user_id, admin_user_name, action_login_ip, action_target_ip, action_old_value, action_new_value, create_by, create_time, update_by, update_time, remark from sys_admin_action_log
+    </sql>
+
+    <select id="selectSysAdminActionLogList" parameterType="SysAdminActionLog" resultMap="SysAdminActionLogResult">
+        <include refid="selectSysAdminActionLogVo"/>
+        <where>  
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="adminUserId != null "> and admin_user_id = #{adminUserId}</if>
+            <if test="adminUserName != null  and adminUserName != ''"> and admin_user_name like concat('%', #{adminUserName}, '%')</if>
+            <if test="actionLoginIp != null  and actionLoginIp != ''"> and action_login_ip = #{actionLoginIp}</if>
+            <if test="actionTargetIp != null  and actionTargetIp != ''"> and action_target_ip = #{actionTargetIp}</if>
+            <if test="actionOldValue != null  and actionOldValue != ''"> and action_old_value = #{actionOldValue}</if>
+            <if test="actionNewValue != null  and actionNewValue != ''"> and action_new_value = #{actionNewValue}</if>
+        </where>
+        order by id desc
+    </select>
+    
+    <select id="selectSysAdminActionLogById" parameterType="Long" resultMap="SysAdminActionLogResult">
+        <include refid="selectSysAdminActionLogVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSysAdminActionLog" parameterType="SysAdminActionLog" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_admin_action_log(
+            <if test="type != null and type != ''">type,</if>
+            <if test="adminUserId != null">admin_user_id,</if>
+            <if test="adminUserName != null and adminUserName != ''">admin_user_name,</if>
+            <if test="actionLoginIp != null">action_login_ip,</if>
+            <if test="actionTargetIp != null">action_target_ip,</if>
+            <if test="actionOldValue != null">action_old_value,</if>
+            <if test="actionNewValue != null">action_new_value,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+            create_time
+        )values(
+            <if test="type != null and type != ''">#{type},</if>
+            <if test="adminUserId != null">#{adminUserId},</if>
+            <if test="adminUserName != null and adminUserName != ''">#{adminUserName},</if>
+            <if test="actionLoginIp != null">#{actionLoginIp},</if>
+            <if test="actionTargetIp != null">#{actionTargetIp},</if>
+            <if test="actionOldValue != null">#{actionOldValue},</if>
+            <if test="actionNewValue != null">#{actionNewValue},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateSysAdminActionLog" parameterType="SysAdminActionLog">
+        update sys_admin_action_log
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="adminUserId != null">admin_user_id = #{adminUserId},</if>
+            <if test="adminUserName != null and adminUserName != ''">admin_user_name = #{adminUserName},</if>
+            <if test="actionLoginIp != null">action_login_ip = #{actionLoginIp},</if>
+            <if test="actionTargetIp != null">action_target_ip = #{actionTargetIp},</if>
+            <if test="actionOldValue != null">action_old_value = #{actionOldValue},</if>
+            <if test="actionNewValue != null">action_new_value = #{actionNewValue},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysAdminActionLogById" parameterType="Long">
+        delete from sys_admin_action_log where id = #{id}
+    </delete>
+
+    <delete id="deleteSysAdminActionLogByIds" parameterType="String">
+        delete from sys_admin_action_log where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

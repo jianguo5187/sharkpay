@@ -79,10 +79,11 @@
           >投注记录</el-button>
         </template>
       </el-table-column>
+      <el-table-column label="操作时间" align="center" prop="updateTime" width="180"/>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <span v-if="scope.row.type == '5'">
-            提现成功
+            提现成功(操作者：{{scope.row.updateBy}})
               <el-button
                 title="修改金额"
                 circle
@@ -92,7 +93,7 @@
                 @click="handleUpdateUserAmount(scope.row)"
               ></el-button>
           </span>
-          <span v-if="scope.row.type == '6'">提现失败</span>
+          <span v-if="scope.row.type == '6'">提现失败(操作者：{{scope.row.updateBy}})</span>
           <el-button
             size="mini"
             type="success"

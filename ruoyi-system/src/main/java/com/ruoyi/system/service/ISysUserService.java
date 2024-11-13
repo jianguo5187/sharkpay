@@ -255,5 +255,5 @@ public interface ISysUserService
 
     public int addChildAdminUser(SysUser user);
 
-    public int updateUserParent(Long userId, Long parentUserId);
+    public int updateUserParent(SysUser actionUser,Long userId, Long parentUserId);
 }

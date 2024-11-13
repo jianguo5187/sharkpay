@@ -1,5 +1,6 @@
 package com.ruoyi.system.service;
 
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.system.domain.SysBetItem;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public interface ISysBetItemService
      * @param sysBetItem 游戏投注项
      * @return 结果
      */
-    public int updateSysBetItem(SysBetItem sysBetItem);
+    public int updateSysBetItem(SysUser actionUser, SysBetItem sysBetItem);
 
     /**
      * 批量删除游戏投注项
