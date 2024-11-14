@@ -1,6 +1,8 @@
 package com.ruoyi.system.service;
 
 import java.util.List;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.system.domain.GameThreeballMixedOdds;
 
 /**
@@ -41,7 +43,7 @@ public interface IGameThreeballMixedOddsService
      * @param gameThreeballMixedOdds 3球特殊赔率
      * @return 结果
      */
-    public int updateGameThreeballMixedOdds(GameThreeballMixedOdds gameThreeballMixedOdds);
+    public int updateGameThreeballMixedOdds(GameThreeballMixedOdds gameThreeballMixedOdds, SysUser actionUser);
 
     /**
      * 批量删除3球特殊赔率

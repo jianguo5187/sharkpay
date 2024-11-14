@@ -87,4 +87,8 @@ public interface IUserwinService
     public List<GameReportRespVO> selectGameReportLis(Userwin userwin);
 
     public List<CollectReportRespVO> selectCollectReportLis(Userwin userwin);
+
+    public void autoCommissionBalance();
+
+    public void autoCashbackBalance();
 }

@@ -448,4 +448,16 @@ public class UserwinServiceImpl implements IUserwinService
     public List<CollectReportRespVO> selectCollectReportLis(Userwin userwin) {
         return userwinMapper.selectCollectReportLis(userwin);
     }
+
+    @Override
+    public void autoCommissionBalance() {
+        List<Userwin> lessTodayNoCommissionList = userwinMapper.selectLessTodayNoCommissionList();
+        commission(lessTodayNoCommissionList,2l);
+    }
+
+    @Override
+    public void autoCashbackBalance() {
+        List<Userwin> lessTodayNoCashBackList = userwinMapper.selectLessTodayNoCashBackList();
+        cashBack(lessTodayNoCashBackList,2l);
+    }
 }

@@ -2,6 +2,9 @@ package com.ruoyi.web.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.utils.SecurityUtils;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -83,7 +86,8 @@ public class GameThreeballMixedOddsController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody GameThreeballMixedOdds gameThreeballMixedOdds)
     {
-        return toAjax(gameThreeballMixedOddsService.updateGameThreeballMixedOdds(gameThreeballMixedOdds));
+        SysUser actionUser = SecurityUtils.getLoginUser().getUser();
+        return toAjax(gameThreeballMixedOddsService.updateGameThreeballMixedOdds(gameThreeballMixedOdds,actionUser));
     }
 
     /**

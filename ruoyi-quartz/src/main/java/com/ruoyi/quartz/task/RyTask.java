@@ -236,4 +236,12 @@ public class RyTask
     public void autoAllBetRepair(){
         gameTaskService.autoAllBetRepair();
     }
+
+    public void autoCommissionBalance(){
+        gameTaskService.autoCommissionBalance();
+    }
+
+    public void autoCashbackBalance(){
+        gameTaskService.autoCashbackBalance();
+    }
 }

@@ -452,7 +452,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             GROUP BY uw.user_id,uw.win_time,uw.game_id
             ORDER BY uw.win_time desc,uw.game_id
         )MAIN
-        WHERE MAIN.pre_cash_back_money > 0
+        WHERE MAIN.cash_back_money > 0 or MAIN.pre_cash_back_money > 0
     </select>
 
     <select id="selectYestodayNoCashBackList" resultMap="UserwinResult">
@@ -571,7 +571,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             GROUP BY uw.user_id,pu.user_id,uw.win_time,uw.game_id
             ORDER BY uw.win_time desc,uw.game_id
         )MAIN
-        WHERE MAIN.pre_commission_money > 0
+        WHERE MAIN.commission_money > 0 or MAIN.pre_commission_money > 0
     </select>
 
     <select id="selectYestodayNoCommissionList" resultMap="UserwinResult">
@@ -1362,5 +1362,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         OR IFNULL(bet_win_temp.bet_win_money_total,0) &lt;&gt; 0
 
         ORDER BY c.calendar_id DESC
+    </select>
+
+    <select id="selectLessTodayNoCommissionList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where is_commission = '0'
+        and date_format(win_time,'%Y%m%d') &lt;= DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+    </select>
+
+    <select id="selectLessTodayNoCashBackList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where is_cash_back = '0'
+        and date_format(win_time,'%Y%m%d') &lt;= DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
     </select>
 </mapper>

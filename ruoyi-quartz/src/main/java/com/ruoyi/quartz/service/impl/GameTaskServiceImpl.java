@@ -40,6 +40,9 @@ public class GameTaskServiceImpl implements IGameTaskService {
     @Autowired
     private IGameTenBallsService gameTenBallsService;
 
+    @Autowired
+    private IUserwinService userwinService;
+
     @Override
     public void saveThreeBallInfoFromOfficial(String gameCode, List<GameOpenDataDto> openDataList, Map<Long, GameOpenDataDto> gameOpenDataDtoMap) {
 
@@ -390,5 +393,15 @@ public class GameTaskServiceImpl implements IGameTaskService {
             vo.setGameId(gameInfo.getGameId());
             betkjService.BetRepair(vo);
         }
+    }
+
+    @Override
+    public void autoCommissionBalance() {
+        userwinService.autoCommissionBalance();
+    }
+
+    @Override
+    public void autoCashbackBalance() {
+        userwinService.autoCashbackBalance();
     }
 }

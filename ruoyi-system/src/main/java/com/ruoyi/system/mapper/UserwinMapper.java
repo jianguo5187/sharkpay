@@ -106,4 +106,8 @@ public interface UserwinMapper
     public List<CollectReportRespVO> selectCollectReportLis(Userwin userwin);
 
     public List<ChildReportRespVO> selectChildReportList(@Param("userId") Long userId);
+
+    public List<Userwin> selectLessTodayNoCommissionList();
+
+    public List<Userwin> selectLessTodayNoCashBackList();
 }
