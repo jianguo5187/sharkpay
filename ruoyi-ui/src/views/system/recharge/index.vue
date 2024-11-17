@@ -72,7 +72,7 @@
       <el-table-column label="操作时间" align="center" prop="updateTime" width="180"/>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.type == '2'">
+          <span v-if="scope.row.type == '2' || scope.row.type == '18' ">
             申请成功(操作者：{{scope.row.updateBy}})
               <el-button
                 title="修改金额"
@@ -83,12 +83,12 @@
                 @click="handleUpdateUserAmount(scope.row)"
               ></el-button>
           </span>
-          <span v-if="scope.row.type == '3'">申请失败(操作者：{{scope.row.updateBy}})</span>
+          <span v-if="scope.row.type == '3' || scope.row.type == '19' ">申请失败(操作者：{{scope.row.updateBy}})</span>
           <el-button
             size="mini"
             type="success"
             icon="el-icon-edit"
-            v-if="scope.row.type == '1'"
+            v-if="scope.row.type == '1' || scope.row.type == '17' "
             @click="handleAgree(scope.row)"
           >同意</el-button>
           <el-button
@@ -96,7 +96,7 @@
             plain
             icon="el-icon-delete"
             size="mini"
-            v-if="scope.row.type == '1'"
+            v-if="scope.row.type == '1' || scope.row.type == '17' "
             @click="handleCancel(scope.row)"
           >拒绝</el-button>
         </template>
@@ -406,9 +406,9 @@ export default {
       });
     },
     tableRowClassName({row, rowIndex}) {
-      if (row.type == '2') {
+      if (row.type == '2' || row.type == '18' ) {
         return 'success-row';
-      } else if(row.type == '3') {
+      } else if(row.type == '3' || row.type == '19' ) {
         return 'warning-row';
       }
       return ''

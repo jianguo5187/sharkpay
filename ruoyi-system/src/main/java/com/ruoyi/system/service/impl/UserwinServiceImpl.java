@@ -410,6 +410,18 @@ public class UserwinServiceImpl implements IUserwinService
                 userCommission.setGameName(userwin.getGameName());
                 userCommission.setUserWinId(userwin.getId());
                 sysUserCommissionService.insertSysUserCommission(userCommission);
+
+                Usermoney usermoney = new Usermoney();
+                usermoney.setUserId(parentUser.getUserId());
+                usermoney.setCashContent(userwin.getGameName() + "投注返佣前金额：" + amont.toString());
+                usermoney.setCashMoney(money);
+                usermoney.setUserBalance(parentUser.getAmount());
+                usermoney.setType("11");
+                usermoney.setGameId(userwin.getGameId());
+                usermoney.setGameName(userwin.getGameName());
+                usermoney.setRemark("下线佣金(未转出)");
+                usermoney.setCommissionFromUserId(user.getUserId());
+                usermoneyService.insertUsermoney(usermoney);
 //                        //sysUserCommissionService.selectUserCommissionByParentId(parentUser.getUserId(), user.getUserId());
 //                if(StringUtils.isNotNull(userCommission)){
 //

@@ -5,16 +5,15 @@ import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.SysAdminRecord;
+import com.ruoyi.system.domain.SysUserCommission;
 import com.ruoyi.system.domain.vo.*;
-import com.ruoyi.system.service.IAdminwinService;
-import com.ruoyi.system.service.ISysAdminRecordService;
-import com.ruoyi.system.service.ISysUserService;
+import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.mapper.UsermoneyMapper;
 import com.ruoyi.system.domain.Usermoney;
-import com.ruoyi.system.service.IUsermoneyService;
 
 /**
  * 用户资金流水Service业务层处理
@@ -35,7 +34,13 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     private ISysAdminRecordService sysAdminRecordService;
 
     @Autowired
+    private ISysUserCommissionService sysUserCommissionService;
+
+    @Autowired
     private IAdminwinService adminwinService;
+
+    @Autowired
+    private ISysConfigService configService;
 
     /**
      * 查询用户资金流水
@@ -168,21 +173,51 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     @Override
     public int agreeRechargeApply(Usermoney usermoney, SysUser actionUser) {
         Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
+        if(!StringUtils.equals(dbUsermoney.getType(),"1") && !StringUtils.equals(dbUsermoney.getType(),"17")){
+            return 1;//直接返回
+        }
         SysUser user = userService.selectUserById(dbUsermoney.getUserId());
 
         Float userMoney = user.getAmount() + dbUsermoney.getCashMoney();
 
-        dbUsermoney.setType("2");
-        dbUsermoney.setRemark("充值成功");
-        dbUsermoney.setUserBalance(userMoney);
-        dbUsermoney.setUpdateBy(actionUser.getNickName());
+        // 充值
+        if(StringUtils.equals(dbUsermoney.getType(),"1")){
+            dbUsermoney.setType("2");
+            dbUsermoney.setRemark("充值成功");
+            dbUsermoney.setUserBalance(userMoney);
+            dbUsermoney.setUpdateBy(actionUser.getNickName());
+        }else if(StringUtils.equals(dbUsermoney.getType(),"17")){
+        // 佣金转出充值
+            dbUsermoney.setType("18");
+            dbUsermoney.setRemark("佣金转余额成功");
+            dbUsermoney.setUserBalance(userMoney);
+            dbUsermoney.setUpdateBy(actionUser.getNickName());
+
+            // 获取佣金列表
+            SysUserCommission searchUserCommission = new SysUserCommission();
+            searchUserCommission.setParentUserId(dbUsermoney.getUserId());
+            searchUserCommission.setTransferApproveId(dbUsermoney.getId());
+            List<SysUserCommission> userCommissionList = sysUserCommissionService.selectSysUserCommissionList(searchUserCommission);
+            for(SysUserCommission userCommission : userCommissionList) {
+                userCommission.setStatus("2"); //已转出
+                userCommission.setUpdateBy(actionUser.getNickName());
+                sysUserCommissionService.updateSysUserCommission(userCommission);
+            }
+        }
         int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
 
         user.setAmount(userMoney);
         userService.updateUserAmount(user);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
-        sysAdminRecord.setType(1);//上分
+
+        // 充值
+        if(StringUtils.equals(dbUsermoney.getType(),"1")){
+            sysAdminRecord.setType(1);//上分
+        }else if(StringUtils.equals(dbUsermoney.getType(),"17")){
+        // 佣金转出充值
+            sysAdminRecord.setType(6);//佣金发放
+        }
         sysAdminRecord.setIsAgree("0");
         sysAdminRecord.setOriginId(usermoney.getId());
         sysAdminRecord.setAdminUserId(actionUser.getUserId());
@@ -194,15 +229,45 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     @Override
     public int refuseRechargeApply(Usermoney usermoney, SysUser actionUser) {
         Usermoney dbUsermoney = selectUsermoneyById(usermoney.getId());
+        if(!StringUtils.equals(dbUsermoney.getType(),"1") && !StringUtils.equals(dbUsermoney.getType(),"17")){
+            return 1;//直接返回
+        }
 
         SysUser user = userService.selectUserById(dbUsermoney.getUserId());
-        dbUsermoney.setType("3");
-        dbUsermoney.setRemark("充值失败");
-        dbUsermoney.setUpdateBy(actionUser.getNickName());
+
+        // 充值
+        if(StringUtils.equals(dbUsermoney.getType(),"1")){
+            dbUsermoney.setType("3");
+            dbUsermoney.setRemark("充值失败");
+            dbUsermoney.setUpdateBy(actionUser.getNickName());
+        }else if(StringUtils.equals(dbUsermoney.getType(),"17")){
+            // 佣金转出充值
+            dbUsermoney.setType("19");
+            dbUsermoney.setRemark("佣金转余额失败");
+            dbUsermoney.setUpdateBy(actionUser.getNickName());
+
+            // 获取佣金列表
+            SysUserCommission searchUserCommission = new SysUserCommission();
+            searchUserCommission.setParentUserId(dbUsermoney.getUserId());
+            searchUserCommission.setTransferApproveId(dbUsermoney.getId());
+            List<SysUserCommission> userCommissionList = sysUserCommissionService.selectSysUserCommissionList(searchUserCommission);
+            for(SysUserCommission userCommission : userCommissionList) {
+                userCommission.setStatus("0"); //回退到未转出
+                userCommission.setUpdateBy(actionUser.getNickName());
+                sysUserCommissionService.updateSysUserCommission(userCommission);
+            }
+        }
+
         int upCnt1 = usermoneyMapper.updateUsermoney(dbUsermoney);
 
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
-        sysAdminRecord.setType(1);//上分
+        // 充值
+        if(StringUtils.equals(dbUsermoney.getType(),"1")){
+            sysAdminRecord.setType(1);//上分
+        }else if(StringUtils.equals(dbUsermoney.getType(),"17")){
+            // 佣金转出充值
+            sysAdminRecord.setType(6);//佣金发放
+        }
         sysAdminRecord.setIsAgree("1");
         sysAdminRecord.setOriginId(usermoney.getId());
         sysAdminRecord.setAdminUserId(actionUser.getUserId());
@@ -295,6 +360,8 @@ public class UsermoneyServiceImpl implements IUsermoneyService
 
     @Override
     public List<UserMoneyDetailListRespVO> selectUserMoneyDetailList(Usermoney usermoney) {
+        String commissionTransferFlag = configService.selectConfigByKey("sys.commission.transfer.flag");
+        usermoney.setCommissionTransferFlag(commissionTransferFlag);
         return usermoneyMapper.selectUserMoneyDetailList(usermoney);
     }
 

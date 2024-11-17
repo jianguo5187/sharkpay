@@ -5,8 +5,10 @@ import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.system.domain.SysCommissionTransferApprove;
 import com.ruoyi.system.domain.SysUserCommission;
+import com.ruoyi.system.domain.Usermoney;
 import com.ruoyi.system.domain.vo.ChildUserCommissionRespVO;
 import com.ruoyi.system.mapper.SysUserCommissionMapper;
+import com.ruoyi.system.mapper.UsermoneyMapper;
 import com.ruoyi.system.service.ISysCommissionTransferApproveService;
 import com.ruoyi.system.service.ISysUserCommissionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class SysUserCommissionServiceImpl implements ISysUserCommissionService
 
     @Autowired
     private SysUserCommissionMapper sysUserCommissionMapper;
+
+    @Autowired
+    private UsermoneyMapper usermoneyMapper;
 
     /**
      * 查询用户佣金
@@ -115,12 +120,18 @@ public class SysUserCommissionServiceImpl implements ISysUserCommissionService
 
     @Override
     public void applyCommissionTransfer(SysUser parentUser) {
-        SysCommissionTransferApprove searchCommissionTransferApprove = new SysCommissionTransferApprove();
-        searchCommissionTransferApprove.setTransferUserId(parentUser.getUserId());
-        searchCommissionTransferApprove.setStatus("0"); //提出转出中
-        List<SysCommissionTransferApprove> commissionTransferApproveList = sysCommissionTransferApproveService.selectSysCommissionTransferApproveList(searchCommissionTransferApprove);
+//        SysCommissionTransferApprove searchCommissionTransferApprove = new SysCommissionTransferApprove();
+//        searchCommissionTransferApprove.setTransferUserId(parentUser.getUserId());
+//        searchCommissionTransferApprove.setStatus("0"); //提出转出中
+//        List<SysCommissionTransferApprove> commissionTransferApproveList = sysCommissionTransferApproveService.selectSysCommissionTransferApproveList(searchCommissionTransferApprove);
+
+        Usermoney searchUsermoney = new Usermoney();
+        searchUsermoney.setType("17"); //佣金转出申请中
+        searchUsermoney.setUserId(parentUser.getUserId());
+        List<Usermoney> usermoneyList = usermoneyMapper.selectUsermoneyList(searchUsermoney);
+
         //存在未审核数据
-        if(commissionTransferApproveList != null && commissionTransferApproveList.size() > 0){
+        if(usermoneyList != null && usermoneyList.size() > 0){
             throw new ServiceException("你已经有一笔佣金转出申请数据，请联系管理员审核通过后，才可以继续申请！");
         }
 
@@ -139,18 +150,28 @@ public class SysUserCommissionServiceImpl implements ISysUserCommissionService
         for(SysUserCommission noTransferUserCommission : noTransferUserCommissionList){
             totalWithoutTransferAmount += noTransferUserCommission.getGenerateAmount();
         }
+//
+//        SysCommissionTransferApprove commissionTransferApprove = new SysCommissionTransferApprove();
+//        commissionTransferApprove.setTransferUserId(parentUser.getUserId());
+//        commissionTransferApprove.setTransferAmount(totalWithoutTransferAmount);
+//        commissionTransferApprove.setStatus("0"); //转出申请中
+//        sysCommissionTransferApproveService.insertSysCommissionTransferApprove(commissionTransferApprove);
 
-        SysCommissionTransferApprove commissionTransferApprove = new SysCommissionTransferApprove();
-        commissionTransferApprove.setTransferUserId(parentUser.getUserId());
-        commissionTransferApprove.setTransferAmount(totalWithoutTransferAmount);
-        commissionTransferApprove.setStatus("0"); //转出申请中
-        sysCommissionTransferApproveService.insertSysCommissionTransferApprove(commissionTransferApprove);
+        Usermoney usermoney = new Usermoney();
+        usermoney.setUserId(parentUser.getUserId());
+        usermoney.setUserAccount("佣金充值余额");
+        usermoney.setRemark("佣金转余额");
+        usermoney.setUserBalance(parentUser.getAmount());
+        usermoney.setCashMoney(totalWithoutTransferAmount);
+        usermoney.setType("17");
+        usermoneyMapper.insertUsermoney(usermoney);
 
         for(SysUserCommission noTransferUserCommission : noTransferUserCommissionList){
             noTransferUserCommission.setStatus("1"); //转出中
-            noTransferUserCommission.setTransferApproveId(commissionTransferApprove.getId());
+            noTransferUserCommission.setTransferApproveId(usermoney.getId());
             sysUserCommissionMapper.updateSysUserCommission(noTransferUserCommission);
         }
+
 //        for(ChildUserCommissionRespVO respVO : childUserCommissionList){
 //            SysCommissionTransferHistory commissionTransferHistory = new SysCommissionTransferHistory();
 //            commissionTransferHistory.setTransferApproveId(commissionTransferApprove.getId());

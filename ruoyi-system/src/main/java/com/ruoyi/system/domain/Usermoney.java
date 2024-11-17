@@ -99,6 +99,10 @@ public class Usermoney extends BaseEntity
     /** 测试用户标识 */
     private Boolean includeTestUserFlg;
 
+
+    /** 佣金转出设置(0:直接转入余额 1：需要转出设置) */
+    private String commissionTransferFlag;
+
     public void setId(Long id)
     {
         this.id = id;
@@ -283,6 +287,14 @@ public class Usermoney extends BaseEntity
 
     public void setIncludeTestUserFlg(Boolean includeTestUserFlg) {
         this.includeTestUserFlg = includeTestUserFlg;
+    }
+
+    public String getCommissionTransferFlag() {
+        return commissionTransferFlag;
+    }
+
+    public void setCommissionTransferFlag(String commissionTransferFlag) {
+        this.commissionTransferFlag = commissionTransferFlag;
     }
 
     @Override

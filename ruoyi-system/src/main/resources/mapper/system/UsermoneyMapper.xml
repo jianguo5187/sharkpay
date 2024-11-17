@@ -343,8 +343,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="filterDate != null and filterDate != ''">
             and DATE_FORMAT(um.cash_time, '%Y-%m-%d') = #{filterDate}
         </if>
-        <if test="rechargeStatus != null "> and um.type = #{rechargeStatus}</if>
-        <if test="rechargeStatus == null "> and um.type in('1','2','3')</if>
+        <if test="rechargeStatus != null and rechargeStatus == '1'.toString() "> and um.type in('1','17')</if>
+        <if test="rechargeStatus != null and rechargeStatus == '2'.toString() "> and um.type in('2','18')</if>
+        <if test="rechargeStatus != null and rechargeStatus == '3'.toString() "> and um.type in('3','19')</if>
+        <if test="rechargeStatus == null "> and um.type in('1','2','3','17','18','19')</if>
         <if test="params.dataScope != null and params.dataScope != ''">
             ${params.dataScope}
         </if>
@@ -362,7 +364,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,sum(um.cash_money) as cash_money
         from  usermoney um
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
-        where um.type = '2'
+        where um.type in ('2','18')
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="nickName != null and nickName != ''">
             AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
@@ -445,8 +447,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,u.remark_name as remark_name
             ,u.avatar as avatar
             ,um.id as id
-            ,um.user_balance - (CASE WHEN um.type in('1','2','6','8','16','11','111') then 1 else -1 end * um.cash_money)  as before_user_money
-            ,CASE WHEN um.type in('1','2','6','8','16','11','111') then 1 else -1 end * um.cash_money as cash_money
+            ,um.user_balance - (CASE
+                <if test="commissionTransferFlag != null and commissionTransferFlag == '1'.toString() ">
+                    WHEN um.type in('11') then 0
+                </if>
+                WHEN um.type in('1','2','6','8','16','17','18','11','111') then 1 else -1 end * um.cash_money)  as before_user_money
+            ,CASE
+                <if test="commissionTransferFlag != null and commissionTransferFlag == '1'.toString() ">
+                    WHEN um.type in('11') then 0
+                </if>
+                WHEN um.type in('1','2','6','8','16','17','18','11','111') then 1 else -1 end * um.cash_money as cash_money
             ,um.user_balance as user_balance
             ,um.remark as remark
             ,um.type as type
@@ -454,6 +464,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         from  usermoney um
         inner join sys_user u on u.user_id = um.user_id and u.del_flag = '0'
         where um.is_delete = '0'
+        <if test="commissionTransferFlag != null and commissionTransferFlag == '1'.toString() ">
+            AND um.type != '11'
+        </if>
         <if test="userId != null "> and um.user_id = #{userId}</if>
         <if test="nickName != null and nickName != ''">
             AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
