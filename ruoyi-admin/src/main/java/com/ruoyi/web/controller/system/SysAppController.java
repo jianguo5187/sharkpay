@@ -61,6 +61,9 @@ public class SysAppController extends BaseController {
     @Autowired
     private ISysRequestInfoService sysRequestInfoService;
 
+    @Autowired
+    private ISysUserCommissionService sysUserCommissionService;
+
     /**
      * 修改密码接口
      */
@@ -583,5 +586,47 @@ public class SysAppController extends BaseController {
     {
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         return toAjax(sysAppService.stopAutoBetSchedule(sessionUser,vo));
+    }
+
+    /**
+     * 佣金转换列表
+     *
+     * @return 佣金转换列表
+     */
+    @GetMapping("getChildUserCommissionList")
+    public AjaxResult getChildUserCommissionList()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        List<ChildUserCommissionRespVO> childUserCommissionList = sysUserCommissionService.getChildUserCommissionList(sessionUser.getUserId());
+        Float totalGenerateAmount = 0f;
+        Float totalWithoutTransferAmount = 0f;
+        Float totalApproveTransferAmount = 0f;
+        for(ChildUserCommissionRespVO respVO : childUserCommissionList){
+            totalGenerateAmount += respVO.getGenerateAmount();
+            totalWithoutTransferAmount += respVO.getWithoutTransferAmount();
+            totalApproveTransferAmount += respVO.getApproveTransferAmount();
+        }
+
+        ajax.put("childUserCommissionList",childUserCommissionList);
+        ajax.put("totalGenerateAmount",totalGenerateAmount);
+        ajax.put("totalWithoutTransferAmount",totalWithoutTransferAmount);
+        ajax.put("totalApproveTransferAmount",totalApproveTransferAmount);
+        return ajax;
+    }
+
+
+    /**
+     * 提出转出佣金到余额
+     *
+     * @return 用户信息
+     */
+    @PostMapping("applyCommissionTransfer")
+    public AjaxResult applyCommissionTransfer()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        sysUserCommissionService.applyCommissionTransfer(sessionUser);
+        return ajax;
     }
 }

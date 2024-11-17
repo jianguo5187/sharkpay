@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysUserCommissionMapper">
+
+    <resultMap type="SysUserCommission" id="SysUserCommissionResult">
+        <result property="id"    column="id"    />
+        <result property="parentUserId"    column="parent_user_id"    />
+        <result property="commissionUserId"    column="commission_user_id"    />
+        <result property="userBetAmount"    column="user_bet_amount"    />
+        <result property="generateAmount"    column="generate_amount"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="userWinId"    column="user_win_id"    />
+        <result property="status"    column="status"    />
+        <result property="transferApproveId"    column="transfer_approve_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.ChildUserCommissionRespVO" id="ChildUserCommissionResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="avatar"     column="avatar"    />
+        <result property="amount"    column="amount"    />
+        <result property="generateAmount"    column="generate_amount"    />
+        <result property="withoutTransferAmount"    column="without_transfer_amount"    />
+        <result property="approveTransferAmount"    column="approve_transfer_amount"    />
+    </resultMap>
+
+    <sql id="selectSysUserCommissionVo">
+        select id, parent_user_id, commission_user_id, user_bet_amount, generate_amount, game_id, game_name, user_win_id, status, transfer_approve_id, create_by, create_time, update_by, update_time, remark from sys_user_commission
+    </sql>
+
+    <select id="selectSysUserCommissionList" parameterType="SysUserCommission" resultMap="SysUserCommissionResult">
+        <include refid="selectSysUserCommissionVo"/>
+        <where>
+            <if test="parentUserId != null "> and parent_user_id = #{parentUserId}</if>
+            <if test="commissionUserId != null "> and commission_user_id = #{commissionUserId}</if>
+            <if test="userBetAmount != null "> and user_bet_amount = #{userBetAmount}</if>
+            <if test="generateAmount != null "> and generate_amount = #{generateAmount}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="userWinId != null "> and user_win_id = #{userWinId}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="transferApproveId != null "> and transfer_approve_id = #{transferApproveId}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysUserCommissionById" parameterType="Long" resultMap="SysUserCommissionResult">
+        <include refid="selectSysUserCommissionVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSysUserCommission" parameterType="SysUserCommission" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_user_commission(
+            <if test="parentUserId != null">parent_user_id,</if>
+            <if test="commissionUserId != null">commission_user_id,</if>
+            <if test="userBetAmount != null">user_bet_amount,</if>
+            <if test="generateAmount != null">generate_amount,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="userWinId != null">user_win_id,</if>
+            <if test="status != null">status,</if>
+            <if test="transferApproveId != null">transfer_approve_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+        create_time
+        )values(
+            <if test="parentUserId != null">#{parentUserId},</if>
+            <if test="commissionUserId != null">#{commissionUserId},</if>
+            <if test="userBetAmount != null">#{userBetAmount},</if>
+            <if test="generateAmount != null">#{generateAmount},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="userWinId != null">#{userWinId},</if>
+            <if test="status != null">#{status},</if>
+            <if test="transferApproveId != null">#{transferApproveId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateSysUserCommission" parameterType="SysUserCommission">
+        update sys_user_commission
+        <set>
+            <if test="parentUserId != null">parent_user_id = #{parentUserId},</if>
+            <if test="commissionUserId != null">commission_user_id = #{commissionUserId},</if>
+            <if test="userBetAmount != null">user_bet_amount = #{userBetAmount},</if>
+            <if test="generateAmount != null">generate_amount = #{generateAmount},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="transferApproveId != null">transfer_approve_id = #{transferApproveId},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysUserCommissionById" parameterType="Long">
+        delete from sys_user_commission where id = #{id}
+    </delete>
+
+    <delete id="deleteSysUserCommissionByIds" parameterType="String">
+        delete from sys_user_commission where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectUserCommissionByParentId" resultMap="SysUserCommissionResult">
+        <include refid="selectSysUserCommissionVo"/>
+        where parent_user_id = #{parentUserId}
+        and commission_user_id = #{commissionUserId}
+        limit 1
+    </select>
+
+    <select id="getChildUserCommissionList" resultMap="ChildUserCommissionResult">
+        SELECT
+             child.user_id as user_id
+            ,MAX(child.nick_name) as nick_name
+            ,MAX(child.real_name) as real_name
+            ,MAX(child.avatar) as avatar
+            ,MAX(child.amount) as amount
+            ,SUM(IFNULL(commission.generate_amount,0)) as generate_amount
+            ,SUM(CASE WHEN commission.status = '0' THEN IFNULL(commission.generate_amount,0) ELSE 0 END) as without_transfer_amount
+            ,SUM(CASE WHEN commission.status = '1' THEN IFNULL(commission.generate_amount,0) ELSE 0 END) as approve_transfer_amount
+        FROM
+        sys_user child
+        LEFT JOIN sys_user_commission commission
+        ON commission.commission_user_id = child.user_id
+        WHERE child.del_flag = '0'
+        AND child.parent_user_id = #{parentUserId}
+        GROUP BY child.user_id
+        ORDER BY user_id ASC
+    </select>
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysCommissionTransferApproveMapper">
+    
+    <resultMap type="SysCommissionTransferApprove" id="SysCommissionTransferApproveResult">
+        <result property="id"    column="id"    />
+        <result property="transferUserId"    column="transfer_user_id"    />
+        <result property="nickName"     column="nick_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="transferAmount"    column="transfer_amount"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysCommissionTransferApproveVo">
+        SELECT
+            approve.id as id
+             ,approve.transfer_user_id as transfer_user_id
+             ,u.nick_name as nick_name
+             ,u.remark_name as remark_name
+             ,approve.transfer_amount as transfer_amount
+             ,approve.STATUS as STATUS
+             ,approve.create_by as create_by
+             ,approve.create_time as create_time
+             ,approve.update_by as update_by
+             ,approve.update_time as update_time
+             ,approve.remark as remark
+        FROM
+            sys_commission_transfer_approve approve
+        INNER JOIN sys_user u ON u.user_id = approve.transfer_user_id
+        AND u.del_flag = '0'
+    </sql>
+
+    <select id="selectSysCommissionTransferApproveList" parameterType="SysCommissionTransferApprove" resultMap="SysCommissionTransferApproveResult">
+        <include refid="selectSysCommissionTransferApproveVo"/>
+        <where>
+            <if test="transferUserId != null "> and approve.transfer_user_id = #{transferUserId}</if>
+            <if test="transferAmount != null "> and approve.transfer_amount = #{transferAmount}</if>
+            <if test="status != null  and status != ''"> and approve.status = #{status}</if>
+            <if test="nickName != null and nickName != ''">
+                AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+            </if>
+        </where>
+        ORDER BY id desc
+    </select>
+    
+    <select id="selectSysCommissionTransferApproveById" parameterType="Long" resultMap="SysCommissionTransferApproveResult">
+        <include refid="selectSysCommissionTransferApproveVo"/>
+        where approve.id = #{id}
+    </select>
+        
+    <insert id="insertSysCommissionTransferApprove" parameterType="SysCommissionTransferApprove" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_commission_transfer_approve(
+            <if test="transferUserId != null">transfer_user_id,</if>
+            <if test="transferAmount != null">transfer_amount,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+            create_time
+        )values(
+            <if test="transferUserId != null">#{transferUserId},</if>
+            <if test="transferAmount != null">#{transferAmount},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateSysCommissionTransferApprove" parameterType="SysCommissionTransferApprove">
+        update sys_commission_transfer_approve
+        <set>
+            <if test="transferUserId != null">transfer_user_id = #{transferUserId},</if>
+            <if test="transferAmount != null">transfer_amount = #{transferAmount},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysCommissionTransferApproveById" parameterType="Long">
+        delete from sys_commission_transfer_approve where id = #{id}
+    </delete>
+
+    <delete id="deleteSysCommissionTransferApproveByIds" parameterType="String">
+        delete from sys_commission_transfer_approve where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

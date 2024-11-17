@@ -3,10 +3,7 @@ package com.ruoyi.system.service.impl;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.SysAdminRecord;
-import com.ruoyi.system.domain.SysGame;
-import com.ruoyi.system.domain.Usermoney;
-import com.ruoyi.system.domain.Userwin;
+import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.mapper.UserwinMapper;
 import com.ruoyi.system.service.*;
@@ -45,6 +42,12 @@ public class UserwinServiceImpl implements IUserwinService
 
     @Autowired
     private ISysAdminRecordService sysAdminRecordService;
+
+    @Autowired
+    private ISysConfigService configService;
+
+    @Autowired
+    private ISysUserCommissionService sysUserCommissionService;
 
     /**
      * 查询用户盈亏
@@ -351,6 +354,8 @@ public class UserwinServiceImpl implements IUserwinService
                         (existing, replacement) -> existing // 保留现有的值，忽略替换值
                 ));
 
+        String commissionTransferFlag = configService.selectConfigByKey("sys.commission.transfer.flag");
+
         for(Userwin userwin : userWinList){
 
             SysUser user = userService.selectUserById(userwin.getUserId());
@@ -393,30 +398,60 @@ public class UserwinServiceImpl implements IUserwinService
             Float resutAmont = amont * gameCommission / 100;
             Float money = BigDecimal.valueOf(resutAmont).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
 
-            Float userMoney = parentUser.getAmount() + money;
-            parentUser.setAmount(userMoney);
-            userService.updateUserAmount(parentUser);
+            // 先转到佣金列表中
+            if(StringUtils.equals(commissionTransferFlag,"1")){
+                SysUserCommission userCommission = new SysUserCommission();
 
-            Usermoney usermoney = new Usermoney();
-            usermoney.setUserId(parentUser.getUserId());
-            usermoney.setCashContent(userwin.getGameName() + "投注返佣前金额：" + amont.toString());
-            usermoney.setCashMoney(money);
-            usermoney.setUserBalance(userMoney);
-            usermoney.setType("11");
-            usermoney.setGameId(userwin.getGameId());
-            usermoney.setGameName(userwin.getGameName());
-            usermoney.setRemark("下线佣金");
-            usermoney.setCommissionFromUserId(user.getUserId());
-            usermoneyService.insertUsermoney(usermoney);
+                userCommission.setParentUserId(parentUser.getUserId());
+                userCommission.setCommissionUserId(user.getUserId());
+                userCommission.setGenerateAmount(money);
+                userCommission.setUserBetAmount(amont);
+                userCommission.setGameId(userwin.getGameId());
+                userCommission.setGameName(userwin.getGameName());
+                userCommission.setUserWinId(userwin.getId());
+                sysUserCommissionService.insertSysUserCommission(userCommission);
+//                        //sysUserCommissionService.selectUserCommissionByParentId(parentUser.getUserId(), user.getUserId());
+//                if(StringUtils.isNotNull(userCommission)){
+//
+//                    userCommission.setGenerateAmount(userCommission.getGenerateAmount() + money);
+//                    userCommission.setWithoutTransferAmount(userCommission.getWithoutTransferAmount() + money);
+//                    sysUserCommissionService.updateSysUserCommission(userCommission);
+//                }else{
+//                    userCommission = new SysUserCommission();
+//                    userCommission.setParentUserId(parentUser.getUserId());
+//                    userCommission.setCommissionUserId(user.getUserId());
+//                    userCommission.setGenerateAmount(money);
+//                    userCommission.setWithoutTransferAmount(money);
+//                    sysUserCommissionService.insertSysUserCommission(userCommission);
+//                }
+
+            }else{
+                //直接转到余额表
+                Float userMoney = parentUser.getAmount() + money;
+                parentUser.setAmount(userMoney);
+                userService.updateUserAmount(parentUser);
+
+                Usermoney usermoney = new Usermoney();
+                usermoney.setUserId(parentUser.getUserId());
+                usermoney.setCashContent(userwin.getGameName() + "投注返佣前金额：" + amont.toString());
+                usermoney.setCashMoney(money);
+                usermoney.setUserBalance(userMoney);
+                usermoney.setType("11");
+                usermoney.setGameId(userwin.getGameId());
+                usermoney.setGameName(userwin.getGameName());
+                usermoney.setRemark("下线佣金");
+                usermoney.setCommissionFromUserId(user.getUserId());
+                usermoneyService.insertUsermoney(usermoney);
+
+                SysAdminRecord sysAdminRecord = new SysAdminRecord();
+                sysAdminRecord.setType(6);//佣金发放
+                sysAdminRecord.setIsAgree("0");
+                sysAdminRecord.setOriginId(usermoney.getId());
+                sysAdminRecord.setAdminUserId(adminUserId);
+                sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+            }
 
             userwinMapper.updateCommissionById(userwin.getId(),money);
-
-            SysAdminRecord sysAdminRecord = new SysAdminRecord();
-            sysAdminRecord.setType(6);//佣金发放
-            sysAdminRecord.setIsAgree("0");
-            sysAdminRecord.setOriginId(usermoney.getId());
-            sysAdminRecord.setAdminUserId(adminUserId);
-            sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
         }
     }
 

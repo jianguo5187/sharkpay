@@ -859,7 +859,7 @@ public class SysAppServiceImpl implements ISysAppService {
                 if (StringUtils.isNotEmpty(data)) {
                     JSONObject domainResultJson = JSON.parseObject(data);
                     String domainResult = domainResultJson.getString(checkDomainUrl);
-                    if(StringUtils.isNotEmpty(domainResult) && !StringUtils.equals(domainResult,"1")){
+                    if(StringUtils.isNotEmpty(domainResult) && !StringUtils.equals(domainResult,"1") && !StringUtils.equals(domainResult,"3")){
                         System.out.println("微信拦截状态【" + checkDomainUrl + "】:  " + ipCheckResultStr);
                         checkResult = false;
                         sysLandingDomain.setDelFlag("1");
