@@ -61,7 +61,28 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
     public int insertSysEntryDomain(SysEntryDomain sysEntryDomain)
     {
         sysEntryDomain.setCreateTime(DateUtils.getNowDate());
-        return sysEntryDomainMapper.insertSysEntryDomain(sysEntryDomain);
+        int row = sysEntryDomainMapper.insertSysEntryDomain(sysEntryDomain);
+
+        SysEntryDomain entryDomainSearch = new SysEntryDomain();
+        entryDomainSearch.setStatus("0");
+        entryDomainSearch.setDelFlag("0");
+        List<SysEntryDomain> entryDomainList = selectSysEntryDomainList(entryDomainSearch);
+        if(entryDomainList.size() == 1){
+
+            String webType = configService.selectConfigByKey("sys.web.type");
+            String webName = configService.selectConfigByKey("sys.web.name");
+
+            String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
+            if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
+                qrServerIp = "http://" + qrServerIp;
+            }
+
+            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
+            HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
+
+        }
+
+        return row;
     }
 
     /**
@@ -100,11 +121,37 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
         entryDomainSearch.setStatus("0");
         entryDomainSearch.setDelFlag("0");
         List<SysEntryDomain> entryDomainList = selectSysEntryDomainList(entryDomainSearch);
+        String entryDomainUrl = "";
         if(entryDomainList.size() > 0){
-            String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
+            entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
+        }else{
+            SysEntryDomain searchNoDeleteEntryDomain = new SysEntryDomain();
+            searchNoDeleteEntryDomain.setDelFlag("0");
+            List<SysEntryDomain> noDeleteEntryDomainList = selectSysEntryDomainList(searchNoDeleteEntryDomain);
+            if(noDeleteEntryDomainList.size() == 0){
+                SysEntryDomain searchNoValidEntryDomain = new SysEntryDomain();
+                searchNoValidEntryDomain.setStatus("0");
+                List<SysEntryDomain> noValidEntryDomainList = selectSysEntryDomainList(searchNoValidEntryDomain);
+                if(noValidEntryDomainList.size() > 0){
 
-            HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
+                    SysEntryDomain noValidEntryDomain = noValidEntryDomainList.get(0);
+                    noValidEntryDomain.setStatus("0");
+                    noValidEntryDomain.setDelFlag("0");
+                    updateSysEntryDomain(noValidEntryDomain);
+
+                    entryDomainUrl = noValidEntryDomain.getEntryDomainUrl();
+                }
+            }else{
+                SysEntryDomain noDeleteEntryDomain = noDeleteEntryDomainList.get(0);
+                noDeleteEntryDomain.setStatus("0");
+                noDeleteEntryDomain.setDelFlag("0");
+                updateSysEntryDomain(noDeleteEntryDomain);
+
+                entryDomainUrl = noDeleteEntryDomain.getEntryDomainUrl();
+            }
+
         }
+        HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
 
         return rowId;
     }

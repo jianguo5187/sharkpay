@@ -90,7 +90,7 @@
         <el-form-item label="落地域名" prop="landingDomainUrl">
           <el-input v-model="form.landingDomainUrl" placeholder="请输入落地域名" />
         </el-form-item>
-        <el-form-item label="落地域名状态" prop="status">
+        <el-form-item label="落地域名状态" prop="status" v-show="form.landingDomainId != undefined && total>0">
           <el-radio-group v-model="form.status">
             <el-radio
               v-for="dict in dict.type.landing_domain_status"

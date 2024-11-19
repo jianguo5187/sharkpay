@@ -91,7 +91,7 @@
         <el-form-item label="入口域名" prop="entryDomainUrl">
           <el-input v-model="form.entryDomainUrl" placeholder="请输入入口域名" />
         </el-form-item>
-        <el-form-item label="入口域名状态" prop="status">
+        <el-form-item label="入口域名状态" prop="status" v-show="form.entryDomainId != undefined && total>0">
           <el-radio-group v-model="form.status">
             <el-radio
               v-for="dict in dict.type.entry_domain_status"
@@ -191,7 +191,7 @@ export default {
       this.form = {
         entryDomainId: null,
         entryDomainUrl: null,
-        status: "0",
+        status: "1",
         delFlag: null,
         createBy: null,
         createTime: null,
@@ -220,6 +220,9 @@ export default {
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
+      if(this.total == 0){
+        this.form.status = "0";
+      }
       this.open = true;
       this.title = "添加入口域名";
     },
