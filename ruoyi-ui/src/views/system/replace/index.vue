@@ -53,6 +53,7 @@
           <dict-tag :options="dict.type.sys_replace_status" :value="scope.row.status"/>
         </template>
       </el-table-column>
+      <el-table-column label="显示顺序" align="center" prop="replaceSort" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -79,6 +80,9 @@
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="图片" prop="replacePic">
           <image-upload v-model="form.replacePic" limit="1"/>
+        </el-form-item>
+        <el-form-item label="显示顺序" prop="replaceSort">
+          <el-input-number v-model="form.replaceSort" :min="0" placeholder="请输入显示顺序" :precision="0"/>
         </el-form-item>
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="form.status">
@@ -128,7 +132,7 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        status: null,
+        status: '0',
       },
       // 表单参数
       form: {},
@@ -136,6 +140,9 @@ export default {
       rules: {
         replacePic: [
           { required: true, message: "图片不能为空", trigger: "blur" }
+        ],
+        replaceSort: [
+          { required: true, message: "顺序不能为空", trigger: "blur" }
         ],
       }
     };

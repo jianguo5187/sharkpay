@@ -26,6 +26,10 @@ public class SysReplace extends BaseEntity
     @Excel(name = "广告轮播图状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
+    /** 显示顺序 */
+    @Excel(name = "显示顺序")
+    private Integer replaceSort;
+
     public void setReplaceId(Long replaceId) 
     {
         this.replaceId = replaceId;
@@ -54,12 +58,21 @@ public class SysReplace extends BaseEntity
         return status;
     }
 
+    public Integer getReplaceSort() {
+        return replaceSort;
+    }
+
+    public void setReplaceSort(Integer replaceSort) {
+        this.replaceSort = replaceSort;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("replaceId", getReplaceId())
             .append("replacePic", getReplacePic())
             .append("status", getStatus())
+                .append("replaceSort", getReplaceSort())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

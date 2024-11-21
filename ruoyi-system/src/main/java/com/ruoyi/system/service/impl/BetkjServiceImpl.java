@@ -1115,13 +1115,16 @@ public class BetkjServiceImpl implements IBetkjService
         GameTenballOpenData tenballOpenData = gameTenballOpenDataService.selectLastRecord(gameInfo.getGameId());
         Date beforeOpenDataTime = null;
         if(tenballOpenData == null) {
+
+            //从开奖表获取
+            GameSystemOpenData gameSystemOpenData = gameSystemOpenDataService.selectLastRecordByGameSystemMark(gameInfo.getGameOpenCode());
+
             //初始没数据
             tenballOpenData = new GameTenballOpenData();
-            tenballOpenData.setPeriods(3526718l);
+            tenballOpenData.setPeriods(gameSystemOpenData.getPeriods());
             tenballOpenData.setGameId(gameInfo.getGameId());
             tenballOpenData.setGameName(gameInfo.getGameName());
-            List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
-
+            List<String> openCode = Arrays.asList(gameSystemOpenData.getOpenCode().split(","));
 
             tenballOpenData.setNum1(Integer.parseInt(openCode.get(0)));
             tenballOpenData.setNum2(Integer.parseInt(openCode.get(1)));
@@ -1182,6 +1185,8 @@ public class BetkjServiceImpl implements IBetkjService
 
             GameTenballOpenData preTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), newPeriods,null);
             if(preTenballOpenData == null){
+                GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(gameInfo.getGameOpenCode(), newPeriods,null);
+
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(beforeOpenDataTime);
                 //预计开奖时间
@@ -1191,13 +1196,31 @@ public class BetkjServiceImpl implements IBetkjService
                 if(startTime.compareTo(Integer.parseInt(preTime)) > 0 || endTime.compareTo(Integer.parseInt(preTime)) < 0){
                     break;
                 }
+                if(systemOpenData == null){
+
+                    systemOpenData = new GameSystemOpenData();
+                    systemOpenData.setPeriods(newPeriods);
+                    systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+                    List<String> openCodeList = sysAppService.getOpenData(gameInfo.getGameType());
+                    String openCode = openCodeList.stream().collect(Collectors.joining(","));
+                    systemOpenData.setPreOpenCode(openCode);
+                    systemOpenData.setStatus("1");
+
+                    if(currentTime.after(calendar.getTime())){
+                        systemOpenData.setPreTime(new Date());
+                    }else{
+                        systemOpenData.setPreTime(calendar.getTime());
+                    }
+                    systemOpenData.setCreateBy("TASK");
+                    gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+                }
 
                 preTenballOpenData = new GameTenballOpenData();
 
                 preTenballOpenData.setPeriods(newPeriods);
                 preTenballOpenData.setGameId(gameInfo.getGameId());
                 preTenballOpenData.setGameName(gameInfo.getGameName());
-                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
+                List<String> openCode = Arrays.asList(systemOpenData.getPreOpenCode().split(","));
                 preTenballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
                 preTenballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
                 preTenballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
@@ -1209,12 +1232,10 @@ public class BetkjServiceImpl implements IBetkjService
                 preTenballOpenData.setPreNum9(Integer.parseInt(openCode.get(8)));
                 preTenballOpenData.setPreNum10(Integer.parseInt(openCode.get(9)));
                 preTenballOpenData.setStatus("1");
+                preTenballOpenData.setPreTime(systemOpenData.getPreTime());
 
                 if(currentTime.after(calendar.getTime())){
                     beforeOpenDataTime = new Date();
-                    preTenballOpenData.setPreTime(new Date());
-                }else{
-                    preTenballOpenData.setPreTime(calendar.getTime());
                 }
                 preTenballOpenData.setCreateBy("TASK");
 
@@ -1248,6 +1269,9 @@ public class BetkjServiceImpl implements IBetkjService
             String openCode = openCodeList.stream().collect(Collectors.joining(","));
 
             GameSystemOpenData systemOpenData = new GameSystemOpenData();
+            if(maxPeriods == null || maxPeriods == 0){
+                maxPeriods = 3526718l;
+            }
             //初始没数据
             systemOpenData.setPeriods(maxPeriods);
             systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
@@ -1336,6 +1360,9 @@ public class BetkjServiceImpl implements IBetkjService
             String openCode = openCodeList.stream().collect(Collectors.joining(","));
 
             GameSystemOpenData systemOpenData = new GameSystemOpenData();
+            if(maxPeriods == null || maxPeriods == 0){
+                maxPeriods = 3526718l;
+            }
             //初始没数据
             systemOpenData.setPeriods(maxPeriods);
             systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
@@ -1392,6 +1419,43 @@ public class BetkjServiceImpl implements IBetkjService
     @Override
     public void openTenBallSystemExpectData(SysGame gameInfo) {
 
+        Long maxPeriods = gameSystemOpenDataService.selectMaxPeriodsByGameSystemMark(gameInfo.getGameOpenCode());
+        boolean insertFlg = false;
+        boolean initSystemOpenDataFlg = false;
+        if(maxPeriods == null || maxPeriods == 0){
+            insertFlg = true;
+        }
+        if(!insertFlg){
+            GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(gameInfo.getGameOpenCode(), maxPeriods,null);
+            if(systemOpenData == null){
+                insertFlg = true;
+                initSystemOpenDataFlg = true;
+            }else if(maxPeriods.compareTo(systemOpenData.getPeriods()) > 0){
+                initSystemOpenDataFlg = true;
+            }
+        }
+
+        if(insertFlg && !initSystemOpenDataFlg){
+            List<String> openCodeList = sysAppService.getOpenData(gameInfo.getGameType());
+            String openCode = openCodeList.stream().collect(Collectors.joining(","));
+
+            GameSystemOpenData systemOpenData = new GameSystemOpenData();
+            if(maxPeriods == null || maxPeriods == 0){
+                maxPeriods = 3526718l;
+            }
+            //初始没数据
+            systemOpenData.setPeriods(maxPeriods);
+            systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+            systemOpenData.setOpenCode(openCode);
+            systemOpenData.setPreOpenCode(openCode);
+            systemOpenData.setOpenTime(new Date());
+            systemOpenData.setPreTime(new Date());
+            systemOpenData.setStatus("0");
+            systemOpenData.setCreateBy("TASK");
+            gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+        }
+
+
         List<GameTenballOpenData> preTenballOpenData = gameTenballOpenDataService.selectTenballPreOpenData();
         for(GameTenballOpenData gameTenballOpenData : preTenballOpenData){
             gameTenballOpenData.setStatus("0");
@@ -1412,6 +1476,29 @@ public class BetkjServiceImpl implements IBetkjService
             calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);//实际开奖时间要大于等于预时间
             gameTenballOpenData.setTime(calendar.getTime());
             gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
+
+            GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(gameInfo.getGameOpenCode(), gameTenballOpenData.getPeriods(),null);
+            if(systemOpenData == null){
+
+                // 补已开奖数据
+                systemOpenData = new GameSystemOpenData();
+                systemOpenData.setPeriods(gameTenballOpenData.getPeriods());
+                systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+                systemOpenData.setOpenCode(gameTenballOpenData.getNum1() + "," + gameTenballOpenData.getNum2() + "," + gameTenballOpenData.getNum3() + "," + gameTenballOpenData.getNum4() + "," + gameTenballOpenData.getNum5() + "," + gameTenballOpenData.getNum6() + "," + gameTenballOpenData.getNum7() + "," + gameTenballOpenData.getNum8() + "," + gameTenballOpenData.getNum9() + "," + gameTenballOpenData.getNum10());
+                systemOpenData.setPreOpenCode(gameTenballOpenData.getPreNum1() + "," + gameTenballOpenData.getPreNum2() + "," + gameTenballOpenData.getPreNum3() + "," + gameTenballOpenData.getPreNum4() + "," + gameTenballOpenData.getPreNum5() + "," + gameTenballOpenData.getPreNum6() + "," + gameTenballOpenData.getPreNum7() + "," + gameTenballOpenData.getPreNum8() + "," + gameTenballOpenData.getPreNum9() + "," + gameTenballOpenData.getPreNum10());
+                systemOpenData.setOpenTime(gameTenballOpenData.getTime());
+                systemOpenData.setPreTime(gameTenballOpenData.getPreTime());
+                systemOpenData.setStatus("0");
+                systemOpenData.setCreateBy("TASK");
+                gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+            }else{
+                systemOpenData.setOpenCode(gameTenballOpenData.getNum1() + "," + gameTenballOpenData.getNum2() + "," + gameTenballOpenData.getNum3() + "," + gameTenballOpenData.getNum4() + "," + gameTenballOpenData.getNum5() + "," + gameTenballOpenData.getNum6() + "," + gameTenballOpenData.getNum7() + "," + gameTenballOpenData.getNum8() + "," + gameTenballOpenData.getNum9() + "," + gameTenballOpenData.getNum10());
+                systemOpenData.setOpenTime(gameTenballOpenData.getTime());
+                systemOpenData.setStatus("0");
+                systemOpenData.setCreateBy("TASK");
+                gameSystemOpenDataService.updateGameSystemOpenData(systemOpenData);
+
+            }
         }
         saveTenBallInfoFromSystem(gameInfo);
     }
