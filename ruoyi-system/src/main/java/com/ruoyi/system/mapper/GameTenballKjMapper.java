@@ -69,7 +69,7 @@ public interface GameTenballKjMapper
 
     public GameTenballKj selectGameTenballKjByPeriods(@Param("gameId") Long gameId, @Param("periods")Long periods);
 
-    public List<GameTenballKj> selectTenBallsGameResult(@Param("gameId") Long gameId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+    public List<GameTenballKj> selectTenBallsGameResult(@Param("gameId") Long gameId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount, @Param("filterDate") String filterDate);
 
     public List<GameTenballKj> selectKajiangPeriods(Long gameId);
 }

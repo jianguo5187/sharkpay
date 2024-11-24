@@ -3,9 +3,11 @@ package com.ruoyi.system.service.impl;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.SysCommissionTransferApprove;
 import com.ruoyi.system.domain.SysUserCommission;
 import com.ruoyi.system.domain.Usermoney;
+import com.ruoyi.system.domain.vo.ChildUserCommissionListReqVO;
 import com.ruoyi.system.domain.vo.ChildUserCommissionRespVO;
 import com.ruoyi.system.mapper.SysUserCommissionMapper;
 import com.ruoyi.system.mapper.UsermoneyMapper;
@@ -114,8 +116,19 @@ public class SysUserCommissionServiceImpl implements ISysUserCommissionService
     }
 
     @Override
-    public List<ChildUserCommissionRespVO> getChildUserCommissionList(Long parentUserId) {
-        return sysUserCommissionMapper.getChildUserCommissionList(parentUserId);
+    public List<ChildUserCommissionRespVO> getChildUserCommissionList(Long parentUserId, Boolean allFlag, ChildUserCommissionListReqVO vo) {
+
+        if(StringUtils.isNull(vo.getPageNumber())){
+            vo.setPageNumber(1);
+        }
+        if(StringUtils.isNull(vo.getPageRowCount())){
+            vo.setPageRowCount(20);
+        }
+        if(allFlag){
+            return sysUserCommissionMapper.getChildUserCommissionList(parentUserId,null, null);
+        }else{
+            return sysUserCommissionMapper.getChildUserCommissionList(parentUserId,(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+        }
     }
 
     @Override

@@ -115,8 +115,8 @@ public class GameFiveballKjServiceImpl implements IGameFiveballKjService
     }
 
     @Override
-    public List<GameFiveballKj> selectFiveBallsGameResult(Long gameId, Integer pageNumber, Integer pageRowCount) {
-        return gameFiveballKjMapper.selectFiveBallsGameResult(gameId,pageNumber,pageRowCount);
+    public List<GameFiveballKj> selectFiveBallsGameResult(Long gameId, Integer pageNumber, Integer pageRowCount,String filterDate) {
+        return gameFiveballKjMapper.selectFiveBallsGameResult(gameId,pageNumber,pageRowCount,filterDate);
     }
 
     @Override

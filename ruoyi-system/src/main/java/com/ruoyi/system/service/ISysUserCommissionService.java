@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.system.domain.SysUserCommission;
+import com.ruoyi.system.domain.vo.ChildUserCommissionListReqVO;
 import com.ruoyi.system.domain.vo.ChildUserCommissionRespVO;
 
 /**
@@ -64,7 +65,7 @@ public interface ISysUserCommissionService
 
     public SysUserCommission selectUserCommissionByParentId(Long parentUserId, Long commissionUserId);
 
-    public List<ChildUserCommissionRespVO> getChildUserCommissionList(Long parentUserId);
+    public List<ChildUserCommissionRespVO> getChildUserCommissionList(Long parentUserId, Boolean allFlag, ChildUserCommissionListReqVO vo);
 
     public void applyCommissionTransfer(SysUser parentUser);
 }

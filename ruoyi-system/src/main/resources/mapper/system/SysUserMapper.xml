@@ -114,6 +114,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from sys_user u
 		left join sys_dept d on u.dept_id = d.dept_id
 		left join sys_user p on p.user_id = u.parent_user_id
+		left join sys_user_role r on r.user_id = u.user_id
 		left join (
 		SELECT
 			uw.user_id as user_id
@@ -149,6 +150,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		<if test="deptId != null and deptId != 0">
 			AND (u.dept_id = #{deptId} OR u.dept_id IN ( SELECT t.dept_id FROM sys_dept t WHERE find_in_set(#{deptId}, ancestors) ))
+		</if>
+		<if test="childAdminShowFlag != null and childAdminShowFlag == '1'.toString() ">
+			AND r.role_id = 4
 		</if>
 		<!-- 数据范围过滤 -->
 		${params.dataScope}

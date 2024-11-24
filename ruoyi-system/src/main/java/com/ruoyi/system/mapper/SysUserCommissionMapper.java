@@ -63,5 +63,5 @@ public interface SysUserCommissionMapper
 
     public SysUserCommission selectUserCommissionByParentId(@Param("parentUserId") Long parentUserId,@Param("commissionUserId") Long commissionUserId);
 
-    public List<ChildUserCommissionRespVO> getChildUserCommissionList(@Param("parentUserId") Long parentUserId);
+    public List<ChildUserCommissionRespVO> getChildUserCommissionList(@Param("parentUserId") Long parentUserId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 }

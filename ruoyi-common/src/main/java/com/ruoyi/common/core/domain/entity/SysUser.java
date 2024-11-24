@@ -226,6 +226,8 @@ public class SysUser extends BaseEntity
     /** 被合并用户ID */
     private Long mergeUserId;
 
+    private String childAdminShowFlag;
+
     public SysUser()
     {
 
@@ -760,6 +762,14 @@ public class SysUser extends BaseEntity
 
     public void setMergeUserId(Long mergeUserId) {
         this.mergeUserId = mergeUserId;
+    }
+
+    public String getChildAdminShowFlag() {
+        return childAdminShowFlag;
+    }
+
+    public void setChildAdminShowFlag(String childAdminShowFlag) {
+        this.childAdminShowFlag = childAdminShowFlag;
     }
 
     @Override

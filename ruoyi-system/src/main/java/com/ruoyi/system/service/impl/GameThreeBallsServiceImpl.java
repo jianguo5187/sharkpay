@@ -103,7 +103,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
         reqVO.setGameId(vo.getGameId());
         reqVO.setPageNumber(1);
         reqVO.setPageRowCount(1);
-        List<GameResultListRespVO> threeBallsGameResultList = sysAppService.gameResultList(userId,reqVO);
+        List<GameResultListRespVO> threeBallsGameResultList = sysAppService.gameResultList(reqVO);
         if(threeBallsGameResultList != null && threeBallsGameResultList.size() > 0){
             GameResultListRespVO threeBllsGameResult = threeBallsGameResultList.get(0);
             BeanUtils.copyProperties(threeBllsGameResult,respVO);

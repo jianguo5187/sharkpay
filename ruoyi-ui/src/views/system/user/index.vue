@@ -3,7 +3,7 @@
     <el-row :gutter="20">
       <!--用户数据-->
       <el-col :span="24" :xs="24">
-        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+        <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="88px">
           <el-form-item label="用户ID" prop="userId">
             <el-input
               v-model="queryParams.userId"
@@ -50,6 +50,11 @@
               end-placeholder="结束日期"
             ></el-date-picker>
           </el-form-item>
+
+          <el-form-item label="只看子账号" prop="onlyChildAdminFlg">
+            <el-switch v-model="queryParams.onlyChildAdminFlg" @change="handleQuery"></el-switch>
+          </el-form-item>
+
           <el-form-item>
             <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
             <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -743,7 +748,9 @@ export default {
         nickName: undefined,
         phonenumber: undefined,
         status: undefined,
-        deptId: undefined
+        deptId: undefined,
+        onlyChildAdminFlg: false,
+        childAdminShowFlag: undefined
       },
       // 列信息
       columns: [
@@ -842,6 +849,11 @@ export default {
     /** 查询用户列表 */
     getList() {
       this.loading = true;
+      if(this.queryParams.onlyChildAdminFlg){
+        this.queryParams.childAdminShowFlag = '1'
+      }else{
+        this.queryParams.childAdminShowFlag = undefined
+      }
       listUser(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
           this.userList = response.rows;
           this.total = response.total;

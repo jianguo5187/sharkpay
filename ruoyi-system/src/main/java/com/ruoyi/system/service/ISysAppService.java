@@ -15,7 +15,7 @@ public interface ISysAppService {
 
     public void clearGameRecode(Long userId);
 
-    public List<GameResultListRespVO> gameResultList(Long userId, GameResultListReqVO vo);
+    public List<GameResultListRespVO> gameResultList(GameResultListReqVO vo);
 
     public List<SysReplace> replaceList();
 

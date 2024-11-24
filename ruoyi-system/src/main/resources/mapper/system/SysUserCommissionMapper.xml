@@ -139,5 +139,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         AND child.parent_user_id = #{parentUserId}
         GROUP BY child.user_id
         ORDER BY user_id ASC
+        <if test="pageNumber != null">
+            limit #{pageNumber} , #{pageRowCount}
+        </if>
     </select>
 </mapper>

@@ -1,26 +1,12 @@
 package com.ruoyi.system.domain.vo;
 
-public class GameResultListReqVO {
-
-    /** 游戏ID */
-    private Long gameId;
+public class ChildUserCommissionListReqVO {
 
     /** 页数 */
     private Integer pageNumber;
 
     /** 每页件数 */
     private Integer pageRowCount;
-
-    /** 开奖时间 */
-    private String filterDate;
-
-    public Long getGameId() {
-        return gameId;
-    }
-
-    public void setGameId(Long gameId) {
-        this.gameId = gameId;
-    }
 
     public Integer getPageNumber() {
         return pageNumber;
@@ -36,13 +22,5 @@ public class GameResultListReqVO {
 
     public void setPageRowCount(Integer pageRowCount) {
         this.pageRowCount = pageRowCount;
-    }
-
-    public String getFilterDate() {
-        return filterDate;
-    }
-
-    public void setFilterDate(String filterDate) {
-        this.filterDate = filterDate;
     }
 }

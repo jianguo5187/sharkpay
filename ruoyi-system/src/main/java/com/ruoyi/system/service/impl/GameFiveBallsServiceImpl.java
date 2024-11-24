@@ -102,7 +102,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         reqVO.setGameId(vo.getGameId());
         reqVO.setPageNumber(1);
         reqVO.setPageRowCount(1);
-        List<GameResultListRespVO> fiveBallsGameResultList = sysAppService.gameResultList(userId,reqVO);
+        List<GameResultListRespVO> fiveBallsGameResultList = sysAppService.gameResultList(reqVO);
         if(fiveBallsGameResultList != null && fiveBallsGameResultList.size() > 0){
             GameResultListRespVO fiveBllsGameResult = fiveBallsGameResultList.get(0);
             BeanUtils.copyProperties(fiveBllsGameResult,respVO);

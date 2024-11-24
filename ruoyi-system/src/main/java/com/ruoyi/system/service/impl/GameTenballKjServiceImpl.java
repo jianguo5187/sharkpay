@@ -115,8 +115,8 @@ public class GameTenballKjServiceImpl implements IGameTenballKjService
     }
 
     @Override
-    public List<GameTenballKj> selectTenBallsGameResult(Long gameId, Integer pageNumber, Integer pageRowCount) {
-        return gameTenballKjMapper.selectTenBallsGameResult(gameId,pageNumber,pageRowCount);
+    public List<GameTenballKj> selectTenBallsGameResult(Long gameId, Integer pageNumber, Integer pageRowCount,String filterDate) {
+        return gameTenballKjMapper.selectTenBallsGameResult(gameId,pageNumber,pageRowCount,filterDate);
     }
 
     @Override

@@ -104,7 +104,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         reqVO.setGameId(vo.getGameId());
         reqVO.setPageNumber(1);
         reqVO.setPageRowCount(1);
-        List<GameResultListRespVO> tenBallsGameResultList = sysAppService.gameResultList(userId,reqVO);
+        List<GameResultListRespVO> tenBallsGameResultList = sysAppService.gameResultList(reqVO);
         if(tenBallsGameResultList != null && tenBallsGameResultList.size() > 0){
             GameResultListRespVO tenBllsGameResult = tenBallsGameResultList.get(0);
             BeanUtils.copyProperties(tenBllsGameResult,respVO);

@@ -171,9 +171,9 @@ public class SysAppController extends BaseController {
     @PostMapping("/gameResultList")
     public AjaxResult gameResultList(@RequestBody GameResultListReqVO vo)
     {
-        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+//        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
         AjaxResult ajax = AjaxResult.success();
-        ajax.put("gameResultList", sysAppService.gameResultList(sessionUser.getUserId(),vo));
+        ajax.put("gameResultList", sysAppService.gameResultList(vo));
         return ajax;
     }
 
@@ -593,12 +593,12 @@ public class SysAppController extends BaseController {
      *
      * @return 佣金转换列表
      */
-    @GetMapping("getChildUserCommissionList")
-    public AjaxResult getChildUserCommissionList()
+    @PostMapping("getChildUserCommissionList")
+    public AjaxResult getChildUserCommissionList(@RequestBody ChildUserCommissionListReqVO vo)
     {
         AjaxResult ajax = AjaxResult.success();
         SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
-        List<ChildUserCommissionRespVO> childUserCommissionList = sysUserCommissionService.getChildUserCommissionList(sessionUser.getUserId());
+        List<ChildUserCommissionRespVO> childUserCommissionList = sysUserCommissionService.getChildUserCommissionList(sessionUser.getUserId(),true, vo);
         Float totalGenerateAmount = 0f;
         Float totalWithoutTransferAmount = 0f;
         Float totalApproveTransferAmount = 0f;
@@ -608,7 +608,7 @@ public class SysAppController extends BaseController {
             totalApproveTransferAmount += respVO.getApproveTransferAmount();
         }
 
-        ajax.put("childUserCommissionList",childUserCommissionList);
+        ajax.put("childUserCommissionList",sysUserCommissionService.getChildUserCommissionList(sessionUser.getUserId(),false, vo));
         ajax.put("totalGenerateAmount",totalGenerateAmount);
         ajax.put("totalWithoutTransferAmount",totalWithoutTransferAmount);
         ajax.put("totalApproveTransferAmount",totalApproveTransferAmount);

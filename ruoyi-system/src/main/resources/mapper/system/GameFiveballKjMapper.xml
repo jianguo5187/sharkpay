@@ -261,6 +261,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectGameFiveballKjVo"/>
         where status = '1'
         <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="filterDate != null and filterDate != ''">
+            and DATE_FORMAT(the_time, '%Y-%m-%d') = #{filterDate}
+        </if>
         order by periods desc
         <if test="pageNumber != null">
             limit #{pageNumber} , #{pageRowCount}
