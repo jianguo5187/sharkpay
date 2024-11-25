@@ -24,6 +24,7 @@ public class GameLimitSettingUpdateReqVO {
     private Float tenBallBetOtherNumAmount;
     private Float tenBallBetDxdslhAmount;
     private Float tenBallBetNumAmount;
+    private Float tenBallBetNumCount;
 
     public Float getThreeBallBetSpecialAmount() {
         return threeBallBetSpecialAmount;
@@ -199,5 +200,13 @@ public class GameLimitSettingUpdateReqVO {
 
     public void setTenBallBetNumAmount(Float tenBallBetNumAmount) {
         this.tenBallBetNumAmount = tenBallBetNumAmount;
+    }
+
+    public Float getTenBallBetNumCount() {
+        return tenBallBetNumCount;
+    }
+
+    public void setTenBallBetNumCount(Float tenBallBetNumCount) {
+        this.tenBallBetNumCount = tenBallBetNumCount;
     }
 }

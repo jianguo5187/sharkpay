@@ -999,6 +999,7 @@ public class SysAppServiceImpl implements ISysAppService {
         respVO.setTenBallBetOtherNumAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"sum_num_special"));
         respVO.setTenBallBetDxdslhAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"big_dxds"));
         respVO.setTenBallBetNumAmount(getLimitSettingByKey(tenBallGameLimiSettingMap,"big_num"));
+        respVO.setTenBallBetNumCount(getLimitSettingByKey(tenBallGameLimiSettingMap,"num_count"));
         return respVO;
     }
 
@@ -1062,6 +1063,7 @@ public class SysAppServiceImpl implements ISysAppService {
         upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"sum_num_special", vo.getTenBallBetOtherNumAmount(), "limit_amount_ten", "投注冠亚和其他号码总额度");
         upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"big_dxds", vo.getTenBallBetDxdslhAmount(), "limit_amount_ten", "投注大小单双龙虎限额");
         upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"big_num", vo.getTenBallBetNumAmount(), "limit_amount_ten", "投注赛道号码限额");
+        upateOrInsertLimitSettingByKey(tenBallGameLimiSettingMap,"num_count", vo.getTenBallBetNumCount(), "limit_amount_ten", "投注赛道号码个数");
     }
 
     private Float getLimitSettingByKey(Map<String , SysDictData> limitAmountMap, String key){

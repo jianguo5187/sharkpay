@@ -629,4 +629,21 @@ public class SysAppController extends BaseController {
         sysUserCommissionService.applyCommissionTransfer(sessionUser);
         return ajax;
     }
+
+    /**
+     * 开奖网站信息
+     *
+     * @return 用户信息
+     */
+    @GetMapping("getOpenWebSiteInfo")
+    public AjaxResult getOpenWebSiteInfo()
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("logoImg",configService.selectConfigByKey("sys.logo.img") );
+        ajax.put("urlData",qrCodeService.getShareQRCodeValue(2l));
+        ajax.put("wechatImg",configService.selectConfigByKey("sys.wechat.img") );
+        ajax.put("qqChatImg",configService.selectConfigByKey("sys.qqchat.img") );
+
+        return ajax;
+    }
 }

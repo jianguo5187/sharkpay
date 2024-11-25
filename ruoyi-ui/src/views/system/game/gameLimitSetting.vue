@@ -174,6 +174,13 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-row>
+        <el-col :span="24">
+          <el-form-item label="投注赛道号码个数" prop="tenBallBetNumCount">
+            <el-input-number v-model="gameLimitSetting.form.tenBallBetNumCount" :min="0" placeholder="请输入投注赛道号码个数"/> 0不限制投注个数
+          </el-form-item>
+        </el-col>
+      </el-row>
       <el-form-item>
         <el-button type="primary" size="mini" @click="submitForm">确认修改</el-button>
       </el-form-item>
@@ -214,6 +221,7 @@ export default {
           tenBallBetOtherNumAmount: undefined,
           tenBallBetDxdslhAmount: undefined,
           tenBallBetNumAmount: undefined,
+          tenBallBetNumCount: undefined,
         },
         // 表单校验
         rules: {
@@ -282,6 +290,9 @@ export default {
           ],
           tenBallBetNumAmount: [
             { required: true, message: "10球投注赛道号码限额不能为空", trigger: "blur" }
+          ],
+          tenBallBetNumCount: [
+            { required: true, message: "10球投注赛道号码个数不能为空", trigger: "blur" }
           ],
         }
       },
@@ -363,6 +374,9 @@ export default {
         if(response.gameLimitSetting.tenBallBetNumAmount != undefined){
           this.gameLimitSetting.form.tenBallBetNumAmount = response.gameLimitSetting.tenBallBetNumAmount;
         }
+        if(response.gameLimitSetting.tenBallBetNumCount != undefined){
+          this.gameLimitSetting.form.tenBallBetNumCount = response.gameLimitSetting.tenBallBetNumCount;
+        }
 
         console.log("getgameLimitSetting");
       });
@@ -400,6 +414,7 @@ export default {
         tenBallBetOtherNumAmount: undefined,
         tenBallBetDxdslhAmount: undefined,
         tenBallBetNumAmount: undefined,
+        tenBallBetNumCount: undefined,
       }
     }
   }
