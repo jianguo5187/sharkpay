@@ -2,6 +2,7 @@ package com.ruoyi.system.service.impl;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
+import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.vo.ThreeBallsAddMultiBetRecordReqVO;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -125,6 +127,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         if(StringUtils.equals(gameInfo.getSystemOpenType(),"N")){
             List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectGameThreeballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),null,"0",null,"1",null);
             if(gameThreeballKjList.size() >= 2){
+                checkOpenTime(gameInfo, null);
                 return;
             }
             GameThreeballOpenData gameThreeballOpenData = gameThreeballOpenDataService.selectLastRecord(gameInfo.getGameId());
@@ -889,12 +892,136 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         int updateInt = gameThreeballKjService.updateGameThreeballKj(gameThreeballKj);
         if(updateInt > 0){
             lotteryGameThreeballOpenData(gameInfo, gameThreeballKj.getPeriods());
+
+            checkOpenTime(gameInfo, gameThreeballKj.getPeriods());
             createThreeData(gameInfo);
 
             // 补漏
             List<GameThreeballKj> notOpenGameThreeballKjList = gameThreeballKjService.selectGameThreeballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameThreeballKj.getPeriods(),"0",null,"1",1);
             if(notOpenGameThreeballKjList != null && notOpenGameThreeballKjList.size() >0){
                 lotteryGameThreeballOpenData(gameInfo, notOpenGameThreeballKjList.get(0).getPeriods());
+            }
+        }
+    }
+    public void checkOpenTime(SysGame gameInfo, Long periodId){
+        if(periodId == null || periodId == 0){
+
+            GameThreeballOpenData gameThreeballOpenData = gameThreeballOpenDataService.selectLastRecord(gameInfo.getGameId());
+
+            GameThreeballKj searchJnd28Info = new GameThreeballKj();
+            searchJnd28Info.setStatus("0");
+            searchJnd28Info.setGameId(gameInfo.getGameId());
+            searchJnd28Info.setPeriods(gameThreeballOpenData.getPeriods() + 1);
+            List<GameThreeballKj> Jnd28InfoList = gameThreeballKjService.selectGameThreeballKjList(searchJnd28Info);
+            if(Jnd28InfoList == null || Jnd28InfoList.size() == 0){
+                return;
+            }
+            GameThreeballKj Jnd28Info =Jnd28InfoList.get(0);
+
+            Calendar checkCalendar = Calendar.getInstance();
+            checkCalendar.setTime(Jnd28Info.getBetTime());
+            checkCalendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*-1);
+            checkCalendar.add(Calendar.SECOND, gameInfo.getLeadTime());
+            Calendar currentTime = Calendar.getInstance();
+
+            if(checkCalendar.after(currentTime)){
+
+                GameThreeballKj searchJnd28Info_old = new GameThreeballKj();
+                searchJnd28Info_old.setStatus("1");
+                searchJnd28Info_old.setGameId(gameInfo.getGameId());
+                searchJnd28Info_old.setPeriods(gameThreeballOpenData.getPeriods());
+                List<GameThreeballKj> Jnd28Info_oldList = gameThreeballKjService.selectGameThreeballKjList(searchJnd28Info_old);
+                if(Jnd28Info_oldList == null || Jnd28Info_oldList.size() == 0){
+                    return ;
+                }
+                GameThreeballKj Jnd28Info_old = Jnd28Info_oldList.get(0);
+
+                //预计开奖时间
+                Calendar preCalendar = Calendar.getInstance();
+                preCalendar.setTime(Jnd28Info_old.getPreTime());
+                preCalendar.add(Calendar.SECOND, gameInfo.getLotteryInterval());
+                preCalendar.add(Calendar.SECOND, gameInfo.getLeadTime());
+                Jnd28Info.setPreTime(preCalendar.getTime());
+
+                //封盘投注截止时间
+                Calendar betCalendar = Calendar.getInstance();
+                betCalendar.setTime(Jnd28Info_old.getBetTime());
+                betCalendar.add(Calendar.SECOND, gameInfo.getLotteryInterval());
+                betCalendar.add(Calendar.SECOND, gameInfo.getLeadTime());
+                Jnd28Info.setBetTime(betCalendar.getTime());
+
+                gameThreeballKjService.updateGameThreeballKj(Jnd28Info);
+            }
+        }else{
+
+            GameThreeballKj searchJnd28Info = new GameThreeballKj();
+            searchJnd28Info.setStatus("0");
+            searchJnd28Info.setGameId(gameInfo.getGameId());
+            searchJnd28Info.setPeriods(periodId + 1);
+            List<GameThreeballKj> Jnd28InfoList = gameThreeballKjService.selectGameThreeballKjList(searchJnd28Info);
+            List<GameThreeballKj> gameThreeballKjList = gameThreeballKjService.selectGameThreeballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),null,"0","1",null,null);
+
+            if(gameThreeballKjList != null && gameThreeballKjList.size() == 1 && Jnd28InfoList != null || Jnd28InfoList.size() > 0){
+                GameThreeballKj Jnd28Info = gameThreeballKjList.get(0);
+
+                GameThreeballKj searchJnd28Info_old = new GameThreeballKj();
+                searchJnd28Info_old.setStatus("1");
+                searchJnd28Info_old.setGameId(gameInfo.getGameId());
+                searchJnd28Info_old.setPeriods(periodId);
+                List<GameThreeballKj> Jnd28Info_oldList = gameThreeballKjService.selectGameThreeballKjList(searchJnd28Info_old);
+                if(Jnd28Info_oldList == null || Jnd28Info_oldList.size() == 0){
+                    return ;
+                }
+                GameThreeballKj Jnd28Info_old = Jnd28Info_oldList.get(0);
+
+                Calendar check180SecCalendar = Calendar.getInstance();
+                check180SecCalendar.setTime(Jnd28Info.getBetTime());
+                check180SecCalendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*-1);
+                check180SecCalendar.add(Calendar.SECOND, gameInfo.getLeadTime());
+                Calendar currentTime = Calendar.getInstance();
+
+
+                Calendar check3400SecCalendar = Calendar.getInstance();
+                check3400SecCalendar.setTime(Jnd28Info.getBetTime());
+                check3400SecCalendar.add(Calendar.SECOND, 3400);
+
+                if(check180SecCalendar.after(currentTime)){
+
+                    //预计开奖时间
+                    Calendar preCalendar = Calendar.getInstance();
+                    preCalendar.setTime(Jnd28Info_old.getPreTime());
+                    preCalendar.add(Calendar.SECOND, gameInfo.getLotteryInterval());
+                    preCalendar.add(Calendar.SECOND, gameInfo.getLeadTime());
+                    Jnd28Info.setPreTime(preCalendar.getTime());
+
+                    //封盘投注截止时间
+                    Calendar betCalendar = Calendar.getInstance();
+                    betCalendar.setTime(Jnd28Info_old.getBetTime());
+                    betCalendar.add(Calendar.SECOND, gameInfo.getLotteryInterval());
+                    betCalendar.add(Calendar.SECOND, gameInfo.getLeadTime());
+                    Jnd28Info.setBetTime(betCalendar.getTime());
+
+                    gameThreeballKjService.updateGameThreeballKj(Jnd28Info);
+                }else if(currentTime.after(check3400SecCalendar)){
+                    String theTime = "";
+                    if(Integer.parseInt(DateUtils.parseDateToStr("ss",Jnd28Info_old.getTheTime())) >= 30){
+                        theTime = DateUtils.parseDateToStr("yyyy-MM-dd HH:mm:",Jnd28Info_old.getTheTime()) + "30";
+                    }else{
+                        theTime = DateUtils.parseDateToStr("yyyy-MM-dd HH:mm:",Jnd28Info_old.getTheTime()) + "00";
+                    }
+                    Calendar preCalendar = Calendar.getInstance();
+                    preCalendar.setTime(DateUtils.dateTime(DateUtils.YYYY_MM_DD_HH_MM_SS,theTime));
+                    preCalendar.add(Calendar.SECOND, (45+210));
+                    Jnd28Info.setPreTime(preCalendar.getTime());
+
+                    Calendar betCalendar = Calendar.getInstance();
+                    betCalendar.setTime(DateUtils.dateTime(DateUtils.YYYY_MM_DD_HH_MM_SS,theTime));
+                    betCalendar.add(Calendar.SECOND, (-45+210));
+                    Jnd28Info.setBetTime(betCalendar.getTime());
+
+                    gameThreeballKjService.updateGameThreeballKj(Jnd28Info);
+                }
+
             }
         }
     }
