@@ -70,7 +70,7 @@ public interface BetRecordMapper
 
     public List<BetRealTimeRespVO> selectBetRealTimeList(BetRealTimeReqVO betRealTimeReqVO);
 
-    public Float selectBetToalAmount();
+    public Float selectBetToalAmount(@Param("userId") Long userId,@Param("filterDate") String filterDate);
 
     public List<WeeKGameBetRespVO> selectWeekGameBetList();
 

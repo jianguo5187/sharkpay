@@ -456,7 +456,7 @@ public class SysAppServiceImpl implements ISysAppService {
     public HomePageDataRespVO getHomePageDate() {
         HomePageDataRespVO respVO = new HomePageDataRespVO();
         respVO.setUserCnt(userMapper.selectEffectiveUsersCount());
-        respVO.setBetTotalAmount(betRecordMapper.selectBetToalAmount());
+        respVO.setBetTotalAmount(betRecordMapper.selectBetToalAmount(null,null));
         respVO.setBetWinTotalAmount(userwinMapper.selectBetWinToalAmount());
 
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");

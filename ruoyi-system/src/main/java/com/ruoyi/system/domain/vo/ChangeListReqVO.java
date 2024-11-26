@@ -14,6 +14,12 @@ public class ChangeListReqVO {
     /** 每页件数 */
     private Integer pageRowCount;
 
+    /** 充值过滤时间 */
+    private String filterDate;
+
+    /** 流水类型 */
+    private String type;
+
     public String getFilterDateFrom() {
         return filterDateFrom;
     }
@@ -44,5 +50,21 @@ public class ChangeListReqVO {
 
     public void setPageRowCount(Integer pageRowCount) {
         this.pageRowCount = pageRowCount;
+    }
+
+    public String getFilterDate() {
+        return filterDate;
+    }
+
+    public void setFilterDate(String filterDate) {
+        this.filterDate = filterDate;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

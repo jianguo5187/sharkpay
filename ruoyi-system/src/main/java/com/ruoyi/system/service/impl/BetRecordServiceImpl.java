@@ -1,5 +1,7 @@
 package com.ruoyi.system.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
@@ -231,5 +233,13 @@ public class BetRecordServiceImpl implements IBetRecordService
         sysAdminRecord.setAdminUserId(userId);
 
         sysAdminRecordService.insertSysAdminRecord(sysAdminRecord);
+    }
+
+    @Override
+    public Float selectUserTodayBetAmountTotal(Long userId) {
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sd.format(new Date());
+        Float todayBetAmountTotal = betRecordMapper.selectBetToalAmount(userId,today);
+        return todayBetAmountTotal == null?0f:todayBetAmountTotal;
     }
 }

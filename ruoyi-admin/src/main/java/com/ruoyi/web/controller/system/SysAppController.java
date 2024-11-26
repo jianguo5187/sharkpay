@@ -64,6 +64,9 @@ public class SysAppController extends BaseController {
     @Autowired
     private ISysUserCommissionService sysUserCommissionService;
 
+    @Autowired
+    private IBetRecordService betRecordService;
+
     /**
      * 修改密码接口
      */
@@ -119,6 +122,7 @@ public class SysAppController extends BaseController {
         ajax.put("minChangeMoney",configService.selectConfigByKey("sys.change.min") );
         ajax.put("minPostalMoney",configService.selectConfigByKey("sys.postal.min") );
         ajax.put("maxPostalCnt",configService.selectConfigByKey("sys.postal.maxCnt") );
+        ajax.put("todayTotalBetAmount",betRecordService.selectUserTodayBetAmountTotal(sessionUser.getUserId()));
         return ajax;
     }
 

@@ -67,4 +67,6 @@ public interface IBetRecordService
     public List<BetRealTimeRespVO> selectBetRealTimeList(BetRealTimeReqVO vo);
 
     public void adminCancelBetRecord(Long userId, Long betId);
+
+    public Float selectUserTodayBetAmountTotal(Long userId);
 }

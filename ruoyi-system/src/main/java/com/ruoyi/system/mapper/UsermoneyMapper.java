@@ -68,7 +68,7 @@ public interface UsermoneyMapper
 
     public int clearUsermoneyInfo(Long userId);
 
-    public List<Usermoney> selectValidUsermoneyList(@Param("userId") Long userId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+    public List<Usermoney> selectValidUsermoneyList(@Param("userId") Long userId,@Param("filterDate") String filterDate,@Param("type") String type, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
     public List<PostalListRespVO> selectPostalList(PostalListReqVO vo);
 

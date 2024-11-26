@@ -277,6 +277,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectValidUsermoneyList" resultMap="UsermoneyResult">
         <include refid="selectUsermoneyVo"/>
         where user_id = #{userId}
+        <if test="filterDate != null and filterDate != ''">
+            and DATE_FORMAT(cash_time, '%Y-%m-%d') = #{filterDate}
+        </if>
+        <if test="type != null and type != ''">
+            and `type` = #{type}
+        </if>
         order by id desc
         <if test="pageNumber != null">
             limit #{pageNumber} , #{pageRowCount}

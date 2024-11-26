@@ -238,7 +238,7 @@ public class MyServiceImpl implements IMyService {
         if(StringUtils.isNull(vo.getPageRowCount())){
             vo.setPageRowCount(20);
         }
-        return usermoneyMapper.selectValidUsermoneyList(userId,(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
+        return usermoneyMapper.selectValidUsermoneyList(userId, vo.getFilterDate(), vo.getType(), (vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount());
     }
 
     @Override
