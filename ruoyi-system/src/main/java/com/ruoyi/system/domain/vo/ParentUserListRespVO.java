@@ -38,6 +38,9 @@ public class ParentUserListRespVO {
     /** 会员头像 */
     private String avatar;
 
+    /** 今日佣金金额 */
+    private Float remainCommissionMoney;
+
     public Long getUserId() {
         return userId;
     }
@@ -132,5 +135,13 @@ public class ParentUserListRespVO {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public Float getRemainCommissionMoney() {
+        return remainCommissionMoney;
+    }
+
+    public void setRemainCommissionMoney(Float remainCommissionMoney) {
+        this.remainCommissionMoney = remainCommissionMoney;
     }
 }

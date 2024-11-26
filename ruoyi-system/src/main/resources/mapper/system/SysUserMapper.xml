@@ -85,6 +85,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="parentRealName"     column="parent_remark_name"    />
 		<result property="totalCommissionMoney"    column="total_commission_money"    />
 		<result property="todayCommissionMoney"    column="today_commission_money"    />
+		<result property="todayCommissionMoney"    column="today_commission_money"    />
+		<result property="remainCommissionMoney"    column="remain_commission_money"    />
 	</resultMap>
 
 	<resultMap type="com.ruoyi.system.domain.vo.AgentUserListRespVo" id="AgentUserListResult">
@@ -398,7 +400,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			max( p.remark_name) AS remark_name,
 			max(p.avatar) AS avatar,
 			IFNULL( sum( um.cash_money ), 0 ) AS total_commission_money,
-			IFNULL( sum( tm.pre_commission_money ), 0 ) AS today_commission_money
+			IFNULL( sum( tm.pre_commission_money ), 0 ) AS today_commission_money,
+			IFNULL( sum( commission.remain_commission_money ), 0 ) AS remain_commission_money
 		FROM
 			(
 				SELECT
@@ -406,7 +409,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				     ,count(p.user_id) as child_cnt
 				FROM sys_user p
 				WHERE p.parent_user_id is not NULL
-				  AND p.parent_user_id != 2
+				AND p.parent_user_id != 1
+				AND p.parent_user_id != 2
 				GROUP BY p.parent_user_id
 			)pu
 			INNER JOIN sys_user p
@@ -427,6 +431,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				uw.user_id
 			) tm ON tm.user_id = p.user_id
 			left join sys_user pu on pu.user_id = p.parent_user_id
+		    left join (
+		        SELECT
+					 c.parent_user_id AS parent_user_id
+					,SUM(c.generate_amount) AS remain_commission_money
+				FROM sys_user_commission c
+				WHERE c.status = '0'
+				GROUP BY c.parent_user_id
+		    ) commission on p.user_id = commission.parent_user_id
 		WHERE
 		    p.del_flag = '0'
 		<if test="userId != null and userId != 0">

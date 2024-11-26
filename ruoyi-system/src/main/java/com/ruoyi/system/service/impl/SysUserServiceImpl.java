@@ -781,7 +781,7 @@ public class SysUserServiceImpl implements ISysUserService
 
     @Override
     public int updateUserParent(SysUser actionUser,Long userId, Long parentUserId) {
-        if(StringUtils.isNull(selectUserById(parentUserId))){
+        if(parentUserId == null || parentUserId == 1 || StringUtils.isNull(selectUserById(parentUserId))){
             throw new ServiceException("输入的上级不存在！");
         }
         SysUser user = selectUserById(userId);
