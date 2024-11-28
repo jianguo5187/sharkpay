@@ -330,8 +330,8 @@ public class GameTaskServiceImpl implements IGameTaskService {
         List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
         for(SysGame gameInfo : gameList){
             Random random = new Random();
-            // 30%概率增加下注概率
-            if (random.nextDouble() <= 0.1) {
+            // 80%概率增加下注概率
+            if (random.nextDouble() <= 0.8) {
                 if(StringUtils.equals(gameInfo.getGameType(),"3")){
                     // 3球
                     ThreeBallsOddsReqVO threeBallsOddsReqVO = new ThreeBallsOddsReqVO();
