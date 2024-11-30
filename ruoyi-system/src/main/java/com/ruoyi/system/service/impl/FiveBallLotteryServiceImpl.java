@@ -4,11 +4,9 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.vo.FiveBallsAddMultiBetRecordReqVO;
-import com.ruoyi.system.domain.vo.FiveBallsMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.IFiveBallLotteryService;
 import com.ruoyi.system.domain.*;
-import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -663,6 +661,14 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         searchGameFiveballRecord.setStatus("0");
         searchGameFiveballRecord.setPeriods(periodId);
         List<GameFiveballRecord> GameFiveballRecordList = gameFiveballRecordService.selectGameFiveballRecordList(searchGameFiveballRecord);
+
+        // 生成下一期的机器人投注数据
+        FiveBallsOddsReqVO fiveBallsOddsReqVO = new FiveBallsOddsReqVO();
+        fiveBallsOddsReqVO.setGameId(gameInfo.getGameId());
+        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
+        gameFiveBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
 
         if(GameFiveballRecordList == null || GameFiveballRecordList.size() == 0){
             return;

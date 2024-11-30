@@ -222,7 +222,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         double virtuallyRandow = result.doubleValue();
         double randomValue = random.nextDouble();
         //产生虚假数据的概率
-        if(randomValue < virtuallyRandow) {
+        if(taskFlg || randomValue < virtuallyRandow) {
 
             List<FalseUser> falseUserList = falseUserMapper.selectFalseUserListByGameId(vo.getGameId());
             if(falseUserList == null || falseUserList.size() == 0){

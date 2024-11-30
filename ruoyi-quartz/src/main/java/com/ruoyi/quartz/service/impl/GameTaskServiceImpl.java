@@ -331,7 +331,7 @@ public class GameTaskServiceImpl implements IGameTaskService {
         for(SysGame gameInfo : gameList){
             Random random = new Random();
             // 80%概率增加下注概率
-            if (random.nextDouble() <= 0.8) {
+//            if (random.nextDouble() <= 0.8) {
                 if(StringUtils.equals(gameInfo.getGameType(),"3")){
                     // 3球
                     ThreeBallsOddsReqVO threeBallsOddsReqVO = new ThreeBallsOddsReqVO();
@@ -363,7 +363,7 @@ public class GameTaskServiceImpl implements IGameTaskService {
                     virtuallyGameRecordReqVO.setPeriods(tenBallsTimeDateRespVO.getPeriods());
                     gameTenBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
                 }
-            }
+//            }
         }
     }
 

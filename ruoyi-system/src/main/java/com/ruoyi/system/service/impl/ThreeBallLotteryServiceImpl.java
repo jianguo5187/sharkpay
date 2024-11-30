@@ -5,11 +5,9 @@ import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.vo.ThreeBallsAddMultiBetRecordReqVO;
-import com.ruoyi.system.domain.vo.ThreeBallsMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.*;
 import com.ruoyi.system.service.IThreeBallLotteryService;
 import com.ruoyi.system.domain.*;
-import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -1043,6 +1041,14 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         searchGameThreeballRecord.setStatus("0");
         searchGameThreeballRecord.setPeriods(periodId);
         List<GameThreeballRecord> gameThreeballRecordList = gameThreeballRecordService.selectGameThreeballRecordList(searchGameThreeballRecord);
+
+        // 生成下一期的机器人投注数据
+        ThreeBallsOddsReqVO threeBallsOddsReqVO = new ThreeBallsOddsReqVO();
+        threeBallsOddsReqVO.setGameId(gameInfo.getGameId());
+        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
+        gameThreeBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
 
         if(gameThreeballRecordList == null || gameThreeballRecordList.size() == 0){
             return;
