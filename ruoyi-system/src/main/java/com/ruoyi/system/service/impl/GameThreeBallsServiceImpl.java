@@ -271,9 +271,6 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
                     }
 
                     GameOption gameOption = gameOptionMap.get(num + "");
-                    if(gameOption == null){
-                        continue;
-                    }
                     String key = gameOption.getKey();
                     String playType = gameOption.getPlayGroupTitle();
                     Integer playGroup = gameOption.getPlayGroup();
