@@ -57,6 +57,9 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
     private IGameAutoBetRecordService gameAutoBetRecordService;
 
     @Autowired
+    private IRobotBetOptionService robotBetOptionService;
+
+    @Autowired
     private BetRecordMapper betRecordMapper;
 
     @Autowired
@@ -216,106 +219,195 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             respVO.addAll(dbVirtuallyRecordList);
         }
 
-        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
-        Random random = new Random();
-        BigDecimal result = new BigDecimal(gameInfo.getRobotRate()).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
-        double virtuallyRandow = result.doubleValue();
-        double randomValue = random.nextDouble();
-        //产生虚假数据的概率
-        if(taskFlg || randomValue < virtuallyRandow) {
+//        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+        List<FalseUser> notBetFalseUserList = falseUserMapper.selectNoBetFalseUserListByGameIdAndPeriods(vo.getGameId(), vo.getPeriods());
 
-            List<FalseUser> falseUserList = falseUserMapper.selectFalseUserListByGameId(vo.getGameId());
-            if(falseUserList == null || falseUserList.size() == 0){
-                falseUserList = falseUserMapper.selectFalseUserListByGameId(2l);
-            }
-            if(falseUserList != null && falseUserList.size() > 0){
-                FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);
+        if(notBetFalseUserList == null || notBetFalseUserList.size() == 0){
+            return respVO;
+        }
+        //随机挑选一个虚拟用户
+        FalseUser virtuallyGameUser = notBetFalseUserList.get(random(1,notBetFalseUserList.size()) - 1);
+        //获取话术
+        RobotBetOption searchRobotBetOption = new RobotBetOption();
+        searchRobotBetOption.setGameId(vo.getGameId());
+        searchRobotBetOption.setStatus("0");
+        List<RobotBetOption> robotBetOptionList = robotBetOptionService.selectRobotBetOptionList(searchRobotBetOption);
+        if(robotBetOptionList == null || robotBetOptionList.size() == 0){
+            return respVO;
+        }
 
-                Integer type = 0;
-//                String playType = "和值";
-                String num = "";
-                String money = "";
+        Map<String,Integer> betTypeMap = new HashMap<>();
+        betTypeMap.put("双面",1);
+        betTypeMap.put("特码",2);
+        betTypeMap.put("特殊",3);
 
-                String[] numArg = falseUser.getRobotBetNum().split("\\|");
-                String[] moneyArg = falseUser.getRobotBetMoney().split("\\|");
-
-                money = moneyArg[random(1,moneyArg.length)-1];
-
-                FalseUser searchFalseUser = new FalseUser();
-                List<FalseUser> allFalseUserList = falseUserMapper.selectFalseUserList(searchFalseUser);
-
-                FalseUser virtuallyGameUser = allFalseUserList.get(random(1,allFalseUserList.size()) - 1);
-
-                int cishu = random(3,7);
-                Date now = new Date();
-
-                GameOption searchGameOption = new GameOption();
-                searchGameOption.setGameId(vo.getGameId());
-                List<GameOption> gameOptionList = gameOptionMapper.selectGameOptionList(searchGameOption);
-                Map<String , GameOption> gameOptionMap = gameOptionList.stream()
+        Map<Long,RobotBetOption> betOptionMap = robotBetOptionList.stream()
                         .collect(Collectors.toMap(
-                                GameOption::getTitle,
+                                RobotBetOption::getId,
                                 Function.identity(),
                                 (existing, replacement) -> existing // 保留现有的值，忽略替换值
                         ));
 
-                for(int i=0;i<cishu;i++){
+        for(int i=virtuallyGameUser.getMinBetCount(); i<=virtuallyGameUser.getMaxBetCount(); i++){
+            if(betOptionMap.size() < 1){
+                break;
+            }
+            //随机挑选一个话术
+            RobotBetOption robotBetOption = betOptionMap.get(getRandomValue(betOptionMap));
 
-                    num = numArg[random(1,numArg.length)-1];
-                    //防止投注号码是空
-                    if(StringUtils.isEmpty(num)){
-                        num = numArg[0];
-                    }
-                    if(StringUtils.isEmpty(num)){
-                        continue;
-                    }
+            String betOption[] = robotBetOption.getBetItemOption().split("\\|");
 
-                    GameOption gameOption = gameOptionMap.get(num + "");
-                    String key = gameOption.getKey();
-                    String playType = gameOption.getPlayGroupTitle();
-                    Integer playGroup = gameOption.getPlayGroup();
 
-                    BetRecord betrecord = new BetRecord();
-                    betrecord.setUserId(0l);
-                    betrecord.setPeriods(vo.getPeriods());
-                    betrecord.setGameId(vo.getGameId());
-                    betrecord.setGameName(gameThreeballKj.getGameName());
-                    betrecord.setPlayType(playType);
-                    betrecord.setPlayGroup(playGroup);
-                    betrecord.setPlayDetail(num);
-                    betrecord.setPlayGroup(type);
-                    betrecord.setOption(0);
-                    betrecord.setMoney(changeLongNumber(money));
-                    betrecord.setBalance(0f);
-                    betrecord.setAccountResult(0f);
-                    betrecord.setSettleFlg("0");
-                    betrecord.setGameResult("");
-                    betrecord.setIsDelete("0");
-                    betrecord.setIsRobot("1");
-                    betrecord.setHouseId(1l);
-                    betrecord.setRecordLotteryKey(key);
-                    betrecord.setRobotNickName(virtuallyGameUser.getUserName());
-                    betrecord.setRobotPic(virtuallyGameUser.getRobotPic());
-                    int insertIndex = betRecordMapper.insertBetRecord(betrecord);
+            BetRecord betrecord = new BetRecord();
+            betrecord.setUserId(0l);
+            betrecord.setPeriods(vo.getPeriods());
+            betrecord.setGameId(vo.getGameId());
+            betrecord.setGameName(gameThreeballKj.getGameName());
+            betrecord.setPlayType(betOption[0]);
+            betrecord.setPlayDetail(betOption[1]);
+            betrecord.setPlayGroup(betTypeMap.get(betOption[1]));
+            betrecord.setOption(0);
+            betrecord.setMoney(changeLongNumber(betOption[2]));
+            betrecord.setBalance(0f);
+            betrecord.setAccountResult(0f);
+            betrecord.setSettleFlg("0");
+            betrecord.setGameResult("");
+            betrecord.setIsDelete("0");
+            betrecord.setRobotUserId(virtuallyGameUser.getId());
+            betrecord.setIsRobot("1");
+            betrecord.setHouseId(1l);
+            betrecord.setRobotNickName(virtuallyGameUser.getUserName());
+            betrecord.setRobotPic(virtuallyGameUser.getRobotPic());
+            int insertIndex = betRecordMapper.insertBetRecord(betrecord);
 
-                    if(insertIndex > 0){
-                        VirtuallyGameRecordRespVO virtuallyGameRecord = new VirtuallyGameRecordRespVO();
-                        virtuallyGameRecord.setBetId(betrecord.getBetId());
-                        virtuallyGameRecord.setHouse("31");
-                        virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
-                        virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());
-                        virtuallyGameRecord.setStime(now);
-                        virtuallyGameRecord.setNumber(num);
-                        virtuallyGameRecord.setMoney(changeLongNumber(money));
-                        virtuallyGameRecord.setType(type);
-                        virtuallyGameRecord.setPeriods(vo.getPeriods());
-                        virtuallyGameRecord.setPlayType(playType);
-                        respVO.add(virtuallyGameRecord);
-                    }
-                }
+            betOptionMap.remove(robotBetOption.getId());
+
+            if(insertIndex > 0){
+                VirtuallyGameRecordRespVO virtuallyGameRecord = new VirtuallyGameRecordRespVO();
+                virtuallyGameRecord.setBetId(betrecord.getBetId());
+                virtuallyGameRecord.setHouse("31");
+                virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
+                virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());
+                virtuallyGameRecord.setStime(date);
+                virtuallyGameRecord.setNumber(betOption[1]);
+                virtuallyGameRecord.setMoney(changeLongNumber(betOption[2]));
+                virtuallyGameRecord.setType(betTypeMap.get(betOption[1]));
+                virtuallyGameRecord.setPeriods(vo.getPeriods());
+                virtuallyGameRecord.setPlayType(betOption[0]);
+                respVO.add(virtuallyGameRecord);
             }
         }
+
+//        Random random = new Random();
+//        BigDecimal result = new BigDecimal(gameInfo.getRobotRate()).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
+//        double virtuallyRandow = result.doubleValue();
+//        double randomValue = random.nextDouble();
+//        //产生虚假数据的概率
+//        if(taskFlg || randomValue < virtuallyRandow) {
+//
+//            List<FalseUser> falseUserList = falseUserMapper.selectFalseUserListByGameId(vo.getGameId());
+//            if(falseUserList == null || falseUserList.size() == 0){
+//                falseUserList = falseUserMapper.selectFalseUserListByGameId(2l);
+//            }
+//            if(falseUserList != null && falseUserList.size() > 0){
+//                FalseUser falseUser = falseUserList.get(random(1,falseUserList.size()) - 1);
+//
+//                Integer type = 0;
+////                String playType = "和值";
+//                String num = "";
+//                String money = "";
+//
+//                String[] numArg = falseUser.getRobotBetNum().split("\\|");
+//                String[] moneyArg = falseUser.getRobotBetMoney().split("\\|");
+//
+//                money = moneyArg[random(1,moneyArg.length)-1];
+//
+//                FalseUser searchFalseUser = new FalseUser();
+//                List<FalseUser> allFalseUserList = falseUserMapper.selectFalseUserList(searchFalseUser);
+//
+////                FalseUser virtuallyGameUser = allFalseUserList.get(random(1,allFalseUserList.size()) - 1);
+//
+//                int cishu = random(3,7);
+//                Date now = new Date();
+//
+//                GameOption searchGameOption = new GameOption();
+//                searchGameOption.setGameId(vo.getGameId());
+//                List<GameOption> gameOptionList = gameOptionMapper.selectGameOptionList(searchGameOption);
+//                Map<String , GameOption> gameOptionMap = gameOptionList.stream()
+//                        .collect(Collectors.toMap(
+//                                GameOption::getTitle,
+//                                Function.identity(),
+//                                (existing, replacement) -> existing // 保留现有的值，忽略替换值
+//                        ));
+//
+//                for(int i=0;i<cishu;i++){
+//
+//                    num = numArg[random(1,numArg.length)-1];
+//                    //防止投注号码是空
+//                    if(StringUtils.isEmpty(num)){
+//                        num = numArg[0];
+//                    }
+//                    if(StringUtils.isEmpty(num)){
+//                        continue;
+//                    }
+//
+//                    GameOption gameOption = gameOptionMap.get(num + "");
+//                    if(gameOption == null){
+//                        continue;
+//                    }
+//                    String key = gameOption.getKey();
+//                    String playType = gameOption.getPlayGroupTitle();
+//                    Integer playGroup = gameOption.getPlayGroup();
+//
+//                    BetRecord betrecord = new BetRecord();
+//                    betrecord.setUserId(0l);
+//                    betrecord.setPeriods(vo.getPeriods());
+//                    betrecord.setGameId(vo.getGameId());
+//                    betrecord.setGameName(gameThreeballKj.getGameName());
+//                    betrecord.setPlayType(playType);
+//                    betrecord.setPlayGroup(playGroup);
+//                    betrecord.setPlayDetail(num);
+//                    betrecord.setPlayGroup(type);
+//                    betrecord.setOption(0);
+//                    betrecord.setMoney(changeLongNumber(money));
+//                    betrecord.setBalance(0f);
+//                    betrecord.setAccountResult(0f);
+//                    betrecord.setSettleFlg("0");
+//                    betrecord.setGameResult("");
+//                    betrecord.setIsDelete("0");
+//                    betrecord.setIsRobot("1");
+//                    betrecord.setHouseId(1l);
+//                    betrecord.setRecordLotteryKey(key);
+//                    betrecord.setRobotNickName(virtuallyGameUser.getUserName());
+//                    betrecord.setRobotPic(virtuallyGameUser.getRobotPic());
+//                    int insertIndex = betRecordMapper.insertBetRecord(betrecord);
+//
+//                    if(insertIndex > 0){
+//                        VirtuallyGameRecordRespVO virtuallyGameRecord = new VirtuallyGameRecordRespVO();
+//                        virtuallyGameRecord.setBetId(betrecord.getBetId());
+//                        virtuallyGameRecord.setHouse("31");
+//                        virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
+//                        virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());
+//                        virtuallyGameRecord.setStime(now);
+//                        virtuallyGameRecord.setNumber(num);
+//                        virtuallyGameRecord.setMoney(changeLongNumber(money));
+//                        virtuallyGameRecord.setType(type);
+//                        virtuallyGameRecord.setPeriods(vo.getPeriods());
+//                        virtuallyGameRecord.setPlayType(playType);
+//                        respVO.add(virtuallyGameRecord);
+//                    }
+//                }
+//            }
+//        }
         return respVO;
+    }
+
+    public Long getRandomValue(Map<Long,RobotBetOption> map){
+        List<Long> keys = new ArrayList<>(map.keySet());
+        // 生成随机索引
+        int randomIndex = new Random().nextInt(keys.size());
+        // 返回随机键
+        return keys.get(randomIndex);
     }
 
     @Override

@@ -87,6 +87,10 @@ public class BetRecord extends BaseEntity
     @Excel(name = "是否删除(0否 1是)")
     private String isDelete;
 
+    /** 机器人ID */
+    @Excel(name = "机器人ID")
+    private Long robotUserId;
+
     /** 是否机器人下注 */
     @Excel(name = "是否机器人下注")
     private String isRobot;
@@ -275,7 +279,15 @@ public class BetRecord extends BaseEntity
         this.isDelete = isDelete;
     }
 
-    public String getIsDelete() 
+    public Long getRobotUserId() {
+        return robotUserId;
+    }
+
+    public void setRobotUserId(Long robotUserId) {
+        this.robotUserId = robotUserId;
+    }
+
+    public String getIsDelete()
     {
         return isDelete;
     }

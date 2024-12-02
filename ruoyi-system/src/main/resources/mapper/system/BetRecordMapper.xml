@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="settleFlg"    column="settle_flg"    />
         <result property="gameResult"    column="game_result"    />
         <result property="isDelete"    column="is_delete"    />
+        <result property="robotUserId"    column="robot_user_id"    />
         <result property="isRobot"    column="is_robot"    />
         <result property="robotNickName"    column="robot_nick_name"    />
         <result property="robotPic"    column="robot_pic"    />
@@ -120,7 +121,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
 
     <sql id="selectBetRecordVo">
-        select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, `option`, money, balance, account_result, settle_flg, game_result, is_delete, is_robot, robot_nick_name, robot_pic, robot_img, house_id, record_lottery_key, auto_bet_flg, auto_bet_record_id, bet_type, bet_number, create_by, create_time, update_by, update_time, remark from bet_record
+        select bet_id, user_id, periods, record_time, time_checkpoint, game_id, game_name, play_type, play_detail, play_group, `option`, money, balance, account_result, settle_flg, game_result, is_delete, robot_user_id, is_robot, robot_nick_name, robot_pic, robot_img, house_id, record_lottery_key, auto_bet_flg, auto_bet_record_id, bet_type, bet_number, create_by, create_time, update_by, update_time, remark from bet_record
     </sql>
 
     <select id="selectBetRecordList" parameterType="BetRecord" resultMap="BetRecordResult">
@@ -142,6 +143,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="settleFlg != null  and settleFlg != ''"> and settle_flg = #{settleFlg}</if>
             <if test="gameResult != null  and gameResult != ''"> and game_result = #{gameResult}</if>
             <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
+            <if test="isRobot != null"> and robot_user_id = #{robotUserId}</if>
             <if test="isRobot != null  and isRobot != ''"> and is_robot = #{isRobot}</if>
             <if test="robotNickName != null  and robotNickName != ''"> and robot_nick_name like concat('%', #{robotNickName}, '%')</if>
             <if test="robotPic != null  and robotPic != ''"> and robot_pic = #{robotPic}</if>
@@ -174,6 +176,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="settleFlg != null">settle_flg,</if>
             <if test="gameResult != null and gameResult != ''">game_result,</if>
             <if test="isDelete != null and isDelete != ''">is_delete,</if>
+            <if test="robotUserId != null">robot_user_id,</if>
             <if test="isRobot != null and isRobot != ''">is_robot,</if>
             <if test="robotNickName != null">robot_nick_name,</if>
             <if test="robotPic != null">robot_pic,</if>
@@ -203,6 +206,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="settleFlg != null">#{settleFlg},</if>
             <if test="gameResult != null and gameResult != ''">#{gameResult},</if>
             <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
+            <if test="robotUserId != null">#{robotUserId},</if>
             <if test="isRobot != null and isRobot != ''">#{isRobot},</if>
             <if test="robotNickName != null">#{robotNickName},</if>
             <if test="robotPic != null">#{robotPic},</if>
@@ -233,6 +237,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="settleFlg != null">settle_flg = #{settleFlg},</if>
             <if test="gameResult != null and gameResult != ''">game_result = #{gameResult},</if>
             <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
+            <if test="robotUserId != null">robot_user_id = #{robotUserId},</if>
             <if test="isRobot != null and isRobot != ''">is_robot = #{isRobot},</if>
             <if test="robotNickName != null">robot_nick_name = #{robotNickName},</if>
             <if test="robotPic != null">robot_pic = #{robotPic},</if>

@@ -15,7 +15,7 @@ public class FalseUser extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** $column.columnComment */
+    /** 机器人ID */
     private Long id;
 
     /** 机器人昵称 */
@@ -54,6 +54,18 @@ public class FalseUser extends BaseEntity
     /** 玩法车道:pk10和飞艇默认0，即为冠亚和值，大于零则随机为1-10车道 */
     @Excel(name = "玩法车道:pk10和飞艇默认0，即为冠亚和值，大于零则随机为1-10车道")
     private Integer playType;
+
+    /** 最小次数 */
+    @Excel(name = "最小次数")
+    private Integer minBetCount;
+
+    /** 最大次数 */
+    @Excel(name = "最大次数")
+    private Integer maxBetCount;
+
+    /** 状态（0正常 1停用） */
+    @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
+    private String status;
 
     public void setId(Long id) 
     {
@@ -155,6 +167,33 @@ public class FalseUser extends BaseEntity
     {
         return playType;
     }
+    public void setMinBetCount(Integer minBetCount)
+    {
+        this.minBetCount = minBetCount;
+    }
+
+    public Integer getMinBetCount()
+    {
+        return minBetCount;
+    }
+    public void setMaxBetCount(Integer maxBetCount)
+    {
+        this.maxBetCount = maxBetCount;
+    }
+
+    public Integer getMaxBetCount()
+    {
+        return maxBetCount;
+    }
+    public void setStatus(String status)
+    {
+        this.status = status;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
 
     @Override
     public String toString() {
@@ -169,6 +208,9 @@ public class FalseUser extends BaseEntity
             .append("gameId", getGameId())
             .append("groupId", getGroupId())
             .append("playType", getPlayType())
+            .append("minBetCount", getMinBetCount())
+            .append("maxBetCount", getMaxBetCount())
+            .append("status", getStatus())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.FalseUser;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 投注机器人Mapper接口
@@ -60,4 +61,6 @@ public interface FalseUserMapper
     public int deleteFalseUserByIds(Long[] ids);
 
     public List<FalseUser> selectFalseUserListByGameId(Long gameId);
+
+    public List<FalseUser> selectNoBetFalseUserListByGameIdAndPeriods(@Param("gameId") Long gameId,@Param("periods")Long periods);
 }

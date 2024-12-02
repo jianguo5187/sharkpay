@@ -16,6 +16,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="gameName"    column="game_name"    />
         <result property="groupId"    column="group_id"    />
         <result property="playType"    column="play_type"    />
+        <result property="minBetCount"    column="min_bet_count"    />
+        <result property="maxBetCount"    column="max_bet_count"    />
+        <result property="status"    column="status"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -35,6 +38,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             f.game_id,
             f.group_id,
             f.play_type,
+            f.min_bet_count,
+            f.max_bet_count,
+            f.status,
             f.create_by,
             f.create_time,
             f.update_by,
@@ -58,6 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null "> and f.game_id = #{gameId}</if>
             <if test="groupId != null "> and f.group_id = #{groupId}</if>
             <if test="playType != null "> and f.play_type = #{playType}</if>
+            <if test="status != null  and status != ''"> and f.status = #{status}</if>
         </where>
     </select>
     
@@ -78,6 +85,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null">game_id,</if>
             <if test="groupId != null">group_id,</if>
             <if test="playType != null">play_type,</if>
+            <if test="minBetCount != null">min_bet_count,</if>
+            <if test="maxBetCount != null">max_bet_count,</if>
+            <if test="status != null">status,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateBy != null">update_by,</if>
@@ -94,6 +104,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null">#{gameId},</if>
             <if test="groupId != null">#{groupId},</if>
             <if test="playType != null">#{playType},</if>
+            <if test="minBetCount != null">#{minBetCount},</if>
+            <if test="maxBetCount != null">#{maxBetCount},</if>
+            <if test="status != null">#{status},</if>
             <if test="createBy != null">#{createBy},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateBy != null">#{updateBy},</if>
@@ -114,6 +127,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="gameId != null">game_id = #{gameId},</if>
             <if test="groupId != null">group_id = #{groupId},</if>
             <if test="playType != null">play_type = #{playType},</if>
+            <if test="minBetCount != null">min_bet_count = #{minBetCount},</if>
+            <if test="maxBetCount != null">max_bet_count = #{maxBetCount},</if>
+            <if test="status != null">status = #{status},</if>
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
@@ -137,5 +153,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectFalseUserListByGameId" parameterType="Long" resultMap="FalseUserResult">
         <include refid="selectFalseUserVo"/>
         where f.game_id = #{gameId}
+    </select>
+
+    <select id="selectNoBetFalseUserListByGameIdAndPeriods" parameterType="Long" resultMap="FalseUserResult">
+        <include refid="selectFalseUserVo"/>
+        where f.game_id = #{gameId}
+        AND NOT EXISTS(
+            SELECT 1
+            FROM bet_record b
+            WHERE b.robot_user_id = f.id
+            AND b.game_id = f.game_id
+            AND b.periods = #{periods}
+            AND b.is_robot = '1'
+            AND b.is_delete = '0'
+        )
     </select>
 </mapper>

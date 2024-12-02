@@ -662,13 +662,13 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         searchGameFiveballRecord.setPeriods(periodId);
         List<GameFiveballRecord> GameFiveballRecordList = gameFiveballRecordService.selectGameFiveballRecordList(searchGameFiveballRecord);
 
-        // 生成下一期的机器人投注数据
-        FiveBallsOddsReqVO fiveBallsOddsReqVO = new FiveBallsOddsReqVO();
-        fiveBallsOddsReqVO.setGameId(gameInfo.getGameId());
-        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
-        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
-        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
-        gameFiveBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
+//        // 生成下一期的机器人投注数据
+//        FiveBallsOddsReqVO fiveBallsOddsReqVO = new FiveBallsOddsReqVO();
+//        fiveBallsOddsReqVO.setGameId(gameInfo.getGameId());
+//        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+//        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+//        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
+//        gameFiveBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
 
         if(GameFiveballRecordList == null || GameFiveballRecordList.size() == 0){
             return;

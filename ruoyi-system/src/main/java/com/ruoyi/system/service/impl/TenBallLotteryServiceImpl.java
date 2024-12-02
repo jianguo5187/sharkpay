@@ -555,13 +555,13 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         searchGameTenballRecord.setPeriods(periodId);
         List<GameTenballRecord> gameTenballRecordList = gameTenballRecordService.selectGameTenballRecordList(searchGameTenballRecord);
 
-        // 生成下一期的机器人投注数据
-        TenBallsOddsReqVO tenBallsOddsReqVO = new TenBallsOddsReqVO();
-        tenBallsOddsReqVO.setGameId(gameInfo.getGameId());
-        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
-        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
-        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
-        gameTenBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
+//        // 生成下一期的机器人投注数据
+//        TenBallsOddsReqVO tenBallsOddsReqVO = new TenBallsOddsReqVO();
+//        tenBallsOddsReqVO.setGameId(gameInfo.getGameId());
+//        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+//        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+//        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
+//        gameTenBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
 
         if(gameTenballRecordList == null || gameTenballRecordList.size() == 0){
             return;

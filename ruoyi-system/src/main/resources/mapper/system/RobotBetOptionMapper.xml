@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.RobotBetOptionMapper">
+    
+    <resultMap type="RobotBetOption" id="RobotBetOptionResult">
+        <result property="id"    column="id"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="betItemOption"    column="bet_item_option"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectRobotBetOptionVo">
+        SELECT
+            r.id,
+            r.game_id,
+            r.bet_item_option,
+            r.STATUS,
+            r.create_by,
+            r.create_time,
+            r.update_by,
+            r.update_time,
+            r.remark,
+            g.game_name
+        FROM
+            robot_bet_option r
+        inner join sys_game g on r.game_id = g.game_id
+    </sql>
+
+    <select id="selectRobotBetOptionList" parameterType="RobotBetOption" resultMap="RobotBetOptionResult">
+        <include refid="selectRobotBetOptionVo"/>
+        <where>  
+            <if test="gameId != null "> and r.game_id = #{gameId}</if>
+            <if test="status != null  and status != ''"> and r.status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectRobotBetOptionById" parameterType="Long" resultMap="RobotBetOptionResult">
+        <include refid="selectRobotBetOptionVo"/>
+        where r.id = #{id}
+    </select>
+        
+    <insert id="insertRobotBetOption" parameterType="RobotBetOption" useGeneratedKeys="true" keyProperty="id">
+        insert into robot_bet_option(
+            <if test="gameId != null">game_id,</if>
+            <if test="betItemOption != null">bet_item_option,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+            create_time
+        )values(
+            <if test="gameId != null">#{gameId},</if>
+            <if test="betItemOption != null">#{betItemOption},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateRobotBetOption" parameterType="RobotBetOption">
+        update robot_bet_option
+        <set>
+            <if test="gameId != null">game_id = #{gameId},</if>
+            <if test="betItemOption != null">bet_item_option = #{betItemOption},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteRobotBetOptionById" parameterType="Long">
+        delete from robot_bet_option where id = #{id}
+    </delete>
+
+    <delete id="deleteRobotBetOptionByIds" parameterType="String">
+        delete from robot_bet_option where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

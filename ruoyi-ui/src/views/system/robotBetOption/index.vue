@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="88px">
       <el-form-item label="游戏" prop="gameId">
         <el-select v-model="queryParams.gameId" placeholder="请选择游戏" @change="handleQuery">
           <el-option
@@ -48,28 +48,31 @@
 <!--          @click="handleUpdate"-->
 <!--        >修改</el-button>-->
 <!--      </el-col>-->
+<!--      <el-col :span="1.5">-->
+<!--        <el-button-->
+<!--          type="danger"-->
+<!--          plain-->
+<!--          icon="el-icon-delete"-->
+<!--          size="mini"-->
+<!--          :disabled="multiple"-->
+<!--          @click="handleDelete"-->
+<!--          v-hasPermi="['system:robotBetOption:remove']"-->
+<!--        >删除</el-button>-->
+<!--      </el-col>-->
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="falseUserList" @selection-change="handleSelectionChange">
-      <el-table-column label="Id" align="center" prop="id" />
+    <el-table v-loading="loading" :data="robotBetOptionList" @selection-change="handleSelectionChange">
+<!--      <el-table-column type="selection" width="55" align="center" />-->
+      <el-table-column label="ID" align="center" prop="id" />
       <el-table-column label="游戏" align="center" prop="gameName" />
-      <el-table-column label="机器人昵称" align="center" prop="userName" />
-<!--      <el-table-column label="机器人账号" align="center" prop="user" />-->
-      <el-table-column label="机器人头像" align="center" prop="robotPic" width="100">
-        <template slot-scope="scope">
-          <image-preview :src="scope.row.robotPic" :width="50" :height="50"/>
-        </template>
-      </el-table-column>
-      <el-table-column label="最小次数" align="center" prop="minBetCount" />
-      <el-table-column label="最大次数" align="center" prop="maxBetCount" />
+      <el-table-column label="投注类别/号码/金额" align="center" prop="betItemOption" />
       <el-table-column label="状态" align="center" prop="status">
         <template slot-scope="scope">
           <dict-tag :options="dict.type.sys_replace_status" :value="scope.row.status"/>
         </template>
       </el-table-column>
-<!--      <el-table-column label="机器人投注号码" align="center" prop="robotBetNum" />-->
-<!--      <el-table-column label="机器人投注时间" align="center" prop="robotBetTime" />-->
+<!--      <el-table-column label="备注" align="center" prop="remark" />-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -78,6 +81,12 @@
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
           >修改</el-button>
+          <el-button
+            size="mini"
+            type="text"
+            icon="el-icon-delete"
+            @click="handleDelete(scope.row)"
+          >删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -90,7 +99,7 @@
       @pagination="getList"
     />
 
-    <!-- 添加或修改投注机器人对话框 -->
+    <!-- 添加或修改机器人话术对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="180px">
         <el-form-item label="游戏" prop="gameId">
@@ -104,36 +113,10 @@
             ></el-option>
           </el-select>
         </el-form-item>
-<!--        <el-form-item label="机器人账号" prop="user">-->
-<!--          <el-input v-model="form.user" placeholder="请输入机器人账号" />-->
-<!--          <span style="color: red">*必须为字母数字组合，且不能重复！否则假人无效！</span>-->
-<!--        </el-form-item>-->
-        <el-form-item label="机器人昵称" prop="userName">
-          <el-input v-model="form.userName" placeholder="请输入机器人昵称" />
+        <el-form-item label="话术" prop="betItemOption">
+          <el-input v-model="form.betItemOption" placeholder="请输入话术" />
+          <span>投注类别|号码|金额(拿竖线拼接例如：特殊|对子|70)</span>
         </el-form-item>
-<!--        <el-form-item label="机器人等级id" prop="groupId">-->
-<!--          <el-input-number v-model="form.groupId" :min="0" placeholder="请输入机器人等级id"/>-->
-<!--        </el-form-item>-->
-        <el-form-item label="机器人头像" prop="robotPic">
-          <image-upload v-model="form.robotPic" :limit="1"/>
-        </el-form-item>
-        <el-form-item label="最小次数" prop="minBetCount">
-          <el-input-number v-model="form.minBetCount" :min="0" placeholder="请输入最小次数"/>
-        </el-form-item>
-        <el-form-item label="最大次数" prop="maxBetCount">
-          <el-input-number v-model="form.maxBetCount" :min="0" placeholder="最大次数"/>
-        </el-form-item>
-<!--        <el-form-item label="机器人投注金额" prop="robotBetMoney">-->
-<!--          <el-input v-model="form.robotBetMoney" placeholder="请输入机器人投注金额" />-->
-<!--          <span>(拿竖线拼接例如：100|200|300)</span>-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="机器人投注号码" prop="robotBetNum">-->
-<!--          <el-input v-model="form.robotBetNum" placeholder="请输入机器人投注号码" />-->
-<!--          <span>(拿竖线拼接例如：大|小|双)</span>-->
-<!--        </el-form-item>-->
-<!--        <el-form-item label="机器人投注时间" prop="robotBetTime">-->
-<!--          <el-input v-model="form.robotBetTime" placeholder="请输入机器人投注时间" />-->
-<!--        </el-form-item>-->
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="form.status">
             <el-radio
@@ -143,6 +126,9 @@
             >{{dict.label}}</el-radio>
           </el-radio-group>
         </el-form-item>
+<!--        <el-form-item label="备注" prop="remark">-->
+<!--          <el-input v-model="form.remark" type="textarea" placeholder="请输入内容" />-->
+<!--        </el-form-item>-->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
@@ -153,16 +139,25 @@
 </template>
 
 <script>
-import { listFalseUser, getFalseUser, delFalseUser, addFalseUser, updateFalseUser } from "@/api/system/falseUser";
+import { listRobotBetOption, getRobotBetOption, delRobotBetOption, addRobotBetOption, updateRobotBetOption } from "@/api/system/robotBetOption";
 import {getValidGame} from "@/api/system/game";
 
 export default {
-  name: "FalseUser",
+  name: "RobotBetOption",
   dicts: ['sys_replace_status'],
   data() {
     const minMaxBetCountCheck = (rule, value, callback) => {
-      if (this.form.minBetCount > this.form.maxBetCount) {
-        callback(new Error("最小次数不能大于最大次数"));
+      console.log("value")
+      var checkReuslt = true;
+      if(value.split("|").length != 3){
+        checkReuslt = false;
+      }else{
+        if(value.split("|")[0] == "" || value.split("|")[1] == "" || value.split("|")[2] == ""){
+          checkReuslt = false;
+        }
+      }
+      if (!checkReuslt) {
+        callback(new Error("输入的话术不规范，请用|隔开"));
       } else {
         callback();
       }
@@ -180,8 +175,8 @@ export default {
       showSearch: true,
       // 总条数
       total: 0,
-      // 投注机器人表格数据
-      falseUserList: [],
+      // 机器人话术表格数据
+      robotBetOptionList: [],
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -191,8 +186,6 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 20,
-        // userName: null,
-        // user: null,
         gameId: null,
         status: null,
       },
@@ -200,22 +193,15 @@ export default {
       form: {},
       // 表单校验
       rules: {
-        userName: [
-          { required: true, message: "机器人昵称不能为空", trigger: "blur" }
-        ],
         gameId: [
-          { required: true, message: "游戏不能为空", trigger: "blur" }
+          { required: true, message: "彩种不能为空", trigger: "blur" }
         ],
-        robotPic: [
-          { required: true, message: "机器人头像不能为空", trigger: "blur" }
-        ],
-        minBetCount: [
-          { required: true, message: "最小次数不能为空", trigger: "blur" },
+        betItemOption: [
+          { required: true, message: "话术不能为空", trigger: "blur" },
           { required: true, validator: minMaxBetCountCheck, trigger: "blur" }
         ],
-        maxBetCount: [
-          { required: true, message: "最大次数不能为空", trigger: "blur" },
-          { required: true, validator: minMaxBetCountCheck, trigger: "blur" }
+        status: [
+          { required: true, message: "状态不能为空", trigger: "blur" }
         ],
       }
     };
@@ -224,15 +210,6 @@ export default {
     this.getGameList();
   },
   methods: {
-    /** 查询投注机器人列表 */
-    getList() {
-      this.loading = true;
-      listFalseUser(this.queryParams).then(response => {
-        this.falseUserList = response.rows;
-        this.total = response.total;
-        this.loading = false;
-      });
-    },
     getGameList(){
       getValidGame().then(response => {
         this.gameListOptions = response.gameList;
@@ -240,6 +217,15 @@ export default {
           this.queryParams.gameId = response.gameList[0].gameId
         }
         this.getList();
+      });
+    },
+    /** 查询机器人话术列表 */
+    getList() {
+      this.loading = true;
+      listRobotBetOption(this.queryParams).then(response => {
+        this.robotBetOptionList = response.rows;
+        this.total = response.total;
+        this.loading = false;
       });
     },
     // 取消按钮
@@ -251,17 +237,8 @@ export default {
     reset() {
       this.form = {
         id: null,
-        userName: null,
-        user: null,
-        robotPic: null,
-        robotBetMoney: null,
-        robotBetNum: null,
-        robotBetTime: null,
         gameId: null,
-        groupId: "1",
-        playType: null,
-        minBetCount: null,
-        maxBetCount: null,
+        betItemOption: null,
         status: '0',
         createBy: null,
         createTime: null,
@@ -291,16 +268,16 @@ export default {
     handleAdd() {
       this.reset();
       this.open = true;
-      this.title = "添加投注机器人";
+      this.title = "添加机器人话术";
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
       const id = row.id || this.ids
-      getFalseUser(id).then(response => {
+      getRobotBetOption(id).then(response => {
         this.form = response.data;
         this.open = true;
-        this.title = "修改投注机器人";
+        this.title = "修改机器人话术";
       });
     },
     /** 提交按钮 */
@@ -308,13 +285,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.id != null) {
-            updateFalseUser(this.form).then(response => {
+            updateRobotBetOption(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
             });
           } else {
-            addFalseUser(this.form).then(response => {
+            addRobotBetOption(this.form).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -326,8 +303,8 @@ export default {
     /** 删除按钮操作 */
     handleDelete(row) {
       const ids = row.id || this.ids;
-      this.$modal.confirm('是否确认删除投注机器人编号为"' + ids + '"的数据项？').then(function() {
-        return delFalseUser(ids);
+      this.$modal.confirm('是否确认删除机器人话术编号为"' + ids + '"的数据项？').then(function() {
+        return delRobotBetOption(ids);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");
@@ -335,9 +312,9 @@ export default {
     },
     /** 导出按钮操作 */
     handleExport() {
-      this.download('system/falseUser/export', {
+      this.download('system/robotBetOption/export', {
         ...this.queryParams
-      }, `falseUser_${new Date().getTime()}.xlsx`)
+      }, `robotBetOption_${new Date().getTime()}.xlsx`)
     }
   }
 };

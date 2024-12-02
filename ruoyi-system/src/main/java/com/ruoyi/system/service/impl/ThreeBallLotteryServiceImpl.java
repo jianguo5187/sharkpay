@@ -1042,13 +1042,13 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         searchGameThreeballRecord.setPeriods(periodId);
         List<GameThreeballRecord> gameThreeballRecordList = gameThreeballRecordService.selectGameThreeballRecordList(searchGameThreeballRecord);
 
-        // 生成下一期的机器人投注数据
-        ThreeBallsOddsReqVO threeBallsOddsReqVO = new ThreeBallsOddsReqVO();
-        threeBallsOddsReqVO.setGameId(gameInfo.getGameId());
-        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
-        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
-        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
-        gameThreeBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
+//        // 生成下一期的机器人投注数据
+//        ThreeBallsOddsReqVO threeBallsOddsReqVO = new ThreeBallsOddsReqVO();
+//        threeBallsOddsReqVO.setGameId(gameInfo.getGameId());
+//        VirtuallyGameRecordReqVO virtuallyGameRecordReqVO = new VirtuallyGameRecordReqVO();
+//        virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
+//        virtuallyGameRecordReqVO.setPeriods(periodId + 1);
+//        gameThreeBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
 
         if(gameThreeballRecordList == null || gameThreeballRecordList.size() == 0){
             return;
