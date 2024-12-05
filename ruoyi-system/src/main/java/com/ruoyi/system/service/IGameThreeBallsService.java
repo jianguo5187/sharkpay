@@ -24,4 +24,6 @@ public interface IGameThreeBallsService {
 
     public void delThreeBallsBetRecord(Long userId,DelBetRecordReqVO vo);
     public Long addThreeBallsAutoBetRecord(Long userId,AddAutoBetRecordReqVO vo);
+
+    public List<BetRecordListRespVO> userBetRecord(Long userId, ThreeBallsBetRecordListReqVO vo);
 }

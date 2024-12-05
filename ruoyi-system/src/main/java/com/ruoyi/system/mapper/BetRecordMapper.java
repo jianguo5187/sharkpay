@@ -64,7 +64,7 @@ public interface BetRecordMapper
 
     public int updateLotteryResult(BetRecord betRecord);
 
-    public List<BetRecordListRespVO> selectBetRecordListByPeriods(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
+    public List<BetRecordListRespVO> selectBetRecordListByPeriods(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("lastBetRecordId") Long lastBetRecordId, @Param("pageNumber") Integer pageNumber, @Param("pageRowCount") Integer pageRowCount);
 
     public int cancelBetRecordByPeriods(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("userId") Long userId, @Param("isDelete") String isDelete);
 

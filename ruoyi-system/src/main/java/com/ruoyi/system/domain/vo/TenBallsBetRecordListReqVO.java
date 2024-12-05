@@ -14,6 +14,9 @@ public class TenBallsBetRecordListReqVO {
     /** 每页件数 */
     private Integer pageRowCount;
 
+    /** 最后下注ID */
+    private Long lastBetRecordId;
+
     public Long getGameId() {
         return gameId;
     }
@@ -44,5 +47,13 @@ public class TenBallsBetRecordListReqVO {
 
     public void setPageRowCount(Integer pageRowCount) {
         this.pageRowCount = pageRowCount;
+    }
+
+    public Long getLastBetRecordId() {
+        return lastBetRecordId;
+    }
+
+    public void setLastBetRecordId(Long lastBetRecordId) {
+        this.lastBetRecordId = lastBetRecordId;
     }
 }

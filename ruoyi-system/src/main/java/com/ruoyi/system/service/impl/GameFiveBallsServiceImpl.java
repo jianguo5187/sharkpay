@@ -199,7 +199,7 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
             }
             pageNumber = (vo.getPageNumber()-1)*vo.getPageRowCount();
         }
-        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), pageNumber, vo.getPageRowCount());
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), null, pageNumber, vo.getPageRowCount());
     }
 
     @Override
@@ -969,5 +969,10 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
         Long lastRecordId = addFiveBallsMultiBetRecord(userId,reqVO);
 
         return lastRecordId;
+    }
+
+    @Override
+    public List<BetRecordListRespVO> userBetRecord(Long userId, FiveBallsBetRecordListReqVO vo) {
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId(), null, null);
     }
 }

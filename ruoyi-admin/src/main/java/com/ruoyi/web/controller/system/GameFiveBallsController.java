@@ -181,4 +181,23 @@ public class GameFiveBallsController  extends BaseController {
         ajax.put("lastBetRecordId",gameFiveBallsService.addFiveBallsAutoBetRecord(sessionUser.getUserId(),vo));
         return ajax;
     }
+
+    /**
+     * 获取5球投注记录
+     */
+    @PostMapping("/userBetRecord")
+    public AjaxResult userBetRecord(@RequestBody FiveBallsBetRecordListReqVO vo){
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        List<BetRecordListRespVO> betRecordLis = gameFiveBallsService.userBetRecord(sessionUser.getUserId(),vo);
+        Long lastBetRecordId = 0l;
+        for(BetRecordListRespVO respVO : betRecordLis){
+            if(respVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = respVO.getBetId();
+            }
+        }
+        ajax.put("betRecordList",betRecordLis);
+        ajax.put("lastBetRecordId",lastBetRecordId);
+        return ajax;
+    }
 }

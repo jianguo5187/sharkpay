@@ -181,4 +181,23 @@ public class GameThreeBallsController  extends BaseController {
         ajax.put("lastBetRecordId",gameThreeBallsService.addThreeBallsAutoBetRecord(sessionUser.getUserId(),vo));
         return ajax;
     }
+
+    /**
+     * 获取3球投注记录
+     */
+    @PostMapping("/userBetRecord")
+    public AjaxResult userBetRecord(@RequestBody ThreeBallsBetRecordListReqVO vo){
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        List<BetRecordListRespVO> betRecordLis = gameThreeBallsService.userBetRecord(sessionUser.getUserId(),vo);
+        Long lastBetRecordId = 0l;
+        for(BetRecordListRespVO respVO : betRecordLis){
+            if(respVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = respVO.getBetId();
+            }
+        }
+        ajax.put("betRecordList",betRecordLis);
+        ajax.put("lastBetRecordId",lastBetRecordId);
+        return ajax;
+    }
 }

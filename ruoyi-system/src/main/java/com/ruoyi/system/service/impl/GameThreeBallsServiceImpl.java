@@ -201,7 +201,7 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             }
             pageNumber = (vo.getPageNumber()-1)*vo.getPageRowCount();
         }
-        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), pageNumber, vo.getPageRowCount());
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), null, pageNumber, vo.getPageRowCount());
     }
 
     @Override
@@ -1025,5 +1025,10 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
         reqVO.setAutoBetFlg("1");
         Long lastRecordId = addThreeBallsMultiBetRecord(userId,reqVO);
         return lastRecordId;
+    }
+
+    @Override
+    public List<BetRecordListRespVO> userBetRecord(Long userId, ThreeBallsBetRecordListReqVO vo) {
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId(),null, null);
     }
 }

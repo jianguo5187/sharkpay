@@ -298,6 +298,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where is_delete = 0
         and br.game_id = #{gameId}
         <if test="periods != null "> and br.periods = #{periods}</if>
+        <if test="lastBetRecordId != null "> and br.bet_id > #{lastBetRecordId}</if>
         order by bet_id desc
         <if test="pageNumber != null">
             limit #{pageNumber} , #{pageRowCount}

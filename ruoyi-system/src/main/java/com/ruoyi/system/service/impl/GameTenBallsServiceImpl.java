@@ -201,7 +201,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             }
             pageNumber = (vo.getPageNumber()-1)*vo.getPageRowCount();
         }
-        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), pageNumber, vo.getPageRowCount());
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), null, pageNumber, vo.getPageRowCount());
     }
 
     @Override
@@ -1246,5 +1246,10 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
         reqVO.setAutoBetFlg("1");
         Long lastRecordId = addTenBallsMultiBetRecord(userId,reqVO);
         return lastRecordId;
+    }
+
+    @Override
+    public List<BetRecordListRespVO> userBetRecord(Long userId, TenBallsBetRecordListReqVO vo) {
+        return betRecordMapper.selectBetRecordListByPeriods(vo.getGameId(), vo.getPeriods(), vo.getLastBetRecordId(), null, null);
     }
 }

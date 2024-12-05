@@ -25,4 +25,6 @@ public interface IGameFiveBallsService {
     public void delFiveBallsBetRecord(Long userId,DelBetRecordReqVO vo);
 
     public Long addFiveBallsAutoBetRecord(Long userId,AddAutoBetRecordReqVO vo);
+
+    public List<BetRecordListRespVO> userBetRecord(Long userId, FiveBallsBetRecordListReqVO vo);
 }

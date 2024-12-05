@@ -179,4 +179,23 @@ public class GameTenBallsController  extends BaseController {
         ajax.put("lastBetRecordId",gameTenBallsService.addTenBallsAutoBetRecord(sessionUser.getUserId(),vo));
         return ajax;
     }
+
+    /**
+     * 获取10球投注记录
+     */
+    @PostMapping("/userBetRecord")
+    public AjaxResult userBetRecord(@RequestBody TenBallsBetRecordListReqVO vo){
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        List<BetRecordListRespVO> betRecordLis = gameTenBallsService.userBetRecord(sessionUser.getUserId(),vo);
+        Long lastBetRecordId = 0l;
+        for(BetRecordListRespVO respVO : betRecordLis){
+            if(respVO.getBetId().compareTo(lastBetRecordId) > 0){
+                lastBetRecordId = respVO.getBetId();
+            }
+        }
+        ajax.put("betRecordList",betRecordLis);
+        ajax.put("lastBetRecordId",lastBetRecordId);
+        return ajax;
+    }
 }

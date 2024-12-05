@@ -25,4 +25,6 @@ public interface IGameTenBallsService {
     public void delTenBallsBetRecord(Long userId,DelBetRecordReqVO vo);
 
     public Long addTenBallsAutoBetRecord(Long userId,AddAutoBetRecordReqVO vo);
+
+    public List<BetRecordListRespVO> userBetRecord(Long userId, TenBallsBetRecordListReqVO vo);
 }
