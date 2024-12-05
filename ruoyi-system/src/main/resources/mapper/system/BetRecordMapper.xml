@@ -143,7 +143,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="settleFlg != null  and settleFlg != ''"> and settle_flg = #{settleFlg}</if>
             <if test="gameResult != null  and gameResult != ''"> and game_result = #{gameResult}</if>
             <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
-            <if test="isRobot != null"> and robot_user_id = #{robotUserId}</if>
+            <if test="robotUserId != null"> and robot_user_id = #{robotUserId}</if>
             <if test="isRobot != null  and isRobot != ''"> and is_robot = #{isRobot}</if>
             <if test="robotNickName != null  and robotNickName != ''"> and robot_nick_name like concat('%', #{robotNickName}, '%')</if>
             <if test="robotPic != null  and robotPic != ''"> and robot_pic = #{robotPic}</if>

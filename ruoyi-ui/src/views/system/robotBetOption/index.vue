@@ -115,7 +115,7 @@
         </el-form-item>
         <el-form-item label="话术" prop="betItemOption">
           <el-input v-model="form.betItemOption" placeholder="请输入话术" />
-          <span>投注类别|号码|金额(拿竖线拼接例如：特殊|对子|70)</span>
+          <span>投注类别|号码1,号码2,号码3|金额(拿竖线拼接例如：特殊|对子,顺子,豹子|70)</span>
         </el-form-item>
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="form.status">

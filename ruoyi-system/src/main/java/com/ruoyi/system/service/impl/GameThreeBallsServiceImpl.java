@@ -256,45 +256,47 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
             RobotBetOption robotBetOption = betOptionMap.get(getRandomValue(betOptionMap));
 
             String betOption[] = robotBetOption.getBetItemOption().split("\\|");
+            String[] betNumberArg = betOption[1].split(",");
+            for(String betNumber : betNumberArg) {
 
+                BetRecord betrecord = new BetRecord();
+                betrecord.setUserId(0l);
+                betrecord.setPeriods(vo.getPeriods());
+                betrecord.setGameId(vo.getGameId());
+                betrecord.setGameName(gameThreeballKj.getGameName());
+                betrecord.setPlayType(betOption[0]);
+                betrecord.setPlayDetail(betNumber);
+                betrecord.setPlayGroup(betTypeMap.get(betNumber));
+                betrecord.setOption(0);
+                betrecord.setMoney(changeLongNumber(betOption[2]));
+                betrecord.setBalance(0f);
+                betrecord.setAccountResult(0f);
+                betrecord.setSettleFlg("0");
+                betrecord.setGameResult("");
+                betrecord.setIsDelete("0");
+                betrecord.setRobotUserId(virtuallyGameUser.getId());
+                betrecord.setIsRobot("1");
+                betrecord.setHouseId(1l);
+                betrecord.setRobotNickName(virtuallyGameUser.getUserName());
+                betrecord.setRobotPic(virtuallyGameUser.getRobotPic());
+                int insertIndex = betRecordMapper.insertBetRecord(betrecord);
 
-            BetRecord betrecord = new BetRecord();
-            betrecord.setUserId(0l);
-            betrecord.setPeriods(vo.getPeriods());
-            betrecord.setGameId(vo.getGameId());
-            betrecord.setGameName(gameThreeballKj.getGameName());
-            betrecord.setPlayType(betOption[0]);
-            betrecord.setPlayDetail(betOption[1]);
-            betrecord.setPlayGroup(betTypeMap.get(betOption[1]));
-            betrecord.setOption(0);
-            betrecord.setMoney(changeLongNumber(betOption[2]));
-            betrecord.setBalance(0f);
-            betrecord.setAccountResult(0f);
-            betrecord.setSettleFlg("0");
-            betrecord.setGameResult("");
-            betrecord.setIsDelete("0");
-            betrecord.setRobotUserId(virtuallyGameUser.getId());
-            betrecord.setIsRobot("1");
-            betrecord.setHouseId(1l);
-            betrecord.setRobotNickName(virtuallyGameUser.getUserName());
-            betrecord.setRobotPic(virtuallyGameUser.getRobotPic());
-            int insertIndex = betRecordMapper.insertBetRecord(betrecord);
+                betOptionMap.remove(robotBetOption.getId());
 
-            betOptionMap.remove(robotBetOption.getId());
-
-            if(insertIndex > 0){
-                VirtuallyGameRecordRespVO virtuallyGameRecord = new VirtuallyGameRecordRespVO();
-                virtuallyGameRecord.setBetId(betrecord.getBetId());
-                virtuallyGameRecord.setHouse("31");
-                virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
-                virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());
-                virtuallyGameRecord.setStime(date);
-                virtuallyGameRecord.setNumber(betOption[1]);
-                virtuallyGameRecord.setMoney(changeLongNumber(betOption[2]));
-                virtuallyGameRecord.setType(betTypeMap.get(betOption[1]));
-                virtuallyGameRecord.setPeriods(vo.getPeriods());
-                virtuallyGameRecord.setPlayType(betOption[0]);
-                respVO.add(virtuallyGameRecord);
+                if (insertIndex > 0) {
+                    VirtuallyGameRecordRespVO virtuallyGameRecord = new VirtuallyGameRecordRespVO();
+                    virtuallyGameRecord.setBetId(betrecord.getBetId());
+                    virtuallyGameRecord.setHouse("31");
+                    virtuallyGameRecord.setNickName(virtuallyGameUser.getUserName());
+                    virtuallyGameRecord.setPic(virtuallyGameUser.getRobotPic());
+                    virtuallyGameRecord.setStime(date);
+                    virtuallyGameRecord.setNumber(betNumber);
+                    virtuallyGameRecord.setMoney(changeLongNumber(betOption[2]));
+                    virtuallyGameRecord.setType(betTypeMap.get(betNumber));
+                    virtuallyGameRecord.setPeriods(vo.getPeriods());
+                    virtuallyGameRecord.setPlayType(betOption[0]);
+                    respVO.add(virtuallyGameRecord);
+                }
             }
         }
 

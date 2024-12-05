@@ -2454,33 +2454,35 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             }
 
             //判断用户余额够不够继续追号
-            if(user.getAmount().compareTo(nextBetNeedMoney) >= 0){
-                ThreeBallsAddMultiBetRecordReqVO reqVO = new ThreeBallsAddMultiBetRecordReqVO();
-                List<ThreeBallsMultiBetRecordReqVO> multiBetRecordList = new ArrayList<>();
-                Long nextPeriods = gameThreeballRecord.getPeriods() + 1;
-                for(GameAutoBetRecord autoBetRecord : autoBetRecordList){
-                    ThreeBallsMultiBetRecordReqVO vo = new ThreeBallsMultiBetRecordReqVO();
-                    vo.setType(autoBetRecord.getAutoBetType());
-                    vo.setNumber(autoBetRecord.getAutoBetNumber());
-                    vo.setMoney(autoBetRecord.getAutoBetMoney() * Float.valueOf((float)Math.pow((double)autoBetRecord.getAutoBetTimes(),(autoBetRecord.getAutoBetCount() - autoBetRecord.getRemainCount() - 1))));
-                    vo.setAutoBetRecordId(autoBetRecord.getId());
-                    multiBetRecordList.add(vo);
+            if(autoBetRecordList.size() > 0){
+                if(user.getAmount().compareTo(nextBetNeedMoney) >= 0){
+                    ThreeBallsAddMultiBetRecordReqVO reqVO = new ThreeBallsAddMultiBetRecordReqVO();
+                    List<ThreeBallsMultiBetRecordReqVO> multiBetRecordList = new ArrayList<>();
+                    Long nextPeriods = gameThreeballRecord.getPeriods() + 1;
+                    for(GameAutoBetRecord autoBetRecord : autoBetRecordList){
+                        ThreeBallsMultiBetRecordReqVO vo = new ThreeBallsMultiBetRecordReqVO();
+                        vo.setType(autoBetRecord.getAutoBetType());
+                        vo.setNumber(autoBetRecord.getAutoBetNumber());
+                        vo.setMoney(autoBetRecord.getAutoBetMoney() * Float.valueOf((float)Math.pow((double)autoBetRecord.getAutoBetTimes(),(autoBetRecord.getAutoBetCount() - autoBetRecord.getRemainCount() - 1))));
+                        vo.setAutoBetRecordId(autoBetRecord.getId());
+                        multiBetRecordList.add(vo);
 
-                    autoBetRecord.setNowPeriods(nextPeriods);
-                    autoBetRecord.setCountMoney(autoBetRecord.getCountMoney() + vo.getMoney());
-                    gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
-                }
-                reqVO.setGameId(gameThreeballKj.getGameId());
-                reqVO.setPeriods(nextPeriods);
-                reqVO.setRecordList(multiBetRecordList);
-                reqVO.setAutoBetFlg("1");
-                gameThreeBallsService.addThreeBallsMultiBetRecord(gameThreeballRecord.getUserId(),reqVO);
-            }else{
-                //钱不够了，所有追号任务停止
-                for(GameAutoBetRecord autoBetRecord : autoBetRecordList){
-                    autoBetRecord.setStatus("1");
-                    autoBetRecord.setRemark("余额不足，追号停止");
-                    gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
+                        autoBetRecord.setNowPeriods(nextPeriods);
+                        autoBetRecord.setCountMoney(autoBetRecord.getCountMoney() + vo.getMoney());
+                        gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
+                    }
+                    reqVO.setGameId(gameThreeballKj.getGameId());
+                    reqVO.setPeriods(nextPeriods);
+                    reqVO.setRecordList(multiBetRecordList);
+                    reqVO.setAutoBetFlg("1");
+                    gameThreeBallsService.addThreeBallsMultiBetRecord(gameThreeballRecord.getUserId(),reqVO);
+                }else{
+                    //钱不够了，所有追号任务停止
+                    for(GameAutoBetRecord autoBetRecord : autoBetRecordList){
+                        autoBetRecord.setStatus("1");
+                        autoBetRecord.setRemark("余额不足，追号停止");
+                        gameAutoBetRecordService.updateGameAutoBetRecord(autoBetRecord);
+                    }
                 }
             }
         }
