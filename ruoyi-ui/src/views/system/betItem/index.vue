@@ -622,7 +622,7 @@ export default {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 15px;
   color: inherit;
   font-weight: bold;
 }
@@ -635,7 +635,7 @@ export default {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   line-height: 1;
   color: #fff;
@@ -660,7 +660,7 @@ export default {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 1.42857143;
   text-align: center;

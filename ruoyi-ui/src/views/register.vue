@@ -178,7 +178,7 @@ export default {
   }
 }
 .register-tip {
-  font-size: 13px;
+  font-size: 12px;
   text-align: center;
   color: #bfbfbf;
 }
@@ -200,7 +200,7 @@ export default {
   text-align: center;
   color: #fff;
   font-family: Arial;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 1px;
 }
 .register-code-img {

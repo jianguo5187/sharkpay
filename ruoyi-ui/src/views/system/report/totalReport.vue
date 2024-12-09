@@ -10,7 +10,7 @@
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="totalReportList">
+    <el-table v-loading="loading" :data="totalReportList" highlight-current-row>
       <el-table-column label="日期" align="center" prop="calendarDate" />
       <el-table-column label="注册人数" align="center" prop="createUserCnt" />
       <el-table-column label="投注人数" align="center" prop="betCnt" />

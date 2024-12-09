@@ -79,7 +79,7 @@ export default {
   li {
     list-style-type: none;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     display: inline-block;
     width: 16.66%;
     box-sizing: border-box;

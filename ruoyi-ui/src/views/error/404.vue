@@ -167,7 +167,7 @@ export default {
     padding: 30px 0;
     overflow: hidden;
     &__oops {
-      font-size: 32px;
+      font-size: 31px;
       font-weight: bold;
       line-height: 40px;
       color: #1482f0;
@@ -178,7 +178,7 @@ export default {
       animation-fill-mode: forwards;
     }
     &__headline {
-      font-size: 20px;
+      font-size: 19px;
       line-height: 24px;
       color: #222;
       font-weight: bold;
@@ -190,7 +190,7 @@ export default {
       animation-fill-mode: forwards;
     }
     &__info {
-      font-size: 13px;
+      font-size: 12px;
       line-height: 21px;
       color: grey;
       opacity: 0;
@@ -210,7 +210,7 @@ export default {
       text-align: center;
       color: #ffffff;
       opacity: 0;
-      font-size: 14px;
+      font-size: 13px;
       line-height: 36px;
       cursor: pointer;
       animation-name: slideUp;

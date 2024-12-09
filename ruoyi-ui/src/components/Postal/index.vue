@@ -42,7 +42,7 @@ export default {
   position: relative;
   display: inline-block;
   padding: 0 6px;
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
   background-color: #FF5722;
   color: #fff;

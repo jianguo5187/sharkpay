@@ -906,7 +906,7 @@ export default {
 }
 .select-line-icon {
   line-height: 32px;
-  font-size: 22px;
+  font-size: 21px;
   padding: 0 4px;
   color: #777;
 }
@@ -935,10 +935,10 @@ export default {
   text-align: center;
   line-height: 26px;
   color: #fff;
-  font-size: 18px;
+  font-size: 17px;
 }
 .node-label{
-  font-size: 14px;
+  font-size: 13px;
 }
 .node-icon{
   color: #bebfc3;

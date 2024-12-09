@@ -67,12 +67,12 @@ export default {
       width: 100%;
     }
     .text-jumbo {
-      font-size: 60px;
+      font-size: 59px;
       font-weight: 700;
       color: #484848;
     }
     .list-unstyled {
-      font-size: 14px;
+      font-size: 13px;
       li {
         padding-bottom: 5px;
       }

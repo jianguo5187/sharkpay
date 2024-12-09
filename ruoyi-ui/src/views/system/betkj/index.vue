@@ -39,7 +39,7 @@
       </el-form-item>
     </el-form>
 
-    <el-row :gutter="10" style="margin-left:30px;font-size: 25px">
+    <el-row :gutter="10" style="margin-left:30px;font-size: 24px">
       <el-col :span="4">
         <i class="el-icon-folder"></i> 当期：<span style="color: rgb(255, 165, 0)">{{nowPeriods}}</span>
       </el-col>

@@ -163,12 +163,12 @@ export default {
 
   .search-icon {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 17px;
     vertical-align: middle;
   }
 
   .header-search-select {
-    font-size: 18px;
+    font-size: 17px;
     transition: width 0.2s;
     width: 0;
     overflow: hidden;

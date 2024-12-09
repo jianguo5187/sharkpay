@@ -444,7 +444,7 @@ export default {
     text-align: center;
     z-index: 1;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 11px;
     &:hover{
       background: rgba(210, 23, 23, 0.5)
     }
@@ -458,7 +458,7 @@ export default {
     margin-left: 15px;
   }
   & i {
-    font-size: 20px;
+    font-size: 19px;
     vertical-align: middle;
     position: relative;
     top: -1px;
@@ -467,7 +467,7 @@ export default {
 
 .custom-tree-node{
   width: 100%;
-  font-size: 14px;
+  font-size: 13px;
   .node-operation{
     float: right;
   }
@@ -518,25 +518,25 @@ $lighterBlue: #409EFF;
   padding-bottom: 20px;
 }
 .components-title{
-  font-size: 14px;
+  font-size: 13px;
   color: #222;
   margin: 6px 2px;
   .svg-icon{
     color: #666;
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
 .components-body {
   padding: 8px 10px;
   background: $selectedColor;
-  font-size: 12px;
+  font-size: 11px;
   cursor: move;
   border: 1px dashed $selectedColor;
   border-radius: 3px;
   .svg-icon{
     color: #777;
-    font-size: 15px;
+    font-size: 14px;
   }
   &:hover {
     border: 1px dashed #787be8;

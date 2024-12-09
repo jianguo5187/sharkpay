@@ -378,7 +378,7 @@ export default {
   margin: 10px auto;
   background: #fff;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 11px;
   overflow: hidden;
 }
 .popup-title {
@@ -400,7 +400,7 @@ export default {
   top: -28px;
   left: 50%;
   width: 140px;
-  font-size: 14px;
+  font-size: 13px;
   margin-left: -70px;
   text-align: center;
   line-height: 30px;
@@ -422,7 +422,7 @@ export default {
   border: 1px solid #e8e8e8;
 }
 .popup-result-scroll {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 24px;
   height: 10em;
   overflow-y: auto;

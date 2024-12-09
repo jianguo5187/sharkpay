@@ -81,7 +81,7 @@ export default {
   .card-panel {
     height: 108px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 11px;
     position: relative;
     overflow: hidden;
     color: #666;
@@ -137,7 +137,7 @@ export default {
 
     .card-panel-icon {
       float: left;
-      font-size: 48px;
+      font-size: 47px;
     }
 
     .card-panel-description {
@@ -149,12 +149,12 @@ export default {
       .card-panel-text {
         line-height: 18px;
         color: rgba(0, 0, 0, 0.45);
-        font-size: 16px;
+        font-size: 15px;
         margin-bottom: 12px;
       }
 
       .card-panel-num {
-        font-size: 20px;
+        font-size: 19px;
       }
     }
   }

@@ -89,7 +89,7 @@ export default {
   text-transform: uppercase;
   position: relative;
   letter-spacing: 2px;
-  font-size: 18px;
+  font-size: 17px;
   margin: 0 60px;
   padding: 22px 0 0 0;
   height: 85px;
@@ -102,7 +102,7 @@ export default {
   padding: 10px 5px;
   font-style: italic;
   margin: 0 30px;
-  font-size: 12px;
+  font-size: 11px;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -117,7 +117,7 @@ export default {
   font-style: normal;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: 1px;
   padding-top: 24px;
   margin: 7px auto 0;

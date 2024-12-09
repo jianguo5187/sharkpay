@@ -577,7 +577,7 @@ export default {
   align-items: center;
 }
 .infoIcon i {
-  font-size: 24px;
+  font-size: 23px;
   color: #676767;
   margin-left: 15px;
   cursor: pointer;
@@ -647,7 +647,7 @@ export default {
   background-color: #7e7e7e;
 }
 .stateText {
-  font-size: 14px;
+  font-size: 13px;
   margin-left: 5px;
 }
 /* 列表和信息 */
@@ -780,7 +780,7 @@ export default {
 /* 简略信息 */
 .userInfo {
   width: 100px;
-  font-size: 14px;
+  font-size: 13px;
   color: #ccc;
   white-space: nowrap;
   overflow: hidden;
@@ -801,7 +801,7 @@ export default {
 .divright{
   position: absolute;
   color:white;
-  font-size: 17px;
+  font-size: 16px;
   background-color: red;
   width:23px;
   height:23px;
@@ -814,5 +814,5 @@ export default {
 }
 .chatUserImg { width: 20%;position:relative}
 .chatNameAndContent {margin-left: 10px;margin-right: 10px;width: 55%;}
-.lastChatTime {margin-right: 10px; font-size: 14px; color: #ccc;width: 25%;}
+.lastChatTime {margin-right: 10px; font-size: 13px; color: #ccc;width: 25%;}
 </style>

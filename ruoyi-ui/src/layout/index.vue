@@ -142,14 +142,14 @@ export default {
   background-color: #b0f0f8; /* 修改按钮的背景色 */
   border-radius: 50%; /* 将按钮变成圆形 */
   color: #0e0f0f; /* 修改按钮上显示的字体颜色 */
-  font-size: 24px; /* 调整按钮上显示的字体大小 */
+  font-size: 23px; /* 调整按钮上显示的字体大小 */
   cursor: pointer; /* 当鼠标移动到按钮上时，光标会变成手型指示点击操作 */
   z-index: 101;
 }
 
 .floating-num{
   color:white;
-  font-size: 17px;
+  font-size: 16px;
   background-color: red;
   width:23px;
   height:23px;

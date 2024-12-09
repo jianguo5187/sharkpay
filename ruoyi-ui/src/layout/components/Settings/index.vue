@@ -195,7 +195,7 @@ export default {
     .setting-drawer-title {
       margin-bottom: 12px;
       color: rgba(0, 0, 0, .85);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 22px;
       font-weight: bold;
     }
@@ -228,7 +228,7 @@ export default {
           padding-left: 24px;
           color: #1890ff;
           font-weight: 700;
-          font-size: 14px;
+          font-size: 13px;
         }
       }
     }
@@ -236,20 +236,20 @@ export default {
 
   .drawer-container {
     padding: 20px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.5;
     word-wrap: break-word;
 
     .drawer-title {
       margin-bottom: 12px;
       color: rgba(0, 0, 0, .85);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 22px;
     }
 
     .drawer-item {
       color: rgba(0, 0, 0, .65);
-      font-size: 14px;
+      font-size: 13px;
       padding: 12px 0;
     }
 
