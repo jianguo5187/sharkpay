@@ -68,8 +68,8 @@
           -{{scope.row.cashMoney}}
         </template>
       </el-table-column>
-<!--      <el-table-column label="余额" align="center" prop="userBalance" sortable="custom"/>-->
-      <el-table-column label="申请时间" align="center" prop="cashTime" sortable="custom"/>
+      <el-table-column label="余额" align="center" prop="userBalance" sortable="custom"/>
+      <el-table-column label="申请时间" align="center" prop="cashTime" sortable="custom" width="135px"/>
 <!--      <el-table-column label="方式" align="center" prop="userAccount" />-->
 <!--      <el-table-column label="备注" align="center" prop="remark" />-->
       <el-table-column label="备注" align="center" prop="updateBy">
@@ -91,7 +91,7 @@
           >投注记录</el-button>
         </template>
       </el-table-column>
-      <el-table-column label="操作时间" align="center" prop="updateTime" width="180"/>
+      <el-table-column label="操作时间" align="center" prop="updateTime" width="135"/>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <span v-if="scope.row.type == '5'">
@@ -427,7 +427,7 @@ export default {
 .success-row{
   background: #d5eec7 !important;
 }
-#postalList tr:hover >td{
-  background: #96f59d !important;
+#postalList .el-table__cell{
+  padding: 2px 0px;
 }
 </style>
