@@ -178,7 +178,7 @@ export default {
         // 遮罩层
         loading: true,
         // 弹出层标题
-        title: "",
+        title: "下级列表",
         // 是否显示弹出层
         open: false,
         // 总条数

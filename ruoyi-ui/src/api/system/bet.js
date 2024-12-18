@@ -16,3 +16,12 @@ export function adminCancelBetRecord(betRecordId) {
     method: 'delete'
   })
 }
+
+// 删除游戏投注项
+export function adminCancelNoSettleBetRecord(data) {
+  return request({
+    url: '/system/betRecord/adminCancelNoSettleBetRecord',
+    method: 'post',
+    data: data
+  })
+}

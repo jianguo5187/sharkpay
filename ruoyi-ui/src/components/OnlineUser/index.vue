@@ -1,8 +1,11 @@
 <template>
   <div style="background-color: #DDEBF7;margin: 6px 10px;height: 80%">
-    <router-link to="/onlineUser/index">
+<!--    <router-link to="/onlineUser/index">-->
+<!--      在线人数<span class="layui-badge" id="online_user_count">{{online_user_count}}</span>-->
+<!--    </router-link>-->
+    <div @click="gotoOnlineUser">
       在线人数<span class="layui-badge" id="online_user_count">{{online_user_count}}</span>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -27,6 +30,9 @@ export default {
       onlineUserCount().then(response => {
         this.online_user_count = response.onlineUserCount;
       });
+    },
+    gotoOnlineUser(){
+      this.$router.push({ path: "/system/online" });
     }
   }
 }

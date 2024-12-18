@@ -214,6 +214,10 @@ public interface ISysUserService
      */
     public int deleteUserById(Long userId);
 
+    public void enableUserByIds(Long[] userIds);
+
+    public void disableUserByIds(Long[] userIds);
+
     /**
      * 批量删除用户信息
      * 

@@ -1,6 +1,7 @@
 package com.ruoyi.system.service.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -151,6 +152,10 @@ public class BetRecordServiceImpl implements IBetRecordService
             throw new ServiceException("投注已开奖");
         }
 
+        cancelBetRecord(userId,betRecord);
+    }
+
+    public void cancelBetRecord(Long userId,BetRecord betRecord){
         SysGame gameInfo = sysGameService.selectSysGameByGameId(betRecord.getGameId());
 
         Float countMoeny = 0f;
@@ -228,7 +233,7 @@ public class BetRecordServiceImpl implements IBetRecordService
         SysAdminRecord sysAdminRecord = new SysAdminRecord();
         sysAdminRecord.setType(8);
         sysAdminRecord.setIsAgree("0");
-        sysAdminRecord.setOriginId(betId);
+        sysAdminRecord.setOriginId(betRecord.getBetId());
         sysAdminRecord.setRemark("用户：" + user.getNickName() + "(" + betRecord.getUserId() + ")" + "第" + betRecord.getPeriods() + "期");
         sysAdminRecord.setAdminUserId(userId);
 
@@ -241,5 +246,19 @@ public class BetRecordServiceImpl implements IBetRecordService
         String today = sd.format(new Date());
         Float todayBetAmountTotal = betRecordMapper.selectBetToalAmount(userId,today);
         return todayBetAmountTotal == null?0f:todayBetAmountTotal;
+    }
+
+    @Override
+    public void adminCancelNoSettleBetRecord(Long userId, BetRecord searchBetRecord){
+
+        List<BetRecord> betRecordList = selectBetRecordList(searchBetRecord);
+        List<Long> canceledUserIdList = new ArrayList<>();
+        for(BetRecord betRecord : betRecordList){
+            if(!canceledUserIdList.contains(betRecord.getUserId())){
+                canceledUserIdList.add(betRecord.getUserId());
+                cancelBetRecord(userId, betRecord);
+            }
+        }
+
     }
 }

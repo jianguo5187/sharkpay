@@ -129,4 +129,15 @@ public class BetRecordController extends BaseController
         betRecordService.adminCancelBetRecord(sessionUser.getUserId(),betId);
         return ajax;
     }
+
+    @PostMapping("/adminCancelNoSettleBetRecord")
+    public AjaxResult adminCancelNoSettleBetRecord(@RequestBody BetRecord searchBetRecord)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        SysUser sessionUser = SecurityUtils.getLoginUser().getUser();
+        betRecordService.adminCancelNoSettleBetRecord(sessionUser.getUserId(),searchBetRecord);
+//        return toAjax(betRecordService.insertBetRecord(betRecord));
+        return ajax;
+    }
+
 }

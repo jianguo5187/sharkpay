@@ -1,8 +1,11 @@
 <template>
   <div style="background-color: #DDEBF7;margin: 6px 10px;height: 80%">
-    <router-link to="/topRecharge/index">
+<!--    <router-link to="/topRecharge/index">-->
+<!--      上分<span class="layui-badge" id="up_count">{{upCount}}</span>-->
+<!--    </router-link>-->
+    <div @click="gotoRecharge">
       上分<span class="layui-badge" id="up_count">{{upCount}}</span>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -27,13 +30,11 @@ export default {
   // mounted() {
   //   setInterval(this.getUpCount, 15000); //每15s刷新列表
   // },
-  // methods: {
-  //   getUpCount() {
-  //     noApproveRechargeCnt().then(response => {
-  //       this.up_count = response.upCount;
-  //     });
-  //   }
-  // }
+  methods: {
+    gotoRecharge(){
+      this.$router.push({ path: "/game/payment/recharge" });
+    }
+  }
 }
 </script>
 <style scoped lang="scss">

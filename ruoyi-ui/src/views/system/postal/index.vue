@@ -422,10 +422,10 @@ export default {
 
 <style>
 .warning-row{
-  background: #ecc9c9 !important;
+  background: #f4d8d4 !important;
 }
 .success-row{
-  background: #d5eec7 !important;
+  background: #e0f5e9 !important;
 }
 #postalList .el-table__cell{
   padding: 2px 0px;

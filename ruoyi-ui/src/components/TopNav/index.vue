@@ -93,6 +93,7 @@ export default {
     activeMenu() {
       const path = this.$route.path;
       let activePath = path;
+      console.log("activeMenu");
       if (path !== undefined && path.lastIndexOf("/") > 0 && hideList.indexOf(path) === -1) {
         const tmpPath = path.substring(1, path.length);
         activePath = "/" + tmpPath.substring(0, tmpPath.indexOf("/"));
@@ -143,6 +144,15 @@ export default {
         // 显示左侧联动菜单
         this.activeRoutes(key);
         this.$store.dispatch('app/toggleSideBarHide', false);
+        if(key == "/game"){
+          this.$router.push({ path: "/game/game/betItem" });
+        }else if(key == "/topPage"){
+          this.$router.push({ path: "/topPage/index" });
+        }else if(key == "/system"){
+          this.$router.push({ path: "/system/adminLog" });
+        }else if(key == "/childUser"){
+          this.$router.push({ path: "/childUser/roleSetting/childUser" });
+        }
       }
     },
     // 当前激活的路由

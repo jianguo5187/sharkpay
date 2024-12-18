@@ -1,8 +1,13 @@
 <template>
   <div style="background-color: #DDEBF7;margin: 6px 10px;height: 80%">
-    <router-link to="/topPostal/index">
+<!--    <router-link to="/topPostal/index">-->
+<!--      下分<span class="layui-badge" id="up_count">{{downCount}}</span>-->
+<!--    </router-link>-->
+    <div @click="gotoPostal">
       下分<span class="layui-badge" id="up_count">{{downCount}}</span>
-    </router-link>
+    </div>
+<!--    <router-link to="/topPostal/index">-->
+<!--    </router-link>-->
   </div>
 </template>
 
@@ -28,13 +33,11 @@ export default {
   // mounted() {
   //   setInterval(this.getUpCount, 15000); //每15s刷新列表
   // },
-  // methods: {
-  //   getUpCount() {
-  //     noApprovePostalCnt().then(response => {
-  //       this.down_count = response.downCount;
-  //     });
-  //   }
-  // }
+  methods: {
+    gotoPostal(){
+      this.$router.push({ path: "/game/payment/postal" });
+    }
+  }
 }
 </script>
 <style scoped lang="scss">

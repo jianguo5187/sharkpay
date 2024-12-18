@@ -36,6 +36,22 @@ export function updateUser(data) {
   })
 }
 
+// 启用用户
+export function enableUser(userId) {
+  return request({
+    url: '/system/user/enable/' + userId,
+    method: 'put'
+  })
+}
+
+// 禁用用户
+export function disableUser(userId) {
+  return request({
+    url: '/system/user/disable/' + userId,
+    method: 'put'
+  })
+}
+
 // 删除用户
 export function delUser(userId) {
   return request({

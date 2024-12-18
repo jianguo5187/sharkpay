@@ -69,4 +69,6 @@ public interface IBetRecordService
     public void adminCancelBetRecord(Long userId, Long betId);
 
     public Float selectUserTodayBetAmountTotal(Long userId);
+
+    public void adminCancelNoSettleBetRecord(Long userId, BetRecord searchBetRecord);
 }

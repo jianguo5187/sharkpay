@@ -238,6 +238,12 @@ public class SysUser extends BaseEntity
         this.userId = userId;
     }
 
+    public SysUser(Long userId, String status)
+    {
+        this.userId = userId;
+        this.status = status;
+    }
+
     public Long getUserId()
     {
         return userId;

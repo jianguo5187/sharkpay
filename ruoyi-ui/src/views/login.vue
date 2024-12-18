@@ -95,7 +95,7 @@ export default {
       captchaEnabled: true,
       // 注册开关
       register: false,
-      redirect: undefined
+      redirect: ""
     };
   },
   watch: {
@@ -112,6 +112,7 @@ export default {
   },
   methods: {
     getCode() {
+      console.log("getCode");
       getCodeImg().then(res => {
         this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;
         if (this.captchaEnabled) {
@@ -143,8 +144,10 @@ export default {
             Cookies.remove("password");
             Cookies.remove('rememberMe');
           }
+          console.log(this.redirect)
           this.$store.dispatch("Login", this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || "/" }).catch(()=>{});
+            // this.$router.push({ path: this.redirect || "/" }).catch(()=>{});
+            this.$router.push({ path: "/game/game/betItem" }).catch(()=>{});
           }).catch(() => {
             this.loading = false;
             if (this.captchaEnabled) {

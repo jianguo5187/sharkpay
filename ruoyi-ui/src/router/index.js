@@ -129,7 +129,20 @@ export const constantRoutes = [
         meta: { title: '在线人数列表', icon: 'user' }
       }
     ]
-  }
+  },
+  {
+    path: '/topPageDefault',
+    component: Layout,
+    redirect: 'index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/index'),
+        name: 'Index',
+        meta: { title: '首页', icon: 'dashboard', affix: true }
+      }
+    ]
+  },
 ]
 
 // 动态路由，基于用户权限动态去加载
