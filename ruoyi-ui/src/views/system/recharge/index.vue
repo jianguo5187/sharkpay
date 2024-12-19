@@ -80,7 +80,7 @@
 <!--      <el-table-column label="申请时间" align="center" prop="updateTime" width="135"/>-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.type == '2' || scope.row.type == '18' ">
+          <span v-if="scope.row.type != '1' && scope.row.type != '17' ">
 <!--            申请成功(操作者：{{scope.row.updateBy}})-->
               <el-button
                 title="修改金额"

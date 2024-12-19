@@ -60,7 +60,7 @@
       <el-table-column label="用户ID" align="center" key="userId" prop="userId"/>
       <el-table-column label="昵称" align="center" prop="nickName">
         <template slot-scope="scope">
-          <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
+          <span><span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span>{{ scope.row.nickName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="金额" align="center" prop="cashMoney" >
@@ -94,7 +94,7 @@
       <el-table-column label="申请时间" align="center" prop="cashTime" width="135px"/>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.type == '5'">
+          <span v-if="scope.row.type != '4'">
 <!--            提现成功(操作者：{{scope.row.updateBy}})-->
               <el-button
                 title="修改金额"

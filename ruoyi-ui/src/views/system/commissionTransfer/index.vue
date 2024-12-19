@@ -87,7 +87,7 @@
       <el-table-column label="转出用户ID" align="center" prop="transferUserId" />
       <el-table-column label="昵称" align="center" prop="nickName">
         <template slot-scope="scope">
-          <span>{{ scope.row.nickName }}<span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span></span>
+          <span><span v-if="scope.row.remarkName != null" style="color: red">({{ scope.row.remarkName }})</span>{{ scope.row.nickName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="转出佣金" align="center" prop="transferAmount" />

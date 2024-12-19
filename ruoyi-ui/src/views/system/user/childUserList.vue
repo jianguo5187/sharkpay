@@ -776,7 +776,7 @@ export default {
         idcardNo: undefined,
         idcardFrontImg: undefined,
         idcardBackImg: undefined,
-        isTest: "0",
+        isTest: "1",
         avatar: undefined,
         status: "0",
         userType: undefined,
