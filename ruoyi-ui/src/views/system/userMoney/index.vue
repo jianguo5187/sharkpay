@@ -20,7 +20,7 @@
         />
       </el-form-item>
 
-      <el-form-item label="筛选时间">
+      <el-form-item label="记录时间">
         <el-date-picker
           v-model="dateRange"
           style="width: 240px"

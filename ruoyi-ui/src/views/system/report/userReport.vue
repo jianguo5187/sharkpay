@@ -88,14 +88,14 @@
           <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
         </template>
       </el-table-column>
-      <el-table-column label="上级用户ID" align="center" prop="parentUserId"/>
+      <el-table-column label="上级ID" align="center" prop="parentUserId"/>
       <el-table-column label="投注" align="center" prop="betMoneyTotal" sortable="custom"/>
       <el-table-column label="中奖" align="center" prop="betWinMoneyTotal" sortable="custom"/>
       <el-table-column label="用户盈亏" align="center" prop="winMoneyTotal" sortable="custom"/>
-      <el-table-column label="上分" align="center" prop="upMoneyTotal" sortable="custom"/>
-      <el-table-column label="签到" align="center" prop="signMoneyTotal" sortable="custom"/>
-      <el-table-column label="下分" align="center" prop="downMoneyTotal" sortable="custom"/>
-      <el-table-column label="佣金" align="center" prop="commissionMoneyTotal" sortable="custom"/>
+      <el-table-column label="充值金额" align="center" prop="upMoneyTotal" sortable="custom"/>
+      <el-table-column label="签到金额" align="center" prop="signMoneyTotal"/>
+      <el-table-column label="提现金额" align="center" prop="downMoneyTotal" sortable="custom"/>
+      <el-table-column label="佣金金额" align="center" prop="commissionMoneyTotal" sortable="custom"/>
       <el-table-column label="已反水" align="center" prop="cashBackMoneyTotal" sortable="custom"/>
       <el-table-column label="待反水" align="center" prop="noCashBackMoneyTotal"sortable="custom" />
     </el-table>

@@ -46,7 +46,7 @@
           </el-table-column>
           <el-table-column label="推广人数" align="center" key="childCnt" prop="childCnt" sortable="custom"/>
           <el-table-column label="总佣金" align="center" key="totalCommissionMoney" prop="totalCommissionMoney" sortable="custom"/>
-          <el-table-column label="剩余佣金" align="center" key="remainCommissionMoney" prop="remainCommissionMoney" sortable="custom"/>
+          <el-table-column label="佣金余额" align="center" key="remainCommissionMoney" prop="remainCommissionMoney"/>
 <!--          <el-table-column label="上级用户" align="center" prop="parentUserId">-->
 <!--            <template slot-scope="scope">-->
 <!--              <span v-if="scope.row.parentUserId != null">{{ scope.row.parentNickName }}(<span style="color: blue">{{ scope.row.parentUserId }}</span>)</span>-->

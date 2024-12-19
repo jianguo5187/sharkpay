@@ -111,7 +111,7 @@
               <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
             </template>
           </el-table-column>
-          <el-table-column label="上级用户" align="center" key="parentNickName" prop="parentNickName">
+          <el-table-column label="上级用户" align="center" key="parentUserId" prop="parentNickName" sortable="custom">
             <template slot-scope="scope">
               <el-button
                 size="mini"
@@ -127,10 +127,11 @@
           </el-table-column>
           <el-table-column label="余额" align="center" key="amount" prop="amount" sortable="custom"/>
           <el-table-column label="今日赢亏" align="center" key="todayWinMoney" prop="todayWinMoney" sortable="custom"/>
+          <el-table-column label="注册时间" align="center" key="createTime" prop="createTime" sortable="custom"/>
 <!--          <el-table-column label="流水金额" align="center" key="totalBetMoney" prop="totalBetMoney"/>-->
-          <el-table-column label="最后登录时间" align="center" key="loginDate" prop="loginDate"/>
+          <el-table-column label="最后登录时间" align="center" key="loginDate" prop="loginDate" sortable="custom"/>
           <el-table-column label="最后登录IP" align="center" key="loginIp" prop="loginIp"/>
-          <el-table-column label="状态" align="center" prop="status">
+          <el-table-column label="状态" align="center" prop="status" sortable="custom">
             <template slot-scope="scope">
               <dict-tag :options="dict.type.sys_user_status" :value="scope.row.status"/>
             </template>

@@ -78,11 +78,11 @@
           <image-preview :src="scope.row.avatar" :width="50" :height="50" v-if="scope.row.avatar != null && scope.row.avatar != ''"/>
         </template>
       </el-table-column>
-      <el-table-column label="下注时间" align="center" prop="recordTime" width="150"/>
       <el-table-column label="游戏名" align="center" prop="gameName" />
       <el-table-column label="期号" align="center" prop="periods" width="120"/>
+      <el-table-column label="下注时间" align="center" prop="recordTime" width="150"/>
       <el-table-column label="玩法" align="center" prop="playType" width="120"/>
-      <el-table-column label="投注号码" align="center" prop="playDetail" width="80"/>
+      <el-table-column label="内容" align="center" prop="playDetail" width="80"/>
       <el-table-column label="投注金额" align="center" prop="money" />
       <el-table-column label="中奖金额" align="center" prop="accountResult" />
       <el-table-column label="开奖结果" align="center" prop="gameResult" />

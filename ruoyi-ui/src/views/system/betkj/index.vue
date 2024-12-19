@@ -61,8 +61,8 @@
         </template>
       </el-table-column>
       <el-table-column label="开奖号码" align="center" prop="openResult" />
-      <el-table-column label="下注金额" align="center" prop="countMoney" />
-      <el-table-column label="中奖金额" align="center" prop="winMoney" />
+<!--      <el-table-column label="下注金额" align="center" prop="countMoney" />-->
+<!--      <el-table-column label="中奖金额" align="center" prop="winMoney" />-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <span v-if="scope.row.systemOpenType == 'N' || scope.row.status == '1'">不能操作</span>

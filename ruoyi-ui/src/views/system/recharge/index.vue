@@ -47,8 +47,8 @@
     </el-row>
 
     <el-table id="rechargeList" v-loading="loading" :data="rechargeList" show-summary :summary-method="getSummaries" @sort-change='sortTableFun' :row-class-name="tableRowClassName">
-      <el-table-column label="订单编号" align="center" prop="id" sortable="custom" width="100px"/>
-      <el-table-column label="用户ID" align="center" key="userId" prop="userId" sortable="custom"/>
+      <el-table-column label="序号" align="center" prop="id" width="100px"/>
+      <el-table-column label="用户ID" align="center" key="userId" prop="userId" />
       <el-table-column label="昵称" align="center" prop="nickName"/>
       <el-table-column label="备注名" align="center" prop="remarkName" width="100px">
         <template slot-scope="scope">
@@ -64,9 +64,9 @@
           </el-button>
         </template>
       </el-table-column>
-      <el-table-column label="充值金额" align="center" prop="cashMoney" sortable="custom"/>
-      <el-table-column label="余额" align="center" prop="userBalance" sortable="custom"/>
-      <el-table-column label="申请时间" align="center" prop="cashTime" sortable="custom" width="135px"/>
+      <el-table-column label="金额" align="center" prop="cashMoney" sortable="custom"/>
+<!--      <el-table-column label="余额" align="center" prop="userBalance" sortable="custom"/>-->
+      <el-table-column label="申请时间" align="center" prop="cashTime" width="135px"/>
       <el-table-column label="方式" align="center" prop="userAccount" />
       <el-table-column label="备注" align="center" prop="updateBy">
         <template slot-scope="scope">
@@ -77,7 +77,7 @@
         </template>
       </el-table-column>
 <!--      <el-table-column label="备注" align="center" prop="remark" />-->
-      <el-table-column label="操作时间" align="center" prop="updateTime" width="135"/>
+<!--      <el-table-column label="申请时间" align="center" prop="updateTime" width="135"/>-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <span v-if="scope.row.type == '2' || scope.row.type == '18' ">
