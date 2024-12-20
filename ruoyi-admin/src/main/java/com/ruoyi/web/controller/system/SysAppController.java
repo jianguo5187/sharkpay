@@ -398,6 +398,9 @@ public class SysAppController extends BaseController {
 
 
         ajax.put("wxAutoCheckApiCode",configService.selectConfigByKey("sys.wxAutoCheck.apiCode") );
+        ajax.put("logoImg",configService.selectConfigByKey("sys.logo.img") );
+        ajax.put("wechatImg",configService.selectConfigByKey("sys.wechat.img") );
+        ajax.put("qqChatImg",configService.selectConfigByKey("sys.qqchat.img") );
         return ajax;
     }
 

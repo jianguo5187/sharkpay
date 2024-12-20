@@ -698,6 +698,10 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("拒绝访问服务商", "sys.refuse.isp",vo.getRefuseIsp());
 
         updateAndInsertConfigInfo("微信拦截状态接口Code", "sys.wxAutoCheck.apiCode",vo.getWxAutoCheckApiCode());
+
+        updateAndInsertConfigInfo("LOGO图片地址", "sys.logo.img",vo.getLogoImg());
+        updateAndInsertConfigInfo("微信客服图片地址", "sys.wechat.img",vo.getWechatImg());
+        updateAndInsertConfigInfo("QQ客服图片地址", "sys.qqchat.img",vo.getQqChatImg());
         // 刷新缓存
         configService.resetConfigCache();
     }

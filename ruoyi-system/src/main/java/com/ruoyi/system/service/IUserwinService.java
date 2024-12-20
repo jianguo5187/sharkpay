@@ -68,7 +68,19 @@ public interface IUserwinService
 
     public List<CashBackDetailListRespVO> selectCashBackDetailList(Userwin userwin);
 
+    public List<NowCashBackDetailListRespVO> selectNowCashBackDetailList(Userwin userwin);
+
+    public List<NoCashBackDetailListRespVO> selectNoCashBackDetailList(Userwin userwin);
+
+    public List<CashBackedDetailListRespVO> selectCashBackedDetailList(Userwin userwin);
+
+    public Float selectCashBackedTotalMoney(Userwin userwin);
+
+    public void cashBackAllRecord(Long adminUserId);
+
     public void cashBackYestoday(Long userId);
+
+    public void cashBackByUser(Long adminUserId,Userwin userwin);
 
     public void cashBackUser(Long userId,Userwin userwin);
 

@@ -137,12 +137,66 @@ public class UserwinController extends BaseController
         return getDataTable(list);
     }
 
+    @GetMapping("/nowCashBackDetailList")
+    public TableDataInfo nowCashBackDetailList(Userwin userwin)
+    {
+        startPage();
+        List<NowCashBackDetailListRespVO> list = userwinService.selectNowCashBackDetailList(userwin);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/noCashBackDetailList")
+    public TableDataInfo noCashBackDetailList(Userwin userwin)
+    {
+        startPage();
+        List<NoCashBackDetailListRespVO> list = userwinService.selectNoCashBackDetailList(userwin);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/cashBackedDetailList")
+    public TableDataInfo cashBackedDetailList(Userwin userwin)
+    {
+        startPage();
+        List<CashBackedDetailListRespVO> list = userwinService.selectCashBackedDetailList(userwin);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/selectCashBackedTotalMoney")
+    public AjaxResult selectCashBackedTotalMoney(Userwin userwin)
+    {
+        Float cashBackedTotalMoney = userwinService.selectCashBackedTotalMoney(userwin);
+        AjaxResult ajax = AjaxResult.success("处理成功");
+        ajax.put("cashBackedTotalMoney",cashBackedTotalMoney==null?0f:cashBackedTotalMoney);
+        return ajax;
+    }
+
+    // 全部反水
+    @PostMapping("/cashBackAllRecord")
+    public AjaxResult cashBackAllRecord(Userwin userwin)
+    {
+        LoginUser loginUser = getLoginUser();
+        SysUser user = loginUser.getUser();
+        userwinService.cashBackAllRecord(user.getUserId());
+        AjaxResult ajax = AjaxResult.success("处理成功");
+        return ajax;
+    }
+
     @PostMapping("/cashBackYestoday")
     public AjaxResult cashBackYestoday(Userwin userwin)
     {
         LoginUser loginUser = getLoginUser();
         SysUser user = loginUser.getUser();
         userwinService.cashBackYestoday(user.getUserId());
+        AjaxResult ajax = AjaxResult.success("处理成功");
+        return ajax;
+    }
+
+    @PostMapping("/cashBackByUser")
+    public AjaxResult cashBackByUser(@RequestBody Userwin userwin)
+    {
+        LoginUser loginUser = getLoginUser();
+        SysUser user = loginUser.getUser();
+        userwinService.cashBackByUser(user.getUserId(),userwin);
         AjaxResult ajax = AjaxResult.success("处理成功");
         return ajax;
     }

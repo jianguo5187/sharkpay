@@ -31,15 +31,15 @@
       </el-row>
       <el-row>
         <el-col :span="12">
-          <el-form-item label="app首页公告内容" prop="appHomeAnnouncement">
-            <el-input v-model="siteSetting.form.appHomeAnnouncement" type="textarea" :rows="6" placeholder="请输入app首页公告内容"></el-input>
+          <el-form-item label="首页弹窗公告" prop="appHomeAnnouncement">
+            <el-input v-model="siteSetting.form.appHomeAnnouncement" type="textarea" :rows="6" placeholder="请输入首页弹窗公告"></el-input>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="12">
-          <el-form-item label="轮播信息" prop="appHomeNotice">
-            <el-input v-model="siteSetting.form.appHomeNotice" placeholder="请输入轮播公告"/>
+          <el-form-item label="首页轮播信息" prop="appHomeNotice">
+            <el-input v-model="siteSetting.form.appHomeNotice" placeholder="请输入首页轮播公告"/>
           </el-form-item>
         </el-col>
       </el-row>
@@ -85,21 +85,21 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="客服端聊天地址" prop="kefuImUrl">
             <el-input v-model="siteSetting.form.kefuImUrl" placeholder="请输入客服端聊天地址"/> 例如：http://43.132.168.72:81
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="玩家端聊天地址" prop="appImUrl">
             <el-input v-model="siteSetting.form.appImUrl" placeholder="请输入玩家端聊天地址"/> 例如：http://43.132.168.72:82
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="二维码服务器IP地址" prop="qrServerUrl">
             <el-input v-model="siteSetting.form.qrServerUrl" placeholder="请输入二维码服务器IP地址"/> 例如：http://43.159.192.159
@@ -110,6 +110,27 @@
         <el-col :span="12">
           <el-form-item label="自开彩种赢亏比率" prop="systemGameWinRate">
             <el-input-number v-model="siteSetting.form.systemGameWinRate" :min="1" :max="100" placeholder="请输入自开彩种赢亏比率"/> 1~100
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="logo图片" prop="logoImg">
+            <imageUpload v-model="siteSetting.form.logoImg" :imgUrl="siteSetting.form.logoImg" :limit="1"></imageUpload>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="微信客服图片" prop="wechatImg">
+            <imageUpload v-model="siteSetting.form.wechatImg" :imgUrl="siteSetting.form.wechatImg" :limit="1"></imageUpload>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="QQ客服图片" prop="qqChatImg">
+            <imageUpload v-model="siteSetting.form.qqChatImg" :imgUrl="siteSetting.form.qqChatImg" :limit="1"></imageUpload>
           </el-form-item>
         </el-col>
       </el-row>
@@ -192,6 +213,9 @@ export default {
           refuseIsp: undefined,
           wxAutoCheckApiCode: undefined,
           systemGameWinRate: 10,
+          logoImg: undefined,
+          wechatImg: undefined,
+          qqChatImg: undefined,
         },
         // 表单校验
         rules: {
@@ -255,6 +279,15 @@ export default {
           // ],
           wxAutoCheckApiCode: [
             { required: true, message: "微信拦截状态接口Code不能为空", trigger: "blur" }
+          ],
+          logoImg: [
+            { required: true, message: "logo图片不能为空", trigger: "blur" }
+          ],
+          wechatImg: [
+            { required: true, message: "微信客服图片不能为空", trigger: "blur" }
+          ],
+          qqChatImg: [
+            { required: true, message: "QQ客服图片不能为空", trigger: "blur" }
           ],
         }
       },
@@ -331,6 +364,15 @@ export default {
         }
         if(response.wxAutoCheckApiCode != undefined){
           this.siteSetting.form.wxAutoCheckApiCode = response.wxAutoCheckApiCode;
+        }
+        if(response.logoImg != undefined){
+          this.siteSetting.form.logoImg = response.logoImg;
+        }
+        if(response.wechatImg != undefined){
+          this.siteSetting.form.wechatImg = response.wechatImg;
+        }
+        if(response.qqChatImg != undefined){
+          this.siteSetting.form.qqChatImg = response.qqChatImg;
         }
         console.log("getSiteSetting");
       });

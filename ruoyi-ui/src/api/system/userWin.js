@@ -23,6 +23,54 @@ export function listCashBackDetail(query) {
   })
 }
 
+export function listNowCashBackDetail(query) {
+  return request({
+    url: '/system/userwin/nowCashBackDetailList',
+    method: 'get',
+    params: query
+  })
+}
+
+export function listNoCashBackDetail(query) {
+  return request({
+    url: '/system/userwin/noCashBackDetailList',
+    method: 'get',
+    params: query
+  })
+}
+
+export function listCashBackedDetail(query) {
+  return request({
+    url: '/system/userwin/cashBackedDetailList',
+    method: 'get',
+    params: query
+  })
+}
+
+export function selectCashBackedTotalMoney(query) {
+  return request({
+    url: '/system/userwin/selectCashBackedTotalMoney',
+    method: 'get',
+    params: query
+  })
+}
+
+export function cashBackAllRecord(data) {
+  return request({
+    url: '/system/userwin/cashBackAllRecord',
+    method: 'post',
+    data: data
+  })
+}
+
+export function cashBackByUser(data) {
+  return request({
+    url: '/system/userwin/cashBackByUser',
+    method: 'post',
+    data: data
+  })
+}
+
 export function cashBackYestoday(data) {
   return request({
     url: '/system/userwin/cashBackYestoday',

@@ -60,6 +60,15 @@ public class UpdateSiteSettingReqVO {
 
     private String wxAutoCheckApiCode;
 
+    /** logo图片地址 */
+    private String logoImg;
+
+    /** logo图片地址 */
+    private String wechatImg;
+
+    /** logo图片地址 */
+    private String qqChatImg;
+
     public Boolean isSiteOpenFlg() {
         return siteOpenFlg;
     }
@@ -230,5 +239,29 @@ public class UpdateSiteSettingReqVO {
 
     public void setWxAutoCheckApiCode(String wxAutoCheckApiCode) {
         this.wxAutoCheckApiCode = wxAutoCheckApiCode;
+    }
+
+    public String getLogoImg() {
+        return logoImg;
+    }
+
+    public void setLogoImg(String logoImg) {
+        this.logoImg = logoImg;
+    }
+
+    public String getWechatImg() {
+        return wechatImg;
+    }
+
+    public void setWechatImg(String wechatImg) {
+        this.wechatImg = wechatImg;
+    }
+
+    public String getQqChatImg() {
+        return qqChatImg;
+    }
+
+    public void setQqChatImg(String qqChatImg) {
+        this.qqChatImg = qqChatImg;
     }
 }

@@ -79,6 +79,14 @@ public interface UserwinMapper
 
     public List<CashBackDetailListRespVO> selectCashBackDetailList(Userwin userwin);
 
+    public List<NowCashBackDetailListRespVO> selectNowCashBackDetailList(Userwin userwin);
+
+    public List<NoCashBackDetailListRespVO> selectNoCashBackDetailList(Userwin userwin);
+
+    public List<CashBackedDetailListRespVO> selectCashBackedDetailList(Userwin userwin);
+
+    public Float selectCashBackedTotalMoney(Userwin userwin);
+
     public List<Userwin> selectYestodayNoCashBackList();
 
     public int updateCashBackMoneyById(@Param("id") Long id,@Param("cashBackMoney")Float cashBackMoney);
@@ -97,7 +105,11 @@ public interface UserwinMapper
 
     public List<CashbackReportRespVO> selectCashbackReportLis(@Param("userId") Long userId,@Param("filterDate")String filterDate);
 
+    public List<Userwin> selectUserCashbackList(@Param("userId") Long userId,@Param("gameId") Long gameId,@Param("winTime") String winTime,@Param("isCashBack") String isCashBack);
+
     public List<CommissionReportRespVO> selectCommissionReportLis(@Param("userId") Long userId, @Param("filterDate")String filterDate);
+
+    public List<Userwin> selectUserCommissionList(@Param("userId") Long userId,@Param("gameId") Long gameId,@Param("winTime") String winTime,@Param("isCommission") String isCommission);
 
     public List<UserReportRespVO> selectUserReportLis(Userwin userwin);
 

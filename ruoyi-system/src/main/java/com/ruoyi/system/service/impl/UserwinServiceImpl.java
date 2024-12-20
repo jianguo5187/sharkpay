@@ -12,10 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -236,6 +233,32 @@ public class UserwinServiceImpl implements IUserwinService
     }
 
     @Override
+    public List<NowCashBackDetailListRespVO> selectNowCashBackDetailList(Userwin userwin) {
+        return userwinMapper.selectNowCashBackDetailList(userwin);
+    }
+
+    @Override
+    public List<NoCashBackDetailListRespVO> selectNoCashBackDetailList(Userwin userwin) {
+        return userwinMapper.selectNoCashBackDetailList(userwin);
+    }
+
+    @Override
+    public List<CashBackedDetailListRespVO> selectCashBackedDetailList(Userwin userwin) {
+        return userwinMapper.selectCashBackedDetailList(userwin);
+    }
+
+    @Override
+    public Float selectCashBackedTotalMoney(Userwin userwin) {
+        return userwinMapper.selectCashBackedTotalMoney(userwin);
+    }
+
+    @Override
+    public void cashBackAllRecord(Long adminUserId) {
+        List<Userwin> lessTodayNoCashBackList = userwinMapper.selectLessTodayNoCashBackList();
+        cashBack(lessTodayNoCashBackList,adminUserId);
+    }
+
+    @Override
     public void cashBackYestoday(Long userId) {
         List<Userwin> yestodayNoCashBackList = userwinMapper.selectYestodayNoCashBackList();
         cashBack(yestodayNoCashBackList,userId);
@@ -243,6 +266,7 @@ public class UserwinServiceImpl implements IUserwinService
 
     public void cashBack(List<Userwin> userWinList, Long adminUserId){
 
+        SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
         SysGame sysGameSearch = new SysGame();
         sysGameSearch.setStatus("0"); //有效
         List<SysGame> gameList = sysGameService.selectSysGameList(sysGameSearch);
@@ -303,6 +327,7 @@ public class UserwinServiceImpl implements IUserwinService
             usermoney.setType("16");
             usermoney.setGameId(userwin.getGameId());
             usermoney.setGameName(userwin.getGameName());
+            usermoney.setRemark(sd.format(new Date()));
             usermoneyService.insertUsermoney(usermoney);
 
             userwinMapper.updateCashBackMoneyById(userwin.getId(),money);
@@ -317,11 +342,17 @@ public class UserwinServiceImpl implements IUserwinService
     }
 
     @Override
+    public void cashBackByUser(Long adminUserId, Userwin userwin) {
+        List<Userwin> userWinList = userwinMapper.selectUserCashbackList(userwin.getUserId(),null,null,"0");
+        cashBack(userWinList,adminUserId);
+    }
+
+    @Override
     public void cashBackUser(Long userId, Userwin userwin) {
 
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
         String winTime = sd.format(userwin.getWinTime());
-        List<Userwin> userWinList = userwinMapper.selectUserWinListByDay(userwin.getUserId(),userwin.getGameId(),winTime);
+        List<Userwin> userWinList = userwinMapper.selectUserCashbackList(userwin.getUserId(),userwin.getGameId(),winTime,"0");
         cashBack(userWinList,userId);
     }
 
@@ -472,7 +503,7 @@ public class UserwinServiceImpl implements IUserwinService
 
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
         String winTime = sd.format(userwin.getWinTime());
-        List<Userwin> userWinList = userwinMapper.selectUserWinListByDay(userwin.getUserId(),userwin.getGameId(),winTime);
+        List<Userwin> userWinList = userwinMapper.selectUserCommissionList(userwin.getUserId(),userwin.getGameId(),winTime,"0");
         commission(userWinList,userId);
     }
 
