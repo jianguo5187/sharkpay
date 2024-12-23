@@ -40,7 +40,6 @@ public class SysGameController extends BaseController
     /**
      * 查询游戏列表
      */
-    @PreAuthorize("@ss.hasPermi('system:game:list')")
     @GetMapping("/list")
     public TableDataInfo list(SysGame sysGame)
     {
@@ -52,7 +51,6 @@ public class SysGameController extends BaseController
     /**
      * 导出游戏列表
      */
-    @PreAuthorize("@ss.hasPermi('system:game:export')")
     @Log(title = "游戏", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, SysGame sysGame)
@@ -65,7 +63,6 @@ public class SysGameController extends BaseController
     /**
      * 获取游戏详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:game:query')")
     @GetMapping(value = "/{gameId}")
     public AjaxResult getInfo(@PathVariable("gameId") Long gameId)
     {
@@ -75,7 +72,6 @@ public class SysGameController extends BaseController
     /**
      * 新增游戏
      */
-    @PreAuthorize("@ss.hasPermi('system:game:add')")
     @Log(title = "游戏", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody SysGame sysGame)
@@ -86,7 +82,6 @@ public class SysGameController extends BaseController
     /**
      * 修改游戏
      */
-    @PreAuthorize("@ss.hasPermi('system:game:edit')")
     @Log(title = "游戏", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody SysGame sysGame)
@@ -97,7 +92,6 @@ public class SysGameController extends BaseController
     /**
      * 删除游戏
      */
-    @PreAuthorize("@ss.hasPermi('system:game:remove')")
     @Log(title = "游戏", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{gameIds}")
     public AjaxResult remove(@PathVariable Long[] gameIds)
