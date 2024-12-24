@@ -213,7 +213,7 @@ public class RyTask
     }
 
     public void insertRobotBet(){
-        gameTaskService.insertRobotBet();
+        gameTaskService.insertRobotBet("20s");
     }
 
     // 自动卡奖结算(已开奖未结算的数据可以自动结算)
@@ -243,5 +243,13 @@ public class RyTask
 
     public void autoCashbackBalance(){
         gameTaskService.autoCashbackBalance();
+    }
+
+    public void insertRobotBet5Sec(){
+        gameTaskService.insertRobotBet("5s");
+    }
+
+    public void insertRobotBet15Sec(){
+        gameTaskService.insertRobotBet("15s");
     }
 }

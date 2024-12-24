@@ -149,7 +149,7 @@
                 size="small"
                 icon="el-icon-edit"
                 @click="handleUpdate(scope.row)"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
+                v-if="scope.row.userId !== 1"
                 v-hasPermi="['system:user:edit']"
               ></el-button>
               <el-button
@@ -158,7 +158,7 @@
                 circle
                 icon="el-icon-key"
                 @click="handleResetPwd(scope.row)"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
+                v-if="scope.row.userId !== 1"
                 v-hasPermi="['system:user:resetPwd']"
               ></el-button>
               <el-button
@@ -166,7 +166,7 @@
                 circle
                 size="small"
                 icon="el-icon-postcard"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
+                v-if="scope.row.userId !== 1"
                 @click="handleUpdateUserAmount(scope.row)"
               ></el-button>
               <el-button
@@ -188,7 +188,7 @@
                 circle
                 size="small"
                 icon="el-icon-s-check"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
+                v-if="scope.row.userId !== 1"
                 @click="handleFreezeUser(scope.row)"
               ></el-button>
               <el-button
@@ -196,7 +196,6 @@
                 circle
                 size="small"
                 icon="el-icon-money"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
                 @click="handleMergeUser(scope.row)"
               ></el-button>
             </template>

@@ -41,7 +41,7 @@ public interface IGameTaskService {
     // 定时10球开奖结算
     public void lotteryTenBallBalance(String gameCode);
 
-    public void insertRobotBet();
+    public void insertRobotBet(String type);
 
     public void autoKajiangLottery();
 

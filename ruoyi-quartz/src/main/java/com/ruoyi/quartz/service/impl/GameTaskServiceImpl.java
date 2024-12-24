@@ -9,6 +9,7 @@ import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -323,13 +324,35 @@ public class GameTaskServiceImpl implements IGameTaskService {
 //    }
 
     @Override
-    public void insertRobotBet(){
+    public void insertRobotBet(String type){
+        List<Long> gameIdList = new ArrayList<>();
+        if(StringUtils.equals(type,"5s")){
+            gameIdList.add(4l);
+            gameIdList.add(5l);
+            gameIdList.add(6l);
+            gameIdList.add(12l);
+            gameIdList.add(13l);
+            gameIdList.add(14l);
+            gameIdList.add(15l);
+            gameIdList.add(16l);
+        }else if(StringUtils.equals(type,"15s")){
+            gameIdList.add(1l);
+            gameIdList.add(2l);
+            gameIdList.add(3l);
+        }else{
+            gameIdList.add(7l);
+            gameIdList.add(8l);
+            gameIdList.add(9l);
+            gameIdList.add(10l);
+            gameIdList.add(11l);
+        }
 
         SysGame sysGame = new SysGame();
         sysGame.setStatus("0"); //有效
         List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
         for(SysGame gameInfo : gameList){
             Random random = new Random();
+            if(gameIdList.contains(gameInfo.getGameId())){
             // 80%概率增加下注概率
 //            if (random.nextDouble() <= 0.8) {
                 if(StringUtils.equals(gameInfo.getGameType(),"3")){
@@ -363,7 +386,7 @@ public class GameTaskServiceImpl implements IGameTaskService {
                     virtuallyGameRecordReqVO.setPeriods(tenBallsTimeDateRespVO.getPeriods());
                     gameTenBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
                 }
-//            }
+            }
         }
     }
 

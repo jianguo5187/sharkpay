@@ -188,7 +188,6 @@
                 size="small"
                 icon="el-icon-edit"
                 @click="handleUpdate(scope.row)"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
               ></el-button>
               <el-button
                 title="重置密码"
@@ -196,7 +195,6 @@
                 circle
                 icon="el-icon-key"
                 @click="handleResetPwd(scope.row)"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
               ></el-button>
             </template>
           </el-table-column>

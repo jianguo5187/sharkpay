@@ -101,7 +101,6 @@
                 circle
                 size="small"
                 icon="el-icon-postcard"
-                v-if="scope.row.userId !== 1 && scope.row.userId !== 2 && scope.row.userId !== 3"
                 @click="handleUpdateUserAmount(scope.row)"
               ></el-button>
           </span>
