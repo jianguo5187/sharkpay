@@ -68,7 +68,9 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
     public int insertSysLandingDomain(SysLandingDomain sysLandingDomain)
     {
         sysLandingDomain.setCreateTime(DateUtils.getNowDate());
-        return sysLandingDomainMapper.insertSysLandingDomain(sysLandingDomain);
+        int rowId =  sysLandingDomainMapper.insertSysLandingDomain(sysLandingDomain);
+        updateMainUrlToQrServer();
+        return rowId;
     }
 
     /**
@@ -81,7 +83,9 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
     public int updateSysLandingDomain(SysLandingDomain sysLandingDomain)
     {
         sysLandingDomain.setUpdateTime(DateUtils.getNowDate());
-        return sysLandingDomainMapper.updateSysLandingDomain(sysLandingDomain);
+        int rowId =  sysLandingDomainMapper.updateSysLandingDomain(sysLandingDomain);
+        updateMainUrlToQrServer();
+        return rowId;
     }
 
     /**
