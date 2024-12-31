@@ -686,7 +686,7 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("网站名称", "sys.web.name",vo.getWebName().toString());
         updateAndInsertConfigInfo("微信appId", "sys.wechat.appId",vo.getWechatAppId().toString());
         updateAndInsertConfigInfo("微信appSecret", "sys.wechat.appSecret",vo.getWechatAppSecret().toString());
-        updateAndInsertConfigInfo("授权域名", "sys.wechat.authUrl",vo.getWechatAuthUrl().toString());
+//        updateAndInsertConfigInfo("授权域名", "sys.wechat.authUrl",vo.getWechatAuthUrl().toString());
         updateAndInsertConfigInfo("客服端聊天地址", "sys.im.kefuUrl",vo.getKefuImUrl());
         updateAndInsertConfigInfo("玩家端聊天地址", "sys.im.appUrl",vo.getAppImUrl());
         updateAndInsertConfigInfo("二维码服务器IP", "sys.web.qrServer",vo.getQrServerUrl());

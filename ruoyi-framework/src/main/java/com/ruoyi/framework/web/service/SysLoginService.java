@@ -22,10 +22,8 @@ import com.ruoyi.framework.pojo.dos.WxMiniAppLoginUserInfoResponseDO;
 import com.ruoyi.framework.security.context.AuthenticationContextHolder;
 import com.ruoyi.system.domain.SysAdminActionLog;
 import com.ruoyi.system.domain.SysLandingDomain;
-import com.ruoyi.system.service.ISysAdminActionLogService;
-import com.ruoyi.system.service.ISysConfigService;
-import com.ruoyi.system.service.ISysLandingDomainService;
-import com.ruoyi.system.service.ISysUserService;
+import com.ruoyi.system.domain.SysWechatAuth;
+import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -77,6 +75,10 @@ public class SysLoginService
 
     @Autowired
     private ISysAdminActionLogService sysAdminActionLogService;
+
+    @Autowired
+    private ISysWechatAuthService sysWechatAuthService;
+
 
 //    微信小程序appId
 //    @Value("${wx.minApp.appId}")
@@ -256,7 +258,12 @@ public class SysLoginService
 
     public String getUrlRedir(Long parentUserId){
 //        authUrl
-        String wechatAuthUrl = configService.selectConfigByKey("sys.wechat.authUrl");
+        SysWechatAuth searchSysWechatAuth = new SysWechatAuth();
+        searchSysWechatAuth.setStatus("0"); //正常
+        searchSysWechatAuth.setDelFlag("0"); //未删除
+        List<SysWechatAuth> validDomainList = sysWechatAuthService.selectSysWechatAuthList(searchSysWechatAuth);
+        String wechatAuthUrl = validDomainList.get(0).getWechatAuthUrl();
+//        String wechatAuthUrl = configService.selectConfigByKey("sys.wechat.authUrl");
         String appId = configService.selectConfigByKey("sys.wechat.appId");
 
         if(!wechatAuthUrl.startsWith("http") && !wechatAuthUrl.startsWith("https")){

@@ -1,55 +1,55 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch">
-      <el-form-item label="角色名称" prop="roleName">
-        <el-input
-          v-model="queryParams.roleName"
-          placeholder="请输入角色名称"
-          clearable
-          style="width: 240px"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="权限字符" prop="roleKey">
-        <el-input
-          v-model="queryParams.roleKey"
-          placeholder="请输入权限字符"
-          clearable
-          style="width: 240px"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="状态" prop="status">
-        <el-select
-          v-model="queryParams.status"
-          placeholder="角色状态"
-          clearable
-          style="width: 240px"
-        >
-          <el-option
-            v-for="dict in dict.type.sys_normal_disable"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
-      </el-form-item>
-      <el-form-item label="创建时间">
-        <el-date-picker
-          v-model="dateRange"
-          style="width: 240px"
-          value-format="yyyy-MM-dd"
-          type="daterange"
-          range-separator="-"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-        ></el-date-picker>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
-      </el-form-item>
-    </el-form>
+<!--    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch">-->
+<!--      <el-form-item label="角色名称" prop="roleName">-->
+<!--        <el-input-->
+<!--          v-model="queryParams.roleName"-->
+<!--          placeholder="请输入角色名称"-->
+<!--          clearable-->
+<!--          style="width: 240px"-->
+<!--          @keyup.enter.native="handleQuery"-->
+<!--        />-->
+<!--      </el-form-item>-->
+<!--      <el-form-item label="权限字符" prop="roleKey">-->
+<!--        <el-input-->
+<!--          v-model="queryParams.roleKey"-->
+<!--          placeholder="请输入权限字符"-->
+<!--          clearable-->
+<!--          style="width: 240px"-->
+<!--          @keyup.enter.native="handleQuery"-->
+<!--        />-->
+<!--      </el-form-item>-->
+<!--      <el-form-item label="状态" prop="status">-->
+<!--        <el-select-->
+<!--          v-model="queryParams.status"-->
+<!--          placeholder="角色状态"-->
+<!--          clearable-->
+<!--          style="width: 240px"-->
+<!--        >-->
+<!--          <el-option-->
+<!--            v-for="dict in dict.type.sys_normal_disable"-->
+<!--            :key="dict.value"-->
+<!--            :label="dict.label"-->
+<!--            :value="dict.value"-->
+<!--          />-->
+<!--        </el-select>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item label="创建时间">-->
+<!--        <el-date-picker-->
+<!--          v-model="dateRange"-->
+<!--          style="width: 240px"-->
+<!--          value-format="yyyy-MM-dd"-->
+<!--          type="daterange"-->
+<!--          range-separator="-"-->
+<!--          start-placeholder="开始日期"-->
+<!--          end-placeholder="结束日期"-->
+<!--        ></el-date-picker>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item>-->
+<!--        <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>-->
+<!--        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>-->
+<!--      </el-form-item>-->
+<!--    </el-form>-->
 
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
@@ -326,6 +326,7 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
+        roleId: undefined,
         roleName: undefined,
         roleKey: undefined,
         status: undefined
@@ -357,6 +358,9 @@ export default {
     /** 查询角色列表 */
     getList() {
       this.loading = true;
+      if(this.loginUserId != 1){
+        this.queryParams.roleId = 4;
+      }
       listRole(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
           this.roleList = response.rows;
           this.total = response.total;

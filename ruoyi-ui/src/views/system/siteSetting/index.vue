@@ -43,14 +43,14 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1 || loginUserId == 3">
         <el-col :span="12">
           <el-form-item label="官方开奖URL" prop="openRecordUrl">
             <el-input v-model="siteSetting.form.openRecordUrl" placeholder="请输入官方开奖URL"/>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1 || loginUserId == 3">
         <el-col :span="12">
           <el-form-item label="网站唯一标识ID" prop="webType">
             <el-input v-model="siteSetting.form.webType" placeholder="请输入网站唯一标识ID"/> 二维码网站跳转唯一识别key
@@ -64,27 +64,27 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1 || loginUserId == 3">
         <el-col :span="12">
           <el-form-item label="微信appId" prop="wechatAppId">
             <el-input v-model="siteSetting.form.wechatAppId" placeholder="请输入微信appId"/>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1 || loginUserId == 3">
         <el-col :span="12">
           <el-form-item label="微信appSecret" prop="wechatAppSecret">
             <el-input v-model="siteSetting.form.wechatAppSecret" placeholder="请输入微信appSecret"/>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
-        <el-col :span="12">
-          <el-form-item label="授权域名" prop="wechatAuthUrl">
-            <el-input v-model="siteSetting.form.wechatAuthUrl" placeholder="请输入授权域名"/> 例如：http://c12q.zs2ux.cn
-          </el-form-item>
-        </el-col>
-      </el-row>
+<!--      <el-row>-->
+<!--        <el-col :span="12">-->
+<!--          <el-form-item label="授权域名" prop="wechatAuthUrl">-->
+<!--            <el-input v-model="siteSetting.form.wechatAuthUrl" placeholder="请输入授权域名"/> 例如：http://c12q.zs2ux.cn-->
+<!--          </el-form-item>-->
+<!--        </el-col>-->
+<!--      </el-row>-->
       <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="客服端聊天地址" prop="kefuImUrl">
@@ -202,7 +202,7 @@ export default {
           webName: undefined,
           wechatAppId: undefined,
           wechatAppSecret: undefined,
-          wechatAuthUrl: undefined,
+          // wechatAuthUrl: undefined,
           kefuImUrl: undefined,
           appImUrl: undefined,
           qrServerUrl: undefined,
@@ -252,9 +252,9 @@ export default {
           wechatAppSecret: [
             { required: true, message: "微信Secret不能为空", trigger: "blur" }
           ],
-          wechatAuthUrl: [
-            { required: true, message: "授权域名不能为空", trigger: "blur" }
-          ],
+          // wechatAuthUrl: [
+          //   { required: true, message: "授权域名不能为空", trigger: "blur" }
+          // ],
           kefuImUrl: [
             { required: true, message: "客服聊天网站地址不能为空", trigger: "blur" }
           ],
@@ -334,9 +334,9 @@ export default {
         if(response.wechatAppSecret != undefined){
           this.siteSetting.form.wechatAppSecret = response.wechatAppSecret;
         }
-        if(response.wechatAuthUrl != undefined){
-          this.siteSetting.form.wechatAuthUrl = response.wechatAuthUrl;
-        }
+        // if(response.wechatAuthUrl != undefined){
+        //   this.siteSetting.form.wechatAuthUrl = response.wechatAuthUrl;
+        // }
         if(response.kefuImUrl != undefined){
           this.siteSetting.form.kefuImUrl = response.kefuImUrl;
         }

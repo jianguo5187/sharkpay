@@ -385,7 +385,7 @@ public class SysAppController extends BaseController {
         ajax.put("webName",configService.selectConfigByKey("sys.web.name") );
         ajax.put("wechatAppId",configService.selectConfigByKey("sys.wechat.appId") );
         ajax.put("wechatAppSecret",configService.selectConfigByKey("sys.wechat.appSecret") );
-        ajax.put("wechatAuthUrl",configService.selectConfigByKey("sys.wechat.authUrl") );
+//        ajax.put("wechatAuthUrl",configService.selectConfigByKey("sys.wechat.authUrl") );
         ajax.put("kefuImUrl",configService.selectConfigByKey("sys.im.kefuUrl") );
         ajax.put("appImUrl",configService.selectConfigByKey("sys.im.appUrl") );
         ajax.put("qrServerUrl",configService.selectConfigByKey("sys.web.qrServer") );

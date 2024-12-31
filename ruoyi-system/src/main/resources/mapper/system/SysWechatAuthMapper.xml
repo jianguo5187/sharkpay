@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysWechatAuthMapper">
+    
+    <resultMap type="SysWechatAuth" id="SysWechatAuthResult">
+        <result property="wechatAuthId"    column="wechat_auth_id"    />
+        <result property="wechatAuthUrl"    column="wechat_auth_url"    />
+        <result property="status"    column="status"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysWechatAuthVo">
+        select wechat_auth_id, wechat_auth_url, status, del_flag, create_by, create_time, update_by, update_time, remark from sys_wechat_auth
+    </sql>
+
+    <select id="selectSysWechatAuthList" parameterType="SysWechatAuth" resultMap="SysWechatAuthResult">
+        <include refid="selectSysWechatAuthVo"/>
+        where
+            del_flag = '0'
+        <if test="status != null  and status != ''"> and status = #{status}</if>
+    </select>
+    
+    <select id="selectSysWechatAuthByWechatAuthId" parameterType="Long" resultMap="SysWechatAuthResult">
+        <include refid="selectSysWechatAuthVo"/>
+        where wechat_auth_id = #{wechatAuthId}
+        and del_flag = '0'
+    </select>
+        
+    <insert id="insertSysWechatAuth" parameterType="SysWechatAuth" useGeneratedKeys="true" keyProperty="wechatAuthId">
+        insert into sys_wechat_auth
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="wechatAuthUrl != null">wechat_auth_url,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="wechatAuthUrl != null">#{wechatAuthUrl},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysWechatAuth" parameterType="SysWechatAuth">
+        update sys_wechat_auth
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="wechatAuthUrl != null">wechat_auth_url = #{wechatAuthUrl},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where wechat_auth_id = #{wechatAuthId}
+    </update>
+
+    <update id="deleteSysWechatAuthByWechatAuthId" parameterType="Long">
+        update sys_wechat_auth
+        set del_flag = '1'
+        where wechat_auth_id = #{wechatAuthId}
+    </update>
+
+
+    <update id="deleteSysWechatAuthByWechatAuthIds" parameterType="Long">
+        update sys_wechat_auth
+        set del_flag = '1'
+        where wechat_auth_id in
+        <foreach item="wechatAuthId" collection="array" open="(" separator="," close=")">
+            #{wechatAuthId}
+        </foreach>
+    </update>
+</mapper>
