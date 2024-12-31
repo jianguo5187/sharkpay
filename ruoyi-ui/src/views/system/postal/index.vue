@@ -79,31 +79,38 @@
           <span v-if="scope.row.type == '6' ">提现失败(操作者：{{scope.row.updateBy}})</span>
         </template>
       </el-table-column>
-      <el-table-column label="投注记录" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope">
-          <el-button
-            title="投注记录"
-            size="mini"
-            type="danger"
-            icon="el-icon-burger"
-            @click="showUserBetDetailList(scope.row)"
-          >投注记录</el-button>
-        </template>
-      </el-table-column>
+<!--      <el-table-column label="投注记录" align="center" class-name="small-padding fixed-width">-->
+<!--        <template slot-scope="scope">-->
+<!--          <el-button-->
+<!--            title="投注记录"-->
+<!--            size="mini"-->
+<!--            type="danger"-->
+<!--            icon="el-icon-burger"-->
+<!--            @click="showUserBetDetailList(scope.row)"-->
+<!--          >投注记录</el-button>-->
+<!--        </template>-->
+<!--      </el-table-column>-->
 <!--      <el-table-column label="操作时间" align="center" prop="updateTime" width="135"/>-->
       <el-table-column label="申请时间" align="center" prop="cashTime" width="135px"/>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <span v-if="scope.row.type != '4'">
+<!--          <span v-if="scope.row.type != '4'">-->
 <!--            提现成功(操作者：{{scope.row.updateBy}})-->
+<!--              <el-button-->
+<!--                title="修改金额"-->
+<!--                circle-->
+<!--                size="small"-->
+<!--                icon="el-icon-postcard"-->
+<!--                @click="handleUpdateUserAmount(scope.row)"-->
+<!--              ></el-button>-->
               <el-button
-                title="修改金额"
+                title="投注记录"
                 circle
                 size="small"
-                icon="el-icon-postcard"
-                @click="handleUpdateUserAmount(scope.row)"
+                icon="el-icon-bank-card"
+                @click="showUserFlowDetailList(scope.row)"
               ></el-button>
-          </span>
+<!--          </span>-->
 <!--          <span v-if="scope.row.type == '6'">提现失败(操作者：{{scope.row.updateBy}})</span>-->
           <el-button
             size="mini"
@@ -153,6 +160,11 @@
         <el-button @click="updateAmount.open = false">取 消</el-button>
       </div>
     </el-dialog>
+
+    <!-- 账变记录 -->
+    <el-dialog :title="userFlowMoney.title" :visible.sync="userFlowMoney.open" width="1400px" append-to-body>
+      <user-flow-money-list :user="userFlowMoney.user"/>
+    </el-dialog>
   </div>
 </template>
 
@@ -163,10 +175,11 @@ import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 import BetRealTime from "@/views/system/bet/betRealTime"
 import {adminRecharge} from "@/api/system/recharge";
+import UserFlowMoneyList from "@/views/system/userMoney/index.vue";
 
 export default {
   name: "postal",
-  components: {BetRealTime, Treeselect},
+  components: {UserFlowMoneyList, BetRealTime, Treeselect},
   dicts: ['sys_postal_status'],
   data() {
     return {
@@ -220,6 +233,18 @@ export default {
         form: {
           userId: undefined,
           cashMoney: undefined,
+        },
+      },
+      userFlowMoney: {
+        // 遮罩层
+        loading: true,
+        // 弹出层标题
+        title: "",
+        // 是否显示弹出层
+        open: false,
+
+        user: {
+          userId:undefined
         },
       },
       // 查询参数
@@ -413,6 +438,12 @@ export default {
         return 'warning-row';
       }
       return ''
+    },
+    showUserFlowDetailList(row){
+      this.userFlowMoney.open = true;
+      this.userFlowMoney.title = "投注记录";
+      this.userFlowMoney.user = {};
+      this.userFlowMoney.user.userId = row.userId;
     },
   }
 };
