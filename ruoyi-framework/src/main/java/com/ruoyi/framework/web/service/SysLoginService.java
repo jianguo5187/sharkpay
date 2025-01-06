@@ -357,7 +357,7 @@ public class SysLoginService
 
                 regUser.setOpenId(response.getOpenid());
                 regUser.setUserName(userName);
-                regUser.setNickName(nickName);
+                regUser.setNickName("微信昵称-" + nickName);
                 regUser.setPassword(SecurityUtils.encryptPassword(configService.selectConfigByKey("sys.user.initPassword")));  //todo 待建立常量类
 
                 regUser.setPayPassword(SecurityUtils.encryptPassword(configService.selectConfigByKey("sys.user.initPassword")));

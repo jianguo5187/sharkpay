@@ -86,9 +86,9 @@
 
     <!-- 添加或修改授权域名对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="108px">
+      <el-form @submit.native.prevent ref="form" :model="form" :rules="rules" label-width="108px">
         <el-form-item label="授权域名" prop="wechatAuthUrl">
-          <el-input v-model="form.wechatAuthUrl" placeholder="请输入授权域名" />
+          <el-input v-model="form.wechatAuthUrl" placeholder="请输入授权域名" @keyup.enter.native="submitForm"/>
         </el-form-item>
 <!--        <el-form-item label="授权域名状态" prop="status">-->
 <!--          <el-select v-model="form.status" placeholder="请选择授权域名状态">-->

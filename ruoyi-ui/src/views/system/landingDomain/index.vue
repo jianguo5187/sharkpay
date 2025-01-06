@@ -86,9 +86,9 @@
 
     <!-- 添加或修改落地域名对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="108px">
+      <el-form @submit.native.prevent ref="form" :model="form" :rules="rules" label-width="108px">
         <el-form-item label="落地域名" prop="landingDomainUrl">
-          <el-input v-model="form.landingDomainUrl" placeholder="请输入落地域名" />
+          <el-input v-model="form.landingDomainUrl" placeholder="请输入落地域名" @keyup.enter.native="submitForm"/>
         </el-form-item>
         <el-form-item label="落地域名状态" prop="status" v-show="form.landingDomainId != undefined && total>0">
           <el-radio-group v-model="form.status">

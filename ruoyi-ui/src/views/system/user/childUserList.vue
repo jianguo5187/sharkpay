@@ -437,25 +437,25 @@
 
     <!-- 添加子管理员用户配置对话框 -->
     <el-dialog :title="addChildAdmin.title" :visible.sync="addChildAdmin.open" width="600px" append-to-body>
-      <el-form ref="addChildAdminForm" :model="addChildAdmin.form" :rules="addChildAdmin.rules" label-width="120px">
+      <el-form @submit.native.prevent ref="addChildAdminForm" :model="addChildAdmin.form" :rules="addChildAdmin.rules" label-width="120px">
         <el-row>
           <el-col :span="24">
             <el-form-item label="用户昵称" prop="nickName">
-              <el-input v-model="addChildAdmin.form.nickName" placeholder="请输入用户昵称" maxlength="30" />
+              <el-input v-model="addChildAdmin.form.nickName" placeholder="请输入用户昵称" maxlength="30" @keyup.enter.native="submitAddChildAdminForm"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="24">
             <el-form-item v-if="addChildAdmin.form.userId == undefined" label="登录账号" prop="userName">
-              <el-input v-model="addChildAdmin.form.userName" placeholder="请输入登录账号" maxlength="30" />
+              <el-input v-model="addChildAdmin.form.userName" placeholder="请输入登录账号" maxlength="30" @keyup.enter.native="submitAddChildAdminForm"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="24">
             <el-form-item v-if="addChildAdmin.form.userId == undefined" label="用户密码" prop="password">
-              <el-input v-model="addChildAdmin.form.password" placeholder="请输入用户密码" type="password" maxlength="20" show-password/>
+              <el-input v-model="addChildAdmin.form.password" placeholder="请输入用户密码" type="password" maxlength="20" show-password @keyup.enter.native="submitAddChildAdminForm"/>
             </el-form-item>
           </el-col>
         </el-row>

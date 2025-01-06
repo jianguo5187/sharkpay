@@ -619,6 +619,7 @@ public class SysAppController extends BaseController {
         ajax.put("totalGenerateAmount",totalGenerateAmount);
         ajax.put("totalWithoutTransferAmount",totalWithoutTransferAmount);
         ajax.put("totalApproveTransferAmount",totalApproveTransferAmount);
+        ajax.put("totalPageCnt",childUserCommissionList.size());
         return ajax;
     }
 

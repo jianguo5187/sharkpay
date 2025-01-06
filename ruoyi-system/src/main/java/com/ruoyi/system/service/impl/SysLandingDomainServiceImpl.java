@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.ServletUtils;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.domain.SysEntryDomain;
 import com.ruoyi.system.service.ISysConfigService;
@@ -206,6 +207,10 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
         String webType = configService.selectConfigByKey("sys.web.type");
 
         String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
+        String qrWebPort = configService.selectConfigByKey("sys.qrweb.api.port");
+        if(StringUtils.isEmpty(qrWebPort)){
+            qrWebPort = "6678";
+        }
 
         if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
             qrServerIp = "http://" + qrServerIp;
@@ -224,7 +229,9 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
         List<SysLandingDomain> landingDomainList = selectSysLandingDomainList(landingDomainSearch);
         if(landingDomainList.size() > 0){
             String landingDomainUrl = landingDomainList.get(0).getLandingDomainUrl();
-            HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+            HttpUtils.sendGet(qrServerIp + ":" + qrWebPort +"/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+
+//            HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
         }else{
             SysLandingDomain noDeleteLandingDomainSearch = new SysLandingDomain();
             noDeleteLandingDomainSearch.setDelFlag("0");
@@ -232,7 +239,9 @@ public class SysLandingDomainServiceImpl implements ISysLandingDomainService
             if(noDeleteLandingDomainList.size() > 0){
                 SysLandingDomain noDeleteLandingDomain = noDeleteLandingDomainList.get(0);
                 String landingDomainUrl = noDeleteLandingDomain.getLandingDomainUrl();
-                HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+                HttpUtils.sendGet(qrServerIp + ":" + qrWebPort +"/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
+
+//                HttpUtils.sendGet(qrServerIp + ":6678/app/updateMainUrl?"+"webType="+webType+"&mainUrl="+ ServletUtils.urlEncode(landingDomainUrl));
 
                 noDeleteLandingDomain.setStatus("0"); //正常
                 noDeleteLandingDomain.setDelFlag("0"); //未删除

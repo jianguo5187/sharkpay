@@ -101,7 +101,7 @@
 
     <!-- 添加或修改机器人话术对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="180px">
+      <el-form @submit.native.prevent ref="form" :model="form" :rules="rules" label-width="180px">
         <el-form-item label="游戏" prop="gameId">
           <el-select v-model="form.gameId" placeholder="请选择游戏">
             <el-option
@@ -114,7 +114,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="话术" prop="betItemOption">
-          <el-input v-model="form.betItemOption" placeholder="请输入话术" />
+          <el-input v-model="form.betItemOption" placeholder="请输入话术" @keyup.enter.native="submitForm"/>
           <span>投注类别|号码1,号码2,号码3|金额(拿竖线拼接例如：特殊|对子,顺子,豹子|70)</span>
         </el-form-item>
         <el-form-item label="状态" prop="status">

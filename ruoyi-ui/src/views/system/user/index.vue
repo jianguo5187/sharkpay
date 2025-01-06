@@ -450,12 +450,13 @@
 
     <!-- 冻结/解冻账号 -->
     <el-dialog :title="updateAmount.title" :visible.sync="updateAmount.open" width="500px" append-to-body>
-      <el-form ref="updateUserAmountForm" :model="updateAmount.form" :rules="updateAmount.rules" label-width="120px">
+      <el-form @submit.native.prevent ref="updateUserAmountForm" :model="updateAmount.form" :rules="updateAmount.rules" label-width="120px">
         <el-form-item label="上下分" prop="cashMoney">
           <el-input
             v-model="updateAmount.form.cashMoney"
             placeholder="请输入上下分"
             clearable
+            @keyup.enter.native="submitUserAmountForm"
           />
           <span>正数为上分,负数为下分</span>
         </el-form-item>
@@ -470,7 +471,7 @@
     <el-dialog :title="status.title" :visible.sync="status.open" width="500px" append-to-body>
       <el-form ref="freezeUserForm" :model="status.form" :rules="status.rules" label-width="120px">
         <el-form-item label="状态" prop="status">
-          <el-select v-model="status.form.status" placeholder="请选择状态">
+          <el-select v-model="status.form.status" placeholder="请选择状态" @keyup.enter.native="submitFreezeUserForm">
             <el-option
               v-for="dict in dict.type.sys_user_status"
               :key="dict.value"

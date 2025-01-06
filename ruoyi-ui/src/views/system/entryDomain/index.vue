@@ -87,9 +87,9 @@
 
     <!-- 添加或修改入口域名对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="108px">
+      <el-form @submit.native.prevent ref="form" :model="form" :rules="rules" label-width="108px">
         <el-form-item label="入口域名" prop="entryDomainUrl">
-          <el-input v-model="form.entryDomainUrl" placeholder="请输入入口域名" />
+          <el-input v-model="form.entryDomainUrl" placeholder="请输入入口域名" @keyup.enter.native="submitForm"/>
         </el-form-item>
         <el-form-item label="入口域名状态" prop="status" v-show="form.entryDomainId != undefined && total>0">
           <el-radio-group v-model="form.status">

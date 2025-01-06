@@ -145,12 +145,13 @@
 
     <!-- 修改金额 -->
     <el-dialog :title="updateAmount.title" :visible.sync="updateAmount.open" width="500px" append-to-body>
-      <el-form ref="updateUserAmountForm" :model="updateAmount.form" :rules="updateAmount.rules" label-width="120px">
+      <el-form @submit.native.prevent ref="updateUserAmountForm" :model="updateAmount.form" :rules="updateAmount.rules" label-width="120px">
         <el-form-item label="上下分" prop="cashMoney">
           <el-input
             v-model="updateAmount.form.cashMoney"
             placeholder="请输入上下分"
             clearable
+            @keyup.enter.native="submitUserAmountForm"
           />
           <span>正数为上分,负数为下分</span>
         </el-form-item>

@@ -4,6 +4,7 @@ import java.net.URLEncoder;
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.ServletUtils;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.http.HttpUtils;
 import com.ruoyi.system.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,7 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
 
             String webType = configService.selectConfigByKey("sys.web.type");
             String webName = configService.selectConfigByKey("sys.web.name");
+            String qrWebPort = configService.selectConfigByKey("sys.qrweb.api.port");
 
             String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
             if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
@@ -78,7 +80,9 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
             }
 
             String entryDomainUrl = entryDomainList.get(0).getEntryDomainUrl();
-            HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
+            HttpUtils.sendGet(qrServerIp + ":" + qrWebPort +"/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
+
+//            HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
 
         }
 
@@ -111,6 +115,10 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
 
         String webType = configService.selectConfigByKey("sys.web.type");
         String webName = configService.selectConfigByKey("sys.web.name");
+        String qrWebPort = configService.selectConfigByKey("sys.qrweb.api.port");
+        if(StringUtils.isEmpty(qrWebPort)){
+            qrWebPort = "6678";
+        }
 
         String qrServerIp = configService.selectConfigByKey("sys.web.qrServer");
         if(!qrServerIp.startsWith("http") && !qrServerIp.startsWith("https")){
@@ -151,7 +159,9 @@ public class SysEntryDomainServiceImpl implements ISysEntryDomainService
             }
 
         }
-        HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
+        HttpUtils.sendGet(qrServerIp + ":" + qrWebPort + "/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
+
+//        HttpUtils.sendGet(qrServerIp + ":6678/app/updateEntryUrl?"+"webType="+webType+"&webName="+ URLEncoder.encode(webName)+"&qrUrl="+ServletUtils.urlEncode(entryDomainUrl));
 
         return rowId;
     }

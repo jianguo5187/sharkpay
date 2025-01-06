@@ -75,13 +75,22 @@ public class qRCodeService implements IQRCodeService {
             throw new ServiceException("未配置有效入口域名");
         }
         String webType = configService.selectConfigByKey("sys.web.type");
+        String qrWebPort = configService.selectConfigByKey("sys.qrweb.port");
+        if(StringUtils.isEmpty(qrWebPort)){
+            qrWebPort = "6678";
+        }
 
         // TODO OLD
         Instant now = Instant.now();
         Long timestamp = now.toEpochMilli();
-        String content = entryDomainList.get(0).getEntryDomainUrl() + ":6678?webType=" + webType + "&parentUserId=" + userId + "&time=" + timestamp;
+        String content = "";
+        if(!StringUtils.equals(qrWebPort,"80")&&!StringUtils.equals(qrWebPort,"443")) {
+            content = entryDomainList.get(0).getEntryDomainUrl() + ":" + qrWebPort +"?webType=" + webType + "&parentUserId=" + userId + "&time=" + timestamp;
+        }else{
+
 //        // TODO 0907
-//        String content = entryDomainList.get(0).getEntryDomainUrl() + "?webType=" + webType + "&parentUserId=" + userId;
+            content = entryDomainList.get(0).getEntryDomainUrl() + "?webType=" + webType + "&parentUserId=" + userId + "&time=" + timestamp;
+        }
         return content;
     }
 
@@ -89,6 +98,10 @@ public class qRCodeService implements IQRCodeService {
     public List<ShareQRCodeRespVO> getEnalbeSysEntryDomainList(Long userId) {
 //        SysUser user = userService.selectUserById(userId);
         String webType = configService.selectConfigByKey("sys.web.type");
+        String qrWebPort = configService.selectConfigByKey("sys.qrweb.port");
+        if(StringUtils.isEmpty(qrWebPort)){
+            qrWebPort = "6678";
+        }
         SysEntryDomain searchEntryDomain = new SysEntryDomain();
         searchEntryDomain.setStatus("0");
         List<SysEntryDomain> entryDomainList = entryDomainService.selectSysEntryDomainList(searchEntryDomain);
@@ -98,9 +111,12 @@ public class qRCodeService implements IQRCodeService {
         for(SysEntryDomain entryDomain: entryDomainList){
             ShareQRCodeRespVO respVO = new ShareQRCodeRespVO();
         // TODO OLD
-            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + ":6678?webType=" + webType +"&parentUserId=" + userId + "&time=" + timestamp);
+            if(!StringUtils.equals(qrWebPort,"80")&&!StringUtils.equals(qrWebPort,"443")) {
+                respVO.setShareUrl(entryDomain.getEntryDomainUrl() + ":" + qrWebPort + "?webType=" + webType +"&parentUserId=" + userId + "&time=" + timestamp);
+            }else {
 //        // TODO 0907
-//            respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "?webType=" + webType +"&parentUserId=" + userId);
+                respVO.setShareUrl(entryDomain.getEntryDomainUrl() + "?webType=" + webType + "&parentUserId=" + userId + "&time=" + timestamp);
+            }
             shareQrCodeList.add(respVO);
         }
         return shareQrCodeList;

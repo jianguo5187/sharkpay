@@ -137,12 +137,13 @@
 
     <!-- 修改金额 -->
     <el-dialog :title="updateAmount.title" :visible.sync="updateAmount.open" width="500px" append-to-body>
-      <el-form ref="updateUserAmountForm" :model="updateAmount.form" :rules="updateAmount.rules" label-width="120px">
+      <el-form @submit.native.prevent ref="updateUserAmountForm" :model="updateAmount.form" :rules="updateAmount.rules" label-width="120px">
         <el-form-item label="上下分" prop="cashMoney">
           <el-input
             v-model="updateAmount.form.cashMoney"
             placeholder="请输入上下分"
             clearable
+            @keyup.enter.native="submitUserAmountForm"
           />
           <span>正数为上分,负数为下分</span>
         </el-form-item>
@@ -237,6 +238,7 @@ export default {
   methods: {
     /** 查询投注机器人列表 */
     getList() {
+      console.log("123");
       this.loading = true;
       if(this.queryParams.settledFlg){
         this.queryParams.settledFlgStr = "0";
@@ -279,7 +281,6 @@ export default {
     },
     // 合计 指定某一列添加合计
     getSummaries(param) {
-      console.log(param, "heji11111");
       const { columns, data } = param;
       const sums = [];
       columns.forEach((column, index) => {
