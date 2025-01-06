@@ -434,4 +434,7 @@ export default {
 #rechargeList .el-table__cell{
   padding: 2px 0px;
 }
+#rechargeList tr:hover >td{
+  background: unset !important;
+}
 </style>

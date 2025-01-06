@@ -460,4 +460,7 @@ export default {
 #postalList .el-table__cell{
   padding: 2px 0px;
 }
+#postalList tr:hover >td{
+  background: unset !important;
+}
 </style>
