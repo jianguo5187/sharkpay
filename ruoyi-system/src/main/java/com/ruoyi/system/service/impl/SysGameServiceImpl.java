@@ -116,9 +116,12 @@ public class SysGameServiceImpl implements ISysGameService
         }else if(StringUtils.equals(sysGame.getGameType(),"5")){
             sysGame.setGameRecord("game_fiveball_record");
             sysGame.setGameKj("game_fiveball_kj");
-        }else{
+        }else if(StringUtils.equals(sysGame.getGameType(),"10")){
             sysGame.setGameRecord("game_tenball_record");
             sysGame.setGameKj("game_tenball_kj");
+        }else if(StringUtils.equals(sysGame.getGameType(),"zfb")){
+            sysGame.setGameRecord("game_zfb_record");
+            sysGame.setGameKj("game_zfb_kj");
         }
         int row = sysGameMapper.insertSysGame(sysGame);
 
@@ -130,8 +133,10 @@ public class SysGameServiceImpl implements ISysGameService
                 insertDefaultThreeballBetTypeAndItem(sysGame);
             }else if(StringUtils.equals(sysGame.getGameType(),"5")){
                 insertDefaultFiveballBetTypeAndItem(sysGame);
-            }else{
+            }else if(StringUtils.equals(sysGame.getGameType(),"10")){
                 insertDefaultTenballBetTypeAndItem(sysGame);
+            }else if(StringUtils.equals(sysGame.getGameType(),"zfb")){
+                insertDefaultZfbBetTypeAndItem(sysGame);
             }
         }
 
@@ -158,9 +163,12 @@ public class SysGameServiceImpl implements ISysGameService
         }else if(StringUtils.equals(sysGame.getGameType(),"5")){
             sysGame.setGameRecord("game_fiveball_record");
             sysGame.setGameKj("game_fiveball_kj");
-        }else{
+        }else if(StringUtils.equals(sysGame.getGameType(),"10")){
             sysGame.setGameRecord("game_tenball_record");
             sysGame.setGameKj("game_tenball_kj");
+        }else if(StringUtils.equals(sysGame.getGameType(),"zfb")){
+            sysGame.setGameRecord("game_zfb_record");
+            sysGame.setGameKj("game_zfb_kj");
         }
         SysGame oldSysGame = selectSysGameByGameId(sysGame.getGameId());
         int row = sysGameMapper.updateSysGame(sysGame);
@@ -174,8 +182,10 @@ public class SysGameServiceImpl implements ISysGameService
                 insertDefaultThreeballBetTypeAndItem(sysGame);
             }else if(StringUtils.equals(sysGame.getGameType(),"5")){
                 insertDefaultFiveballBetTypeAndItem(sysGame);
-            }else{
+            }else if(StringUtils.equals(sysGame.getGameType(),"10")){
                 insertDefaultTenballBetTypeAndItem(sysGame);
+            }else if(StringUtils.equals(sysGame.getGameType(),"zfb")){
+                insertDefaultZfbBetTypeAndItem(sysGame);
             }
         }
 
@@ -185,7 +195,7 @@ public class SysGameServiceImpl implements ISysGameService
                 updateThreeballKjAndCodeTable(sysGame);
             }else if(StringUtils.equals(sysGame.getGameType(),"5")){
                 updateFiveballKjAndCodeTable(sysGame);
-            }else{
+            }else if(StringUtils.equals(sysGame.getGameType(),"10")){
                 updateTenballKjAndCodeTable(sysGame);
             }
         }
@@ -1028,6 +1038,98 @@ public class SysGameServiceImpl implements ISysGameService
                             "{\"betItemCode\":\"num9Under10\", \"betItemName\":\"9\"}, " +
                             "{\"betItemCode\":\"num10Under10\", \"betItemName\":\"10\"} " +
                         "]" +
+                    "]";
+
+            // 将字符串转换为外层的JSONArray对象
+            JSONArray defaultBetItemJsonArray = new JSONArray(defaultBetItemJsonArrayString);
+
+            JSONArray outerArray = defaultBetItemJsonArray.getJSONArray(0);
+
+            // 遍历外层的JSONArray
+            for (int i = 0; i < outerArray.size(); i++) {
+                // 获取每个元素，它本身也是一个JSONArray
+                JSONArray innerArray = outerArray.getJSONArray(i);
+                SysBetType betTypeInfo = defaultThreeballBetType.get(i);
+
+                sort = 1;
+
+                // 遍历内层的JSONArray
+                for (int j = 0; j < innerArray.size(); j++) {
+                    // 获取每个元素的JSONObject
+                    JSONObject jsonObject = innerArray.getJSONObject(j);
+
+                    // 获取JSON对象中的数据
+                    String betItemCode = jsonObject.getString("betItemCode");
+                    String betItemName = jsonObject.getString("betItemName");
+
+                    SysBetItem newSysBetItem = new SysBetItem();
+                    newSysBetItem.setGameId(sysGame.getGameId());
+                    newSysBetItem.setBetItemType(betTypeInfo.getBetTypeId());
+                    newSysBetItem.setBetItemCode(betItemCode);
+                    newSysBetItem.setBetItemName(betItemName);
+                    newSysBetItem.setOdd(2f);
+                    newSysBetItem.setMinBetAmount(2f);
+                    newSysBetItem.setMaxBetAmount(9999f);
+                    newSysBetItem.setSort(sort);
+                    newSysBetItem.setStatus("0");
+
+                    sysBetItemMapper.insertSysBetItem(newSysBetItem);
+                    sort++;
+                }
+            }
+        }
+    }
+
+    public void insertDefaultZfbBetTypeAndItem(SysGame sysGame){
+
+        List<String> defaultThreeballBetTypeNameList = Arrays.asList("猜冠亚军","猜前三名","猜前四名","猜前五名","定位胆","大小单双","龙虎1v6","龙虎2v5","龙虎3v4");
+        List<SysBetType> defaultThreeballBetType = new ArrayList<>();
+        Integer sort = 1;
+        for(String defaultThreeballBetTypeName : defaultThreeballBetTypeNameList){
+            SysBetType newSysBetType = new SysBetType();
+            newSysBetType.setGameId(sysGame.getGameId());
+            newSysBetType.setBetTypeName(defaultThreeballBetTypeName);
+            newSysBetType.setStatus("0");
+            newSysBetType.setSort(sort);
+
+            sysBetTypeMapper.insertSysBetType(newSysBetType);
+            defaultThreeballBetType.add(newSysBetType);
+
+            sort++;
+        }
+
+        SysBetItem searchBetItem = new SysBetItem();
+        searchBetItem.setGameId(sysGame.getGameId());
+        List<SysBetItem> betItemList = sysBetItemMapper.selectSysBetItemList(searchBetItem);
+        if(betItemList.size() == 0){
+            String defaultBetItemJsonArrayString = "[" +
+                    "[" +
+                    "{\"betItemCode\":\"type1\", \"betItemName\":\"冠亚军\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type2\", \"betItemName\":\"猜前三名\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type3\", \"betItemName\":\"猜前四名\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type4\", \"betItemName\":\"猜前五名\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type5\", \"betItemName\":\"定位胆\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type6\", \"betItemName\":\"大小单双\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type7\", \"betItemName\":\"龙虎1v6\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type8\", \"betItemName\":\"龙虎2v5\"}" +
+                    "], " +
+                    "[" +
+                    "{\"betItemCode\":\"type9\", \"betItemName\":\"龙虎3v4\"} " +
+                    "] " +
                     "]";
 
             // 将字符串转换为外层的JSONArray对象

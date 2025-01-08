@@ -105,7 +105,7 @@ public class SysAppServiceImpl implements ISysAppService {
         }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
             // 5球
             recordTable = "game_fiveball_record";
-        }else{
+        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
             // 10球
             recordTable = "game_tenball_record";
         }
@@ -126,7 +126,7 @@ public class SysAppServiceImpl implements ISysAppService {
         }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
             // 5球
             recordTable = "game_fiveball_record";
-        }else{
+        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
             // 10球
             recordTable = "game_tenball_record";
         }
@@ -172,7 +172,7 @@ public class SysAppServiceImpl implements ISysAppService {
             }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
                 // 5球
                 recordTable = "game_fiveball_record";
-            }else{
+            }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
                 // 10球
                 recordTable = "game_tenball_record";
             }
@@ -274,7 +274,7 @@ public class SysAppServiceImpl implements ISysAppService {
 
                 respVO.add(gameResul);
             }
-        }else{
+        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
             List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectTenBallsGameResult(gameInfo.getGameId(),(vo.getPageNumber()-1)*vo.getPageRowCount(), vo.getPageRowCount(), vo.getFilterDate());
             for(GameTenballKj gameTenballKj : gameTenballKjList){
 

@@ -190,7 +190,7 @@ public class BetRecordServiceImpl implements IBetRecordService
                 throw new ServiceException("查无记录");
             }
 
-        }else{
+        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
             // 10球
             GameTenballRecord searchGameTenballRecord = new GameTenballRecord();
             searchGameTenballRecord.setGameId(betRecord.getGameId());

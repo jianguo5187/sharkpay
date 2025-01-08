@@ -57,7 +57,7 @@ public class SysLoginController
         }
         // 生成令牌
         String token = loginService.login(request,loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(),
-                loginBody.getUuid());
+                loginBody.getUuid(),loginBody.getLoginType());
         ajax.put(Constants.TOKEN, token);
         return ajax;
     }

@@ -113,6 +113,9 @@ public class SysUser extends BaseEntity
     /** 外部OpenId */
     private String openId;
 
+    /** 外部UnionId */
+    private String unionId;
+
     /** 3球佣金比率 */
     @Excel(name = "3球佣金比率")
     private Float threeBallCommission;
@@ -494,6 +497,14 @@ public class SysUser extends BaseEntity
 
     public void setOpenId(String openId) {
         this.openId = openId;
+    }
+
+    public String getUnionId() {
+        return unionId;
+    }
+
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
     }
 
     public Float getThreeBallCommission() {

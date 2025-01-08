@@ -251,6 +251,8 @@ public interface ISysUserService
 
     public SysUser getUserByOpenId(String openId);
 
+    public SysUser getUserByUnionId(String unionId);
+
     public int updateUserRemarkName(Long userId, String remarkName);
 
     public int mergeUser(SysUser user);

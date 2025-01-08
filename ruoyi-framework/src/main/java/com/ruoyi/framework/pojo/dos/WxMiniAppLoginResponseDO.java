@@ -4,6 +4,8 @@ public class WxMiniAppLoginResponseDO {
 
     private String openid;
 
+    private String unionid;
+
     private String accessToken;
 
     private String refreshToken;
@@ -11,6 +13,14 @@ public class WxMiniAppLoginResponseDO {
     private String errcode;
 
     private String errmsg;
+
+    public String getUnionid() {
+        return unionid;
+    }
+
+    public void setUnionid(String unionid) {
+        this.unionid = unionid;
+    }
 
     public String getOpenid() {
         return openid;

@@ -444,7 +444,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                     Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
 
                     if(("type" + (x+1) +"Num" + kjNum).equals(betRecord.getRecordLotteryKey())){
-                        winMoney += betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + kjNum + "Under" + (x+1));
+                        winMoney += betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + kjNum + "Under" + (x));
                         break;
                     }
 
@@ -480,13 +480,14 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 }
             }
 
-            Float winRate = (betMoney - winMoney)/betMoney*100;
-            String systemGameWinRate = configService.selectConfigByKey("sys.game.winRate");
-            // 默认一定重开一次
-            Float gameWinRate = 0f;
-            if(StringUtils.isNotEmpty(systemGameWinRate)){
-                gameWinRate = Float.valueOf(systemGameWinRate);
-            }
+            if(betMoney.compareTo(0f) > 0) {
+                Float winRate = (betMoney - winMoney) / betMoney * 100;
+                String systemGameWinRate = configService.selectConfigByKey("sys.game.winRate");
+                // 默认一定重开一次
+                Float gameWinRate = 0f;
+                if (StringUtils.isNotEmpty(systemGameWinRate)) {
+                    gameWinRate = Float.valueOf(systemGameWinRate);
+                }
 //            if(betMoney >0 && winRate.compareTo(gameWinRate) < 0){
 //                //重开奖
 //                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());
@@ -517,6 +518,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 //
 //                gameTenballKj = setGameTenballKj(gameTenballKj,gameTenballOpenData);
 //            }
+            }
         }
 
         int updateInt = gameTenballKjService.updateGameTenballKj(gameTenballKj);
@@ -671,7 +673,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 Integer kj2Num = kj2NumObject!=null?(Integer) kj2NumObject:0;
 
                 if(("type" + (x+1) +"Num" + kjNum).equals(betRecord.getRecordLotteryKey())){
-                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + kjNum + "Under" + (x+1));
+                    winMoney = betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"num" + kjNum + "Under" + (x));
                     break;
                 }
 

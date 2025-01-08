@@ -173,6 +173,8 @@ public interface SysUserMapper
 
     public SysUser selectUserByOpenId(String openId);
 
+    public SysUser selectUserByUnionId(String unionId);
+
     public int updateUserRemarkName(@Param("userId")Long userId, @Param("remarkName") String remarkName);
 
     public int mergeChildUser(@Param("mainUserId")Long mainUserId, @Param("mergeUserId") Long mergeUserId);

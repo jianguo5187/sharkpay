@@ -743,6 +743,11 @@ public class SysUserServiceImpl implements ISysUserService
     }
 
     @Override
+    public SysUser getUserByUnionId(String unionId) {
+        return userMapper.selectUserByUnionId(unionId);
+    }
+
+    @Override
     public int updateUserRemarkName(Long userId, String remarkName) {
         int row = userMapper.updateUserRemarkName(userId,remarkName);
         ImUser imUser = imUserMapper.selectImUserByThirdUserId("sharkUser" + userId);

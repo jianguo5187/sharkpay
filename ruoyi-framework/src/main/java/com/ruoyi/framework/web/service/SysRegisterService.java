@@ -167,6 +167,7 @@ public class SysRegisterService
                 sysUser.setUserType("02"); //APP用户
                 sysUser.setRoleIds(new Long[]{3l}); //普通用户
                 sysUser.setDeptId(103l); //用户
+                sysUser.setRemark("web注册");
 
                 boolean regFlag = userService.registerUser(sysUser);
                 if (!regFlag)

@@ -109,10 +109,12 @@ public class SysLoginService
      * @param uuid 唯一标识
      * @return 结果
      */
-    public String login(HttpServletRequest request,String username, String password, String code, String uuid)
+    public String login(HttpServletRequest request,String username, String password, String code, String uuid, String loginType)
     {
-        // 验证码校验
-        validateCaptcha(username, code, uuid);
+        if(StringUtils.equals(loginType,"pc")){
+            // 验证码校验
+            validateCaptcha(username, code, uuid);
+        }
         // 登录前置校验
         loginPreCheck(username, password);
         // 用户验证
@@ -325,7 +327,9 @@ public class SysLoginService
         if (StringUtils.isEmpty(response.getErrcode())){
 
             //检查数据库种是否有个openId对应的用户，若有，则直接返回token，若没有，则创建用户后再生成token并返回
-            SysUser user = userService.getUserByOpenId(response.getOpenid());
+            SysUser user = userService.getUserByUnionId(response.getUnionid());
+            System.out.println("unionid:  " + response.getUnionid());
+//            SysUser user = userService.getUserByOpenId(response.getOpenid());
             String userName = "";
             if (user == null){
                 LocalDateTime now = LocalDateTime.now();
@@ -333,7 +337,7 @@ public class SysLoginService
                 String formattedString = now.format(formatter);
 
                 SysUser regUser = new SysUser();
-                userName = "微信用户_" + formattedString;
+                userName = "wx_" + formattedString;
 
                 String accessToken = response.getAccessToken();
                 String openId = response.getOpenid();
@@ -354,7 +358,7 @@ public class SysLoginService
                         regUser.setAvatar(avatarImgFileName);
                     }
                 }
-
+                regUser.setUnionId(response.getUnionid());
                 regUser.setOpenId(response.getOpenid());
                 regUser.setUserName(userName);
                 regUser.setNickName("微信昵称-" + nickName);
@@ -380,6 +384,7 @@ public class SysLoginService
                 regUser.setUserType("02"); //APP用户
                 regUser.setRoleIds(new Long[]{3l}); //普通用户
                 regUser.setDeptId(103l); //用户
+                regUser.setRemark("微信注册");
 
                 user = regUser;
                 userService.registerUser(user);

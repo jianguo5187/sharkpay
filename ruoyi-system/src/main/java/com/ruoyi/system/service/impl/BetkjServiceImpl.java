@@ -117,7 +117,7 @@ public class BetkjServiceImpl implements IBetkjService
         }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
             kjTable = "game_fiveball_kj";
             openCodeTable = "game_fiveball_open_data";
-        }else{
+        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
             kjTable = "game_tenball_kj";
             openCodeTable = "game_tenball_open_data";
         }
@@ -1612,7 +1612,7 @@ public class BetkjServiceImpl implements IBetkjService
             res = recordThreeBall(gameInfo,betUserWinReqVO);
         }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
             res = recordFiveBall(gameInfo,betUserWinReqVO);
-        }else{
+        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
             res = recordTenBall(gameInfo,betUserWinReqVO);
         }
         return res;
@@ -2480,7 +2480,7 @@ public class BetkjServiceImpl implements IBetkjService
                 fiveballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
                 gameFiveballOpenDataService.updateGameFiveballOpenData(fiveballOpenData);
             }
-        }else{
+        }else if(StringUtils.equals(vo.getGameType(),"10")){
             GameTenballKj tenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods());
             if(tenballKj == null){
                 throw new ServiceException("该期开奖记录被删除，请联系管理员！");
@@ -2605,7 +2605,7 @@ public class BetkjServiceImpl implements IBetkjService
                 fiveballOpenData.setPreNum5(Integer.parseInt(newOpenCodeArg[4]));
                 gameFiveballOpenDataService.updateGameFiveballOpenData(fiveballOpenData);
             }
-        }else{
+        }else if(StringUtils.equals(vo.getGameType(),"10")){
             if(newOpenCodeArg.length != 10){
                 throw new ServiceException("开奖号码个数不正确。");
             }
@@ -2726,7 +2726,7 @@ public class BetkjServiceImpl implements IBetkjService
                 fiveballOpenData.setPreTime(calendar.getTime());
                 gameFiveballOpenDataService.updateGameFiveballOpenData(fiveballOpenData);
             }
-        }else{
+        }else if(StringUtils.equals(vo.getGameType(),"10")){
             GameTenballKj tenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods());
             if(tenballKj == null){
                 throw new ServiceException("该期开奖记录被删除，请联系管理员！");
@@ -2771,7 +2771,7 @@ public class BetkjServiceImpl implements IBetkjService
         }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
             kjTable = "game_fiveball_kj";
             openCodeTable = "game_fiveball_open_data";
-        }else{
+        }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
             kjTable = "game_tenball_kj";
             openCodeTable = "game_tenball_open_data";
         }

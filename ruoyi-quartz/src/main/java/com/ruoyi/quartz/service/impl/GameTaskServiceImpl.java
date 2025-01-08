@@ -375,7 +375,7 @@ public class GameTaskServiceImpl implements IGameTaskService {
                     virtuallyGameRecordReqVO.setGameId(gameInfo.getGameId());
                     virtuallyGameRecordReqVO.setPeriods(fiveBallsTimeDateRespVO.getPeriods());
                     gameFiveBallsService.virtuallyGameRecord(2l,virtuallyGameRecordReqVO, true);
-                }else{
+                }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
                     // 10球
 
                     TenBallsOddsReqVO tenBallsOddsReqVO = new TenBallsOddsReqVO();

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.GameZfbOpenDataMapper">
+    
+    <resultMap type="GameZfbOpenData" id="GameZfbOpenDataResult">
+        <result property="id"    column="id"    />
+        <result property="periods"    column="periods"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="time"    column="time"    />
+        <result property="num1"    column="num1"    />
+        <result property="num2"    column="num2"    />
+        <result property="num3"    column="num3"    />
+        <result property="num4"    column="num4"    />
+        <result property="num5"    column="num5"    />
+        <result property="num6"    column="num6"    />
+        <result property="preTime"    column="pre_time"    />
+        <result property="preNum1"    column="pre_num1"    />
+        <result property="preNum2"    column="pre_num2"    />
+        <result property="preNum3"    column="pre_num3"    />
+        <result property="preNum4"    column="pre_num4"    />
+        <result property="preNum5"    column="pre_num5"    />
+        <result property="preNum6"    column="pre_num6"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectGameZfbOpenDataVo">
+        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, num6, pre_time, pre_num1, pre_num2, pre_num3, pre_num4, pre_num5, pre_num6, status, create_by, create_time, update_by, update_time, remark from game_zfb_open_data
+    </sql>
+
+    <select id="selectGameZfbOpenDataList" parameterType="GameZfbOpenData" resultMap="GameZfbOpenDataResult">
+        <include refid="selectGameZfbOpenDataVo"/>
+        <where>  
+            <if test="periods != null "> and periods = #{periods}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="time != null "> and time = #{time}</if>
+            <if test="num1 != null "> and num1 = #{num1}</if>
+            <if test="num2 != null "> and num2 = #{num2}</if>
+            <if test="num3 != null "> and num3 = #{num3}</if>
+            <if test="num4 != null "> and num4 = #{num4}</if>
+            <if test="num5 != null "> and num5 = #{num5}</if>
+            <if test="num6 != null "> and num5 = #{num6}</if>
+            <if test="preTime != null "> and pre_time = #{preTime}</if>
+            <if test="preNum1 != null "> and pre_num1 = #{preNum1}</if>
+            <if test="preNum2 != null "> and pre_num2 = #{preNum2}</if>
+            <if test="preNum3 != null "> and pre_num3 = #{preNum3}</if>
+            <if test="preNum4 != null "> and pre_num4 = #{preNum4}</if>
+            <if test="preNum5 != null "> and pre_num5 = #{preNum5}</if>
+            <if test="preNum6 != null "> and pre_num6 = #{preNum6}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectGameZfbOpenDataById" parameterType="Long" resultMap="GameZfbOpenDataResult">
+        <include refid="selectGameZfbOpenDataVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGameZfbOpenData" parameterType="GameZfbOpenData" useGeneratedKeys="true" keyProperty="id">
+        insert into game_zfb_open_data(
+            <if test="periods != null">periods,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="time != null">time,</if>
+            <if test="num1 != null">num1,</if>
+            <if test="num2 != null">num2,</if>
+            <if test="num3 != null">num3,</if>
+            <if test="num4 != null">num4,</if>
+            <if test="num5 != null">num5,</if>
+            <if test="num6 != null">num6,</if>
+            <if test="preTime != null">pre_time,</if>
+            <if test="preNum1 != null">pre_num1,</if>
+            <if test="preNum2 != null">pre_num2,</if>
+            <if test="preNum3 != null">pre_num3,</if>
+            <if test="preNum4 != null">pre_num4,</if>
+            <if test="preNum5 != null">pre_num5,</if>
+            <if test="preNum6 != null">pre_num6,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="remark != null">remark,</if>
+        create_time
+        )values(
+            <if test="periods != null">#{periods},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="time != null">#{time},</if>
+            <if test="num1 != null">#{num1},</if>
+            <if test="num2 != null">#{num2},</if>
+            <if test="num3 != null">#{num3},</if>
+            <if test="num4 != null">#{num4},</if>
+            <if test="num5 != null">#{num5},</if>
+            <if test="num6 != null">#{num6},</if>
+            <if test="preTime != null">#{preTime},</if>
+            <if test="preNum1 != null">#{preNum1},</if>
+            <if test="preNum2 != null">#{preNum2},</if>
+            <if test="preNum3 != null">#{preNum3},</if>
+            <if test="preNum4 != null">#{preNum4},</if>
+            <if test="preNum5 != null">#{preNum5},</if>
+            <if test="preNum6 != null">#{preNum6},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="remark != null">#{remark},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateGameZfbOpenData" parameterType="GameZfbOpenData">
+        update game_zfb_open_data
+        <set>
+            <if test="periods != null">periods = #{periods},</if>
+            <if test="gameId != null">game_id = #{gameId},</if>
+            <if test="gameName != null">game_name = #{gameName},</if>
+            <if test="time != null">time = #{time},</if>
+            <if test="num1 != null">num1 = #{num1},</if>
+            <if test="num2 != null">num2 = #{num2},</if>
+            <if test="num3 != null">num3 = #{num3},</if>
+            <if test="num4 != null">num4 = #{num4},</if>
+            <if test="num5 != null">num5 = #{num5},</if>
+            <if test="num6 != null">num6 = #{num6},</if>
+            <if test="preTime != null">pre_time = #{preTime},</if>
+            <if test="preNum1 != null">pre_num1 = #{preNum1},</if>
+            <if test="preNum2 != null">pre_num2 = #{preNum2},</if>
+            <if test="preNum3 != null">pre_num3 = #{preNum3},</if>
+            <if test="preNum4 != null">pre_num4 = #{preNum4},</if>
+            <if test="preNum5 != null">pre_num5 = #{preNum5},</if>
+            <if test="preNum6 != null">pre_num6 = #{preNum6},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGameZfbOpenDataById" parameterType="Long">
+        delete from game_zfb_open_data where id = #{id}
+    </delete>
+
+    <delete id="deleteGameZfbOpenDataByIds" parameterType="String">
+        delete from game_zfb_open_data where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
