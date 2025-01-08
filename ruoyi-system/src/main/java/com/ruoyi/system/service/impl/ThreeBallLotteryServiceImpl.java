@@ -1611,6 +1611,7 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             }
         }
 
+        List<Userwin> commissionListList = new ArrayList<>();
         for(GameThreeballRecord gameThreeballRecord : gameThreeballRecordList){
             Float money = 0f;
             Float bigSamllMoney = 0f;
@@ -2394,6 +2395,8 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 userwin.setCreateBy("lotteryThree");
 
                 userwinService.insertUserwin(userwin);
+                userwin.setDeductMoney(0f);
+                commissionListList.add(userwin);
             }else{
 
                 userwin.setWinMoney(userwin.getWinMoney() + (money - gameThreeballRecord.getCountMoney()));
@@ -2403,6 +2406,15 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
                 userwin.setBetMoney(userwin.getBetMoney() + userBetMoneyMap.get(gameThreeballRecord.getUserId()));
                 userwin.setCreateBy("lotteryThree");
                 userwinService.updateUserwin(userwin);
+
+                Userwin nowCommissionUserwin = new Userwin();
+                nowCommissionUserwin.setId(userwin.getId());
+                nowCommissionUserwin.setGameId(userwin.getGameId());
+                nowCommissionUserwin.setGameName(userwin.getGameName());
+                nowCommissionUserwin.setUserId(userwin.getUserId());
+                nowCommissionUserwin.setBetMoney(userBetMoneyMap.get(gameThreeballRecord.getUserId()));
+                nowCommissionUserwin.setDeductMoney(userwin.getDeductMoney());
+                commissionListList.add(nowCommissionUserwin);
             }
 
             gameThreeballRecord.setWinMoney(money);
@@ -2506,6 +2518,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
         gameThreeballKj.setCountMoney(recordSumRespVo.getCountMoney());
         gameThreeballKj.setWinMoney(recordSumRespVo.getWinMoney());
         gameThreeballKjService.updateGameThreeballKjTotalAmountByPeriodId(gameThreeballKj);
+        if(commissionListList.size() > 0){
+            userwinService.commission(commissionListList,2l);
+        }
     }
 
     private Float getOddFromMapByOddKey(Map<String , SysBetItem> betItemMap, String betItemCode){

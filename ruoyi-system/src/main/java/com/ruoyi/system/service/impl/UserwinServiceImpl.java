@@ -372,6 +372,7 @@ public class UserwinServiceImpl implements IUserwinService
         commission(yestodayNoCommissionList,userId);
     }
 
+    @Override
     public void commission(List<Userwin> userWinList, Long adminUserId){
 
         SysGame sysGameSearch = new SysGame();

@@ -883,6 +883,7 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
             }
         }
 
+        List<Userwin> commissionListList = new ArrayList<>();
         for(GameFiveballRecord gameFiveballRecord : GameFiveballRecordList){
             Float money = 0f;
             Float bigSamllMoney = 0f;
@@ -1070,6 +1071,9 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
 
                 userwinService.insertUserwin(userwin);
+
+                userwin.setDeductMoney(0f);
+                commissionListList.add(userwin);
             }else{
 
                 userwin.setWinMoney(userwin.getWinMoney() + (money - gameFiveballRecord.getCountMoney()));
@@ -1078,6 +1082,16 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
                 userwin.setBetMoney(userwin.getBetMoney() + userBetMoneyMap.get(gameFiveballRecord.getUserId()));
                 userwin.setCreateBy("lotteryGameFiveballOpenData");
                 userwinService.updateUserwin(userwin);
+
+
+                Userwin nowCommissionUserwin = new Userwin();
+                nowCommissionUserwin.setId(userwin.getId());
+                nowCommissionUserwin.setGameId(userwin.getGameId());
+                nowCommissionUserwin.setGameName(userwin.getGameName());
+                nowCommissionUserwin.setUserId(userwin.getUserId());
+                nowCommissionUserwin.setBetMoney(userBetMoneyMap.get(gameFiveballRecord.getUserId()));
+                nowCommissionUserwin.setDeductMoney(userwin.getDeductMoney());
+                commissionListList.add(nowCommissionUserwin);
             }
 
             gameFiveballRecord.setWinMoney(money);
@@ -1182,6 +1196,10 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
         gameFiveballKj.setCountMoney(recordSumRespVo.getCountMoney());
         gameFiveballKj.setWinMoney(recordSumRespVo.getWinMoney());
         gameFiveballKjService.updateGameFiveballKjTotalAmountByPeriodId(gameFiveballKj);
+
+        if(commissionListList.size() > 0){
+            userwinService.commission(commissionListList,2l);
+        }
     }
 
     private Float getOddFromMapByOddKey(Map<String , SysBetItem> betItemMap, String betItemCode){

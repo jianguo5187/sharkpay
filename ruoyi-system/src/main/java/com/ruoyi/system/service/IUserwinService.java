@@ -103,4 +103,6 @@ public interface IUserwinService
     public void autoCommissionBalance();
 
     public void autoCashbackBalance();
+
+    public void commission(List<Userwin> userWinList, Long adminUserId);
 }

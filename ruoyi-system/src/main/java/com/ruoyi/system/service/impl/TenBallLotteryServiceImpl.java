@@ -784,6 +784,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             }
         }
 
+        List<Userwin> commissionListList = new ArrayList<>();
         for(GameTenballRecord gameTenballRecord : gameTenballRecordList){
             Float money = 0f;
             Float bigSamllMoney = 0f;
@@ -1133,6 +1134,9 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 userwin.setCreateBy("lotteryTenball");
 
                 userwinService.insertUserwin(userwin);
+
+                userwin.setDeductMoney(0f);
+                commissionListList.add(userwin);
             }else{
 
                 userwin.setWinMoney(userwin.getWinMoney() + (money - gameTenballRecord.getCountMoney()));
@@ -1141,6 +1145,15 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 userwin.setBetMoney(userwin.getBetMoney() + userBetMoneyMap.get(gameTenballRecord.getUserId()));
                 userwin.setCreateBy("lotteryTenball");
                 userwinService.updateUserwin(userwin);
+
+                Userwin nowCommissionUserwin = new Userwin();
+                nowCommissionUserwin.setId(userwin.getId());
+                nowCommissionUserwin.setGameId(userwin.getGameId());
+                nowCommissionUserwin.setGameName(userwin.getGameName());
+                nowCommissionUserwin.setUserId(userwin.getUserId());
+                nowCommissionUserwin.setBetMoney(userBetMoneyMap.get(gameTenballRecord.getUserId()));
+                nowCommissionUserwin.setDeductMoney(userwin.getDeductMoney());
+                commissionListList.add(nowCommissionUserwin);
             }
 
             gameTenballRecord.setWinMoney(money);
@@ -1251,6 +1264,10 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
         gameTenballKj.setCountMoney(recordSumRespVo.getCountMoney());
         gameTenballKj.setWinMoney(recordSumRespVo.getWinMoney());
         gameTenballKjService.updateGameTenballKjTotalAmountByPeriodId(gameTenballKj);
+
+        if(commissionListList.size() > 0){
+            userwinService.commission(commissionListList,2l);
+        }
     }
 
     private Float getOddFromMapByOddKey(Map<String , SysBetItem> betItemMap, String betItemCode){
