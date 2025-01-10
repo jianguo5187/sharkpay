@@ -218,7 +218,7 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="登录账号" prop="userName" >
-              <el-input v-model="form.userName" placeholder="请输入登录账号" maxlength="30"  readonly :disabled="true"/>
+              <el-input v-model="form.userName" placeholder="请输入登录账号" maxlength="30"/>
             </el-form-item>
           </el-col>
         </el-row>

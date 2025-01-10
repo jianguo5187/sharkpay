@@ -80,6 +80,17 @@ DictData.install()
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
 })
+// 带有斑马纹
+Element.Table.props.stripe = {
+  default:true,
+  type:Boolean
+}
+
+// 带有边框
+Element.Table.props.border = {
+  default:true,
+  type:Boolean
+}
 
 Vue.config.productionTip = false
 
