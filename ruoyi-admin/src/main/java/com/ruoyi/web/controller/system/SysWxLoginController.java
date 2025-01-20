@@ -35,7 +35,7 @@ public class SysWxLoginController
     private ISysConfigService configService;
 
     @GetMapping("/getWxLoginCode")
-    public ModelAndView getWxLoginCode(@RequestParam(name = "parentUserId", required = false) Long parentUserId) {
+    public ModelAndView getWxLoginCode(@RequestParam(name = "parentUserId", required = false) String parentUserIdStr) {
         String siteDisabledFlag = configService.selectConfigByKey("sys.site.openFlg");
         if(!StringUtils.equals(siteDisabledFlag,"true")){
             // 如果没有提供rewrite参数，或者参数为空，可以重定向到默认页面
@@ -43,17 +43,27 @@ public class SysWxLoginController
 //            return ajax.error("网站关闭中，无法访问");
         }
         // 跳转授权页
+        Long parentUserId = 2l;
+        try{
+            parentUserId = Long.parseLong(parentUserIdStr);
+        }catch (Exception e){
+        }
         String urlRedir = loginService.getUrlRedir(parentUserId);
         return new ModelAndView("redirect:" + urlRedir);
     }
 
     @GetMapping("/wxRedirect")
-    public ModelAndView wxRedirect(HttpServletRequest request, @RequestParam("code") String code, @RequestParam(name = "parentUserId", required = false) Long parentUserId) {
+    public ModelAndView wxRedirect(HttpServletRequest request, @RequestParam("code") String code, @RequestParam(name = "parentUserId", required = false) String parentUserIdStr) {
         String siteDisabledFlag = configService.selectConfigByKey("sys.site.openFlg");
         if(!StringUtils.equals(siteDisabledFlag,"true")){
             System.out.println("siteDisabledFlag : " + siteDisabledFlag);
             // 如果没有提供rewrite参数，或者参数为空，可以重定向到默认页面
             return new ModelAndView("redirect:/defaultPage");
+        }
+        Long parentUserId = 2l;
+        try{
+            parentUserId = Long.parseLong(parentUserIdStr);
+        }catch (Exception e){
         }
         // 生成令牌
         String token = loginService.miniProgramLogin(request,code,parentUserId);

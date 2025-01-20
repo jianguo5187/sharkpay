@@ -280,6 +280,9 @@ public class UsermoneyServiceImpl implements IUsermoneyService
     public int adminRecharge(Usermoney usermoney, SysUser actionUser) {
 
         SysUser user = userService.selectUserById(usermoney.getUserId());
+        if(usermoney.getCashMoney().compareTo(0f) <0){
+            usermoney.setCashMoney(usermoney.getCashMoney() * -1);
+        }
         Float userMoney = user.getAmount() + usermoney.getCashMoney();
         user.setAmount(userMoney);
         userService.updateUserAmount(user);
@@ -307,7 +310,9 @@ public class UsermoneyServiceImpl implements IUsermoneyService
         if(user.getAmount().compareTo(usermoney.getCashMoney()) < 0){
             throw new ServiceException("用户余额不足");
         }
-
+        if(usermoney.getCashMoney().compareTo(0f) <0){
+            usermoney.setCashMoney(usermoney.getCashMoney() * -1);
+        }
         Float userMoney = user.getAmount() - usermoney.getCashMoney();
         user.setAmount(userMoney);
         userService.updateUserAmount(user);
