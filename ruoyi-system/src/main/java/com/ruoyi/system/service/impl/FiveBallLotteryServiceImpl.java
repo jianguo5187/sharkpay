@@ -1,12 +1,16 @@
 package com.ruoyi.system.service.impl;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.vo.*;
-import com.ruoyi.system.service.IFiveBallLotteryService;
 import com.ruoyi.system.domain.*;
+import com.ruoyi.system.domain.vo.FiveBallsAddMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.FiveBallsMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.FiveBallsOddsReqVO;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -65,6 +69,9 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
 
     @Autowired
     private IGameFiveBallsService gameFiveBallsService;
+
+    @Autowired
+    private WebSocketMessageService webSocketMessageService;
 
     @Override
     public void lotteryFiveBall(String gameCode) {
@@ -623,6 +630,21 @@ public class FiveBallLotteryServiceImpl implements IFiveBallLotteryService {
             List<GameFiveballKj> notOpenGameFiveballKjList = gameFiveballKjService.selectGameFiveballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameFiveballKj.getPeriods(),"0",null,"1",1);
             if(notOpenGameFiveballKjList != null && notOpenGameFiveballKjList.size() >0){
                 lotteryGameFiveballOpenData(gameInfo, notOpenGameFiveballKjList.get(0).getPeriods());
+            }
+
+            // 把开奖号码推送给所有人
+            Map<String, String> gameOnlineUserIdMap = webSocketMessageService.getGameOnlineUserIdMap(gameInfo.getGameId().toString());
+            if(gameOnlineUserIdMap != null && gameOnlineUserIdMap.size() > 0){
+                FiveBallsOddsReqVO vo = new FiveBallsOddsReqVO();
+                vo.setGameId(gameInfo.getGameId());
+
+                for(String key: gameOnlineUserIdMap.keySet()){
+                    String sendMessage = "{}";
+                    JSONObject jsonObject = JSON.parseObject(sendMessage);
+                    jsonObject.put("type", "kjRecordMoney");
+                    jsonObject.put("message", gameFiveBallsService.kjRecordMoney(Long.parseLong(key),vo));
+                    webSocketMessageService.sendMessageToUser(gameInfo.getGameId(),Long.parseLong(key), jsonObject.toString());
+                }
             }
         }
     }

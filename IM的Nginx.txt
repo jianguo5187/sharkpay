@@ -12,7 +12,6 @@
 		location /h5 {
 		    #前端项目的路径
 		    alias   /home/www/h5;
-      index  index.html index.htm;
   #           root   /home/www/h5;
 		# 	#try_files $uri $uri/ /index.html;
   #           index  h5/index.html index.htm;

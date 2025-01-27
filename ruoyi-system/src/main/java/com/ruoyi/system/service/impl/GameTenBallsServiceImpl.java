@@ -1,5 +1,7 @@
 package com.ruoyi.system.service.impl;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.core.domain.entity.SysDictData;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
@@ -72,6 +74,8 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
     @Autowired
     private SysBetTypeMapper betTypeMapper;
 
+    @Autowired
+    private WebSocketMessageService webSocketMessageService;
 
     @Override
     public List<SysBetType> getOddsInfo(TenBallsOddsReqVO vo) {
@@ -208,6 +212,18 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
     public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg) {
         List<VirtuallyGameRecordRespVO> respVO = new ArrayList<>();
         Date date = new Date();
+        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+        GameTenballKj beforeGameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods()-1);
+        if(beforeGameTenballKj == null || beforeGameTenballKj.getBetTime() == null || beforeGameTenballKj.getPreTime() == null || beforeGameTenballKj.getPreTime().compareTo(date) < 0){
+            return respVO;
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(beforeGameTenballKj.getBetTime());
+        calendar.add(Calendar.SECOND, gameInfo.getEndTime());
+        if(beforeGameTenballKj.getBetTime().compareTo(date) <0 && calendar.getTime().compareTo(date) > 0){
+            return respVO;
+        }
+
         GameTenballKj gameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods());
 
         if(gameTenballKj.getPreTime().compareTo(date) < 0){
@@ -219,7 +235,6 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             respVO.addAll(dbVirtuallyRecordList);
         }
 
-//        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
         List<FalseUser> notBetFalseUserList = falseUserMapper.selectNoBetFalseUserListByGameIdAndPeriods(vo.getGameId(), vo.getPeriods());
         if(notBetFalseUserList == null || notBetFalseUserList.size() == 0){
             return respVO;
@@ -305,6 +320,15 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             }
         }
 
+        if(respVO.size() > 0){
+
+            String sendMessage = "{}";
+            JSONObject jsonObject = JSON.parseObject(sendMessage);
+            jsonObject.put("type", "virtuallyGameRecord");
+            jsonObject.put("message", respVO);
+
+            webSocketMessageService.sendMessageToAllOnlineUser(vo.getGameId(),null,jsonObject.toString());
+        }
 //        Random random = new Random();
 //        BigDecimal result = new BigDecimal(gameInfo.getRobotRate()).divide(new BigDecimal(100), 2, RoundingMode.HALF_UP);
 //        double virtuallyRandow = result.doubleValue();
@@ -475,6 +499,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
 
         Float userAmount = user.getAmount();
         Long lastBetRecordId = 0l;
+        List<BetRecordWebSocketDto> betRecordWebSocketDtoList = new ArrayList<>();
         for(int i=0; i<betNumberArg.length; i++){
 
             searchGameTenballRecord = new GameTenballRecord();
@@ -645,10 +670,34 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             usermoneyMapper.insertUsermoney(usermoney);
 
             lastBetRecordId = betrecord.getBetId();
+
+            //投注消息添加到webSocket的DTO中
+            BetRecordWebSocketDto betRecordResp = new BetRecordWebSocketDto();
+            betRecordResp.setBetId(betrecord.getBetId());
+            betRecordResp.setGameId(vo.getGameId());
+            betRecordResp.setGameName(gameTenballKj.getGameName());
+            betRecordResp.setPeriods(vo.getPeriods());
+            betRecordResp.setType(vo.getType());
+            betRecordResp.setPlayType(playType);
+            betRecordResp.setNickName(user.getNickName());
+            betRecordResp.setPic(user.getAvatar());
+            betRecordResp.setStime(new Date());
+            betRecordResp.setNumber(betNumberArg[i].trim());
+            betRecordResp.setMoney(vo.getMoney());
+            betRecordResp.setHouse(vo.getGameId().toString());
+
+            betRecordWebSocketDtoList.add(betRecordResp);
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
+        if(betRecordWebSocketDtoList.size() > 0){
+            String sendMessage = "{}";
+            JSONObject jsonObject = JSON.parseObject(sendMessage);
+            jsonObject.put("type", "betRecord");
+            jsonObject.put("message", betRecordWebSocketDtoList);
+            webSocketMessageService.sendMessageToAllOnlineUser(vo.getGameId(),userId,jsonObject.toString());
+        }
         return lastBetRecordId;
     }
 
@@ -690,6 +739,7 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
 
         Float userAmount = user.getAmount();
         Long lastBetRecordId = 0l;
+        List<BetRecordWebSocketDto> betRecordWebSocketDtoList = new ArrayList<>();
         for(TenBallsMultiBetRecordReqVO tenBallsMultiBetRecordReqVO : vo.getRecordList()) {
             String[] betNumberArg = tenBallsMultiBetRecordReqVO.getNumber().split(",");
             String playType = "";
@@ -873,11 +923,34 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                 usermoney.setCashContent(vo.getPeriods().toString());
                 usermoneyMapper.insertUsermoney(usermoney);
                 lastBetRecordId = betrecord.getBetId();
+
+                //投注消息添加到webSocket的DTO中
+                BetRecordWebSocketDto betRecordResp = new BetRecordWebSocketDto();
+                betRecordResp.setBetId(betrecord.getBetId());
+                betRecordResp.setGameId(vo.getGameId());
+                betRecordResp.setGameName(gameTenballKj.getGameName());
+                betRecordResp.setPeriods(vo.getPeriods());
+                betRecordResp.setType(tenBallsMultiBetRecordReqVO.getType());
+                betRecordResp.setPlayType(playType);
+                betRecordResp.setNickName(user.getNickName());
+                betRecordResp.setPic(user.getAvatar());
+                betRecordResp.setStime(new Date());
+                betRecordResp.setNumber(betNumberArg[i].trim());
+                betRecordResp.setMoney(tenBallsMultiBetRecordReqVO.getMoney());
+                betRecordResp.setHouse(vo.getGameId().toString());
+                betRecordWebSocketDtoList.add(betRecordResp);
             }
         }
 
         user.setAmount(userAmount);
         userService.updateUserAmount(user);
+        if(betRecordWebSocketDtoList.size() > 0){
+            String sendMessage = "{}";
+            JSONObject jsonObject = JSON.parseObject(sendMessage);
+            jsonObject.put("type", "betRecord");
+            jsonObject.put("message", betRecordWebSocketDtoList);
+            webSocketMessageService.sendMessageToAllOnlineUser(vo.getGameId(),userId,jsonObject.toString());
+        }
         return lastBetRecordId;
     }
 

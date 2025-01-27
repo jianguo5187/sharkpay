@@ -1,20 +1,23 @@
 package com.ruoyi.system.service.impl;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.vo.*;
-import com.ruoyi.system.service.IThreeBallLotteryService;
 import com.ruoyi.system.domain.*;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
+import com.ruoyi.system.domain.vo.ThreeBallsAddMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.ThreeBallsMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.ThreeBallsOddsReqVO;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -73,6 +76,9 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
 
     @Autowired
     private IGameThreeBallsService gameThreeBallsService;
+
+    @Autowired
+    private WebSocketMessageService webSocketMessageService;
 
     @Override
     public void lotteryThreeBall(String gameCode) {
@@ -898,6 +904,21 @@ public class ThreeBallLotteryServiceImpl implements IThreeBallLotteryService {
             List<GameThreeballKj> notOpenGameThreeballKjList = gameThreeballKjService.selectGameThreeballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameThreeballKj.getPeriods(),"0",null,"1",1);
             if(notOpenGameThreeballKjList != null && notOpenGameThreeballKjList.size() >0){
                 lotteryGameThreeballOpenData(gameInfo, notOpenGameThreeballKjList.get(0).getPeriods());
+            }
+
+            // 把开奖号码推送给所有人
+            Map<String, String> gameOnlineUserIdMap = webSocketMessageService.getGameOnlineUserIdMap(gameInfo.getGameId().toString());
+            if(gameOnlineUserIdMap != null && gameOnlineUserIdMap.size() > 0){
+                ThreeBallsOddsReqVO vo = new ThreeBallsOddsReqVO();
+                vo.setGameId(gameInfo.getGameId());
+
+                for(String key: gameOnlineUserIdMap.keySet()){
+                    String sendMessage = "{}";
+                    JSONObject jsonObject = JSON.parseObject(sendMessage);
+                    jsonObject.put("type", "kjRecordMoney");
+                    jsonObject.put("message", gameThreeBallsService.kjRecordMoney(Long.parseLong(key),vo));
+                    webSocketMessageService.sendMessageToUser(gameInfo.getGameId(),Long.parseLong(key), jsonObject.toString());
+                }
             }
         }
     }

@@ -1,5 +1,7 @@
 package com.ruoyi.system.service.impl;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
@@ -66,6 +68,9 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 
     @Autowired
     private IGameTenBallsService gameTenBallsService;
+
+    @Autowired
+    private WebSocketMessageService webSocketMessageService;
 
     @Override
     public void lotteryTenBall(String gameCode) {
@@ -530,6 +535,21 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             List<GameTenballKj> notOpenGameTenballKjList = gameTenballKjService.selectGameTenballKjListWithStatusZeroAndLimit(gameInfo.getGameId(),gameTenballKj.getPeriods(),"0",null,"1",1);
             if(notOpenGameTenballKjList != null && notOpenGameTenballKjList.size() >0){
                 lotteryGameTenballOpenData(gameInfo, notOpenGameTenballKjList.get(0).getPeriods());
+            }
+
+            // 把开奖号码推送给所有人
+            Map<String, String> gameOnlineUserIdMap = webSocketMessageService.getGameOnlineUserIdMap(gameInfo.getGameId().toString());
+            if(gameOnlineUserIdMap != null && gameOnlineUserIdMap.size() > 0){
+                TenBallsOddsReqVO vo = new TenBallsOddsReqVO();
+                vo.setGameId(gameInfo.getGameId());
+
+                for(String key: gameOnlineUserIdMap.keySet()){
+                    String sendMessage = "{}";
+                    JSONObject jsonObject = JSON.parseObject(sendMessage);
+                    jsonObject.put("type", "kjRecordMoney");
+                    jsonObject.put("message", gameTenBallsService.kjRecordMoney(Long.parseLong(key),vo));
+                    webSocketMessageService.sendMessageToUser(gameInfo.getGameId(),Long.parseLong(key), jsonObject.toString());
+                }
             }
         }
     }
