@@ -211,20 +211,22 @@ public class GameFiveBallsServiceImpl implements IGameFiveBallsService {
     public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg) {
         List<VirtuallyGameRecordRespVO> respVO = new ArrayList<>();
         Date date = new Date();
-        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
-        GameFiveballKj beforeGameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(vo.getGameId(), vo.getPeriods());
-        if(beforeGameFiveballKj == null || beforeGameFiveballKj.getBetTime() == null || beforeGameFiveballKj.getPreTime() == null || beforeGameFiveballKj.getPreTime().compareTo(date) < 0){
-            return respVO;
-        }
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(beforeGameFiveballKj.getBetTime());
-        calendar.add(Calendar.SECOND, gameInfo.getEndTime());
-        if(beforeGameFiveballKj.getBetTime().compareTo(date) <0 && calendar.getTime().compareTo(date) > 0){
-            return respVO;
-        }
+//        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+//        GameFiveballKj beforeGameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(vo.getGameId(), vo.getPeriods());
+//        if(beforeGameFiveballKj == null || beforeGameFiveballKj.getBetTime() == null || beforeGameFiveballKj.getPreTime() == null || beforeGameFiveballKj.getPreTime().compareTo(date) < 0){
+//            return respVO;
+//        }
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(beforeGameFiveballKj.getBetTime());
+//        calendar.add(Calendar.SECOND, gameInfo.getEndTime());
+//        if(beforeGameFiveballKj.getBetTime().compareTo(date) <0 && calendar.getTime().compareTo(date) > 0){
+//            return respVO;
+//        }
 
         GameFiveballKj gameFiveballKj = gameFiveballKjService.selectGameFiveballKjByPeriods(vo.getGameId(), vo.getPeriods());
-
+        if(gameFiveballKj.getBetTime() == null || gameFiveballKj.getBetTime().compareTo(date) < 0){
+            return respVO;
+        }
         if(gameFiveballKj.getPreTime().compareTo(date) < 0){
             return respVO;
         }

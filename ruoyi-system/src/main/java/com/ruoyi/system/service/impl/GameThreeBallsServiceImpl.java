@@ -212,19 +212,24 @@ public class GameThreeBallsServiceImpl implements IGameThreeBallsService {
     public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg) {
         List<VirtuallyGameRecordRespVO> respVO = new ArrayList<>();
         Date date = new Date();
-        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
-        GameThreeballKj beforeGameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(vo.getGameId(), vo.getPeriods()-1);
-        if(beforeGameThreeballKj == null || beforeGameThreeballKj.getBetTime() == null || beforeGameThreeballKj.getPreTime() == null || beforeGameThreeballKj.getPreTime().compareTo(date) < 0){
-            return respVO;
-        }
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(beforeGameThreeballKj.getBetTime());
-        calendar.add(Calendar.SECOND, gameInfo.getEndTime());
-        if(beforeGameThreeballKj.getBetTime().compareTo(date) <0 && calendar.getTime().compareTo(date) > 0){
-            return respVO;
-        }
+//        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+//        GameThreeballKj beforeGameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(vo.getGameId(), vo.getPeriods()-1);
+//        if(beforeGameThreeballKj == null || beforeGameThreeballKj.getBetTime() == null || beforeGameThreeballKj.getPreTime() == null || (StringUtils.equals("0",beforeGameThreeballKj.getStatus()) && beforeGameThreeballKj.getPreTime().compareTo(date) < 0)){
+//            return respVO;
+//        }
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(beforeGameThreeballKj.getBetTime());
+//        calendar.add(Calendar.SECOND, gameInfo.getEndTime());
+//        if(beforeGameThreeballKj.getBetTime().compareTo(date) <0 && calendar.getTime().compareTo(date) > 0){
+//            return respVO;
+//        }
 
         GameThreeballKj gameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(vo.getGameId(), vo.getPeriods());
+        if(gameThreeballKj.getBetTime() == null || gameThreeballKj.getBetTime().compareTo(date) < 0){
+//            throw new ServiceException("当前期数已截止,请等待开奖后在投注");
+            return respVO;
+        }
+//        GameThreeballKj gameThreeballKj = gameThreeballKjService.selectGameThreeballKjByPeriods(vo.getGameId(), vo.getPeriods());
 
         if(gameThreeballKj.getPreTime().compareTo(date) < 0){
             return respVO;

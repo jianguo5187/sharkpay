@@ -159,8 +159,13 @@ public class WebSocketServer {
         Map<String, Session> gameSessionMap = gameUserIdAndSessionMap.get(gameId);
         Map<String, String> gameMap = gameUserIdMap.get(gameId);
 
-        gameSessionMap.remove(userId);
-        gameMap.remove(userId);
+        if(gameSessionMap != null){
+            gameSessionMap.remove(userId);
+        }
+        if(gameSessionMap != null){
+            gameMap.remove(userId);
+        }
+
         if(gameSessionMap.size() == 0){
             gameUserIdAndSessionMap.remove(gameId);
             gameUserIdMap.remove(gameId);
@@ -271,45 +276,50 @@ public class WebSocketServer {
 //        }
 
         // 将json字符串转化为json对象
-        JSONObject obj = JSON.parseObject(message);
-        String type = (String) obj.get("type");
-        if(StringUtils.equals(type,"chat")){
+        try{
 
-            // 获取消息的内容
-            String text = (String) obj.get("content");
-            // 查看消息要发送给哪个用户
-            String to = obj.get("chatToUserId").toString();
-            // 封装数据发送给消息队列
-            SysChat chat = new SysChat();
-            chat.setFromUserId(Long.parseLong(userId));
-            chat.setToUserId(Long.parseLong(to));
-            chat.setContent(text);
+            JSONObject obj = JSON.parseObject(message);
+            String type = (String) obj.get("type");
+            if(StringUtils.equals(type,"chat")){
 
-            // 根据to来获取相应的session，然后通过session将消息内容转发给相应的用户
+                // 获取消息的内容
+                String text = (String) obj.get("content");
+                // 查看消息要发送给哪个用户
+                String to = obj.get("chatToUserId").toString();
+                // 封装数据发送给消息队列
+                SysChat chat = new SysChat();
+                chat.setFromUserId(Long.parseLong(userId));
+                chat.setToUserId(Long.parseLong(to));
+                chat.setContent(text);
+
+                // 根据to来获取相应的session，然后通过session将消息内容转发给相应的用户
 //            String toOnlineKey = gameId + "&" + to;
-            Session toSession = gameSessionMap.get(to);
-            chat.setIsRead("0"); //未读
-            if (toSession != null) {
+                Session toSession = gameSessionMap.get(to);
+                chat.setIsRead("0"); //未读
+                if (toSession != null) {
 
-                JSONObject jsonObject = new JSONObject();
-                // 设置消息来源的用户名
-                jsonObject.put("chatFromUserId", userId);
-                // 设置消息内容
-                jsonObject.put("content", text);
-                // 消息类型是聊天内容
-                jsonObject.put("type", "chat");
-                // 服务端发送消息给目标客户端
-                this.sendMessage(jsonObject.toString(), toSession);
+                    JSONObject jsonObject = new JSONObject();
+                    // 设置消息来源的用户名
+                    jsonObject.put("chatFromUserId", userId);
+                    // 设置消息内容
+                    jsonObject.put("content", text);
+                    // 消息类型是聊天内容
+                    jsonObject.put("type", "chat");
+                    // 服务端发送消息给目标客户端
+                    this.sendMessage(jsonObject.toString(), toSession);
 //                log.info("发送消息给用户 {} ，消息内容是：{} ", toSession, jsonObject.toString());
 //                if (fromToMap.containsKey(toFromKey)) {
 //                    chat.setIsRead("1"); //已读
 //                }
-            } else {
+                } else {
 
 //                log.info("发送失败，未找到用户 {} 的session", to);
-            }
+                }
 
-            chatService.insertSysChat(chat);
+                chatService.insertSysChat(chat);
+            }
+        }catch (Exception e){
+            System.out.println("信息发送失败：【gameId:" + gameId + "】【userId:" +  userId + "】【message】：" + message);
         }
 //            rabbitTemplate.convertAndSend(RabbitMqConstant.CHAT_STORAGE_EXCHANGE, RabbitMqConstant.CHAT_STORAGE_ROUTER_KEY, chat);
 //        }

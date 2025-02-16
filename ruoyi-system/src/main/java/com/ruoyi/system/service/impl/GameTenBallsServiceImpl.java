@@ -212,20 +212,22 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
     public List<VirtuallyGameRecordRespVO> virtuallyGameRecord(Long userId, VirtuallyGameRecordReqVO vo, Boolean taskFlg) {
         List<VirtuallyGameRecordRespVO> respVO = new ArrayList<>();
         Date date = new Date();
-        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
-        GameTenballKj beforeGameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods()-1);
-        if(beforeGameTenballKj == null || beforeGameTenballKj.getBetTime() == null || beforeGameTenballKj.getPreTime() == null || beforeGameTenballKj.getPreTime().compareTo(date) < 0){
-            return respVO;
-        }
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(beforeGameTenballKj.getBetTime());
-        calendar.add(Calendar.SECOND, gameInfo.getEndTime());
-        if(beforeGameTenballKj.getBetTime().compareTo(date) <0 && calendar.getTime().compareTo(date) > 0){
-            return respVO;
-        }
+//        SysGame gameInfo = sysGameService.selectSysGameByGameId(vo.getGameId());
+//        GameTenballKj beforeGameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods()-1);
+//        if(beforeGameTenballKj == null || beforeGameTenballKj.getBetTime() == null || beforeGameTenballKj.getPreTime() == null || beforeGameTenballKj.getPreTime().compareTo(date) < 0){
+//            return respVO;
+//        }
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(beforeGameTenballKj.getBetTime());
+//        calendar.add(Calendar.SECOND, gameInfo.getEndTime());
+//        if(beforeGameTenballKj.getBetTime().compareTo(date) <0 && calendar.getTime().compareTo(date) > 0){
+//            return respVO;
+//        }
 
         GameTenballKj gameTenballKj = gameTenballKjService.selectGameTenballKjByPeriods(vo.getGameId(), vo.getPeriods());
-
+        if(gameTenballKj.getBetTime() == null || gameTenballKj.getBetTime().compareTo(date) < 0){
+            return respVO;
+        }
         if(gameTenballKj.getPreTime().compareTo(date) < 0){
             return respVO;
         }
